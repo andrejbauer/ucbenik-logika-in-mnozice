@@ -4,39 +4,43 @@ Učbenik za predmet Logika in množice, 1. letnik matematike.
 
 ## Kazalo
 
-### Matematično izražanje
+1. Matematično izražanje
+   * simbolni zapis
+   * pravila dokazovanja
+   * definicije
 
-### Pravila dokazovanja
+2. Dokazi
+   * pravila dokazovanja
 
-### Množice
+3. Konstrukcije množic
+   * prazna množica, enojec
+   * podmnožica
+   * kartezični produkt
+   * disjunktna vsota
+   * unija in presek
+   * eksponentna množica
+   * potenčna množica
 
-### Funkcije
+4. Funkcije
+   * Injektivne in surjektivne funkcije
+   * Bijektivne funkcije
 
-#### Injektivne in surjektivne funkcije
+5. Relacije
+   * ekvivalenčne relacije
+   * kvocientne množice
 
-#### Bijektivne funkcije
+6. Funkcije kot funkcijske relacije
 
-### Konstrukcije množic
+7. Družine množic
 
-### Relacije
+8. Kardinalnost
+   * definicija končnih in neskončnih množic
+   * števne množice
+   * kardinalnost množice
 
-#### Kvocientne množice
+9. Ordinalna števila
 
-#### Funkcije kot funkcijske relacije
+10. Aksiom izbire
 
-### Družine množic
-
-### Neskončnost
-
-#### Definicija končnih in neskončnih množic
-
-#### Števne množice
-
-### Kardinalnost
-
-### Ordinalna števila
-
-### Aksiom izbire
-
-### Aksiomi `ZFC`
+11. Kumulativna hierarhija
 
