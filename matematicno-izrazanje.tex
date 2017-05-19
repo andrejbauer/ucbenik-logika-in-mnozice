@@ -1,5 +1,82 @@
 \chapter{Matematično izražanje}
 
+	\note{Za začetek bom vnašal oporne točke besedila. Slog bo verjetno treba še popraviti in besedilo dopolniti. --Davorin}
+	
+	\textcolor{red}{\small \textbf{Če je možno, prosim uporabljajte tabulatorje namesto presledkov za zamike v latex kodi in koda naj nima izrecno vnešenih prelomov vrstic, pač pa se v urejevalniku besedila uporablja avtomatski word wrap, ki se prilagaja širini okna. --Davorin}}
+	
+	Za matematično delo je bistveno, da se lahko zanašamo na pravilnost naših trditev. To pomeni:
+	\begin{itemize}
+		\item
+			matematične izjave morajo imeti \emph{nedvoumen pomen},
+		\item
+			matematične izjave lahko \emph{dokažemo}.
+	\end{itemize}
+	
+	Stavki v običajnih jezikih nimajo nedvoumnega pomena, zato matematične izjave raje podamo v \emph{matematičnem jeziku}. Za to potrebujemo "`matematično abecedo"', tj.~simbolni zapis, v katerem podamo izjave. Tega obravnavamo v naslednjem razdelku, dokazovanje matematičnih izjav pa v razdelku za tem.
+	
 	\section{Simbolni zapis}
+	
+		Za množice, s katerimi najpogosteje delamo, obstajajo standardne oznake.
+		
+		\begin{tabular}{|cc|}
+			\hline
+			\textbf{Množica} & \textbf{Oznaka} \\
+			\hline
+			množica naravnih števil & $\NN$ \\
+			množica celih števil & $\ZZ$ \\
+			množica racionalnih števil & $\QQ$ \\
+			množica realnih števil & $\RR$ \\
+			množica kompleksnih števil & $\CC$ \\
+			\hline
+		\end{tabular}
+		
+		Nekateri $0$ vzamejo za naravno število, nekateri ne. To je v celoti stvar dogovora, kaj pomeni pojem "`naravno število"'. Za nas bo prišlo bolj prav, če ničlo štejemo kot element množice naravnih števil, torej $\NN = \set{0, 1, 2, 3, \ldots}$.
+		
+		Interval realnih števil podamo s krajiščema intervala v oklepajih --- okrogli oklepaji ( ) označujejo odprtost intervala (krajišče ni vključeno v interval), oglati oklepaji [ ] pa zaprtost (krajišče je vključeno). Tako se npr.~interval realnih števil od $0$ do $1$, ki ne vsebuje krajišč, označi z $(0, 1)$, če jih vsebuje, pa z $[0, 1]$.
+		
+		Včasih pridejo prav tudi intervali na drugih množicah kot $\RR$. Zato se dogovorimo, da bomo intervale označevali tako, da podamo množico, ob kateri v indeksu zapišemo krajišči v oklepajih, npr.~$\intco[\NN]{1}{5} = \set{1, 2, 3, 4}$. Realna intervala iz prejšnjega odstavka tako zapišemo kot $\intoo{0}{1}$ in $\intcc{0}{1}$.
+		
+		Če interval v katero smer gre v nedogled, preprosto zapišemo množico z ustrezno relacijo urejenosti in krajiščem v indeksu. Na primer, $\RR_{> 0}$ označuje množico pozitivnih realnih števil, $\RR_{\geq 0}$ pa množico nenegativnih realnih števil.
+		
+		\note{To bi vsaj bil moj predlog. Na ta način se izognemo dvoumnostim (kar je namen). Na primer, kaj pomeni $\forall\, a > 0$? Če zapišemo $\forall\, a \in \NN_{> 0}$ ali $\forall\, a \in \RR_{> 0}$, je jasno. Razlog, da matematiki "`goljufajo"' in pridejo skozi brez tega, je (napol dogovorjena in ponotranjena, ampak arbitrarna) izbira črk; vsak izkušen matematik ve, da $\forall\, \epsilon > 0$ pomeni $\forall\, \epsilon \in \RR_{> 0}$. Če se ne strinjate, popravite in pustite komentar. --Davorin}
+		
+		Izjavo, da je $2$ naravno število, zapišemo takole: $2 \in \NN$ (beri: $2$ pripada množici naravnih števil). Kako zapišemo, da je $a$ sodo število? Število je sodo, kadar je deljivo z $2$, torej pišemo $2 | a$ (beri: $2$ deli $a$).
+		
+		Če imamo več izjav, jih lahko strnemo v sestavljeno izjavo. Na primer, izjavo "`če je $a$ sodo število, je tudi kvadrat števila $a$ sod"', zapišemo kot $2 | a \implies 2 | a^2$.
+		
+		Seveda ta izjava velja za vsa naravna števila (znaš to dokazati?). To zapišemo takole: $\all{a}{\NN}{2 | a \implies 2 | a^2}$.
+		
+		Kot smo navajeni iz običajnih jezikov, posamične stavke povežemo v sestavljeno poved z \emph{vezniki}. Najpogosteje uporabljeni matematični vezniki so v spodnji tabeli.
+		
+		\begin{tabular}{|ccc|}
+			\hline
+			\textbf{Izjavni veznik} & \textbf{Oznaka} & \textbf{Kako preberemo} \\
+			\hline
+			negacija & $\lnot{p}$ & ne $p$ \\
+			konjunkcija & $p \land q$ & $p$ in $q$ \\
+			disjunkcija & $p \lor q$ & $p$ ali $q$ \\
+			implikacija & $p \impl q$ & če $p$, potem $q$ \\
+			ekvivalenca & $p \lequ q$ & $p$ natanko tedaj, ko $q$ \\
+			\hline
+		\end{tabular}
+		
+		\begin{opomba}
+			V matematiki se za izjavne veznike običajno uporabljajo zgoraj navedene tujke, ampak vsaka od njih seveda ima svoj pomen. Dobesedni prevodi teh tujk so:
+			\begin{itemize}
+				\item
+					negacija $\to$ zanikanje,
+				\item
+					konjunkcija $\to$ vezava,
+				\item
+					disjunkcija $\to$ ločitev,
+				\item
+					implikacija $\to$ vpletenost,
+				\item
+					ekvivalenca $\to$ enakovrednost.
+			\end{itemize}
+			Za primerjavo: spomnite se vezalnega in ločnega priredja iz slovenščine!
+		\end{opomba}
+	
+	
 	\section{Pravila dokazovanja}
 	\section{Definicije}

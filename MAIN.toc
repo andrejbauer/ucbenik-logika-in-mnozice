@@ -1,5 +1,5 @@
 \select@language {slovene}
 \contentsline {chapter}{\numberline {1}Matemati\IeC {\v c}no izra\IeC {\v z}anje}{7}
 \contentsline {section}{\numberline {1.1}Simbolni zapis}{7}
-\contentsline {section}{\numberline {1.2}Pravila dokazovanja}{7}
-\contentsline {section}{\numberline {1.3}Definicije}{7}
+\contentsline {section}{\numberline {1.2}Pravila dokazovanja}{9}
+\contentsline {section}{\numberline {1.3}Definicije}{9}
