@@ -13,6 +13,8 @@
 	\usepackage{amssymb}
 	\usepackage{amsmath}
 	\usepackage{theorem}
+	\usepackage{phonetic}
+	\usepackage{tablefootnote}
 	\usepackage{color}
 	\usepackage{xparse}
 	\usepackage{ulem}
@@ -29,7 +31,6 @@
 		\newtheorem{lema}[izrek]{Lema}
 		\newtheorem{trditev}[izrek]{Trditev}
 		\newtheorem{posledica}[izrek]{Posledica}
-		\newtheorem{zgled}[izrek]{Zgled}
 	}
 
 	{
@@ -37,6 +38,7 @@
 		\newtheorem{definicija}[izrek]{Definicija}
 		\newtheorem{opomba}[izrek]{Opomba}
 		\newtheorem{primer}[izrek]{Primer}
+		\newtheorem{zgled}[izrek]{Zgled}
 	}
 
 %%%%%%  Proofs
@@ -134,9 +136,14 @@
 	\newcommand{\impl}{\Rightarrow}  % implication sign
 	\newcommand{\revimpl}{\Leftarrow}  % reverse implication sign
 	\newcommand{\lequ}{\Leftrightarrow}  % equivalence sign
+	\newcommand{\xor}{\veebar}  % exclusive disjunction sign
+	\newcommand{\shf}{\mathop{\uparrow}}  % Sheffer connective
+	\newcommand{\luk}{\mathop{\downarrow}}  % Łukasiewicz connective
 	\newcommand{\rstr}[1]{\left.{#1}\right|}  % map restriction
 	\newcommand{\im}{\mathrm{im}}  % map image
 	\newcommand{\parto}{\mathrel{\rightharpoonup}}  % partial mapping sign
+	\newcommand{\qt}[1]{{\quotedblbase}{#1}{‘‘}}  % text in quotation marks
+	\newcommand{\nls}[1]{\qt{\textit{#1}}}  % sentence in a natural language
 	
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
