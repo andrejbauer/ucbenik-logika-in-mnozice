@@ -84,19 +84,19 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 	\newcommand{\all}[4][auto]{\forall\, #2 \,{\in}\, #3\,.\sizedescriptor{#1}{\left}({#4}\sizedescriptor{#1}{\right})}
 	\newcommand{\some}[4][auto]{\exists\, #2 \,{\in}\, #3\,.\sizedescriptor{#1}{\left}({#4}\sizedescriptor{#1}{\right})}
-	\newcommand{\exactlyone}[4][auto]{\exists!\, #2 \,{\in}\, #3\,.\sizedescriptor{#1}{\left}({#4}\sizedescriptor{#1}{\right})}
+	\newcommand{\exactlyone}[4][auto]{\exists\;\!!\, #2 \,{\in}\, #3\,.\sizedescriptor{#1}{\left}({#4}\sizedescriptor{#1}{\right})}
 	
 	\newcommand{\uall}[3][auto]{\forall\, #2\,.\sizedescriptor{#1}{\left}({#3}\sizedescriptor{#1}{\right})}
 	\newcommand{\usome}[3][auto]{\exists\, #2\,.\sizedescriptor{#1}{\left}({#3}\sizedescriptor{#1}{\right})}
-	\newcommand{\uexactlyone}[3][auto]{\exists!\, #2\,.\sizedescriptor{#1}{\left}({#3}\sizedescriptor{#1}{\right})}
+	\newcommand{\uexactlyone}[3][auto]{\exists\;\!!\, #2\,.\sizedescriptor{#1}{\left}({#3}\sizedescriptor{#1}{\right})}
 	
 	\newcommand{\xall}[3]{\forall\, #1 \,{\in}\, #2\,.\,#3}
 	\newcommand{\xsome}[3]{\exists\, #1 \,{\in}\, #2\,.\,#3}
-	\newcommand{\xexactlyone}[3]{\exists!\, #1 \,{\in}\, #2\,.\,#3}
+	\newcommand{\xexactlyone}[3]{\exists\;\!!\, #1 \,{\in}\, #2\,.\,#3}
 	
 	\newcommand{\xuall}[2]{\forall\, #1\,.\,#2}
 	\newcommand{\xusome}[2]{\exists\, #1\,.\,#2}
-	\newcommand{\xuexactlyone}[2]{\exists!\, #1,.\,#2}
+	\newcommand{\xuexactlyone}[2]{\exists\;\!!\, #1,.\,#2}
 
 	\newcommand{\ldm}[4]{\lambda{#1} \,{\in}\, #2\,.\,#3 \,{\in}\, #4}
 
@@ -136,9 +136,9 @@
 	\newcommand{\impl}{\Rightarrow}  % implication sign
 	\newcommand{\revimpl}{\Leftarrow}  % reverse implication sign
 	\newcommand{\lequ}{\Leftrightarrow}  % equivalence sign
-	\newcommand{\xor}{\veebar}  % exclusive disjunction sign
-	\newcommand{\shf}{\mathop{\uparrow}}  % Sheffer connective
-	\newcommand{\luk}{\mathop{\downarrow}}  % Łukasiewicz connective
+	\newcommand{\xor}{\mathbin{\veebar}}  % exclusive disjunction sign
+	\newcommand{\shf}{\mathbin{\uparrow}}  % Sheffer connective
+	\newcommand{\luk}{\mathbin{\downarrow}}  % Łukasiewicz connective
 	\newcommand{\rstr}[1]{\left.{#1}\right|}  % map restriction
 	\newcommand{\im}{\mathrm{im}}  % map image
 	\newcommand{\parto}{\mathrel{\rightharpoonup}}  % partial mapping sign

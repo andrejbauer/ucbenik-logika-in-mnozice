@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.5-1.40.14 (MiKTeX 2.9 64-bit) (preloaded format=latex 2016.3.9)  22 MAY 2017 12:06
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (MiKTeX 2.9 64-bit) (preloaded format=latex 2016.3.9)  22 MAY 2017 14:53
 entering extended mode
 **MAIN.tex
 (C:\Users\Lesnik\Documents\ucbenik-logika-in-mnozice\MAIN.tex
@@ -593,7 +593,7 @@ LaTeX Font Info:    Try loading font information for U+phon on input line 118.
 LaTeX Font Warning: Font shape `U/phon/m/n' in size <9> not available
 (Font)              size <10> substituted on input line 118.
 
-[9]) [10] [11] (C:\Users\Lesnik\Documents\ucbenik-logika-in-mnozice\MAIN.aux
+[9] [10] [11]) [12] (C:\Users\Lesnik\Documents\ucbenik-logika-in-mnozice\MAIN.aux
 (C:\Users\Lesnik\Documents\ucbenik-logika-in-mnozice\matematicno-izrazanje.aux))
 
 LaTeX Font Warning: Size substitutions with differences
@@ -603,10 +603,10 @@ LaTeX Font Warning: Size substitutions with differences
 Here is how much of TeX's memory you used:
  8890 strings out of 493707
  153492 string characters out of 3144607
- 197810 words of memory out of 3000000
+ 196821 words of memory out of 3000000
  12093 multiletter control sequences out of 15000+200000
  47568 words of font info for 73 fonts, out of 3000000 for 9000
  1025 hyphenation exceptions out of 8191
  33i,14n,35p,10373b,309s stack positions out of 5000i,500n,10000p,200000b,50000s
 
-Output written on MAIN.dvi (11 pages, 21824 bytes).
+Output written on MAIN.dvi (12 pages, 26104 bytes).

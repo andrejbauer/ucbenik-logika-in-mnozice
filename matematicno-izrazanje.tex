@@ -123,7 +123,7 @@
 			Stavek \nls{Pisni del predmeta je potrebno opraviti s kolokviji ali pisnim izpitom.} je primer navadne disjunkcije (seveda se vam prizna pisni del predmeta tudi, če uspešno odpišete tako kolokvije kot pisni izpit), stavek \nls{Grem bodisi na morje bodisi v hribe.} pa je primer stroge disjunkcije (ne da se biti na dveh mestih hkrati).
 		\end{zgled}
 		
-		Običajno veznike iz tabele~\ref{TABELA: nadaljnji izjavni vezniki} (in vse preostale, ki jih nismo navedli) izrazimo s standardnimi (glej tabelo~\ref{TABELA: izražava nadaljnjih izjavnih veznikov s standardnimi}), včasih pa je uporabno delati neposredno z njimi. Na primer, stroga disjunkcija služi kot seštevanje v Boolovem kolobarju (glej~\note{razdelek o Boolovih kolobarjih}), Shefferjev in Łukasiewiczev veznik pa se uporablja pri preklopnih vezjih, saj je z vsakim od njiju možno izraziti vse izjavne veznike (glej~\note{razdelek o polnih naborih}). V računalništvu imajo ti trije vezniki standardne oznake XOR, NAND, NOR.
+		Običajno veznike iz tabele~\ref{TABELA: nadaljnji izjavni vezniki} (in vse preostale, ki jih nismo navedli) izrazimo s standardnimi (glej tabelo~\ref{TABELA: izražava nadaljnjih izjavnih veznikov s standardnimi}), včasih pa je uporabno delati neposredno z njimi. Na primer, stroga disjunkcija služi kot seštevanje v Boolovem kolobarju (glej~\note{razdelek o Boolovih kolobarjih}), Shefferjev in Łukasiewiczev veznik pa se uporabljata pri preklopnih vezjih, saj je z vsakim od njiju možno izraziti vse izjavne veznike (glej~\note{razdelek o polnih naborih}). V računalništvu imajo ti trije vezniki standardne oznake XOR, NAND, NOR.
 		
 		\begin{table}[!ht]
 			\centering
@@ -139,10 +139,11 @@
 			\caption{izražava nadaljnjih izjavnih veznikov s standardnimi}\label{TABELA: izražava nadaljnjih izjavnih veznikov s standardnimi}
 		\end{table}
 		
-		Včasih so izjave odvisne od kakšnih parametrov. Na primer, naj $\phi(x)$ pomeni \nls{$x$ je zelen.}; tedaj $\phi(\text{trava})$ pomeni \nls{Trava je zelena.}. Takim odvisnim izjavam rečemo \df{predikati}.
+		\note{Na tem mestu povejmo, kakšno prednost damo tem trem veznikom v primerjavi s standardnimi. Kateremu dogovoru sledimo?}
 		
-		Predikate lahko \df{kvantificiramo} po njihovih spremenljivkah, tj.~povemo, \qt{kako pogosto} velja lastnost, dana s predikatom; glej tabelo~\ref{TABELA: kvantifikatorji}.
+		Včasih so izjave odvisne od kakšnih parametrov. Na primer, naj $\phi(x)$ pomeni \nls{$x$ je zelen.}; tedaj $\phi(\text{trava})$ pomeni \nls{Trava je zelena.}. Takim odvisnim izjavam rečemo \df{predikati} in izražajo lastnosti, ki jim parametri (\qt{spremenljivke}) lahko zadoščajo.
 		
+		Predikate lahko \df{kvantificiramo} po njihovih spremenljivkah, tj.~povemo, \qt{kako pogosto} velja lastnost, dana s predikatom. Tabela~\ref{TABELA: kvantifikatorji} podaja najpogosteje uporabljane kvantifikatorje in njihove oznake.
 		
 		\begin{table}[!ht]
 			\centering
@@ -157,6 +158,39 @@
 			\end{tabular}
 			\caption{kvantifikatorji}\label{TABELA: kvantifikatorji}
 		\end{table}
+		
+		Oznaki $\forall$ in $\exists$ sta narobe obrnjena A in E in izhajata iz nemščine (\textbf{a}ll, \textbf{e}xistiert).
+		
+		\begin{zgled}
+			Vemo, da za vsako nenegativno realno število obstaja enolično določen nenegativen kvadratni koren; to izjavo lahko zapišemo na sledeči način.
+			\[\xall{a}{\RR_{\geq 0}}\xexactlyone{b}{\RR_{\geq 0}}{b^2 = a}\]
+			Zaradi tega lahko definiramo kvadratni koren kot funkcijo $\sqrt{\phantom{I}}\colon \RR_{\geq 0} \to \RR_{\geq 0}$.
+		\end{zgled}
+		
+		Po dogovoru kvantifikatorji vežejo šibkeje kot izjavni vezniki. Izjavo, da je vsako celo število bodisi liho bodisi sodo, torej zapišemo takole.
+		\[\all[2]{a}{\ZZ}{2 | a \xor 2 | (a-1)}\]
+		
+		\note{Se že na tem mestu predebatirajo vezane oz.~nevezane spremenljivke ter preimenovanje spremenljivk? Kaj je slovenski prevod za `dummy variable'?}
+		
+		\begin{zgled}
+			Za poljubno naravno število $n \in \NN$ naj $P(n)$ označuje izjavo, da je $n$ praštevilo. Torej, $P$ definiramo takole.
+			\[P(n) \dfeq \all[1]{x}{\NN}{x | n \implies x = 1 \xor x = n}\]
+			(Premisli, kaj bi se zgodilo, če bi namesto stroge disjunkcije vzeli navadno. Bi še vedno dobili pravilni pojem praštevila?)
+			
+			Naj $S(n)$ označuje, da je $n$ sestavljeno število.
+			\[S(n) \dfeq \xsome{x, y}{\intoo[\NN]{1}{n}}{x \cdot y = n}\]
+			(Kadar imamo več zaporednih kvantifikatorjev iste vrste, jih po dogovoru lahko strnemo kot zgoraj. Dana formula za $S(n)$ je krajši zapis za $\xsome{x}{\intoo[\NN]{1}{n}}\xsome{y}{\intoo[\NN]{1}{n}}{x \cdot y = n}$.)
+			
+			Zdaj lahko na pregleden način zapišemo, da je vsako naravno število od $2$ naprej bodisi praštevilo bodisi sestavljeno.
+			\[\all[1]{n}{\NN_{\geq 2}}{P(n) \xor S(n)}\]
+		\end{zgled}
+		
+		\note{
+			Ideje za VAJE:\\
+				\hbox{}\qquad\qquad * Napiši te in te z besedami podane matematične izjave simbolno.\\
+				\hbox{}\qquad\qquad * Za te in te \qt{življenjske} izjave vsak osnoven sestavni kos označi s črko in zapiši sestavljeno izjavo z mešanico veznikov in kvantifikatorjev.\\
+				\hbox{}\qquad\qquad * ...
+		}
 	
 	
 	\section{Pravila dokazovanja}
