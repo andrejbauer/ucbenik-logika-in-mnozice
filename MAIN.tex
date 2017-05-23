@@ -127,7 +127,7 @@
 %%%%%%  Misc.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 	\newcommand{\intermission}{\bigskip\medskip}
-	\newcommand{\df}[1]{\emph{#1}}  % defined notion
+	\newcommand{\df}[1]{\emph{\textbf{#1}}}  % defined notion
 	\newcommand{\ism}{\cong}  % isomorphic
 	\newcommand{\equ}{\sim}  % equivalent
 	\newcommand{\dfeq}{\mathrel{\mathop:}=}  % definitional equality
@@ -201,6 +201,7 @@
 	% TOC
 	
 	
+	\addcontentsline{toc}{chapter}{\note{kazalo se naj začne na sodi strani, tako da lahko bralec naenkrat vidi celotno kazalo}}
 	\tableofcontents
 	
 	
@@ -210,6 +211,62 @@
 	
 	
 	\include{matematicno-izrazanje}
+	
+	\chapter{Konstrukcije množic}
+		\section{Preprosti primeri}
+			\note{prazna množica, enojci}
+		\section{Podmnožice}
+		\section{Produkt množic}
+		\section{Vsota množic}
+		\section{Unija in presek}
+		\section{Eksponentna množica}
+		\section{Potenčna množica}
+	
+	\chapter{Funkcije}
+		\note{Moramo se dogovoriti, kateremu izrazu bomo dali prednost --- `funkcija' ali `preslikava'.}
+		\section{Slike in praslike}
+		\section{Injektivnost in surjektivnost}
+			\note{Vključno z ekvivalenco z mono- in epimorfizmi.}
+		\section{Bijektivnost}
+			\note{Pomemben del tega razdelka bodo inverzne funkcije. Mogoče lahko to dodamo v naslov.}
+	
+	\chapter{Relacije}
+		\section{Operacije z relacijami}
+		\section{Lastnosti relacij}
+			\note{Med drugim lastnosti relacij, izražene z operacijami. Mogoče združimo ta dva razdelka?}
+		\section{Relacije urejenosti}
+			\note{Vključno z urejenostnimi strukturami. Vključno z morfizmi?}
+		\section{Ekvivalenčne relacije}
+		\section{Kvocientne množice}
+			\note{Sem dodajmo kanonični razcep funkcije (na surjekcijo/kvocient, bijekcijo, injekcijo/vložitev).}
+	
+	\chapter{Funkcije kot funkcijske relacije}
+		\note{Si to zasluži lastno poglavje?}
+	
+	\chapter{Družine množic}
+		\note{Pride to res šele tu? To pomeni, da bomo v poglavju `Konstrukcije množic' delali samo s *končnimi* produkti, vsotami itd. in na tem mestu dodali splošne?}
+	
+	\chapter{Kardinalna števila}
+		\section{Končnost in neskončnost}
+		\section{Števnost}
+		\section{Kardinalnost množice}
+	
+	\chapter{Ordinalna števila}
+	
+	\chapter{Aksiom izbire}
+		\note{Nekje moramo pojasniti, kaj je sploh poanta aksiomov.}
+	
+	\chapter{Kumulativna hierarhija}
+	
+	\chapter{\note{možne dodatne teme}}
+		\begin{itemize}
+			\item
+				Več o ZFC
+			\item
+				Strukturirane množice in njihovi morfizmi
+			\item
+				Kategorije
+		\end{itemize}
 	
 	
 \end{document}
