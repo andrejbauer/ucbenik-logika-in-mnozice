@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.5-1.40.14 (MiKTeX 2.9 64-bit) (preloaded format=latex 2016.3.9)  23 MAY 2017 09:57
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (MiKTeX 2.9 64-bit) (preloaded format=latex 2016.3.9)  24 MAY 2017 12:03
 entering extended mode
 **MAIN.tex
 (C:\Users\Lesnik\Documents\ucbenik-logika-in-mnozice\MAIN.tex
@@ -526,25 +526,37 @@ Package: charter 2005/04/12 PSNFSS-v9.2a (P.Dyballa)
 .................................................
 . LaTeX info: "xparse/define-command"
 . 
+. Defining document command \lam with arg. spec. 'O{auto} m O{\empty } m
+. O{\empty }' on line 102.
+.................................................
+.................................................
+. LaTeX info: "xparse/define-command"
+. 
+. Defining document command \xlam with arg. spec. 'm O{\empty } m O{\empty }'
+. on line 104.
+.................................................
+.................................................
+. LaTeX info: "xparse/define-command"
+. 
 . Defining document command \set with arg. spec. 'O{auto} m G{\empty }' on
-. line 108.
+. line 111.
 .................................................
 
 (C:\Users\Lesnik\Documents\ucbenik-logika-in-mnozice\MAIN.aux
 (C:\Users\Lesnik\Documents\ucbenik-logika-in-mnozice\matematicno-izrazanje.aux))
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 179.
-LaTeX Font Info:    ... okay on input line 179.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 179.
-LaTeX Font Info:    ... okay on input line 179.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 179.
-LaTeX Font Info:    ... okay on input line 179.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 179.
-LaTeX Font Info:    ... okay on input line 179.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 179.
-LaTeX Font Info:    ... okay on input line 179.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 179.
-LaTeX Font Info:    ... okay on input line 179.
-LaTeX Font Info:    Try loading font information for T1+bch on input line 179.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 182.
+LaTeX Font Info:    ... okay on input line 182.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 182.
+LaTeX Font Info:    ... okay on input line 182.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 182.
+LaTeX Font Info:    ... okay on input line 182.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 182.
+LaTeX Font Info:    ... okay on input line 182.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 182.
+LaTeX Font Info:    ... okay on input line 182.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 182.
+LaTeX Font Info:    ... okay on input line 182.
+LaTeX Font Info:    Try loading font information for T1+bch on input line 182.
 
 ("C:\Program Files\MiKTeX 2.9\tex\latex\psnfss\t1bch.fd"
 File: t1bch.fd 2004/10/18 font definitions for T1/bch.
@@ -557,11 +569,11 @@ File: graphics.cfg 2007/01/18 v1.5 graphics configuration of teTeX/TeXLive
 )
 Package graphics Info: Driver file: dvips.def on input line 91.
 )
-LaTeX Font Info:    Try loading font information for U+msa on input line 189.
+LaTeX Font Info:    Try loading font information for U+msa on input line 192.
  ("C:\Program Files\MiKTeX 2.9\tex\latex\amsfonts\umsa.fd"
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Try loading font information for U+msb on input line 189.
+LaTeX Font Info:    Try loading font information for U+msb on input line 192.
  ("C:\Program Files\MiKTeX 2.9\tex\latex\amsfonts\umsb.fd"
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 ) [1
@@ -571,7 +583,10 @@ File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 
 ] [3] [4
 
-] (C:\Users\Lesnik\Documents\ucbenik-logika-in-mnozice\MAIN.toc [5])
+] (C:\Users\Lesnik\Documents\ucbenik-logika-in-mnozice\MAIN.toc
+Underfull \vbox (badness 1009) has occurred while \output is active []
+
+ [5])
 \tf@toc=\write3
  [6]
 (C:\Users\Lesnik\Documents\ucbenik-logika-in-mnozice\matematicno-izrazanje.tex
@@ -622,19 +637,7 @@ Poglavje 7.
 
 ]
 Poglavje 8.
-[25] [26
-
-]
-Poglavje 9.
-[27] [28
-
-]
-Poglavje 10.
-[29] [30
-
-]
-Poglavje 11.
-[31] (C:\Users\Lesnik\Documents\ucbenik-logika-in-mnozice\MAIN.aux
+[25] (C:\Users\Lesnik\Documents\ucbenik-logika-in-mnozice\MAIN.aux
 (C:\Users\Lesnik\Documents\ucbenik-logika-in-mnozice\matematicno-izrazanje.aux))
 
 LaTeX Font Warning: Size substitutions with differences
@@ -642,12 +645,12 @@ LaTeX Font Warning: Size substitutions with differences
 
  ) 
 Here is how much of TeX's memory you used:
- 8891 strings out of 493707
- 153523 string characters out of 3144607
- 196835 words of memory out of 3000000
- 12094 multiletter control sequences out of 15000+200000
+ 8896 strings out of 493707
+ 153553 string characters out of 3144607
+ 197061 words of memory out of 3000000
+ 12099 multiletter control sequences out of 15000+200000
  47568 words of font info for 73 fonts, out of 3000000 for 9000
  1025 hyphenation exceptions out of 8191
  33i,14n,35p,10373b,309s stack positions out of 5000i,500n,10000p,200000b,50000s
 
-Output written on MAIN.dvi (31 pages, 46236 bytes).
+Output written on MAIN.dvi (25 pages, 46684 bytes).

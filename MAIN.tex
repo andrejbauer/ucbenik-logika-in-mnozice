@@ -98,14 +98,17 @@
 	\newcommand{\xusome}[2]{\exists\, #1\,.\,#2}
 	\newcommand{\xuexactlyone}[2]{\exists\;\!!\, #1,.\,#2}
 
-	\newcommand{\ldm}[4]{\lambda{#1} \,{\in}\, #2\,.\,#3 \,{\in}\, #4}
+	\DeclareDocumentCommand{\lam}{O{auto} m O{\empty} m O{\empty}}
+		{\lambda\, {#2} \ifthenelse{\equal{#3}{}}{}{\in{#3}} \,.\,  \sizedescriptor{#1}{\left}( {#4} \ifthenelse{\equal{#5}{}}{}{\in{#5}} \sizedescriptor{#1}{\right})}
+	\DeclareDocumentCommand{\xlam}{m O{\empty} m O{\empty}}
+		{\lambda\, {#1} \ifthenelse{\equal{#2}{}}{}{\in{#2}} \,.\, {#3} \ifthenelse{\equal{#4}{}}{}{\in{#4}}}
 
 
 %%%%%%  Sets
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 	%  \set{1, 2, 3}         ->  {1, 2, 3}
 	%  \set{a \in X}{a < 1}  ->  {a ∈ X | a < 1}
-	\DeclareDocumentCommand{\set}{O{auto} m G{\empty}}{ \sizedescriptor{#1}{\left} \{{#2} \ifthenelse{\equal{#3}{}}{}{ \; \sizedescriptor{#1}{\middle}| \; {#3}} \sizedescriptor{#1}{\right}\}}
+	\DeclareDocumentCommand{\set}{O{auto} m G{\empty}}{ \sizedescriptor{#1}{\left} \{{#2} \ifthenelse{\equal{#3}{}}{}{ \; \sizedescriptor{#1}{\middle}| \; {#3}} \sizedescriptor{#1}{\right}\} }
 	\newcommand{\vsubset}{\Mapstochar\cap}
 	\newcommand{\finseq}[1]{{#1}^*}
 	\newcommand{\pst}{\mathcal{P}}
@@ -216,11 +219,12 @@
 		\section{Preprosti primeri}
 			\note{prazna množica, enojci}
 		\section{Podmnožice}
+		\section{Potenčna množica}
+		\section{Družine množic}
 		\section{Produkt množic}
 		\section{Vsota množic}
 		\section{Unija in presek}
 		\section{Eksponentna množica}
-		\section{Potenčna množica}
 	
 	\chapter{Funkcije}
 		\note{Moramo se dogovoriti, kateremu izrazu bomo dali prednost --- `funkcija' ali `preslikava'.}
@@ -234,17 +238,17 @@
 		\section{Operacije z relacijami}
 		\section{Lastnosti relacij}
 			\note{Med drugim lastnosti relacij, izražene z operacijami. Mogoče združimo ta dva razdelka?}
+		\section{Funkcije kot funkcijske relacije}
 		\section{Relacije urejenosti}
 			\note{Vključno z urejenostnimi strukturami. Vključno z morfizmi?}
 		\section{Ekvivalenčne relacije}
 		\section{Kvocientne množice}
 			\note{Sem dodajmo kanonični razcep funkcije (na surjekcijo/kvocient, bijekcijo, injekcijo/vložitev).}
 	
-	\chapter{Funkcije kot funkcijske relacije}
-		\note{Si to zasluži lastno poglavje?}
-	
-	\chapter{Družine množic}
-		\note{Pride to res šele tu? To pomeni, da bomo v poglavju `Konstrukcije množic' delali samo s *končnimi* produkti, vsotami itd. in na tem mestu dodali splošne?}
+	\chapter{Aksiomatska teorija množic}
+		\section{Zermelo-Fraenklovi aksiomi}
+		\section{Aksiom izbire}
+		\section{Kumulativna hierarhija}
 	
 	\chapter{Kardinalna števila}
 		\section{Končnost in neskončnost}
@@ -252,11 +256,6 @@
 		\section{Kardinalnost množice}
 	
 	\chapter{Ordinalna števila}
-	
-	\chapter{Aksiom izbire}
-		\note{Nekje moramo pojasniti, kaj je sploh poanta aksiomov.}
-	
-	\chapter{Kumulativna hierarhija}
 	
 	\chapter{\note{možne dodatne teme}}
 		\begin{itemize}
@@ -266,6 +265,8 @@
 				Strukturirane množice in njihovi morfizmi
 			\item
 				Kategorije
+			\item
+				Številske množice (med drugim aksiom o neskončnosti, Peanovi aksiomi in debata, kako definiramo strukturirano množico preko njene karakterizacije, če obenem dokažemo obstoj in enoličnost (do izomorfizma))
 		\end{itemize}
 	
 	
