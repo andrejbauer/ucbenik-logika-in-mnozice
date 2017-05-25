@@ -1,0 +1,125 @@
+\chapter{Relacije}\label{POGLAVJE: Relacije}
+
+	V matematiki pogosto želimo izraziti, da so določeni objekti v nekem odnosu, npr.~eno število je večje od drugega; temu s tujko rečemo \df{relacija}. Kako to formalno izraziti? Ideja je, da relacijo podamo z množico vseh skupin elementov, ki so v relaciji. Na primer, relacijo $\leq$ na naravnih številih podamo kot podmnožico
+	\[\set[1]{(a, b) \in \NN \times \NN}{\xsome{n}[\NN]{a + n = b}}.\]
+	Torej, število $a$ je v relaciji $\leq$ s številom $b$ takrat, ko par $(a, b)$ pripada tej množici.
+	
+	Splošne relacije so lahko med poljubno mnogo elementi iz poljubnih (ne nujno istih) množic. Na primer, relacija komplanarnosti štirih točk v prostoru je podmnožica produkta $\RR^3 \times \RR^3 \times \RR^3 \times \RR^3$, relacija pripadnosti $\in$ med elementi neke množice $X$ in podmnožicami množice $X$ pa je podmnožica produkta $X \times \pst(X)$.
+	
+	Splošna definicija relacije je potemtakem naslednja.
+	\begin{definicija}
+		\df{Relacija} na družini množic $\mathscr{D}$ je podmnožica produkta $\prod_{X \in \mathscr{D}} X$.
+	\end{definicija}
+	
+	V praksi se povečini uporabljajo relacije med dvema elementoma.
+	\begin{definicija}
+		\df{Dvojiška relacija}\footnote{Oziroma s tujko \df{binarna relacija}.} med elementi množic $X$ in $Y$ je podmnožica produkta $X \times Y$. \df{Dvojiška relacija} na množici $X$ je podmnožica produkta $X \times X$.
+	\end{definicija}
+	
+	Skoraj vse relacije, ki nas zanimajo v tej knjigi, so dvojiške. Zato se dogovorimo, da z izrazom \qt{relacija} vselej mislimo dvojiško relacijo, razen če je izrecno rečeno drugače.
+	
+	Če je $R \subseteq X \times Y$ relacija, potemtakem lahko zapišemo, da sta $x \in X$ in $y \in Y$ v relaciji $R$ takole: $(x, y) \in R$. Ampak to vodi do čudnih zapisov v primeru običajnih relacij, npr.~$(2, 3) \in <$. To seveda raje zapišemo kot $2 < 3$ in posledično se dogovorimo, da v primeru dvojiške relacije raje uporabljamo zapis $x \mathrel{R} y$.
+	
+	
+	\section{Grafi relacij}
+	
+		\GraphInit[vstyle = Normal]
+		\tikzset
+		{
+			EdgeStyle/.append style = {->, bend left}
+		}
+		
+		Relacije na majhnih množicah lahko lepo ponazorimo z usmerjenimi grafi. Graf relacije $R \subseteq X \times X$ je definiran takole: vozlišča grafa so elementi množice $X$ in za vsaka dva elementa $a, b \in X$, za katera velja $a \mathrel{R} b$, narišemo puščico od $a$ do $b$.
+		
+		\begin{zgled}
+			Naj bo $X = \set{A, B, C, D, E, F}$ in naj bo
+			\[R \dfeq \set{...}\]
+			relacija na $X$. Njen graf izgleda takole.
+			\begin{center}
+				\begin{tikzpicture}
+					\SetGraphUnit{3}
+					\Vertex[Math=true, x=0, y=0]{A}
+					\Vertex[Math=true, x=3, y=2]{B}
+					\Vertex[Math=true, x=2, y=-3]{C}
+					\Vertex[Math=true, x=6, y=1]{D}
+					\Vertex[Math=true, x=8, y=-1]{E}
+					\Vertex[Math=true, x=10, y=2]{F}
+					
+					\Edge(A)(B)
+					\Loop[dist = 5em, dir = EA](B)
+				\end{tikzpicture}
+			\end{center}
+		\end{zgled}
+		\note{izgled grafa je še treba popraviti}
+	
+	
+	\section{Operacije z relacijami}\label{RAZDELEK: Operacije z relacijami}
+	
+		Običajno je, da iz že danih matematičnih objektov lahko skonstruiramo nove preko določenih operacij. Z relacijami ni nič drugače; v tem razdelku si bomo ogledali običajne operacije na relacijah.
+		
+		Ker so relacije podmnožice, imamo za začetek vse operacije na podmnožicah. Torej, za poljubno družino $(R_i)_{i \in I}$ podmnožic produkta $X \times Y$ sta tudi unija $\bigcup_{i \in I} R_i$ in presek $\bigcap_{i \in I} R_i$ relaciji. Če je $R \subseteq X \times Y$ relacija, je njena komplementarna relacija $\complement{R} = X \times Y \setminus R \ \subseteq \ X \times Y$.
+		
+		Posebej imamo \df{prazno relacijo} $\emptyset \subseteq X \times Y$ (nobena dva elementa nista v relaciji) in \df{polno relacijo} $X \times Y\subseteq X \times Y$ (vsaka dva elementa sta v relaciji), ki sta si medsebojno komplementarni.
+		
+		Poleg operacij, ki jih relacije podedujejo od podmnožic, imamo še operacije, ki upoštevajo produktno strukturo.
+		
+		Če so $X$, $Y$, $Z$ množice in $R \subseteq X \times Y$, $S \subseteq Y \times Z$ relaciji, tedaj je \df{sklop} (\df{kompozitum}) \df{relacij} definiran kot
+		\[S \circ R \dfeq \set[1]{(x, z) \in X \times Z}{\some{y}[Y]{x \mathrel{R} y \land y \mathrel{S} z}}\]
+		(po vzoru funkcij tudi kompozicijo relacij pišemo v obratnem vrstnem redu; glej razdelek~\ref{RAZDELEK: Funkcije kot funkcijske relacije}). Sklapljanje je asociativna operacija, torej pri sklopu večih relacij oklepaji niso pomembni.
+		
+		Večkraten sklop relacije $R \subseteq X \times X$ same s sabo označimo
+		\[R^n \dfeq \underbrace{R \circ R \circ \ldots \circ R}_{\text{$n$ $R$-jev}}\]
+		za $n \in \NN_{\geq 2}$. Seveda je smiselno definirati, da je $R^1$ enak $R$ in da je $R^0$ relacija enakosti na množici $X$, saj je to enota za sklapljanje relacij na $X$, tj.~$=_X \circ R = R = R \circ =_X$ (premisli, da je to res!).
+		
+		Za poljubno relacijo $R \subseteq X \times Y$ definiramo \df{obratno} (\df{inverzno}) \df{relacijo} kot
+		\[R^{-1} \dfeq \set{(y, x) \in Y \times X}{x \mathrel{R} y}.\]
+		Posledično lahko za poljubno relacijo $R \subseteq X \times X$ definiramo njeno potenco s poljubno celo stopnjo: $R^{-n} \dfeq (R^{-1})^n = (R^n)^{-1}$.
+		
+		\begin{zgled}
+			Naj bo $L$ množica ljudi. Vpeljimo oznake za naslednje relacije na $L$:
+			\begin{itemize}
+				\item
+					$\texttt{St}$ je relacija \qt{je starš od},
+				\item
+					$\texttt{Oč}$ je relacija \qt{je oče od},
+				\item
+					$\texttt{Ma}$ je relacija \qt{je mati od},
+				\item
+					$\texttt{Si}$ je relacija \qt{je sin od},
+				\item
+					$\texttt{Hč}$ je relacija \qt{je hči od},
+				\item
+					$\texttt{Br}$ je relacija \qt{je brat od},
+				\item
+					$\texttt{Se}$ je relacija \qt{je sestra od}
+			\end{itemize}
+			
+			Na primer: Marko $\texttt{Br}$ Metka pomeni \qt{Marko je brat od Metke.} (oz.~v lepši slovenščini \qt{Marko je Metkin brat.}).
+			
+			Velja med drugim:
+			
+			\begin{tabular}{l}
+				$\texttt{Oč} \cup \texttt{Ma} = \texttt{St}$, \\
+				$\texttt{St} \circ \texttt{St} = \texttt{St}^2 = \text{\qt{je stari starš od}}$, \\
+				$\texttt{St} \circ \texttt{Br} = \text{\qt{je stric od}}$, \\
+				$\texttt{Br} \cup \texttt{Se} = \text{\qt{je sorojenec od}}$, \\
+				$\texttt{St}^{-1} = \text{\qt{je otrok od}}$, \\
+				$\bigcup_{n \in \NN_{\geq 1}} \texttt{St}^n = \text{\qt{je prednik od}}$, \\
+				$\bigcup_{n \in \NN_{\geq 1}} \texttt{St}^{-n} = \text{\qt{je potomec od}}$, \\
+				$\texttt{St} \circ (\texttt{Br} \cup \texttt{Se}) \circ \texttt{Hč} = \text{\qt{je sestrična od}}$.
+			\end{tabular}
+			
+			Sklapljanje relacij ni komutativno; na primer $\texttt{Ma} \circ \texttt{Oč}$ je stari oče po materini strani, $\texttt{Oč} \circ \texttt{Ma}$ pa stara mama po očetovi strani.
+			
+			\note{V tem zgledu sicer predpostavljamo, da je vsaka oseba bodisi moškega bodisi ženskega spola, kar ni čisto res. Ima kdo kakšno idejo, kako se temu izogniti (in še vedno imeti lahko razumljiv zgled)?}
+		\end{zgled}
+	
+	
+	\section{Lastnosti relacij}
+		\note{Med drugim lastnosti relacij, izražene z operacijami. Mogoče združimo s prejšnjim razdelkom?}
+	\section{Funkcije kot funkcijske relacije}\label{RAZDELEK: Funkcije kot funkcijske relacije}
+	\section{Relacije urejenosti}
+		\note{Vključno z urejenostnimi strukturami. Vključno z morfizmi?}
+	\section{Ekvivalenčne relacije}
+	\section{Kvocientne množice}
+		\note{Sem dodajmo kanonični razcep funkcije (na surjekcijo/kvocient, bijekcijo, injekcijo/vložitev).}

@@ -48,7 +48,7 @@
 		
 		Če imamo več izjav, jih lahko strnemo v sestavljeno izjavo. Na primer, izjavo \nls{Če je $a$ sodo število, je tudi kvadrat števila $a$ sod.}, zapišemo kot $2 | a \implies 2 | a^2$.
 		
-		Seveda ta izjava velja za vsa naravna števila (znaš to dokazati?). To zapišemo takole: $\all{a}{\NN}{2 | a \implies 2 | a^2}$.
+		Seveda ta izjava velja za vsa naravna števila (znaš to dokazati?). To zapišemo takole: $\all{a}[\NN]{2 | a \implies 2 | a^2}$.
 		
 		Kot smo navajeni iz običajnih jezikov, posamične stavke povežemo v sestavljeno poved z \emph{vezniki}. Najpogosteje uporabljeni matematični vezniki so v tabeli~\ref{TABELA: standardni izjavni vezniki}.
 		
@@ -151,9 +151,9 @@
 				\hline
 				\textbf{Kvantifikator} & \textbf{Oznaka} & \textbf{Kako preberemo} \\
 				\hline
-				univerzalni kvantifikator & $\xall{x}{X}{\phi(x)}$ & za vsak $x$ iz $X$ velja lastnost $\phi$ \\
-				eksistenčni kvantifikator & $\xsome{x}{X}{\phi(x)}$ & obstaja $x$ iz $X$ z lastnostjo $\phi$ \\
-				\note{kako se temu reče?} & $\xexactlyone{x}{X}{\phi(x)}$ & obstaja natanko en $x$ iz $X$ z lastnostjo $\phi$ \\
+				univerzalni kvantifikator & $\xall{x}[X]{\phi(x)}$ & za vsak $x$ iz $X$ velja lastnost $\phi$ \\
+				eksistenčni kvantifikator & $\xsome{x}[X]{\phi(x)}$ & obstaja $x$ iz $X$ z lastnostjo $\phi$ \\
+				\note{kako se temu reče?} & $\xexactlyone{x}[X]{\phi(x)}$ & obstaja natanko en $x$ iz $X$ z lastnostjo $\phi$ \\
 				\hline
 			\end{tabular}
 			\caption{kvantifikatorji}\label{TABELA: kvantifikatorji}
@@ -163,26 +163,26 @@
 		
 		\begin{zgled}
 			Vemo, da za vsako nenegativno realno število obstaja enolično določen nenegativen kvadratni koren; to izjavo lahko zapišemo na sledeči način.
-			\[\xall{a}{\RR_{\geq 0}}\xexactlyone{b}{\RR_{\geq 0}}{b^2 = a}\]
+			\[\xall{a}[\RR_{\geq 0}]{\xexactlyone{b}[\RR_{\geq 0}]{b^2 = a}}\]
 			Zaradi tega lahko definiramo kvadratni koren kot funkcijo $\sqrt{\phantom{I}}\colon \RR_{\geq 0} \to \RR_{\geq 0}$.
 		\end{zgled}
 		
 		Po dogovoru kvantifikatorji vežejo šibkeje kot izjavni vezniki. Izjavo, da je vsako celo število bodisi liho bodisi sodo, torej zapišemo takole.
-		\[\all[2]{a}{\ZZ}{2 | a \xor 2 | (a-1)}\]
+		\[\all[2]{a}[\ZZ]{2 | a \xor 2 | (a-1)}\]
 		
 		\note{Se že na tem mestu predebatirajo vezane oz.~nevezane spremenljivke ter preimenovanje spremenljivk? Kaj je slovenski prevod za `dummy variable'?}
 		
 		\begin{zgled}
 			Za poljubno naravno število $n \in \NN$ naj $P(n)$ označuje izjavo, da je $n$ praštevilo. Torej, $P$ definiramo takole.
-			\[P(n) \dfeq \all[1]{x}{\NN}{x | n \implies x = 1 \xor x = n}\]
+			\[P(n) \dfeq \all[1]{x}[\NN]{x | n \implies x = 1 \xor x = n}\]
 			(Premisli, kaj bi se zgodilo, če bi namesto stroge disjunkcije vzeli navadno. Bi še vedno dobili pravilni pojem praštevila?)
 			
 			Naj $S(n)$ označuje, da je $n$ sestavljeno število.
-			\[S(n) \dfeq \xsome{x, y}{\intoo[\NN]{1}{n}}{x \cdot y = n}\]
-			(Kadar imamo več zaporednih kvantifikatorjev iste vrste, jih po dogovoru lahko strnemo kot zgoraj. Dana formula za $S(n)$ je krajši zapis za $\xsome{x}{\intoo[\NN]{1}{n}}\xsome{y}{\intoo[\NN]{1}{n}}{x \cdot y = n}$.)
+			\[S(n) \dfeq \xsome{x, y}[\intoo[\NN]{1}{n}]{x \cdot y = n}\]
+			(Kadar imamo več zaporednih kvantifikatorjev iste vrste, jih po dogovoru lahko strnemo kot zgoraj. Dana formula za $S(n)$ je krajši zapis za $\xsome{x}[\intoo[\NN]{1}{n}]{\xsome{y}[\intoo[\NN]{1}{n}]{x \cdot y = n}}$.)
 			
 			Zdaj lahko na pregleden način zapišemo, da je vsako naravno število od $2$ naprej bodisi praštevilo bodisi sestavljeno.
-			\[\all[1]{n}{\NN_{\geq 2}}{P(n) \xor S(n)}\]
+			\[\all[1]{n}[\NN_{\geq 2}]{P(n) \xor S(n)}\]
 		\end{zgled}
 		
 		\note{
