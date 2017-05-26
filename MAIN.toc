@@ -18,19 +18,19 @@
 \contentsline {section}{\numberline {3.2}Injektivnost in surjektivnost}{15}
 \contentsline {section}{\numberline {3.3}Bijektivnost}{15}
 \contentsline {chapter}{\numberline {4}Relacije}{17}
-\contentsline {section}{\numberline {4.1}Operacije z relacijami}{17}
-\contentsline {section}{\numberline {4.2}Lastnosti relacij}{17}
-\contentsline {section}{\numberline {4.3}Funkcije kot funkcijske relacije}{17}
-\contentsline {section}{\numberline {4.4}Relacije urejenosti}{17}
-\contentsline {section}{\numberline {4.5}Ekvivalen\IeC {\v c}ne relacije}{17}
-\contentsline {section}{\numberline {4.6}Kvocientne mno\IeC {\v z}ice}{17}
-\contentsline {chapter}{\numberline {5}Aksiomatska teorija mno\IeC {\v z}ic}{19}
-\contentsline {section}{\numberline {5.1}Zermelo-Fraenklovi aksiomi}{19}
-\contentsline {section}{\numberline {5.2}Aksiom izbire}{19}
-\contentsline {section}{\numberline {5.3}Kumulativna hierarhija}{19}
-\contentsline {chapter}{\numberline {6}Kardinalna \IeC {\v s}tevila}{21}
-\contentsline {section}{\numberline {6.1}Kon\IeC {\v c}nost in neskon\IeC {\v c}nost}{21}
-\contentsline {section}{\numberline {6.2}\IeC {\v S}tevnost}{21}
-\contentsline {section}{\numberline {6.3}Kardinalnost mno\IeC {\v z}ice}{21}
-\contentsline {chapter}{\numberline {7}Ordinalna \IeC {\v s}tevila}{23}
-\contentsline {chapter}{\numberline {8}{\relax \fontsize {10}{12}\selectfont \abovedisplayskip 10\p@ plus2\p@ minus5\p@ \abovedisplayshortskip \z@ plus3\p@ \belowdisplayshortskip 6\p@ plus3\p@ minus3\p@ \def \leftmargin \leftmargini \parsep 4.5\p@ plus2\p@ minus\p@ \topsep 9\p@ plus3\p@ minus5\p@ \itemsep 4.5\p@ plus2\p@ minus\p@ {\leftmargin \leftmargini \topsep 6\p@ plus2\p@ minus2\p@ \parsep 3\p@ plus2\p@ minus\p@ \itemsep \parsep }\belowdisplayskip \abovedisplayskip \leavevmode {\color {blue}(mo\IeC {\v z}ne dodatne teme)}}}{25}
+\contentsline {section}{\numberline {4.1}Splo\IeC {\v s}no o relacijah}{17}
+\contentsline {section}{\numberline {4.2}Operacije z relacijami}{18}
+\contentsline {section}{\numberline {4.3}Lastnosti relacij}{20}
+\contentsline {section}{\numberline {4.4}Funkcije kot funkcijske relacije}{22}
+\contentsline {section}{\numberline {4.5}Relacije urejenosti}{22}
+\contentsline {section}{\numberline {4.6}Ekvivalen\IeC {\v c}ne relacije in kvocientne mno\IeC {\v z}ice}{23}
+\contentsline {chapter}{\numberline {5}Aksiomatska teorija mno\IeC {\v z}ic}{25}
+\contentsline {section}{\numberline {5.1}Zermelo-Fraenklovi aksiomi}{25}
+\contentsline {section}{\numberline {5.2}Aksiom izbire}{25}
+\contentsline {section}{\numberline {5.3}Kumulativna hierarhija}{25}
+\contentsline {chapter}{\numberline {6}Kardinalna \IeC {\v s}tevila}{27}
+\contentsline {section}{\numberline {6.1}Kon\IeC {\v c}nost in neskon\IeC {\v c}nost}{27}
+\contentsline {section}{\numberline {6.2}\IeC {\v S}tevnost}{27}
+\contentsline {section}{\numberline {6.3}Kardinalnost mno\IeC {\v z}ice}{27}
+\contentsline {chapter}{\numberline {7}Ordinalna \IeC {\v s}tevila}{29}
+\contentsline {chapter}{\numberline {8}{\relax \fontsize {10}{12}\selectfont \abovedisplayskip 10\p@ plus2\p@ minus5\p@ \abovedisplayshortskip \z@ plus3\p@ \belowdisplayshortskip 6\p@ plus3\p@ minus3\p@ \def \leftmargin \leftmargini \parsep 4.5\p@ plus2\p@ minus\p@ \topsep 9\p@ plus3\p@ minus5\p@ \itemsep 4.5\p@ plus2\p@ minus\p@ {\leftmargin \leftmargini \topsep 6\p@ plus2\p@ minus2\p@ \parsep 3\p@ plus2\p@ minus\p@ \itemsep \parsep }\belowdisplayskip \abovedisplayskip \leavevmode {\color {blue}(mo\IeC {\v z}ne dodatne teme)}}}{31}
