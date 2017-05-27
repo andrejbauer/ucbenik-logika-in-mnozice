@@ -10,24 +10,30 @@
 		
 		Splošna definicija relacije je potemtakem naslednja.
 		\begin{definicija}
-			\df{Relacija} na družini množic $\mathscr{D}$ je podmnožica produkta $\prod_{X \in \mathscr{D}} X$.
+			\df{Relacija} na družini množic $\mathscr{D}$ je podmnožica produkta $\prod_{X \in \mathscr{D}} X$, skupaj s podatkom, za katero družino $\mathscr{D}$ gre.
 		\end{definicija}
+		
+		\begin{opomba}\label{OPOMBA: definicija relacij}
+			Kaj mislimo tu z izrazom \qt{skupaj s podatkom}? Določena podmnožica ima mnogo nadmnožic in podatek, med elementi katerih množic opazujemo odnos, je za relacijo prav tako pomemben, saj so od tega odvisne lastnosti relacije. Lastnosti relacij obravnavamo kasneje v razdelku~\ref{RAZDELEK: Lastnosti relacij}, ampak če že zdaj damo primer: $\set{(a, a)}{a \in \NN}$ je refleksivna kot relacija na naravnih številih (tj.~kot podmnožica $\NN \times \NN$), ne pa tudi kot relacija na celih številih (tj.~kot podmnožica $\ZZ \times \ZZ$).
+			
+			Kako \qt{priložiti} podatek o družini?. Ena možnost je, da relacijo podamo kot urejeni par $\rel = (R, \mathscr{D})$, kjer $R \subseteq \prod_{X \in \mathscr{D}} X$. Še ena možnost je, da relacijo podamo kot družino preslikav $(\rel \to X)_{X \in \mathscr{D}}$, ki skupaj porodijo inkluzijo $\rel \hookrightarrow \prod_{X \in \mathscr{D}} X$. Ampak načeloma je povsem vseeno, ali vzamemo katero od teh dveh možnosti ali še kaj tretjega. V tej knjigi se ne bomo omejevali na posamičen formalen zapis za relacijo, bo pa seveda v vseh primerih jasno, za katero družino gre.
+		\end{opomba}
 		
 		V praksi se povečini uporabljajo relacije med dvema elementoma.
 		\begin{definicija}
-			\df{Dvojiška} (ali s tujko \df{binarna}) \df{relacija} med elementi množic $X$ in $Y$ je podmnožica produkta $X \times Y$. V tem primeru imenujemo množico $X$ \df{domena}, množico $Y$ pa \df{kodomena} relacije $R$.
+			\df{Dvojiška} (ali s tujko \df{binarna}) \df{relacija} $\rel$ med elementi množic $X$ in $Y$ je podmnožica produkta $X \times Y$, skupaj s podatkom o $X$ in $Y$. Množico $X$ imenujemo \df{začetna množica} ali \df{domena}, kar označimo $\dom(\rel)$, množico $Y$ pa \df{ciljna množica} ali \df{kodomena} relacije $R$, kar označimo $\cod(\rel)$.
 		\end{definicija}
 		
 		Skoraj vse relacije, ki nas zanimajo v tej knjigi, so dvojiške. Zato se dogovorimo, da z izrazom \qt{relacija} vselej mislimo dvojiško relacijo, razen če je izrecno rečeno drugače.
 		
-		Če je $R \subseteq X \times Y$ relacija, potemtakem lahko zapišemo, da sta $x \in X$ in $y \in Y$ v relaciji $R$ takole: $(x, y) \in R$. Ampak to vodi do čudnih zapisov v primeru običajnih relacij, npr.~$(2, 3) \in <$. To je bolje zapisati $2 < 3$ in posledično se dogovorimo, da v primeru dvojiške relacije raje uporabljamo zapis $x \mathrel{R} y$.
+		Če je $\rel \subseteq X \times Y$ relacija, potemtakem lahko zapišemo, da sta $x \in X$ in $y \in Y$ v relaciji $\rel$ takole: $(x, y) \in \rel$. Ampak to vodi do čudnih zapisov v primeru običajnih relacij, npr.~$(2, 3) \in <$. To je bolje zapisati $2 < 3$ in posledično se dogovorimo, da v primeru dvojiške relacije raje uporabljamo zapis $x \rel y$.
 		
 		Povečini se še dodatno omejimo na relacije z isto domeno in kodomeno.
 		\begin{definicija}
-			\df{Dvojiška} (ali \df{binarna}) \df{relacija} na množici $X$ je podmnožica produkta $X \times X$.
+			\df{Dvojiška} (ali \df{binarna}) \df{relacija} na množici $X$ je podmnožica produkta $X \times X$, skupaj s podatkom o $X$.
 		\end{definicija}
 		
-		Takšne relacije lahko lepo ponazorimo z usmerjenimi grafi. Graf relacije $R \subseteq X \times X$ je definiran takole: vozlišča grafa so elementi množice $X$ in za vsaka dva elementa $a, b \in X$, za katera velja $a \mathrel{R} b$, narišemo puščico od $a$ do $b$.
+		Takšne relacije lahko lepo ponazorimo z usmerjenimi grafi. Graf relacije $\rel \subseteq X \times X$ je definiran takole: vozlišča grafa so elementi množice $X$ in za vsaka dva elementa $a, b \in X$, za katera velja $a \rel b$, narišemo puščico od $a$ do $b$.
 		
 		\GraphInit[vstyle = Normal]
 		\tikzset
@@ -37,10 +43,10 @@
 		
 		\begin{zgled}\label{ZGLED: graf relacije}
 			Naj bo $X = \set{A, B, C, D, E, F}$ in naj bo
-			\[R \dfeq \set{...}\]
+			\[\rel \dfeq \set{...}\]
 			relacija na $X$. Njen graf izgleda takole.
 			
-			\note{graf relacije $R$}
+			\note{graf relacije $\rel$}
 			%\begin{center}
 				%\begin{tikzpicture}
 					%\SetGraphUnit{3}
@@ -63,34 +69,34 @@
 	
 		Običajno je, da iz že danih matematičnih objektov lahko skonstruiramo nove preko določenih operacij. Z relacijami ni nič drugače; v tem razdelku si bomo ogledali običajne operacije na relacijah.
 		
-		Ker so relacije podmnožice, imamo za začetek vse operacije na podmnožicah. Torej, za poljubno družino $(R_i)_{i \in I}$ podmnožic produkta $X \times Y$ sta tudi unija $\bigcup_{i \in I} R_i$ in presek $\bigcap_{i \in I} R_i$ relaciji. Če je $R \subseteq X \times Y$ relacija, je njena komplementarna relacija $\complement{R} = X \times Y \setminus R \ \subseteq \ X \times Y$.
+		Ker so relacije podmnožice, imamo za začetek vse operacije na podmnožicah. Torej, za poljubno družino $(\rel_i)_{i \in I}$ podmnožic produkta $X \times Y$ sta tudi unija $\bigcup_{i \in I} \rel_i$ in presek $\bigcap_{i \in I} \rel_i$ relaciji. Če je $R \subseteq X \times Y$ relacija, je njena komplementarna relacija $\complement{\rel} = X \times Y \setminus \rel \ \subseteq \ X \times Y$.
 		
 		Posebej imamo \df{prazno relacijo} $\emptyset \subseteq X \times Y$ (nobena dva elementa nista v relaciji) in \df{polno relacijo} $X \times Y\subseteq X \times Y$ (vsaka dva elementa sta v relaciji), ki sta si medsebojno komplementarni.
 		
 		Poleg operacij, ki jih relacije podedujejo od podmnožic, imamo še operacije, ki upoštevajo produktno strukturo.
 		
-		Če so $X$, $Y$, $Z$ množice in $R \subseteq X \times Y$, $S \subseteq Y \times Z$ relaciji, tedaj je \df{sklop} (\df{kompozitum}) \df{relacij} definiran kot
-		\[S \circ R \dfeq \set[1]{(x, z) \in X \times Z}{\some{y}[Y]{x \mathrel{R} y \land y \mathrel{S} z}}\]
-		(po vzoru funkcij tudi kompozicijo relacij pišemo v obratnem vrstnem redu; glej razdelek~\ref{RAZDELEK: Funkcije kot funkcijske relacije}). Opazimo: domena $S \circ R$ je domena $R$, kodomena $S \circ R$ je kodomena $S$. Sklapljanje je asociativna operacija, torej pri sklopu večih relacij oklepaji niso pomembni.
+		Če so $X$, $Y$, $Z$ množice in $\rel \subseteq X \times Y$, $\srel \subseteq Y \times Z$ relaciji, tedaj je \df{sklop} (\df{kompozitum}) \df{relacij} definiran kot
+		\[\srel \circ \rel \dfeq \set[1]{(x, z) \in X \times Z}{\some{y}[Y]{x \rel y \land y \srel z}}\]
+		(po vzoru funkcij tudi kompozicijo relacij pišemo v obratnem vrstnem redu; glej razdelek~\ref{RAZDELEK: Funkcije kot funkcijske relacije}). Opazimo: domena $\srel \circ \rel$ je domena $\rel$, kodomena $\srel \circ \rel$ je kodomena $\srel$. Sklapljanje je asociativna operacija, torej pri sklopu večih relacij oklepaji niso pomembni.
 		
-		Večkraten sklop relacije $R \subseteq X \times X$ same s sabo označimo
-		\[R^n \dfeq \underbrace{R \circ R \circ \ldots \circ R}_{\text{$n$ $R$-jev}}\]
-		za $n \in \NN_{\geq 2}$. Seveda je smiselno definirati, da je $R^1$ enak $R$ in da je $R^0$ relacija enakosti na množici $X$, saj je to enota za sklapljanje relacij na $X$, tj.~$=_X \circ R = R = R \circ =_X$ (premisli, da je to res!).
+		Večkraten sklop relacije $\rel \subseteq X \times X$ same s sabo označimo
+		\[\rel^n \dfeq \underbrace{\rel \circ \rel \circ \ldots \circ \rel}_{\text{$n$ $\rel$-jev}}\]
+		za $n \in \NN_{\geq 2}$. Seveda je smiselno definirati, da je $\rel^1$ enak $\rel$ in da je $\rel^0$ relacija enakosti na množici $X$, saj je to enota za sklapljanje relacij na $X$, tj.~$=_X \circ \rel = \rel = \rel \circ =_X$ (premisli, da je to res!).
 		
 		\begin{zgled}
-			Naj bo $R \subseteq X \times X$ relacija. Tedaj iz grafa relacije zlahka razberemo, kaj je $R^n$: elementa $a, b \in X$ sta v relaciji $R^n$ natanko tedaj, ko imamo pot dolžine $n$ od $a$ do $b$ (to deluje tudi za $n = 1$ in $n = 0$). Naj primer, če je $R$ relacija iz zgleda~\ref{ZGLED: graf relacije}, tedaj graf relacije $R^3$ izgleda takole.
+			Naj bo $\rel \subseteq X \times X$ relacija. Tedaj iz grafa relacije zlahka razberemo, kaj je $\rel^n$: elementa $a, b \in X$ sta v relaciji $\rel^n$ natanko tedaj, ko imamo pot dolžine $n$ od $a$ do $b$ (to deluje tudi za $n = 1$ in $n = 0$). Naj primer, če je $\rel$ relacija iz zgleda~\ref{ZGLED: graf relacije}, tedaj graf relacije $\rel^3$ izgleda takole.
 			
-			\note{graf $R^3$}
+			\note{graf $\rel^3$}
 		\end{zgled}
 		
-		Za poljubno relacijo $R \subseteq X \times Y$ definiramo \df{obratno} (\df{inverzno}) \df{relacijo} kot
-		\[R^{-1} \dfeq \set{(y, x) \in Y \times X}{x \mathrel{R} y}\]
-		(torej ima obratna relacija glede na izvorno zamenjano domeno in kodomeno). Posledično lahko za poljubno relacijo $R \subseteq X \times X$ definiramo njeno potenco s poljubno celo stopnjo: $R^{-n} \dfeq (R^{-1})^n = (R^n)^{-1}$.
+		Za poljubno relacijo $\rel \subseteq X \times Y$ definiramo \df{obratno} (\df{inverzno}) \df{relacijo} kot
+		\[\rel^{-1} \dfeq \set{(y, x) \in Y \times X}{x \rel y}\]
+		(torej ima obratna relacija glede na izvorno zamenjano domeno in kodomeno). Posledično lahko za poljubno relacijo $\rel \subseteq X \times X$ definiramo njeno potenco s poljubno celo stopnjo: $\rel^{-n} \dfeq (\rel^{-1})^n = (\rel^n)^{-1}$.
 		
 		\begin{zgled}
-			Graf relacije, ki je inverzna relaciji $R \subseteq X \times X$, dobimo tako, da v grafu relacije $R$ obrnemo puščice. Na primer, če je $R$ relacija iz zgleda~\ref{ZGLED: graf relacije}, tedaj graf relacije $R^{-1}$ izgleda takole.
+			Graf relacije, ki je inverzna relaciji $\rel \subseteq X \times X$, dobimo tako, da v grafu relacije $\rel$ obrnemo puščice. Na primer, če je $\rel$ relacija iz zgleda~\ref{ZGLED: graf relacije}, tedaj graf relacije $\rel^{-1}$ izgleda takole.
 			
-			\note{graf $R^{-1}$}
+			\note{graf $\rel^{-1}$}
 		\end{zgled}
 		
 		\begin{zgled}
@@ -133,56 +139,56 @@
 		\end{zgled}
 	
 	
-	\section{Lastnosti relacij}
+	\section{Lastnosti relacij}\label{RAZDELEK: Lastnosti relacij}
 	
 		Vemo, da so na primer racionalna števila uporabnejša od celih, saj lahko v okviru njih dodatno delimo --- z drugimi besedami, racionalna števila imajo več uporabne \emph{strukture} oz.~več uporabnih \emph{lastnosti}. Podobno za relacije obstajajo lastnosti, ki so se skozi prakso izkazale za zelo uporabne. Nekatere izmed njih si bomo ogledali v tem razdelku.
 		
 		Vse sledeče lastnosti se nanašajo na dvojiško relacijo z isto domeno in kodomeno.
 		
 		\begin{definicija}
-			Naj bo $R \subseteq X \times X$ relacija.
+			Naj bo $\rel \subseteq X \times X$ relacija.
 			\begin{itemize}
 				\item
-					Relacija $R$ je \df{povratna} (ali \df{refleksivna}), kadar velja
-					\[\xall{x}[X]{x \mathrel{R} x},\]
+					Relacija $\rel$ je \df{povratna} (ali \df{refleksivna}), kadar velja
+					\[\xall{x}[X]{x \rel x},\]
 					tj.~vsak element je v relaciji s samim sabo.
 				\item
-					Relacija $R$ je \df{nepovratna} (ali \df{irefleksivna}), kadar velja
-					\[\xall{x}[X]{\lnot(x \mathrel{R} x)},\]
+					Relacija $\rel$ je \df{nepovratna} (ali \df{irefleksivna}), kadar velja
+					\[\xall{x}[X]{\lnot(x \rel x)},\]
 					tj.~noben element ni v relaciji s samim sabo.
 				\item
-					Relacija $R$ je \df{somerna} (ali \df{simetrična}), kadar velja
-					\[\all{x, y}[X]{x \mathrel{R} y \implies y \mathrel{R} x},\]
+					Relacija $\rel$ je \df{somerna} (ali \df{simetrična}), kadar velja
+					\[\all{x, y}[X]{x \rel y \implies y \rel x},\]
 					tj.~če je en element v relaciji z drugim, je tudi drugi s prvim.
 				\item
-					Relacija $R$ je \df{protisomerna} (ali \df{antisimetrična}), kadar velja
-					\[\all{x, y}[X]{x \mathrel{R} y \land y \mathrel{R} x \implies x = y},\]
+					Relacija $\rel$ je \df{protisomerna} (ali \df{antisimetrična}), kadar velja
+					\[\all{x, y}[X]{x \rel y \land y \rel x \implies x = y},\]
 					tj.~dva elementa sta obojestransko v relaciji samo v primeru, če gre za en in isti element.
 					
 					\note{Mogoče pretiravam s slovenskimi imeni\ldots --Davorin}
 				\item
-					Relacija $R$ je \df{nesomerna} (ali \df{asimetrična}), kadar velja
-					\[\xall{x, y}[X]{\lnot(x \mathrel{R} y \land y \mathrel{R} x)},\]
+					Relacija $\rel$ je \df{nesomerna} (ali \df{asimetrična}), kadar velja
+					\[\xall{x, y}[X]{\lnot(x \rel y \land y \rel x)},\]
 					tj.~nobena dva elementa nista obojestransko v relaciji.
 				\item
-					Relacija $R$ je \df{prehodna} (ali \df{tranzitivna}), kadar velja
-					\[\all{x, y, z}[X]{x \mathrel{R} y \land y \mathrel{R} z \implies x \mathrel{R} z},\]
+					Relacija $\rel$ je \df{prehodna} (ali \df{tranzitivna}), kadar velja
+					\[\all{x, y, z}[X]{x \rel y \land y \rel z \implies x \rel z},\]
 					tj.~če je en element v relaciji z drugim in drugi s tretjim, je tudi prvi v relaciji s tretjim.
 				\item
-					Relacija $R$ je \df{neprehodna} (ali \df{intranzitivna}), kadar velja
-					\[\xall{x, y, z}[X]{\lnot(x \mathrel{R} y \land y \mathrel{R} z \land x \mathrel{R} z)},\]
+					Relacija $\rel$ je \df{neprehodna} (ali \df{intranzitivna}), kadar velja
+					\[\xall{x, y, z}[X]{\lnot(x \rel y \land y \rel z \land x \rel z)},\]
 					tj.~če je en element v relaciji z drugim in drugi s tretjim, prvi ne more tudi biti v relaciji s tretjim.
 				\item
-					Relacija $R$ je \df{enolična}, kadar velja
-					\[\all{x, y, z}[X]{x \mathrel{R} y \land x \mathrel{R} z} \implies y = z,\]
+					Relacija $\rel$ je \df{enolična}, kadar velja
+					\[\all{x, y, z}[X]{x \rel y \land x \rel z} \implies y = z,\]
 					tj.~vsak element je v relaciji s kvečjemu enim elementom.
 				\item
-					Relacija $R$ je \df{sovisna}, kadar velja
-					\[\all{x, y}[X]{x \neq y \implies x \mathrel{R} y \lor y \mathrel{R} x},\]
+					Relacija $\rel$ je \df{sovisna}, kadar velja
+					\[\all{x, y}[X]{x \neq y \implies x \rel y \lor y \rel x},\]
 					tj.~za vsaka dva različna elementa velja, da je eden od njiju v relaciji z drugim.
 				\item
-					Relacija $R$ je \df{strogo sovisna}, kadar velja
-					\[\all{x, y}[X]{x \mathrel{R} y \lor y \mathrel{R} x},\]
+					Relacija $\rel$ je \df{strogo sovisna}, kadar velja
+					\[\all{x, y}[X]{x \rel y \lor y \rel x},\]
 					tj.~za vsaka dva elementa velja, da je eden od njiju v relaciji z drugim.
 			\end{itemize}
 		\end{definicija}
@@ -213,19 +219,19 @@
 				\hline
 				\textbf{Lastnost relacije} & \textbf{Izražava z operacijami} & \textbf{Lastnost grafa} \\
 				\hline
-				refleksivnost & $=_X \subseteq R$ & \opis{Vsako vozlišče ima zanko.} \\
-				irefleksivnost & $=_X \cap R = \emptyset$ & \opis{Nobeno vozlišče nima zanke.} \\
-				simetričnost & $R = R^{-1}$ & \opis{Vsaka puščica ima nasprotno puščico.} \\
-				antisimetričnost & $R \cap R^{-1} \subseteq =_X$ & \opis{Edine puščice z nasprotnimi puščicami so zanke.} \\
-				asimetričnost & $R \cap R^{-1} = \emptyset$ & \opis{Nobena puščica nima nasprotne puščice.} \\
-				tranzitivnost & $R^2 \subseteq R$ & \opis{Za vsako pot pozitivne dolžine obstaja puščica, ki gre od začetka do konca poti.} \\
-				intranzitivnost & $R^2 \cap R = \emptyset$ & \opis{Za nobeno pot pozitivne dolžine ne obstaja puščica, ki gre od začetka do konca poti.} \\
-				enoličnost & $R \circ R^{-1} \subseteq =_X$ & \opis{Iz vsakega vozlišča gre kvečjemu ena puščica.} \\
-				sovisnost & $=_X \cup R \cup R^{-1} = X$ & \opis{Vsaki dve različni vozlišči sta povezani s puščico.} \\
-				stroga sovisnost & $R \cup R^{-1} = X$ & \opis{Vsaki dve vozlišči sta povezani s puščico.} \\
+				refleksivnost & $=_X \subseteq \rel$ & \opis{Vsako vozlišče ima zanko.} \\
+				irefleksivnost & $=_X \cap \rel = \emptyset$ & \opis{Nobeno vozlišče nima zanke.} \\
+				simetričnost & $\rel = \rel^{-1}$ & \opis{Vsaka puščica ima nasprotno puščico.} \\
+				antisimetričnost & $\rel \cap \rel^{-1} \subseteq =_X$ & \opis{Edine puščice z nasprotnimi puščicami so zanke.} \\
+				asimetričnost & $\rel \cap \rel^{-1} = \emptyset$ & \opis{Nobena puščica nima nasprotne puščice.} \\
+				tranzitivnost & $\rel^2 \subseteq \rel$ & \opis{Za vsako pot pozitivne dolžine obstaja puščica, ki gre od začetka do konca poti.} \\
+				intranzitivnost & $\rel^2 \cap \rel = \emptyset$ & \opis{Za nobeno pot pozitivne dolžine ne obstaja puščica, ki gre od začetka do konca poti.} \\
+				enoličnost & $\rel \circ \rel^{-1} \subseteq =_X$ & \opis{Iz vsakega vozlišča gre kvečjemu ena puščica.} \\
+				sovisnost & $=_X \cup \rel \cup \rel^{-1} = X$ & \opis{Vsaki dve različni vozlišči sta povezani s puščico.} \\
+				stroga sovisnost & $\rel \cup \rel^{-1} = X$ & \opis{Vsaki dve vozlišči sta povezani s puščico.} \\
 				\hline
 			\end{tabular}
-			\caption{lastnosti relacije $R \subseteq X \times X$ in njihove karakterizacije}\label{TABELA: lastnosti relacije}
+			\caption{lastnosti relacije $\rel \subseteq X \times X$ in njihove karakterizacije}\label{TABELA: lastnosti relacije}
 		\end{table}
 		
 		\begin{vaja}
@@ -234,6 +240,10 @@
 	
 	
 	\section{Funkcije kot funkcijske relacije}\label{RAZDELEK: Funkcije kot funkcijske relacije}
+	
+		Ko definiramo temeljne matematične pojme, imamo določeno mero izbire, kaj vzamemo za izvoren pojem, kaj pa definiramo preko drugih pojmov. V tej knjigi smo od začetka vzeli funkcije za bolj osnoven pojem in relacije lahko definiramo s pomočjo funkcij (kot omenjeno v opombi~\ref{OPOMBA: definicija relacij}, relacijo lahko definiramo kot družino preslikav), lahko pa postopamo tudi obratno --- pojem funkcije izpeljemo iz pojma relacije. Kako to gre, si bomo pogledali v tem razdelku.
+	
+	
 	\section{Relacije urejenosti}
 		\note{Vključno z urejenostnimi strukturami. Vključno z morfizmi?}
 	\section{Ekvivalenčne relacije in kvocientne množice}

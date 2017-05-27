@@ -19,11 +19,11 @@
 \contentsline {section}{\numberline {3.3}Bijektivnost}{15}
 \contentsline {chapter}{\numberline {4}Relacije}{17}
 \contentsline {section}{\numberline {4.1}Splo\IeC {\v s}no o relacijah}{17}
-\contentsline {section}{\numberline {4.2}Operacije z relacijami}{18}
-\contentsline {section}{\numberline {4.3}Lastnosti relacij}{20}
-\contentsline {section}{\numberline {4.4}Funkcije kot funkcijske relacije}{22}
-\contentsline {section}{\numberline {4.5}Relacije urejenosti}{22}
-\contentsline {section}{\numberline {4.6}Ekvivalen\IeC {\v c}ne relacije in kvocientne mno\IeC {\v z}ice}{23}
+\contentsline {section}{\numberline {4.2}Operacije z relacijami}{19}
+\contentsline {section}{\numberline {4.3}Lastnosti relacij}{21}
+\contentsline {section}{\numberline {4.4}Funkcije kot funkcijske relacije}{24}
+\contentsline {section}{\numberline {4.5}Relacije urejenosti}{24}
+\contentsline {section}{\numberline {4.6}Ekvivalen\IeC {\v c}ne relacije in kvocientne mno\IeC {\v z}ice}{24}
 \contentsline {chapter}{\numberline {5}Aksiomatska teorija mno\IeC {\v z}ic}{25}
 \contentsline {section}{\numberline {5.1}Zermelo-Fraenklovi aksiomi}{25}
 \contentsline {section}{\numberline {5.2}Aksiom izbire}{25}
