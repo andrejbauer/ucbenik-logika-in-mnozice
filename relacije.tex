@@ -21,7 +21,17 @@
 		
 		V praksi se povečini uporabljajo relacije med dvema elementoma.
 		\begin{definicija}
-			\df{Dvojiška} (ali s tujko \df{binarna}) \df{relacija} $\rel$ med elementi množic $X$ in $Y$ je podmnožica produkta $X \times Y$, skupaj s podatkom o $X$ in $Y$. Množico $X$ imenujemo \df{začetna množica} ali \df{domena}, kar označimo $\dom(\rel)$, množico $Y$ pa \df{ciljna množica} ali \df{kodomena} relacije $R$, kar označimo $\cod(\rel)$.
+			\df{Dvojiška} (ali s tujko \df{binarna}) \df{relacija} $\rel$ med elementi množic $X$ in $Y$ je podmnožica produkta $X \times Y$, skupaj s podatkom o $X$ in $Y$. Za takšno relacijo definiramo:
+			\begin{itemize}
+				\item
+					množica $X$ je \df{začetna množica} ali \df{domena} relacije $\rel$, kar označimo $\dom(\rel)$,
+				\item
+					množica $Y$ je \df{ciljna množica} ali \df{kodomena} relacije $\rel$, kar označimo $\cod(\rel)$,
+				\item
+					\df{definicijsko območje} ali \df{nosilec} relacije $\rel$ je množica $\dd{\rel} \dfeq \set{x \in X}{\xsome{y}[Y]{x \rel y}}$ (torej $\dd{\rel} \subseteq \dom(\rel)$),
+				\item
+					\df{zaloga vrednosti} ali \df{slika} relacije $\rel$ je množica $\rn{\rel} \dfeq \set{y \in Y}{\xsome{x}[X]{x \rel y}}$ (torej $\dd{\rel} \subseteq \cod(\rel)$).
+			\end{itemize}
 		\end{definicija}
 		
 		Skoraj vse relacije, ki nas zanimajo v tej knjigi, so dvojiške. Zato se dogovorimo, da z izrazom \qt{relacija} vselej mislimo dvojiško relacijo, razen če je izrecno rečeno drugače.
@@ -183,6 +193,10 @@
 					\[\all{x, y, z}[X]{x \rel y \land x \rel z} \implies y = z,\]
 					tj.~vsak element je v relaciji s kvečjemu enim elementom.
 				\item
+					Relacija $\rel$ je \df{celovita}, kadar velja
+					\[\xall{x}[X]{\xsome{y}[Y]{x \rel y}},\]
+					tj.~vsak element je v relaciji z vsaj enim elementom, se pravi $\dd{f} = \dom(f)$.
+				\item
 					Relacija $\rel$ je \df{sovisna}, kadar velja
 					\[\all{x, y}[X]{x \neq y \implies x \rel y \lor y \rel x},\]
 					tj.~za vsaka dva različna elementa velja, da je eden od njiju v relaciji z drugim.
@@ -227,6 +241,7 @@
 				tranzitivnost & $\rel^2 \subseteq \rel$ & \opis{Za vsako pot pozitivne dolžine obstaja puščica, ki gre od začetka do konca poti.} \\
 				intranzitivnost & $\rel^2 \cap \rel = \emptyset$ & \opis{Za nobeno pot pozitivne dolžine ne obstaja puščica, ki gre od začetka do konca poti.} \\
 				enoličnost & $\rel \circ \rel^{-1} \subseteq =_X$ & \opis{Iz vsakega vozlišča gre kvečjemu ena puščica.} \\
+				celovitost & $=_X \subseteq \rel^{-1} \circ \rel$ & \opis{Iz vsakega vozlišča gre vsaj ena puščica.} \\
 				sovisnost & $=_X \cup \rel \cup \rel^{-1} = X$ & \opis{Vsaki dve različni vozlišči sta povezani s puščico.} \\
 				stroga sovisnost & $\rel \cup \rel^{-1} = X$ & \opis{Vsaki dve vozlišči sta povezani s puščico.} \\
 				\hline
@@ -242,6 +257,34 @@
 	\section{Funkcije kot funkcijske relacije}\label{RAZDELEK: Funkcije kot funkcijske relacije}
 	
 		Ko definiramo temeljne matematične pojme, imamo določeno mero izbire, kaj vzamemo za izvoren pojem, kaj pa definiramo preko drugih pojmov. V tej knjigi smo od začetka vzeli funkcije za bolj osnoven pojem in relacije lahko definiramo s pomočjo funkcij (kot omenjeno v opombi~\ref{OPOMBA: definicija relacij}, relacijo lahko definiramo kot družino preslikav), lahko pa postopamo tudi obratno --- pojem funkcije izpeljemo iz pojma relacije. Kako to gre, si bomo pogledali v tem razdelku.
+		
+		\begin{definicija}
+			\df{Delna funkcija} je enolična dvojiška relacija.
+		\end{definicija}
+		
+		Kot dvojiška relacija ima vsaka delna funkcija določeno domeno, kodomeno, definicijsko območje in zalogo vrednosti. Če je $f$ delna funkcija z domeno $X$ in kodomeno $Y$, to zapišemo kot $f\colon X \parto Y$.
+		
+		V primeru delne funkcije podmnožico produkta domene in kodomene, ki določa relacijo, označimo z $\graph{f}$ in imenujemo \df{graf} delne funkcije $f$ (ne zamešaj tega s prej definiranim pojmom grafa relacije --- prejšnji pojem je pomenil graf v smislu teorije grafov, sedanji pojem pa graf v smislu funkcij). Delna funkcija je torej v celoti podana z informacijo o domeni, kodomeni in grafu.
+		
+		Ideja je, da za delno funkcijo $f\colon X \parto Y$ za vsak $x \in \dd{f}$ obstaja natanko en $y \in Y$, s katerim je $x$ v relaciji. To potem zapišemo $f(x) = y$. Torej, če je $x$ v definicijskem območju, rečemo, da je $f(x)$ definiran, kar zapišemo $\isdefined{f(x)}$, in v tem primeru je $f(x)$ enak vrednosti, s katero je $x$ v relaciji. V nasprotnem primeru rečemo, da $f(x)$ ni definiran.
+		
+		Če imamo dve vrednosti, ki morda nista definirani, ni posebej smiselno pisati enakosti med njima. Smiselna relacija med njima je \df{Kleenejeva enakost}, kar pišemo $f(x) \kleq g(y)$, kar pomeni naslednje: leva stran $f(x)$ je definirana natanko tedaj, ko je definirana desna stran $g(y)$, in če sta obe definirani, sta enaki.
+		
+		\begin{zgled}
+			Deljenje na realnih številih lahko obravnavamo kot delno funkcijo $/\colon \RR \times \RR \parto \RR$; njeno definicijsko območje je $\dd{/} = \RR \times \RR_{\neq 0}$. Za vsak $x \in \RR$ velja $\frac{x}{x^2} \kleq \frac{1}{x}$, ne pa tudi $\frac{x^2}{x} \kleq x$ (premisli, zakaj).
+		\end{zgled}
+		
+		\begin{zgled}
+			Delne funkcije so zelo uporabne v računalništvu. Za algoritme pričakujemo, da jim podamo vhodne podatke in bodo potem vrnili željene izhodne podatke. Zgodi se pa lahko, da se algoritem pri nekaterih vhodnih podatkih nikoli ne ustavi (ali javi napako), se pravi, ne dobimo rezultata. Če je $P$ množica možnih podatkov, lahko poljuben (determinističen) algoritem obravnavamo kot delno funkcijo $P \parto P$.
+			
+			Izkaže se, da za nekatere probleme ne obstaja računski postopek, ki bi pri vseh možnih vnosih vrnil pravilen odgovor. Primer tega je \df{problem zaustavitve}: želimo algoritem, ki kot vhodna podatka sprejme poljuben algoritem in poljuben vnos ter se odloči, ali se dani algoritem pri danem vnosu ustavi. Kakršenkoli program, ki sprejme takšna podatka in nikoli ne vrne napačnega rezultata, nujno določa delno funkcijo, ki ni povsod definirana. \note{Verjetno bomo nekje hoteli imeti razdelek o diagonalizaciji; morda lahko tja dodamo dokaz te trditve.}
+		\end{zgled}
+		
+		\begin{definicija}
+			\df{Funkcija} je celovita (z drugimi besedami, povsod definirana) delna funkcija. Če je domena funkcije $f$ množica $X$ in kodomena množica $Y$, to zapišemo kot $f\colon X \to Y$.
+		\end{definicija}
+		
+		Seveda lahko vsako delno funkcijo zožimo do funkcije: delna funkcija $f\colon X \parto Y$ porodi funkcijo $\rstr{f}_{\dd{f}}\colon \dd{f} \to Y$.
 	
 	
 	\section{Relacije urejenosti}
