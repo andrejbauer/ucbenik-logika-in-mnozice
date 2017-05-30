@@ -144,7 +144,7 @@
 %%%%%%  Misc.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 	\newcommand{\intermission}{\bigskip\medskip}
-	\newcommand{\df}[1]{\emph{\textbf{#1}}}  % defined notion
+	\newcommand{\df}[1]{\textit{\textbf{#1}}}  % defined notion
 	\newcommand{\ism}{\cong}  % isomorphic
 	\newcommand{\equ}{\sim}  % equivalent
 	\newcommand{\dfeq}{\mathrel{\mathop:}=}  % definitional equality
@@ -161,9 +161,12 @@
 	\newcommand{\parto}{\mathrel{\rightharpoonup}}  % partial mapping sign
 	\newcommand{\qt}[1]{{\quotedblbase}{#1}{‘‘}}  % text in quotation marks
 	\newcommand{\nls}[1]{\qt{\textit{#1}}}  % sentence in a natural language
-	\newcommand{\rel}{\:\!{\mathscr{R}}\:\!}  % a relation
-	\newcommand{\srel}{\:\!{\mathscr{S}}\:\!}  % a second relation
-	% \mathrel ne deluje najbolje, zato raje ročno nastavljeni presledki
+	\NewDocumentCommand{\rel}
+		{O{\empty} O{\empty}}
+		{\ifthenelse{\equal{#1}{}}{\mathscr{R}}{{#1} \mathrel{\mathscr{R}} {#2}}}  % a relation
+	\NewDocumentCommand{\srel}
+		{O{\empty} O{\empty}}
+		{\ifthenelse{\equal{#1}{}}{\mathscr{S}}{{#1} \mathrel{\mathscr{S}} {#2}}}  % a second relation
 	\newcommand{\dom}{\mathrm{dom}}  % domain
 	\newcommand{\cod}{\mathrm{cod}}  % codomain
 	\newcommand{\dd}[1]{D_{#1}}  % domain of definition
@@ -253,6 +256,7 @@
 	\chapter{Funkcije}
 		\note{Moramo se dogovoriti, kateremu izrazu bomo dali prednost --- `funkcija' ali `preslikava'.}
 		\section{Slike in praslike}
+			\note{Kako jih označevati? Bomo sliko označevali isto kot funkcijo samo (kot je običaj) in se zanašamo, da bodo študenti ločili, kdaj gre za $f\colon X \to Y$ in kdaj za $f\colon \pst(X) \to \pst(Y)$? Podobno, bomo prasliko označevali isto kot inverz in upali, da bodo ločili med $f^{-1}\colon Y \to X$ in $f^{-1}\colon \pst(Y) \to \pst(X)$? Ali uvedemo posebne oznake za sliko in prasliko, recimo $f_*$ in $f^*$?}
 		\section{Injektivnost in surjektivnost}
 			\note{Vključno z ekvivalenco z mono- in epimorfizmi.}
 		\section{Bijektivnost}

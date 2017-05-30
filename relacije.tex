@@ -28,22 +28,22 @@
 				\item
 					množica $Y$ je \df{ciljna množica} ali \df{kodomena} relacije $\rel$, kar označimo $\cod(\rel)$,
 				\item
-					\df{definicijsko območje} ali \df{nosilec} relacije $\rel$ je množica $\dd{\rel} \dfeq \set{x \in X}{\xsome{y}[Y]{x \rel y}}$ (torej $\dd{\rel} \subseteq \dom(\rel)$),
+					\df{definicijsko območje} ali \df{nosilec} relacije $\rel$ je množica $\dd{\rel} \dfeq \set{x \in X}{\xsome{y}[Y]{\rel[x][y]}}$ (torej $\dd{\rel} \subseteq \dom(\rel)$),
 				\item
-					\df{zaloga vrednosti} ali \df{slika} relacije $\rel$ je množica $\rn{\rel} \dfeq \set{y \in Y}{\xsome{x}[X]{x \rel y}}$ (torej $\dd{\rel} \subseteq \cod(\rel)$).
+					\df{zaloga vrednosti} ali \df{slika} relacije $\rel$ je množica $\rn{\rel} \dfeq \set{y \in Y}{\xsome{x}[X]{\rel[x][y]}}$ (torej $\dd{\rel} \subseteq \cod(\rel)$). \note{Morda dodamo kot možno ime še prevod angleške besede `range', se pravi `razpon'?}
 			\end{itemize}
 		\end{definicija}
 		
 		Skoraj vse relacije, ki nas zanimajo v tej knjigi, so dvojiške. Zato se dogovorimo, da z izrazom \qt{relacija} vselej mislimo dvojiško relacijo, razen če je izrecno rečeno drugače.
 		
-		Če je $\rel \subseteq X \times Y$ relacija, potemtakem lahko zapišemo, da sta $x \in X$ in $y \in Y$ v relaciji $\rel$ takole: $(x, y) \in \rel$. Ampak to vodi do čudnih zapisov v primeru običajnih relacij, npr.~$(2, 3) \in <$. To je bolje zapisati $2 < 3$ in posledično se dogovorimo, da v primeru dvojiške relacije raje uporabljamo zapis $x \rel y$.
+		Če je $\rel \subseteq X \times Y$ relacija, potemtakem lahko zapišemo, da sta $x \in X$ in $y \in Y$ v relaciji $\rel$ takole: $(x, y) \in \rel$. Ampak to vodi do čudnih zapisov v primeru običajnih relacij, npr.~$(2, 3) \in \mathnormal{<}$. To je bolje zapisati $2 < 3$ in posledično se dogovorimo, da v primeru dvojiške relacije raje uporabljamo zapis $\rel[x][y]$.
 		
 		Povečini se še dodatno omejimo na relacije z isto domeno in kodomeno.
 		\begin{definicija}
 			\df{Dvojiška} (ali \df{binarna}) \df{relacija} na množici $X$ je podmnožica produkta $X \times X$, skupaj s podatkom o $X$.
 		\end{definicija}
 		
-		Takšne relacije lahko lepo ponazorimo z usmerjenimi grafi. Graf relacije $\rel \subseteq X \times X$ je definiran takole: vozlišča grafa so elementi množice $X$ in za vsaka dva elementa $a, b \in X$, za katera velja $a \rel b$, narišemo puščico od $a$ do $b$.
+		Takšne relacije lahko lepo ponazorimo z usmerjenimi grafi. Graf relacije $\rel \subseteq X \times X$ je definiran takole: vozlišča grafa so elementi množice $X$ in za vsaka dva elementa $a, b \in X$, za katera velja $\rel[a][b]$, narišemo puščico od $a$ do $b$.
 		
 		\GraphInit[vstyle = Normal]
 		\tikzset
@@ -79,9 +79,9 @@
 	
 		Običajno je, da iz že danih matematičnih objektov lahko skonstruiramo nove preko določenih operacij. Z relacijami ni nič drugače; v tem razdelku si bomo ogledali običajne operacije na relacijah.
 		
-		Ker so relacije podmnožice, imamo za začetek vse operacije na podmnožicah. Torej, za poljubno družino $(\rel_i)_{i \in I}$ podmnožic produkta $X \times Y$ sta tudi unija $\bigcup_{i \in I} \rel_i$ in presek $\bigcap_{i \in I} \rel_i$ relaciji. Če je $R \subseteq X \times Y$ relacija, je njena komplementarna relacija $\complement{\rel} = X \times Y \setminus \rel \ \subseteq \ X \times Y$.
+		Ker so relacije podmnožice, imamo za začetek vse operacije na podmnožicah. Torej, za poljubno družino $(\rel_i)_{i \in I}$ podmnožic produkta $X \times Y$ sta tudi unija $\bigcup_{i \in I} \rel_i$ in presek $\bigcap_{i \in I} \rel_i$ relaciji. Če je $\rel \subseteq X \times Y$ relacija, je njena komplementarna relacija $\complement{\rel} = X \times Y \setminus \rel \ \subseteq \ X \times Y$.
 		
-		Posebej imamo \df{prazno relacijo} $\emptyset \subseteq X \times Y$ (nobena dva elementa nista v relaciji) in \df{polno relacijo} $X \times Y\subseteq X \times Y$ (vsaka dva elementa sta v relaciji), ki sta si medsebojno komplementarni.
+		Posebej imamo \df{prazno relacijo} $\emptyset \subseteq X \times Y$ (nobena dva elementa nista v relaciji) in \df{polno relacijo} $X \times Y \subseteq X \times Y$ (vsaka dva elementa sta v relaciji), ki sta si medsebojno komplementarni.
 		
 		Poleg operacij, ki jih relacije podedujejo od podmnožic, imamo še operacije, ki upoštevajo produktno strukturo.
 		
@@ -100,7 +100,7 @@
 		\end{zgled}
 		
 		Za poljubno relacijo $\rel \subseteq X \times Y$ definiramo \df{obratno} (\df{inverzno}) \df{relacijo} kot
-		\[\rel^{-1} \dfeq \set{(y, x) \in Y \times X}{x \rel y}\]
+		\[\rel^{-1} \dfeq \set{(y, x) \in Y \times X}{\rel[x][y]}\]
 		(torej ima obratna relacija glede na izvorno zamenjano domeno in kodomeno). Posledično lahko za poljubno relacijo $\rel \subseteq X \times X$ definiramo njeno potenco s poljubno celo stopnjo: $\rel^{-n} \dfeq (\rel^{-1})^n = (\rel^n)^{-1}$.
 		
 		\begin{zgled}
@@ -160,49 +160,49 @@
 			\begin{itemize}
 				\item
 					Relacija $\rel$ je \df{povratna} (ali \df{refleksivna}), kadar velja
-					\[\xall{x}[X]{x \rel x},\]
+					\[\xall{x}[X]{\rel[x][x]},\]
 					tj.~vsak element je v relaciji s samim sabo.
 				\item
 					Relacija $\rel$ je \df{nepovratna} (ali \df{irefleksivna}), kadar velja
-					\[\xall{x}[X]{\lnot(x \rel x)},\]
+					\[\xall{x}[X]{\lnot(\rel[x][x])},\]
 					tj.~noben element ni v relaciji s samim sabo.
 				\item
 					Relacija $\rel$ je \df{somerna} (ali \df{simetrična}), kadar velja
-					\[\all{x, y}[X]{x \rel y \implies y \rel x},\]
+					\[\all{x, y}[X]{\rel[x][y] \implies \rel[y][x]},\]
 					tj.~če je en element v relaciji z drugim, je tudi drugi s prvim.
 				\item
 					Relacija $\rel$ je \df{protisomerna} (ali \df{antisimetrična}), kadar velja
-					\[\all{x, y}[X]{x \rel y \land y \rel x \implies x = y},\]
+					\[\all{x, y}[X]{\rel[x][y] \land \rel[y][x] \implies x = y},\]
 					tj.~dva elementa sta obojestransko v relaciji samo v primeru, če gre za en in isti element.
 					
 					\note{Mogoče pretiravam s slovenskimi imeni\ldots --Davorin}
 				\item
 					Relacija $\rel$ je \df{nesomerna} (ali \df{asimetrična}), kadar velja
-					\[\xall{x, y}[X]{\lnot(x \rel y \land y \rel x)},\]
+					\[\xall{x, y}[X]{\lnot(\rel[x][y] \land \rel[y][x])},\]
 					tj.~nobena dva elementa nista obojestransko v relaciji.
 				\item
 					Relacija $\rel$ je \df{prehodna} (ali \df{tranzitivna}), kadar velja
-					\[\all{x, y, z}[X]{x \rel y \land y \rel z \implies x \rel z},\]
+					\[\all{x, y, z}[X]{\rel[x][y] \land \rel[y][z] \implies \rel[x][z]},\]
 					tj.~če je en element v relaciji z drugim in drugi s tretjim, je tudi prvi v relaciji s tretjim.
 				\item
 					Relacija $\rel$ je \df{neprehodna} (ali \df{intranzitivna}), kadar velja
-					\[\xall{x, y, z}[X]{\lnot(x \rel y \land y \rel z \land x \rel z)},\]
+					\[\xall{x, y, z}[X]{\lnot(\rel[x][y] \land \rel[y][z] \land \rel[x][z])},\]
 					tj.~če je en element v relaciji z drugim in drugi s tretjim, prvi ne more tudi biti v relaciji s tretjim.
 				\item
 					Relacija $\rel$ je \df{enolična}, kadar velja
-					\[\all{x, y, z}[X]{x \rel y \land x \rel z} \implies y = z,\]
+					\[\all{x, y, z}[X]{\rel[x][y] \land \rel[x][z]} \implies y = z,\]
 					tj.~vsak element je v relaciji s kvečjemu enim elementom.
 				\item
 					Relacija $\rel$ je \df{celovita}, kadar velja
-					\[\xall{x}[X]{\xsome{y}[Y]{x \rel y}},\]
+					\[\xall{x}[X]{\xsome{y}[Y]{\rel[x][y]}},\]
 					tj.~vsak element je v relaciji z vsaj enim elementom, se pravi $\dd{f} = \dom(f)$.
 				\item
 					Relacija $\rel$ je \df{sovisna}, kadar velja
-					\[\all{x, y}[X]{x \neq y \implies x \rel y \lor y \rel x},\]
+					\[\all{x, y}[X]{x \neq y \implies \rel[x][y] \lor \rel[y][x]},\]
 					tj.~za vsaka dva različna elementa velja, da je eden od njiju v relaciji z drugim.
 				\item
 					Relacija $\rel$ je \df{strogo sovisna}, kadar velja
-					\[\all{x, y}[X]{x \rel y \lor y \rel x},\]
+					\[\all{x, y}[X]{\rel[x][y] \lor \rel[y][x]},\]
 					tj.~za vsaka dva elementa velja, da je eden od njiju v relaciji z drugim.
 			\end{itemize}
 		\end{definicija}
@@ -224,6 +224,8 @@
 		\end{zgled}
 		
 		Lastnosti operacij smo podali z izjavami, ampak lahko jih na ekvivalenten način podamo z operacijami ali lastnostmi grafa --- glej tabelo~\ref{TABELA: lastnosti relacije}.
+		
+		\note{Ko \LaTeX\ hoče biti neumen, zna biti precej neumen. Tabelo~\ref{TABELA: lastnosti relacije} vrže na konec celotnega poglavja, čeprav mu je zapovedano, da jo naj da \emph{prav sem}. --Davorin}
 		
 		\begin{table}[!ht]
 			\centering
@@ -275,7 +277,7 @@
 		\end{zgled}
 		
 		\begin{zgled}
-			Delne funkcije so zelo uporabne v računalništvu. Za algoritme pričakujemo, da jim podamo vhodne podatke in bodo potem vrnili željene izhodne podatke. Zgodi se pa lahko, da se algoritem pri nekaterih vhodnih podatkih nikoli ne ustavi (ali javi napako), se pravi, ne dobimo rezultata. Če je $P$ množica možnih podatkov, lahko poljuben (determinističen) algoritem obravnavamo kot delno funkcijo $P \parto P$.
+			Delne funkcije so zelo uporabne v računalništvu. Za algoritme pričakujemo, da jim podamo vhodne podatke in bodo potem vrnili željene izhodne podatke. Zgodi se pa lahko, da se algoritem pri nekaterih vhodnih podatkih nikoli ne ustavi (ali javi napako), se pravi, ne dobimo rezultata. Če je $P$ množica možnih podatkov, lahko poljuben algoritem obravnavamo kot delno funkcijo $P \parto P$.\footnote{Natančneje, to velja za deterministične algoritme (takšne, ki se pri enakih vhodnih podatkih vedno enako obnašajo). V primeru nedeterminističnih algoritmov dobimo preprosto relacijo na $P$.}
 			
 			Izkaže se, da za nekatere probleme ne obstaja računski postopek, ki bi pri vseh možnih vnosih vrnil pravilen odgovor. Primer tega je \df{problem zaustavitve}: želimo algoritem, ki kot vhodna podatka sprejme poljuben algoritem in poljuben vnos ter se odloči, ali se dani algoritem pri danem vnosu ustavi. Kakršenkoli program, ki sprejme takšna podatka in nikoli ne vrne napačnega rezultata, nujno določa delno funkcijo, ki ni povsod definirana. \note{Verjetno bomo nekje hoteli imeti razdelek o diagonalizaciji; morda lahko tja dodamo dokaz te trditve.}
 		\end{zgled}
@@ -287,7 +289,45 @@
 		Seveda lahko vsako delno funkcijo zožimo do funkcije: delna funkcija $f\colon X \parto Y$ porodi funkcijo $\rstr{f}_{\dd{f}}\colon \dd{f} \to Y$.
 	
 	
-	\section{Relacije urejenosti}
-		\note{Vključno z urejenostnimi strukturami. Vključno z morfizmi?}
+	\section{Relacije urejenosti}\label{RAZDELEK: Relacije urejenosti}
+	
+		Že od začetka tega poglavja kot klasične primere relacij podajamo razne urejenosti, kot $\leq$ in $<$. V tem razdelku si bomo ogledali, kakšne lastnosti morajo imeti relacije, da na določen način \qt{urejajo} množico.
+		
+		Sledeča definicija povzame štiri tipične primere relacij urejenosti.
+		
+		\begin{definicija}
+			Naj bo $X$ množica in $\preceq$ relacija na $X$. Tedaj:
+			\begin{itemize}
+				\item
+					relacija $\preceq$ je \df{šibka urejenost}, kadar je refleksivna in tranzitivna,
+				\item
+					relacija $\preceq$ je \df{delna urejenost}, kadar je antisimetrična šibka urejenost (tj.~refleksivna, tranzitivna, antisimetrična),
+				\item
+					relacija $\preceq$ je \df{linearna urejenost}, kadar je strogo sovisna delna urejenost (tj.~refleksivna, tranzitivna, antisimetrična, strogo sovisna),
+				\item
+					relacija $\preceq$ je \df{stroga linearna urejenost}, kadar je irefleksivna, tranzitivna in sovisna.
+			\end{itemize}
+			\note{Poimenovanja v zvezi s sovisnostjo in strogostjo sem povzel po profesorju Petkovšku, ampak mislim, da bi se strogost lahko naredila bolj konsistentna. --Davorin}
+		\end{definicija}
+		
+		V tej definiciji smo uporabili znak $\preceq$ za relacijo. Pogosto uporabimo kakšen takšen znak, če hočemo sugerirati, da gre za relacijo urejenosti.
+		
+		Tipična primera linearne oz.~stroge linearne urejenosti sta relaciji $\leq$ in $<$ na številskih množicah $\NN$, $\ZZ$, $\QQ$, $\RR$. Tipičen primer delne urejenosti, ki ni linearna, je relacija inkluzije $\subseteq$ na katerikoli potenčni množici $\pst(X)$, če ima $X$ vsaj dva elementa.
+		
+		Primere šibkih urejenosti pogosto dobimo na sledeči način. Naj bo $f\colon X \to Y$ funkcija in $\preceq_Y$ neka relacija urejenosti na $Y$. Za poljubna $a, b \in X$ definirajmo
+		\[a \preceq_X b \dfeq f(a) \preceq_Y f(b).\]
+		Tudi če je $\preceq_Y$ močnejše vrste relacija --- delna ali linearna urejenost --- je relacija $\preceq_X$ v splošnem zgolj šibka urejenost na $X$.
+		
+		\note{še več primerov}
+		
+		\note{razlaga imen relacij}
+		
+		\note{strukturirane množice, opremljene z urejenostmi; nasprotne urejenosti}
+		
+		\note{monotone preslikave, antitone preslikave (naraščajoče, padajoče?)}
+		
+		\note{druge vrste urejenosti (mreže, dobre urejenosti\ldots)}
+	
+	
 	\section{Ekvivalenčne relacije in kvocientne množice}
 		\note{Sem dodajmo kanonični razcep funkcije (na surjekcijo/kvocient, bijekcijo, injekcijo/vložitev).}
