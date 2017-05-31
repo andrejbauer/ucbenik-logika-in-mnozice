@@ -21,7 +21,7 @@
 		
 		V praksi se povečini uporabljajo relacije med dvema elementoma.
 		\begin{definicija}
-			\df{Dvojiška} (ali s tujko \df{binarna}) \df{relacija} $\rel$ med elementi množic $X$ in $Y$ je podmnožica produkta $X \times Y$, skupaj s podatkom o $X$ in $Y$. Za takšno relacijo definiramo:
+			\df{Dvomestna} (ali \df{dvojiška} ali \df{binarna}) \df{relacija} $\rel$ med elementi množic $X$ in $Y$ je podmnožica produkta $X \times Y$, skupaj s podatkom o $X$ in $Y$. Za takšno relacijo definiramo:
 			\begin{itemize}
 				\item
 					množica $X$ je \df{začetna množica} ali \df{domena} relacije $\rel$, kar označimo $\dom(\rel)$,
@@ -34,13 +34,13 @@
 			\end{itemize}
 		\end{definicija}
 		
-		Skoraj vse relacije, ki nas zanimajo v tej knjigi, so dvojiške. Zato se dogovorimo, da z izrazom \qt{relacija} vselej mislimo dvojiško relacijo, razen če je izrecno rečeno drugače.
+		Skoraj vse relacije, ki nas zanimajo v tej knjigi, so dvomestne. Zato se dogovorimo, da z izrazom \qt{relacija} vselej mislimo dvomestno relacijo, razen če je izrecno rečeno drugače.
 		
 		Če je $\rel \subseteq X \times Y$ relacija, potemtakem lahko zapišemo, da sta $x \in X$ in $y \in Y$ v relaciji $\rel$ takole: $(x, y) \in \rel$. Ampak to vodi do čudnih zapisov v primeru običajnih relacij, npr.~$(2, 3) \in \mathnormal{<}$. To je bolje zapisati $2 < 3$ in posledično se dogovorimo, da v primeru dvojiške relacije raje uporabljamo zapis $\rel[x][y]$.
 		
 		Povečini se še dodatno omejimo na relacije z isto domeno in kodomeno.
 		\begin{definicija}
-			\df{Dvojiška} (ali \df{binarna}) \df{relacija} na množici $X$ je podmnožica produkta $X \times X$, skupaj s podatkom o $X$.
+			\df{Dvomestna} (\df{dvojiška}, \df{binarna}) \df{relacija} na množici $X$ je podmnožica produkta $X \times X$, skupaj s podatkom o $X$.
 		\end{definicija}
 		
 		Takšne relacije lahko lepo ponazorimo z usmerjenimi grafi. Graf relacije $\rel \subseteq X \times X$ je definiran takole: vozlišča grafa so elementi množice $X$ in za vsaka dva elementa $a, b \in X$, za katera velja $\rel[a][b]$, narišemo puščico od $a$ do $b$.
@@ -86,7 +86,7 @@
 		Poleg operacij, ki jih relacije podedujejo od podmnožic, imamo še operacije, ki upoštevajo produktno strukturo.
 		
 		Če so $X$, $Y$, $Z$ množice in $\rel \subseteq X \times Y$, $\srel \subseteq Y \times Z$ relaciji, tedaj je \df{sklop} (\df{kompozitum}) \df{relacij} definiran kot
-		\[\srel \circ \rel \dfeq \set[1]{(x, z) \in X \times Z}{\some{y}[Y]{x \rel y \land y \srel z}}\]
+		\[\srel \circ \rel \dfeq \set[1]{(x, z) \in X \times Z}{\some{y}[Y]{\rel[x][y] \land \srel[y][z]}}\]
 		(po vzoru funkcij tudi kompozicijo relacij pišemo v obratnem vrstnem redu; glej razdelek~\ref{RAZDELEK: Funkcije kot funkcijske relacije}). Opazimo: domena $\srel \circ \rel$ je domena $\rel$, kodomena $\srel \circ \rel$ je kodomena $\srel$. Sklapljanje je asociativna operacija, torej pri sklopu večih relacij oklepaji niso pomembni.
 		
 		Večkraten sklop relacije $\rel \subseteq X \times X$ same s sabo označimo
@@ -153,7 +153,7 @@
 	
 		Vemo, da so na primer racionalna števila uporabnejša od celih, saj lahko v okviru njih dodatno delimo --- z drugimi besedami, racionalna števila imajo več uporabne \emph{strukture} oz.~več uporabnih \emph{lastnosti}. Podobno za relacije obstajajo lastnosti, ki so se skozi prakso izkazale za zelo uporabne. Nekatere izmed njih si bomo ogledali v tem razdelku.
 		
-		Vse sledeče lastnosti se nanašajo na dvojiško relacijo z isto domeno in kodomeno.
+		Vse sledeče lastnosti se nanašajo na dvomestno relacijo z isto domeno in kodomeno.
 		
 		\begin{definicija}
 			Naj bo $\rel \subseteq X \times X$ relacija.
@@ -190,7 +190,7 @@
 					tj.~če je en element v relaciji z drugim in drugi s tretjim, prvi ne more tudi biti v relaciji s tretjim.
 				\item
 					Relacija $\rel$ je \df{enolična}, kadar velja
-					\[\all{x, y, z}[X]{\rel[x][y] \land \rel[x][z]} \implies y = z,\]
+					\[\all{x, y, z}[X]{\rel[x][y] \land \rel[x][z] \implies y = z},\]
 					tj.~vsak element je v relaciji s kvečjemu enim elementom.
 				\item
 					Relacija $\rel$ je \df{celovita}, kadar velja
@@ -254,6 +254,20 @@
 		\begin{vaja}
 			Dokaži, da so vse karakterizacije v vsaki vrstici tabele~\ref{TABELA: lastnosti relacije} res ekvivalentne!
 		\end{vaja}
+		
+		Marsikdaj imamo sledeči problem: za določene pare elementov $(x_i, y_i)_{i \in I}$ hočemo, da so v neki relaciji in relacija mora zadoščati predpisani lastnosti. Kako definirati takšno relacijo? Smiselna izbira je vzeti najmanjšo relacijo s predpisano lastnostjo, ki vsebuje vse $(x_i, y_i)$. V ta namen definiramo pojem ogrinjače relacij.
+		
+		\begin{definicija}
+			Naj bo $\rel \subseteq X \times X$ relacija in $\mathscr{L}$ lastnost relacij na $X$. Najmanjša relacija na $X$, ki vsebuje $\rel$ in ima lastnost $\mathscr{L}$, se imenuje \df{$\mathscr{L}$-ogrinjača} ali \df{$\mathscr{L}$-ovojnica} relacije $\rel$.
+		\end{definicija}
+		
+		Ogrinjača relacije je dobro definirana (v smislu, da je enolično določena): če imamo dve relaciji $\rel$ in $\srel$, ki obe vsebujeta dano relacijo in imata lastnost $\mathscr{L}$ ter sta najmanjši taki, mora potem veljati, da sta vsebovani ena v drugi, tj.~$\rel \subseteq \srel$ in $\srel \subseteq \rel$, kar pomeni, da sta enaki.
+		
+		Ni pa nujno, da ogrinjača dane relacije za dano lastnost sploh obstaja --- na primer, irefleksivna ogrinjača ne obstaja za nobeno relacijo, ki ni že sama po sebi irefleksivna (premisli, zakaj). Seveda, če relacija je irefleksivna, tedaj je svoja lastna irefleksivna ogrinjača. To očitno velja v splošnem: če ima relacija lastnost $\mathscr{L}$, je enaka svoji $\mathscr{L}$-ogrinjači.
+		
+		Premislimo, kdaj smo lahko gotovi, da ogrinjača obstaja.
+		
+		\note{...}
 	
 	
 	\section{Funkcije kot funkcijske relacije}\label{RAZDELEK: Funkcije kot funkcijske relacije}
@@ -261,10 +275,10 @@
 		Ko definiramo temeljne matematične pojme, imamo določeno mero izbire, kaj vzamemo za izvoren pojem, kaj pa definiramo preko drugih pojmov. V tej knjigi smo od začetka vzeli funkcije za bolj osnoven pojem in relacije lahko definiramo s pomočjo funkcij (kot omenjeno v opombi~\ref{OPOMBA: definicija relacij}, relacijo lahko definiramo kot družino preslikav), lahko pa postopamo tudi obratno --- pojem funkcije izpeljemo iz pojma relacije. Kako to gre, si bomo pogledali v tem razdelku.
 		
 		\begin{definicija}
-			\df{Delna funkcija} je enolična dvojiška relacija.
+			\df{Delna funkcija} je enolična dvomestna relacija.
 		\end{definicija}
 		
-		Kot dvojiška relacija ima vsaka delna funkcija določeno domeno, kodomeno, definicijsko območje in zalogo vrednosti. Če je $f$ delna funkcija z domeno $X$ in kodomeno $Y$, to zapišemo kot $f\colon X \parto Y$.
+		Kot dvomestna relacija ima vsaka delna funkcija določeno domeno, kodomeno, definicijsko območje in zalogo vrednosti. Če je $f$ delna funkcija z domeno $X$ in kodomeno $Y$, to zapišemo kot $f\colon X \parto Y$.
 		
 		V primeru delne funkcije podmnožico produkta domene in kodomene, ki določa relacijo, označimo z $\graph{f}$ in imenujemo \df{graf} delne funkcije $f$ (ne zamešaj tega s prej definiranim pojmom grafa relacije --- prejšnji pojem je pomenil graf v smislu teorije grafov, sedanji pojem pa graf v smislu funkcij). Delna funkcija je torej v celoti podana z informacijo o domeni, kodomeni in grafu.
 		

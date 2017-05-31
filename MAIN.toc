@@ -21,7 +21,7 @@
 \contentsline {section}{\numberline {4.1}Splo\IeC {\v s}no o relacijah}{17}
 \contentsline {section}{\numberline {4.2}Operacije z relacijami}{19}
 \contentsline {section}{\numberline {4.3}Lastnosti relacij}{21}
-\contentsline {section}{\numberline {4.4}Funkcije kot funkcijske relacije}{23}
+\contentsline {section}{\numberline {4.4}Funkcije kot funkcijske relacije}{24}
 \contentsline {section}{\numberline {4.5}Relacije urejenosti}{25}
 \contentsline {section}{\numberline {4.6}Ekvivalen\IeC {\v c}ne relacije in kvocientne mno\IeC {\v z}ice}{26}
 \contentsline {chapter}{\numberline {5}Aksiomatska teorija mno\IeC {\v z}ic}{29}
