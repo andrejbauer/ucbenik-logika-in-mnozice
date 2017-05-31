@@ -103,6 +103,10 @@
 		\[\rel^{-1} \dfeq \set{(y, x) \in Y \times X}{\rel[x][y]}\]
 		(torej ima obratna relacija glede na izvorno zamenjano domeno in kodomeno). Posledično lahko za poljubno relacijo $\rel \subseteq X \times X$ definiramo njeno potenco s poljubno celo stopnjo: $\rel^{-n} \dfeq (\rel^{-1})^n = (\rel^n)^{-1}$.
 		
+		\begin{vaja}
+			Preveri, da velja $(\srel \circ \rel)^{-1} = \rel^{-1} \circ \srel^{-1}$!
+		\end{vaja}
+		
 		\begin{zgled}
 			Graf relacije, ki je inverzna relaciji $\rel \subseteq X \times X$, dobimo tako, da v grafu relacije $\rel$ obrnemo puščice. Na primer, če je $\rel$ relacija iz zgleda~\ref{ZGLED: graf relacije}, tedaj graf relacije $\rel^{-1}$ izgleda takole.
 			
@@ -267,7 +271,66 @@
 		
 		Premislimo, kdaj smo lahko gotovi, da ogrinjača obstaja.
 		
-		\note{...}
+		\begin{definicija}
+			Naj bo $X$ množica in $\mathscr{L}$ lastnost relacij na $X$. Rečemo, da je $\mathscr{L}$ \df{presečno dedna}, kadar velja: poljuben presek relacij na $X$ z lastnostjo $\mathscr{L}$ prav tako ima lastnost $\mathscr{L}$.
+		\end{definicija}
+		
+		\begin{vaja}\label{VAJA: presečna dednost zaprta za konjunkcije}
+			Dokaži: konjunkcija končno mnogo presečno dednih lastnosti relacij na dani množici je presečno dedna.
+		\end{vaja}
+		
+		\begin{trditev}\label{TRDITEV: obstoj ogrinjače iz presečne dednosti}
+			Če je $\mathscr{L}$ presečno dedna lastnost relacij na $X$, tedaj za vsako relacijo $\rel$ na $X$ obstaja njena $\mathscr{L}$-ogrinjača, in sicer je enaka preseku vseh relacij na $X$, ki vsebujejo $\rel$ in imajo lastnost $\mathscr{L}$.
+		\end{trditev}
+		
+		\begin{dokaz}
+			Naj bo $\srel$ presek vseh relacij na $X$, ki vsebujejo $\rel$ in imajo lastnost $\mathscr{L}$. Posledično je $\srel$ vsebovana v vseh relacijah na $X$ z lastnostjo $\mathscr{L}$, ki vsebujejo $\rel$. Ker je $\mathscr{L}$ presečno dedna lastnost, jo ima tudi $\srel$.
+		\end{dokaz}
+		
+		Kako pa vemo, kdaj je lastnost presečno dedna? Včasih lahko to razberemo kar iz oblike logične formule, s katero je lastnost podana.
+		
+		\begin{izrek}\label{IZREK: presečna dednost iz logične oblike}
+			Naj bo $\mathscr{L}$ lastnost relacij na množici $X$, ki jo lahko za poljubno relacijo $\rel$ podamo z zapisom oblike
+			\[\all[1]{x_1, x_2, \ldots, x_n}[X]{\phi(\rel, x_1, x_2, \ldots, x_n) \implies \psi(\rel, x_1, x_2, \ldots, x_n)},\]
+			kjer sta $\phi(\rel, x_1, x_2, \ldots, x_n)$ in $\psi(\rel, x_1, x_2, \ldots, x_n)$ konjunkciji končno mnogo členov oblike $\rel[x_i][x_j]$ --- v posebnem primeru je lahko $\phi(\rel, x_1, x_2, \ldots, x_n)$ konjunkcija nič členov in potem je $\mathscr{L}$ podana z zapisom oblike
+			\[\xall{x_1, x_2, \ldots, x_n}[X]{\psi(\rel, x_1, x_2, \ldots, x_n)}.\]
+			Tedaj je $\mathscr{L}$ presečno dedna lastnost in torej ima vsaka relacija na $X$ $\mathscr{L}$-ogrinjačo.
+		\end{izrek}
+		
+		\begin{dokaz}
+			Naj bo $(\rel_i)_{i \in I}$ poljubna družina relacij na $X$ z lastnostjo $\mathscr{L}$ in naj bo $\rel \dfeq \bigcap_{i \in I} \rel_I$ njen presek. Dokazujemo, da $\mathscr{L}$ velja za $\rel$.
+			
+			Vzemimo poljubne $x_1, x_2, \ldots, x_n \in X$, za katere velja $\phi(\rel, x_1, x_2, \ldots, x_n)$. Ker je $\phi(\rel, x_1, x_2, \ldots, x_n)$ konjunkcija členov oblike $\rel[x_i][x_j]$, velja tudi $\phi(\rel_i, x_1, x_2, \ldots, x_n)$ za vsak $i \in I$. Po predpostavki torej velja $\psi(\rel_i, x_1, x_2, \ldots, x_n)$ za vsak $i \in I$.
+			
+			Vzemimo poljuben člen $\rel[x_a][x_b]$ iz $\psi(\rel, x_1, x_2, \ldots, x_n)$. Videli smo, da velja $x_a \mathrel{\rel_i} x_b$ za vsak $i \in I$, torej velja $\rel[x_a][x_b]$.
+			
+			Vidimo, da pod našimi predpostavkami velja $\psi(\rel, x_1, x_2, \ldots, x_n)$. Sklenemo, da velja lastnost $\mathscr{L}$ za relacijo $\rel$.
+		\end{dokaz}
+		
+		\begin{posledica}
+			Za naslednje lastnosti relacij (in njihovo poljubno konjunkcijo) vselej obstaja ogrinjača: refleksivnost, simetričnost, tranzitivnost.
+		\end{posledica}
+		
+		\begin{dokaz}
+			Vse izmed naštetih lastnosti se po definiciji dajo zapisati v obliki iz izreka~\ref{IZREK: presečna dednost iz logične oblike}. Za njihovo konjunkcijo glej še vajo~\ref{VAJA: presečna dednost zaprta za konjunkcije} in trditev~\ref{TRDITEV: obstoj ogrinjače iz presečne dednosti}.
+		\end{dokaz}
+		
+		\begin{vaja}
+			Dokaži, da za poljubno relacijo $\rel$ na množici $X$ velja spodnja tabela!
+			\begin{center}
+				\begin{tabular}{|c|c|}
+					\hline
+					\textbf{Lastnost} & \textbf{Ogrinjača relacije $\rel$} \\
+					\hline
+					refleksivnost & $\rel \cup =_X$ \\
+					simetričnost & $\rel \cup \rel^{-1}$ \\
+					tranzitivnost & $\bigcup_{n \in \NN_{\geq 1}} \rel^n$ \\
+					\hline
+				\end{tabular}
+			\end{center}
+		\end{vaja}
+		
+		\note{ena izmed nalog: Za relacijo $\rel[n][(n+1)]$ na $\NN$ (ali $\ZZ$) preveri, da je njena tranzitivna ogrinjača $<$.}
 	
 	
 	\section{Funkcije kot funkcijske relacije}\label{RAZDELEK: Funkcije kot funkcijske relacije}
