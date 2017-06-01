@@ -30,7 +30,7 @@
 				\item
 					\df{definicijsko območje} ali \df{nosilec} relacije $\rel$ je množica $\dd{\rel} \dfeq \set{x \in X}{\xsome{y}[Y]{\rel[x][y]}}$ (torej $\dd{\rel} \subseteq \dom(\rel)$),
 				\item
-					\df{zaloga vrednosti} ali \df{slika} relacije $\rel$ je množica $\rn{\rel} \dfeq \set{y \in Y}{\xsome{x}[X]{\rel[x][y]}}$ (torej $\dd{\rel} \subseteq \cod(\rel)$). \note{Morda dodamo kot možno ime še prevod angleške besede `range', se pravi `razpon'?}
+					\df{zaloga vrednosti} ali \df{slika} relacije $\rel$ je množica $\rn{\rel} \dfeq \set{y \in Y}{\xsome{x}[X]{\rel[x][y]}}$ (torej $\dd{\rel} \subseteq \cod(\rel)$). \davorin{Morda dodamo kot možno ime še prevod angleške besede `range', se pravi `razpon'?}
 			\end{itemize}
 		\end{definicija}
 		
@@ -71,7 +71,7 @@
 					%\Loop[dist = 5em, dir = EA](B)
 				%\end{tikzpicture}
 			%\end{center}
-			%\note{izgled grafa je še treba popraviti}
+			%\davorin{izgled grafa je še treba popraviti}
 		\end{zgled}
 	
 	
@@ -149,7 +149,7 @@
 			
 			Sklapljanje relacij ni komutativno; na primer $\texttt{Ma} \circ \texttt{Oč}$ je stari oče po materini strani, $\texttt{Oč} \circ \texttt{Ma}$ pa stara mama po očetovi strani.
 			
-			\note{V tem zgledu sicer predpostavljamo, da je vsaka oseba bodisi moškega bodisi ženskega spola, kar ni čisto res. Ima kdo kakšno idejo, kako se temu izogniti (in še vedno imeti lahko razumljiv zgled)?}
+			\davorin{V tem zgledu sicer predpostavljamo, da je vsaka oseba bodisi moškega bodisi ženskega spola, kar ni čisto res. Ima kdo kakšno idejo, kako se temu izogniti (in še vedno imeti lahko razumljiv zgled)?}
 		\end{zgled}
 	
 	
@@ -179,7 +179,7 @@
 					\[\all{x, y}[X]{\rel[x][y] \land \rel[y][x] \implies x = y},\]
 					tj.~dva elementa sta obojestransko v relaciji samo v primeru, če gre za en in isti element.
 					
-					\note{Mogoče pretiravam s slovenskimi imeni\ldots --Davorin}
+					\davorin{Mogoče pretiravam s slovenskimi imeni\ldots}
 				\item
 					Relacija $\rel$ je \df{nesomerna} (ali \df{asimetrična}), kadar velja
 					\[\xall{x, y}[X]{\lnot(\rel[x][y] \land \rel[y][x])},\]
@@ -229,7 +229,7 @@
 		
 		Lastnosti operacij smo podali z izjavami, ampak lahko jih na ekvivalenten način podamo z operacijami ali lastnostmi grafa --- glej tabelo~\ref{TABELA: lastnosti relacije}.
 		
-		\note{Ko \LaTeX\ hoče biti neumen, zna biti precej neumen. Tabelo~\ref{TABELA: lastnosti relacije} vrže na konec celotnega poglavja, čeprav mu je zapovedano, da jo naj da \emph{prav sem}. --Davorin}
+		\davorin{Ko \LaTeX\ hoče biti neumen, zna biti precej neumen. Tabelo~\ref{TABELA: lastnosti relacije} vrže na konec celotnega poglavja, čeprav mu je zapovedano, da jo naj da \emph{prav sem}.}
 		
 		\begin{table}[!ht]
 			\centering
@@ -356,7 +356,7 @@
 		\begin{zgled}
 			Delne funkcije so zelo uporabne v računalništvu. Za algoritme pričakujemo, da jim podamo vhodne podatke in bodo potem vrnili željene izhodne podatke. Zgodi se pa lahko, da se algoritem pri nekaterih vhodnih podatkih nikoli ne ustavi (ali javi napako), se pravi, ne dobimo rezultata. Če je $P$ množica možnih podatkov, lahko poljuben algoritem obravnavamo kot delno funkcijo $P \parto P$.\footnote{Natančneje, to velja za deterministične algoritme (takšne, ki se pri enakih vhodnih podatkih vedno enako obnašajo). V primeru nedeterminističnih algoritmov dobimo preprosto relacijo na $P$.}
 			
-			Izkaže se, da za nekatere probleme ne obstaja računski postopek, ki bi pri vseh možnih vnosih vrnil pravilen odgovor. Primer tega je \df{problem zaustavitve}: želimo algoritem, ki kot vhodna podatka sprejme poljuben algoritem in poljuben vnos ter se odloči, ali se dani algoritem pri danem vnosu ustavi. Kakršenkoli program, ki sprejme takšna podatka in nikoli ne vrne napačnega rezultata, nujno določa delno funkcijo, ki ni povsod definirana. \note{Verjetno bomo nekje hoteli imeti razdelek o diagonalizaciji; morda lahko tja dodamo dokaz te trditve.}
+			Izkaže se, da za nekatere probleme ne obstaja računski postopek, ki bi pri vseh možnih vnosih vrnil pravilen odgovor. Primer tega je \df{problem zaustavitve}: želimo algoritem, ki kot vhodna podatka sprejme poljuben algoritem in poljuben vnos ter se odloči, ali se dani algoritem pri danem vnosu ustavi. Kakršenkoli program, ki sprejme takšna podatka in nikoli ne vrne napačnega rezultata, nujno določa delno funkcijo, ki ni povsod definirana. \davorin{Verjetno bomo nekje hoteli imeti razdelek o diagonalizaciji; morda lahko tja dodamo dokaz te trditve.}
 		\end{zgled}
 		
 		\begin{definicija}
@@ -384,7 +384,7 @@
 				\item
 					relacija $\preceq$ je \df{stroga linearna urejenost}, kadar je irefleksivna, tranzitivna in sovisna.
 			\end{itemize}
-			\note{Poimenovanja v zvezi s sovisnostjo in strogostjo sem povzel po profesorju Petkovšku, ampak mislim, da bi se strogost lahko naredila bolj konsistentna. --Davorin}
+			\davorin{Poimenovanja v zvezi s sovisnostjo in strogostjo sem povzel po profesorju Petkovšku, ampak mislim, da bi se strogost lahko naredila bolj konsistentna.}
 		\end{definicija}
 		
 		V tej definiciji smo uporabili znak $\preceq$ za relacijo. Pogosto uporabimo kakšen takšen znak, če hočemo sugerirati, da gre za relacijo urejenosti.
@@ -407,4 +407,19 @@
 	
 	
 	\section{Ekvivalenčne relacije in kvocientne množice}
-		\note{Sem dodajmo kanonični razcep funkcije (na surjekcijo/kvocient, bijekcijo, injekcijo/vložitev).}
+	
+		Ena temeljnih matematičnih dejavnosti je \df{abstrakcija} \davorin{pojmovanje?}, tj.~iz posamičnih primerov izluščimo njihovo temeljno, bistveno lastnost in potem delamo s to lastnostjo. \davorin{To je pomembna stvar. Dajmo to razlago čimbolj izboljšati.} Na primer, vemo, kaj pomeni \qt{pet rac}, \qt{pet avtov}, \qt{pet sekund}, ampak kaj pomeni \qt{pet}?
+		
+		V tem razdelku si bomo ogledali, kako lahko formalno abstrahiramo pojme s posamičnih primerov s pomočjo ekvivalenčnih relacij.
+		
+		\begin{definicija}
+			\df{Ekvivalenčna relacija} je relacija, ki je refleksivna, simetrična in tranzitivna.
+		\end{definicija}
+		
+		Ekvivalenčne relacije tipično označimo z $\equ$ ali čim podobnih.
+		
+		\begin{zgled}
+			Vsaka množica $X$ ima najmanjšo ekvivalenčno relacijo --- enakost $=_X$ --- in največjo --- polno relacijo $X \times X$.
+		\end{zgled}
+		
+		\note{kanonični razcep funkcije (na surjekcijo/kvocient, bijekcijo, injekcijo/vložitev)}

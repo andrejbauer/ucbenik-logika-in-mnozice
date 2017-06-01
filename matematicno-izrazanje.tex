@@ -1,8 +1,10 @@
 \chapter{Matematično izražanje}\label{POGLAVJE: Matematično izražanje}
 
-	\note{Za začetek bom vnašal oporne točke besedila. Slog bo verjetno treba še popraviti in besedilo dopolniti. --Davorin}
+	\alert{Vsak ima svoj ukaz za pisanje pripomb: \textcolor{andrejcolor}{\texttt{$\backslash$andrej\{\ldots\}}}, \textcolor{davorincolor}{\texttt{$\backslash$davorin\{\ldots\}}}, \textcolor{markocolor}{\texttt{$\backslash$marko\{\ldots\}}}, \textcolor{matijacolor}{\texttt{$\backslash$matija\{\ldots\}}}, kar bo izpisalo pripombo v ustrezni barvi. Če vam vaša barva ni všeč, popravite. ;)}
 	
-	\textcolor{red}{\small \textbf{Če je možno, prosim uporabljajte tabulatorje namesto presledkov za zamike v latex kodi in koda naj nima izrecno vnešenih prelomov vrstic, pač pa se v urejevalniku besedila uporablja avtomatski word wrap, ki se prilagaja širini okna. --Davorin}}
+	\davorin{Za začetek bom vnašal oporne točke besedila. Slog bo treba še popraviti in besedilo dopolniti.}
+	
+	\alert{Če je možno, prosim uporabljajte tabulatorje namesto presledkov za zamike v latex kodi in koda naj nima izrecno vnešenih prelomov vrstic, pač pa se v urejevalniku besedila uporablja avtomatski word wrap, ki se prilagaja širini okna. \ --Davorin}
 	
 	Za matematično delo je bistveno, da se lahko zanašamo na pravilnost naših trditev. To pomeni:
 	\begin{itemize}
@@ -42,10 +44,10 @@
 		
 		Če interval v katero smer gre v nedogled, preprosto zapišemo množico z ustrezno relacijo urejenosti in krajiščem v indeksu. Na primer, $\RR_{> 0}$ označuje množico pozitivnih realnih števil, $\RR_{\geq 0}$ pa množico nenegativnih realnih števil.
 		
-		\note{To bi vsaj bil moj predlog. Na ta način se izognemo dvoumnostim (kar je namen). Na primer, kaj pomeni $\forall\, a > 0$? Če zapišemo $\forall\, a \in \NN_{> 0}$ ali $\forall\, a \in \RR_{> 0}$, je jasno. Razlog, da matematiki \qt{goljufajo} in pridejo skozi brez tega, je (napol dogovorjena in ponotranjena, ampak arbitrarna) izbira črk; vsak izkušen matematik ve, da $\forall\, \epsilon > 0$ pomeni $\forall\, \epsilon \in \RR_{> 0}$. Dodaten problem je, da kasneje uporabljamo urejene pare, ki jih vsi na naši fakulteti pišejo z okroglimi oklepaji. Poskusimo se izogniti zmedi, ali $(a, b)$ pomeni urejeni par ali odprti interval.
+		\davorin{To bi vsaj bil moj predlog. Na ta način se izognemo dvoumnostim (kar je namen). Na primer, kaj pomeni $\forall\, a > 0$? Če zapišemo $\forall\, a \in \NN_{> 0}$ ali $\forall\, a \in \RR_{> 0}$, je jasno. Razlog, da matematiki \qt{goljufajo} in pridejo skozi brez tega, je (napol dogovorjena in ponotranjena, ampak arbitrarna) izbira črk; vsak izkušen matematik ve, da $\forall\, \epsilon > 0$ pomeni $\forall\, \epsilon \in \RR_{> 0}$. Dodaten problem je, da kasneje uporabljamo urejene pare, ki jih vsi na naši fakulteti pišejo z okroglimi oklepaji. Poskusimo se izogniti zmedi, ali $(a, b)$ pomeni urejeni par ali odprti interval.
 		\\
 		\\
-		Če se ne strinjate, popravite in pustite komentar. --Davorin}
+		Če se ne strinjate, popravite in pustite komentar.}
 		
 		Izjavo, da je $2$ naravno število, zapišemo takole: $2 \in \NN$ (beri: $2$ pripada množici naravnih števil). Kako zapišemo, da je $a$ sodo število? Število je sodo, kadar je deljivo z $2$, torej pišemo $2 | a$ (beri: $2$ deli $a$).
 		
@@ -102,7 +104,7 @@
 			\end{quote}
 			Tedaj $\lnot{p} \land q$ pomeni isto kot $(\lnot{p}) \land q$, to je \nls{Nimam časa in ostanem doma.}, medtem ko $\lnot(p \land q)$ pomeni \nls{Ni res, da imam čas in ostanem doma.}.
 		\end{zgled}
-		\note{Če komu pade na pamet primer boljših stavkov, je zaželjeno, da popravi\ldots --Davorin}
+		\davorin{Če komu pade na pamet primer boljših stavkov, je zaželjeno, da popravi\ldots}
 		
 		Poleg zgoraj navedenih izjavnih veznikov se včasih uporabljajo še sledeči (tabela~\ref{TABELA: nadaljnji izjavni vezniki}).
 		
@@ -142,7 +144,7 @@
 			\caption{izražava nadaljnjih izjavnih veznikov s standardnimi}\label{TABELA: izražava nadaljnjih izjavnih veznikov s standardnimi}
 		\end{table}
 		
-		\note{Na tem mestu povejmo, kakšno prednost damo tem trem veznikom v primerjavi s standardnimi. Kateremu dogovoru sledimo?}
+		\davorin{Na tem mestu povejmo, kakšno prednost damo tem trem veznikom v primerjavi s standardnimi. Kateremu dogovoru sledimo?}
 		
 		Včasih so izjave odvisne od kakšnih parametrov. Na primer, naj $\phi(x)$ pomeni \nls{$x$ je zelen.}; tedaj $\phi(\text{trava})$ pomeni \nls{Trava je zelena.}. Takim odvisnim izjavam rečemo \df{predikati} in izražajo lastnosti, ki jim parametri (\qt{spremenljivke}) lahko zadoščajo.
 		
@@ -173,7 +175,7 @@
 		Po dogovoru kvantifikatorji vežejo šibkeje kot izjavni vezniki. Izjavo, da je vsako celo število bodisi liho bodisi sodo, torej zapišemo takole.
 		\[\all[2]{a}[\ZZ]{2 | a \xor 2 | (a-1)}\]
 		
-		\note{Se že na tem mestu predebatirajo vezane oz.~nevezane spremenljivke ter preimenovanje spremenljivk? Kaj je slovenski prevod za `dummy variable'?}
+		\davorin{Se že na tem mestu predebatirajo vezane oz.~nevezane spremenljivke ter preimenovanje spremenljivk? Kaj je slovenski prevod za `dummy variable'?}
 		
 		\begin{zgled}
 			Za poljubno naravno število $n \in \NN$ naj $P(n)$ označuje izjavo, da je $n$ praštevilo. Torej, $P$ definiramo takole.
@@ -215,4 +217,4 @@
 	
 	\section{Definicije}
 	
-		\note{Predlagam, da v definicijah konsistentno uporabljamo `kadar' namesto `če' (\qt{Funkcija je zvezna, kadar velja to in to.}). V definicijah gre za ekvivalenco, ne implikacijo. --Davorin}
+		\davorin{Predlagam, da v definicijah konsistentno uporabljamo `kadar' namesto `če' (\qt{Funkcija je zvezna, kadar velja to in to.}). V definicijah gre za ekvivalenco, ne implikacijo.}
