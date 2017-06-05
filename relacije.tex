@@ -422,4 +422,44 @@
 			Vsaka množica $X$ ima najmanjšo ekvivalenčno relacijo --- enakost $=_X$ --- in največjo --- polno relacijo $X \times X$.
 		\end{zgled}
 		
+		\begin{zgled}
+			Za poljubni celi števili $a, b \in \ZZ$ definiramo: $a$ je v relaciji z $b$, kadar sta $a$ in $b$ iste parnosti. To določa ekvivalenčno relacijo na $\ZZ$.
+		\end{zgled}
+		
+		Za poljubno relacijo $\rel \subseteq X \times X$ in poljuben $a \in X$ lahko definiramo
+		\[\ec[\rel]{a} \dfeq \set{x \in X}{\rel[a][x]}.\]
+		Torej, $\ec[\rel]{a}$ sestoji iz vseh elementov, s katerimi je $a$ v relaciji. V primeru, da imamo ekvivalenčno relacijo $\equ$, imenujemo množico $\ec[\equ]{a}$ \df{ekvivalenčni razred} elementa $a$. Kadar je jasno, za katero ekvivalenčno relacijo gre, pogosto ekvivalenčne razrede krajše označujemo kar z $\ec{a}$.
+		
+		Bistvo ekvivalenčne relacije je, da ekvivalenčni razredi tvorijo razbitje množice.
+		
+		\davorin{Razbitje množice bomo verjetno definirali že prej, najbrž pri vsotah množic. Če ne, potem na tem mestu pride še definicija razbitja.}
+		
+		\davorin{Profesor Petkovšek raje uporablja izraz `razdelitev množice', ker se mu `razbitje množice' zdi preveč \qt{nasilno}. ;) Kakšna so mnenja drugih? Kateri izraz bi uporabljali?}
+		
+		\begin{izrek}
+			Naj bo $X$ poljubna množica. Naslednji trditvi sta ekvivalentni za vsako relacijo $\rel$ na $X$.
+			\begin{enumerate}
+				\item
+					$\rel$ je ekvivalenčna relacija.
+				\item
+					$\set[1]{\ec[\rel]{a}}{a \in X}$ je razbitje množice $X$.
+			\end{enumerate}
+		\end{izrek}
+		
+		\begin{dokaz}
+			\begin{itemize}
+				\item\proven{$(1 \impl 2)$}
+				\item\proven{$(2 \impl 1)$}
+			\end{itemize}
+			\note{dokončaj dokaz}
+		\end{dokaz}
+		
+		Če je $\equ$ ekvivalenčna relacija na množici $X$, tedaj množico vseh njenih ekvivalenčnih razredov označimo z
+		\[X/_\equ \dfeq \set[1]{\ec{a}}{a \in X}\]
+		in imenujemo \df{kvocientna množica} množice $X$ po relaciji $\equ$.
+		
+		\note{kvocientna množica kot množica abstrahiranih pojmov}
+		
+		\note{iz šibke urejenosti pridelamo delno urejenost s pomočjo kvocientov}
+		
 		\note{kanonični razcep funkcije (na surjekcijo/kvocient, bijekcijo, injekcijo/vložitev)}
