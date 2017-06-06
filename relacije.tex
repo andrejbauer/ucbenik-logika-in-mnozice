@@ -16,7 +16,7 @@
 		\begin{opomba}\label{OPOMBA: definicija relacij}
 			Kaj mislimo tu z izrazom \qt{skupaj s podatkom}? Določena podmnožica ima mnogo nadmnožic in podatek, med elementi katerih množic opazujemo odnos, je za relacijo prav tako pomemben, saj so od tega odvisne lastnosti relacije. Lastnosti relacij obravnavamo kasneje v razdelku~\ref{RAZDELEK: Lastnosti relacij}, ampak če že zdaj damo primer: $\set{(a, a)}{a \in \NN}$ je refleksivna kot relacija na naravnih številih (tj.~kot podmnožica $\NN \times \NN$), ne pa tudi kot relacija na celih številih (tj.~kot podmnožica $\ZZ \times \ZZ$).
 			
-			Kako \qt{priložiti} podatek o družini?. Ena možnost je, da relacijo podamo kot urejeni par $\rel = (R, \mathscr{D})$, kjer $R \subseteq \prod_{X \in \mathscr{D}} X$. Še ena možnost je, da relacijo podamo kot družino preslikav $(\rel \to X)_{X \in \mathscr{D}}$, ki skupaj porodijo inkluzijo $\rel \hookrightarrow \prod_{X \in \mathscr{D}} X$. Ampak načeloma je povsem vseeno, ali vzamemo katero od teh dveh možnosti ali še kaj tretjega. V tej knjigi se ne bomo omejevali na posamičen formalen zapis za relacijo, bo pa seveda v vseh primerih jasno, za katero družino gre.
+			Kako \qt{priložiti} podatek o družini? Ena možnost je, da relacijo podamo kot urejeni par $\rel = (R, \mathscr{D})$, kjer $R \subseteq \prod_{X \in \mathscr{D}} X$. Še ena možnost je, da relacijo podamo kot družino preslikav $(\rel \to X)_{X \in \mathscr{D}}$, ki skupaj porodijo inkluzijo $\rel \hookrightarrow \prod_{X \in \mathscr{D}} X$. Ampak načeloma je povsem vseeno, ali vzamemo katero od teh dveh možnosti ali še kaj tretjega. V tej knjigi se ne bomo omejevali na posamičen formalen zapis za relacijo, bo pa seveda v vseh primerih jasno, za katero družino gre.
 		\end{opomba}
 		
 		V praksi se povečini uporabljajo relacije med dvema elementoma.
@@ -364,6 +364,10 @@
 		\end{definicija}
 		
 		Seveda lahko vsako delno funkcijo zožimo do funkcije: delna funkcija $f\colon X \parto Y$ porodi funkcijo $\rstr{f}_{\dd{f}}\colon \dd{f} \to Y$.
+		
+		\begin{vaja}
+			Operacijo sklapljanja $\circ$ smo definirali za splošne relacije (razdelek~\ref{RAZDELEK: Operacije z relacijami}). Preveri, da se ta definicija ujema z običajno definicijo sklapljanja funkcij. Premisli še, kaj je sklop delnih funkcij.
+		\end{vaja}
 	
 	
 	\section{Relacije urejenosti}\label{RAZDELEK: Relacije urejenosti}
@@ -389,7 +393,7 @@
 		
 		V tej definiciji smo uporabili znak $\preceq$ za relacijo. Pogosto uporabimo kakšen takšen znak, če hočemo sugerirati, da gre za relacijo urejenosti.
 		
-		Tipična primera linearne oz.~stroge linearne urejenosti sta relaciji $\leq$ in $<$ na številskih množicah $\NN$, $\ZZ$, $\QQ$, $\RR$. Tipičen primer delne urejenosti, ki ni linearna, je relacija inkluzije $\subseteq$ na katerikoli potenčni množici $\pst(X)$, če ima $X$ vsaj dva elementa.
+		Tipična primera linearne oz.~stroge linearne urejenosti sta relaciji $\leq$ in $<$ na številskih množicah $\NN$, $\ZZ$, $\QQ$, $\RR$. Tipičen primer delne urejenosti je relacija inkluzije $\subseteq$ na katerikoli potenčni množici $\pst(X)$ (če ima $X$ vsaj dva elementa, ta relacija ne bo linearna).
 		
 		Primere šibkih urejenosti pogosto dobimo na sledeči način. Naj bo $f\colon X \to Y$ funkcija in $\preceq_Y$ neka relacija urejenosti na $Y$. Za poljubna $a, b \in X$ definirajmo
 		\[a \preceq_X b \dfeq f(a) \preceq_Y f(b).\]
@@ -460,6 +464,48 @@
 		
 		\note{kvocientna množica kot množica abstrahiranih pojmov}
 		
-		\note{iz šibke urejenosti pridelamo delno urejenost s pomočjo kvocientov}
+		\begin{vaja}
+			Naj bo $(X, \preceq)$ šibka urejenost. Za poljubna $a, b \in X$ definiramo
+			\[a \approx b \dfeq a \preceq b \land b \preceq a.\]
+			\begin{enumerate}
+				\item
+					Preveri, da je $\approx$ ekvivalenčna relacija na množici $X$.
+				\item
+					Na kvocientni množici $X/_\approx$ definiramo relacijo $\leq$ na sledeči način: za poljubna $a, b \in X$ naj velja
+					\[\ec{a} \leq \ec{b} \dfeq a \preceq b.\]
+					Dokaži, da ta predpis podaja dobro definirano relacijo na $X/_\approx$.
+				\item
+					Dokaži: $(X/_\approx, \leq)$ je delna urejenost.
+			\end{enumerate}
+			To je kanoničen način, kako šibko urejenost okrepimo do delne urejenosti.
+		\end{vaja}
 		
-		\note{kanonični razcep funkcije (na surjekcijo/kvocient, bijekcijo, injekcijo/vložitev)}
+		\note{Kakšen zanimiv zgled uporabe te vaje?}
+		
+		Ko smo obravnavali bijekcije v \note{razdelku o bijekcijah}, smo omenili, zakaj je uporabno imeti inverze funkcij. Težava je seveda, da imajo samo bijekcije inverze (v smislu, da so tudi inverzi funkcije --- kot relacije seveda imajo inverze), medtem ko včasih želimo obrniti tudi druge funkcije.
+		
+		Vzemimo na primer eksponentno funkcijo $\xlam{x}{e^x}$. Če jo obravnavamo kot funkcijo $\RR \to \RR$, seveda nima inverza, saj ni surjektivna. Ideja je, da zožimo kodomeno do slike --- funkcija $\xlam{x}{e^x}\colon \RR \to \RR_{> 0}$ je bijektivna in posledično lahko definiramo njen inverz (naravni logaritem) $\ln\colon \RR_{> 0} \to \RR$.
+		
+		To je standarden trik, če funkcija ni surjektivna. Kaj pa, če ni injektivna? Pogosto v tem primeru zožimo še domeno na območje, na katerem je funkcija injektivna. Na primer, funkcijo $\xlam{x}{x^2}\colon \RR \to \RR$ zožimo do bijekcije $\xlam{x}{x^2}\colon \RR_{\geq 0} \to \RR_{\geq 0}$, kjer imamo inverz $\xlam{x}{\sqrt{x}}\colon \RR_{\geq 0} \to \RR_{\geq 0}$.
+		
+		Ima pa ta prostop težave. Prvič, v nasprotju z zožanje kodomene pri zožitvi domene izgubimo informacijo o funkciji (kam so se preslikale vrednosti, ki so prej bile v domeni, zdaj pa niso več?). Drugič, izbira zožene domene ni kanonična. Funkcijo $\xlam{x}{x^2}$ bi ravno tako lahko zožili na $\RR_{\leq 0} \to \RR_{\geq 0}$ ali na $\QQ_{\geq 0} \cup (\RR \setminus \QQ)_{\leq 0} \to \RR_{\geq 0}$ ali celo do $\emptyset \to \emptyset$ ali še neskončno drugih možnosti, pri katerih dobimo bijekcijo.
+		
+		S pomočjo kvocientov lahko rešimo te probleme in najdemo kanoničen način, kako funkcijo popraviti do injektivne (in če dodamo še zožitev kodomene, do surjektivne in torej v celoti do bijektivne). Vemo že, da sta injektivnost in surjektivnost dualni (razdelek~\note{o injektivnih in surjektivnih funkcijah}). Kaj je dualno zožitvi kodomene? Odgovor: kvocient domene. Namreč, če zožimo množico, je tako, kot da jo zdaj gledamo od precej bliže --- vidimo samo manjše območje okoli sebe. Kvocienti počnejo obratno --- tako je, kot če bi množico pogledali od precej daleč. Ne vidimo več posamičnih potez, pač pa se te združijo v bolj splošne oblike. (Seveda se ta dualnost, tako kot pri injektivnosti in surjektivnosti, da utemeljiti tudi formalno matematično. \davorin{Bomo govorili o zožkih in kozožkih?})
+		
+		\begin{izrek}[Naravna razčlenitev funkcije]
+			Za vsako funkcijo $f\colon X \to Y$ obstaja (kanonična) razčlenitev
+			\[f = i \circ \tilde{f} \circ q,\]
+			kjer je $q$ surjekcija, $\tilde{f}$ bijekcija in $i$ injekcija. Konkretno, $q\colon X \to X/_\equ$ je naravna kvocientna preslikava $q(x) = \ec{x}$, pri čemer je ekvivalenčna relacija $\equ$ na $X$ definirana kot
+			\[a \equ b \dfeq f(a) = f(b),\]
+			preslikava $i\colon \im(f) \hookrightarrow Y$ je inkluzija zaloge vrednosti v kodomeno, funkcija $\tilde{f}\colon X/_\equ \to \im(f)$ pa je v celoti določena s predpisom
+			\[\tilde{f}([x]) = f(x)\]
+			(med drugim to pomeni, da sta množici $X/_\equ$ in $\im(f)$ v bijektivni korespondenci). \davorin{To je vir raznih izrekov o izomorfizmih v algebri. A povemo kaj na to temo?}
+			
+			Za ponazoritev, imamo spodnji diagram.
+			
+			\note{diagram s tikz}
+		\end{izrek}
+		
+		\begin{dokaz}
+			\note{napiši dokaz}
+		\end{dokaz}

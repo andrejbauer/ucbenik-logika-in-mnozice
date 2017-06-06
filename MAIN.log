@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.5-1.40.14 (MiKTeX 2.9 64-bit) (preloaded format=latex 2016.3.9)  5 JUN 2017 15:11
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (MiKTeX 2.9 64-bit) (preloaded format=latex 2016.3.9)  6 JUN 2017 09:19
 entering extended mode
 **MAIN.tex
 (C:\Users\Lesnik\Documents\ucbenik-logika-in-mnozice\MAIN.tex
@@ -1019,33 +1019,33 @@ Overfull \hbox (9.37206pt too wide) in paragraph at lines 31--33
 LaTeX Warning: Float too large for page by 1.43253pt on input line 256.
 
 [23] [24] [25] [26] [27] [28]
-Underfull \hbox (badness 10000) in paragraph at lines 451--452
+Underfull \hbox (badness 10000) in paragraph at lines 455--456
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 452--453
+Underfull \hbox (badness 10000) in paragraph at lines 456--457
 
  []
 
-) [29] [30]
+[29] [30]) [31] [32]
 Poglavje 5.
-[31
+[33
 
 
-] [32
+] [34
 
 ]
 Poglavje 6.
-[33] [34
-
-]
-Poglavje 7.
 [35] [36
 
 ]
+Poglavje 7.
+[37] [38
+
+]
 Poglavje 8.
-[37] (C:\Users\Lesnik\Documents\ucbenik-logika-in-mnozice\MAIN.aux
+[39] (C:\Users\Lesnik\Documents\ucbenik-logika-in-mnozice\MAIN.aux
 (C:\Users\Lesnik\Documents\ucbenik-logika-in-mnozice\matematicno-izrazanje.aux)
 (C:\Users\Lesnik\Documents\ucbenik-logika-in-mnozice\relacije.aux))
 
@@ -1057,12 +1057,12 @@ LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 
  ) 
 Here is how much of TeX's memory you used:
- 19912 strings out of 493707
- 386779 string characters out of 3144607
- 420262 words of memory out of 3000000
- 22857 multiletter control sequences out of 15000+200000
- 53854 words of font info for 87 fonts, out of 3000000 for 9000
+ 19913 strings out of 493707
+ 386793 string characters out of 3144607
+ 420266 words of memory out of 3000000
+ 22858 multiletter control sequences out of 15000+200000
+ 55681 words of font info for 88 fonts, out of 3000000 for 9000
  1025 hyphenation exceptions out of 8191
  62i,14n,61p,10377b,326s stack positions out of 5000i,500n,10000p,200000b,50000s
 
-Output written on MAIN.dvi (37 pages, 108232 bytes).
+Output written on MAIN.dvi (39 pages, 116196 bytes).

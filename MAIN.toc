@@ -24,13 +24,13 @@
 \contentsline {section}{\numberline {4.4}Funkcije kot funkcijske relacije}{25}
 \contentsline {section}{\numberline {4.5}Relacije urejenosti}{27}
 \contentsline {section}{\numberline {4.6}Ekvivalen\IeC {\v c}ne relacije in kvocientne mno\IeC {\v z}ice}{28}
-\contentsline {chapter}{\numberline {5}Aksiomatska teorija mno\IeC {\v z}ic}{31}
-\contentsline {section}{\numberline {5.1}Zermelo-Fraenklovi aksiomi}{31}
-\contentsline {section}{\numberline {5.2}Aksiom izbire}{31}
-\contentsline {section}{\numberline {5.3}Kumulativna hierarhija}{31}
-\contentsline {chapter}{\numberline {6}Kardinalna \IeC {\v s}tevila}{33}
-\contentsline {section}{\numberline {6.1}Kon\IeC {\v c}nost in neskon\IeC {\v c}nost}{33}
-\contentsline {section}{\numberline {6.2}\IeC {\v S}tevnost}{33}
-\contentsline {section}{\numberline {6.3}Kardinalnost mno\IeC {\v z}ice}{33}
-\contentsline {chapter}{\numberline {7}Ordinalna \IeC {\v s}tevila}{35}
-\contentsline {chapter}{\numberline {8}{\relax \fontsize {10}{12}\selectfont \abovedisplayskip 10\p@ plus2\p@ minus5\p@ \abovedisplayshortskip \z@ plus3\p@ \belowdisplayshortskip 6\p@ plus3\p@ minus3\p@ \def \leftmargin \leftmargini \parsep 4.5\p@ plus2\p@ minus\p@ \topsep 9\p@ plus3\p@ minus5\p@ \itemsep 4.5\p@ plus2\p@ minus\p@ {\leftmargin \leftmargini \topsep 6\p@ plus2\p@ minus2\p@ \parsep 3\p@ plus2\p@ minus\p@ \itemsep \parsep }\belowdisplayskip \abovedisplayskip \leavevmode {\color {notecolor}(mo\IeC {\v z}ne dodatne teme)}}}{37}
+\contentsline {chapter}{\numberline {5}Aksiomatska teorija mno\IeC {\v z}ic}{33}
+\contentsline {section}{\numberline {5.1}Zermelo-Fraenklovi aksiomi}{33}
+\contentsline {section}{\numberline {5.2}Aksiom izbire}{33}
+\contentsline {section}{\numberline {5.3}Kumulativna hierarhija}{33}
+\contentsline {chapter}{\numberline {6}Kardinalna \IeC {\v s}tevila}{35}
+\contentsline {section}{\numberline {6.1}Kon\IeC {\v c}nost in neskon\IeC {\v c}nost}{35}
+\contentsline {section}{\numberline {6.2}\IeC {\v S}tevnost}{35}
+\contentsline {section}{\numberline {6.3}Kardinalnost mno\IeC {\v z}ice}{35}
+\contentsline {chapter}{\numberline {7}Ordinalna \IeC {\v s}tevila}{37}
+\contentsline {chapter}{\numberline {8}{\relax \fontsize {10}{12}\selectfont \abovedisplayskip 10\p@ plus2\p@ minus5\p@ \abovedisplayshortskip \z@ plus3\p@ \belowdisplayshortskip 6\p@ plus3\p@ minus3\p@ \def \leftmargin \leftmargini \parsep 4.5\p@ plus2\p@ minus\p@ \topsep 9\p@ plus3\p@ minus5\p@ \itemsep 4.5\p@ plus2\p@ minus\p@ {\leftmargin \leftmargini \topsep 6\p@ plus2\p@ minus2\p@ \parsep 3\p@ plus2\p@ minus\p@ \itemsep \parsep }\belowdisplayskip \abovedisplayskip \leavevmode {\color {notecolor}(mo\IeC {\v z}ne dodatne teme)}}}{39}
