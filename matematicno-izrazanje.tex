@@ -146,6 +146,56 @@
 		
 		\davorin{Na tem mestu povejmo, kakšno prednost damo tem trem veznikom v primerjavi s standardnimi. Kateremu dogovoru sledimo?}
 		
+		Zaenkrat smo uvedli nekaj oznak in opisali njihov intuitivni pomen. Ampak če se hočemo zanašati na pravilnost naših sklepov, moramo tem oznakam dati \emph{formalni matematični pomen}.
+		
+		Če imamo neko izjavo, lahko določimo njeno resničnost, tj.~povemo, do kolikšne mere je resnična. Temu rečemo \df{resničnostna vrednost} izjave. Množico vseh možnih resničnostnih vrednosti označimo z $\tvs$. Seveda ni kaj dosti možnih resničnostnih vrednosti: to sta \df{resnica} (dogovorimo se, da bomo zanjo uporabljali oznako $\true$) in \df{neresnica} (oznaka $\false$). Se pravi, $\tvs = \set{\true, \false}$.
+		
+		\begin{opomba}
+			Logiki, kjer sta edini resničnostni vrednosti resnica in neresnica, rečemo \df{klasična logika}. Obstajajo splošnejše vrste logike, kjer je $\set{\true, \false}$ prava podmnožica $\tvs$, ampak v tej knjigi se bomo omejili na klasično logiko, na katero ste navajeni in ki se uporablja v večjem delu matematike.
+		\end{opomba}
+		
+		Izjavne veznike lahko potem formalno podamo kot funkcije. Na primer, negacija je funkcija $\lnot\colon \tvs \to \tvs$ (vsaki resničnostni vrednosti pripišemo njeno nasprotno vrednost). Funkcijo, definirano na majhni končni množici, lahko preprosto podamo s tabelo vseh njenih vrednosti. V primeru izjavnih veznikov takim tabelam rečemo \df{resničnostne tabele}. Resničnostna tabela za negacijo izgleda takole.
+		\begin{center}
+			\begin{tabular}{c|c}
+				$p$ & $\lnot{p}$ \\
+				\hline
+				$\true$ & $\false$ \\
+				$\false$ & $\true$
+			\end{tabular}
+		\end{center}
+		Ta tabela povsem natančno definira negacijo kot funkcijo $\lnot\colon \tvs \to \tvs$. Seveda smo negacijo definirali tako, kot bi pričakovali: negacija resnice je neresnica, negacija neresnice je resnica.
+		
+		Podobno lahko naredimo z ostalimi izjavnimi vezniki, le da preostali vežejo dve izjavi. Se pravi, npr.~konjunkcija vzame dve resničnostni vrednosti in vrne resničnostno vrednost, ki pove, ali sta obe dani vrednosti resnični. Konjunkcijo lahko torej interpretiramo kot preslikavo $\land\colon \tvs \times \tvs \to \tvs$ (ali na kratko $\land\colon \tvs^2 \to \tvs$).
+		
+		V splošnem definiramo, da je \df{$n$-mestni izjavni veznik} preslikava oblike $\tvs^n \to \tvs$. Negacija je torej enomestni izjavni veznik, ostali vezniki, ki smo jih do zdaj omenili, pa so dvomestni.
+		
+		Definirajmo zdaj konjunkcijo natančno preko resničnostne tabele. Množica $\tvs \times \tvs$ ima štiri elemente --- vse možne pare, sestavljene iz $\true$ oz.~$\false$. Intuitivni pomen konjunkcije razumemo: konjunkcija dveh izjav je resnična natanko tedaj, ko sta obe izjavi resnični. To nas vodi do naslednje tabele.
+		\begin{center}
+			\begin{tabular}{cc|c}
+				$p$ & $q$ & $p \land q$ \\
+				\hline
+				$\true$ & $\true$ & $\true$ \\
+				$\true$ & $\false$ & $\false$ \\
+				$\false$ & $\true$ & $\false$ \\
+				$\false$ & $\false$ & $\false$
+			\end{tabular}
+		\end{center}
+		
+		Za disjunkcijo smo že rekli, da pride v dveh različicah: navadna pomeni, da vsaj ena od izjav velja, izključitvena pa pomeni, da velja natanko ena od izjav. Posledično je torej smiselno definirati funkciji $\lor, \xor\colon \tvs \times \tvs \to \tvs$ na sledeči način.
+		\begin{center}
+			\begin{tabular}{cc|cc}
+				$p$ & $q$ & $p \lor q$ & $p \xor q$ \\
+				\hline
+				$\true$ & $\true$ & $\true$ & $\false$ \\
+				$\true$ & $\false$ & $\true$ & $\true$ \\
+				$\false$ & $\true$ & $\true$ & $\true$ \\
+				$\false$ & $\false$ & $\false$ & $\false$
+			\end{tabular}
+		\end{center}
+		Bodi pozoren na razliko med zadnjima dvema stolpcema!
+		
+		\note{dokončaj resničnostne tabele}
+		
 		Včasih so izjave odvisne od kakšnih parametrov. Na primer, naj $\phi(x)$ pomeni \nls{$x$ je zelen.}; tedaj $\phi(\text{trava})$ pomeni \nls{Trava je zelena.}. Takim odvisnim izjavam rečemo \df{predikati} in izražajo lastnosti, ki jim parametri (\qt{spremenljivke}) lahko zadoščajo.
 		
 		Predikate lahko \emph{kvantificiramo} po njihovih spremenljivkah, tj.~povemo, \qt{kako pogosto} velja lastnost, dana s predikatom. Tabela~\ref{TABELA: kvantifikatorji} podaja najpogosteje uporabljane kvantifikatorje in njihove oznake.

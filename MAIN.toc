@@ -2,35 +2,35 @@
 \contentsline {chapter}{{\relax \fontsize {10}{12}\selectfont \abovedisplayskip 10\p@ plus2\p@ minus5\p@ \abovedisplayshortskip \z@ plus3\p@ \belowdisplayshortskip 6\p@ plus3\p@ minus3\p@ \def \leftmargin \leftmargini \parsep 4.5\p@ plus2\p@ minus\p@ \topsep 9\p@ plus3\p@ minus5\p@ \itemsep 4.5\p@ plus2\p@ minus\p@ {\leftmargin \leftmargini \topsep 6\p@ plus2\p@ minus2\p@ \parsep 3\p@ plus2\p@ minus\p@ \itemsep \parsep }\belowdisplayskip \abovedisplayskip \leavevmode {\color {red}\textbf {Kazalo se naj za\IeC {\v c}ne na sodi strani, tako da lahko bralec naenkrat vidi celotno kazalo.}}}}{3}
 \contentsline {chapter}{\numberline {1}Matemati\IeC {\v c}no izra\IeC {\v z}anje}{7}
 \contentsline {section}{\numberline {1.1}Simbolni zapis}{7}
-\contentsline {section}{\numberline {1.2}Pravila dokazovanja}{12}
-\contentsline {section}{\numberline {1.3}Definicije}{12}
-\contentsline {chapter}{\numberline {2}Konstrukcije mno\IeC {\v z}ic}{13}
-\contentsline {section}{\numberline {2.1}Preprosti primeri}{13}
-\contentsline {section}{\numberline {2.2}Podmno\IeC {\v z}ice}{13}
-\contentsline {section}{\numberline {2.3}Poten\IeC {\v c}na mno\IeC {\v z}ica}{13}
-\contentsline {section}{\numberline {2.4}Dru\IeC {\v z}ine mno\IeC {\v z}ic}{13}
-\contentsline {section}{\numberline {2.5}Produkt mno\IeC {\v z}ic}{13}
-\contentsline {section}{\numberline {2.6}Vsota mno\IeC {\v z}ic}{13}
-\contentsline {section}{\numberline {2.7}Unija in presek}{13}
-\contentsline {section}{\numberline {2.8}Eksponentna mno\IeC {\v z}ica}{13}
-\contentsline {chapter}{\numberline {3}Funkcije}{15}
-\contentsline {section}{\numberline {3.1}Slike in praslike}{15}
-\contentsline {section}{\numberline {3.2}Injektivnost in surjektivnost}{15}
-\contentsline {section}{\numberline {3.3}Bijektivnost}{15}
-\contentsline {chapter}{\numberline {4}Relacije}{17}
-\contentsline {section}{\numberline {4.1}Splo\IeC {\v s}no o relacijah}{17}
-\contentsline {section}{\numberline {4.2}Operacije z relacijami}{19}
-\contentsline {section}{\numberline {4.3}Lastnosti relacij}{21}
-\contentsline {section}{\numberline {4.4}Funkcije kot funkcijske relacije}{25}
-\contentsline {section}{\numberline {4.5}Relacije urejenosti}{27}
-\contentsline {section}{\numberline {4.6}Ekvivalen\IeC {\v c}ne relacije in kvocientne mno\IeC {\v z}ice}{28}
-\contentsline {chapter}{\numberline {5}Aksiomatska teorija mno\IeC {\v z}ic}{33}
-\contentsline {section}{\numberline {5.1}Zermelo-Fraenklovi aksiomi}{33}
-\contentsline {section}{\numberline {5.2}Aksiom izbire}{33}
-\contentsline {section}{\numberline {5.3}Kumulativna hierarhija}{33}
-\contentsline {chapter}{\numberline {6}Kardinalna \IeC {\v s}tevila}{35}
-\contentsline {section}{\numberline {6.1}Kon\IeC {\v c}nost in neskon\IeC {\v c}nost}{35}
-\contentsline {section}{\numberline {6.2}\IeC {\v S}tevnost}{35}
-\contentsline {section}{\numberline {6.3}Kardinalnost mno\IeC {\v z}ice}{35}
-\contentsline {chapter}{\numberline {7}Ordinalna \IeC {\v s}tevila}{37}
-\contentsline {chapter}{\numberline {8}{\relax \fontsize {10}{12}\selectfont \abovedisplayskip 10\p@ plus2\p@ minus5\p@ \abovedisplayshortskip \z@ plus3\p@ \belowdisplayshortskip 6\p@ plus3\p@ minus3\p@ \def \leftmargin \leftmargini \parsep 4.5\p@ plus2\p@ minus\p@ \topsep 9\p@ plus3\p@ minus5\p@ \itemsep 4.5\p@ plus2\p@ minus\p@ {\leftmargin \leftmargini \topsep 6\p@ plus2\p@ minus2\p@ \parsep 3\p@ plus2\p@ minus\p@ \itemsep \parsep }\belowdisplayskip \abovedisplayskip \leavevmode {\color {notecolor}(mo\IeC {\v z}ne dodatne teme)}}}{39}
+\contentsline {section}{\numberline {1.2}Pravila dokazovanja}{13}
+\contentsline {section}{\numberline {1.3}Definicije}{14}
+\contentsline {chapter}{\numberline {2}Konstrukcije mno\IeC {\v z}ic}{15}
+\contentsline {section}{\numberline {2.1}Preprosti primeri}{15}
+\contentsline {section}{\numberline {2.2}Podmno\IeC {\v z}ice}{15}
+\contentsline {section}{\numberline {2.3}Poten\IeC {\v c}na mno\IeC {\v z}ica}{15}
+\contentsline {section}{\numberline {2.4}Dru\IeC {\v z}ine mno\IeC {\v z}ic}{15}
+\contentsline {section}{\numberline {2.5}Produkt mno\IeC {\v z}ic}{15}
+\contentsline {section}{\numberline {2.6}Vsota mno\IeC {\v z}ic}{15}
+\contentsline {section}{\numberline {2.7}Unija in presek}{15}
+\contentsline {section}{\numberline {2.8}Eksponentna mno\IeC {\v z}ica}{15}
+\contentsline {chapter}{\numberline {3}Funkcije}{17}
+\contentsline {section}{\numberline {3.1}Slike in praslike}{17}
+\contentsline {section}{\numberline {3.2}Injektivnost in surjektivnost}{17}
+\contentsline {section}{\numberline {3.3}Bijektivnost}{17}
+\contentsline {chapter}{\numberline {4}Relacije}{19}
+\contentsline {section}{\numberline {4.1}Splo\IeC {\v s}no o relacijah}{19}
+\contentsline {section}{\numberline {4.2}Operacije z relacijami}{21}
+\contentsline {section}{\numberline {4.3}Lastnosti relacij}{23}
+\contentsline {section}{\numberline {4.4}Funkcije kot funkcijske relacije}{27}
+\contentsline {section}{\numberline {4.5}Relacije urejenosti}{29}
+\contentsline {section}{\numberline {4.6}Ekvivalen\IeC {\v c}ne relacije in kvocientne mno\IeC {\v z}ice}{30}
+\contentsline {chapter}{\numberline {5}Aksiomatska teorija mno\IeC {\v z}ic}{35}
+\contentsline {section}{\numberline {5.1}Zermelo-Fraenklovi aksiomi}{35}
+\contentsline {section}{\numberline {5.2}Aksiom izbire}{35}
+\contentsline {section}{\numberline {5.3}Kumulativna hierarhija}{35}
+\contentsline {chapter}{\numberline {6}Kardinalna \IeC {\v s}tevila}{37}
+\contentsline {section}{\numberline {6.1}Kon\IeC {\v c}nost in neskon\IeC {\v c}nost}{37}
+\contentsline {section}{\numberline {6.2}\IeC {\v S}tevnost}{37}
+\contentsline {section}{\numberline {6.3}Kardinalnost mno\IeC {\v z}ice}{37}
+\contentsline {chapter}{\numberline {7}Ordinalna \IeC {\v s}tevila}{39}
+\contentsline {chapter}{\numberline {8}{\relax \fontsize {10}{12}\selectfont \abovedisplayskip 10\p@ plus2\p@ minus5\p@ \abovedisplayshortskip \z@ plus3\p@ \belowdisplayshortskip 6\p@ plus3\p@ minus3\p@ \def \leftmargin \leftmargini \parsep 4.5\p@ plus2\p@ minus\p@ \topsep 9\p@ plus3\p@ minus5\p@ \itemsep 4.5\p@ plus2\p@ minus\p@ {\leftmargin \leftmargini \topsep 6\p@ plus2\p@ minus2\p@ \parsep 3\p@ plus2\p@ minus\p@ \itemsep \parsep }\belowdisplayskip \abovedisplayskip \leavevmode {\color {notecolor}(mo\IeC {\v z}ne dodatne teme)}}}{41}
