@@ -151,7 +151,7 @@
 		Če imamo neko izjavo, lahko določimo njeno resničnost, tj.~povemo, do kolikšne mere je resnična. Temu rečemo \df{resničnostna vrednost} izjave. Množico vseh možnih resničnostnih vrednosti označimo z $\tvs$. Seveda ni kaj dosti možnih resničnostnih vrednosti: to sta \df{resnica} (dogovorimo se, da bomo zanjo uporabljali oznako $\true$) in \df{neresnica} (oznaka $\false$). Se pravi, $\tvs = \set{\true, \false}$.
 		
 		\begin{opomba}
-			Logiki, kjer sta edini resničnostni vrednosti resnica in neresnica, rečemo \df{klasična logika}. Obstajajo splošnejše vrste logike, kjer je $\set{\true, \false}$ prava podmnožica $\tvs$, ampak v tej knjigi se bomo omejili na klasično logiko, na katero ste navajeni in ki se uporablja v večjem delu matematike.
+			Logiki, kjer sta edini resničnostni vrednosti resnica in neresnica, rečemo \df{dvovrednostna} oziroma \df{klasična logika}. Obstajajo splošnejše vrste logike, kjer je $\set{\true, \false}$ prava podmnožica $\tvs$, ampak v tej knjigi se bomo omejili na klasično logiko, na katero ste navajeni in ki se uporablja v večjem delu matematike.
 		\end{opomba}
 		
 		Izjavne veznike lahko potem formalno podamo kot funkcije. Na primer, negacija je funkcija $\lnot\colon \tvs \to \tvs$ (vsaki resničnostni vrednosti pripišemo njeno nasprotno vrednost). Funkcijo, definirano na majhni končni množici, lahko preprosto podamo s tabelo vseh njenih vrednosti. V primeru izjavnih veznikov takim tabelam rečemo \df{resničnostne tabele}. Resničnostna tabela za negacijo izgleda takole.
@@ -194,7 +194,71 @@
 		\end{center}
 		Bodi pozoren na razliko med zadnjima dvema stolpcema!
 		
-		\note{dokončaj resničnostne tabele}
+		Obenem lahko še na hitro opravimo z veznikoma $\shf$ in $\luk$. Spomnimo se, da $p \shf q$ pomeni \qt{ne hkrati $p$ in $q$} ter $p \luk q$ pomeni \qt{niti $p$ niti $q$}.
+		\begin{center}
+			\begin{tabular}{cc|cc}
+				$p$ & $q$ & $p \shf q$ & $p \luk q$ \\
+				\hline
+				$\true$ & $\true$ & $\false$ & $\false$ \\
+				$\true$ & $\false$ & $\true$ & $\false$ \\
+				$\false$ & $\true$ & $\true$ & $\false$ \\
+				$\false$ & $\false$ & $\true$ & $\true$
+			\end{tabular}
+		\end{center}
+		
+		Implikacija je nekoliko bolj subtilna. Kaj točno trdimo z izjavo $p \impl q$, se pravi, kakor hitro velja $p$, mora veljati tudi $q$? No, če $p$ ne velja, potem sploh nismo postavili nobenega pogoja --- izjava je avtomatično izpolnjena. Če $p$ velja, pa zraven zahtevamo še $q$. Resničnostna tabela za implikacijo je potemtakem sledeča.
+		\begin{center}
+			\begin{tabular}{cc|c}
+				$p$ & $q$ & $p \impl q$ \\
+				\hline
+				$\true$ & $\true$ & $\true$ \\
+				$\true$ & $\false$ & $\false$ \\
+				$\false$ & $\true$ & $\true$ \\
+				$\false$ & $\false$ & $\true$
+			\end{tabular}
+		\end{center}
+		
+		Ekvivalenca je spet preprosta --- izjavi sta ekvivalentni, kadar imata isto resničnostno vrednost. Od tod dobimo sledečo resničnostno tabelo.
+		\begin{center}
+			\begin{tabular}{cc|c}
+				$p$ & $q$ & $p \lequ q$ \\
+				\hline
+				$\true$ & $\true$ & $\true$ \\
+				$\true$ & $\false$ & $\false$ \\
+				$\false$ & $\true$ & $\false$ \\
+				$\false$ & $\false$ & $\true$
+			\end{tabular}
+		\end{center}
+		
+		Za lažjo referenco zberimo resničnostne tabele vseh do zdaj omenjenih veznikov na eno mesto (tabela~\ref{TABELA: resničnostna tabela osnovnih izjavnih veznikov}).
+		
+		\begin{table}[!ht]
+			\centering
+			\begin{tabular}{c|c}
+				$p$ & $\lnot{p}$ \\
+				\hline
+				$\true$ & $\false$ \\
+				$\false$ & $\true$
+			\end{tabular}
+			\qquad\quad
+			\begin{tabular}{cc|ccccccc}
+				$p$ & $q$ & $p \land q$ & $p \lor q$ & $p \xor q$ & $p \shf q$ & $p \luk q$ & $p \impl q$ & $p \lequ q$ \\
+				\hline
+				$\true$ & $\true$ & $\true$ & $\true$ & $\false$ & $\false$ & $\false$ & $\true$ & $\true$ \\
+				$\true$ & $\false$ & $\false$ & $\true$ & $\true$ & $\true$ & $\false$ & $\false$ & $\false$ \\
+				$\false$ & $\true$ & $\false$ & $\true$ & $\true$ & $\true$ & $\false$ & $\true$ & $\false$ \\
+				$\false$ & $\false$ & $\false$ & $\false$ & $\false$ & $\true$ & $\true$ & $\true$ & $\true$
+			\end{tabular}
+			\caption{resničnostna tabela osnovnih izjavnih veznikov}\label{TABELA: resničnostna tabela osnovnih izjavnih veznikov}
+		\end{table}
+		
+		\note{dokazovanje s pomočjo resničnostnih tabel}
+		
+		\note{splošni izjavni vezniki}
+		
+		\note{disjunktivna in konjunktivna normalna oblika}
+		
+		\note{polni nabori}
 		
 		Včasih so izjave odvisne od kakšnih parametrov. Na primer, naj $\phi(x)$ pomeni \nls{$x$ je zelen.}; tedaj $\phi(\text{trava})$ pomeni \nls{Trava je zelena.}. Takim odvisnim izjavam rečemo \df{predikati} in izražajo lastnosti, ki jim parametri (\qt{spremenljivke}) lahko zadoščajo.
 		
