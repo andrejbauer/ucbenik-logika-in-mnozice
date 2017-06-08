@@ -18,7 +18,7 @@
 	
 	\section{Simbolni zapis}\label{RAZDELEK: Simbolni zapis}
 	
-		Za množice, s katerimi najpogosteje delamo, obstajajo standardne oznake (tabela~\ref{TABELA: standardne številske množice}).
+		Za množice, s katerimi najpogosteje delamo, obstajajo standardne oznake (tabela~\ref{TABELA: Standardne številske množice}).
 		
 		\begin{table}[!ht]
 			\centering
@@ -33,7 +33,7 @@
 				množica kompleksnih števil & $\CC$ \\
 				\hline
 			\end{tabular}
-			\caption{standardne številske množice}\label{TABELA: standardne številske množice}
+			\caption{Standardne številske množice}\label{TABELA: Standardne številske množice}
 		\end{table}
 		
 		Nekateri $0$ vzamejo za naravno število, nekateri ne. To je v celoti stvar dogovora, kaj pomeni pojem \qt{naravno število}. Za nas bo prišlo bolj prav, če ničlo štejemo kot element množice naravnih števil, torej $\NN = \set{0, 1, 2, 3, \ldots}$.
@@ -55,7 +55,7 @@
 		
 		Seveda ta izjava velja za vsa naravna števila (znaš to dokazati?). To zapišemo takole: $\all{a}[\NN]{2 | a \implies 2 | a^2}$.
 		
-		Kot smo navajeni iz običajnih jezikov, posamične stavke povežemo v sestavljeno poved z \emph{vezniki}. Najpogosteje uporabljeni matematični vezniki so v tabeli~\ref{TABELA: standardni izjavni vezniki}.
+		Kot smo navajeni iz običajnih jezikov, posamične stavke povežemo v sestavljeno poved z \emph{vezniki}. Najpogosteje uporabljeni matematični vezniki so v tabeli~\ref{TABELA: Standardni izjavni vezniki}.
 		
 		\begin{table}[!ht]
 			\centering
@@ -70,7 +70,7 @@
 				ekvivalenca & $p \lequ q$ & $p$ natanko tedaj, ko $q$ \\
 				\hline
 			\end{tabular}
-			\caption{standardni izjavni vezniki}\label{TABELA: standardni izjavni vezniki}
+			\caption{Standardni izjavni vezniki}\label{TABELA: Standardni izjavni vezniki}
 		\end{table}
 		
 		\begin{opomba}
@@ -94,7 +94,7 @@
 			Naj $p$ označuje stavek \nls{Zunaj dežuje.} in $q$ stavek \nls{Vzamem dežnik.}. Tedaj $\lnot{p}$ pomeni \nls{Zunaj ne dežuje.} in $p \impl q$ pomeni \nls{Če zunaj dežuje, potem vzamem dežnik.}.
 		\end{zgled}
 		
-		Kose sestavljene izjave lahko veže več kot en veznik. V tem primeru se (tako kot pri računanju s števili) dogovorimo o prednosti veznikov. Po dogovoru je vrstni red veznikov tak, kot v tabeli~\ref{TABELA: standardni izjavni vezniki}, tj.~najmočneje veže negacija, nato konjunkcija, nato disjunkcija, nato implikacija, nato ekvivalenca. Kadar želimo, da se najprej izvede veznik z nižjo prednostjo, uporabimo oklepaje.
+		Kose sestavljene izjave lahko veže več kot en veznik. V tem primeru se (tako kot pri računanju s števili) dogovorimo o prednosti veznikov. Po dogovoru je vrstni red veznikov tak, kot v tabeli~\ref{TABELA: Standardni izjavni vezniki}, tj.~najmočneje veže negacija, nato konjunkcija, nato disjunkcija, nato implikacija, nato ekvivalenca. Kadar želimo, da se najprej izvede veznik z nižjo prednostjo, uporabimo oklepaje.
 		
 		\begin{zgled}
 			Označimo sledeče stavke:
@@ -106,7 +106,7 @@
 		\end{zgled}
 		\davorin{Če komu pade na pamet primer boljših stavkov, je zaželjeno, da popravi\ldots}
 		
-		Poleg zgoraj navedenih izjavnih veznikov se včasih uporabljajo še sledeči (tabela~\ref{TABELA: nadaljnji izjavni vezniki}).
+		Poleg zgoraj navedenih izjavnih veznikov se včasih uporabljajo še sledeči (tabela~\ref{TABELA: Nadaljnji izjavni vezniki}).
 		
 		\begin{table}[!ht]
 			\centering
@@ -119,7 +119,7 @@
 				Łukasiewiczev\tablefootnote{Jan Łukasiewicz (beri: \hill{u}ukaśj\^{e}vič) (1878 -- 1956) je bil poljski logik in filozof.} veznik & $p \luk q$ & niti $p$ niti $q$ \\
 				\hline
 			\end{tabular}
-			\caption{nekateri nadaljnji izjavni vezniki}\label{TABELA: nadaljnji izjavni vezniki}
+			\caption{Nekateri nadaljnji izjavni vezniki}\label{TABELA: Nadaljnji izjavni vezniki}
 		\end{table}
 		
 		Za strogo disjunkcijo (tudi: ekskluzivna disjunkcija, izključitvena disjunkcija) se uporabljajo še druge oznake: $p \oplus q$, $p + q$. Razlika med navadno in strogo disjunkcijo je sledeča: $p \lor q$ pomeni, da \emph{vsaj eden} od $p$ in $q$ velja, medtem ko $p \xor q$ pomeni, da velja \emph{natanko eden}.
@@ -128,7 +128,7 @@
 			Stavek \nls{Pisni del predmeta je potrebno opraviti s kolokviji ali pisnim izpitom.} je primer navadne disjunkcije (seveda se vam prizna pisni del predmeta tudi, če uspešno odpišete tako kolokvije kot pisni izpit), stavek \nls{Grem bodisi na morje bodisi v hribe.} pa je primer stroge disjunkcije (ne da se biti na dveh mestih hkrati).
 		\end{zgled}
 		
-		Običajno veznike iz tabele~\ref{TABELA: nadaljnji izjavni vezniki} (in vse preostale, ki jih nismo navedli) izrazimo s standardnimi (glej tabelo~\ref{TABELA: izražava nadaljnjih izjavnih veznikov s standardnimi}), včasih pa je uporabno delati neposredno z njimi. Na primer, stroga disjunkcija služi kot seštevanje v Boolovem kolobarju (glej~\note{razdelek o Boolovih kolobarjih}), Shefferjev in Łukasiewiczev veznik pa se uporabljata pri preklopnih vezjih, saj je z vsakim od njiju možno izraziti vse izjavne veznike (glej~\note{razdelek o polnih naborih}). V računalništvu imajo ti trije vezniki standardne oznake XOR, NAND, NOR.
+		Običajno veznike iz tabele~\ref{TABELA: Nadaljnji izjavni vezniki} (in vse preostale, ki jih nismo navedli) izrazimo s standardnimi (glej tabelo~\ref{TABELA: Izražava nadaljnjih izjavnih veznikov s standardnimi}), včasih pa je uporabno delati neposredno z njimi. Na primer, stroga disjunkcija služi kot seštevanje v Boolovem kolobarju (glej~\note{razdelek o Boolovih kolobarjih}), Shefferjev in Łukasiewiczev veznik pa se uporabljata pri preklopnih vezjih, saj je z vsakim od njiju možno izraziti vse izjavne veznike (glej~\note{razdelek o polnih naborih}). V računalništvu imajo ti trije vezniki standardne oznake XOR, NAND, NOR.
 		
 		\begin{table}[!ht]
 			\centering
@@ -141,7 +141,7 @@
 				$p \luk q$ & $\lnot(p \lor q)$ & $\lnot{p} \land \lnot{q}$ \\
 				\hline
 			\end{tabular}
-			\caption{izražava nadaljnjih izjavnih veznikov s standardnimi}\label{TABELA: izražava nadaljnjih izjavnih veznikov s standardnimi}
+			\caption{Izražava nadaljnjih izjavnih veznikov s standardnimi}\label{TABELA: Izražava nadaljnjih izjavnih veznikov s standardnimi}
 		\end{table}
 		
 		\davorin{Na tem mestu povejmo, kakšno prednost damo tem trem veznikom v primerjavi s standardnimi. Kateremu dogovoru sledimo?}
@@ -230,7 +230,7 @@
 			\end{tabular}
 		\end{center}
 		
-		Za lažjo referenco zberimo resničnostne tabele vseh do zdaj omenjenih veznikov na eno mesto (tabela~\ref{TABELA: resničnostna tabela osnovnih izjavnih veznikov}).
+		Za lažjo referenco zberimo resničnostne tabele vseh do zdaj omenjenih veznikov na eno mesto (tabela~\ref{TABELA: Resničnostna tabela osnovnih izjavnih veznikov}).
 		
 		\begin{table}[!ht]
 			\centering
@@ -249,12 +249,188 @@
 				$\false$ & $\true$ & $\false$ & $\true$ & $\true$ & $\true$ & $\false$ & $\true$ & $\false$ \\
 				$\false$ & $\false$ & $\false$ & $\false$ & $\false$ & $\true$ & $\true$ & $\true$ & $\true$
 			\end{tabular}
-			\caption{resničnostna tabela osnovnih izjavnih veznikov}\label{TABELA: resničnostna tabela osnovnih izjavnih veznikov}
+			\caption{Resničnostna tabela osnovnih izjavnih veznikov}\label{TABELA: Resničnostna tabela osnovnih izjavnih veznikov}
 		\end{table}
 		
-		\note{dokazovanje s pomočjo resničnostnih tabel}
+		Zdaj ko imamo natančno definicijo izjavnih veznikov, lahko trditve v zvezi z njimi tudi formalno utemeljimo. Na primer, spomnimo se, da smo v tabeli~\ref{TABELA: Izražava nadaljnjih izjavnih veznikov s standardnimi} podali izražavo veznikov $\xor$, $\shf$, $\luk$ z vezniki $\lnot$, $\land$, $\lor$. Če na glas preberemo vse izjave, nam je intuitivno jasno, katere se ujemajo in zakaj, ampak zdaj lahko dejansko preverimo, da te izražave veljajo.
 		
-		\note{splošni izjavni vezniki}
+		Na primer, kaj pomeni, da se $p \luk q$ lahko izrazi kot $\lnot(p \lor q)$? To pomeni, da sta funkciji $\tvs \times \tvs \to \tvs$, dani s predpisoma $(p, q) \mapsto p \luk q$ in $(p, q) \mapsto \lnot(p \lor q)$, enaki. (Slednja funkcija je sestavljena, tj.~sklop dveh funkcij. Lahko bi tudi zapisali, da velja $\luk = \lnot \circ \lor$.) Funkciji z isto domeno in kodomeno sta enaki, kadar pri vsakem argumentu vrneta isti vrednosti, kar v našem primeru pomeni, da imata enaka stolpca v resničnostni tabeli. Poračunajmo torej vse izraze v danih izražavah. Ko dobimo enake rezultate, bomo vedeli, da izražave dejansko veljajo.
+		
+		\begin{center}
+			\begin{tabular}{cc|cccccc}
+				$p$ & $q$ & $p \shf q$ & $p \land q$ & $\lnot(p \land q)$ & $\lnot{p}$ & $\lnot{q}$ & $\lnot{p} \lor \lnot{q}$ \\
+				\hline
+				$\true$ & $\true$ & $\efalse$ & $\true$ & $\efalse$ & $\false$ & $\false$ & $\efalse$ \\
+				$\true$ & $\false$ & $\etrue$ & $\false$ & $\etrue$ & $\false$ & $\true$ & $\etrue$ \\
+				$\false$ & $\true$ & $\etrue$ & $\false$ & $\etrue$ & $\true$ & $\false$ & $\etrue$ \\
+				$\false$ & $\false$ & $\etrue$ & $\false$ & $\etrue$ & $\true$ & $\true$ & $\etrue$
+			\end{tabular}
+		\end{center}
+		
+		\begin{center}
+			\begin{tabular}{cc|cccccc}
+				$p$ & $q$ & $p \luk q$ & $p \lor q$ & $\lnot(p \lor q)$ & $\lnot{p}$ & $\lnot{q}$ & $\lnot{p} \land \lnot{q}$ \\
+				\hline
+				$\true$ & $\true$ & $\efalse$ & $\true$ & $\efalse$ & $\false$ & $\false$ & $\efalse$ \\
+				$\true$ & $\false$ & $\efalse$ & $\true$ & $\efalse$ & $\false$ & $\true$ & $\efalse$ \\
+				$\false$ & $\true$ & $\efalse$ & $\true$ & $\efalse$ & $\true$ & $\false$ & $\efalse$ \\
+				$\false$ & $\false$ & $\etrue$ & $\false$ & $\etrue$ & $\true$ & $\true$ & $\etrue$
+			\end{tabular}
+		\end{center}
+		
+		\begin{center}
+			\begin{tabular}{cc|ccccc}
+				$p$ & $q$ & $p \xor q$ & $p \lor q$ & $p \land q$ & $\lnot(p \land q)$ & $(p \lor q) \land \lnot(p \land q)$  \\
+				\hline
+				$\true$ & $\true$ & $\efalse$ & $\true$ & $\true$ & $\false$ & $\efalse$ \\
+				$\true$ & $\false$ & $\etrue$ & $\true$ & $\false$ & $\true$ & $\etrue$ \\
+				$\false$ & $\true$ & $\etrue$ & $\true$ & $\false$ & $\true$ & $\etrue$ \\
+				$\false$ & $\false$ & $\efalse$ & $\false$ & $\false$ & $\true$ & $\efalse$
+			\end{tabular}
+		\end{center}
+		
+		\begin{center}
+			\begin{tabular}{cc|cccccc}
+				$p$ & $q$ & $p \xor q$ & $\lnot{q}$ & $p \land \lnot{q}$ & $\lnot{p}$ & $\lnot{p} \land q$ & $(p \land \lnot{q}) \lor (\lnot{p} \land q)$  \\
+				\hline
+				$\true$ & $\true$ & $\efalse$ & $\false$ & $\false$ & $\false$ & $\false$ & $\efalse$ \\
+				$\true$ & $\false$ & $\etrue$ & $\true$ & $\true$ & $\false$ & $\false$ & $\etrue$ \\
+				$\false$ & $\true$ & $\etrue$ & $\false$ & $\false$ & $\true$ & $\true$ & $\etrue$ \\
+				$\false$ & $\false$ & $\efalse$ & $\true$ & $\false$ & $\true$ & $\false$ & $\efalse$
+			\end{tabular}
+		\end{center}
+		
+		Kako simbolno zapisati, da sta dve izražavi enaki? Lahko bi pisali
+		\[\big((p, q) \mapsto p \shf q\big) = \big((p, q) \mapsto \lnot(p \land q)\big),\]
+		ampak to je nekoliko nerodno in nepregledno. Kasneje (v razdelku~\note{o anonimnih funkcijah}) se bomo naučili $\lambda$-notacijo, s katero dobimo
+		\[\xlam{(p, q)}[\tvs^2]{p \shf q} = \xlam{(p, q)}[\tvs^2]{\lnot(p \land q)},\]
+		ampak to je še vedno nepregledno. Uveljavil se je običaj, da se izraze, ki so enakovredni v smislu, da dajo isti rezultat pri vsaki izbiri argumentov, poveže s simbolom $\equiv$, torej zapišemo
+		\[p \shf q \equiv \lnot(p \land q).\]
+		Konkretno za izraze v logiki se uporablja tudi $\sim$, se pravi, zapišemo lahko tudi
+		\[p \shf q \sim \lnot(p \land q).\]
+		V tej knjigi se bomo držali uporabe simbola $\equiv$. \davorin{Recimo. Po mojem je to boljše, ker lahko $\equiv$ uporabljamo še za druge funkcije (npr.~$f(x) \equiv 0$ pomeni, da je $f$ konstantno enaka $0$, medtem ko $f(x) = 0$ predstavlja enačbo, s katero iščemo ničle funkcije) in ker bomo kasneje $\sim$ uporabljali za ekvivalenčne relacije.}
+		
+		Med drugim smo s temi tabelami izpeljali tako imenovana \df{de Morganova zakona} za izjavno logiko \davorin{Verjetno je smiselno specificirati \qt{za izjavno logiko}. Imeli bomo namreč še zakona za predikatno logiko (za $\forall$ in $\exists$) ter za množice (za preseke in unije).}, ki povesta, kako negacija vpliva na konjunkcijo in disjunkcijo:
+		\[\lnot(p \land q) \equiv \lnot{p} \lor \lnot{q},\]
+		\[\lnot(p \lor q) \equiv \lnot{p} \land \lnot{q}.\]
+		To je smiselno: kadar ni res, da veljata oba $p$ in $q$, vsaj eden od njiju ne velja. Kadar ni res, da velja vsaj eden od njiju, nobeden od njiju ne velja.
+		
+		Z resničnostnimi tabelami lahko preverimo še mnoge druge formule. \df{Zakon dvojne negacije} pravi $\lnot\lnot{p} \equiv p$, tj.~če dvakrat zanikamo izjavo, dobimo izjavo, enakovredno začetni. Poračunajmo tabelo.
+		
+		\begin{center}
+			\begin{tabular}{c|ccc}
+				$p$ & $\lnot{p}$ & $\lnot\lnot{p}$ & $p$ \\
+				\hline
+				$\true$ & $\false$ & $\etrue$ & $\etrue$ \\
+				$\false$ & $\true$ & $\efalse$ & $\efalse$
+			\end{tabular}
+		\end{center}
+		
+		Spomnimo se: za poljubno dvomestno operacijo $\oper$ na neki množici $X$ rečemo, da je
+		\begin{itemize}
+			\item
+				\df{izmenljiva} ali \df{komutativna}, kadar velja $a \oper b = b \oper a$ za vse $a, b \in X$ (na kratko: $a \oper b \equiv b \oper a$),
+			\item
+				\df{družitvena} \davorin{ne spomnim se --- kako se že temu reče po slovensko?} ali \df{asociativna}, kadar velja $(a \oper b) \oper c = a \oper (b \oper c)$ za vse $a, b, c \in X$ (na kratko: $(a \oper b) \oper c \equiv a \oper (b \oper c)$),
+			\item
+				\df{idempotentna} \davorin{a imamo slovenski izraz za to?}, kadar velja $a \oper a = a$ za vse $a \in X$ (torej $a \oper a \equiv a$).
+		\end{itemize}
+		
+		Preverimo z resničnostno tabelo, da je konjunkcija komutativna, torej $p \land q \equiv q \land p$.
+		
+		\begin{center}
+			\begin{tabular}{cc|ccccc}
+				$p$ & $q$ & $p \land q$ & $q \land p$ \\
+				\hline
+				$\true$ & $\true$ & $\etrue$ & $\etrue$ \\
+				$\true$ & $\false$ & $\efalse$ & $\efalse$ \\
+				$\false$ & $\true$ & $\efalse$ & $\efalse$ \\
+				$\false$ & $\false$ & $\efalse$ & $\efalse$
+			\end{tabular}
+		\end{center}
+		
+		Še hitreje lahko preverimo, da je konjunkcija idempotentna.
+		
+		\begin{center}
+			\begin{tabular}{c|cc}
+				$p$ & $p \land p$ & $p$ \\
+				\hline
+				$\true$ & $\etrue$ & $\etrue$ \\
+				$\false$ & $\efalse$ & $\efalse$
+			\end{tabular}
+		\end{center}
+		
+		Kako pa preveriti, da je konjunkcija asociativna, torej $(p \land q) \land r \equiv p \land (q \land r)$? Vidimo, da v teh izrazih nastopajo tri spremenljivke in torej potrebujemo resničnostno tabelo, kjer upoštevamo vseh osem možnosti za izbiro $p$, $q$, $r$.
+		
+		\begin{center}
+			\begin{tabular}{ccc|cccc}
+				$p$ & $q$ & $r$ & $p \land q$ & $(p \land q) \land r$ & $q \land r$ & $p \land (q \land r)$ \\
+				\hline
+				$\true$ & $\true$ & $\true$ & $\true$ & $\etrue$ & $\true$ & $\etrue$ \\
+				$\true$ & $\true$ & $\false$ & $\true$ & $\efalse$ & $\false$ & $\efalse$ \\
+				$\true$ & $\false$ & $\true$ & $\false$ & $\efalse$ & $\false$ & $\efalse$ \\
+				$\true$ & $\false$ & $\false$ & $\false$ & $\efalse$ & $\false$ & $\efalse$ \\
+				$\false$ & $\true$ & $\true$ & $\false$ & $\efalse$ & $\true$ & $\efalse$ \\
+				$\false$ & $\true$ & $\false$ & $\false$ & $\efalse$ & $\false$ & $\efalse$ \\
+				$\false$ & $\false$ & $\true$ & $\false$ & $\efalse$ & $\false$ & $\efalse$ \\
+				$\false$ & $\false$ & $\false$ & $\false$ & $\efalse$ & $\false$ & $\efalse$
+			\end{tabular}
+		\end{center}
+		
+		To pomeni, da lahko v izrazih, kjer nastopa več zaporednih konjunkcij, spuščamo oklepaje: namesto $p \land (\lnot{q} \land r)$ pišemo kar $p \land \lnot{q} \land r$.
+		
+		Enako velja tudi za disjunkcijo.
+		
+		\begin{vaja}
+			Dokaži, da je disjunkcija komutativna, asociativna in idempotentna!
+		\end{vaja}
+		
+		Preostali dvomestni vezniki, ki smo jih omenili, ne zadoščajo vsem trem lastnostim naenkrat.
+		
+		\begin{vaja}
+			Preveri, kateri znani dvomestni izjavni vezniki so komutativni, asociativni oziroma idempotentni!
+		\end{vaja}
+		
+		Ko rešite zgornjo vajo, boste med drugim opazili: implikacija ni komutativna. To pomeni, da lahko definiramo nov izjavni veznik $\revimpl$ na naslednji način: $p \revimpl q \dfeq q \impl p$ za vse $p, q \in \tvs$. Z drugimi besedami, $\revimpl$ je dan s sledečo resničnostno tabelo.
+		\begin{center}
+			\begin{tabular}{cc|c}
+				$p$ & $q$ & $p \revimpl q$ \\
+				\hline
+				$\true$ & $\true$ & $\true$ \\
+				$\true$ & $\false$ & $\true$ \\
+				$\false$ & $\true$ & $\false$ \\
+				$\false$ & $\false$ & $\true$
+			\end{tabular}
+		\end{center}
+		
+		\note{dokazi s pomočjo resničnostnih tabel še vseh ostalih formul, ki jih hočemo imeti}
+		
+		Do zdaj smo omenili zgolj nekaj posamičnih izjavnih veznikov. Koliko pa je vseh skupaj? Spomnimo se, da je $n$-mestni izjavni veznik definiran kot preslikava $\tvs^n \to \tvs$. Množica $\tvs^n$ vsebuje vse urejene $n$-terice elementov $\true$ in $\false$; teh je $2^n$ (za vsako od $n$ mest v $n$-terici imamo dve možnosti in vse te izbire so neodvisne med sabo). Za vsako od teh $2^n$ večteric imamo dve možnosti, kam jo preslikamo: v $\true$ ali v $\false$. Vseh možnosti --- torej vseh $n$-mestnih veznikov --- je potemtakem $2^{2^n}$. (Vseh izjavnih veznikov, ko dopuščamo vse možne $n$, je seveda neskončno.)
+		
+		Za boljšo predstavo si oglejmo vse $n$-mestne veznike za majhne $n \in \NN$. Prva možnost je $n = 0$. Formula nam pravi, da je število ničmestnih izjavnih veznikov enako $2^{2^0} = 2^1 = 2$. Kaj pomeni, da pri nič vhodnih podatkih vrnemo $\true$ ali $\false$? To pomeni, da preprosto izberemo resničnostno vrednost --- z drugimi besedami, ničmestni izjavni vezniki so isto kot resničnostne vrednosti.
+		
+		Koliko je vseh enomestnih izjavnih veznikov? Formula pravi $2^{2^1} = 2^2 = 4$. Zapišimo vse možnosti.
+		
+		\begin{center}
+			\begin{tabular}{c|cccc}
+				$p$ &&&& \\
+				\hline
+				$\true$ & $\true$ & $\false$ & $\true$ & $\false$ \\
+				$\false$ & $\true$ & $\false$ & $\false$ & $\true$
+			\end{tabular}
+		\end{center}
+		
+		Vidimo: vsi enomestni izjavni vezniki so obe konstantni funkciji v $\tvs$, identiteta na $\tvs$ in negacija.
+		
+		Kar se dvomestnih veznikov tiče, vidimo, da jih je $2^{2^2} = 2^4 = 16$.
+		
+		\begin{vaja}
+			Preveri, da so vsi dvomestni vezniki natanko: konstanta z vrednostjo $\top$, projekcija na prvo komponento (tj.~$(p, q) \mapsto p$), projekcija na drugo komponento (tj.~$(p, q) \mapsto q$), konjunkcija $\land$, disjunkcija $\lor$, implikacija $\impl$, povratna implikacija $\revimpl$, ekvivalenca $\lequ$ in negacije vseh teh.
+		\end{vaja}
+		
+		Tromestnih veznikov je že $2^{2^3} = 2^8 = 256$ in ne bomo vseh naštevali. Kako pa bi kakega dobili? Preprost način je, da vzamemo tri spremenljivke in jih združimo z večimi znanimi vezniki, na primer $(p, q, r) \mapsto p \land \lnot{q} \impl r$.\footnote{Načeloma sploh ni nujno, da vse tri spremenljivke dejansko uporabimo. Na primer, $(p, q, r) \mapsto p \land q$ je še vedno tromestni veznik, saj gre za preslikavo $\tvs^3 \to \tvs$.}
+		
+		Seveda se pojavi vprašanje, kako podati izjavne veznike, ki jih ne bi mogli sestaviti iz osnovnih. Izkaže se, da to ni problem: \emph{vsak veznik (ne glede na mestnost) je možno izraziti z osnovnimi}; pravzaprav zadostujejo že $\lnot$, $\land$ in $\lor$.
 		
 		\note{disjunktivna in konjunktivna normalna oblika}
 		
@@ -262,7 +438,7 @@
 		
 		Včasih so izjave odvisne od kakšnih parametrov. Na primer, naj $\phi(x)$ pomeni \nls{$x$ je zelen.}; tedaj $\phi(\text{trava})$ pomeni \nls{Trava je zelena.}. Takim odvisnim izjavam rečemo \df{predikati} in izražajo lastnosti, ki jim parametri (\qt{spremenljivke}) lahko zadoščajo.
 		
-		Predikate lahko \emph{kvantificiramo} po njihovih spremenljivkah, tj.~povemo, \qt{kako pogosto} velja lastnost, dana s predikatom. Tabela~\ref{TABELA: kvantifikatorji} podaja najpogosteje uporabljane kvantifikatorje in njihove oznake.
+		Predikate lahko \emph{kvantificiramo} po njihovih spremenljivkah, tj.~povemo, \qt{kako pogosto} velja lastnost, dana s predikatom. Tabela~\ref{TABELA: Kvantifikatorji} podaja najpogosteje uporabljane kvantifikatorje in njihove oznake.
 		
 		\begin{table}[!ht]
 			\centering
@@ -275,7 +451,7 @@
 				\note{kako se temu reče?} & $\xexactlyone{x}[X]{\phi(x)}$ & obstaja natanko en $x$ iz $X$ z lastnostjo $\phi$ \\
 				\hline
 			\end{tabular}
-			\caption{kvantifikatorji}\label{TABELA: kvantifikatorji}
+			\caption{Kvantifikatorji}\label{TABELA: Kvantifikatorji}
 		\end{table}
 		
 		Oznaki $\forall$ in $\exists$ sta narobe obrnjena A in E in izhajata iz nemščine (\textbf{a}ll, \textbf{e}xistiert).

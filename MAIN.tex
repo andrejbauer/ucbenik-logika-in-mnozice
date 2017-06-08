@@ -14,6 +14,7 @@
 	\usepackage{amsmath}
 	\usepackage{theorem}
 	\usepackage{phonetic}
+	\usepackage{bm}
 	\usepackage{tablefootnote}
 	\usepackage{color}
 	%\usepackage[most]{tcolorbox}
@@ -159,6 +160,7 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 	\newcommand{\intermission}{\bigskip\medskip}
 	\newcommand{\df}[1]{\textit{\textbf{#1}}}  % defined notion
+	\newcommand{\oper}{\mathop{\circledast}}  % symbol for a general operation
 	\newcommand{\ism}{\cong}  % isomorphic
 	\newcommand{\equ}{\sim}  % equivalent
 	\newcommand{\dfeq}{\mathrel{\mathop:}=}  % definitional equality
@@ -167,6 +169,8 @@
 	\newcommand{\tvs}{\Omega}  % set of truth values
 	\newcommand{\true}{\top}  % truth
 	\newcommand{\false}{\bot}  % falsehood
+	\newcommand{\etrue}{\bm{\top}}  % emphasized truth
+	\newcommand{\efalse}{\bm{\bot}}  % emphasized falsehood
 	\newcommand{\impl}{\Rightarrow}  % implication sign
 	\newcommand{\revimpl}{\Leftarrow}  % reverse implication sign
 	\newcommand{\lequ}{\Leftrightarrow}  % equivalence sign
@@ -251,6 +255,7 @@
 	
 	\addcontentsline{toc}{chapter}{\alert{Kazalo se naj začne na sodi strani, tako da lahko bralec naenkrat vidi celotno kazalo.}}
 	\tableofcontents
+	\listoftables
 	
 	
 	%--------------------------------------------------------------------
