@@ -18,6 +18,8 @@
 	
 	\section{Simbolni zapis}\label{RAZDELEK: Simbolni zapis}
 	
+		\davorin{Ta razdelek se je že precej razpihnil, ker je noter stlačena večina logike. Nekako bomo morali to razdeliti.}
+		
 		Za množice, s katerimi najpogosteje delamo, obstajajo standardne oznake (tabela~\ref{TABELA: Standardne številske množice}).
 		
 		\begin{table}[!ht]
@@ -128,7 +130,7 @@
 			Stavek \nls{Pisni del predmeta je potrebno opraviti s kolokviji ali pisnim izpitom.} je primer navadne disjunkcije (seveda se vam prizna pisni del predmeta tudi, če uspešno odpišete tako kolokvije kot pisni izpit), stavek \nls{Grem bodisi na morje bodisi v hribe.} pa je primer stroge disjunkcije (ne da se biti na dveh mestih hkrati).
 		\end{zgled}
 		
-		Običajno veznike iz tabele~\ref{TABELA: Nadaljnji izjavni vezniki} (in vse preostale, ki jih nismo navedli) izrazimo s standardnimi (glej tabelo~\ref{TABELA: Izražava nadaljnjih izjavnih veznikov s standardnimi}), včasih pa je uporabno delati neposredno z njimi. Na primer, stroga disjunkcija služi kot seštevanje v Boolovem kolobarju (glej~\note{razdelek o Boolovih kolobarjih}), Shefferjev in Łukasiewiczev veznik pa se uporabljata pri preklopnih vezjih, saj je z vsakim od njiju možno izraziti vse izjavne veznike (glej~\note{razdelek o polnih naborih}). V računalništvu imajo ti trije vezniki standardne oznake XOR, NAND, NOR.
+		Običajno veznike iz tabele~\ref{TABELA: Nadaljnji izjavni vezniki} (in vse preostale, ki jih nismo navedli) izrazimo s standardnimi (glej tabelo~\ref{TABELA: Izražava nadaljnjih izjavnih veznikov s standardnimi}), včasih pa je uporabno delati neposredno z njimi. Na primer, stroga disjunkcija služi kot seštevanje v Boolovem kolobarju (glej~\note{razdelek o Boolovih kolobarjih}), Shefferjev in Łukasiewiczev veznik pa se uporabljata pri preklopnih vezjih, saj je z vsakim od njiju možno izraziti vse izjavne veznike (glej vajo~\ref{VAJA: polni nabori z enim veznikom}). V računalništvu imajo ti trije vezniki standardne oznake XOR, NAND, NOR.
 		
 		\begin{table}[!ht]
 			\centering
@@ -403,7 +405,7 @@
 			\end{tabular}
 		\end{center}
 		
-		\note{dokazi s pomočjo resničnostnih tabel še vseh ostalih formul, ki jih hočemo imeti}
+		\note{dokazi s pomočjo resničnostnih tabel še vseh ostalih formul, ki jih hočemo imeti, med drugim distributivnosti}
 		
 		Do zdaj smo omenili zgolj nekaj posamičnih izjavnih veznikov. Koliko pa je vseh skupaj? Spomnimo se, da je $n$-mestni izjavni veznik definiran kot preslikava $\tvs^n \to \tvs$. Množica $\tvs^n$ vsebuje vse urejene $n$-terice elementov $\true$ in $\false$; teh je $2^n$ (za vsako od $n$ mest v $n$-terici imamo dve možnosti in vse te izbire so neodvisne med sabo). Za vsako od teh $2^n$ večteric imamo dve možnosti, kam jo preslikamo: v $\true$ ali v $\false$. Vseh možnosti --- torej vseh $n$-mestnih veznikov --- je potemtakem $2^{2^n}$. (Vseh izjavnih veznikov, ko dopuščamo vse možne $n$, je seveda neskončno.)
 		
@@ -432,11 +434,68 @@
 		
 		Seveda se pojavi vprašanje, kako podati izjavne veznike, ki jih ne bi mogli sestaviti iz osnovnih. Izkaže se, da to ni problem: \emph{vsak veznik (ne glede na mestnost) je možno izraziti z osnovnimi}; pravzaprav zadostujejo že $\lnot$, $\land$ in $\lor$.
 		
-		\note{disjunktivna in konjunktivna normalna oblika}
+		Ideja je sledeča. Katerikoli izjavni veznik je oblike $V\colon \tvs^n \to \tvs$ in v celoti podan z resničnostno tabelo. Vzemimo konkreten primer; naj bo $V$ tromestni veznik, podan z naslednjo tabelo.
 		
-		\note{polni nabori}
+		\begin{center}
+			\begin{tabular}{ccc|c}
+				$p$ & $q$ & $r$ & $V(p, q, r)$ \\
+				\hline
+				$\true$ & $\true$ & $\true$ & $\false$ \\
+				$\true$ & $\true$ & $\false$ & $\true$ \\
+				$\true$ & $\false$ & $\true$ & $\true$ \\
+				$\true$ & $\false$ & $\false$ & $\false$ \\
+				$\false$ & $\true$ & $\true$ & $\true$ \\
+				$\false$ & $\true$ & $\false$ & $\true$ \\
+				$\false$ & $\false$ & $\true$ & $\false$ \\
+				$\false$ & $\false$ & $\false$ & $\false$
+			\end{tabular}
+		\end{center}
+		
+		Tedaj lahko rečemo: $V$ je resničen tedaj, ko smo v 2., 3., 5.~ali 6.~vrstici. Kdaj smo v drugi vrstici? Točno tedaj, ko $p$ in $q$ veljata, $r$ pa ne, se pravi, ko velja $p \land q \land \lnot{r}$. Podobno naredimo še za preostale vrstice: tretja je določena s $p \land \lnot{q} \land r$, peta z $\lnot{p} \land q \land r$ in šesta z $\lnot{p} \land q \land \lnot{r}$. Potemtakem lahko zapišemo:
+		\[V(p, q, r) \equiv (p \land q \land \lnot{r}) \lor (p \land \lnot{q} \land r) \lor (\lnot{p} \land q \land r) \lor (\lnot{p} \land q \land \lnot{r}).\]
+		Temu rečemo \df{disjunktivna normalna oblika} (s kratico DNO) veznika $V$.
+		
+		Obstaja še dualna oblika take izražave. Lahko si rečemo tudi, da je $V$ resničen, kadar nismo v 1., 4., 7.~oz.~8.~vrstici. Kdaj nismo v prvi vrstici? Kadar niso vsi $p$, $q$, $r$ resnični, torej ko je vsaj en od njih neresničen --- s formulo $\lnot{p} \lor \lnot{q} \lor \lnot{r}$. Kdaj nismo v četrti vrstici? Ko ni res, da je $p$ resničen, $q$ in $r$ pa ne, torej ko prekršimo vsaj enega teh pogojev, kar nam da formulo $\lnot{p} \lor q \lor r$. Podobno sklepamo, da nismo v sedmi vrstici, kadar velja $p \lor q \lor \lnot{r}$, in da nismo v osmi vrstici, kadar velja $p \lor q \lor r$. To nam da sledečo izražavo za $V$:
+		\[V(p, q, r) \equiv (\lnot{p} \lor \lnot{q} \lor \lnot{r}) \land (\lnot{p} \lor q \lor r) \land (p \lor q \lor \lnot{r}) \land (p \lor q \lor r).\]
+		Temu rečemo \df{konjunktivna normalna oblika} (s kratico KNO) veznika $V$.
+		
+		Spremenljivkam in njihovim negacijam z eno besedo rečemo \df{literali}. Disjunktivna normalna oblika je torej disjunkcija konjunkcij literalov, konjunktivna normalna oblika pa konjunkcija disjunkcij literalov.
+		
+		Iz tega primera je jasno, kako postopamo za poljuben izjavni veznik in zanj zapišemo DNO ali KNO. Opazimo: dolžina posamičnega člena, ki ga omejujejo oklepaji, je vedno enaka (vsebuje toliko literalov, kolikor je mestnost veznika), število teh členov pa razberemo iz stolpca, ki podaja vrednosti veznika v resničnostni tabeli. V primeru DNO je to število enako številu $\true$, v primeru KNO pa številu $\false$. V zgornjem primeru sta bili DNO in KNO enako dolgi, ker smo imeli štiri $\true$ in $\false$, v splošnem pa se nam morda bolj splača uporabiti eno obliko kot drugo. Na primer, DNO implikacije je $p \impl q \equiv (p \land q) \lor (\lnot{p} \land q) \lor (\lnot{p} \land \lnot{q})$, KNO pa je precej krajša: $p \impl q \equiv \lnot{p} \lor q$.
+		
+		Vidimo pa, da tu naletimo na problem: kaj se zgodi, če se katera resničnostna vrednost v stolpcu veznika sploh ne pojavi --- z drugimi besedami, kaj če je funkcija, ki podaja veznik, konstantna? Najprej dajmo takim ime: izjavni veznik, ki je pri vseh argumentih resničen, se imenuje \df{istorečje} ali \df{tavtologija}, izjavni veznik, ki je vedno neresničen, pa se imenuje \df{protislovje} ali \df{kontradikcija}.
+		
+		Za istorečje lahko vedno (ne glede na mestnost) zapišemo DNO (ki je sicer najdaljša možna), medtem ko bi KNO načeloma bila konjunkcija nič členov. Je to smiselno? V bistvu ja: če zahtevamo, da hkrati velja nič pogojev, je naša zahteva vedno izpolnjena. V tem smislu je konjunkcija nič členov enaka $\true$.
+		
+		Poglejmo podobne primere iz računstva. Kaj je vsota nič členov? Odgovor je seveda $0$. To je enota za seštevanje, kar je smiselno: če nič členom prištejemo en člen, moramo imeti zgolj ta člen. Podobno sklepamo: zmnožek nič členov je enota za množenje $1$ --- če nič faktorjem dodamo še en faktor, imamo skupaj zgolj ta faktor. Spomni se tudi: $a^0 = 1$ in $0! = 1$. To, da je ničkratna uporabe neke operacije enaka enoti za to operacijo, se izide tudi za konjunkcijo: dejansko velja $p \land \true \equiv p \equiv \true \land p$ (preveri z resničnostno tabelo!).
+		
+		Enak razmislek velja za protislovje. Zanj lahko zapišemo KNO na običajen način, medtem ko bi DNO bila disjunkcija nič členov. Smiselno je, da je disjunkcija nič členov enaka $\false$, tako zaradi tega, ker je $\false$ enota za disjunkcijo (preveri!), kot zaradi čisto intuitivnega razmisleka: kdaj je vsaj en člen od nič členov resničen? Nikoli.
+		
+		Vseeno je nekoliko nerodno delati s konjunkcijo ali disjunkcijo nič členov --- kako točno bi to zapisali? Da velja $V(p_1, p_2, \ldots, p_n) \equiv $? Če nič ne zapišemo, kako sploh vemo, ali smo mislili na ničkratno konjunkcijo, disjunkcijo ali katerokoli drugo operacijo? Nekateri se zato preprosto dogovorijo, da ne dopuščajo ničkratnih operacij v DNO oz.~KNO in potem štejejo, da istorečja nimajo KNO, protislovja pa ne DNO.
+		
+		Tudi če ne dopuščamo ničkratnih operacij, pa še vedno velja: vsak izjavni veznik z mestnostjo vsaj $1$ ima vsaj eno od DNO oz.~KNO in ga torej lahko izrazimo samo z negacijo, konjunkcijo in disjunkcijo. Družini izjavnih veznikov, s katerimi lahko izrazimo vse veznike z mestnostjo vsaj $1$, rečemo \df{poln nabor}. Na kratko lahko torej rečemo, da je $\set{\lnot, \land, \lor}$ poln nabor.
+		
+		Jasno, če je neka množica veznikov poln nabor, je tudi vsaka njena nadmnožica poln nabor. Sledi, da je tudi na primer $\set{\lnot, \land, \lor, \impl}$ poln nabor.
+		
+		Spomnimo se zdaj de Morganovih zakonov in zakona o dvojni negaciji --- iz njih lahko izpeljemo $p \land q \equiv \lnot(\lnot{p} \lor \lnot{q})$ in $p \lor q \equiv \lnot(\lnot{p} \land \lnot{q})$. Se pravi, konjunkcijo lahko izrazimo z disjunkcijo in negacijo in prav tako lahko disjunkcijo izrazimo s konjunkcijo in negacijo. To pomeni, da sta že $\set{\lnot, \lor}$ in $\set{\lnot, \land}$ polna nabora! Se pravi, vse veznike s pozitivno mestnostjo je možno izraziti že samo z dvema.
+		
+		Je možno iti še dlje in najti en sam veznik, s katerim lahko izrazimo ostale? Odgovor je da: $\set{\shf}$ in $\set{\luk}$ sta polna nabora. (Izkaže se, da sta to edina taka veznika med dvomestniki vezniki.)
+		
+		\begin{vaja}\label{VAJA: polni nabori z enim veznikom}
+			\
+			\begin{enumerate}
+				\item
+					Izrazi negacijo samo z veznikom $\shf$. Izrazi še konjunkcijo ali disjunkcijo samo z veznikom $\shf$. Sklepaj, da je $\set{\shf}$ poln nabor.
+				\item
+					Izrazi negacijo samo z veznikom $\luk$. Izrazi še konjunkcijo ali disjunkcijo samo z veznikom $\luk$. Sklepaj, da je $\set{\luk}$ poln nabor.
+			\end{enumerate}
+		\end{vaja}
+		
+		\davorin{Mogoče lahko zavoljo celovitosti podamo karakterizacijo polnih naborov kot izrek (in se za dokaz skličemo na literaturo). Nabor je poln, če za vsako sledečih lastnosti obstaja veznik v njem, ki jo prekrši: ohranjanje resnice, ohranjanje neresnice, monotonost, sebi-dualnost, afinost (kot polinom Žegalkina).}
 		
 		Včasih so izjave odvisne od kakšnih parametrov. Na primer, naj $\phi(x)$ pomeni \nls{$x$ je zelen.}; tedaj $\phi(\text{trava})$ pomeni \nls{Trava je zelena.}. Takim odvisnim izjavam rečemo \df{predikati} in izražajo lastnosti, ki jim parametri (\qt{spremenljivke}) lahko zadoščajo.
+		
+		\note{nekje formalno definirati: predikat na $X$ je preslikava $X \to \tvs$}
 		
 		Predikate lahko \emph{kvantificiramo} po njihovih spremenljivkah, tj.~povemo, \qt{kako pogosto} velja lastnost, dana s predikatom. Tabela~\ref{TABELA: Kvantifikatorji} podaja najpogosteje uporabljane kvantifikatorje in njihove oznake.
 		
