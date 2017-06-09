@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.5-1.40.14 (MiKTeX 2.9 64-bit) (preloaded format=latex 2016.3.9)  8 JUN 2017 12:46
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (MiKTeX 2.9 64-bit) (preloaded format=latex 2016.3.9)  9 JUN 2017 10:12
 entering extended mode
 **MAIN.tex
 (C:\Users\Lesnik\Documents\ucbenik-logika-in-mnozice\MAIN.tex
@@ -340,13 +340,20 @@ Package: theorem 1995/11/23 v2.2c Theorem extension package (FMi)
 \theorempostskipamount=\skip47
 ("C:\Program Files\MiKTeX 2.9\tex\latex\tools\thp.sty"
 File: thp.sty 1995/11/23 v2.2c Theorem extension package (FMi)
-)) ("C:\Program Files\MiKTeX 2.9\tex\latex\phonetic\phonetic.sty"
+)) ("C:\Program Files\MiKTeX 2.9\tex\latex\wasysym\wasysym.sty"
+Package: wasysym 2003/10/30 v2.0 Wasy-2 symbol support package
+\symwasy=\mathgroup6
+LaTeX Font Info:    Overwriting symbol font `wasy' in version `bold'
+(Font)                  U/wasy/m/n --> U/wasy/b/n on input line 90.
+)
+("C:\Program Files\MiKTeX 2.9\tex\latex\phonetic\phonetic.sty"
 \temp=\dimen113
 ) ("C:\Program Files\MiKTeX 2.9\tex\latex\tools\bm.sty"
 Package: bm 2004/02/26 v1.1c Bold Symbol Support (DPC/FMi)
-\symboldoperators=\mathgroup6
-\symboldletters=\mathgroup7
-\symboldsymbols=\mathgroup8
+\symboldoperators=\mathgroup7
+\symboldletters=\mathgroup8
+\symboldsymbols=\mathgroup9
+\symboldwasy=\mathgroup10
 LaTeX Font Info:    Redeclaring math alphabet \mathbf on input line 137.
 LaTeX Info: Redefining \bm on input line 203.
 )
@@ -818,7 +825,7 @@ Package: xparse 2014/05/05 v4740 L3 Experimental document command parser
 )
 ("C:\Program Files\MiKTeX 2.9\tex\latex\jknappen\mathrsfs.sty"
 Package: mathrsfs 1996/01/01 Math RSFS package v1.0 (jk)
-\symrsfs=\mathgroup9
+\symrsfs=\mathgroup11
 ) ("C:\Program Files\MiKTeX 2.9\tex\latex\ulem\ulem.sty"
 \UL@box=\box54
 \UL@hyphenbox=\box55
@@ -839,100 +846,125 @@ Package: charter 2005/04/12 PSNFSS-v9.2a (P.Dyballa)
 . LaTeX info: "xparse/define-command"
 . 
 . Defining document command \xall with arg. spec. 'm O{\empty } m' on line
-. 107.
+. 108.
 .................................................
 .................................................
 . LaTeX info: "xparse/define-command"
 . 
 . Defining document command \xsome with arg. spec. 'm O{\empty } m' on line
-. 110.
+. 111.
 .................................................
 .................................................
 . LaTeX info: "xparse/define-command"
 . 
 . Defining document command \xexactlyone with arg. spec. 'm O{\empty } m' on
-. line 113.
+. line 114.
 .................................................
 .................................................
 . LaTeX info: "xparse/define-command"
 . 
 . Defining document command \xlam with arg. spec. 'm O{\empty } m O{\empty }'
-. on line 116.
+. on line 117.
 .................................................
 .................................................
 . LaTeX info: "xparse/define-command"
 . 
 . Defining document command \all with arg. spec. 'O{auto} m O{\empty } m' on
-. line 121.
+. line 122.
 .................................................
 .................................................
 . LaTeX info: "xparse/define-command"
 . 
 . Defining document command \some with arg. spec. 'O{auto} m O{\empty } m' on
-. line 124.
+. line 125.
 .................................................
 .................................................
 . LaTeX info: "xparse/define-command"
 . 
 . Defining document command \exactlyone with arg. spec. 'O{auto} m O{\empty }
-. m' on line 127.
+. m' on line 128.
 .................................................
 .................................................
 . LaTeX info: "xparse/define-command"
 . 
 . Defining document command \lam with arg. spec. 'O{auto} m O{\empty } m
-. O{\empty }' on line 130.
+. O{\empty }' on line 131.
 .................................................
 .................................................
 . LaTeX info: "xparse/define-command"
 . 
 . Defining document command \set with arg. spec. 'O{auto} m G{\empty }' on
-. line 139.
+. line 140.
 .................................................
 .................................................
 . LaTeX info: "xparse/define-command"
 . 
 . Defining document command \rel with arg. spec. 'O{\empty } O{\empty }' on
-. line 187.
+. line 189.
 .................................................
 .................................................
 . LaTeX info: "xparse/define-command"
 . 
 . Defining document command \srel with arg. spec. 'O{\empty } O{\empty }' on
-. line 190.
+. line 192.
 .................................................
 
 (C:\Users\Lesnik\Documents\ucbenik-logika-in-mnozice\MAIN.aux
 (C:\Users\Lesnik\Documents\ucbenik-logika-in-mnozice\matematicno-izrazanje.aux)
-(C:\Users\Lesnik\Documents\ucbenik-logika-in-mnozice\relacije.aux))
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 231.
-LaTeX Font Info:    ... okay on input line 231.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 231.
-LaTeX Font Info:    ... okay on input line 231.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 231.
-LaTeX Font Info:    ... okay on input line 231.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 231.
-LaTeX Font Info:    ... okay on input line 231.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 231.
-LaTeX Font Info:    ... okay on input line 231.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 231.
-LaTeX Font Info:    ... okay on input line 231.
-LaTeX Font Info:    Try loading font information for T1+bch on input line 231.
+(C:\Users\Lesnik\Documents\ucbenik-logika-in-mnozice\logika.aux
+
+LaTeX Warning: Label `TABELA: Standardni izjavni vezniki' multiply defined.
+
+
+LaTeX Warning: Label `TABELA: Nadaljnji izjavni vezniki' multiply defined.
+
+
+LaTeX Warning: Label `TABELA: Izra\IeC {\v z}ava nadaljnjih izjavnih veznikov s standardnimi' multiply defined.
+
+
+LaTeX Warning: Label `TABELA: Kvantifikatorji' multiply defined.
+
+) (C:\Users\Lesnik\Documents\ucbenik-logika-in-mnozice\relacije.aux))
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 233.
+LaTeX Font Info:    ... okay on input line 233.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 233.
+LaTeX Font Info:    ... okay on input line 233.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 233.
+LaTeX Font Info:    ... okay on input line 233.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 233.
+LaTeX Font Info:    ... okay on input line 233.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 233.
+LaTeX Font Info:    ... okay on input line 233.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 233.
+LaTeX Font Info:    ... okay on input line 233.
+LaTeX Font Info:    Try loading font information for T1+bch on input line 233.
 
 ("C:\Program Files\MiKTeX 2.9\tex\latex\psnfss\t1bch.fd"
 File: t1bch.fd 2004/10/18 font definitions for T1/bch.
 ) ABD: EveryShipout initializing macros
-LaTeX Font Info:    Try loading font information for U+msa on input line 241.
+LaTeX Font Info:    Try loading font information for U+msa on input line 243.
 
 ("C:\Program Files\MiKTeX 2.9\tex\latex\amsfonts\umsa.fd"
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Try loading font information for U+msb on input line 241.
+LaTeX Font Info:    Try loading font information for U+msb on input line 243.
  ("C:\Program Files\MiKTeX 2.9\tex\latex\amsfonts\umsb.fd"
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )
-LaTeX Font Info:    Try loading font information for U+rsfs on input line 241.
+LaTeX Font Info:    Try loading font information for U+wasy on input line 243.
 
+("C:\Program Files\MiKTeX 2.9\tex\latex\wasysym\uwasy.fd"
+File: uwasy.fd 2003/10/30 v2.0 Wasy-2 symbol font definitions
+)
+
+LaTeX Font Warning: Font shape `U/wasy/b/n' in size <8> not available
+(Font)              Font shape `U/wasy/m/n' tried instead on input line 243.
+
+
+LaTeX Font Warning: Font shape `U/wasy/b/n' in size <6> not available
+(Font)              Font shape `U/wasy/m/n' tried instead on input line 243.
+
+LaTeX Font Info:    Try loading font information for U+rsfs on input line 243.
 ("C:\Program Files\MiKTeX 2.9\tex\latex\jknappen\ursfs.fd"
 File: ursfs.fd 1998/03/24 rsfs font definition file (jk)
 ) [1
@@ -946,108 +978,136 @@ File: ursfs.fd 1998/03/24 rsfs font definition file (jk)
 (C:\Users\Lesnik\Documents\ucbenik-logika-in-mnozice\MAIN.toc
 Underfull \vbox (badness 1009) has occurred while \output is active []
 
- [5])
+ [5] [6])
 \tf@toc=\write4
- [6]
-(C:\Users\Lesnik\Documents\ucbenik-logika-in-mnozice\MAIN.lot)
-\tf@lot=\write5
- [7
+ [7] [8
 
 ]
-(C:\Users\Lesnik\Documents\ucbenik-logika-in-mnozice\matematicno-izrazanje.tex [8
+(C:\Users\Lesnik\Documents\ucbenik-logika-in-mnozice\MAIN.lot)
+\tf@lot=\write5
+ [9]
+(C:\Users\Lesnik\Documents\ucbenik-logika-in-mnozice\matematicno-izrazanje.tex [10
 
 
 ]
 Poglavje 1.
-LaTeX Font Info:    Try loading font information for T1+cmtt on input line 3.
+LaTeX Font Info:    Try loading font information for T1+cmtt on input line 4.
 ("C:\Program Files\MiKTeX 2.9\tex\latex\base\t1cmtt.fd"
 File: t1cmtt.fd 1999/05/25 v2.5h Standard LaTeX font definitions
 )
 
 LaTeX Font Warning: Font shape `T1/cmtt/b/n' undefined
-(Font)              using `T1/cmtt/m/n' instead on input line 3.
+(Font)              using `T1/cmtt/m/n' instead on input line 4.
 
 
-Overfull \hbox (25.20207pt too wide) in paragraph at lines 3--4
+LaTeX Font Warning: Font shape `U/wasy/b/n' in size <7> not available
+(Font)              Font shape `U/wasy/m/n' tried instead on input line 4.
+
+
+LaTeX Font Warning: Font shape `U/wasy/b/n' in size <5> not available
+(Font)              Font shape `U/wasy/m/n' tried instead on input line 4.
+
+
+Overfull \hbox (25.20207pt too wide) in paragraph at lines 4--5
 [][]\T1/bch/b/n/10 Vsak ima svoj ukaz za pi-sa-nje pri-pomb: []$\OMS/cmsy/m/n/10 n$\T1/cmtt/b/n/10 andrej{...}[]\T1/bch/
 b/n/10 , []$\OMS/cmsy/m/n/10 n$\T1/cmtt/b/n/10 davorin{...}[]\T1/bch/b/n/10 , []$\OMS/cmsy/m/n/10 n$\T1/cmtt/b/n/10 mark
 o{...}[]\T1/bch/b/n/10 , []$\OMS/cmsy/m/n/10 n$\T1/cmtt/b/n/10 matija{...}[]\T1/bch/b/n/10 ,
  []
 
-LaTeX Font Info:    Try loading font information for OMS+bch on input line 12.
+LaTeX Font Info:    Try loading font information for OMS+bch on input line 15.
 ("C:\Program Files\MiKTeX 2.9\tex\latex\psnfss\omsbch.fd"
 File: omsbch.fd 
 )
 LaTeX Font Info:    Font shape `OMS/bch/m/n' in size <10.95> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 12.
- [9]
-Underfull \hbox (badness 10000) in paragraph at lines 52--53
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 15.
+
+Underfull \vbox (badness 3907) has occurred while \output is active []
+
+ [11] [12]
+Underfull \hbox (badness 10000) in paragraph at lines 73--74
 
  []
 
 
+LaTeX Font Warning: Font shape `U/wasy/b/n' in size <9> not available
+(Font)              Font shape `U/wasy/m/n' tried instead on input line 78.
+
+
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [10] [11]
-LaTeX Font Info:    Try loading font information for U+phon on input line 125.
+ [13] [14] [15]
+LaTeX Font Info:    Try loading font information for U+phon on input line 182.
 
 ("C:\Program Files\MiKTeX 2.9\tex\latex\phonetic\uphon.fd")
 
 LaTeX Font Warning: Font shape `U/phon/m/n' in size <9> not available
-(Font)              size <10> substituted on input line 125.
+(Font)              size <10> substituted on input line 182.
+
+[16] [17] [18]) [19] (C:\Users\Lesnik\Documents\ucbenik-logika-in-mnozice\logika.tex [20
 
 
-Overfull \hbox (5.71536pt too wide) in paragraph at lines 151--152
+
+]
+Poglavje 2.
+[21]
+Underfull \hbox (badness 10000) in paragraph at lines 46--47
+
+ []
+
+[22] [23]
+Overfull \hbox (5.71536pt too wide) in paragraph at lines 145--146
 \T1/bch/m/n/10.95 £emo za-na-²ati na pra-vil-nost na-²ih skle-pov, mo-ramo tem ozna-kam dati |   []   |   []
  []
 
-[12] [13]
-Underfull \vbox (badness 3590) has occurred while \output is active []
-
- [14] [15] [16] [17] [18] [19] [20]
+[24]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [21] [22] [23]) [24]
-Poglavje 2.
-[25
+ [25] [26]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [27] [28] [29] [30] [31] [32]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [33] [34] [35]) [36]
+Poglavje 3.
+[37
 
 
-] [26
+] [38
 
 ]
-Poglavje 3.
+Poglavje 4.
+[39] [40
 
-Overfull \hbox (0.73866pt too wide) in paragraph at lines 280--281
+]
+Poglavje 5.
+
+Overfull \hbox (0.73866pt too wide) in paragraph at lines 284--285
 [][]\T1/bch/m/n/10 (Moramo se do-go-vo-riti, ka-te-remu iz-razu bomo dali pred-nost --- `funk-cija' ali `pre-sli-kava'. 
  [])[] 
  []
 
-
-Overfull \hbox (3.74132pt too wide) in paragraph at lines 286--287
-[][]\T1/bch/m/n/10 (Pomemben del tega raz-delka bodo in-ver-zne funk-cije. Mo-go£e lahko to do-damo v na-slov.  [])[] 
- []
-
-[27] (C:\Users\Lesnik\Documents\ucbenik-logika-in-mnozice\relacije.tex [28
+[41] [42] (C:\Users\Lesnik\Documents\ucbenik-logika-in-mnozice\relacije.tex
+Poglavje 6.
+[43
 
 
 ]
-Poglavje 4.
-[29]
 Overfull \hbox (9.37206pt too wide) in paragraph at lines 31--33
 [][]\T1/bch/b/it/10.95 definicijsko ob-mo-£je \T1/bch/m/n/10.95 ali \T1/bch/b/it/10.95 no-si-lec \T1/bch/m/n/10.95 re-la
 -cije $\U/rsfs/m/n/10.95 R$ \T1/bch/m/n/10.95 je mno-ºica $\OML/cmm/m/it/10.95 D[] []\OT1/cmr/m/n/10.95 = []$
  []
 
-[30] [31] [32] [33] [34]
+[44] [45] [46] [47] [48]
 
 LaTeX Warning: Float too large for page by 1.43253pt on input line 256.
 
-[35] [36] [37] [38] [39]
+[49] [50] [51] [52] [53]
 Overfull \hbox (0.28868pt too wide) in paragraph at lines 412--413
 \T1/bch/m/n/10 Struk-tu-ri-rane mno-ºice``, kjer po-vemo ²e ve£ na to temo. Tja do-damo tudi Boo-love mreºe/kolobarje
  []
 
-[40]
+[54]
 Underfull \hbox (badness 10000) in paragraph at lines 457--458
 
  []
@@ -1057,25 +1117,30 @@ Underfull \hbox (badness 10000) in paragraph at lines 458--459
 
  []
 
-[41] [42]) [43] [44]
-Poglavje 5.
-[45
-
-
-] [46
-
-]
-Poglavje 6.
-[47] [48
-
-]
+[55] [56]) [57] [58]
 Poglavje 7.
-[49] [50
+[59
+
+
+] [60
 
 ]
 Poglavje 8.
-[51] (C:\Users\Lesnik\Documents\ucbenik-logika-in-mnozice\MAIN.aux
+[61] [62
+
+]
+Poglavje 9.
+[63] [64
+
+]
+Poglavje 10.
+[65] [66
+
+]
+Poglavje 11.
+[67] (C:\Users\Lesnik\Documents\ucbenik-logika-in-mnozice\MAIN.aux
 (C:\Users\Lesnik\Documents\ucbenik-logika-in-mnozice\matematicno-izrazanje.aux)
+(C:\Users\Lesnik\Documents\ucbenik-logika-in-mnozice\logika.aux)
 (C:\Users\Lesnik\Documents\ucbenik-logika-in-mnozice\relacije.aux))
 
 LaTeX Font Warning: Size substitutions with differences
@@ -1084,14 +1149,17 @@ LaTeX Font Warning: Size substitutions with differences
 
 LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 
+
+LaTeX Warning: There were multiply-defined labels.
+
  ) 
 Here is how much of TeX's memory you used:
- 20031 strings out of 493707
- 388202 string characters out of 3144607
- 421560 words of memory out of 3000000
- 22951 multiletter control sequences out of 15000+200000
- 63049 words of font info for 112 fonts, out of 3000000 for 9000
+ 20237 strings out of 493707
+ 390722 string characters out of 3144607
+ 422707 words of memory out of 3000000
+ 23136 multiletter control sequences out of 15000+200000
+ 65400 words of font info for 123 fonts, out of 3000000 for 9000
  1025 hyphenation exceptions out of 8191
  62i,14n,61p,10377b,326s stack positions out of 5000i,500n,10000p,200000b,50000s
 
-Output written on MAIN.dvi (51 pages, 160752 bytes).
+Output written on MAIN.dvi (67 pages, 200492 bytes).

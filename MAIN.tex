@@ -13,6 +13,7 @@
 	\usepackage{amssymb}
 	\usepackage{amsmath}
 	\usepackage{theorem}
+	\usepackage{wasysym}
 	\usepackage{phonetic}
 	\usepackage{bm}
 	\usepackage{tablefootnote}
@@ -166,6 +167,7 @@
 	\newcommand{\dfeq}{\mathrel{\mathop:}=}  % definitional equality
 	\newcommand{\dfeqrev}{=\mathrel{\mathop:}}  % reversed definitional equality
 	\newcommand{\id}[1][]{\textrm{Id}_{#1}}  % identity map
+	\newcommand{\argbox}{{\;\!\fbox{\phantom{M}}\;\!}}  % box for a function argument
 	\newcommand{\tvs}{\Omega}  % set of truth values
 	\newcommand{\true}{\top}  % truth
 	\newcommand{\false}{\bot}  % falsehood
@@ -253,7 +255,6 @@
 	% TOC
 	
 	
-	\addcontentsline{toc}{chapter}{\alert{Kazalo se naj začne na sodi strani, tako da lahko bralec naenkrat vidi celotno kazalo.}}
 	\tableofcontents
 	\listoftables
 	
@@ -264,6 +265,9 @@
 	
 	
 	\include{matematicno-izrazanje}
+	\include{logika}
+	
+	\chapter{Dokazovanje}\label{POGLAVJE: Dokazovanje}
 	
 	\chapter{Konstrukcije množic}
 		\section{Preprosti primeri}
@@ -276,18 +280,32 @@
 		\section{Unija in presek}
 		\section{Eksponentna množica}
 	
-	\chapter{Funkcije}
+	\chapter{Preslikave}
 		\davorin{Moramo se dogovoriti, kateremu izrazu bomo dali prednost --- `funkcija' ali `preslikava'.}
+		\section{Brezimne preslikave}\label{RAZDELEK: Brezimne preslikave}
+			\note{Tj.~anonimne oz.~čiste funkcije. Na tem mestu pride tudi $\lambda$-notacija in določena mera $\lambda$-računa.}
 		\section{Slike in praslike}
-			\davorin{Kako jih označevati? Bomo sliko označevali isto kot funkcijo samo (kot je običaj) in se zanašamo, da bodo študenti ločili, kdaj gre za $f\colon X \to Y$ in kdaj za $f\colon \pst(X) \to \pst(Y)$? Podobno, bomo prasliko označevali isto kot inverz in upali, da bodo ločili med $f^{-1}\colon Y \to X$ in $f^{-1}\colon \pst(Y) \to \pst(X)$? Ali uvedemo posebne oznake za sliko in prasliko, recimo $f_*$ in $f^*$?}
-		\section{Injektivnost in surjektivnost}
+			\davorin{Kako jih označevati? Bomo sliko označevali isto kot preslikavo samo (kot je običaj) in se zanašamo, da bodo študenti ločili, kdaj gre za $f\colon X \to Y$ in kdaj za $f\colon \pst(X) \to \pst(Y)$? Podobno, bomo prasliko označevali isto kot inverz in upali, da bodo ločili med $f^{-1}\colon Y \to X$ in $f^{-1}\colon \pst(Y) \to \pst(X)$? Ali uvedemo posebne oznake za sliko in prasliko, recimo $f_*$ in $f^*$?}
+		\section{Injektivnost in surjektivnost}\label{RAZDELEK: Injektivnost in surjektivnost}
 			\note{Vključno z ekvivalenco z mono- in epimorfizmi.}
 		\section{Bijektivnost}
-			\davorin{Pomemben del tega razdelka bodo inverzne funkcije. Mogoče lahko to dodamo v naslov.}
+			\davorin{Pomemben del tega razdelka bodo inverzne preslikave. Mogoče lahko to dodamo v naslov.}
 			
-			\davorin{Pri inverzih omenimo sledeče. Pogosto obravnavamo funkcijo, ki izhaja iz nekega konkretnega (na primer fizikalnega) problema, v smislu, da funkcija vzame začetne podatke in nam vrne, kaj se bo na koncu zgodilo. Marsikdaj pa hočemo rešiti obraten problem: želimo določene končne rezultate in se sprašujemo, kaj morajo biti začetni pogoji, da jih bomo dosegli. V tem primeru pridejo prav inverzi.}
+			\davorin{Pri inverzih omenimo sledeče. Pogosto obravnavamo preslikavo, ki izhaja iz nekega konkretnega (na primer fizikalnega) problema, v smislu, da preslikava vzame začetne podatke in nam vrne, kaj se bo na koncu zgodilo. Marsikdaj pa hočemo rešiti obraten problem: želimo določene končne rezultate in se sprašujemo, kaj morajo biti začetni pogoji, da jih bomo dosegli. V tem primeru pridejo prav inverzi.}
 	
 	\include{relacije}
+	
+	\chapter{Strukturirane množice}
+		\note{Struktura na množici. Morfizmi, ki to strukturo ohranjajo. Definicija strukturirane množice preko njene karakterizacije --- potrebna obstoj in enoličnost (do izomorfizma). Primeri. Posebej primeri struktur urejenosti (izhaja iz razdelka o strukturah urejenosti v poglavju o relacijah) in osnovnih algebrskih struktur (pride prav kasneje pri konstrukciji številskih množic). Urejenostna in algebrska struktura se združita v pojmu mreže. Definicija (polnih) Boolovih mrež/kolobarjev in povezava z logiko. Širša slika strukturiranih množic --- kategorije.}
+	
+	\chapter{Številske množice}
+		\note{Karakterizacije številskih množic. Dokaz obstoja in enoličnosti (do izomorfizma).}
+		\section{Naravna števila}
+		\section{Cela števila}
+		\section{Racionalna števila}
+		\section{Realna števila}
+		\section{Kompleksna števila}
+			\note{Se ustavimo že pri realnih številih? Gremo še dlje do kvaternionov?}
 	
 	\chapter{Aksiomatska teorija množic}
 		\section{Zermelo-Fraenklovi aksiomi}
@@ -300,18 +318,7 @@
 		\section{Kardinalnost množice}
 	
 	\chapter{Ordinalna števila}
-	
-	\chapter{\note{možne dodatne teme}}
-		\begin{itemize}
-			\item
-				Več o ZFC
-			\item
-				Strukturirane množice in njihovi morfizmi
-			\item
-				Kategorije
-			\item
-				Številske množice (med drugim aksiom o neskončnosti, Peanovi aksiomi in debata, kako definiramo strukturirano množico preko njene karakterizacije, če obenem dokažemo obstoj in enoličnost (do izomorfizma))
-		\end{itemize}
+		\davorin{Mogoče združimo kardinalna in ordinalna števila v eno poglavje?}
 	
 	
 \end{document}
