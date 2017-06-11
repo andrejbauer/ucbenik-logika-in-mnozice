@@ -13,10 +13,15 @@
 	\usepackage{amssymb}
 	\usepackage{amsmath}
 	\usepackage{theorem}
+	\usepackage{wasysym}
 	\usepackage{phonetic}
+	\usepackage{bm}
 	\usepackage{tablefootnote}
 	\usepackage{color}
+	%\usepackage[most]{tcolorbox}
+	\usepackage{tkz-graph}
 	\usepackage{xparse}
+	\usepackage{mathrsfs}
 	\usepackage{ulem}
 	\usepackage{charter}
 
@@ -39,6 +44,7 @@
 		\newtheorem{opomba}[izrek]{Opomba}
 		\newtheorem{primer}[izrek]{Primer}
 		\newtheorem{zgled}[izrek]{Zgled}
+		\newtheorem{vaja}[izrek]{Vaja}
 	}
 
 %%%%%%  Proofs
@@ -76,39 +82,66 @@
 		#2}}}}}
 	}
 	\newcommand{\proven}[1]{\underline{#1}\vspace{0.2em}\\}
-	\newcommand{\note}[1]{{\small\textcolor{blue}{(#1)}}}
 	\newcommand{\someref}{{\small\textcolor{blue}{[\textbf{ref.}]}}}
+	
+	\definecolor{andrejcolor}{rgb}{0.7,0,0.7}
+	\definecolor{davorincolor}{rgb}{0,0.45,1}
+	\definecolor{markocolor}{rgb}{0.7,0.4,0}
+	\definecolor{matijacolor}{rgb}{0,0.6,0.4}
+	
+	\newcommand{\andrej}[1]{{\small\textcolor{andrejcolor}{(#1 \ \mbox{--Andrej})}}}
+	\newcommand{\davorin}[1]{{\small\textcolor{davorincolor}{(#1 \ \mbox{--Davorin})}}}
+	\newcommand{\marko}[1]{{\small\textcolor{markocolor}{(#1 \ \mbox{--Marko})}}}
+	\newcommand{\matija}[1]{{\small\textcolor{matijacolor}{(#1 \ \mbox{--Matija})}}}
+	
+	\definecolor{notecolor}{rgb}{0.6,0.5,0.7}
+	\newcommand{\note}[1]{{\small\textcolor{notecolor}{(#1)}}}
+	\newcommand{\alert}[1]{{\small\textcolor{red}{\textbf{#1}}}}
 
 
-%%%%%%  Logical Quantifiers and λ-Terms (x = no parenthesis, u = untyped)
+%%%%%%  Logical Quantifiers and λ-Terms
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-	\newcommand{\all}[4][auto]{\forall\, #2 \,{\in}\, #3\,.\sizedescriptor{#1}{\left}({#4}\sizedescriptor{#1}{\right})}
-	\newcommand{\some}[4][auto]{\exists\, #2 \,{\in}\, #3\,.\sizedescriptor{#1}{\left}({#4}\sizedescriptor{#1}{\right})}
-	\newcommand{\exactlyone}[4][auto]{\exists\;\!!\, #2 \,{\in}\, #3\,.\sizedescriptor{#1}{\left}({#4}\sizedescriptor{#1}{\right})}
 	
-	\newcommand{\uall}[3][auto]{\forall\, #2\,.\sizedescriptor{#1}{\left}({#3}\sizedescriptor{#1}{\right})}
-	\newcommand{\usome}[3][auto]{\exists\, #2\,.\sizedescriptor{#1}{\left}({#3}\sizedescriptor{#1}{\right})}
-	\newcommand{\uexactlyone}[3][auto]{\exists\;\!!\, #2\,.\sizedescriptor{#1}{\left}({#3}\sizedescriptor{#1}{\right})}
+	%  x = no parenthesis
+	\NewDocumentCommand{\xall}
+		{m O{\empty} m}
+		{\forall\, {#1} \ifthenelse{\equal{#2}{}}{}{\in{#2}} \,.\, {#3}}
+	\NewDocumentCommand{\xsome}
+		{m O{\empty} m}
+		{\exists\, {#1} \ifthenelse{\equal{#2}{}}{}{\in{#2}} \,.\, {#3}}
+	\NewDocumentCommand{\xexactlyone}
+		{m O{\empty} m}
+		{\exists\;\!!\, {#1} \ifthenelse{\equal{#2}{}}{}{\in{#2}} \,.\, {#3}}
+	\NewDocumentCommand{\xlam}
+		{m O{\empty} m O{\empty}}
+		{\lambda\, {#1} \ifthenelse{\equal{#2}{}}{}{\in{#2}} \,.\, {#3} \ifthenelse{\equal{#4}{}}{}{\in{#4}}}
 	
-	\newcommand{\xall}[3]{\forall\, #1 \,{\in}\, #2\,.\,#3}
-	\newcommand{\xsome}[3]{\exists\, #1 \,{\in}\, #2\,.\,#3}
-	\newcommand{\xexactlyone}[3]{\exists\;\!!\, #1 \,{\in}\, #2\,.\,#3}
-	
-	\newcommand{\xuall}[2]{\forall\, #1\,.\,#2}
-	\newcommand{\xusome}[2]{\exists\, #1\,.\,#2}
-	\newcommand{\xuexactlyone}[2]{\exists\;\!!\, #1,.\,#2}
-
-	\newcommand{\ldm}[4]{\lambda{#1} \,{\in}\, #2\,.\,#3 \,{\in}\, #4}
+	%  with parenthesis -- the first optional argument is the size (values 0-4)
+	\NewDocumentCommand{\all}
+		{O{auto} m O{\empty} m}
+		{\xall{#2}[#3]{\sizedescriptor{#1}{\left}( {#4} \sizedescriptor{#1}{\right})}}
+	\NewDocumentCommand{\some}
+		{O{auto} m O{\empty} m}
+		{\xsome{#2}[#3]{\sizedescriptor{#1}{\left}( {#4} \sizedescriptor{#1}{\right})}}
+	\NewDocumentCommand{\exactlyone}
+		{O{auto} m O{\empty} m}
+		{\xexactlyone{#2}[#3]{\sizedescriptor{#1}{\left}( {#4} \sizedescriptor{#1}{\right})}}
+	\NewDocumentCommand{\lam}
+		{O{auto} m O{\empty} m O{\empty}}
+		{\xlam{#2}[#3]{\sizedescriptor{#1}{\left}( {#4} \sizedescriptor{#1}{\right})}[#5]}
 
 
 %%%%%%  Sets
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 	%  \set{1, 2, 3}         ->  {1, 2, 3}
 	%  \set{a \in X}{a < 1}  ->  {a ∈ X | a < 1}
-	\DeclareDocumentCommand{\set}{O{auto} m G{\empty}}{ \sizedescriptor{#1}{\left} \{{#2} \ifthenelse{\equal{#3}{}}{}{ \; \sizedescriptor{#1}{\middle}| \; {#3}} \sizedescriptor{#1}{\right}\}}
-	\newcommand{\vsubset}{\Mapstochar\cap}
-	\newcommand{\finseq}[1]{{#1}^*}
+	\NewDocumentCommand{\set}
+		{O{auto} m G{\empty}}
+		{\sizedescriptor{#1}{\left}\{ {#2} \ifthenelse{\equal{#3}{}}{}{ \; \sizedescriptor{#1}{\middle}| \; {#3}} \sizedescriptor{#1}{\right}\}}
+	%\newcommand{\vsubset}{\Mapstochar\cap}
+	%\newcommand{\finseq}[1]{{#1}^*}
 	\newcommand{\pst}{\mathcal{P}}
+	\renewcommand{\complement}[1]{{#1}^C}
 
 
 %%%%%%  Number Sets, Intervals
@@ -127,12 +160,19 @@
 %%%%%%  Misc.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 	\newcommand{\intermission}{\bigskip\medskip}
-	\newcommand{\df}[1]{\emph{\textbf{#1}}}  % defined notion
+	\newcommand{\df}[1]{\textit{\textbf{#1}}}  % defined notion
+	\newcommand{\oper}{\mathop{\circledast}}  % symbol for a general operation
 	\newcommand{\ism}{\cong}  % isomorphic
 	\newcommand{\equ}{\sim}  % equivalent
 	\newcommand{\dfeq}{\mathrel{\mathop:}=}  % definitional equality
 	\newcommand{\dfeqrev}{=\mathrel{\mathop:}}  % reversed definitional equality
 	\newcommand{\id}[1][]{\textrm{Id}_{#1}}  % identity map
+	\newcommand{\argbox}{{\;\!\fbox{\phantom{M}}\;\!}}  % box for a function argument
+	\newcommand{\tvs}{\Omega}  % set of truth values
+	\newcommand{\true}{\top}  % truth
+	\newcommand{\false}{\bot}  % falsehood
+	\newcommand{\etrue}{\bm{\top}}  % emphasized truth
+	\newcommand{\efalse}{\bm{\bot}}  % emphasized falsehood
 	\newcommand{\impl}{\Rightarrow}  % implication sign
 	\newcommand{\revimpl}{\Leftarrow}  % reverse implication sign
 	\newcommand{\lequ}{\Leftrightarrow}  % equivalence sign
@@ -144,6 +184,20 @@
 	\newcommand{\parto}{\mathrel{\rightharpoonup}}  % partial mapping sign
 	\newcommand{\qt}[1]{{\quotedblbase}{#1}{‘‘}}  % text in quotation marks
 	\newcommand{\nls}[1]{\qt{\textit{#1}}}  % sentence in a natural language
+	\NewDocumentCommand{\rel}
+		{O{\empty} O{\empty}}
+		{\ifthenelse{\equal{#1}{}}{\mathscr{R}}{{#1} \mathrel{\mathscr{R}} {#2}}}  % a relation
+	\NewDocumentCommand{\srel}
+		{O{\empty} O{\empty}}
+		{\ifthenelse{\equal{#1}{}}{\mathscr{S}}{{#1} \mathrel{\mathscr{S}} {#2}}}  % a second relation
+	\newcommand{\dom}{\mathrm{dom}}  % domain
+	\newcommand{\cod}{\mathrm{cod}}  % codomain
+	\newcommand{\dd}[1]{D_{#1}}  % domain of definition
+	\newcommand{\rn}[1]{Z_{#1}}  % range
+	\newcommand{\graph}[1]{\Gamma_{#1}}  % graph of a (partial) function
+	\newcommand{\isdefined}[1]{{#1}\!\downarrow}  % given value is defined
+	\newcommand{\kleq}{\simeq}  % Kleene equality
+	\newcommand{\ec}[2][]{[\:\!{#2}\:\!]_{#1}}  % equivalence class
 	
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -201,8 +255,8 @@
 	% TOC
 	
 	
-	\addcontentsline{toc}{chapter}{\note{kazalo se naj začne na sodi strani, tako da lahko bralec naenkrat vidi celotno kazalo}}
 	\tableofcontents
+	\listoftables
 	
 	
 	%--------------------------------------------------------------------
@@ -211,40 +265,52 @@
 	
 	
 	\include{matematicno-izrazanje}
+	\include{logika}
+	
+	\chapter{Dokazovanje}\label{POGLAVJE: Dokazovanje}
 	
 	\chapter{Konstrukcije množic}
 		\section{Preprosti primeri}
 			\note{prazna množica, enojci}
 		\section{Podmnožice}
+		\section{Potenčna množica}
+		\section{Družine množic}
 		\section{Produkt množic}
 		\section{Vsota množic}
 		\section{Unija in presek}
 		\section{Eksponentna množica}
-		\section{Potenčna množica}
 	
-	\chapter{Funkcije}
-		\note{Moramo se dogovoriti, kateremu izrazu bomo dali prednost --- `funkcija' ali `preslikava'.}
+	\chapter{Preslikave}
+		\davorin{Moramo se dogovoriti, kateremu izrazu bomo dali prednost --- `funkcija' ali `preslikava'.}
+		\section{Brezimne preslikave}\label{RAZDELEK: Brezimne preslikave}
+			\note{Tj.~anonimne oz.~čiste funkcije. Na tem mestu pride tudi $\lambda$-notacija in določena mera $\lambda$-računa.}
 		\section{Slike in praslike}
-		\section{Injektivnost in surjektivnost}
+			\davorin{Kako jih označevati? Bomo sliko označevali isto kot preslikavo samo (kot je običaj) in se zanašamo, da bodo študenti ločili, kdaj gre za $f\colon X \to Y$ in kdaj za $f\colon \pst(X) \to \pst(Y)$? Podobno, bomo prasliko označevali isto kot inverz in upali, da bodo ločili med $f^{-1}\colon Y \to X$ in $f^{-1}\colon \pst(Y) \to \pst(X)$? Ali uvedemo posebne oznake za sliko in prasliko, recimo $f_*$ in $f^*$?}
+		\section{Injektivnost in surjektivnost}\label{RAZDELEK: Injektivnost in surjektivnost}
 			\note{Vključno z ekvivalenco z mono- in epimorfizmi.}
 		\section{Bijektivnost}
-			\note{Pomemben del tega razdelka bodo inverzne funkcije. Mogoče lahko to dodamo v naslov.}
+			\davorin{Pomemben del tega razdelka bodo inverzne preslikave. Mogoče lahko to dodamo v naslov.}
+			
+			\davorin{Pri inverzih omenimo sledeče. Pogosto obravnavamo preslikavo, ki izhaja iz nekega konkretnega (na primer fizikalnega) problema, v smislu, da preslikava vzame začetne podatke in nam vrne, kaj se bo na koncu zgodilo. Marsikdaj pa hočemo rešiti obraten problem: želimo določene končne rezultate in se sprašujemo, kaj morajo biti začetni pogoji, da jih bomo dosegli. V tem primeru pridejo prav inverzi.}
 	
-	\chapter{Relacije}
-		\section{Operacije z relacijami}
-		\section{Lastnosti relacij}
-			\note{Med drugim lastnosti relacij, izražene z operacijami. Mogoče združimo ta dva razdelka?}
-		\section{Relacije urejenosti}
-			\note{Vključno z urejenostnimi strukturami. Vključno z morfizmi?}
-		\section{Ekvivalenčne relacije}
-		\section{Kvocientne množice}
-			\note{Sem dodajmo kanonični razcep funkcije (na surjekcijo/kvocient, bijekcijo, injekcijo/vložitev).}
+	\include{relacije}
 	
-	\chapter{Funkcije kot funkcijske relacije}
-		\note{Si to zasluži lastno poglavje?}
+	\chapter{Strukturirane množice}
+		\note{Struktura na množici. Morfizmi, ki to strukturo ohranjajo. Definicija strukturirane množice preko njene karakterizacije --- potrebna obstoj in enoličnost (do izomorfizma). Primeri. Posebej primeri struktur urejenosti (izhaja iz razdelka o strukturah urejenosti v poglavju o relacijah) in osnovnih algebrskih struktur (pride prav kasneje pri konstrukciji številskih množic). Urejenostna in algebrska struktura se združita v pojmu mreže. Definicija (polnih) Boolovih mrež/kolobarjev in povezava z logiko. Širša slika strukturiranih množic --- kategorije.}
 	
-	\chapter{Družine množic}
-		\note{Pride to res šele tu? To pomeni, da bomo v poglavju `Konstrukcije množic' delali samo s *končnimi* produkti, vsotami itd. in na tem mestu dodali splošne?}
+	\chapter{Številske množice}
+		\note{Karakterizacije številskih množic. Dokaz obstoja in enoličnosti (do izomorfizma).}
+		\section{Naravna števila}
+		\section{Cela števila}
+		\section{Racionalna števila}
+		\section{Realna števila}
+		\section{Kompleksna števila}
+			\note{Se ustavimo že pri realnih številih? Gremo še dlje do kvaternionov?}
+	
+	\chapter{Aksiomatska teorija množic}
+		\section{Zermelo-Fraenklovi aksiomi}
+		\section{Aksiom izbire}
+		\section{Kumulativna hierarhija}
 	
 	\chapter{Kardinalna števila}
 		\section{Končnost in neskončnost}
@@ -252,21 +318,7 @@
 		\section{Kardinalnost množice}
 	
 	\chapter{Ordinalna števila}
-	
-	\chapter{Aksiom izbire}
-		\note{Nekje moramo pojasniti, kaj je sploh poanta aksiomov.}
-	
-	\chapter{Kumulativna hierarhija}
-	
-	\chapter{\note{možne dodatne teme}}
-		\begin{itemize}
-			\item
-				Več o ZFC
-			\item
-				Strukturirane množice in njihovi morfizmi
-			\item
-				Kategorije
-		\end{itemize}
+		\davorin{Mogoče združimo kardinalna in ordinalna števila v eno poglavje?}
 	
 	
 \end{document}
