@@ -1,154 +1,19 @@
 \chapter{Logika}\label{POGLAVJE: Logika}
 
-	Za matematično delo je bistveno, da se lahko zanašamo na pravilnost naših trditev. To pomeni:
-	\begin{itemize}
-		\item
-			matematične izjave morajo imeti \emph{nedvoumen pomen},
-		\item
-			matematične izjave lahko \emph{dokažemo}.
-	\end{itemize}
+	\note{uvod}
 	
-	Stavki v običajnih jezikih nimajo nedvoumnega pomena, zato matematične izjave raje podamo v \emph{matematičnem jeziku}. Za to potrebujemo \qt{matematično abecedo}, tj.~simbolni zapis, v katerem podamo izjave. Tega obravnavamo v naslednjem razdelku, dokazovanje matematičnih izjav pa v razdelku za tem.
 	
-	\section{Simbolni zapis}\label{RAZDELEK: Simbolni zapis}
+	\section{Izjavni vezniki}
 	
-		\davorin{Ta razdelek se je že precej razpihnil, ker je noter stlačena večina logike. Nekako bomo morali to razdeliti.}
-		
-		Za množice, s katerimi najpogosteje delamo, obstajajo standardne oznake (tabela~\ref{TABELA: Standardne številske množice}).
-		
-		\begin{table}[!ht]
-			\centering
-			\begin{tabular}{|cc|}
-				\hline
-				\textbf{Množica} & \textbf{Oznaka} \\
-				\hline
-				množica naravnih števil & $\NN$ \\
-				množica celih števil & $\ZZ$ \\
-				množica racionalnih števil & $\QQ$ \\
-				množica realnih števil & $\RR$ \\
-				množica kompleksnih števil & $\CC$ \\
-				\hline
-			\end{tabular}
-			\caption{Standardne številske množice}\label{TABELA: Standardne številske množice}
-		\end{table}
-		
-		Nekateri $0$ vzamejo za naravno število, nekateri ne. To je v celoti stvar dogovora, kaj pomeni pojem \qt{naravno število}. Za nas bo prišlo bolj prav, če ničlo štejemo kot element množice naravnih števil, torej $\NN = \set{0, 1, 2, 3, \ldots}$.
-		
-		Interval realnih števil podamo s krajiščema intervala v oklepajih --- okrogli oklepaji ( ) označujejo odprtost intervala (krajišče ni vključeno v interval), oglati oklepaji [ ] pa zaprtost (krajišče je vključeno). Tako se npr.~interval realnih števil od $0$ do $1$, ki ne vsebuje krajišč, označi z $(0, 1)$, če jih vsebuje, pa z $[0, 1]$.
-		
-		Včasih pridejo prav tudi intervali na drugih množicah kot $\RR$. Zato se dogovorimo, da bomo intervale označevali tako, da podamo množico, ob kateri v indeksu zapišemo krajišči v oklepajih, npr.~$\intco[\NN]{1}{5} = \set{1, 2, 3, 4}$. Realna intervala iz prejšnjega odstavka tako zapišemo kot $\intoo{0}{1}$ in $\intcc{0}{1}$.
-		
-		Če interval v katero smer gre v nedogled, preprosto zapišemo množico z ustrezno relacijo urejenosti in krajiščem v indeksu. Na primer, $\RR_{> 0}$ označuje množico pozitivnih realnih števil, $\RR_{\geq 0}$ pa množico nenegativnih realnih števil.
-		
-		\davorin{To bi vsaj bil moj predlog. Na ta način se izognemo dvoumnostim (kar je namen). Na primer, kaj pomeni $\forall\, a > 0$? Če zapišemo $\forall\, a \in \NN_{> 0}$ ali $\forall\, a \in \RR_{> 0}$, je jasno. Razlog, da matematiki \qt{goljufajo} in pridejo skozi brez tega, je (napol dogovorjena in ponotranjena, ampak arbitrarna) izbira črk; vsak izkušen matematik ve, da $\forall\, \epsilon > 0$ pomeni $\forall\, \epsilon \in \RR_{> 0}$. Dodaten problem je, da kasneje uporabljamo urejene pare, ki jih vsi na naši fakulteti pišejo z okroglimi oklepaji. Poskusimo se izogniti zmedi, ali $(a, b)$ pomeni urejeni par ali odprti interval.
-		\\
-		\\
-		Če se ne strinjate, popravite in pustite komentar.}
-		
-		Izjavo, da je $2$ naravno število, zapišemo takole: $2 \in \NN$ (beri: $2$ pripada množici naravnih števil). Kako zapišemo, da je $a$ sodo število? Število je sodo, kadar je deljivo z $2$, torej pišemo $2 | a$ (beri: $2$ deli $a$).
-		
-		Če imamo več izjav, jih lahko strnemo v sestavljeno izjavo. Na primer, izjavo \nls{Če je $a$ sodo število, je tudi kvadrat števila $a$ sod.}, zapišemo kot $2 | a \implies 2 | a^2$.
-		
-		Seveda ta izjava velja za vsa naravna števila (znaš to dokazati?). To zapišemo takole: $\all{a}[\NN]{2 | a \implies 2 | a^2}$.
-		
-		Kot smo navajeni iz običajnih jezikov, posamične stavke povežemo v sestavljeno poved z \emph{vezniki}. Najpogosteje uporabljeni matematični vezniki so v tabeli~\ref{TABELA: Standardni izjavni vezniki}.
-		
-		\begin{table}[!ht]
-			\centering
-			\begin{tabular}{|ccc|}
-				\hline
-				\textbf{Izjavni veznik} & \textbf{Oznaka} & \textbf{Kako preberemo} \\
-				\hline
-				negacija & $\lnot{p}$ & ne $p$ \\
-				konjunkcija & $p \land q$ & $p$ in $q$ \\
-				disjunkcija & $p \lor q$ & $p$ ali $q$ \\
-				implikacija & $p \impl q$ & če $p$, potem $q$ \\
-				ekvivalenca & $p \lequ q$ & $p$ natanko tedaj, ko $q$ \\
-				\hline
-			\end{tabular}
-			\caption{Standardni izjavni vezniki}\label{TABELA: Standardni izjavni vezniki}
-		\end{table}
-		
-		\begin{opomba}
-			V matematiki se za izjavne veznike običajno uporabljajo zgoraj navedene tujke, ampak vsaka od njih seveda ima svoj pomen. Dobesedni prevodi teh tujk so:
-			\begin{itemize}
-				\item
-					negacija $\to$ zanikanje,
-				\item
-					konjunkcija $\to$ vezava,
-				\item
-					disjunkcija $\to$ ločitev,
-				\item
-					implikacija $\to$ vpletenost,
-				\item
-					ekvivalenca $\to$ enakovrednost.
-			\end{itemize}
-			Za primerjavo: spomnite se vezalnega in ločnega priredja iz slovenščine!
-		\end{opomba}
-		
-		\begin{zgled}
-			Naj $p$ označuje stavek \nls{Zunaj dežuje.} in $q$ stavek \nls{Vzamem dežnik.}. Tedaj $\lnot{p}$ pomeni \nls{Zunaj ne dežuje.} in $p \impl q$ pomeni \nls{Če zunaj dežuje, potem vzamem dežnik.}.
-		\end{zgled}
-		
-		Kose sestavljene izjave lahko veže več kot en veznik. V tem primeru se (tako kot pri računanju s števili) dogovorimo o prednosti veznikov. Po dogovoru je vrstni red veznikov tak, kot v tabeli~\ref{TABELA: Standardni izjavni vezniki}, tj.~najmočneje veže negacija, nato konjunkcija, nato disjunkcija, nato implikacija, nato ekvivalenca. Kadar želimo, da se najprej izvede veznik z nižjo prednostjo, uporabimo oklepaje.
-		
-		\begin{zgled}
-			Označimo sledeče stavke:
-			\begin{quote}
-				$p$ \ \ldots\ldots\ \nls{Imam čas.} \\
-				$q$ \ \ldots\ldots\ \nls{Ostanem doma.}
-			\end{quote}
-			Tedaj $\lnot{p} \land q$ pomeni isto kot $(\lnot{p}) \land q$, to je \nls{Nimam časa in ostanem doma.}, medtem ko $\lnot(p \land q)$ pomeni \nls{Ni res, da imam čas in ostanem doma.}.
-		\end{zgled}
-		\davorin{Če komu pade na pamet primer boljših stavkov, je zaželjeno, da popravi\ldots}
-		
-		Poleg zgoraj navedenih izjavnih veznikov se včasih uporabljajo še sledeči (tabela~\ref{TABELA: Nadaljnji izjavni vezniki}).
-		
-		\begin{table}[!ht]
-			\centering
-			\begin{tabular}{|ccc|}
-				\hline
-				\textbf{Izjavni veznik} & \textbf{Oznaka} & \textbf{Kako preberemo} \\
-				\hline
-				stroga disjunkcija & $p \xor q$ & bodisi $p$ bodisi $q$ \\
-				Shefferjev\tablefootnote{Henry Maurice Sheffer (1882 -- 1964) je bil ameriški logik.} veznik & $p \shf q$ & ne hkrati $p$ in $q$ \\
-				Łukasiewiczev\tablefootnote{Jan Łukasiewicz (beri: \hill{u}ukaśj\^{e}vič) (1878 -- 1956) je bil poljski logik in filozof.} veznik & $p \luk q$ & niti $p$ niti $q$ \\
-				\hline
-			\end{tabular}
-			\caption{Nekateri nadaljnji izjavni vezniki}\label{TABELA: Nadaljnji izjavni vezniki}
-		\end{table}
-		
-		Za strogo disjunkcijo (tudi: ekskluzivna disjunkcija, izključitvena disjunkcija) se uporabljajo še druge oznake: $p \oplus q$, $p + q$. Razlika med navadno in strogo disjunkcijo je sledeča: $p \lor q$ pomeni, da \emph{vsaj eden} od $p$ in $q$ velja, medtem ko $p \xor q$ pomeni, da velja \emph{natanko eden}.
-		
-		\begin{zgled}
-			Stavek \nls{Pisni del predmeta je potrebno opraviti s kolokviji ali pisnim izpitom.} je primer navadne disjunkcije (seveda se vam prizna pisni del predmeta tudi, če uspešno odpišete tako kolokvije kot pisni izpit), stavek \nls{Grem bodisi na morje bodisi v hribe.} pa je primer stroge disjunkcije (ne da se biti na dveh mestih hkrati).
-		\end{zgled}
-		
-		Običajno veznike iz tabele~\ref{TABELA: Nadaljnji izjavni vezniki} (in vse preostale, ki jih nismo navedli) izrazimo s standardnimi (glej tabelo~\ref{TABELA: Izražava nadaljnjih izjavnih veznikov s standardnimi}), včasih pa je uporabno delati neposredno z njimi. Na primer, stroga disjunkcija služi kot seštevanje v Boolovem kolobarju (glej~\note{razdelek o Boolovih kolobarjih}), Shefferjev in Łukasiewiczev veznik pa se uporabljata pri preklopnih vezjih, saj je z vsakim od njiju možno izraziti vse izjavne veznike (glej vajo~\ref{VAJA: polni nabori z enim veznikom}). V računalništvu imajo ti trije vezniki standardne oznake XOR, NAND, NOR.
-		
-		\begin{table}[!ht]
-			\centering
-			\begin{tabular}{|ccc|}
-				\hline
-				\textbf{Izjavni veznik} & \multicolumn{2}{c|}{\textbf{Nekatere izražave s standardnimi vezniki}} \\
-				\hline
-				$p \xor q$ & $(p \lor q) \land \lnot(p \land q)$ & $(p \land \lnot{q}) \lor (\lnot{p} \land q)$ \\
-				$p \shf q$ & $\lnot(p \land q)$ & $\lnot{p} \lor \lnot{q}$ \\
-				$p \luk q$ & $\lnot(p \lor q)$ & $\lnot{p} \land \lnot{q}$ \\
-				\hline
-			\end{tabular}
-			\caption{Izražava nadaljnjih izjavnih veznikov s standardnimi}\label{TABELA: Izražava nadaljnjih izjavnih veznikov s standardnimi}
-		\end{table}
-		
-		\davorin{Na tem mestu povejmo, kakšno prednost damo tem trem veznikom v primerjavi s standardnimi. Kateremu dogovoru sledimo?}
-		
-		Zaenkrat smo uvedli nekaj oznak in opisali njihov intuitivni pomen. Ampak če se hočemo zanašati na pravilnost naših sklepov, moramo tem oznakam dati \emph{formalni matematični pomen}.
+		V razdelku~\ref{RAZDELEK: Logični simboli} smo omenili nekaj izjavnih veznikov, podali oznake zanje in opisali njihov intuitivni pomen. Ampak če se hočemo zanašati na pravilnost naših sklepov, moramo tem oznakam dati \emph{formalni matematični pomen}.
 		
 		Če imamo neko izjavo, lahko določimo njeno resničnost, tj.~povemo, do kolikšne mere je resnična. Temu rečemo \df{resničnostna vrednost} izjave. Množico vseh možnih resničnostnih vrednosti označimo z $\tvs$. Seveda ni kaj dosti možnih resničnostnih vrednosti: to sta \df{resnica} (dogovorimo se, da bomo zanjo uporabljali oznako $\true$) in \df{neresnica} (oznaka $\false$). Se pravi, $\tvs = \set{\true, \false}$.
 		
 		\begin{opomba}
 			Logiki, kjer sta edini resničnostni vrednosti resnica in neresnica, rečemo \df{dvovrednostna} oziroma \df{klasična logika}. Obstajajo splošnejše vrste logike, kjer je $\set{\true, \false}$ prava podmnožica $\tvs$, ampak v tej knjigi se bomo omejili na klasično logiko, na katero ste navajeni in ki se uporablja v večjem delu matematike.
 		\end{opomba}
+		
+		\davorin{Kako eksplicitno bomo ločevali izjave in njihove logične vrednosti?}
 		
 		Izjavne veznike lahko potem formalno podamo kot funkcije. Na primer, negacija je funkcija $\lnot\colon \tvs \to \tvs$ (vsaki resničnostni vrednosti pripišemo njeno nasprotno vrednost). Funkcijo, definirano na majhni končni množici, lahko preprosto podamo s tabelo vseh njenih vrednosti. V primeru izjavnih veznikov takim tabelam rečemo \df{resničnostne tabele}. Resničnostna tabela za negacijo izgleda takole.
 		\begin{center}
@@ -248,7 +113,7 @@
 			\caption{Resničnostna tabela osnovnih izjavnih veznikov}\label{TABELA: Resničnostna tabela osnovnih izjavnih veznikov}
 		\end{table}
 		
-		Zdaj ko imamo natančno definicijo izjavnih veznikov, lahko trditve v zvezi z njimi tudi formalno utemeljimo. Na primer, spomnimo se, da smo v tabeli~\ref{TABELA: Izražava nadaljnjih izjavnih veznikov s standardnimi} podali izražavo veznikov $\xor$, $\shf$, $\luk$ z vezniki $\lnot$, $\land$, $\lor$. Če na glas preberemo vse izjave, nam je intuitivno jasno, katere se ujemajo in zakaj, ampak zdaj lahko dejansko preverimo, da te izražave veljajo.
+		Zdaj ko imamo natančno definicijo izjavnih veznikov, lahko trditve v zvezi z njimi tudi formalno utemeljimo. Na primer, spomnimo se, da smo že malo po definiciji veznikov $\xor$, $\shf$, $\luk$ podali njihovo izražavo z vezniki $\lnot$, $\land$, $\lor$. Če na glas preberemo vse izjave, nam je intuitivno jasno, katere se ujemajo in zakaj, ampak zdaj lahko dejansko preverimo, da te izražave veljajo.
 		
 		Na primer, kaj pomeni, da se $p \luk q$ lahko izrazi kot $\lnot(p \lor q)$? To pomeni, da sta funkciji $\tvs \times \tvs \to \tvs$, dani s predpisoma $(p, q) \mapsto p \luk q$ in $(p, q) \mapsto \lnot(p \lor q)$, enaki. (Slednja funkcija je sestavljena, tj.~sklop dveh funkcij. Lahko bi tudi zapisali, da velja $\luk = \lnot \circ \lor$.) Funkciji z isto domeno in kodomeno sta enaki, kadar pri vsakem argumentu vrneta isti vrednosti, kar v našem primeru pomeni, da imata enaka stolpca v resničnostni tabeli. Poračunajmo torej vse izraze v danih izražavah. Ko dobimo enake rezultate, bomo vedeli, da izražave dejansko veljajo.
 		
@@ -486,78 +351,8 @@
 		\end{vaja}
 		
 		\davorin{Mogoče lahko zavoljo celovitosti podamo karakterizacijo polnih naborov kot izrek (in se za dokaz skličemo na literaturo). Nabor je poln, če za vsako sledečih lastnosti obstaja veznik v njem, ki jo prekrši: ohranjanje resnice, ohranjanje neresnice, monotonost, sebi-dualnost, afinost (kot polinom Žegalkina).}
-		
-		Včasih so izjave odvisne od kakšnih parametrov. Na primer, naj $\phi(x)$ pomeni \nls{$x$ je zelen.}; tedaj $\phi(\text{trava})$ pomeni \nls{Trava je zelena.}. Takim odvisnim izjavam rečemo \df{predikati} in izražajo lastnosti, ki jim parametri (\qt{spremenljivke}) lahko zadoščajo.
-		
-		\note{nekje formalno definirati: predikat na $X$ je preslikava $X \to \tvs$}
-		
-		Predikate lahko \emph{kvantificiramo} po njihovih spremenljivkah, tj.~povemo, \qt{kako pogosto} velja lastnost, dana s predikatom. Tabela~\ref{TABELA: Kvantifikatorji} podaja najpogosteje uporabljane kvantifikatorje in njihove oznake.
-		
-		\begin{table}[!ht]
-			\centering
-			\begin{tabular}{|ccc|}
-				\hline
-				\textbf{Kvantifikator} & \textbf{Oznaka} & \textbf{Kako preberemo} \\
-				\hline
-				univerzalni kvantifikator & $\xall{x}[X]{\phi(x)}$ & za vsak $x$ iz $X$ velja lastnost $\phi$ \\
-				eksistenčni kvantifikator & $\xsome{x}[X]{\phi(x)}$ & obstaja $x$ iz $X$ z lastnostjo $\phi$ \\
-				\note{kako se temu reče?} & $\xexactlyone{x}[X]{\phi(x)}$ & obstaja natanko en $x$ iz $X$ z lastnostjo $\phi$ \\
-				\hline
-			\end{tabular}
-			\caption{Kvantifikatorji}\label{TABELA: Kvantifikatorji}
-		\end{table}
-		
-		Oznaki $\forall$ in $\exists$ sta narobe obrnjena A in E in izhajata iz nemščine (\textbf{a}ll, \textbf{e}xistiert).
-		
-		\begin{zgled}
-			Vemo, da za vsako nenegativno realno število obstaja enolično določen nenegativen kvadratni koren; to izjavo lahko zapišemo na sledeči način.
-			\[\xall{a}[\RR_{\geq 0}]{\xexactlyone{b}[\RR_{\geq 0}]{b^2 = a}}\]
-			Zaradi tega lahko definiramo kvadratni koren kot funkcijo $\sqrt{\phantom{I}}\colon \RR_{\geq 0} \to \RR_{\geq 0}$.
-		\end{zgled}
-		
-		Po dogovoru kvantifikatorji vežejo šibkeje kot izjavni vezniki. Izjavo, da je vsako celo število bodisi liho bodisi sodo, torej zapišemo takole.
-		\[\all[2]{a}[\ZZ]{2 | a \xor 2 | (a-1)}\]
-		
-		\davorin{Se že na tem mestu predebatirajo vezane oz.~nevezane spremenljivke ter preimenovanje spremenljivk? Kaj je slovenski prevod za `dummy variable'?}
-		
-		\begin{zgled}
-			Za poljubno naravno število $n \in \NN$ naj $P(n)$ označuje izjavo, da je $n$ praštevilo. Torej, $P$ definiramo takole.
-			\[P(n) \dfeq \all[1]{x}[\NN]{x | n \implies x = 1 \xor x = n}\]
-			(Premisli, kaj bi se zgodilo, če bi namesto stroge disjunkcije vzeli navadno. Bi še vedno dobili pravilni pojem praštevila?)
-			
-			Naj $S(n)$ označuje, da je $n$ sestavljeno število.
-			\[S(n) \dfeq \xsome{x, y}[\intoo[\NN]{1}{n}]{x \cdot y = n}\]
-			(Kadar imamo več zaporednih kvantifikatorjev iste vrste, jih po dogovoru lahko strnemo kot zgoraj. Dana formula za $S(n)$ je krajši zapis za $\xsome{x}[\intoo[\NN]{1}{n}]{\xsome{y}[\intoo[\NN]{1}{n}]{x \cdot y = n}}$.)
-			
-			Zdaj lahko na pregleden način zapišemo, da je vsako naravno število od $2$ naprej bodisi praštevilo bodisi sestavljeno.
-			\[\all[1]{n}[\NN_{\geq 2}]{P(n) \xor S(n)}\]
-		\end{zgled}
-		
-		\note{
-			Ideje za VAJE:\\
-				\hbox{}\qquad\qquad * Napiši te in te z besedami podane matematične izjave simbolno.\\
-				\hbox{}\qquad\qquad * Za te in te \qt{življenjske} izjave vsak osnoven sestavni kos označi s črko in zapiši sestavljeno izjavo z mešanico veznikov in kvantifikatorjev.\\
-				\hbox{}\qquad\qquad * ...
-		}
 	
 	
-	\section{Pravila dokazovanja}\label{RAZDELEK: Pravila dokazovanja}
+	\section{Predikati in kvantifikatorji}
 	
-		Matematične izsledke običajno podajamo preko jasno izraženih izjav. Med študijem matematike hitro opazite, da se takšne izjave podajajo pod imeni \quotesinglbase{izrek}', \quotesinglbase{trditev}', \quotesinglbase{lema}', \quotesinglbase{posledica}' in podobno. Kdaj uporabiti katerega teh imen ni natanko določeno, pač pa je prepuščeno presoji matematika. Približno vodilo je naslednje:
-		\begin{itemize}
-			\item
-				\df{izrek}: osrednji, bistven rezultat,
-			\item
-				\df{trditev}: stranski rezultat,
-			\item
-				\df{lema}: rezultat, ki sam po sebi nima toliko vsebine, se pa uporabi pri dokazovanju pomembnejšega rezultata,\footnote{Sicer ni nujno, da se resnična pomembnost izjav takoj pokaže. Mnogo je primerov, ko se kak matematični članek po določenem času začne ceniti ne toliko zaradi glavnega izreka, pač pa zaradi neke leme, ki se je za dokaz glavnega izreka uporabila.}
-			\item
-				\df{posledica}: rezultat, ki je zanimiv sam po sebi, ki pa hitro sledi iz predhodne izjave.
-		\end{itemize}
-		
-		Če skrbno analizirate izreke, trditve itd.~s predavanj (ali matematičnih člankov), opazite, da sestojijo iz treh delov: \note{kontekst, predpostavke, sklepi}
-	
-	
-	\section{Definicije}
-	
-		\davorin{Predlagam, da v definicijah konsistentno uporabljamo `kadar' namesto `če' (\qt{Funkcija je zvezna, kadar velja to in to.}). V definicijah gre za ekvivalenco, ne implikacijo.}
+		\note{\qt{Lastnostim} elementov množic, ki smo jih prej uporabljali za podajanje podmnožic in pri kvantifikatorjih, zdaj \qt{uradno} rečemo \df{predikati} in jih formalno definiramo: predikat na množici $X$ je preslikava $X \to \tvs$. Spomnimo se kvantifikatorjev. \davorin{Si jih drznemo definirati kot preslikave na eksponentih $\tvs^X$?} Povemo, da lahko imajo predikati več spremenljivk (lahko so definirani na produktu) in da lahko kvantificiramo po samo nekaterih. Vezane, nevezane spremenljivke. Pravila, ki veljajo za kvantifikatorje (de Morgan itd.).}

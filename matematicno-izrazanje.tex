@@ -17,7 +17,12 @@
 			matematične izjave lahko \emph{dokažemo}.
 	\end{itemize}
 	
-	Stavki v običajnih jezikih nimajo nedvoumnega pomena, zato matematične izjave raje podamo v \emph{matematičnem jeziku}. Za to potrebujemo \qt{matematično abecedo}, tj.~simbolni zapis, v katerem podamo izjave. V tem poglavju si bomo izoblikovali intuitivno predstavo temeljnih matematičnih pojmov ter spoznali simbolni zapis za delo z njimi. Kasneje bomo tem pojmom in simbolom dali natančnejši, formalni pomen. Kar se pisanja dokazov tiče, bomo pa mu namenili svoje poglavje (poglavje~\ref{POGLAVJE: Dokazovanje}).
+	Stavki v običajnih jezikih nimajo nedvoumnega pomena, zato matematične izjave raje podamo v \emph{matematičnem jeziku}. Za to potrebujemo \qt{matematično abecedo}, tj.~simbolni zapis, v katerem podamo izjave. V tem poglavju si bomo izoblikovali intuitivno predstavo temeljnih matematičnih pojmov ter spoznali simbolni zapis za delo z njimi. Kasneje bomo tem pojmom in simbolom dali natančnejši, formalni pomen. Kar se pisanja dokazov tiče, bomo pa mu namenili lastno poglavje (poglavje~\ref{POGLAVJE: Dokazovanje}).
+	
+	
+	\section{Črke}
+	
+		\note{Matematična abeceda vsebuje precej več simbolov, kot zgolj običajne črke, na primer $=$ in $<$. Pa tudi črk je več, tako po obliki (A, $A$, $\mathcal{A}$, $\mathscr{A}$, $\mathfrak{A}$,\ldots) kot po vrsti. Pregled grške abecede. Morda tudi hebrejske, vsaj $\aleph$.}
 	
 	
 	\section{Množice}\label{RAZDELEK: Množice}
@@ -57,8 +62,6 @@
 			\end{tabular}
 		\end{center}
 		
-		\davorin{Zakaj \LaTeX\ vstavlja te neumne ogromne presledke?}
-		
 		Nekateri $0$ vzamejo za naravno število, nekateri ne. To je v celoti stvar dogovora, kaj pomeni pojem \qt{naravno število}. Za nas bo prišlo bolj prav, če ničlo štejemo kot element množice naravnih števil, torej $\NN = \set{0, 1, 2, 3, \ldots}$.
 		
 		Interval realnih števil podamo s krajiščema intervala v oklepajih --- okrogli oklepaji ( ) označujejo odprtost intervala (krajišče ni vključeno v interval), oglati oklepaji [ ] pa zaprtost (krajišče je vključeno). Tako se npr.~interval realnih števil od $0$ do $1$, ki ne vsebuje krajišč, označi z $(0, 1)$, če jih vsebuje, pa z $[0, 1]$.
@@ -67,10 +70,29 @@
 		
 		Če interval v katero smer gre v nedogled, preprosto zapišemo množico z ustrezno relacijo urejenosti in krajiščem v indeksu. Na primer, $\RR_{> 0}$ označuje množico pozitivnih realnih števil, $\RR_{\geq 0}$ pa množico nenegativnih realnih števil.
 		
-		\davorin{To bi vsaj bil moj predlog. Na ta način se izognemo dvoumnostim (kar je namen). Na primer, kaj pomeni $\forall\, a > 0$? Če zapišemo $\forall\, a \in \NN_{> 0}$ ali $\forall\, a \in \RR_{> 0}$, je jasno. Razlog, da matematiki \qt{goljufajo} in pridejo skozi brez tega, je (napol dogovorjena in ponotranjena, ampak arbitrarna) izbira črk; vsak izkušen matematik ve, da $\forall\, \epsilon > 0$ pomeni $\forall\, \epsilon \in \RR_{> 0}$. Dodaten problem je, da kasneje uporabljamo urejene pare, ki jih vsi na naši fakulteti pišejo z okroglimi oklepaji. Poskusimo se izogniti zmedi, ali $(a, b)$ pomeni urejeni par ali odprti interval.
-		\\
-		\\
-		Če se ne strinjate, popravite in pustite komentar.}
+		\davorin{To bi vsaj bil moj predlog. Na ta način se izognemo dvoumnostim (kar je namen). Na primer, kaj pomeni $\forall\, a > 0$? Če zapišemo $\forall\, a \in \NN_{> 0}$ ali $\forall\, a \in \RR_{> 0}$, je jasno. Razlog, da matematiki \qt{goljufajo} in pridejo skozi brez tega, je (napol dogovorjena in ponotranjena, ampak arbitrarna) izbira črk; vsak izkušen matematik ve, da $\forall\, \epsilon > 0$ pomeni $\forall\, \epsilon \in \RR_{> 0}$. Dodaten problem je, da kasneje uporabljamo urejene pare, ki jih vsi na naši fakulteti pišejo z okroglimi oklepaji. Poskusimo se izogniti zmedi, ali $(a, b)$ pomeni urejeni par ali odprti interval. Če se ne strinjate, popravite in pustite komentar.}
+		
+		Če imamo dan neki element in neko množico, potem pripadnost tega elementa tej množico izrazimo s simbolom $\in$. Na primer, da je štiri naravno število, zapišemo $4 \in \NN$ (beri: \qt{štiri pripada množici naravnih števil}).
+		
+		Elementi množic lahko zadoščajo raznim lastnostim. Na primer, recimo, da $\phi$ označuje lastnost \qt{biti manj od pet}; to potem zapišemo
+		\[\phi(x) \ = \ \ x < 5.\]
+		V tem primeru $x$ imenujemo \df{spremenljivka}, saj ne gre za točno določeno vrednost, pač pa predstavlja splošno število (recimo, da se dogovorimo, da s $\phi$ označujemo lastnost na realnih številih).
+		
+		Tovrstne lastnosti nam omogočajo, da iz neke množice odberemo elemente z dano lastnostjo in na ta način dobimo novo množico, ki je podmnožica prejšnje. Množico vseh realnih števil, ki so manjša od pet, zapišemo na naslednji način.
+		\[\set{x \in \RR}{x < 5}\]
+		Seveda, ker je primerjava s števili zelo pogosta lastnost, je uporabno, če uvedemo krajše oznake, ki isto povejo; že prej smo se dogovorili, da tako množico označimo z $\RR_{< 5}$. Za povsem splošne lastnosti pa ne bomo imeli vnaprej dogovorjenih oznak, zato je dobro, da poznamo splošni zapis. Torej, če je $X$ poljubna množica in $\phi$ poljubna lastnost njenih elementov, tedaj podmnožico, ki vsebuje točno tiste elemente množice $X$, ki zadoščajo lastnosti $\phi$, označimo takole.
+		\[\set[1]{x \in X}{\phi(x)}\]
+		
+		Pri tem se zavedajmo: ni pomembno, da spremenljivko označimo ravno z $x$. Zapis
+		\[\set[1]{y \in X}{\phi(y)}\]
+		še vedno označuje isto množico. V vsakem primeru gre za množico vseh elementov iz $X$ z lastnostjo $\phi$. Pravzaprav sploh ni nujno, da uporabimo črko; poslušimo se lahko kateregakoli simbola. Taisto množico lahko zapišemo tudi $\set{\heartsuit \in X}{\phi(\heartsuit)}$.
+		
+		Kadar imamo spremenljivko, ki jo lahko preimenujemo, ne da bi spremenili pomen izraza, jo imenujemo \davorin{\df{dummy variable} --- dajmo to posloveniti.}. Takšne primere že dobro poznate; na primer, integral $\int_0^1 x^2 \,dx$ se ne spremeni, če preimenujete spremenljivko in zapišete $\int_0^1 y^2 \,dy$.
+		
+		\begin{zgled}
+			Kako bi zapisali množico vseh sodih naravnih števil? Spomnimo se, da je število sodo, kadar je deljivo z $2$. Za $n \in \NN$ to zapišemo takole: $2 \divides n$ (beri: \qt{dve deli $n$}). Množica sodih naravnih števil se potem zapiše kot
+			\[\set{n \in \NN}{2 \divides n}.\]
+		\end{zgled}
 	
 	
 	\section{Preslikave}
@@ -90,7 +112,7 @@
 				
 				To se jasno pokaže, če začnemo razmišljati o lastnostih preslikav. Se še spomnite iz srednje šole, kaj pomeni, da je preslikava surjektivna? (Bomo ponovili v razdelku~\ref{RAZDELEK: Injektivnost in surjektivnost}.) Če vzamemo, da preslikava $f$ zadošča zgornjemu predpisu in jo obravnavamo kot preslikavo $f\colon \RR \to \RR$, ni surjektivna, če jo obravnavamo kot preslikavo $f\colon \RR_{\geq 0} \to \RR_{\geq 0}$, pa je.
 			\item
-				Spremenljivka $x$ nima vnaprej določene vrednosti, pač pa predstavlja mesto, kamor lahko vstavimo poljubno vrednost. Seveda je potem vseeno, če vzamemo kakšno drugo črko ali čisto drug simbol: $f(y) = y$ določa isti predpis kot $f(x) = x$; prav tako $f(\sun) = \sun^2$. \davorin{Dajmo prevesti \qt{dummy variable} in to razložiti tule.} Če si torej izberemo neko vrednost, jo lahko vstavimo na mesto spremenljivke in poračunamo, npr.~$f(3) = 3^2 = 9$ oziroma $f(2\pi) = (2\pi)^2 = 4\pi^2$. Predstavljajte si, da je spremenljivka pravzaprav škatlica, kamor lahko vstavite vrednost, torej
+				Za spremenljivko $x$ velja isto, kot smo razpravljali že v prejšnjem razdelku pri lastnostih elementov množic: spremenljivka $x$ nima vnaprej določene vrednosti, pač pa predstavlja mesto, kamor lahko vstavimo poljubno vrednost. Seveda je potem vseeno, če vzamemo kakšno drugo črko ali čisto drug simbol: $f(y) = y$ določa isti predpis kot $f(x) = x$; prav tako $f(\sun) = \sun^2$. Se pravi, tudi v tem primeru gre za \note{dummy variable}. Če si torej izberemo neko vrednost, jo lahko vstavimo na mesto spremenljivke in poračunamo, npr.~$f(3) = 3^2 = 9$ oziroma $f(2\pi) = (2\pi)^2 = 4\pi^2$. Predstavljajte si, da je spremenljivka pravzaprav škatlica, kamor lahko vstavite vrednost, torej
 				\[f(\argbox) = \argbox^2.\]
 			\item
 				Alternativen način zapisa $f(x) = x^2$ je
@@ -106,13 +128,9 @@
 		\end{itemize}
 	
 	
-	\section{Logični simboli}
+	\section{Logični simboli}\label{RAZDELEK: Logični simboli}
 	
-		Izjavo, da je $2$ naravno število, zapišemo takole: $2 \in \NN$ (beri: $2$ pripada množici naravnih števil). Kako zapišemo, da je $a$ sodo število? Število je sodo, kadar je deljivo z $2$, torej pišemo $2 | a$ (beri: $2$ deli $a$).
-		
-		Če imamo več izjav, jih lahko strnemo v sestavljeno izjavo. Na primer, izjavo \nls{Če je $a$ sodo število, je tudi kvadrat števila $a$ sod.}, zapišemo kot $2 | a \implies 2 | a^2$.
-		
-		Seveda ta izjava velja za vsa naravna števila (znaš to dokazati?). To zapišemo takole: $\all{a}[\NN]{2 | a \implies 2 | a^2}$.
+		Preproste izjave, kot na primer \nls{$n$ je sodo število.}, že znamo zapisati s simboli: $2 \divides n$. Povečini pa delamo z bolj kompleksnimi, sestavljenimi izjavami. Tudi za te obstaja simbolni zapis; na primer, izjavo \nls{Če je $a$ sodo število, je tudi kvadrat števila $a$ sod.}, zapišemo kot $2 \divides a \implies 2 \divides a^2$. Seveda ta izjava velja za vsa naravna števila (znaš to dokazati?). To zapišemo takole: $\all{a}[\NN]{2 \divides a \implies 2 \divides a^2}$. V tem razdelku si bomo ogledali, kako povezati preprostejše izjave v bolj sestavljene in kako to v splošnem simbolno zapisati.
 		
 		Kot smo navajeni iz običajnih jezikov, posamične stavke povežemo v sestavljeno poved z \emph{vezniki}. Najpogosteje uporabljeni matematični vezniki so v tabeli~\ref{TABELA: Standardni izjavni vezniki}.
 		
@@ -187,10 +205,8 @@
 			Stavek \nls{Pisni del predmeta je potrebno opraviti s kolokviji ali pisnim izpitom.} je primer navadne disjunkcije (seveda se vam prizna pisni del predmeta tudi, če uspešno odpišete tako kolokvije kot pisni izpit), stavek \nls{Grem bodisi na morje bodisi v hribe.} pa je primer stroge disjunkcije (ne da se biti na dveh mestih hkrati).
 		\end{zgled}
 		
-		Običajno veznike iz tabele~\ref{TABELA: Nadaljnji izjavni vezniki} (in vse preostale, ki jih nismo navedli) izrazimo s standardnimi (glej tabelo~\ref{TABELA: Izražava nadaljnjih izjavnih veznikov s standardnimi}), včasih pa je uporabno delati neposredno z njimi. Na primer, stroga disjunkcija služi kot seštevanje v Boolovem kolobarju (glej~\note{razdelek o Boolovih kolobarjih}), Shefferjev in Łukasiewiczev veznik pa se uporabljata pri preklopnih vezjih, saj je z vsakim od njiju možno izraziti vse izjavne veznike (glej vajo~\ref{VAJA: polni nabori z enim veznikom}). V računalništvu imajo ti trije vezniki standardne oznake XOR, NAND, NOR.
-		
-		\begin{table}[!ht]
-			\centering
+		Pogosto veznike iz tabele~\ref{TABELA: Nadaljnji izjavni vezniki} (in vse preostale, ki jih nismo navedli) kar izrazimo s standardnimi na sledeči način.
+		\begin{center}
 			\begin{tabular}{|ccc|}
 				\hline
 				\textbf{Izjavni veznik} & \multicolumn{2}{c|}{\textbf{Nekatere izražave s standardnimi vezniki}} \\
@@ -200,14 +216,15 @@
 				$p \luk q$ & $\lnot(p \lor q)$ & $\lnot{p} \land \lnot{q}$ \\
 				\hline
 			\end{tabular}
-			\caption{Izražava nadaljnjih izjavnih veznikov s standardnimi}\label{TABELA: Izražava nadaljnjih izjavnih veznikov s standardnimi}
-		\end{table}
+		\end{center}
 		
-		\davorin{Na tem mestu povejmo, kakšno prednost damo tem trem veznikom v primerjavi s standardnimi. Kateremu dogovoru sledimo?}
+		Včasih pa vendarle raje delamo neposredno z dodatnimi vezniki. Služijo lahko kot koristna okrajšava, so pa še drugi razlogi. Na primer, stroga disjunkcija igra vlogo seštevanja v Boolovem kolobarju (glej~\note{razdelek o Boolovih kolobarjih}), Shefferjev in Łukasiewiczev veznik pa se uporabljata pri preklopnih vezjih, saj je z vsakim od njiju možno izraziti vse izjavne veznike (glej vajo~\ref{VAJA: polni nabori z enim veznikom}). V računalništvu imajo ti trije vezniki standardne oznake XOR, NAND, NOR.
 		
-		Včasih so izjave odvisne od kakšnih parametrov. Na primer, naj $\phi(x)$ pomeni \nls{$x$ je zelen.}; tedaj $\phi(\text{trava})$ pomeni \nls{Trava je zelena.}. Takim odvisnim izjavam rečemo \df{predikati} in izražajo lastnosti, ki jim parametri (\qt{spremenljivke}) lahko zadoščajo.
+		\davorin{Nekje tukaj povejmo, kakšno prednost damo tem trem veznikom v primerjavi s standardnimi. Kateremu dogovoru sledimo?}
 		
-		Predikate lahko \emph{kvantificiramo} po njihovih spremenljivkah, tj.~povemo, \qt{kako pogosto} velja lastnost, dana s predikatom. Tabela~\ref{TABELA: Kvantifikatorji} podaja najpogosteje uporabljane kvantifikatorje in njihove oznake.
+		Včasih so izjave odvisne od kakšnih parametrov. Na primer, naj $\phi(x)$ pomeni \nls{$x$ je zelen.}; tedaj $\phi(\text{trava})$ pomeni \nls{Trava je zelena.}. Simbol $\phi$ torej predstavlja lastnost določenih objektov. Takšne primere smo imeli že v razdelku~\ref{RAZDELEK: Množice}, kjer smo navedli oznako za podmnožico tistih elementov, ki zadoščajo dani lastnosti.
+		
+		Lastnosti, odvisne od spremenljivk, lahko \emph{kvantificiramo} po njihovih spremenljivkah, tj.~povemo, \qt{kako pogosto} velja lastnost. Tabela~\ref{TABELA: Kvantifikatorji} podaja najpogosteje uporabljane kvantifikatorje in njihove oznake.
 		
 		\begin{table}[!ht]
 			\centering
@@ -225,20 +242,20 @@
 		
 		Oznaki $\forall$ in $\exists$ sta narobe obrnjena A in E in izhajata iz nemščine (\textbf{a}ll, \textbf{e}xistiert).
 		
+		Seveda je tudi kvantificirana spremenljivka \note{dummy} in jo lahko poljubno preimenujemo. Izjavi $\xall{x}[X]{\phi(x)}$ in $\xall{y}[X]{\phi(y)}$ povesta natanko isto: vsi elementi množice $X$ imajo lastnost $\phi$.
+		
 		\begin{zgled}
 			Vemo, da za vsako nenegativno realno število obstaja enolično določen nenegativen kvadratni koren; to izjavo lahko zapišemo na sledeči način.
 			\[\xall{a}[\RR_{\geq 0}]{\xexactlyone{b}[\RR_{\geq 0}]{b^2 = a}}\]
-			Zaradi tega lahko definiramo kvadratni koren kot funkcijo $\sqrt{\phantom{I}}\colon \RR_{\geq 0} \to \RR_{\geq 0}$.
+			Zaradi tega lahko definiramo kvadratni koren kot funkcijo $\sqrt{\phantom{I}}\colon \RR_{\geq 0} \to \RR_{\geq 0}$ \note{več o tem kasneje}.
 		\end{zgled}
 		
-		Po dogovoru kvantifikatorji vežejo šibkeje kot izjavni vezniki. Izjavo, da je vsako celo število bodisi liho bodisi sodo, torej zapišemo takole.
-		\[\all[2]{a}[\ZZ]{2 | a \xor 2 | (a-1)}\]
-		
-		\davorin{Se že na tem mestu predebatirajo vezane oz.~nevezane spremenljivke ter preimenovanje spremenljivk? Kaj je slovenski prevod za `dummy variable'?}
+		Po dogovoru kvantifikatorji vežejo šibkeje kot izjavni vezniki. Izjavo, da je vsako celo število bodisi sodo bodisi liho, torej zapišemo takole.
+		\[\all[2]{a}[\ZZ]{2 \divides a \xor 2 \divides (a-1)}\]
 		
 		\begin{zgled}
 			Za poljubno naravno število $n \in \NN$ naj $P(n)$ označuje izjavo, da je $n$ praštevilo. Torej, $P$ definiramo takole.
-			\[P(n) \dfeq \all[1]{x}[\NN]{x | n \implies x = 1 \xor x = n}\]
+			\[P(n) \dfeq \all[1]{x}[\NN]{x \divides n \implies x = 1 \xor x = n}\]
 			(Premisli, kaj bi se zgodilo, če bi namesto stroge disjunkcije vzeli navadno. Bi še vedno dobili pravilni pojem praštevila?)
 			
 			Naj $S(n)$ označuje, da je $n$ sestavljeno število.
@@ -248,13 +265,6 @@
 			Zdaj lahko na pregleden način zapišemo, da je vsako naravno število od $2$ naprej bodisi praštevilo bodisi sestavljeno.
 			\[\all[1]{n}[\NN_{\geq 2}]{P(n) \xor S(n)}\]
 		\end{zgled}
-		
-		\note{
-			Ideje za VAJE:\\
-				\hbox{}\qquad\qquad * Napiši te in te z besedami podane matematične izjave simbolno.\\
-				\hbox{}\qquad\qquad * Za te in te \qt{življenjske} izjave vsak osnoven sestavni kos označi s črko in zapiši sestavljeno izjavo z mešanico veznikov in kvantifikatorjev.\\
-				\hbox{}\qquad\qquad * ...
-		}
 	
 	
 	\section{Definicije}
