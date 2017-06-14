@@ -7,8 +7,6 @@
 	
 	\alert{Če je možno, prosim uporabljajte tabulatorje namesto presledkov za zamike v latex kodi in koda naj nima izrecno vnešenih prelomov vrstic, pač pa se v urejevalniku besedila uporablja avtomatski word wrap, ki se prilagaja širini okna. \ --Davorin}
 	
-	\davorin{Trenutno preurejam zadeve, tako da je nekoliko zmešnjava. Ne preveč resno vzeti trenutnega stanja.}
-	
 	Za matematično delo je bistveno, da se lahko zanašamo na pravilnost naših trditev. To pomeni:
 	\begin{itemize}
 		\item
@@ -22,7 +20,89 @@
 	
 	\section{Črke}
 	
-		\note{Matematična abeceda vsebuje precej več simbolov, kot zgolj običajne črke, na primer $=$ in $<$. Pa tudi črk je več, tako po obliki (A, $A$, $\mathcal{A}$, $\mathscr{A}$, $\mathfrak{A}$,\ldots) kot po vrsti. Pregled grške abecede. Morda tudi hebrejske, vsaj $\aleph$.}
+		Matematična abeceda vsebuje precej več simbolov, kot zgolj običajne črke. Mnogo teh simbolov že poznate, npr.~$=$, $<$, $+$, $\emptyset$, $\cup$, $\cap$, $\int$, $\infty$ in tako naprej. Precej jih boste še spoznali (če jih še niste), npr.~$\forall$, $\partial$, $\parto$, $\lhd$ itd.
+		
+		Ampak tudi črke same pridejo v več različicah. Na primer, oglejte si spodnji zapis.
+		\[\tan(x) = \frac{\sin(x)}{\cos(x)}\]
+		Običaj je, da imena za konkretne funkcije pišemo z običajnimi črkami, medtem ko je spremenljivka $x$ (ki predstavlja katerokoli vrednost) zapisana kurzivno. Obstaja še več različnih oblik črk, ki se uporabljajo; tabela~\ref{TABELA: Oblike črk} prikazuje nekaj najpogostejših na primeru velikih črk angleške abecede (matematika je mednarodna disciplina; ne boste videli dosti čšž-jev v vlogi matematičnih oznak).
+		
+		\begin{table}[!ht]
+			\centering
+			\begin{tabular}{c|c}
+				\textbf{Oblika} & \textbf{Primer} \\
+				\hline
+				navadna & $\mathrm{ABCDEFGHIJKLMNOPQRSTUVWXYZ}$ \\
+				matematična kurzivna & $ABCDEFGHIJKLMNOPQRSTUVWXYZ$ \\
+				kaligrafska & $\mathcal{ABCDEFGHIJKLMNOPQRSTUVWXYZ}$ \\
+				rokopisna & $\mathscr{ABCDEFGHIJKLMNOPQRSTUVWXYZ}$ \\
+				frakturna & $\mathfrak{ABCDEFGHIJKLMNOPQRSTUVWXYZ}$ \\
+				dvopoudarjena & $\mathbb{ABCDEFGHIJKLMNOPQRSTUVWXYZ}$
+			\end{tabular}
+			\caption{Oblike črk}\label{TABELA: Oblike črk}
+		\end{table}
+		
+		\davorin{Nisem prepričan glede prevodov pisav. Popravite, kakor se vam zdi.}
+		
+		\davorin{Mogoče ne bi bilo slabo, če bi na tem mestu študente podučili, kako zapisati te oblike v \LaTeX{}u.}
+		
+		Katere oblike se kdaj uporabljajo, ni povsem konsistentno med matematiki; temu se sproti prilagajajte.
+		
+		\begin{zgled}
+			Pri algebri v prvem letniku na FMF je običaj, da se linearno preslikavo označi z $\mathcal{A}$, matriko, ki tej linearni preslikavi pripada, pa z $A$.
+		\end{zgled}
+		
+		Kljub temu obilju črk pa matematikom pogosto še vseeno ni dovolj, zato posežejo še po drugih abecedah. Daleč najpogosteje uporabljana abeceda v matematiki (poleg latinične) je grška. Tabela~\ref{TABELA: Grška abeceda} podaja grško abecedo, skupaj z izgovorjavo črk. To je nekaj, kar boste v matematiki neprestano potrebovali --- čimprej se jo naučite!
+		
+		\begin{table}[!ht]
+			\centering
+			\begin{tabular}{cc|cc}
+				\multicolumn{2}{c|}{\textbf{Grška črka}} & \multicolumn{2}{c}{\textbf{Izgovorjava}} \\
+				\textit{velika} & \textit{mala} & \textit{v matematiki} & \textit{v grščini} \\
+				\hline
+				A & $\alpha$ & alfa & alfa \\
+				B & $\beta$ & beta & vita \\
+				$\Gamma$ & $\gamma$ & gama & {\textgamma}ama \\
+				$\Delta$ & $\delta$ & delta & delta \\
+				E & $\epsilon$, $\varepsilon$ & epsilon & epsilon \\
+				Z & $\zeta$ & zeta & zita \\
+				H & $\eta$ & eta & ita \\
+				$\Theta$ & $\theta$, $\vartheta$ & {\scriptsize\textTheta}eta & {\scriptsize\textTheta}ita \\
+				I & $\iota$ & jota & jota \\
+				K & $\kappa$ & kapa & kapa \\
+				$\Lambda$ & $\lambda$ & lambda & lamda \\
+				M & $\mu$ & mi & mi \\
+				N & $\nu$ & ni & ni \\
+				$\Xi$ & $\xi$ & ksi & ksi \\
+				O & $\omicron$ & omikron & omikron \\
+				$\Pi$ & $\pi$, $\varpi$ & pi & pi \\
+				P & $\rho$, $\varrho$ & ro & ro \\
+				$\Sigma$ & $\sigma$, $\varsigma$ & sigma & si{\textgamma}ma \\
+				T & $\tau$ & ta\hill{u} & taf \\
+				$\Upsilon$ & $\upsilon$ & upsilon & ipsilon \\
+				$\Phi$ & $\phi$, $\varphi$ & fi & fi \\
+				X & $\chi$ & hi & {\textchi}i \\
+				$\Psi$ & $\psi$ & psi & psi \\
+				$\Omega$ & $\omega$ & omega & ome{\textgamma}a \\
+			\end{tabular}
+			\caption{Grška abeceda}\label{TABELA: Grška abeceda}
+			\vspace{-1ex}
+			\begin{flushleft}
+				Pri izgovorjavi:
+				\vspace{-1ex}
+				\begin{itemize}
+					\item
+						\hill{u} je ustnični \,u\, (kot se izgovarja črka \,v\, na primer v besedi \qt{pav}),
+					\item
+						{\textgamma} se izgovarja kot cerkljanski \,g\, (nekaj med \,g\, in \,h\, --- vprašajte sošolce s tega območja),
+					\item
+						{\scriptsize\textTheta} se izgovarja kot nezveneči \,th\, v angleščini (npr.~v besedi \qt{thing}),
+					\item
+						{\textchi} se izgovarja kot \,ch\, v nemščini (npr.~v besedi \qt{ich}).
+				\end{itemize}
+			\end{flushleft}
+		\end{table}
+		
+		Pa tudi to matematikom še ni dovolj. Kot bomo videli kasneje, se za neskončne vrednosti uporablja hebrejska črka $\aleph$ (alef).
 	
 	
 	\section{Množice}\label{RAZDELEK: Množice}
@@ -91,7 +171,7 @@
 		
 		\begin{zgled}
 			Kako bi zapisali množico vseh sodih naravnih števil? Spomnimo se, da je število sodo, kadar je deljivo z $2$. Za $n \in \NN$ to zapišemo takole: $2 \divides n$ (beri: \qt{dve deli $n$}). Množica sodih naravnih števil se potem zapiše kot
-			\[\set{n \in \NN}{2 \divides n}.\]
+			\[\set[1]{n \in \NN}{2 \divides n}.\]
 		\end{zgled}
 	
 	
@@ -270,3 +350,5 @@
 	\section{Definicije}
 	
 		\davorin{Predlagam, da v definicijah konsistentno uporabljamo `kadar' namesto `če' (\qt{Funkcija je zvezna, kadar velja to in to.}). V definicijah gre za ekvivalenco, ne implikacijo.}
+		
+		\davorin{Verjetno je smiselno v tem razdelku razložiti definicijsko enakost $\dfeq$ (oz.~$\revdfeq$). Če se tako odločimo, odstranimo zgornje uporabe teh simbolov.}

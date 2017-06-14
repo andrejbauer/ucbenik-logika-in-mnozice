@@ -13,7 +13,7 @@
 			Logiki, kjer sta edini resničnostni vrednosti resnica in neresnica, rečemo \df{dvovrednostna} oziroma \df{klasična logika}. Obstajajo splošnejše vrste logike, kjer je $\set{\true, \false}$ prava podmnožica $\tvs$, ampak v tej knjigi se bomo omejili na klasično logiko, na katero ste navajeni in ki se uporablja v večjem delu matematike.
 		\end{opomba}
 		
-		\davorin{Kako eksplicitno bomo ločevali izjave in njihove logične vrednosti?}
+		\davorin{Kako izrecno bomo ločevali med izjavami in njihovimi logičnimi vrednostmi?}
 		
 		Izjavne veznike lahko potem formalno podamo kot funkcije. Na primer, negacija je funkcija $\lnot\colon \tvs \to \tvs$ (vsaki resničnostni vrednosti pripišemo njeno nasprotno vrednost). Funkcijo, definirano na majhni končni množici, lahko preprosto podamo s tabelo vseh njenih vrednosti. V primeru izjavnih veznikov takim tabelam rečemo \df{resničnostne tabele}. Resničnostna tabela za negacijo izgleda takole.
 		\begin{center}
@@ -113,7 +113,7 @@
 			\caption{Resničnostna tabela osnovnih izjavnih veznikov}\label{TABELA: Resničnostna tabela osnovnih izjavnih veznikov}
 		\end{table}
 		
-		Zdaj ko imamo natančno definicijo izjavnih veznikov, lahko trditve v zvezi z njimi tudi formalno utemeljimo. Na primer, spomnimo se, da smo že malo po definiciji veznikov $\xor$, $\shf$, $\luk$ podali njihovo izražavo z vezniki $\lnot$, $\land$, $\lor$. Če na glas preberemo vse izjave, nam je intuitivno jasno, katere se ujemajo in zakaj, ampak zdaj lahko dejansko preverimo, da te izražave veljajo.
+		Zdaj ko imamo natančno definicijo izjavnih veznikov, lahko trditve v zvezi z njimi tudi formalno utemeljimo. Na primer, spomnimo se, da smo že malo po omembi veznikov $\xor$, $\shf$, $\luk$ podali njihovo izražavo z vezniki $\lnot$, $\land$, $\lor$. Če na glas preberemo vse izjave, nam je intuitivno jasno, katere se ujemajo in zakaj, ampak zdaj lahko dejansko preverimo, da te izražave veljajo.
 		
 		Na primer, kaj pomeni, da se $p \luk q$ lahko izrazi kot $\lnot(p \lor q)$? To pomeni, da sta funkciji $\tvs \times \tvs \to \tvs$, dani s predpisoma $(p, q) \mapsto p \luk q$ in $(p, q) \mapsto \lnot(p \lor q)$, enaki. (Slednja funkcija je sestavljena, tj.~sklop dveh funkcij. Lahko bi tudi zapisali, da velja $\luk = \lnot \circ \lor$.) Funkciji z isto domeno in kodomeno sta enaki, kadar pri vsakem argumentu vrneta isti vrednosti, kar v našem primeru pomeni, da imata enaka stolpca v resničnostni tabeli. Poračunajmo torej vse izraze v danih izražavah. Ko dobimo enake rezultate, bomo vedeli, da izražave dejansko veljajo.
 		
