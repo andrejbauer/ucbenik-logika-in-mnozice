@@ -21,6 +21,8 @@
 	\usepackage{tablefootnote}
 	\usepackage{color}
 	%\usepackage[most]{tcolorbox}
+	\usepackage{tikz}
+	%\usepackage{tikzsymbols}
 	\usepackage{tkz-graph}
 	\usepackage{xparse}
 	\usepackage{mathrsfs}
@@ -200,6 +202,7 @@
 	\newcommand{\isdefined}[1]{{#1}\!\downarrow}  % given value is defined
 	\newcommand{\kleq}{\simeq}  % Kleene equality
 	\newcommand{\ec}[2][]{[\:\!{#2}\:\!]_{#1}}  % equivalence class
+	\newcommand{\claim}[3]{{#1} \;\colon\; \frac{#2}{#3}}  % claim, divided on context, assumptions, conclusions
 	
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -268,22 +271,7 @@
 	
 	\include{matematicno-izrazanje}
 	\include{logika}
-	
-	\chapter{Dokazovanje}\label{POGLAVJE: Dokazovanje}
-	
-		Matematične izsledke običajno podajamo preko jasno izraženih izjav. Med študijem matematike hitro opazite, da se takšne izjave podajajo pod imeni \quotesinglbase{izrek}', \quotesinglbase{trditev}', \quotesinglbase{lema}', \quotesinglbase{posledica}' in podobno. Kdaj uporabiti katerega teh imen ni natanko določeno, pač pa je prepuščeno presoji matematika. Približno vodilo je naslednje:
-		\begin{itemize}
-			\item
-				\df{izrek}: osrednji, bistven rezultat,
-			\item
-				\df{trditev}: stranski rezultat,
-			\item
-				\df{lema}: rezultat, ki sam po sebi nima toliko vsebine, se pa uporabi pri dokazovanju pomembnejšega rezultata,\footnote{Sicer ni nujno, da se resnična pomembnost izjav takoj pokaže. Mnogo je primerov, ko se kak matematični članek po določenem času začne ceniti ne toliko zaradi glavnega izreka, pač pa zaradi neke leme, ki se je za dokaz glavnega izreka uporabila.}
-			\item
-				\df{posledica}: rezultat, ki je zanimiv sam po sebi, ki pa hitro sledi iz predhodne izjave.
-		\end{itemize}
-		
-		Če skrbno analizirate izreke, trditve itd.~s predavanj (ali matematičnih člankov), opazite, da sestojijo iz treh delov: \note{kontekst, predpostavke, sklepi}
+	\include{dokazovanje}
 	
 	\chapter{Konstrukcije množic}
 		\section{Preprosti primeri}

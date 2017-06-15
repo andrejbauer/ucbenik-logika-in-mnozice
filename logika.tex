@@ -15,7 +15,7 @@
 		
 		\davorin{Kako izrecno bomo ločevali med izjavami in njihovimi logičnimi vrednostmi?}
 		
-		Izjavne veznike lahko potem formalno podamo kot funkcije. Na primer, negacija je funkcija $\lnot\colon \tvs \to \tvs$ (vsaki resničnostni vrednosti pripišemo njeno nasprotno vrednost). Funkcijo, definirano na majhni končni množici, lahko preprosto podamo s tabelo vseh njenih vrednosti. V primeru izjavnih veznikov takim tabelam rečemo \df{resničnostne tabele}. Resničnostna tabela za negacijo izgleda takole.
+		Izjavne veznike lahko potem formalno podamo kot preslikave. Na primer, negacija je preslikava $\lnot\colon \tvs \to \tvs$ (vsaki resničnostni vrednosti pripišemo njeno nasprotno vrednost). Preslikavo, definirano na majhni končni množici, lahko preprosto podamo s tabelo vseh njenih vrednosti. V primeru izjavnih veznikov takim tabelam rečemo \df{resničnostne tabele}. Resničnostna tabela za negacijo izgleda takole.
 		\begin{center}
 			\begin{tabular}{c|c}
 				$p$ & $\lnot{p}$ \\
@@ -24,7 +24,7 @@
 				$\false$ & $\true$
 			\end{tabular}
 		\end{center}
-		Ta tabela povsem natančno definira negacijo kot funkcijo $\lnot\colon \tvs \to \tvs$. Seveda smo negacijo definirali tako, kot bi pričakovali: negacija resnice je neresnica, negacija neresnice je resnica.
+		Ta tabela povsem natančno definira negacijo kot preslikavo $\lnot\colon \tvs \to \tvs$. Seveda smo negacijo definirali tako, kot bi pričakovali: negacija resnice je neresnica, negacija neresnice je resnica.
 		
 		Podobno lahko naredimo z ostalimi izjavnimi vezniki, le da preostali vežejo dve izjavi. Se pravi, npr.~konjunkcija vzame dve resničnostni vrednosti in vrne resničnostno vrednost, ki pove, ali sta obe dani vrednosti resnični. Konjunkcijo lahko torej interpretiramo kot preslikavo $\land\colon \tvs \times \tvs \to \tvs$ (ali na kratko $\land\colon \tvs^2 \to \tvs$).
 		
@@ -55,7 +55,7 @@
 		\end{center}
 		Bodi pozoren na razliko med zadnjima dvema stolpcema!
 		
-		Obenem lahko še na hitro opravimo z veznikoma $\shf$ in $\luk$. Spomnimo se, da $p \shf q$ pomeni \qt{ne hkrati $p$ in $q$} ter $p \luk q$ pomeni \qt{niti $p$ niti $q$}.
+		Obenem lahko še na hitro opravimo z veznikoma $\shf$ in $\luk$. Spomnimo se, da $p \shf q$ pomeni \qt{ne hkrati $p$ in $q$}, medtem ko $p \luk q$ pomeni \qt{niti $p$ niti $q$}.
 		\begin{center}
 			\begin{tabular}{cc|cc}
 				$p$ & $q$ & $p \shf q$ & $p \luk q$ \\
@@ -289,7 +289,7 @@
 			Preveri, da so vsi dvomestni vezniki natanko: konstanta z vrednostjo $\top$, projekcija na prvo komponento (tj.~$(p, q) \mapsto p$), projekcija na drugo komponento (tj.~$(p, q) \mapsto q$), konjunkcija $\land$, disjunkcija $\lor$, implikacija $\impl$, povratna implikacija $\revimpl$, ekvivalenca $\lequ$ in negacije vseh teh.
 		\end{vaja}
 		
-		Tromestnih veznikov je že $2^{2^3} = 2^8 = 256$ in ne bomo vseh naštevali. Kako pa bi kakega dobili? Preprost način je, da vzamemo tri spremenljivke in jih združimo z večimi znanimi vezniki, na primer $(p, q, r) \mapsto p \land \lnot{q} \impl r$.\footnote{Načeloma sploh ni nujno, da vse tri spremenljivke dejansko uporabimo. Na primer, $(p, q, r) \mapsto p \land q$ je še vedno tromestni veznik, saj gre za preslikavo $\tvs^3 \to \tvs$.}
+		Tromestnih veznikov je že $2^{2^3} = 2^8 = 256$ in ne bomo vseh naštevali. Kako pa bi kakega dobili? Preprost način je, da vzamemo tri spremenljivke in jih združimo z večimi znanimi vezniki, na primer $(p, q, r) \mapsto p \land \lnot{q} \impl r$.\footnote{Načeloma sploh ni nujno, da vse tri spremenljivke dejansko uporabimo. Na primer, $(p, q, r) \mapsto p \land q$ še vedno podaja tromestni veznik, saj gre za preslikavo $\tvs^3 \to \tvs$.}
 		
 		Seveda se pojavi vprašanje, kako podati izjavne veznike, ki jih ne bi mogli sestaviti iz osnovnih. Izkaže se, da to ni problem: \emph{vsak veznik (ne glede na mestnost) je možno izraziti z osnovnimi}; pravzaprav zadostujejo že $\lnot$, $\land$ in $\lor$.
 		
@@ -314,13 +314,13 @@
 		\[V(p, q, r) \equiv (p \land q \land \lnot{r}) \lor (p \land \lnot{q} \land r) \lor (\lnot{p} \land q \land r) \lor (\lnot{p} \land q \land \lnot{r}).\]
 		Temu rečemo \df{disjunktivna normalna oblika} (s kratico DNO) veznika $V$.
 		
-		Obstaja še dualna oblika take izražave. Lahko si rečemo tudi, da je $V$ resničen, kadar nismo v 1., 4., 7.~oz.~8.~vrstici. Kdaj nismo v prvi vrstici? Kadar niso vsi $p$, $q$, $r$ resnični, torej ko je vsaj en od njih neresničen --- s formulo $\lnot{p} \lor \lnot{q} \lor \lnot{r}$. Kdaj nismo v četrti vrstici? Ko ni res, da je $p$ resničen, $q$ in $r$ pa ne, torej ko prekršimo vsaj enega teh pogojev, kar nam da formulo $\lnot{p} \lor q \lor r$. Podobno sklepamo, da nismo v sedmi vrstici, kadar velja $p \lor q \lor \lnot{r}$, in da nismo v osmi vrstici, kadar velja $p \lor q \lor r$. To nam da sledečo izražavo za $V$:
+		Obstaja še dualna oblika take izražave. Lahko si rečemo tudi, da je $V$ resničen, kadar nismo v 1., 4., 7.~oz.~8.~vrstici. Kdaj nismo v prvi vrstici? Kadar niso vsi $p$, $q$, $r$ resnični, torej ko je vsaj eden od njih neresničen --- s formulo $\lnot{p} \lor \lnot{q} \lor \lnot{r}$. Kdaj nismo v četrti vrstici? Ko ni res, da je $p$ resničen, $q$ in $r$ pa ne, torej ko prekršimo vsaj enega teh pogojev, kar nam da formulo $\lnot{p} \lor q \lor r$. Podobno sklepamo, da nismo v sedmi vrstici, kadar velja $p \lor q \lor \lnot{r}$, in da nismo v osmi vrstici, kadar velja $p \lor q \lor r$. To nam da sledečo izražavo za $V$:
 		\[V(p, q, r) \equiv (\lnot{p} \lor \lnot{q} \lor \lnot{r}) \land (\lnot{p} \lor q \lor r) \land (p \lor q \lor \lnot{r}) \land (p \lor q \lor r).\]
 		Temu rečemo \df{konjunktivna normalna oblika} (s kratico KNO) veznika $V$.
 		
 		Spremenljivkam in njihovim negacijam z eno besedo rečemo \df{literali}. Disjunktivna normalna oblika je torej disjunkcija konjunkcij literalov, konjunktivna normalna oblika pa konjunkcija disjunkcij literalov.
 		
-		Iz tega primera je jasno, kako postopamo za poljuben izjavni veznik in zanj zapišemo DNO ali KNO. Opazimo: dolžina posamičnega člena, ki ga omejujejo oklepaji, je vedno enaka (vsebuje toliko literalov, kolikor je mestnost veznika), število teh členov pa razberemo iz stolpca, ki podaja vrednosti veznika v resničnostni tabeli. V primeru DNO je to število enako številu $\true$, v primeru KNO pa številu $\false$. V zgornjem primeru sta bili DNO in KNO enako dolgi, ker smo imeli štiri $\true$ in $\false$, v splošnem pa se nam morda bolj splača uporabiti eno obliko kot drugo. Na primer, DNO implikacije je $p \impl q \equiv (p \land q) \lor (\lnot{p} \land q) \lor (\lnot{p} \land \lnot{q})$, KNO pa je precej krajša: $p \impl q \equiv \lnot{p} \lor q$.
+		Iz tega primera je jasno, kako postopamo za poljuben izjavni veznik in zanj zapišemo DNO ali KNO. Opazimo: dolžina posamičnega člena, ki ga omejujejo oklepaji, je vedno enaka (vsebuje toliko literalov, kolikor je mestnost veznika), število teh členov pa razberemo iz stolpca, ki podaja vrednosti veznika v resničnostni tabeli. V primeru DNO je to število enako številu resnic $\true$, v primeru KNO pa številu neresnic $\false$. V zgornjem primeru sta bili DNO in KNO enako dolgi, ker smo imeli štiri $\true$ in $\false$, v splošnem pa se nam morda bolj splača uporabiti eno obliko kot drugo. Na primer, DNO implikacije se glasi $p \impl q \equiv (p \land q) \lor (\lnot{p} \land q) \lor (\lnot{p} \land \lnot{q})$, KNO pa je precej krajša: $p \impl q \equiv \lnot{p} \lor q$.
 		
 		Vidimo pa, da tu naletimo na problem: kaj se zgodi, če se katera resničnostna vrednost v stolpcu veznika sploh ne pojavi --- z drugimi besedami, kaj če je funkcija, ki podaja veznik, konstantna? Najprej dajmo takim ime: izjavni veznik, ki je pri vseh argumentih resničen, se imenuje \df{istorečje} ali \df{tavtologija}, izjavni veznik, ki je vedno neresničen, pa se imenuje \df{protislovje} ali \df{kontradikcija}.
 		
@@ -328,7 +328,7 @@
 		
 		Poglejmo podobne primere iz računstva. Kaj je vsota nič členov? Odgovor je seveda $0$. To je enota za seštevanje, kar je smiselno: če nič členom prištejemo en člen, moramo imeti zgolj ta člen. Podobno sklepamo: zmnožek nič členov je enota za množenje $1$ --- če nič faktorjem dodamo še en faktor, imamo skupaj zgolj ta faktor. Spomni se tudi: $a^0 = 1$ in $0! = 1$. To, da je ničkratna uporabe neke operacije enaka enoti za to operacijo, se izide tudi za konjunkcijo: dejansko velja $p \land \true \equiv p \equiv \true \land p$ (preveri z resničnostno tabelo!).
 		
-		Enak razmislek velja za protislovje. Zanj lahko zapišemo KNO na običajen način, medtem ko bi DNO bila disjunkcija nič členov. Smiselno je, da je disjunkcija nič členov enaka $\false$, tako zaradi tega, ker je $\false$ enota za disjunkcijo (preveri!), kot zaradi čisto intuitivnega razmisleka: kdaj je vsaj en člen od nič členov resničen? Nikoli.
+		Enak razmislek velja za protislovje. Zanj lahko zapišemo KNO na običajen način, medtem ko bi DNO bila disjunkcija nič členov. Smiselno je, da je disjunkcija nič členov enaka $\false$, tako zaradi tega, ker je $\false$ enota za disjunkcijo (preveri!), kot zaradi čisto intuitivnega razmisleka: kdaj je vsaj eden člen od nič členov resničen? Nikoli.
 		
 		Vseeno je nekoliko nerodno delati s konjunkcijo ali disjunkcijo nič členov --- kako točno bi to zapisali? Da velja $V(p_1, p_2, \ldots, p_n) \equiv $? Če nič ne zapišemo, kako sploh vemo, ali smo mislili na ničkratno konjunkcijo, disjunkcijo ali katerokoli drugo operacijo? Nekateri se zato preprosto dogovorijo, da ne dopuščajo ničkratnih operacij v DNO oz.~KNO in potem štejejo, da istorečja nimajo KNO, protislovja pa ne DNO.
 		
@@ -355,4 +355,4 @@
 	
 	\section{Predikati in kvantifikatorji}
 	
-		\note{\qt{Lastnostim} elementov množic, ki smo jih prej uporabljali za podajanje podmnožic in pri kvantifikatorjih, zdaj \qt{uradno} rečemo \df{predikati} in jih formalno definiramo: predikat na množici $X$ je preslikava $X \to \tvs$. Spomnimo se kvantifikatorjev. \davorin{Si jih drznemo definirati kot preslikave na eksponentih $\tvs^X$?} Povemo, da lahko imajo predikati več spremenljivk (lahko so definirani na produktu) in da lahko kvantificiramo po samo nekaterih. Vezane, nevezane spremenljivke. Pravila, ki veljajo za kvantifikatorje (de Morgan itd.).}
+		\note{\qt{Lastnostim} elementov množic, ki smo jih prej uporabljali za podajanje podmnožic in pri kvantifikatorjih, zdaj \qt{uradno} rečemo \df{predikati} in jih formalno definiramo: predikat na množici $X$ je preslikava $X \to \tvs$. Karakteristične preslikave podmnožic. Spomnimo se kvantifikatorjev. \davorin{Si jih drznemo definirati kot preslikave na eksponentih $\tvs^X$?} Povemo, da lahko imajo predikati več spremenljivk (lahko so definirani na produktu) in da lahko kvantificiramo po samo nekaterih. Vezane, nevezane spremenljivke. Pravila, ki veljajo za kvantifikatorje (de Morgan itd.).}

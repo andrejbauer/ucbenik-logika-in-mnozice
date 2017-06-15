@@ -1,7 +1,7 @@
 \chapter{Matematično izražanje}\label{POGLAVJE: Matematično izražanje}
 
 
-	\alert{Vsak ima svoj ukaz za pisanje pripomb: \textcolor{andrejcolor}{\texttt{$\backslash$andrej\{\ldots\}}}, \textcolor{davorincolor}{\texttt{$\backslash$davorin\{\ldots\}}}, \textcolor{markocolor}{\texttt{$\backslash$marko\{\ldots\}}}, \textcolor{matijacolor}{\texttt{$\backslash$matija\{\ldots\}}}, kar bo izpisalo pripombo v ustrezni barvi. Če vam vaša barva ni všeč, popravite. ;)}
+	\alert{Vsak avtor ima svoj ukaz za pisanje pripomb: \textcolor{andrejcolor}{\texttt{$\backslash$andrej\{\ldots\}}}, \textcolor{davorincolor}{\texttt{$\backslash$davorin\{\ldots\}}}, \textcolor{markocolor}{\texttt{$\backslash$marko\{\ldots\}}}, \textcolor{matijacolor}{\texttt{$\backslash$matija\{\ldots\}}}, kar bo izpisalo pripombo v ustrezni barvi. Če vam vaša barva ni všeč, popravite. ;)}
 	
 	\davorin{Za začetek bom vnašal oporne točke besedila. Slog bo treba še popraviti in besedilo dopolniti.}
 	
@@ -190,9 +190,9 @@
 			\item
 				Velikokrat površno rečemo, da zgornji predpis podaja preslikavo. To ni povsem res --- to je zgolj predpis preslikave. Za to, da preslikavo v celoti podamo, je potrebno navesti tri stvari: poleg predpisa še domeno in kodomeno. Vse to je del informacije o preslikavi.
 				
-				To se jasno pokaže, če začnemo razmišljati o lastnostih preslikav. Se še spomnite iz srednje šole, kaj pomeni, da je preslikava surjektivna? (Bomo ponovili v razdelku~\ref{RAZDELEK: Injektivnost in surjektivnost}.) Če vzamemo, da preslikava $f$ zadošča zgornjemu predpisu in jo obravnavamo kot preslikavo $f\colon \RR \to \RR$, ni surjektivna, če jo obravnavamo kot preslikavo $f\colon \RR_{\geq 0} \to \RR_{\geq 0}$, pa je.
+				To se jasno pokaže, če začnemo razmišljati o lastnostih preslikav. Se še spomnite iz srednje šole, kaj pomeni, da je preslikava surjektivna? (Bomo ponovili v razdelku~\ref{RAZDELEK: Injektivnost in surjektivnost}.) Če vzamemo, da preslikava $f$ zadošča zgornjemu predpisu in jo obravnavamo kot preslikavo $f\colon \RR \to \RR$, ni surjektivna, če jo obravnavamo recimo kot preslikavo $f\colon \RR_{\geq 0} \to \RR_{\geq 0}$, pa je.
 			\item
-				Za spremenljivko $x$ velja isto, kot smo razpravljali že v prejšnjem razdelku pri lastnostih elementov množic: spremenljivka $x$ nima vnaprej določene vrednosti, pač pa predstavlja mesto, kamor lahko vstavimo poljubno vrednost. Seveda je potem vseeno, če vzamemo kakšno drugo črko ali čisto drug simbol: $f(y) = y$ določa isti predpis kot $f(x) = x$; prav tako $f(\sun) = \sun^2$. Se pravi, tudi v tem primeru gre za \note{dummy variable}. Če si torej izberemo neko vrednost, jo lahko vstavimo na mesto spremenljivke in poračunamo, npr.~$f(3) = 3^2 = 9$ oziroma $f(2\pi) = (2\pi)^2 = 4\pi^2$. Predstavljajte si, da je spremenljivka pravzaprav škatlica, kamor lahko vstavite vrednost, torej
+				Za spremenljivko $x$ velja isto, kot smo razpravljali že v prejšnjem razdelku pri lastnostih elementov množic: spremenljivka $x$ nima vnaprej določene vrednosti, pač pa predstavlja mesto, kamor lahko vstavimo poljubno vrednost. Seveda je potem vseeno, če vzamemo kakšno drugo črko ali čisto drug simbol: $f(y) = y^2$ določa isti predpis kot $f(x) = x^2$; prav tako $f(\sun) = \sun^2$. Se pravi, tudi v tem primeru gre za \note{dummy variable}. Če si torej izberemo neko vrednost, jo lahko vstavimo na mesto spremenljivke in poračunamo, npr.~$f(3) = 3^2 = 9$ oziroma $f(2\pi) = (2\pi)^2 = 4\pi^2$. Predstavljajte si, da je spremenljivka pravzaprav škatlica, kamor lahko vstavite vrednost, torej
 				\[f(\argbox) = \argbox^2.\]
 			\item
 				Alternativen način zapisa $f(x) = x^2$ je
@@ -206,11 +206,13 @@
 				\end{align*}
 				(prva vrstica pove domeno in kodomeno, druga pa predpis). Tako podanim preslikavam potem rečemo \df{brezimne preslikave} (s tujko \df{anonimne funkcije}). Kasneje (v razdelku~\ref{RAZDELEK: Brezimne preslikave}) bomo spoznali bolj strnjen zapis takih preslikav, ki je še posebej primeren za izvajanje operacij med preslikavami; takrat bomo takšno funkcijo zapisali kot $\xlam{x}[\RR]{x^2}[\RR]$.
 		\end{itemize}
+		
+		\note{Sklop (kompozicija) preslikav. Razčlenitev (dekompozicija, faktorizacija) preslikav?}
 	
 	
 	\section{Logični simboli}\label{RAZDELEK: Logični simboli}
 	
-		Preproste izjave, kot na primer \nls{$n$ je sodo število.}, že znamo zapisati s simboli: $2 \divides n$. Povečini pa delamo z bolj kompleksnimi, sestavljenimi izjavami. Tudi za te obstaja simbolni zapis; na primer, izjavo \nls{Če je $a$ sodo število, je tudi kvadrat števila $a$ sod.}, zapišemo kot $2 \divides a \implies 2 \divides a^2$. Seveda ta izjava velja za vsa naravna števila (znaš to dokazati?). To zapišemo takole: $\all{a}[\NN]{2 \divides a \implies 2 \divides a^2}$. V tem razdelku si bomo ogledali, kako povezati preprostejše izjave v bolj sestavljene in kako to v splošnem simbolno zapisati.
+		Preproste izjave, kot na primer \nls{$n$ je sodo število.}, že znamo zapisati s simboli: $2 \divides n$. Povečini pa delamo z bolj kompleksnimi, sestavljenimi izjavami. Tudi za te obstaja simbolni zapis; na primer, izjavo \nls{Če je $n$ sodo število, je tudi kvadrat števila $n$ sod.}, zapišemo kot $2 \divides n \implies 2 \divides n^2$. Seveda ta izjava velja za vsa naravna števila (znaš to dokazati?). To zapišemo takole: $\all{n}[\NN]{2 \divides n \implies 2 \divides n^2}$. V tem razdelku si bomo ogledali, kako povezati preprostejše izjave v bolj sestavljene in kako to v splošnem simbolno zapisati.
 		
 		Kot smo navajeni iz običajnih jezikov, posamične stavke povežemo v sestavljeno poved z \emph{vezniki}. Najpogosteje uporabljeni matematični vezniki so v tabeli~\ref{TABELA: Standardni izjavni vezniki}.
 		
