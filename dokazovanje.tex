@@ -144,10 +144,10 @@
 				\item
 					Če $p \impl q$ nastopa kot \emph{sklep}:
 					\begin{quote}
-						sklep $p \impl q$ nadomestimo s $q$, medtem ko $p$ dodamo med predpostavke. Pojasnimo. Trditev $p \impl q$ trdi nekaj samo v primeru, kadar $p$ velja --- v nasprotnem primeru je avtomatično resnična in ni ničesar za dokazati. Torej se lahko omejimo na primer, ko $p$ velja, se pravi, lahko predpostavimo $p$. Kadar $p$ velja, pa trditev $p \impl q$ pravi, da mora veljati tudi $q$. To pomeni, da pri predpostavki $p$ dokazujemo $q$. Simbolno,
-						\[\claim{\Gamma}{\Pi}{\Sigma', p \impl q, \Sigma''}\]
-						nadomestimo z
-						\[\claim{\Gamma}{\Pi, p}{\Sigma', q, \Sigma''}.\]
+						sklep $p \impl q$ nadomestimo s $q$, medtem ko $p$ dodamo med predpostavke. Pojasnimo. Trditev $p \impl q$ trdi nekaj samo v primeru, kadar $p$ velja --- v nasprotnem primeru je avtomatično resnična in ni ničesar za dokazati. Torej se lahko omejimo na primer, ko $p$ velja, se pravi, lahko predpostavimo $p$. Kadar $p$ velja, pa trditev $p \impl q$ pravi, da mora veljati tudi $q$. To pomeni, da pri predpostavki $p$ dokazujemo $q$. Simbolno, da dokažemo
+						\[\claim{\Gamma}{\Pi}{\Sigma', p \impl q, \Sigma''},\]
+						zadostuje dokazati
+						\[\claim{\Gamma}{\Pi}{\Sigma', \Sigma''} \qquad \text{in} \qquad \claim{\Gamma}{\Pi, p}{q}.\]
 					\end{quote}
 			\end{itemize}
 		\item\textbf{Univerzalni kvantifikator}
@@ -167,7 +167,11 @@
 						\[\claim{\Gamma}{\Pi}{\Sigma', \xall{x}[X]{\phi(x, y)}, \Sigma''}\]
 						preidemo do
 						\[\claim{\Gamma, x \in X}{\Pi}{\Sigma', \phi(x, y), \Sigma''}\]
-						Zakaj tako postopamo in kaj smo s tem pravzaprav naredili? \note{pojasni}
+						Zakaj tako postopamo in kaj smo s tem pravzaprav naredili? Premislimo: želimo dokazati, da neka lastnost velja za vse elemente dane množice $X$. Če ima $X$ slučajno samo končno mnogo elementov, bi lahko lastnost preverili za vsakega posebej, ampak povečini delamo z neskončnimi množicami, kjer to ne deluje. Morda ima množica $X$ kakšno posebno lastnost, zaradi katere lahko univerzalni kvantifikator dokažemo na svojevrsten način (na primer, univerzalno kvantificirane izjave na $\NN$ lahko dokazujemo z matematično indukcijo --- glej \note{razdelek o naravnih številih}), ampak to se zgodi v izjemnih primerih.
+						
+						V splošnem nimamo druge možnosti, kot da si izberemo simbol (tipično kar spremenljivko v kvantifikatorju), ki nam predstavlja poljuben, katerikoli element množice in zanj dokažemo željeno lastnost. Ideja je, da spremenljivka spet nastopa v vlogi \qt{škatlice}, kamor lahko vstavimo poljuben element množice $X$. Če nam je dokaz lastnost uspel, ne da bi za spremenljivko predpostavili karkoli več, kot da je element množice $X$, tedaj dobimo dokaz lastnosti za katerikoli dejanski element množice $X$ tako, da v dobljeni dokaz namesto spremenljivke vstavimo ta element. Na ta način smo potem dejansko dobili dokaz lastnosti za vse elemente množice $X$.
+						
+						Besedni dokazi univerzalno kvantificirane izjave se zato tipično začnejo takole: \qt{Vzemimo poljuben $x \in X$. Dokažimo, da zanj velja dana lastnost.}.
 					\end{quote}
 			\end{itemize}
 		\item\textbf{Eksistenčni kvantifikator}
@@ -175,10 +179,16 @@
 				\item
 					Če $\xsome{x}[X]{\phi(x, y)}$ nastopa kot \emph{predpostavka}:
 					\begin{quote}
+						v kontekst dodamo $x \in X$, eksistenčno predpostavko pa nadomestimo s $\phi(x, y)$. S simboli,
+						\[\claim{\Gamma}{\Pi', \xsome{x}[X]{\phi(x, y)}, \Pi''}{\Sigma}\]
+						popravimo v
+						\[\claim{\Gamma, x \in X}{\Pi', \phi(x, y), \Pi''}{\Sigma}.\]
+						Zakaj to deluje? Naša predpostavka je, da v množici $X$ obstaja element z lastnostjo $\phi$ (z morebitnimi nadaljnjimi parametri). Torej si lahko vzamemo neki konkreten element množice $X$ s to lastnostjo, ki ga lahko uporabljamo kasneje v dokazu (za to ga moramo nekako označiti; v praksi ga tipično označimo kar z isto spremenljivko, kot v kvantifikatorju).
 					\end{quote}
 				\item
 					Če $\xsome{x}[X]{\phi(x, y)}$ nastopa kot \emph{sklep}:
 					\begin{quote}
+						da dokažemo eksistenčno izjavo, moramo podati neki konkreten element $x \in X$ in zanj dokazati dano lastnost $\phi(x, y)$. \davorin{Hm, kako točno to zapišemo simbolno v zgornji obliki?}
 					\end{quote}
 			\end{itemize}
 	\end{itemize}
@@ -186,7 +196,7 @@
 	V zgornjem seznamu nismo omenili vseh veznikov in kvantifikatorjev. To je zato, ker jih pri dokazovanju nadomestimo z zgornjimi. Konkretno:
 	\begin{itemize}
 		\item
-			Za negacijo velja $\lnot{p} \equiv p \impl \false$. Med drugim to pomeni, da $\lnot{p}$ dokažemo na sledeči način: predpostavimo $p$ in iz tega izpeljemo neresnico. \davorin{Andrej, če hočeš študentom vbiti v glavo razliko med dokazovanjem negacije in dokazovanjem s protislovjem, je nekje tu verjetno primeren trenutek.}
+			Za negacijo velja $\lnot{p} \equiv p \impl \false$. Med drugim to pomeni, da $\lnot{p}$ dokažemo na sledeči način: predpostavimo $p$ in iz tega izpeljemo neresnico.
 		\item
 			Za ekvivalenco velja $p \lequ q \equiv (p \impl q) \land (p \revimpl q)$. To pomeni, da ekvivalenco dokažemo tako, da dokažemo implikacijo med $p$ in $q$ v obe smeri --- se pravi, enkrat predpostavimo $p$ in izpeljemo $q$, drugič pa predpostavimo $q$ in izpeljemo $p$.
 		\item
@@ -197,3 +207,17 @@
 			Včasih je lažje, če najprej dokažemo obstoj elementa in ta element pri dokazu enoličnosti že uporabimo, torej dokazujemo izražavo
 			\[\xexactlyone{x}[X]{\phi(x, y)} \equiv \some[2]{x}[X]{\phi(x, y) \land \all[1]{a}[X]{\phi(a, y) \implies a = x}}.\]
 	\end{itemize}
+	
+	Seveda ne bo možno dokazati vsakega izreka s slepim sledenjem zgornjim pravilom; včasih moramo uporabiti še kakšno dodatno strategijo. Spodnji dve sta zelo pogosti.
+	\begin{itemize}
+		\item
+			Med predpostavke dodamo trditev, za katero že vemo, da je resnična. Morda gre za trditev, ki smo jo že dokazali, morda pa gre kar za istorečje. Pogost primer tega je, da uporabimo zakon o izključenem tretjem in za dodatno predpostavko vzamemo $p \lor \lnot{p}$ (kjer je $p$ katerakoli konkretna izjava). Po zgornjih pravilih to potem pomeni, da ločimo primere in trditev dokažemo posebej pri predpostavki $p$ ter posebej pri predpostavki $\lnot{p}$.
+		\item
+			Nekatere predpostavke ali sklepe nadomestimo z enakovrednimi izjavami. Na primer, velja
+			\[p \lor q \equiv \lnot(\lnot{p} \land \lnot{q}) \equiv \lnot{p} \impl q \equiv \lnot{q} \impl p.\]
+			To pomeni, da lahko disjunkcijo (poleg zgoraj omenjenega načina) dokažemo tudi tako, da predpostavimo, da nobena od možnosti ne velja, in od tod izpeljemo neresnico, ali pa predpostavimo, da ena od možnosti ne velja, in od tod izpeljemo drugo.
+			
+			Zelo pogosta uporaba te ideje je \df{dokaz s protislovjem}, ki temelji na zakonu o dvojni negaciji $p \equiv \lnot\lnot{p}$. Izjavo torej lahko dokažemo tako, da predpostavimo njeno negacijo, in od tod izpeljemo neresnico. Tipičen besedni dokaz s protislovjem izgleda takole: \qt{Dokazujemo $p$. Pa recimo, da $p$ ne velja. Potem /neki sklepi/. To je v nasprotju s tem, kar smo dokazali prej, torej smo izpeljali protislovje. Se pravi, ni možno, da $p$ ne bi veljal, torej mora veljati.}.
+	\end{itemize}
+	
+	\note{mnogo zgovornih primerov dokazov, ki ponazorijo zgornje postopke}
