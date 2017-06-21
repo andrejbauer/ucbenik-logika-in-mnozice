@@ -89,6 +89,10 @@
 		\[\srel \circ \rel \dfeq \set[1]{(x, z) \in X \times Z}{\some{y}[Y]{\rel[x][y] \land \srel[y][z]}}\]
 		(po vzoru funkcij tudi kompozicijo relacij pišemo v obratnem vrstnem redu; glej razdelek~\ref{RAZDELEK: Funkcije kot funkcijske relacije}). Opazimo: domena $\srel \circ \rel$ je domena $\rel$, kodomena $\srel \circ \rel$ je kodomena $\srel$. Sklapljanje je asociativna operacija, torej pri sklopu večih relacij oklepaji niso pomembni.
 		
+		\begin{vaja}
+			Dokaži, da je sklapljanje relacij asociativno!
+		\end{vaja}
+		
 		Večkraten sklop relacije $\rel \subseteq X \times X$ same s sabo označimo
 		\[\rel^n \dfeq \underbrace{\rel \circ \rel \circ \ldots \circ \rel}_{\text{$n$ $\rel$-jev}}\]
 		za $n \in \NN_{\geq 2}$. Seveda je smiselno definirati, da je $\rel^1$ enak $\rel$ in da je $\rel^0$ relacija enakosti na množici $X$, saj je to enota za sklapljanje relacij na $X$, tj.~$=_X \circ \rel = \rel = \rel \circ =_X$ (premisli, da je to res!).
@@ -403,7 +407,7 @@
 		
 		\note{razlaga imen relacij}
 		
-		\note{dobre urejenosti}
+		\note{najmanjši/največji, minimalni/maksimalni elementi, natančne meje}
 	
 	
 	\section{Ekvivalenčne relacije in kvocientne množice}
@@ -436,21 +440,31 @@
 		
 		\davorin{Profesor Petkovšek raje uporablja izraz `razdelitev množice', ker se mu `razbitje množice' zdi preveč \qt{nasilno}. ;) Kakšna so mnenja drugih? Kateri izraz bi uporabljali?}
 		
-		\begin{izrek}
-			Naj bo $X$ poljubna množica. Naslednji trditvi sta ekvivalentni za vsako relacijo $\rel$ na $X$.
+		\begin{izrek}[ekvivalenčne relacije natanko ustrezajo razbitjem]
+			Naj bo $X$ poljubna množica.
 			\begin{enumerate}
 				\item
-					$\rel$ je ekvivalenčna relacija.
+					Naslednji trditvi sta ekvivalentni za vsako relacijo $\rel$ na $X$.
+					\begin{enumerate}
+						\item
+							$\rel$ je ekvivalenčna relacija.
+						\item
+							$\set[1]{\ec[\rel]{a}}{a \in X}$ je razbitje množice $X$.
+					\end{enumerate}
 				\item
-					$\set[1]{\ec[\rel]{a}}{a \in X}$ je razbitje množice $X$.
+					Za vsako razbitje množice $X$ obstaja enolično določena ekvivalenčna relacija $\equ$ na $X$, tako da je razbitje enako $\set[1]{\ec[\equ]{a}}{a \in X}$.
 			\end{enumerate}
 		\end{izrek}
 		
 		\begin{dokaz}
-			\begin{itemize}
-				\item\proven{$(1 \impl 2)$}
-				\item\proven{$(2 \impl 1)$}
-			\end{itemize}
+			\begin{enumerate}
+				\item
+					\begin{itemize}
+						\item\proven{$(\text{\textit{a}} \impl \text{\textit{b}})$}
+						\item\proven{$(\text{\textit{b}} \impl \text{\textit{a}})$}
+					\end{itemize}
+				\item
+			\end{enumerate}
 			\note{dokončaj dokaz}
 		\end{dokaz}
 		

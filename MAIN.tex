@@ -103,10 +103,10 @@
 	\newcommand{\alert}[1]{{\small\textcolor{red}{\textbf{#1}}}}
 
 
-%%%%%%  Logical Quantifiers and λ-Terms
+%%%%%%  Logical Quantifiers and λ-Expressions
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 	
-	%  x = no parenthesis
+	%  no parenthesis (add x in front of the name of the command)
 	\NewDocumentCommand{\xall}
 		{m O{\empty} m}
 		{\forall\, {#1} \ifthenelse{\equal{#2}{}}{}{\in{#2}} \,.\, {#3}}
@@ -118,7 +118,7 @@
 		{\exists\;\!!\, {#1} \ifthenelse{\equal{#2}{}}{}{\in{#2}} \,.\, {#3}}
 	\NewDocumentCommand{\xlam}
 		{m O{\empty} m O{\empty}}
-		{\lambda\, {#1} \ifthenelse{\equal{#2}{}}{}{\in{#2}} \,.\, {#3} \ifthenelse{\equal{#4}{}}{}{\in{#4}}}
+		{\lambda{#1} \ifthenelse{\equal{#2}{}}{}{\in{#2}} \,.\, {#3} \ifthenelse{\equal{#4}{}}{}{\in{#4}}}
 	
 	%  with parenthesis -- the first optional argument is the size (values 0-4)
 	\NewDocumentCommand{\all}
@@ -277,7 +277,9 @@
 		\section{Preprosti primeri}
 			\note{prazna množica, enojci}
 		\section{Podmnožice}
+			\davorin{Če \qt{embedding} prevajamo kot \qt{vložitev}, kako potem prevedemo \qt{inclusion}? Imamo sicer tujko \qt{inkluzija}, ampak fino bi bilo imeti še slovenski izraz. Vključitev?}
 		\section{Potenčna množica}
+			\davorin{Verjetno je smiselno, da ta razdelek sledi razdelku o podmnožicah. Morda kar združimo ta dva razdelka?}
 		\section{Družine množic}
 		\section{Produkt množic}
 		\section{Vsota množic}
@@ -310,6 +312,9 @@
 		\section{Realna števila}
 		\section{Kompleksna števila}
 			\davorin{Se ustavimo že pri realnih številih? Gremo še dlje do kvaternionov?}
+	
+	\chapter{Indukcija}
+		\note{Dobro osnovano urejene in dobro urejene množice. Indukcija na dobro osnovano urejenih množicah. Strukturna indukcija.}
 	
 	\chapter{Aksiomatska teorija množic}
 		\section{Zermelo-Fraenklovi aksiomi}
