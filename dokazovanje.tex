@@ -25,7 +25,7 @@
 	Oglejmo si konkreten primer. Rolleov izrek je znan in uporaben izrek v analizi (če ga še niste spoznali, ga boste v kratkem).
 	
 	\begin{izrek}[Rolle]
-		Naj bo $f$ realna funkcija, definirana na realnem intervalu $\intcc{a}{b}$, kjer sta $a$ in $b$ realni števili in $a < b$. Če je $f$ zvezna na celem $\intcc{a}{b}$ in odvedljiva na odprtem intervalu $\intoo{a}{b}$ ter zavzame enaki vrednosti v krajiščih, tj.~$f(a) = f(b)$, tedaj ima $f$ stacionarno točko na $\intoo{a}{b}$.
+		Naj bo $f$ realna funkcija, definirana na intervalu $\intcc{a}{b}$, kjer sta $a$ in $b$ realni števili in $a < b$. Če je $f$ zvezna na celem $\intcc{a}{b}$ in odvedljiva na odprtem intervalu $\intoo{a}{b}$ ter zavzame enaki vrednosti v krajiščih, tj.~$f(a) = f(b)$, tedaj ima $f$ stacionarno točko na $\intoo{a}{b}$.
 	\end{izrek}
 	
 	Analizirajmo, kaj so kontekst, predpostavke in sklepi pri tem izreku.
@@ -169,7 +169,7 @@
 						\[\claim{\Gamma, x \in X}{\Pi}{\Sigma', \phi(x, y), \Sigma''}\]
 						Zakaj tako postopamo in kaj smo s tem pravzaprav naredili? Premislimo: želimo dokazati, da neka lastnost velja za vse elemente dane množice $X$. Če ima $X$ slučajno samo končno mnogo elementov, bi lahko lastnost preverili za vsakega posebej, ampak povečini delamo z neskončnimi množicami, kjer to ne deluje. Morda ima množica $X$ kakšno posebno lastnost, zaradi katere lahko univerzalni kvantifikator dokažemo na svojevrsten način (na primer, univerzalno kvantificirane izjave na $\NN$ lahko dokazujemo z matematično indukcijo --- glej \note{razdelek o naravnih številih}), ampak to se zgodi v izjemnih primerih.
 						
-						V splošnem nimamo druge možnosti, kot da si izberemo simbol (tipično kar spremenljivko v kvantifikatorju), ki nam predstavlja poljuben, katerikoli element množice in zanj dokažemo željeno lastnost. Ideja je, da spremenljivka spet nastopa v vlogi \qt{škatlice}, kamor lahko vstavimo poljuben element množice $X$. Če nam je dokaz lastnost uspel, ne da bi za spremenljivko predpostavili karkoli več, kot da je element množice $X$, tedaj dobimo dokaz lastnosti za katerikoli dejanski element množice $X$ tako, da v dobljeni dokaz namesto spremenljivke vstavimo ta element. Na ta način smo potem dejansko dobili dokaz lastnosti za vse elemente množice $X$.
+						V splošnem nimamo druge možnosti, kot da si izberemo simbol (tipično kar spremenljivko v kvantifikatorju), ki nam predstavlja poljuben, katerikoli element množice in zanj dokažemo željeno lastnost. Ideja je, da spremenljivka spet nastopa v vlogi \qt{škatlice}, kamor lahko vstavimo poljuben element množice $X$. Če nam je dokaz lastnosti uspel, ne da bi za spremenljivko predpostavili karkoli več, kot da predstavlja element množice $X$, tedaj dobimo dokaz lastnosti za katerikoli dejanski element množice $X$ tako, da v dobljeni dokaz namesto spremenljivke vstavimo ta element. Na ta način smo potem dejansko dobili dokaz lastnosti za vse elemente množice $X$.
 						
 						Besedni dokazi univerzalno kvantificirane izjave se zato tipično začnejo takole: \qt{Vzemimo poljuben $x \in X$. Dokažimo, da zanj velja dana lastnost.}.
 					\end{quote}

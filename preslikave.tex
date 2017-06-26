@@ -1,0 +1,75 @@
+\chapter{Preslikave}
+
+	\davorin{Glede na to, da gre za slovenski učbenik, dajem izrazu `preslikava' prednost pred izrazom `funkcija'. Seveda pa sem pojasnil tudi slednji izraz (v prvem poglavju).}
+	
+	
+	\section{Brezimne preslikave}\label{RAZDELEK: Brezimne preslikave}
+	
+		\note{Tj.~anonimne oz.~čiste funkcije. Na tem mestu pride tudi $\lambda$-notacija in določena mera $\lambda$-računa.}
+	
+	
+	\section{Slike in praslike}
+	
+		Preslikava kot taka nam pove za posamične elemente, kam se slikajo. Marsikdaj pa nas zanima več: kam se slikajo celotne množice elementov. Na primer, zanima nas lahko, v kaj se projicira neko prostorsko telo na ravnino.
+		
+		\note{luštna slika projekcije nekega prostorskega objekta na neko ravnino}
+		
+		Da dobimo sliko celotne množice, moramo zbrati skupaj slike vseh posamičnih elementov množice. Smiselna je torej naslednja definicija.
+		
+		\begin{definicija}\label{DEFINICIJA: slika}
+			Naj bo $f\colon X \to Y$ preslikava. \df{Slika} množice $A \subseteq X$ je označena in definirana kot
+			\[\img{f}{A} \dfeq \set[1]{f(x)}{x \in A} = \set[1]{y \in Y}{\xsome{x}[A]{y = f(x)}}.\]
+			Ta predpis definira preslikavo $\img{f}\colon \pst(X) \to \pst(Y)$.
+		\end{definicija}
+		
+		\begin{opomba}
+			Kot običajno, obstajajo različne oznake v uporabi. Sliko $\img{f}{A}$ se označuje tudi kot $f[A]$ ali celo kar kot $f(A)$. V slednjem primeru se predpostavlja zadostna matematična zrelost bralca, da zna razbrati, kdaj $f$ označuje preslikavo $f\colon X \to Y$, kdaj pa preslikavo $f\colon \pst(X) \to \pst(Y)$.
+			
+			V tej knjigi se bomo načrtno izogibali takšnim dvoumnostim in za sliko dosledno uporabljali oznako iz definicije~\ref{DEFINICIJA: slika}.
+		\end{opomba}
+		
+		\begin{vaja}
+			Prepričaj se, da za poljubno preslikavo $f\colon X \to Y$ velja sledeče:
+			\begin{itemize}
+				\item
+					$\img{f}{X} = Z_f$,
+				\item
+					$\img{f}{\emptyset} = \emptyset$,
+				\item
+					$\img[1]{f}{\set{x}} = \set[1]{f(x)}$ za vsak $x \in X$.
+			\end{itemize}
+		\end{vaja}
+		
+		\note{primeri in lastnosti slik že tu ali kasneje skupaj s primeri/lastnostmi praslik?}
+		
+		Včasih pa imamo obratno nalogo: iz dane slike ugotoviti, kaj vse se je z neko preslikavo vanjo preslikalo. Zato vpeljemo še sledečo definicijo.
+		
+		\begin{definicija}\label{DEFINICIJA: praslika}
+			Naj bo $f\colon X \to Y$ preslikava. \df{Praslika} množice $B \subseteq Y$ je označena in definirana kot
+			\[\pim{f}{B} \dfeq \set[1]{x \in X}{f(x) \in B}.\]
+			Ta predpis definira preslikavo $\pim{f}\colon \pst(Y) \to \pst(X)$.
+		\end{definicija}
+		
+		\begin{opomba}
+			Tudi za prasliko obstajajo različne oznake. Praslika $\pim{f}{B}$ se označi tudi kot $f^{-1}[B]$ ali kar kot $f^{-1}(B)$. V slednjem primeru se spet zanašamo na izkušenost bralca, da praslike $f^{-1}\colon \pst(Y) \to \pst(X)$ ne zamenja z inverzom $f^{-1}\colon Y \to X$. Slednji morda sploh ne obstaja! (Praslika seveda obstaja za vse funkcije.)
+			
+			Če inverz funkcije obstaja, tedaj velja $\pim[1]{f}{\set{y}} = \set[1]{f^{-1}(y)}$ za vsak $y \in Y$ (premisli!), kar nekoliko pojasni oznako $f^{-1}$ tudi za prasliko. Kljub vsemu, z namenom izogibanja dvoumnostim bomo se v tej knjigi skrbno držali oznake iz definicije~\ref{DEFINICIJA: praslika} za prasliko.
+		\end{opomba}
+		
+		\note{primeri, vaje}
+		
+		\note{lastnosti: ohranjanje unij, presekov, komplementov}
+	
+	
+	\section{Injektivnost in surjektivnost}\label{RAZDELEK: Injektivnost in surjektivnost}
+	
+		\note{Vključno z ekvivalenco z mono- in epimorfizmi.}
+	
+	
+	\section{Bijektivnost}
+	
+		\davorin{Pomemben del tega razdelka bodo inverzne preslikave. Mogoče lahko to dodamo v naslov.}
+		
+		\davorin{Pri inverzih omenimo sledeče. Pogosto obravnavamo preslikavo, ki izhaja iz nekega konkretnega (na primer fizikalnega) problema, v smislu, da preslikava vzame začetne podatke in nam vrne, kaj se bo na koncu zgodilo. Marsikdaj pa hočemo rešiti obraten problem: želimo določene končne rezultate in se sprašujemo, kaj morajo biti začetni pogoji, da jih bomo dosegli. V tem primeru pridejo prav inverzi.}
+		
+		\davorin{Se gremo slovenščino in čimbolj dosledno uporabljamo \qt{obrat preslikave} namesto \qt{inverz funkcije}?}

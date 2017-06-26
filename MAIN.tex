@@ -203,6 +203,12 @@
 	\newcommand{\kleq}{\simeq}  % Kleene equality
 	\newcommand{\ec}[2][]{[\:\!{#2}\:\!]_{#1}}  % equivalence class
 	\newcommand{\claim}[3]{{#1} \;\colon\; \frac{#2}{#3}}  % claim, divided on context, assumptions, conclusions
+	\NewDocumentCommand{\img}  % image
+		{O{\empty} m G{\empty}}
+		{{#2}_*\ifthenelse{\equal{#3}{}}{}{\!\sizedescriptor{#1}{\left}( {#3} \sizedescriptor{#1}{\right})}}
+	\NewDocumentCommand{\pim}  % preimage
+		{O{\empty} m G{\empty}}
+		{{#2}^*\ifthenelse{\equal{#3}{}}{}{\!\sizedescriptor{#1}{\left}( {#3} \sizedescriptor{#1}{\right})}}
 	
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -286,19 +292,7 @@
 		\section{Unija in presek}
 		\section{Eksponentna množica}
 	
-	\chapter{Preslikave}
-		\davorin{Moramo se dogovoriti, kateremu izrazu bomo dali prednost --- `funkcija' ali `preslikava'.}
-		\section{Brezimne preslikave}\label{RAZDELEK: Brezimne preslikave}
-			\note{Tj.~anonimne oz.~čiste funkcije. Na tem mestu pride tudi $\lambda$-notacija in določena mera $\lambda$-računa.}
-		\section{Slike in praslike}
-			\davorin{Kako jih označevati? Bomo sliko označevali isto kot preslikavo samo (kot je običaj) in se zanašamo, da bodo študenti ločili, kdaj gre za $f\colon X \to Y$ in kdaj za $f\colon \pst(X) \to \pst(Y)$? Podobno, bomo prasliko označevali isto kot inverz in upali, da bodo ločili med $f^{-1}\colon Y \to X$ in $f^{-1}\colon \pst(Y) \to \pst(X)$? Ali uvedemo posebne oznake za sliko in prasliko, recimo $f_*$ in $f^*$?}
-		\section{Injektivnost in surjektivnost}\label{RAZDELEK: Injektivnost in surjektivnost}
-			\note{Vključno z ekvivalenco z mono- in epimorfizmi.}
-		\section{Bijektivnost}
-			\davorin{Pomemben del tega razdelka bodo inverzne preslikave. Mogoče lahko to dodamo v naslov.}
-			
-			\davorin{Pri inverzih omenimo sledeče. Pogosto obravnavamo preslikavo, ki izhaja iz nekega konkretnega (na primer fizikalnega) problema, v smislu, da preslikava vzame začetne podatke in nam vrne, kaj se bo na koncu zgodilo. Marsikdaj pa hočemo rešiti obraten problem: želimo določene končne rezultate in se sprašujemo, kaj morajo biti začetni pogoji, da jih bomo dosegli. V tem primeru pridejo prav inverzi.}
-	
+	\include{preslikave}
 	\include{relacije}
 	
 	\chapter{Strukturirane množice}
