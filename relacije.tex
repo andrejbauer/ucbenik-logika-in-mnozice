@@ -85,9 +85,9 @@
 		
 		Poleg operacij, ki jih relacije podedujejo od podmnožic, imamo še operacije, ki upoštevajo produktno strukturo.
 		
-		Če so $X$, $Y$, $Z$ množice in $\rel \subseteq X \times Y$, $\srel \subseteq Y \times Z$ relaciji, tedaj je \df{sklop} (\df{kompozitum}) \df{relacij} definiran kot
+		Če so $X$, $Y$, $Z$ množice in $\rel \subseteq X \times Y$, $\srel \subseteq Y \times Z$ relaciji, tedaj je \df{sklop} (\df{kompozicija}, \df{kompozitum}) \df{relacij} definiran kot
 		\[\srel \circ \rel \dfeq \set[1]{(x, z) \in X \times Z}{\some{y}[Y]{\rel[x][y] \land \srel[y][z]}}\]
-		(po vzoru funkcij tudi kompozicijo relacij pišemo v obratnem vrstnem redu; glej razdelek~\ref{RAZDELEK: Funkcije kot funkcijske relacije}). Opazimo: domena $\srel \circ \rel$ je domena $\rel$, kodomena $\srel \circ \rel$ je kodomena $\srel$. Sklapljanje je asociativna operacija, torej pri sklopu večih relacij oklepaji niso pomembni.
+		(po vzoru funkcij tudi sklop relacij pišemo v obratnem vrstnem redu; glej razdelek~\ref{RAZDELEK: Funkcije kot funkcijske relacije}). Opazimo: domena $\srel \circ \rel$ je domena $\rel$, kodomena $\srel \circ \rel$ je kodomena $\srel$. Sklapljanje je asociativna operacija, torej pri sklopu večih relacij oklepaji niso pomembni.
 		
 		\begin{vaja}
 			Dokaži, da je sklapljanje relacij asociativno!
@@ -112,7 +112,7 @@
 		\end{vaja}
 		
 		\begin{zgled}
-			Graf relacije, ki je inverzna relaciji $\rel \subseteq X \times X$, dobimo tako, da v grafu relacije $\rel$ obrnemo puščice. Na primer, če je $\rel$ relacija iz zgleda~\ref{ZGLED: graf relacije}, tedaj graf relacije $\rel^{-1}$ izgleda takole.
+			Graf relacije, ki je obratna relaciji $\rel \subseteq X \times X$, dobimo tako, da v grafu relacije $\rel$ obrnemo puščice. Na primer, če je $\rel$ relacija iz zgleda~\ref{ZGLED: graf relacije}, tedaj graf relacije $\rel^{-1}$ izgleda takole.
 			
 			\note{graf $\rel^{-1}$}
 		\end{zgled}

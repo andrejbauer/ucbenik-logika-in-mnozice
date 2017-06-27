@@ -21,29 +21,29 @@
 \contentsline {chapter}{\numberline {5}Preslikave}{45}
 \contentsline {section}{\numberline {5.1}Brezimne preslikave}{45}
 \contentsline {section}{\numberline {5.2}Slike in praslike}{45}
-\contentsline {section}{\numberline {5.3}Injektivnost in surjektivnost}{46}
-\contentsline {section}{\numberline {5.4}Bijektivnost}{47}
-\contentsline {chapter}{\numberline {6}Relacije}{49}
-\contentsline {section}{\numberline {6.1}Splo\IeC {\v s}no o relacijah}{49}
-\contentsline {section}{\numberline {6.2}Operacije z relacijami}{51}
-\contentsline {section}{\numberline {6.3}Lastnosti relacij}{53}
-\contentsline {section}{\numberline {6.4}Funkcije kot funkcijske relacije}{57}
-\contentsline {section}{\numberline {6.5}Relacije urejenosti}{59}
-\contentsline {section}{\numberline {6.6}Ekvivalen\IeC {\v c}ne relacije in kvocientne mno\IeC {\v z}ice}{60}
-\contentsline {chapter}{\numberline {7}Strukturirane mno\IeC {\v z}ice}{65}
-\contentsline {chapter}{\numberline {8}\IeC {\v S}tevilske mno\IeC {\v z}ice}{67}
-\contentsline {section}{\numberline {8.1}Naravna \IeC {\v s}tevila}{67}
-\contentsline {section}{\numberline {8.2}Cela \IeC {\v s}tevila}{67}
-\contentsline {section}{\numberline {8.3}Racionalna \IeC {\v s}tevila}{67}
-\contentsline {section}{\numberline {8.4}Realna \IeC {\v s}tevila}{67}
-\contentsline {section}{\numberline {8.5}Kompleksna \IeC {\v s}tevila}{67}
-\contentsline {chapter}{\numberline {9}Indukcija}{69}
-\contentsline {chapter}{\numberline {10}Aksiomatska teorija mno\IeC {\v z}ic}{71}
-\contentsline {section}{\numberline {10.1}Zermelo-Fraenklovi aksiomi}{71}
-\contentsline {section}{\numberline {10.2}Aksiom izbire}{71}
-\contentsline {section}{\numberline {10.3}Kumulativna hierarhija}{71}
-\contentsline {chapter}{\numberline {11}Kardinalna \IeC {\v s}tevila}{73}
-\contentsline {section}{\numberline {11.1}Kon\IeC {\v c}nost in neskon\IeC {\v c}nost}{73}
-\contentsline {section}{\numberline {11.2}\IeC {\v S}tevnost}{73}
-\contentsline {section}{\numberline {11.3}Kardinalnost mno\IeC {\v z}ice}{73}
-\contentsline {chapter}{\numberline {12}Ordinalna \IeC {\v s}tevila}{75}
+\contentsline {section}{\numberline {5.3}Injektivnost in surjektivnost}{47}
+\contentsline {section}{\numberline {5.4}Bijektivnost in obratne preslikave}{47}
+\contentsline {chapter}{\numberline {6}Relacije}{51}
+\contentsline {section}{\numberline {6.1}Splo\IeC {\v s}no o relacijah}{51}
+\contentsline {section}{\numberline {6.2}Operacije z relacijami}{53}
+\contentsline {section}{\numberline {6.3}Lastnosti relacij}{55}
+\contentsline {section}{\numberline {6.4}Funkcije kot funkcijske relacije}{59}
+\contentsline {section}{\numberline {6.5}Relacije urejenosti}{61}
+\contentsline {section}{\numberline {6.6}Ekvivalen\IeC {\v c}ne relacije in kvocientne mno\IeC {\v z}ice}{62}
+\contentsline {chapter}{\numberline {7}Strukturirane mno\IeC {\v z}ice}{67}
+\contentsline {chapter}{\numberline {8}\IeC {\v S}tevilske mno\IeC {\v z}ice}{69}
+\contentsline {section}{\numberline {8.1}Naravna \IeC {\v s}tevila}{69}
+\contentsline {section}{\numberline {8.2}Cela \IeC {\v s}tevila}{69}
+\contentsline {section}{\numberline {8.3}Racionalna \IeC {\v s}tevila}{69}
+\contentsline {section}{\numberline {8.4}Realna \IeC {\v s}tevila}{69}
+\contentsline {section}{\numberline {8.5}Kompleksna \IeC {\v s}tevila}{69}
+\contentsline {chapter}{\numberline {9}Indukcija}{71}
+\contentsline {chapter}{\numberline {10}Aksiomatska teorija mno\IeC {\v z}ic}{73}
+\contentsline {section}{\numberline {10.1}Zermelo-Fraenklovi aksiomi}{73}
+\contentsline {section}{\numberline {10.2}Aksiom izbire}{73}
+\contentsline {section}{\numberline {10.3}Kumulativna hierarhija}{73}
+\contentsline {chapter}{\numberline {11}Kardinalna \IeC {\v s}tevila}{75}
+\contentsline {section}{\numberline {11.1}Kon\IeC {\v c}nost in neskon\IeC {\v c}nost}{75}
+\contentsline {section}{\numberline {11.2}\IeC {\v S}tevnost}{75}
+\contentsline {section}{\numberline {11.3}Kardinalnost mno\IeC {\v z}ice}{75}
+\contentsline {chapter}{\numberline {12}Ordinalna \IeC {\v s}tevila}{77}

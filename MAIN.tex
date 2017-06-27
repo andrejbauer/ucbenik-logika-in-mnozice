@@ -85,7 +85,7 @@
 		\ifthenelse{\equal{#1}{4}}{\Bigg}{
 		#2}}}}}
 	}
-	\newcommand{\proven}[1]{\underline{#1}\vspace{0.2em}\\}
+	\newcommand{\proven}[1]{\dashuline{#1}\vspace{0.2em}\\}
 	\newcommand{\someref}{{\small\textcolor{blue}{[\textbf{ref.}]}}}
 	
 	\definecolor{andrejcolor}{rgb}{0.7,0,0.7}
@@ -209,6 +209,7 @@
 	\NewDocumentCommand{\pim}  % preimage
 		{O{\empty} m G{\empty}}
 		{{#2}^*\ifthenelse{\equal{#3}{}}{}{\!\sizedescriptor{#1}{\left}( {#3} \sizedescriptor{#1}{\right})}}
+	\newcommand{\unit}{\mathord{\bigvarstar}}
 	
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
