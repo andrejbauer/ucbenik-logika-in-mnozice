@@ -2,6 +2,8 @@
 
 	\davorin{Glede na to, da gre za slovenski učbenik, dajem izrazu `preslikava' prednost pred izrazom `funkcija'. Seveda pa sem pojasnil tudi slednji izraz (v prvem poglavju).}
 	
+	\note{Uvod. Definicijsko območje in zaloga vrednosti \davorin{morda dodamo kot možno ime za zalogo vrednosti še prevod angleške besede `range', se pravi `razpon'?}. Zožitve (tako domene kot kodomene); oznake za to so $\rstr{f}_A$, $\rstr{f}^B$, $\rstr{f}_A^B$. Izvrednotenje (evalvacija) preslikave (če ne bomo tega pojasnili že pri eksponentih množic).}
+	
 	
 	\section{Brezimne preslikave}\label{RAZDELEK: Brezimne preslikave}
 	
@@ -34,7 +36,7 @@
 			Prepričaj se, da za poljubno preslikavo $f\colon X \to Y$ velja sledeče:
 			\begin{itemize}
 				\item
-					$\img{f}{X} = Z_f$,
+					$\img{f}{X} = \rn{f}$,
 				\item
 					$\img{f}{\emptyset} = \emptyset$,
 				\item
@@ -103,7 +105,7 @@
 		\end{definicija}
 		
 		\begin{zgled}\label{ZGLED: logaritmiranje je obratno od eksponenciranja}
-			Kot veste že iz srednje šole, logaritmiranje je obratno od eksponenciranja. Če smo natančnejši: preslikavi $\xlam{x}[\RR]{b^x}[\RR_{> 0}]$ in $\xlam{x}[\RR_{>0}]{\log_b x}[\RR]$ sta si obratni pri vsaki osnovi $b \in \RR_{> 0} \setminus \set{1}$.
+			Kot veš že iz srednje šole, logaritmiranje je obratno od eksponenciranja. Če smo natančnejši: preslikavi $\xlam{x}[\RR]{b^x}[\RR_{> 0}]$ in $\xlam{x}[\RR_{>0}]{\log_b x}[\RR]$ sta si obratni pri vsaki osnovi $b \in \RR_{> 0} \setminus \set{1}$.
 		\end{zgled}
 		
 		\begin{vaja}\label{VAJA: enoličnost obrata preslikave}
@@ -147,10 +149,19 @@
 					
 					Dokažimo, da je $f$ surjektivna. Vzemimo poljuben $y \in Y$. Tedaj $y = f\big(f^{-1}(y)\big)$.
 				\item\proven{$(2 \impl 1)$}
-					Če je $f$ bijekcija, za vsak $y \in Y$ velja, da je $\pim[1]{f}{\set{y}}$ enojec (glej \note{ustrezne predhodne trditve}). Definirajmo $g\colon Y \to X$ na naslednji način: za vsak $y \in Y$ naj bo $g(y)$ tisti element $x \in X$, za katerega velja $\pim[1]{f}{\set{y}} = \set{x}$. \note{Iz lastnosti praslike sledi, da je $g$ obrat $f$.}
+					Če je $f$ bijekcija, za vsak $y \in Y$ velja, da je $\pim[1]{f}{\set{y}}$ enojec (glej \note{ustrezne predhodne trditve v razdelku o injektivnosti in surjektivnosti}). Definirajmo $g\colon Y \to X$ na naslednji način: za vsak $y \in Y$ naj bo $g(y)$ tisti element $x \in X$, za katerega velja $\pim[1]{f}{\set{y}} = \set{x}$. \note{Iz lastnosti praslike sledi, da je $g$ obrat $f$.}
 			\end{itemize}
 		\end{dokaz}
 		
-		Iz dokaza te trditve vidimo, da bi bilo koristno imeti oznako za \qt{tisti edini element iz dane množice}, če želimo podajati tovrstne preslikave s simboli.
+		Iz dokaza te trditve vidimo, da bi bilo koristno imeti oznako za \qt{tisti element}, če želimo podajati tovrstne preslikave s simboli. Naj bo $\phi$ lastnost elementov množice $X$ (torej predikat $\phi\colon X \to \tvs$), ki je resnična za natanko en element. Dogovorimo se, da
+		\[\xthat{x}[X]{\phi(x)}\]
+		pomeni \qt{tisti (edini) element množice $X$, ki ima lastnost $\phi$} (simbolček na začetku je mala grška črka jota). Zdaj lahko izrecno zapišemo: če je $f\colon X \to Y$ bijekcija, tedaj je njen obrat $f^{-1}\colon Y \to X$ dan s predpisom
+		\[f^{-1}(y) = \that[1]{x}[X]{f(x) = y}.\]
 		
-		\note{Preslikava $x \mapsto \set{x}$ je injektivna kot $X \to \pst(X)$ in obrnljiva, če zožimo kodomeno na enojce. Uvedba jote.}
+		\davorin{Andrej, omenjal si, da želiš imeti to oznako. Če sem kaj zgrešil, prosim popravi.}
+		
+		Zaenkrat smo to joto uporabljali zgolj kot okrajšavo za stavek v običajnem jeziku, ampak če želimo $\iota$-izraze uporabljati v matematičnih dokazih, jim moramo dati natančen matematični pomen. Definirajmo torej joto formalno matematično.
+		
+		Naj bo $X$ poljubna množica. Na njej imamo enakost; obravnavajmo jo na tem mestu kot lastnost dvojic elementov iz $X$, torej kot predikat $=_X\colon X \times X \to \tvs$ (za vsak par elementov vrnemo resničnostno vrednost, ali sta komponenti para enaki). Transponirajmo to preslikavo; dobimo $\transposed{=_X}\colon X \to \tvs^X$. Ta transponiranka je injektivna: če se za $a, b \in X$ preslikavi $\xlam{x}[X]{a = x}$ in $\xlam{x}[X]{b = x}$ ujemata, se ujemata tudi njuni vrednosti pri $b$. Ker drži $b = b$, potem drži tudi $a = b$.
+		
+		Če zožimo kodomeno preslikave $\transposed{=_X}$ na njeno sliko, potemtakem dobimo bijekcijo. Naj bo jota njen obrat, torej $\iota \dfeq \big(\rstr{\transposed{=_X}}^{\rn{\transposed{=_X}}}\big)^{-1}$. V tem smislu je zgornja oznaka $\xthat{x}[X]{\phi(x)}$ okrajšava za $\iota\big(\xlam{x}[X]{\phi(x)}\big)$ (kar bi seveda lahko še skrajšali do $\iota(\phi)$, ampak v praksi je to običajno manj zgovorno).

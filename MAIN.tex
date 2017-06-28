@@ -87,6 +87,9 @@
 	}
 	\newcommand{\proven}[1]{\dashuline{#1}\vspace{0.2em}\\}
 	\newcommand{\someref}{{\small\textcolor{blue}{[\textbf{ref.}]}}}
+	\newcommand{\intermission}{\bigskip\medskip}
+	\newcommand{\qt}[1]{{\quotedblbase}{#1}{‘‘}}  % text in quotation marks
+	\newcommand{\nls}[1]{\qt{\textit{#1}}}  % sentence in a natural language
 	
 	\definecolor{andrejcolor}{rgb}{0.7,0,0.7}
 	\definecolor{davorincolor}{rgb}{0,0.45,1}
@@ -103,7 +106,7 @@
 	\newcommand{\alert}[1]{{\small\textcolor{red}{\textbf{#1}}}}
 
 
-%%%%%%  Logical Quantifiers and λ-Expressions
+%%%%%%  Logical Quantifiers, λ- and ι-Expressions
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 	
 	%  no parenthesis (add x in front of the name of the command)
@@ -119,6 +122,9 @@
 	\NewDocumentCommand{\xlam}
 		{m O{\empty} m O{\empty}}
 		{\lambda{#1} \ifthenelse{\equal{#2}{}}{}{\in{#2}} \,.\, {#3} \ifthenelse{\equal{#4}{}}{}{\in{#4}}}
+	\NewDocumentCommand{\xthat}
+		{m O{\empty} m}
+		{\iota{#1} \ifthenelse{\equal{#2}{}}{}{\in{#2}} \,.\, {#3}}
 	
 	%  with parenthesis -- the first optional argument is the size (values 0-4)
 	\NewDocumentCommand{\all}
@@ -133,6 +139,24 @@
 	\NewDocumentCommand{\lam}
 		{O{auto} m O{\empty} m O{\empty}}
 		{\xlam{#2}[#3]{\sizedescriptor{#1}{\left}( {#4} \sizedescriptor{#1}{\right})}[#5]}
+	\NewDocumentCommand{\that}
+		{O{auto} m O{\empty} m}
+		{\xthat{#2}[#3]{\sizedescriptor{#1}{\left}( {#4} \sizedescriptor{#1}{\right})}}
+
+
+%%%%%%  Logic
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+	\newcommand{\tvs}{\Omega}  % set of truth values
+	\newcommand{\true}{\top}  % truth
+	\newcommand{\false}{\bot}  % falsehood
+	\newcommand{\etrue}{\bm{\top}}  % emphasized truth
+	\newcommand{\efalse}{\bm{\bot}}  % emphasized falsehood
+	\newcommand{\impl}{\Rightarrow}  % implication sign
+	\newcommand{\revimpl}{\Leftarrow}  % reverse implication sign
+	\newcommand{\lequ}{\Leftrightarrow}  % equivalence sign
+	\newcommand{\xor}{\mathbin{\veebar}}  % exclusive disjunction sign
+	\newcommand{\shf}{\mathbin{\uparrow}}  % Sheffer connective
+	\newcommand{\luk}{\mathbin{\downarrow}}  % Łukasiewicz connective
 
 
 %%%%%%  Sets
@@ -161,33 +185,13 @@
 	\newcommand{\intco}[3][\RR]{{#1}_{[#2, #3)}}
 
 
-%%%%%%  Misc.
+%%%%%%  Maps and Relations
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-	\newcommand{\intermission}{\bigskip\medskip}
-	\newcommand{\df}[1]{\textit{\textbf{#1}}}  % defined notion
-	\newcommand{\oper}{\mathop{\circledast}}  % symbol for a general operation
-	\newcommand{\ism}{\cong}  % isomorphic
-	\newcommand{\equ}{\sim}  % equivalent
-	\newcommand{\dfeq}{\mathrel{\mathop:}=}  % definitional equality
-	\newcommand{\revdfeq}{=\mathrel{\mathop:}}  % reverse definitional equality
 	\newcommand{\id}[1][]{\textrm{Id}_{#1}}  % identity map
 	\newcommand{\argbox}{{\;\!\fbox{\phantom{M}}\;\!}}  % box for a function argument
-	\newcommand{\tvs}{\Omega}  % set of truth values
-	\newcommand{\true}{\top}  % truth
-	\newcommand{\false}{\bot}  % falsehood
-	\newcommand{\etrue}{\bm{\top}}  % emphasized truth
-	\newcommand{\efalse}{\bm{\bot}}  % emphasized falsehood
-	\newcommand{\impl}{\Rightarrow}  % implication sign
-	\newcommand{\revimpl}{\Leftarrow}  % reverse implication sign
-	\newcommand{\lequ}{\Leftrightarrow}  % equivalence sign
-	\newcommand{\xor}{\mathbin{\veebar}}  % exclusive disjunction sign
-	\newcommand{\shf}{\mathbin{\uparrow}}  % Sheffer connective
-	\newcommand{\luk}{\mathbin{\downarrow}}  % Łukasiewicz connective
 	\newcommand{\rstr}[1]{\left.{#1}\right|}  % map restriction
 	\newcommand{\im}{\mathrm{im}}  % map image
 	\newcommand{\parto}{\mathrel{\rightharpoonup}}  % partial mapping sign
-	\newcommand{\qt}[1]{{\quotedblbase}{#1}{‘‘}}  % text in quotation marks
-	\newcommand{\nls}[1]{\qt{\textit{#1}}}  % sentence in a natural language
 	\NewDocumentCommand{\rel}
 		{O{\empty} O{\empty}}
 		{\ifthenelse{\equal{#1}{}}{\mathscr{R}}{{#1} \mathrel{\mathscr{R}} {#2}}}  % a relation
@@ -199,16 +203,27 @@
 	\newcommand{\dd}[1]{D_{#1}}  % domain of definition
 	\newcommand{\rn}[1]{Z_{#1}}  % range
 	\newcommand{\graph}[1]{\Gamma_{#1}}  % graph of a (partial) function
-	\newcommand{\isdefined}[1]{{#1}\!\downarrow}  % given value is defined
-	\newcommand{\kleq}{\simeq}  % Kleene equality
-	\newcommand{\ec}[2][]{[\:\!{#2}\:\!]_{#1}}  % equivalence class
-	\newcommand{\claim}[3]{{#1} \;\colon\; \frac{#2}{#3}}  % claim, divided on context, assumptions, conclusions
 	\NewDocumentCommand{\img}  % image
 		{O{\empty} m G{\empty}}
 		{{#2}_*\ifthenelse{\equal{#3}{}}{}{\!\sizedescriptor{#1}{\left}( {#3} \sizedescriptor{#1}{\right})}}
 	\NewDocumentCommand{\pim}  % preimage
 		{O{\empty} m G{\empty}}
 		{{#2}^*\ifthenelse{\equal{#3}{}}{}{\!\sizedescriptor{#1}{\left}( {#3} \sizedescriptor{#1}{\right})}}
+	\newcommand{\ec}[2][]{[\:\!{#2}\:\!]_{#1}}  % equivalence class
+	\newcommand{\transposed}[1]{\widehat{#1}}
+
+
+%%%%%%  Misc.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+	\newcommand{\df}[1]{\textit{\textbf{#1}}}  % defined notion
+	\newcommand{\oper}{\mathop{\circledast}}  % symbol for a general operation
+	\newcommand{\ism}{\cong}  % isomorphic
+	\newcommand{\equ}{\sim}  % equivalent
+	\newcommand{\dfeq}{\mathrel{\mathop:}=}  % definitional equality
+	\newcommand{\revdfeq}{=\mathrel{\mathop:}}  % reverse definitional equality
+	\newcommand{\isdefined}[1]{{#1}\!\downarrow}  % given value is defined
+	\newcommand{\kleq}{\simeq}  % Kleene equality
+	\newcommand{\claim}[3]{{#1} \;\colon\; \frac{#2}{#3}}  % claim, divided on context, assumptions, conclusions
 	\newcommand{\unit}{\mathord{\bigvarstar}}
 	
 
@@ -297,7 +312,7 @@
 	\include{relacije}
 	
 	\chapter{Strukturirane množice}
-		\note{Struktura na množici. Morfizmi, ki to strukturo ohranjajo. Definicija strukturirane množice preko njene karakterizacije --- potrebna obstoj in enoličnost (do izomorfizma). Primeri. Posebej primeri struktur urejenosti (izhaja iz razdelka o strukturah urejenosti v poglavju o relacijah) in osnovnih algebrskih struktur (pride prav kasneje pri konstrukciji številskih množic). Urejenostna in algebrska struktura se združita v pojmu mreže. Definicija (polnih) Boolovih mrež/kolobarjev in povezava z logiko. Širša slika strukturiranih množic --- kategorije.}
+		\note{Struktura na množici. Morfizmi, ki to strukturo ohranjajo. Izomorfnost. Definicija strukturirane množice preko njene karakterizacije --- potrebna obstoj in enoličnost (do izomorfizma). Primeri. Posebej primeri struktur urejenosti (izhaja iz razdelka o strukturah urejenosti v poglavju o relacijah) in osnovnih algebrskih struktur (pride prav kasneje pri konstrukciji številskih množic). Urejenostna in algebrska struktura se združita v pojmu mreže. Definicija (polnih) Boolovih mrež/kolobarjev in povezava z logiko. Širša slika strukturiranih množic --- kategorije.}
 	
 	\chapter{Številske množice}
 		\note{Karakterizacije številskih množic. Dokaz obstoja in enoličnosti (do izomorfizma).}

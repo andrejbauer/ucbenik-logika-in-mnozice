@@ -27,7 +27,7 @@
 \contentsline {section}{\numberline {6.1}Splo\IeC {\v s}no o relacijah}{51}
 \contentsline {section}{\numberline {6.2}Operacije z relacijami}{53}
 \contentsline {section}{\numberline {6.3}Lastnosti relacij}{55}
-\contentsline {section}{\numberline {6.4}Funkcije kot funkcijske relacije}{59}
+\contentsline {section}{\numberline {6.4}Izpeljava preslikav iz relacij}{59}
 \contentsline {section}{\numberline {6.5}Relacije urejenosti}{61}
 \contentsline {section}{\numberline {6.6}Ekvivalen\IeC {\v c}ne relacije in kvocientne mno\IeC {\v z}ice}{62}
 \contentsline {chapter}{\numberline {7}Strukturirane mno\IeC {\v z}ice}{67}
