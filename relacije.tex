@@ -19,6 +19,8 @@
 			Kako \qt{priložiti} podatek o družini? Ena možnost je, da relacijo podamo kot urejeni par $\rel = (R, \mathscr{D})$, kjer $R \subseteq \prod_{X \in \mathscr{D}} X$. Še ena možnost je, da relacijo podamo kot družino preslikav $(\rel \to X)_{X \in \mathscr{D}}$, ki skupaj porodijo inkluzijo $\rel \hookrightarrow \prod_{X \in \mathscr{D}} X$. Ampak načeloma je povsem vseeno, ali vzamemo katero od teh dveh možnosti ali še kaj tretjega. V tej knjigi se ne bomo omejevali na posamičen formalen zapis za relacijo, bo pa seveda v vseh primerih jasno, za katero družino gre.
 		\end{opomba}
 		
+		\davorin{Verjetno bi bilo smiselno omeniti še možnost podajanja relacije kot predikat $\prod_{X \in \mathscr{D}} X \to \tvs$.}
+		
 		V praksi se povečini uporabljajo relacije med dvema elementoma.
 		\begin{definicija}
 			\df{Dvomestna} (ali \df{dvojiška} ali \df{binarna}) \df{relacija} $\rel$ med elementi množic $X$ in $Y$ je podmnožica produkta $X \times Y$, skupaj s podatkom o $X$ in $Y$. Za takšno relacijo definiramo:
@@ -229,7 +231,7 @@
 				\item
 					Relacija $\subseteq$ na $\pst(X)$ je refleksivna, antisimetrična in tranzitivna.
 				\item
-					Relacija enakosti $=_X$ na katerikoli množici $X$ je refleksivna, simetrična, tranzitivna in enolična.
+					Relacija enakosti $=_X$ na katerikoli množici $X$ je refleksivna, simetrična, antisimetrična, tranzitivna in enolična.
 			\end{itemize}
 		\end{zgled}
 		
@@ -422,7 +424,7 @@
 			\df{Ekvivalenčna relacija} je relacija, ki je refleksivna, simetrična in tranzitivna.
 		\end{definicija}
 		
-		Ekvivalenčne relacije tipično označimo z $\equ$ ali čim podobnih.
+		Ekvivalenčne relacije tipično označimo z $\equ$ (obstaja več načinov, kako to preberemo: vijuga, tilda, kača\ldots) ali čim podobnih.
 		
 		\begin{zgled}
 			Vsaka množica $X$ ima najmanjšo ekvivalenčno relacijo --- enakost $=_X$ --- in največjo --- polno relacijo $X \times X$.
@@ -499,22 +501,22 @@
 		
 		\note{Kakšen zanimiv zgled uporabe te vaje?}
 		
-		Ko smo obravnavali bijekcije v \note{razdelku o bijekcijah}, smo omenili, zakaj je uporabno imeti obrate preslikav. Težava je seveda, da imajo samo bijekcije obrate (v smislu, da so tudi obrati preslikave --- kot relacije seveda imajo obrate), medtem ko včasih želimo obrniti tudi druge preslikave.
+		Ko smo obravnavali bijekcije v razdelku~\ref{RAZDELEK: Bijektivnost in obratne preslikave}, smo omenili, zakaj je uporabno imeti obrate preslikav. Težava je seveda, da imajo samo bijekcije obrate (v smislu, da so tudi obrati preslikave --- kot relacije seveda imajo obrate), medtem ko včasih želimo obrniti tudi druge preslikave.
 		
-		Vzemimo na primer eksponentno funkcijo $\xlam{x}{e^x}$. Če jo obravnavamo kot preslikavo $\RR \to \RR$, seveda nima obrate, saj ni surjektivna. Ideja je, da zožimo kodomeno do zaloge vrednosti --- preslikave $\xlam{x}{e^x}\colon \RR \to \RR_{> 0}$ je bijektivna in posledično lahko definiramo njen obrat (naravni logaritem) $\ln\colon \RR_{> 0} \to \RR$.
+		Vzemimo na primer eksponentno funkcijo $\xlam{x}{e^x}$. Če jo obravnavamo kot preslikavo $\RR \to \RR$, seveda nima obrata, saj ni surjektivna. Ideja je, da zožimo kodomeno do zaloge vrednosti --- preslikava $\xlam{x}{e^x}\colon \RR \to \RR_{> 0}$ je bijektivna in posledično lahko definiramo njen obrat (naravni logaritem) $\ln\colon \RR_{> 0} \to \RR$.
 		
 		To je standarden trik, če preslikava ni surjektivna. Kaj pa, če ni injektivna? Pogosto v tem primeru zožimo še domeno na območje, na katerem je preslikava injektivna. Na primer, preslikavo $\xlam{x}{x^2}\colon \RR \to \RR$ zožimo do bijekcije $\xlam{x}{x^2}\colon \RR_{\geq 0} \to \RR_{\geq 0}$, kjer imamo obrat $\xlam{x}{\sqrt{x}}\colon \RR_{\geq 0} \to \RR_{\geq 0}$.
 		
 		Ima pa ta prostop težave. Prvič, v nasprotju z zožanje kodomene pri zožitvi domene izgubimo določeno količino informacije o preslikavi (kam so se preslikale vrednosti, ki so prej bile v domeni, zdaj pa niso več?). Drugič, izbira zožene domene ni kanonična. Preslikavo $\xlam{x}{x^2}$ bi ravno tako lahko zožili na $\RR_{\leq 0} \to \RR_{\geq 0}$ ali na $\QQ_{\geq 0} \cup (\RR \setminus \QQ)_{\leq 0} \to \RR_{\geq 0}$ ali celo do $\emptyset \to \emptyset$ ali še neskončno drugih možnosti, pri katerih dobimo bijekcijo.
 		
-		S pomočjo kvocientov lahko rešimo te probleme in najdemo kanoničen način, kako preslikavo popraviti do injektivne (in če dodamo še zožitev kodomene, do surjektivne in torej v celoti do bijektivne). Vemo že, da sta injektivnost in surjektivnost dualni (razdelek~\note{o injektivnih in surjektivnih preslikavah}). Kaj je dualno zožitvi kodomene? Odgovor: kvocient domene. Namreč, če zožimo množico, je tako, kot da jo zdaj gledamo od precej bliže --- vidimo samo manjše območje okoli sebe. Kvocienti počnejo obratno --- tako je, kot če bi množico pogledali od precej daleč. Ne vidimo več posamičnih potez, pač pa se te združijo v bolj splošne oblike. (Seveda se ta dualnost, tako kot pri injektivnosti in surjektivnosti, da utemeljiti tudi formalno matematično. \davorin{Bomo govorili o zožkih in kozožkih?})
+		S pomočjo kvocientov lahko rešimo te probleme in najdemo kanoničen način, kako preslikavo popraviti do injektivne (in če dodamo še zožitev kodomene, do surjektivne in torej v celoti do bijektivne). Vemo že, da sta injektivnost in surjektivnost dualni (razdelek~\ref{RAZDELEK: Injektivnost in surjektivnost}). Kaj je dualno zožitvi kodomene? Odgovor: kvocient domene. Namreč, če zožimo množico, je tako, kot da jo zdaj gledamo od precej bliže --- vidimo samo manjše območje okoli sebe. Kvocienti počnejo obratno --- tako je, kot če bi množico pogledali od precej daleč. Ne vidimo več posamičnih potez, pač pa se te združijo v bolj splošne oblike. (Seveda se ta dualnost, tako kot pri injektivnosti in surjektivnosti, da utemeljiti tudi formalno matematično. \davorin{Bomo govorili o zožkih in kozožkih?})
 		
-		\begin{izrek}[Naravna razčlenitev preslikave]
+		\begin{izrek}[naravna razčlenitev preslikave]
 			Za vsako preslikavo $f\colon X \to Y$ obstaja (kanonična) razčlenitev
 			\[f = i \circ \tilde{f} \circ q,\]
 			kjer je $q$ surjekcija, $\tilde{f}$ bijekcija in $i$ injekcija. Konkretno, $q\colon X \to X/_\equ$ je naravna kvocientna preslikava $q(x) = \ec{x}$, pri čemer je ekvivalenčna relacija $\equ$ na $X$ definirana kot
 			\[a \equ b \dfeq f(a) = f(b),\]
-			preslikava $i\colon \im(f) \hookrightarrow Y$ je vključitev zaloge vrednosti v kodomeno, preslikava $\tilde{f}\colon X/_\equ \to \im(f)$ pa je v celoti določena s pogojem
+			preslikava $i\colon \rn{f} \hookrightarrow Y$ je vključitev zaloge vrednosti v kodomeno, preslikava $\tilde{f}\colon X/_\equ \to \rn{f}$ pa je v celoti določena s pogojem
 			\[\tilde{f}([x]) = f(x)\]
 			(med drugim to pomeni, da sta množici $X/_\equ$ in $\im(f)$ v bijektivni korespondenci). \davorin{To je vir raznih izrekov o izomorfizmih v algebri. A povemo kaj na to temo?}
 			
