@@ -1,11 +1,11 @@
-\chapter{Logika}\label{POGLAVJE: Logika}
+\chapter{Logika}\label{poglavje:logika}
 
         \note{uvod}
 
 
         \section{Izjavni vezniki}
 
-                V razdelku~\ref{RAZDELEK: Logični simboli} smo omenili nekaj izjavnih veznikov, podali oznake zanje in opisali njihov intuitivni pomen. Ampak če se hočemo zanašati na pravilnost naših sklepov, moramo tem oznakam dati \emph{formalni matematični pomen}.
+                V razdelku~\ref{razdelek:logicni-simboli} smo omenili nekaj izjavnih veznikov, podali oznake zanje in opisali njihov intuitivni pomen. Ampak če se hočemo zanašati na pravilnost naših sklepov, moramo tem oznakam dati \emph{formalni matematični pomen}.
 
                 Če imamo neko izjavo, lahko določimo njeno resničnost, tj.~povemo, do kolikšne mere je resnična. Temu rečemo \df{resničnostna vrednost} izjave. Množico vseh možnih resničnostnih vrednosti označimo z $\tvs$. Seveda ni kaj dosti možnih resničnostnih vrednosti: to sta \df{resnica} (dogovorimo se, da bomo zanjo uporabljali oznako $\true$) in \df{neresnica} (oznaka $\false$). Se pravi, $\tvs = \set{\true, \false}$.
 
@@ -91,7 +91,7 @@
                         \end{tabular}
                 \end{center}
 
-                Za lažjo referenco zberimo resničnostne tabele vseh do zdaj omenjenih veznikov na eno mesto (tabela~\ref{TABELA: Resničnostna tabela osnovnih izjavnih veznikov}).
+                Za lažjo referenco zberimo resničnostne tabele vseh do zdaj omenjenih veznikov na eno mesto (tabela~\ref{tabela:resnicnostna-tabela-osnovnih-izjavnih-veznikov}).
 
                 \begin{table}[!ht]
                         \centering
@@ -110,7 +110,7 @@
                                 $\false$ & $\true$ & $\false$ & $\true$ & $\true$ & $\true$ & $\false$ & $\true$ & $\false$ \\
                                 $\false$ & $\false$ & $\false$ & $\false$ & $\false$ & $\true$ & $\true$ & $\true$ & $\true$
                         \end{tabular}
-                        \caption{Resničnostna tabela osnovnih izjavnih veznikov}\label{TABELA: Resničnostna tabela osnovnih izjavnih veznikov}
+                        \caption{Resničnostna tabela osnovnih izjavnih veznikov}\label{tabela:resnicnostna-tabela-osnovnih-izjavnih-veznikov}
                 \end{table}
 
                 Zdaj ko imamo natančno definicijo izjavnih veznikov, lahko trditve v zvezi z njimi tudi formalno utemeljimo. Na primer, spomnimo se, da smo že malo po omembi veznikov $\xor$, $\shf$, $\luk$ podali njihovo izražavo z vezniki $\lnot$, $\land$, $\lor$. Če na glas preberemo vse izjave, nam je intuitivno jasno, katere se ujemajo in zakaj, ampak zdaj lahko dejansko preverimo, da te izražave veljajo.
@@ -340,7 +340,7 @@
 
                 Je možno iti še dlje in najti en sam veznik, s katerim lahko izrazimo ostale? Odgovor je da: $\set{\shf}$ in $\set{\luk}$ sta polna nabora. (Izkaže se, da sta to edina taka veznika med dvomestnimi vezniki.)
 
-                \begin{vaja}\label{VAJA: polni nabori z enim veznikom}
+                \begin{vaja}\label{vaja:polni-nabori-z-enim-veznikom}
                         \
                         \begin{enumerate}
                                 \item
@@ -358,3 +358,8 @@
         \section{Predikati in kvantifikatorji}
 
                 \note{\qt{Lastnostim} elementov množic, ki smo jih prej uporabljali za podajanje podmnožic in pri kvantifikatorjih, zdaj \qt{uradno} rečemo \df{predikati} in jih formalno definiramo: predikat na množici $X$ je preslikava $X \to \tvs$. Karakteristične preslikave podmnožic. Spomnimo se kvantifikatorjev. \davorin{Si jih drznemo definirati kot preslikave na eksponentih $\tvs^X$?} Povemo, da lahko imajo predikati več spremenljivk (lahko so definirani na produktu) in da lahko kvantificiramo po samo nekaterih. Vezane, nevezane spremenljivke. Pravila, ki veljajo za kvantifikatorje (de Morgan itd.).}
+
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-master: "ucbenik-lmn"
+%%% End:

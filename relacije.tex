@@ -1,4 +1,4 @@
-\chapter{Relacije}\label{POGLAVJE: Relacije}
+\chapter{Relacije}\label{poglavje:relacije}
 
         \section{Splošno o relacijah}
 
@@ -13,8 +13,8 @@
                         \df{Relacija} na družini množic $\mathscr{D}$ je podmnožica produkta $\prod_{X \in \mathscr{D}} X$, skupaj s podatkom, za katero družino $\mathscr{D}$ gre.
                 \end{definicija}
 
-                \begin{opomba}\label{OPOMBA: definicija relacij}
-                        Kaj mislimo tu z izrazom \qt{skupaj s podatkom}? Določena podmnožica ima mnogo nadmnožic in podatek, med elementi katerih množic opazujemo odnos, je za relacijo prav tako pomemben, saj so od tega odvisne lastnosti relacije. Lastnosti relacij obravnavamo kasneje v razdelku~\ref{RAZDELEK: Lastnosti relacij}, ampak če že zdaj damo primer: $\set{(a, a)}{a \in \NN}$ je refleksivna kot relacija na naravnih številih (tj.~kot podmnožica $\NN \times \NN$), ne pa tudi kot relacija na celih številih (tj.~kot podmnožica $\ZZ \times \ZZ$).
+                \begin{opomba}\label{opomba:definicija-relacij}
+                        Kaj mislimo tu z izrazom \qt{skupaj s podatkom}? Določena podmnožica ima mnogo nadmnožic in podatek, med elementi katerih množic opazujemo odnos, je za relacijo prav tako pomemben, saj so od tega odvisne lastnosti relacije. Lastnosti relacij obravnavamo kasneje v razdelku~\ref{razdelek:lastnosti-relacij}, ampak če že zdaj damo primer: $\set{(a, a)}{a \in \NN}$ je refleksivna kot relacija na naravnih številih (tj.~kot podmnožica $\NN \times \NN$), ne pa tudi kot relacija na celih številih (tj.~kot podmnožica $\ZZ \times \ZZ$).
 
                         Kako \qt{priložiti} podatek o družini? Ena možnost je, da relacijo podamo kot urejeni par $\rel = (R, \mathscr{D})$, kjer $R \subseteq \prod_{X \in \mathscr{D}} X$. Še ena možnost je, da relacijo podamo kot družino preslikav $(\rel \to X)_{X \in \mathscr{D}}$, ki skupaj porodijo inkluzijo $\rel \hookrightarrow \prod_{X \in \mathscr{D}} X$. Ampak načeloma je povsem vseeno, ali vzamemo katero od teh dveh možnosti ali še kaj tretjega. V tej knjigi se ne bomo omejevali na posamičen formalen zapis za relacijo, bo pa seveda v vseh primerih jasno, za katero družino gre.
                 \end{opomba}
@@ -53,7 +53,7 @@
                         EdgeStyle/.append style = {->, bend left}
                 }
 
-                \begin{zgled}\label{ZGLED: graf relacije}
+                \begin{zgled}\label{zgled:graf-relacije}
                         Naj bo $X = \set{A, B, C, D, E, F}$ in naj bo
                         \[\rel \dfeq \set{...}\]
                         relacija na $X$. Njen graf izgleda takole.
@@ -77,7 +77,7 @@
                 \end{zgled}
 
 
-        \section{Operacije z relacijami}\label{RAZDELEK: Operacije z relacijami}
+        \section{Operacije z relacijami}\label{razdelek:operacije-z-relacijami}
 
                 Običajno je, da iz že danih matematičnih objektov lahko skonstruiramo nove preko določenih operacij. Z relacijami ni nič drugače; v tem razdelku si bomo ogledali običajne operacije na relacijah.
 
@@ -89,7 +89,7 @@
 
                 Če so $X$, $Y$, $Z$ množice in $\rel \subseteq X \times Y$, $\srel \subseteq Y \times Z$ relaciji, tedaj je \df{sklop} (\df{kompozicija}, \df{kompozitum}) \df{relacij} definiran kot
                 \[\srel \circ \rel \dfeq \set[1]{(x, z) \in X \times Z}{\some{y}[Y]{\rel[x][y] \land \srel[y][z]}}\]
-                (po vzoru preslikav tudi sklop relacij pišemo v obratnem vrstnem redu; glej razdelek~\ref{RAZDELEK: Izpeljava preslikav iz relacij}). Opazimo: domena $\srel \circ \rel$ je domena $\rel$, kodomena $\srel \circ \rel$ je kodomena $\srel$. Sklapljanje je asociativna operacija, torej pri sklopu večih relacij oklepaji niso pomembni.
+                (po vzoru preslikav tudi sklop relacij pišemo v obratnem vrstnem redu; glej razdelek~\ref{razdelek:izpeljava-preslikav-iz-relacij}). Opazimo: domena $\srel \circ \rel$ je domena $\rel$, kodomena $\srel \circ \rel$ je kodomena $\srel$. Sklapljanje je asociativna operacija, torej pri sklopu večih relacij oklepaji niso pomembni.
 
                 \begin{vaja}
                         Dokaži, da je sklapljanje relacij asociativno!
@@ -100,7 +100,7 @@
                 za $n \in \NN_{\geq 2}$. Seveda je smiselno definirati, da je $\rel^1$ enak $\rel$ in da je $\rel^0$ relacija enakosti na množici $X$, saj je to enota za sklapljanje relacij na $X$, tj.~$=_X \circ \rel = \rel = \rel \circ =_X$ (premisli, da je to res!).
 
                 \begin{zgled}
-                        Naj bo $\rel \subseteq X \times X$ relacija. Tedaj iz grafa relacije zlahka razberemo, kaj je $\rel^n$: elementa $a, b \in X$ sta v relaciji $\rel^n$ natanko tedaj, ko imamo pot dolžine $n$ od $a$ do $b$ (to deluje tudi za $n = 1$ in $n = 0$). Naj primer, če je $\rel$ relacija iz zgleda~\ref{ZGLED: graf relacije}, tedaj graf relacije $\rel^3$ izgleda takole.
+                        Naj bo $\rel \subseteq X \times X$ relacija. Tedaj iz grafa relacije zlahka razberemo, kaj je $\rel^n$: elementa $a, b \in X$ sta v relaciji $\rel^n$ natanko tedaj, ko imamo pot dolžine $n$ od $a$ do $b$ (to deluje tudi za $n = 1$ in $n = 0$). Naj primer, če je $\rel$ relacija iz zgleda~\ref{zgled:graf-relacije}, tedaj graf relacije $\rel^3$ izgleda takole.
 
                         \note{graf $\rel^3$}
                 \end{zgled}
@@ -114,7 +114,7 @@
                 \end{vaja}
 
                 \begin{zgled}
-                        Graf relacije, ki je obratna relaciji $\rel \subseteq X \times X$, dobimo tako, da v grafu relacije $\rel$ obrnemo puščice. Na primer, če je $\rel$ relacija iz zgleda~\ref{ZGLED: graf relacije}, tedaj graf relacije $\rel^{-1}$ izgleda takole.
+                        Graf relacije, ki je obratna relaciji $\rel \subseteq X \times X$, dobimo tako, da v grafu relacije $\rel$ obrnemo puščice. Na primer, če je $\rel$ relacija iz zgleda~\ref{zgled:graf-relacije}, tedaj graf relacije $\rel^{-1}$ izgleda takole.
 
                         \note{graf $\rel^{-1}$}
                 \end{zgled}
@@ -161,7 +161,7 @@
                 \note{Na smiselnem mestu omenimo še zožitve relacij (tako domene kot kodomene).}
 
 
-        \section{Lastnosti relacij}\label{RAZDELEK: Lastnosti relacij}
+        \section{Lastnosti relacij}\label{razdelek:lastnosti-relacij}
 
                 Vemo, da so na primer racionalna števila uporabnejša od celih, saj lahko v okviru njih dodatno delimo --- z drugimi besedami, racionalna števila imajo več uporabne \emph{strukture} oz.~več uporabnih \emph{lastnosti}. Podobno za relacije obstajajo lastnosti, ki so se skozi prakso izkazale za zelo uporabne. Nekatere izmed njih si bomo ogledali v tem razdelku.
 
@@ -235,9 +235,9 @@
                         \end{itemize}
                 \end{zgled}
 
-                Lastnosti operacij smo podali z izjavami, ampak lahko jih na ekvivalenten način podamo z operacijami ali lastnostmi grafa --- glej tabelo~\ref{TABELA: Lastnosti relacije}.
+                Lastnosti operacij smo podali z izjavami, ampak lahko jih na ekvivalenten način podamo z operacijami ali lastnostmi grafa --- glej tabelo~\ref{tabela:lastnosti-relacije}.
 
-                \davorin{Ko \LaTeX\ hoče biti neumen, zna biti precej neumen. Tabelo~\ref{TABELA: Lastnosti relacije} vrže na konec celotnega poglavja, čeprav mu je zapovedano, da jo naj da \emph{prav sem}.}
+                \davorin{Ko \LaTeX\ hoče biti neumen, zna biti precej neumen. Tabelo~\ref{tabela:lastnosti-relacije} vrže na konec celotnega poglavja, čeprav mu je zapovedano, da jo naj da \emph{prav sem}.}
 
                 \begin{table}[!ht]
                         \centering
@@ -260,11 +260,11 @@
                                 stroga sovisnost & $\rel \cup \rel^{-1} = X$ & \opis{Vsaki dve vozlišči sta povezani s puščico.} \\
                                 \hline
                         \end{tabular}
-                        \caption{Lastnosti relacije $\rel \subseteq X \times X$ in njihove karakterizacije}\label{TABELA: Lastnosti relacije}
+                        \caption{Lastnosti relacije $\rel \subseteq X \times X$ in njihove karakterizacije}\label{tabela:lastnosti-relacije}
                 \end{table}
 
                 \begin{vaja}
-                        Dokaži, da so vse karakterizacije v vsaki vrstici tabele~\ref{TABELA: Lastnosti relacije} res ekvivalentne!
+                        Dokaži, da so vse karakterizacije v vsaki vrstici tabele~\ref{tabela:lastnosti-relacije} res ekvivalentne!
                 \end{vaja}
 
                 Marsikdaj imamo sledeči problem: za določene pare elementov $(x_i, y_i)_{i \in I}$ hočemo, da so v neki relaciji in relacija mora zadoščati predpisani lastnosti. Kako definirati takšno relacijo? Smiselna izbira je vzeti najmanjšo relacijo s predpisano lastnostjo, ki vsebuje vse $(x_i, y_i)$. V ta namen definiramo pojem ogrinjače relacij.
@@ -283,11 +283,11 @@
                         Naj bo $X$ množica in $\mathscr{L}$ lastnost relacij na $X$. Rečemo, da je $\mathscr{L}$ \df{presečno dedna}, kadar velja: poljuben presek relacij na $X$ z lastnostjo $\mathscr{L}$ prav tako ima lastnost $\mathscr{L}$.
                 \end{definicija}
 
-                \begin{vaja}\label{VAJA: presečna dednost zaprta za konjunkcije}
+                \begin{vaja}\label{vaja:presecna-dednost-zaprta-za-konjunkcije}
                         Dokaži: konjunkcija končno mnogo presečno dednih lastnosti relacij na dani množici je presečno dedna.
                 \end{vaja}
 
-                \begin{trditev}\label{TRDITEV: obstoj ogrinjače iz presečne dednosti}
+                \begin{trditev}\label{trditev:obstoj-ogrinjace-iz-presecne-dednosti}
                         Če je $\mathscr{L}$ presečno dedna lastnost relacij na $X$, tedaj za vsako relacijo $\rel$ na $X$ obstaja njena $\mathscr{L}$-ogrinjača, in sicer je enaka preseku vseh relacij na $X$, ki vsebujejo $\rel$ in imajo lastnost $\mathscr{L}$.
                 \end{trditev}
 
@@ -297,7 +297,7 @@
 
                 Kako pa vemo, kdaj je lastnost presečno dedna? Včasih lahko to razberemo kar iz oblike logične formule, s katero je lastnost podana.
 
-                \begin{izrek}\label{IZREK: presečna dednost iz logične oblike}
+                \begin{izrek}\label{izrek:presecna-dednost-iz-logicne-oblike}
                         Naj bo $\mathscr{L}$ lastnost relacij na množici $X$, ki jo lahko za poljubno relacijo $\rel$ podamo z zapisom oblike
                         \[\all[1]{x_1, x_2, \ldots, x_n}[X]{\phi(\rel, x_1, x_2, \ldots, x_n) \implies \psi(\rel, x_1, x_2, \ldots, x_n)},\]
                         kjer sta $\phi(\rel, x_1, x_2, \ldots, x_n)$ in $\psi(\rel, x_1, x_2, \ldots, x_n)$ konjunkciji končno mnogo členov oblike $\rel[x_i][x_j]$ --- v posebnem primeru je lahko $\phi(\rel, x_1, x_2, \ldots, x_n)$ konjunkcija nič členov in potem je $\mathscr{L}$ podana z zapisom oblike
@@ -315,12 +315,12 @@
                         Vidimo, da pod našimi predpostavkami velja $\psi(\rel, x_1, x_2, \ldots, x_n)$. Sklenemo, da velja lastnost $\mathscr{L}$ za relacijo $\rel$.
                 \end{dokaz}
 
-                \begin{posledica}\label{POSLEDICA: obstoj ogrinjač}
+                \begin{posledica}\label{posledica:obstoj-ogrinjac}
                         Za naslednje lastnosti relacij (in njihovo poljubno konjunkcijo) vselej obstaja ogrinjača: refleksivnost, simetričnost, tranzitivnost.
                 \end{posledica}
 
                 \begin{dokaz}
-                        Vse izmed naštetih lastnosti se po definiciji dajo zapisati v obliki iz izreka~\ref{IZREK: presečna dednost iz logične oblike}. Za njihovo konjunkcijo glej še vajo~\ref{VAJA: presečna dednost zaprta za konjunkcije} in trditev~\ref{TRDITEV: obstoj ogrinjače iz presečne dednosti}.
+                        Vse izmed naštetih lastnosti se po definiciji dajo zapisati v obliki iz izreka~\ref{izrek:presecna-dednost-iz-logicne-oblike}. Za njihovo konjunkcijo glej še vajo~\ref{vaja:presecna-dednost-zaprta-za-konjunkcije} in trditev~\ref{trditev:obstoj-ogrinjace-iz-presecne-dednosti}.
                 \end{dokaz}
 
                 \begin{vaja}
@@ -341,9 +341,9 @@
                 \note{ena izmed nalog: Za relacijo $\rel[n][(n+1)]$ na $\NN$ (ali $\ZZ$) preveri, da je njena tranzitivna ogrinjača $<$.}
 
 
-        \section{Izpeljava preslikav iz relacij}\label{RAZDELEK: Izpeljava preslikav iz relacij}
+        \section{Izpeljava preslikav iz relacij}\label{razdelek:izpeljava-preslikav-iz-relacij}
 
-                Ko definiramo temeljne matematične pojme, imamo določeno mero izbire, kaj vzamemo za izvoren pojem, kaj pa definiramo preko drugih pojmov. V tej knjigi smo od začetka vzeli preslikave za bolj osnoven pojem in relacije lahko definiramo s pomočjo preslikav (kot omenjeno v opombi~\ref{OPOMBA: definicija relacij}, relacijo lahko definiramo kot družino preslikav), lahko pa postopamo tudi obratno --- pojem preslikave izpeljemo iz pojma relacije. Kako to gre, si bomo pogledali v tem razdelku.
+                Ko definiramo temeljne matematične pojme, imamo določeno mero izbire, kaj vzamemo za izvoren pojem, kaj pa definiramo preko drugih pojmov. V tej knjigi smo od začetka vzeli preslikave za bolj osnoven pojem in relacije lahko definiramo s pomočjo preslikav (kot omenjeno v opombi~\ref{opomba:definicija-relacij}, relacijo lahko definiramo kot družino preslikav), lahko pa postopamo tudi obratno --- pojem preslikave izpeljemo iz pojma relacije. Kako to gre, si bomo pogledali v tem razdelku.
 
                 \begin{definicija}
                         \df{Delna preslikava} (ali \df{delna funkcija} ali \df{parcialna funkcija}) je enolična dvomestna relacija.
@@ -374,11 +374,11 @@
                 Seveda lahko vsako delno preslikavo zožimo do preslikave: delna preslikava $f\colon X \parto Y$ porodi preslikavo $\rstr{f}_{\dd{f}}\colon \dd{f} \to Y$.
 
                 \begin{vaja}
-                        Operacijo sklapljanja $\circ$ smo definirali za splošne relacije (razdelek~\ref{RAZDELEK: Operacije z relacijami}). Preveri, da se ta definicija ujema z običajno definicijo sklapljanja preslikav. Premisli še, kaj je sklop delnih preslikav.
+                        Operacijo sklapljanja $\circ$ smo definirali za splošne relacije (razdelek~\ref{razdelek:operacije-z-relacijami}). Preveri, da se ta definicija ujema z običajno definicijo sklapljanja preslikav. Premisli še, kaj je sklop delnih preslikav.
                 \end{vaja}
 
 
-        \section{Relacije urejenosti}\label{RAZDELEK: Relacije urejenosti}
+        \section{Relacije urejenosti}\label{razdelek:relacije-urejenosti}
 
                 Že od začetka tega poglavja kot klasične primere relacij podajamo razne urejenosti, kot $\leq$ in $<$. V tem razdelku si bomo ogledali, kakšne lastnosti morajo imeti relacije, da na določen način \qt{urejajo} množico.
 
@@ -479,7 +479,7 @@
                 \note{kvocientna množica kot množica abstrahiranih pojmov}
 
                 \begin{vaja}
-                        Iz posledice~\ref{POSLEDICA: obstoj ogrinjač} sklepamo, da za vsako relacijo na katerikoli množici obstaja njena ekvivalenčna ogrinjača. Dokaži: če je $\rel$ relacija na množici $X$, tedaj je njena ekvivalenčna ogrinjača enaka
+                        Iz posledice~\ref{posledica:obstoj-ogrinjac} sklepamo, da za vsako relacijo na katerikoli množici obstaja njena ekvivalenčna ogrinjača. Dokaži: če je $\rel$ relacija na množici $X$, tedaj je njena ekvivalenčna ogrinjača enaka
                         \[\bigcup_{n \in \NN} (\rel \cup \rel^{-1})^n.\]
                 \end{vaja}
 
@@ -501,7 +501,7 @@
 
                 \note{Kakšen zanimiv zgled uporabe te vaje?}
 
-                Ko smo obravnavali bijekcije v razdelku~\ref{RAZDELEK: Bijektivnost in obratne preslikave}, smo omenili, zakaj je uporabno imeti obrate preslikav. Težava je seveda, da imajo samo bijekcije obrate (v smislu, da so tudi obrati preslikave --- kot relacije seveda imajo obrate), medtem ko včasih želimo obrniti tudi druge preslikave.
+                Ko smo obravnavali bijekcije v razdelku~\ref{razdelek:bijektivnost-in-obratne-preslikave}, smo omenili, zakaj je uporabno imeti obrate preslikav. Težava je seveda, da imajo samo bijekcije obrate (v smislu, da so tudi obrati preslikave --- kot relacije seveda imajo obrate), medtem ko včasih želimo obrniti tudi druge preslikave.
 
                 Vzemimo na primer eksponentno funkcijo $\xlam{x}{e^x}$. Če jo obravnavamo kot preslikavo $\RR \to \RR$, seveda nima obrata, saj ni surjektivna. Ideja je, da zožimo kodomeno do zaloge vrednosti --- preslikava $\xlam{x}{e^x}\colon \RR \to \RR_{> 0}$ je bijektivna in posledično lahko definiramo njen obrat (naravni logaritem) $\ln\colon \RR_{> 0} \to \RR$.
 
@@ -509,7 +509,7 @@
 
                 Ima pa ta prostop težave. Prvič, v nasprotju z zožanje kodomene pri zožitvi domene izgubimo določeno količino informacije o preslikavi (kam so se preslikale vrednosti, ki so prej bile v domeni, zdaj pa niso več?). Drugič, izbira zožene domene ni kanonična. Preslikavo $\xlam{x}{x^2}$ bi ravno tako lahko zožili na $\RR_{\leq 0} \to \RR_{\geq 0}$ ali na $\QQ_{\geq 0} \cup (\RR \setminus \QQ)_{\leq 0} \to \RR_{\geq 0}$ ali celo do $\emptyset \to \emptyset$ ali še neskončno drugih možnosti, pri katerih dobimo bijekcijo.
 
-                S pomočjo kvocientov lahko rešimo te probleme in najdemo kanoničen način, kako preslikavo popraviti do injektivne (in če dodamo še zožitev kodomene, do surjektivne in torej v celoti do bijektivne). Vemo že, da sta injektivnost in surjektivnost dualni (razdelek~\ref{RAZDELEK: Injektivnost in surjektivnost}). Kaj je dualno zožitvi kodomene? Odgovor: kvocient domene. Namreč, če zožimo množico, je tako, kot da jo zdaj gledamo od precej bliže --- vidimo samo manjše območje okoli sebe. Kvocienti počnejo obratno --- tako je, kot če bi množico pogledali od precej daleč. Ne vidimo več posamičnih potez, pač pa se te združijo v bolj splošne oblike. (Seveda se ta dualnost, tako kot pri injektivnosti in surjektivnosti, da utemeljiti tudi formalno matematično. \davorin{Bomo govorili o zožkih in kozožkih?})
+                S pomočjo kvocientov lahko rešimo te probleme in najdemo kanoničen način, kako preslikavo popraviti do injektivne (in če dodamo še zožitev kodomene, do surjektivne in torej v celoti do bijektivne). Vemo že, da sta injektivnost in surjektivnost dualni (razdelek~\ref{razdelek:injektivnost-in-surjektivnost}). Kaj je dualno zožitvi kodomene? Odgovor: kvocient domene. Namreč, če zožimo množico, je tako, kot da jo zdaj gledamo od precej bliže --- vidimo samo manjše območje okoli sebe. Kvocienti počnejo obratno --- tako je, kot če bi množico pogledali od precej daleč. Ne vidimo več posamičnih potez, pač pa se te združijo v bolj splošne oblike. (Seveda se ta dualnost, tako kot pri injektivnosti in surjektivnosti, da utemeljiti tudi formalno matematično. \davorin{Bomo govorili o zožkih in kozožkih?})
 
                 \begin{izrek}[naravna razčlenitev preslikave]
                         Za vsako preslikavo $f\colon X \to Y$ obstaja (kanonična) razčlenitev
@@ -528,3 +528,8 @@
                 \begin{dokaz}
                         \note{napiši dokaz}
                 \end{dokaz}
+
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-master: "ucbenik-lmn"
+%%% End:

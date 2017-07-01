@@ -5,7 +5,7 @@
         \note{Uvod. Definicijsko območje in zaloga vrednosti \davorin{morda dodamo kot možno ime za zalogo vrednosti še prevod angleške besede `range', se pravi `razpon'?}. Zožitve (tako domene kot kodomene); oznake za to so $\rstr{f}_A$, $\rstr{f}^B$, $\rstr{f}_A^B$. Izvrednotenje (evalvacija) preslikave (če ne bomo tega pojasnili že pri eksponentih množic).}
 
 
-        \section{Brezimne preslikave}\label{RAZDELEK: Brezimne preslikave}
+        \section{Brezimne preslikave}\label{razdelek:brezimne-preslikave}
 
                 \note{Tj.~anonimne oz.~čiste funkcije. Na tem mestu pride tudi $\lambda$-notacija in določena mera $\lambda$-računa.}
 
@@ -20,7 +20,7 @@
 
                 Da dobimo sliko celotne množice, moramo zbrati skupaj slike vseh posamičnih elementov množice. Smiselna je torej naslednja definicija.
 
-                \begin{definicija}\label{DEFINICIJA: slika}
+                \begin{definicija}\label{definicija:slika}
                         Naj bo $f\colon X \to Y$ preslikava. \df{Slika} množice $A \subseteq X$ je označena in definirana kot
                         \[\img{f}{A} \dfeq \set[1]{f(x)}{x \in A} = \set[1]{y \in Y}{\xsome{x}[A]{y = f(x)}}.\]
                         Ta predpis definira preslikavo $\img{f}\colon \pst(X) \to \pst(Y)$.
@@ -29,7 +29,7 @@
                 \begin{opomba}
                         Kot običajno, obstajajo različne oznake v uporabi. Sliko $\img{f}{A}$ se označuje tudi kot $f[A]$ ali celo kar kot $f(A)$. V slednjem primeru se predpostavlja zadostna matematična zrelost bralca, da zna razbrati, kdaj $f$ označuje preslikavo $f\colon X \to Y$, kdaj pa preslikavo $f\colon \pst(X) \to \pst(Y)$.
 
-                        V tej knjigi se bomo načrtno izogibali takšnim dvoumnostim in za sliko dosledno uporabljali oznako iz definicije~\ref{DEFINICIJA: slika}.
+                        V tej knjigi se bomo načrtno izogibali takšnim dvoumnostim in za sliko dosledno uporabljali oznako iz definicije~\ref{definicija:slika}.
                 \end{opomba}
 
                 \begin{vaja}
@@ -48,7 +48,7 @@
 
                 Včasih pa imamo obratno nalogo: iz dane slike ugotoviti, kaj vse se je z neko preslikavo vanjo preslikalo. Zato vpeljemo še sledečo definicijo.
 
-                \begin{definicija}\label{DEFINICIJA: praslika}
+                \begin{definicija}\label{definicija:praslika}
                         Naj bo $f\colon X \to Y$ preslikava. \df{Praslika} množice $B \subseteq Y$ je označena in definirana kot
                         \[\pim{f}{B} \dfeq \set[1]{x \in X}{f(x) \in B}.\]
                         Ta predpis definira preslikavo $\pim{f}\colon \pst(Y) \to \pst(X)$.
@@ -57,7 +57,7 @@
                 \begin{opomba}
                         Tudi za prasliko obstajajo različne oznake. Praslika $\pim{f}{B}$ se označi tudi kot $f^{-1}[B]$ ali kar kot $f^{-1}(B)$. V slednjem primeru se spet zanašamo na izkušenost bralca, da praslike $f^{-1}\colon \pst(Y) \to \pst(X)$ ne zamenja z obratom $f^{-1}\colon Y \to X$. Slednji morda sploh ne obstaja! (Praslika seveda obstaja za vse funkcije.)
 
-                        Če inverz funkcije obstaja, tedaj velja $\pim[1]{f}{\set{y}} = \set[1]{f^{-1}(y)}$ za vsak $y \in Y$ (premisli!), kar nekoliko pojasni oznako $f^{-1}$ tudi za prasliko. Kljub vsemu, z namenom izogibanja dvoumnostim bomo se v tej knjigi skrbno držali oznake iz definicije~\ref{DEFINICIJA: praslika} za prasliko.
+                        Če inverz funkcije obstaja, tedaj velja $\pim[1]{f}{\set{y}} = \set[1]{f^{-1}(y)}$ za vsak $y \in Y$ (premisli!), kar nekoliko pojasni oznako $f^{-1}$ tudi za prasliko. Kljub vsemu, z namenom izogibanja dvoumnostim bomo se v tej knjigi skrbno držali oznake iz definicije~\ref{definicija:praslika} za prasliko.
 
                         Ko smo že pri alternativnih, potencialno zavajajočih oznakah: pri prasliki enojca se tipično spuščajo zaviti oklepaji, torej se namesto $\pim[1]{f}{\set{y}}$ piše $\pim{f}{y}$ (ali celo $f^{-1}(y)$).
                 \end{opomba}
@@ -67,12 +67,12 @@
                 \note{lastnosti: ohranjanje unij, presekov, komplementov}
 
 
-        \section{Injektivnost in surjektivnost}\label{RAZDELEK: Injektivnost in surjektivnost}
+        \section{Injektivnost in surjektivnost}\label{razdelek:injektivnost-in-surjektivnost}
 
                 \note{Vključno z ekvivalenco z mono- in epimorfizmi.}
 
 
-        \section{Bijektivnost in obratne preslikave}\label{RAZDELEK: Bijektivnost in obratne preslikave}
+        \section{Bijektivnost in obratne preslikave}\label{razdelek:bijektivnost-in-obratne-preslikave}
 
                 Kot dobro veste že iz srednje šole, injektivnost in surjektivnost nam omogočata definicijo bijektivnosti.
 
@@ -104,17 +104,17 @@
                         Z drugimi besedami, $g$ je obrat $f$, kadar slika v nasprotni smeri in za vsak $x \in X$ velja $g\big(f(x)\big) = x$ ter za vsak $y \in Y$ velja $f\big(g(y)\big) = y$. Kadar obrat preslikave $f$ obstaja, rečemo, da je $f$ \df{obrnljiva} (ali \df{invertibilna}) preslikava.
                 \end{definicija}
 
-                \begin{zgled}\label{ZGLED: logaritmiranje je obratno od eksponenciranja}
+                \begin{zgled}\label{zgled:logaritmiranje-je-obratno-od-eksponenciranja}
                         Kot veš že iz srednje šole, logaritmiranje je obratno od eksponenciranja. Če smo natančnejši: preslikavi $\xlam{x}[\RR]{b^x}[\RR_{> 0}]$ in $\xlam{x}[\RR_{>0}]{\log_b x}[\RR]$ sta si obratni pri vsaki osnovi $b \in \RR_{> 0} \setminus \set{1}$.
                 \end{zgled}
 
-                \begin{vaja}\label{VAJA: enoličnost obrata preslikave}
+                \begin{vaja}\label{vaja:enolicnost-obrata-preslikave}
                         Dokaži: če sta $g$ in $h$ obrata iste preslikave $f$, tedaj $g = h$.
                 \end{vaja}
 
-                Vaja~\ref{VAJA: enoličnost obrata preslikave} pove, da je obrat funkcije enolično določen, tj.~vsaka funkcija ima kvečjemu en obrat. Zato lahko uvedemo izrecno oznako: obrat preslikave $f$ (kadar obstaja) označimo z $f^{-1}$. Velja torej: kadar je preslikava $f\colon X \to Y$ obrnljiva, določa preslikavo $f^{-1}\colon Y \to X$.
+                Vaja~\ref{vaja:enolicnost-obrata-preslikave} pove, da je obrat funkcije enolično določen, tj.~vsaka funkcija ima kvečjemu en obrat. Zato lahko uvedemo izrecno oznako: obrat preslikave $f$ (kadar obstaja) označimo z $f^{-1}$. Velja torej: kadar je preslikava $f\colon X \to Y$ obrnljiva, določa preslikavo $f^{-1}\colon Y \to X$.
 
-                Ta oznaka je nekoliko nerodna --- pomembno se je zavedati, da $f^{-1}(x)$ pomeni obrat preslikave $f$, izvrednoten na $x$, medtem kot $\big(f(x)\big)^{-1}$ pomeni obratna vrednost (v smislu deljenja) izvrednotenja preslikave $f$ na $x$. Za primerjavo, kot omenjeno v zgledu~\ref{ZGLED: logaritmiranje je obratno od eksponenciranja}, je obrat eksponenciranja logaritmiranje, medtem ko je obratna vrednost od $b^x$ enaka $(b^x)^{-1} = \frac{1}{b^x} = b^{-x}$.
+                Ta oznaka je nekoliko nerodna --- pomembno se je zavedati, da $f^{-1}(x)$ pomeni obrat preslikave $f$, izvrednoten na $x$, medtem kot $\big(f(x)\big)^{-1}$ pomeni obratna vrednost (v smislu deljenja) izvrednotenja preslikave $f$ na $x$. Za primerjavo, kot omenjeno v zgledu~\ref{zgled:logaritmiranje-je-obratno-od-eksponenciranja}, je obrat eksponenciranja logaritmiranje, medtem ko je obratna vrednost od $b^x$ enaka $(b^x)^{-1} = \frac{1}{b^x} = b^{-x}$.
 
                 \begin{vaja}
                         Premisli: če ima preslikava $f$ obrat $f^{-1}$, tedaj je tudi $f^{-1}$ obrnljiva preslikava in velja $(f^{-1})^{-1} = f$ (torej, obrat obrata je izvorna preslikava).
@@ -165,3 +165,9 @@
                 Naj bo $X$ poljubna množica. Na njej imamo enakost; obravnavajmo jo na tem mestu kot lastnost dvojic elementov iz $X$, torej kot predikat $=_X\colon X \times X \to \tvs$ (za vsak par elementov vrnemo resničnostno vrednost, ali sta komponenti para enaki). Transponirajmo to preslikavo; dobimo $\transposed{=_X}\colon X \to \tvs^X$. Ta transponiranka je injektivna: če se za $a, b \in X$ preslikavi $\xlam{x}[X]{a = x}$ in $\xlam{x}[X]{b = x}$ ujemata, se ujemata tudi njuni vrednosti pri $b$. Ker drži $b = b$, potem drži tudi $a = b$.
 
                 Če zožimo kodomeno preslikave $\transposed{=_X}$ na njeno sliko, potemtakem dobimo bijekcijo. Naj bo jota njen obrat, torej $\iota \dfeq \big(\rstr{\transposed{=_X}}^{\rn{\transposed{=_X}}}\big)^{-1}$. V tem smislu je zgornja oznaka $\xthat{x}[X]{\phi(x)}$ okrajšava za $\iota\big(\xlam{x}[X]{\phi(x)}\big)$ (kar bi seveda lahko še skrajšali do $\iota(\phi)$, ampak v praksi je to običajno manj zgovorno).
+
+
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-master: "ucbenik-lmn"
+%%% End:
