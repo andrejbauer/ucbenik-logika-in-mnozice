@@ -66,121 +66,76 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%  Theorems etc.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-        {
-                \theorembodyfont{\itshape}
+{
+\theorembodyfont{\itshape}
+\newtheorem{izrek}{Izrek}[section]
+\newtheorem{lema}[izrek]{Lema}
+\newtheorem{trditev}[izrek]{Trditev}
+\newtheorem{posledica}[izrek]{Posledica}
+}
 
-                \newtheorem{izrek}{Izrek}[section]
-                \newtheorem{lema}[izrek]{Lema}
-                \newtheorem{trditev}[izrek]{Trditev}
-                \newtheorem{posledica}[izrek]{Posledica}
-        }
-
-        {
-                \theorembodyfont{\rmfamily}
-                \newtheorem{definicija}[izrek]{Definicija}
-                \newtheorem{opomba}[izrek]{Opomba}
-                \newtheorem{primer}[izrek]{Primer}
-                \newtheorem{zgled}[izrek]{Zgled}
-                \newtheorem{vaja}[izrek]{Vaja}
-        }
+{
+\theorembodyfont{\rmfamily}
+\newtheorem{definicija}[izrek]{Definicija}
+\newtheorem{opomba}[izrek]{Opomba}
+\newtheorem{primer}[izrek]{Primer}
+\newtheorem{zgled}[izrek]{Zgled}
+\newtheorem{vaja}[izrek]{Vaja}
+}
 
 %%%%%%  Proofs
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-        \newenvironment{dokaz}{
-                \goodbreak\par
-                \textit{Dokaz.}%
-        }{%
-                \nopagebreak
-                \hfill{\vrule width 1ex height 1ex depth 0ex}
-                \medskip
-                \goodbreak
-        }
+\newenvironment{dokaz}{%
+\goodbreak\par\textit{Dokaz.}%
+}{%
+\nopagebreak%
+\hfill{\vrule width 1ex height 1ex depth 0ex}%
+\medskip%
+\goodbreak%
+}
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%% Macros
 \input{macros.tex}
 
 \begin{document}
 
-   %--------------------------------------------------------------------
-   %--------------------------------------------------------------------
-   % TITLE PAGE
+%--------------------------------------------------------------------
+%--------------------------------------------------------------------
+% TITLE PAGE
 
+\title{Logika in množice} % če se spremeni naslov, je treba spremeniti tudi zgoraj v paketu hyperref
+\author{Andrej Bauer \and Davorin Lešnik \and Marko Petkovšek \and Matija Pretnar}
+\maketitle
 
-        \title{Logika in množice} % če se spremeni naslov, je treba spremeniti tudi zgoraj v paketu hyperref
-        \author{Andrej Bauer \and Davorin Lešnik \and Marko Petkovšek \and Matija Pretnar}
+%--------------------------------------------------------------------
+%--------------------------------------------------------------------
+% Foreword
 
-        \maketitle
+\chapter*{Predgovor}%\addcontentsline{toc}{chapter}{\numberline{}Predgovor}
 
+%--------------------------------------------------------------------
+%--------------------------------------------------------------------
+% TOC
 
-   %--------------------------------------------------------------------
-   %--------------------------------------------------------------------
-   % Foreword
+\tableofcontents
+% \listoftables % To se meni zdi nepotrebno, zakaj se to daje v knjige? (Andrej)
 
-   \chapter*{Predgovor}%\addcontentsline{toc}{chapter}{\numberline{}Predgovor}
+%--------------------------------------------------------------------
+%--------------------------------------------------------------------
+% BODY
 
-
-        %--------------------------------------------------------------------
-        %--------------------------------------------------------------------
-        % TOC
-
-
-        \tableofcontents
-        \listoftables
-
-
-        %--------------------------------------------------------------------
-        %--------------------------------------------------------------------
-        % BODY
-
-
-        \include{matematicno-izrazanje}
-        \include{logika}
-        \include{dokazovanje}
-
-        \chapter{Konstrukcije množic}
-                \section{Preprosti primeri}
-                        \note{prazna množica, enojci}
-                \section{Podmnožice}
-                        \davorin{Če \qt{embedding} prevajamo kot \qt{vložitev}, kako potem prevedemo \qt{inclusion}? Imamo sicer tujko \qt{inkluzija}, ampak fino bi bilo imeti še slovenski izraz. Vključitev?}
-                \section{Potenčna množica}
-                        \davorin{Verjetno je smiselno, da ta razdelek sledi razdelku o podmnožicah. Morda kar združimo ta dva razdelka?}
-                \section{Družine množic}
-                \section{Produkt množic}
-                \section{Vsota množic}
-                \section{Unija in presek}
-                \section{Eksponentna množica}
-                        \davorin{Vrstni red teh razdelkov bomo najbrž še premešali.}
-
-        \include{preslikave}
-        \include{relacije}
-
-        \chapter{Strukturirane množice}
-                \note{Struktura na množici. Morfizmi, ki to strukturo ohranjajo. Izomorfnost. Definicija strukturirane množice preko njene karakterizacije --- potrebna obstoj in enoličnost (do izomorfizma). Primeri. Posebej primeri struktur urejenosti (izhaja iz razdelka o strukturah urejenosti v poglavju o relacijah) in osnovnih algebrskih struktur (pride prav kasneje pri konstrukciji številskih množic). Urejenostna in algebrska struktura se združita v pojmu mreže. Definicija (polnih) Boolovih mrež/kolobarjev in povezava z logiko. Širša slika strukturiranih množic --- kategorije.}
-
-        \chapter{Številske množice}
-                \note{Karakterizacije številskih množic. Dokaz obstoja in enoličnosti (do izomorfizma).}
-                \section{Naravna števila}
-                \section{Cela števila}
-                \section{Racionalna števila}
-                \section{Realna števila}
-                \section{Kompleksna števila}
-                        \davorin{Se ustavimo že pri realnih številih? Gremo še dlje do kvaternionov?}
-
-        \chapter{Indukcija}
-                \note{Dobro osnovano urejene in dobro urejene množice. Indukcija na dobro osnovano urejenih množicah. Strukturna indukcija.}
-
-        \chapter{Aksiomatska teorija množic}
-                \section{Zermelo-Fraenklovi aksiomi}
-                \section{Aksiom izbire}
-                \section{Kumulativna hierarhija}
-
-        \chapter{Kardinalna števila}
-                \section{Končnost in neskončnost}
-                \section{Števnost}
-                \section{Kardinalnost množice}
-
-        \chapter{Ordinalna števila}
-                \davorin{Mogoče združimo kardinalna in ordinalna števila v eno poglavje?}
-
+\input{matematicno-izrazanje.tex}
+\input{logika.tex}
+\input{dokazovanje.tex}
+\input{konstrukcije.tex}
+\input{preslikave.tex}
+\input{relacije.tex}
+\input{strukture.tex}
+\input{stevilske-mnozice.tex}
+\input{indukcija.tex}
+\input{kumulativna-hierarhija.tex}
+\input{kardinalna-stevila.tex}
+\input{ordinalna-stevila.tex}
 
 \end{document}
