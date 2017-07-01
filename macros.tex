@@ -1,0 +1,159 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%  Commands
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+%%%%%%  Auxiliary
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+        \newcommand{\sizedescriptor}[2]
+        {
+                \ifthenelse{\equal{#1}{0}}{}{
+                \ifthenelse{\equal{#1}{1}}{\big}{
+                \ifthenelse{\equal{#1}{2}}{\Big}{
+                \ifthenelse{\equal{#1}{3}}{\bigg}{
+                \ifthenelse{\equal{#1}{4}}{\Bigg}{
+                #2}}}}}
+        }
+        \newcommand{\proven}[1]{\dashuline{#1}\vspace{0.2em}\\}
+        \newcommand{\someref}{{\small\textcolor{blue}{[\textbf{ref.}]}}}
+        \newcommand{\intermission}{\bigskip\medskip}
+        \newcommand{\qt}[1]{{\quotedblbase}{#1}{‘‘}}  % text in quotation marks
+        \newcommand{\nls}[1]{\qt{\textit{#1}}}  % sentence in a natural language
+
+        \definecolor{andrejcolor}{rgb}{0.7,0,0.7}
+        \definecolor{davorincolor}{rgb}{0,0.45,1}
+        \definecolor{markocolor}{rgb}{0.7,0.4,0}
+        \definecolor{matijacolor}{rgb}{0,0.6,0.4}
+
+        \newcommand{\andrej}[1]{{\small\textcolor{andrejcolor}{(#1 \ \mbox{--Andrej})}}}
+        \newcommand{\davorin}[1]{{\small\textcolor{davorincolor}{(#1 \ \mbox{--Davorin})}}}
+        \newcommand{\marko}[1]{{\small\textcolor{markocolor}{(#1 \ \mbox{--Marko})}}}
+        \newcommand{\matija}[1]{{\small\textcolor{matijacolor}{(#1 \ \mbox{--Matija})}}}
+
+        \definecolor{notecolor}{rgb}{0.6,0.5,0.7}
+        \newcommand{\note}[1]{{\small\textcolor{notecolor}{(#1)}}}
+        \newcommand{\alert}[1]{{\small\textcolor{red}{\textbf{#1}}}}
+
+
+%%%%%%  Logical Quantifiers, λ- and ι-Expressions
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+        %  no parenthesis (add x in front of the name of the command)
+        \NewDocumentCommand{\xall}
+                {m O{\empty} m}
+                {\forall\, {#1} \ifthenelse{\equal{#2}{}}{}{\in{#2}} \,.\, {#3}}
+        \NewDocumentCommand{\xsome}
+                {m O{\empty} m}
+                {\exists\, {#1} \ifthenelse{\equal{#2}{}}{}{\in{#2}} \,.\, {#3}}
+        \NewDocumentCommand{\xexactlyone}
+                {m O{\empty} m}
+                {\exists\;\!!\, {#1} \ifthenelse{\equal{#2}{}}{}{\in{#2}} \,.\, {#3}}
+        \NewDocumentCommand{\xlam}
+                {m O{\empty} m O{\empty}}
+                {\lambda{#1} \ifthenelse{\equal{#2}{}}{}{\in{#2}} \,.\, {#3} \ifthenelse{\equal{#4}{}}{}{\in{#4}}}
+        \NewDocumentCommand{\xthat}
+                {m O{\empty} m}
+                {\iota{#1} \ifthenelse{\equal{#2}{}}{}{\in{#2}} \,.\, {#3}}
+
+        %  with parenthesis -- the first optional argument is the size (values 0-4)
+        \NewDocumentCommand{\all}
+                {O{auto} m O{\empty} m}
+                {\xall{#2}[#3]{\sizedescriptor{#1}{\left}( {#4} \sizedescriptor{#1}{\right})}}
+        \NewDocumentCommand{\some}
+                {O{auto} m O{\empty} m}
+                {\xsome{#2}[#3]{\sizedescriptor{#1}{\left}( {#4} \sizedescriptor{#1}{\right})}}
+        \NewDocumentCommand{\exactlyone}
+                {O{auto} m O{\empty} m}
+                {\xexactlyone{#2}[#3]{\sizedescriptor{#1}{\left}( {#4} \sizedescriptor{#1}{\right})}}
+        \NewDocumentCommand{\lam}
+                {O{auto} m O{\empty} m O{\empty}}
+                {\xlam{#2}[#3]{\sizedescriptor{#1}{\left}( {#4} \sizedescriptor{#1}{\right})}[#5]}
+        \NewDocumentCommand{\that}
+                {O{auto} m O{\empty} m}
+                {\xthat{#2}[#3]{\sizedescriptor{#1}{\left}( {#4} \sizedescriptor{#1}{\right})}}
+
+
+%%%%%%  Logic
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+        \newcommand{\tvs}{\Omega}  % set of truth values
+        \newcommand{\true}{\top}  % truth
+        \newcommand{\false}{\bot}  % falsehood
+        \newcommand{\etrue}{\bm{\top}}  % emphasized truth
+        \newcommand{\efalse}{\bm{\bot}}  % emphasized falsehood
+        \newcommand{\impl}{\Rightarrow}  % implication sign
+        \newcommand{\revimpl}{\Leftarrow}  % reverse implication sign
+        \newcommand{\lequ}{\Leftrightarrow}  % equivalence sign
+        \newcommand{\xor}{\mathbin{\veebar}}  % exclusive disjunction sign
+        \newcommand{\shf}{\mathbin{\uparrow}}  % Sheffer connective
+        \newcommand{\luk}{\mathbin{\downarrow}}  % Łukasiewicz connective
+
+
+%%%%%%  Sets
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+        %  \set{1, 2, 3}         ->  {1, 2, 3}
+        %  \set{a \in X}{a < 1}  ->  {a ∈ X | a < 1}
+        \NewDocumentCommand{\set}
+                {O{auto} m G{\empty}}
+                {\sizedescriptor{#1}{\left}\{ {#2} \ifthenelse{\equal{#3}{}}{}{ \; \sizedescriptor{#1}{\middle}| \; {#3}} \sizedescriptor{#1}{\right}\}}
+        %\newcommand{\vsubset}{\Mapstochar\cap}
+        %\newcommand{\finseq}[1]{{#1}^*}
+        \newcommand{\pst}{\mathcal{P}}
+        \renewcommand{\complement}[1]{{#1}^C}
+
+
+%%%%%%  Number Sets, Intervals
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+        \newcommand{\NN}{\mathbb{N}}
+        \newcommand{\ZZ}{\mathbb{Z}}
+        \newcommand{\QQ}{\mathbb{Q}}
+        \newcommand{\RR}{\mathbb{R}}
+        \newcommand{\CC}{\mathbb{C}}
+        \newcommand{\intoo}[3][\RR]{{#1}_{(#2, #3)}}
+        \newcommand{\intcc}[3][\RR]{{#1}_{[#2, #3]}}
+        \newcommand{\intoc}[3][\RR]{{#1}_{(#2, #3]}}
+        \newcommand{\intco}[3][\RR]{{#1}_{[#2, #3)}}
+
+
+%%%%%%  Maps and Relations
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+        \newcommand{\id}[1][]{\textrm{Id}_{#1}}  % identity map
+        \newcommand{\argbox}{{\;\!\fbox{\phantom{M}}\;\!}}  % box for a function argument
+        \newcommand{\rstr}[1]{\left.{#1}\right|}  % map restriction
+        \newcommand{\im}{\mathrm{im}}  % map image
+        \newcommand{\parto}{\mathrel{\rightharpoonup}}  % partial mapping sign
+        \NewDocumentCommand{\rel}
+                {O{\empty} O{\empty}}
+                {\ifthenelse{\equal{#1}{}}{\mathscr{R}}{{#1} \mathrel{\mathscr{R}} {#2}}}  % a relation
+        \NewDocumentCommand{\srel}
+                {O{\empty} O{\empty}}
+                {\ifthenelse{\equal{#1}{}}{\mathscr{S}}{{#1} \mathrel{\mathscr{S}} {#2}}}  % a second relation
+        \newcommand{\dom}{\mathrm{dom}}  % domain
+        \newcommand{\cod}{\mathrm{cod}}  % codomain
+        \newcommand{\dd}[1]{D_{#1}}  % domain of definition
+        \newcommand{\rn}[1]{Z_{#1}}  % range
+        \newcommand{\graph}[1]{\Gamma_{#1}}  % graph of a (partial) function
+        \NewDocumentCommand{\img}  % image
+                {O{\empty} m G{\empty}}
+                {{#2}_*\ifthenelse{\equal{#3}{}}{}{\!\sizedescriptor{#1}{\left}( {#3} \sizedescriptor{#1}{\right})}}
+        \NewDocumentCommand{\pim}  % preimage
+                {O{\empty} m G{\empty}}
+                {{#2}^*\ifthenelse{\equal{#3}{}}{}{\!\sizedescriptor{#1}{\left}( {#3} \sizedescriptor{#1}{\right})}}
+        \newcommand{\ec}[2][]{[\:\!{#2}\:\!]_{#1}}  % equivalence class
+        \newcommand{\transposed}[1]{\widehat{#1}}
+
+
+%%%%%%  Misc.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+        \newcommand{\df}[1]{\textit{\textbf{#1}}}  % defined notion
+        \newcommand{\oper}{\mathop{\circledast}}  % symbol for a general operation
+        \newcommand{\ism}{\cong}  % isomorphic
+        \newcommand{\equ}{\sim}  % equivalent
+        \newcommand{\dfeq}{\mathrel{\mathop:}=}  % definitional equality
+        \newcommand{\revdfeq}{=\mathrel{\mathop:}}  % reverse definitional equality
+        \newcommand{\isdefined}[1]{{#1}\!\downarrow}  % given value is defined
+        \newcommand{\kleq}{\simeq}  % Kleene equality
+        \newcommand{\claim}[3]{{#1} \;\colon\; \frac{#2}{#3}}  % claim, divided on context, assumptions, conclusions
+        \newcommand{\unit}{\mathord{\bigvarstar}}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
