@@ -7,7 +7,7 @@
         \usepackage[slovene]{babel}
         \usepackage[utf8]{inputenc}
         \usepackage[T1]{fontenc}
-        
+
         \usepackage{url}
         \usepackage{ifthen}
         \usepackage{amssymb}
@@ -90,17 +90,17 @@
         \newcommand{\intermission}{\bigskip\medskip}
         \newcommand{\qt}[1]{{\quotedblbase}{#1}{‘‘}}  % text in quotation marks
         \newcommand{\nls}[1]{\qt{\textit{#1}}}  % sentence in a natural language
-        
+
         \definecolor{andrejcolor}{rgb}{0.7,0,0.7}
         \definecolor{davorincolor}{rgb}{0,0.45,1}
         \definecolor{markocolor}{rgb}{0.7,0.4,0}
         \definecolor{matijacolor}{rgb}{0,0.6,0.4}
-        
+
         \newcommand{\andrej}[1]{{\small\textcolor{andrejcolor}{(#1 \ \mbox{--Andrej})}}}
         \newcommand{\davorin}[1]{{\small\textcolor{davorincolor}{(#1 \ \mbox{--Davorin})}}}
         \newcommand{\marko}[1]{{\small\textcolor{markocolor}{(#1 \ \mbox{--Marko})}}}
         \newcommand{\matija}[1]{{\small\textcolor{matijacolor}{(#1 \ \mbox{--Matija})}}}
-        
+
         \definecolor{notecolor}{rgb}{0.6,0.5,0.7}
         \newcommand{\note}[1]{{\small\textcolor{notecolor}{(#1)}}}
         \newcommand{\alert}[1]{{\small\textcolor{red}{\textbf{#1}}}}
@@ -108,7 +108,7 @@
 
 %%%%%%  Logical Quantifiers, λ- and ι-Expressions
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-        
+
         %  no parenthesis (add x in front of the name of the command)
         \NewDocumentCommand{\xall}
                 {m O{\empty} m}
@@ -125,7 +125,7 @@
         \NewDocumentCommand{\xthat}
                 {m O{\empty} m}
                 {\iota{#1} \ifthenelse{\equal{#2}{}}{}{\in{#2}} \,.\, {#3}}
-        
+
         %  with parenthesis -- the first optional argument is the size (values 0-4)
         \NewDocumentCommand{\all}
                 {O{auto} m O{\empty} m}
@@ -225,7 +225,7 @@
         \newcommand{\kleq}{\simeq}  % Kleene equality
         \newcommand{\claim}[3]{{#1} \;\colon\; \frac{#2}{#3}}  % claim, divided on context, assumptions, conclusions
         \newcommand{\unit}{\mathord{\bigvarstar}}
-        
+
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -262,14 +262,14 @@
    %--------------------------------------------------------------------
    %--------------------------------------------------------------------
    % TITLE PAGE
-   
-        
+
+
         \title{\Huge \textbf{\textsc{Logika in množice}}}
         \author{A.~Bauer, D.~Lešnik, M.~Petkovšek, M.~Pretnar}
-        
+
         \maketitle
-   
-   
+
+
    %--------------------------------------------------------------------
    %--------------------------------------------------------------------
    % Foreword
@@ -280,21 +280,21 @@
         %--------------------------------------------------------------------
         %--------------------------------------------------------------------
         % TOC
-        
-        
+
+
         \tableofcontents
         \listoftables
-        
-        
+
+
         %--------------------------------------------------------------------
         %--------------------------------------------------------------------
         % BODY
-        
-        
+
+
         \include{matematicno-izrazanje}
         \include{logika}
         \include{dokazovanje}
-        
+
         \chapter{Konstrukcije množic}
                 \section{Preprosti primeri}
                         \note{prazna množica, enojci}
@@ -308,13 +308,13 @@
                 \section{Unija in presek}
                 \section{Eksponentna množica}
                         \davorin{Vrstni red teh razdelkov bomo najbrž še premešali.}
-        
+
         \include{preslikave}
         \include{relacije}
-        
+
         \chapter{Strukturirane množice}
                 \note{Struktura na množici. Morfizmi, ki to strukturo ohranjajo. Izomorfnost. Definicija strukturirane množice preko njene karakterizacije --- potrebna obstoj in enoličnost (do izomorfizma). Primeri. Posebej primeri struktur urejenosti (izhaja iz razdelka o strukturah urejenosti v poglavju o relacijah) in osnovnih algebrskih struktur (pride prav kasneje pri konstrukciji številskih množic). Urejenostna in algebrska struktura se združita v pojmu mreže. Definicija (polnih) Boolovih mrež/kolobarjev in povezava z logiko. Širša slika strukturiranih množic --- kategorije.}
-        
+
         \chapter{Številske množice}
                 \note{Karakterizacije številskih množic. Dokaz obstoja in enoličnosti (do izomorfizma).}
                 \section{Naravna števila}
@@ -323,22 +323,22 @@
                 \section{Realna števila}
                 \section{Kompleksna števila}
                         \davorin{Se ustavimo že pri realnih številih? Gremo še dlje do kvaternionov?}
-        
+
         \chapter{Indukcija}
                 \note{Dobro osnovano urejene in dobro urejene množice. Indukcija na dobro osnovano urejenih množicah. Strukturna indukcija.}
-        
+
         \chapter{Aksiomatska teorija množic}
                 \section{Zermelo-Fraenklovi aksiomi}
                 \section{Aksiom izbire}
                 \section{Kumulativna hierarhija}
-        
+
         \chapter{Kardinalna števila}
                 \section{Končnost in neskončnost}
                 \section{Števnost}
                 \section{Kardinalnost množice}
-        
+
         \chapter{Ordinalna števila}
                 \davorin{Mogoče združimo kardinalna in ordinalna števila v eno poglavje?}
-        
-        
+
+
 \end{document}
