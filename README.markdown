@@ -2,6 +2,10 @@
 
 Učbenik za predmet Logika in množice, 1. letnik matematike.
 
+## Datoteke
+
+* `ucbenik-lmn.tex` -- glavna datoteka
+
 ## Kazalo
 
 1. Matematično izražanje
