@@ -1,6 +1,5 @@
 \documentclass[11pt,a4paper,twoside]{book}
 
-
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%  Imported Packages
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -8,7 +7,6 @@
 \usepackage[utf8]{inputenc}
 \usepackage[T1]{fontenc}
 
-\usepackage{url}
 \usepackage{ifthen}
 \usepackage{amssymb}
 \usepackage{amsmath}
@@ -19,16 +17,51 @@
 \usepackage{phonetic}
 \usepackage{bm}
 \usepackage{tablefootnote}
-\usepackage{color}
-%\usepackage[most]{tcolorbox}
+\usepackage{xcolor}
 \usepackage{tikz}
-%\usepackage{tikzsymbols}
 \usepackage{tkz-graph}
 \usepackage{xparse}
 \usepackage{mathrsfs}
 \usepackage{ulem}
 \usepackage{charter}
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%  Page Style & Margins (A4 page = 210mm x 297mm)
+
+% PAGE GEOMETRY
+\usepackage[papersize={210mm,297mm}, % A4
+            twoside,
+            includehead,
+            top=1in, % margina na vrhu strani
+            bottom=1in, % margina na dnu strani
+            inner=1in, % margina na notranji strani strani
+            outer=1in, % margina na zunanji strani strani
+            bindingoffset=0pt % dodatna margina na notranji strani
+           ]{geometry}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% HYPERLINKING AND PDF METADATA
+\usepackage[backref=page,
+            colorlinks,
+            citecolor=linkcolor,
+            linkcolor=linkcolor,
+            urlcolor=linkcolor,
+            unicode,
+            pdfauthor={Andrej Bauer, Davorin Lešnik, Marko Petkovšek, Matija Pretnar},
+            pdftitle={Logika in množice},
+            pdfsubject={matematika},
+            pdfkeywords={logika,množice,osnove matematike}]{hyperref}
+\renewcommand{\backref}[1]{}
+\renewcommand{\backrefalt}[4]{%
+   \ifcase #1 %
+   (Ni citirano.)
+   \or
+   (Citirano na strani\ #2.)
+   \else
+   (Citirano na straneh\ #2.)
+   \fi}
+
+\definecolor{linkcolor}{rgb}{0,0,0} % Barva hiperpovezav
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%  Theorems etc.
@@ -62,35 +95,9 @@
                 \medskip
                 \goodbreak
         }
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%% Macros
 \input{macros.tex}
-
-
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%  Page Style & Margins (A4 page = 210mm x 297mm)
-
-\setlength{\textwidth}{15cm}
-\setlength{\textheight}{224mm}
-
-\setlength{\topmargin}{0cm}
-\setlength{\evensidemargin}{0cm}
-\setlength{\oddsidemargin}{\paperwidth}
-\addtolength{\oddsidemargin}{-\textwidth}
-\addtolength{\oddsidemargin}{-2in}
-
-\renewcommand{\baselinestretch}{1.25}
-\setlength{\parskip}{1.5ex}
-
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-
-
-
-
 
 \begin{document}
 
@@ -99,8 +106,8 @@
    % TITLE PAGE
 
 
-        \title{\Huge \textbf{\textsc{Logika in množice}}}
-        \author{A.~Bauer, D.~Lešnik, M.~Petkovšek, M.~Pretnar}
+        \title{Logika in množice} % če se spremeni naslov, je treba spremeniti tudi zgoraj v paketu hyperref
+        \author{Andrej Bauer \and Davorin Lešnik \and Marko Petkovšek \and Matija Pretnar}
 
         \maketitle
 
