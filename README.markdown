@@ -228,13 +228,20 @@ dela in tuhtanja. Mi se predvsem učimo pravila dokazovanja.
 * resničnostne tabele
 * polni nabori veznikov
 
+### Curry-Howardov izomorfizem*
+
+* motivacija: imamo formalni jezik za zapis množic, elementov in izjav, kaj pa dokazov?
+* dokaze lahko predstavimo kot drevesa
+* formalni jezik za dokaze: je enak kot za množice (no, recimo)
+* navezava na dokazovalne pomočnike
+
 ## Nadaljnje konstrukcije množic
 
 ### Podmnožice
 
 * kako definiramo podmnožico
 * predikati in relacije kot podmnožice
-* Boolova algebra podmnožic
+* Boolova algebra podmnožic (unija, presek, komplement)
 
 ### Potenčna množica
 
@@ -269,6 +276,7 @@ dela in tuhtanja. Mi se predvsem učimo pravila dokazovanja.
 
 ### Izrek o reprezentaciji Boolovih algeber
 
+* Boolove algebre kot struktura
 * Izrek o reprezentaciji: vsaka Boolova algebra je podalgebra potenčne množice
 * Pomen izreka, podobni izreki obstajajo za druge strukture (recimo grupe)
 
@@ -282,6 +290,11 @@ dela in tuhtanja. Mi se predvsem učimo pravila dokazovanja.
 * Definicija delne urejenosti
 * Primeri delnih urejenosti
 
+### Mreže
+
+* mreža
+* polna mreža
+
 ## Kardinalnost
 
 * definicija končnih in neskončnih množic
@@ -290,6 +303,9 @@ dela in tuhtanja. Mi se predvsem učimo pravila dokazovanja.
 * Cantor-Schröder-Bernsteinov izrek
 
 ## Ordinalna števila
+
+Za to poglavje nisem prepričan, da je na pravem mestu. In kaj natančno bi bila njegova
+vsebina?
 
 * pojem ordinalnega števila
 * transfinitna indukcija
