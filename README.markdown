@@ -98,11 +98,22 @@ vadili, kako se konstruira objekte. Preprosta zaključena celota je bi-kartezič
 struktura, torej 0, 1, +, ×, →. To nam da dovolj za "Tarski high-school arithmetic" na
 nivoju množic. Da bomo imeli kaj dela, privzamemo še kake osnovne številske množice.
 
+### Naivne množice
+
+* množica kot poljubna zbirka objektov
+* zapis množice s komprehenzijo `{x | φ(x)}` (na tem mestu se ne ubadamo preveč s tem, kaj je `φ`)
+* primeri: končne množice z naštevanjem, neskončne množice, prazna množica
+* množica vseh množic in Russellov paradoks
+* delitev na *male* in *velike* množice, velikim pravimo *(pravi) razredi*, vsem skupaj pa
+  *razredi*
+* `V` kot razred vseh malih množic
+
 ### Stukturirane množice
 
 * množice so zbirke elementov z enako strukturo (vendar bomo kasneje videli, da ni nujno
   tako, je pa to običajno)
-* množica je podana s svojimi elementi, to se pravi, s pravili, kako se njene elemente konstruira, oz. kaj ti elementi so
+* množica je podana s svojimi elementi, to se pravi, s pravili, kako se njene elemente
+  konstruira, oz. kaj ti elementi so
 * poleg tega povemo, kako lahko elemente *uporabimo* oz. *analiziramo* oz. *dekonstruiramo*.
 * poznamo tudi *enačbe*, ki povejo, kako so konstrukcije in dekonstrukcije med seboj povezane
 
@@ -117,9 +128,15 @@ nivoju množic. Da bomo imeli kaj dela, privzamemo še kake osnovne številske m
 Tu spoznamo urejene pare kot osnovno konstrukcijo, projekcije kot dekonstrukciji in potem
 enačbe med njimi.
 
+* notacija za projekcije `π₁` in `π₂`?
+* omenimo ostale notacije: `fst` in `snd` v funkcijskem programiranju
+
 #### Vsota množic A + B
 
 Unije sploh ne omenjamo, gremo direktno na vsoto množic.
+
+* notacija za injekcije `ι₁` in `ι₂`?
+* omenimo ostale notacije?
 
 #### Eksponentne množice Bᴬ ali A → B
 
@@ -203,6 +220,7 @@ dela in tuhtanja. Mi se predvsem učimo pravila dokazovanja.
 
 #### Kvantifikatorja
 
+* kvantifikatorji so omejeni, lahko pišemo neomejene, a mora biti jasno, na kaj se nanašajo
 * kako tvorimo kvantifikatorja
 * pravila sklepanja za kvantifikatorja (naravna dedukcija)
 * opozorimo na pogoste napake pri razumevanju (recimo razliko med ∀∃ in ∃∀)
@@ -242,6 +260,7 @@ dela in tuhtanja. Mi se predvsem učimo pravila dokazovanja.
 * kako definiramo podmnožico
 * predikati in relacije kot podmnožice
 * Boolova algebra podmnožic (unija, presek, komplement)
+* unija in presek množice podmnožic
 
 ### Potenčna množica
 
@@ -258,32 +277,66 @@ dela in tuhtanja. Mi se predvsem učimo pravila dokazovanja.
 
 ### Kvocientne množice
 
-### Družine množic
-
-### Produkti in vsote družin
+* ekvivalenčni razredi
+* kvocientna množica
+* kako definiramo funkcijo iz kvocientne množice
 
 ## Funkcije
 
 * Funkcije in funkcijske relacije
+* Slike in praslike
 * Injektivne in surjektivne funkcije
+    * vsaka surjekcija ima prerez (uporaba AC)
 * Bijektivne funkcije
 * Delne funkcije
-* Inverzne in direktni slike
+
+## Družine množic
+
+* družina kot funkcija `I → Set` (torej ima lahko funkcija za kodomeno tudi razred)
+* končna družina množic: nabor množic `A₀, A₁, ..., Aᵢ` kot družina
+* vsota družine
+* produkt družine
+* unija in presek družine
+    * najprej vidimo, da lahko definiramo unijo kot razred
+    * aksiom: unija družine množic je množica
+    * presek družine: dokažemo, da je `Set` ali množica
+
+## Moč množic
+
+* definicija končnih in neskončnih množic
+* števne množice
+* primerjava moči množic
+    * z injektivnimi preslikavami
+    * z surjektivnimi preslikavami
+    * ekvivalenca obeh vrst primerjav (uporaba AC)
+* Cantor-Schröder-Bernsteinov izrek
 
 ## Strukture
 
-* Pojem stukture in morfizma
+* Pojem stukture (in morfizma)
+* Primeri struktur iz ostalih predmetov, ki jih že poznamo
 
-### Izrek o reprezentaciji Boolovih algeber
+### Univerzalne lastnosti
 
-* Boolove algebre kot struktura
-* Izrek o reprezentaciji: vsaka Boolova algebra je podalgebra potenčne množice
-* Pomen izreka, podobni izreki obstajajo za druge strukture (recimo grupe)
+* Kaj pomeni, da strukturo opredelimo z lastnostjo *do izomorofizma*
+* Primeri: univerzalne lastnosti množic (prazna, enojec)
 
-### Naravna števila
+### Številske množice
 
-* Naravna števila kot struktura
-* Peanovi aksiomi za naravna števila
+Podamo univerzalne lastnosti številskih množic in njihove konkretne konstrukcije.
+
+Nekatere *množice* lahko opremimo z več *strukturami*, ki imajo vsaka svojo univerzalno
+lastnost.
+
+* Naravna števila
+   * konstrukcija množice naravnih števil
+   * indukcija in primitivna rekurzija
+   * naravna števila kot struktura (N, 0, S) in Peanovi aksiomi
+   * izpeljava artimetike z rekurzijo
+* Cela števila
+* Racionalna števila
+* Realna števila
+* Kompleksna števila
 
 ### Delno urejene množice
 
@@ -295,35 +348,55 @@ dela in tuhtanja. Mi se predvsem učimo pravila dokazovanja.
 * mreža
 * polna mreža
 
-## Kardinalnost
+### Boolove mreže
 
-* definicija končnih in neskončnih množic
-* števne množice
-* kardinalnost množice
-* Cantor-Schröder-Bernsteinov izrek
+* Boolove algebre kot struktura
+* Izrek o reprezentaciji: vsaka Boolova algebra je podalgebra potenčne množice
+* Pomen izreka, podobni izreki obstajajo za druge strukture (recimo grupe)
 
-## Ordinalna števila
+## Indukcija
 
-Za to poglavje nisem prepričan, da je na pravem mestu. In kaj natančno bi bila njegova
-vsebina?
+* dobro osnovane in dobro urejene množice
+* indukcija na dobro osnovano urejenih množicah
+* strukturna indukcija
 
-* pojem ordinalnega števila
-* transfinitna indukcija
+## Napredna teorija množic
 
-## Kumulativna hierarhija
+### Kumulativna hierarhija
 
 * "vse je množica"
 * kodiranje objektov z množicami:
    * urejeni pari
+   * vsota množic
    * naravna števila
    * ordinalna števila
 * kumulativni pogled na množice
 * Russellov paradoks
 * razredi in množice
 * aksiomi teorije množic (verjetno bi bil NBG boljši od ZFC)
+    * navežemo aksiom o neskončni množici z obstojem naravnih števil
 
-## Aksiom izbire in Zornova lema
+### Aksiom izbire
 
 * aksiom izbire
 * Zornova lema in njena uporaba v matematiki
-* Zornova lema in ekvivalenca z aksiomom izbire
+* ekvivalentne izjave:
+    * Zornova lema
+    * vsako množico lahko dobro uredimo
+    * vsaka surjekcija ima desni inverz (eno smer naredimo že prej)
+* presenetljive posledice:
+    * posledica dobre urejenosti realnih števil: obstaja podmnožica ravnine, ki vsako
+      premico seka natanko dvakrat
+    * izrek Banach-Tarskega o dekompozicijo krogle
+
+### Ordinalna in kardinalna števila
+
+Za to poglavje nisem prepričan, da je na pravem mestu. In kaj natančno bi bila njegova
+vsebina?
+
+* dobra urejenost
+* trihotomija za dobro urejenost
+* transfinitna indukcija
+* ordinalna števila
+* kardinalna števila
+    * nekaj malega o Cantorjevi hipotezi
