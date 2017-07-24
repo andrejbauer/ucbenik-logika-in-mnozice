@@ -8,7 +8,7 @@ Učbenik za predmet Logika in množice, 1. letnik matematike.
 
 # Pregled snovi
 
-## Matematično izražanje
+## Matematični jezik
 
 To poglavje je kratko in vsebuje splošen pregled, ne pa raznih tehničnih podrobnosti.
 

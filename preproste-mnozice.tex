@@ -1,0 +1,78 @@
+\chapter{Preproste množice}
+\label{cha:preproste-mnozice}
+
+
+
+\section{Kar je že Davorin napisal}
+
+Pojem množice nam omogoča, da več elementov obravnavamo kot eno celoto. To naredi obravnavo bolj obvladljivo in omogoča lažji simbolni zapis.
+
+Množico z majhnim številom elementov lahko zapišemo tako, da naštejemo vse elemente in jih obdamo z zavitimi oklepaji. Torej, če zapišemo
+\[A = \set[1]{\text{jabolko}, \text{hruška}, \text{breskev}},\]
+s tem trdimo, da je $A$ množica, katere elementi so natanko jabolko, hruška in breskev.
+
+Za vsak element, ki ga zapišemo med zavitimi oklepaji, preprosto trdimo, da pripada množici, in nič več. To pomeni, da vrstni red elementov ni pomemben --- množica
+\[\set[1]{\text{breskev}, \text{hruška}, \text{jabolko}}\]
+je ista množica kot $A$. V obeh primerih smo preprosto za tri dane elemente rekli, da pripadajo množici. Nadalje, vseeno je, kolikokrat za neki dani element rečemo, da je v množici; po prvi razglasitvi imamo ravno toliko informacije, kot po deseti. Potemtakem so množice $\set{a}$, $\set{a, a}$ in $\set{a, a, a}$ vse medsebojno enake in vsebujejo natanko en element (četudi pri zadnjih dveh morda na prvi pogled izgleda drugače).
+
+Množico, ki ne vsebuje nobenega elementa, imenujemo \df{prazna množica} in jo lahko zapišemo kot $\set{}$. Ker se ta množica tako pogosto pojavlja, ima še dodatno oznako: $\emptyset$.
+
+Če ima množica mnogo elementov, je nepraktično (ali včasih celo nemogoče) vse našteti. Zapišemo lahko na primer
+\[\set{1, 2, 3, \ldots, 1000000}\]
+in od tod razberemo, da je mišljena množica vseh celih števil od ena do milijon. Na ta način lahko podajamo tudi neskončne množice: iz zapisa
+\[\set{1, 2, 3, \ldots}\]
+sklepamo, da gre za množico vseh pozitivnih celih števil.
+
+Težava s tropičjem je seveda, da je ta zapis dvoumen. Množica $\set{1, 2, 3, \ldots}$ bi ravno tako lahko naštevala na primer Fibonaccijeva števila. Nejasnim zapisom se je bolje izogniti, razen če smo popolnoma prepričani, da bo bralec kljub dvoumnosti razumel, kaj točno smo imeli v mislih.
+
+Množice, s katerimi v matematiki delamo, tipično vsebujejo števila, ali pa so vsaj na tak ali drugačen način izpeljane iz številskih množic. Spomnimo se standardnih oznak najpogosteje uporabljanih številskih množic.
+\begin{center}
+\begin{tabular}{|cc|}
+\hline
+\textbf{Množica} & \textbf{Oznaka} \\
+\hline
+množica naravnih števil & $\NN$ \\
+množica celih števil & $\ZZ$ \\
+množica racionalnih števil & $\QQ$ \\
+množica realnih števil & $\RR$ \\
+množica kompleksnih števil & $\CC$ \\
+\hline
+\end{tabular}
+\end{center}
+
+Nekateri $0$ vzamejo za naravno število, nekateri ne. To je v celoti stvar dogovora, kaj pomeni pojem \qt{naravno število}. Za nas bo prišlo bolj prav, če ničlo štejemo kot element množice naravnih števil, torej $\NN = \set{0, 1, 2, 3, \ldots}$.
+
+Interval realnih števil podamo s krajiščema intervala v oklepajih --- okrogli oklepaji ( ) označujejo odprtost intervala (krajišče ni vključeno v interval), oglati oklepaji [ ] pa zaprtost (krajišče je vključeno). Tako se npr.~interval realnih števil od $0$ do $1$, ki ne vsebuje krajišč, označi z $(0, 1)$, če jih vsebuje, pa z $[0, 1]$.
+
+Včasih pridejo prav tudi intervali na drugih množicah kot $\RR$. Zato se dogovorimo, da bomo intervale označevali tako, da podamo množico, ob kateri v indeksu zapišemo krajišči v oklepajih, npr.~$\intco[\NN]{1}{5} = \set{1, 2, 3, 4}$. Realna intervala iz prejšnjega odstavka tako zapišemo kot $\intoo{0}{1}$ in $\intcc{0}{1}$.
+
+Če interval v katero smer gre v nedogled, preprosto zapišemo množico z ustrezno relacijo urejenosti in krajiščem v indeksu. Na primer, $\RR_{> 0}$ označuje množico pozitivnih realnih števil, $\RR_{\geq 0}$ pa množico nenegativnih realnih števil.
+
+\davorin{To bi vsaj bil moj predlog. Na ta način se izognemo dvoumnostim (kar je namen). Na primer, kaj pomeni $\forall\, a > 0$? Če zapišemo $\forall\, a \in \NN_{> 0}$ ali $\forall\, a \in \RR_{> 0}$, je jasno. Razlog, da matematiki \qt{goljufajo} in pridejo skozi brez tega, je (napol dogovorjena in ponotranjena, ampak arbitrarna) izbira črk; vsak izkušen matematik ve, da $\forall\, \epsilon > 0$ pomeni $\forall\, \epsilon \in \RR_{> 0}$. Dodaten problem je, da kasneje uporabljamo urejene pare, ki jih vsi na naši fakulteti pišejo z okroglimi oklepaji. Poskusimo se izogniti zmedi, ali $(a, b)$ pomeni urejeni par ali odprti interval. Če se ne strinjate, popravite in pustite komentar.}
+
+Če imamo dan neki element in neko množico, potem pripadnost tega elementa tej množico izrazimo s simbolom $\in$. Na primer, da je štiri naravno število, zapišemo $4 \in \NN$ (beri: \qt{štiri pripada množici naravnih števil}).
+
+Elementi množic lahko zadoščajo raznim lastnostim. Na primer, recimo, da $\phi$ označuje lastnost \qt{biti manj od pet}; to potem zapišemo
+\[\phi(x) \ = \ \ x < 5.\]
+V tem primeru $x$ imenujemo \df{spremenljivka}, saj ne gre za točno določeno vrednost, pač pa predstavlja splošno število (recimo, da se dogovorimo, da s $\phi$ označujemo lastnost na realnih številih).
+
+Tovrstne lastnosti nam omogočajo, da iz neke množice odberemo elemente z dano lastnostjo in na ta način dobimo novo množico, ki je podmnožica prejšnje. Množico vseh realnih števil, ki so manjša od pet, zapišemo na naslednji način.
+\[\set{x \in \RR}{x < 5}\]
+Seveda, ker je primerjava s števili zelo pogosta lastnost, je uporabno, če uvedemo krajše oznake, ki isto povejo; že prej smo se dogovorili, da tako množico označimo z $\RR_{< 5}$. Za povsem splošne lastnosti pa ne bomo imeli vnaprej dogovorjenih oznak, zato je dobro, da poznamo splošni zapis. Torej, če je $X$ poljubna množica in $\phi$ poljubna lastnost njenih elementov, tedaj podmnožico, ki vsebuje točno tiste elemente množice $X$, ki zadoščajo lastnosti $\phi$, označimo takole.
+\[\set[1]{x \in X}{\phi(x)}\]
+
+Pri tem se zavedajmo: ni pomembno, da spremenljivko označimo ravno z $x$. Zapis
+\[\set[1]{y \in X}{\phi(y)}\]
+še vedno označuje isto množico. V vsakem primeru gre za množico vseh elementov iz $X$ z lastnostjo $\phi$. Pravzaprav sploh ni nujno, da uporabimo črko; poslušimo se lahko kateregakoli simbola. Taisto množico lahko zapišemo tudi $\set{\heartsuit \in X}{\phi(\heartsuit)}$.
+
+Kadar imamo spremenljivko, ki jo lahko preimenujemo, ne da bi spremenili pomen izraza, jo imenujemo \davorin{\df{dummy variable} --- dajmo to posloveniti.}. Takšne primere že dobro poznate; na primer, integral $\int_0^1 x^2 \,dx$ se ne spremeni, če preimenujete spremenljivko in zapišete $\int_0^1 y^2 \,dy$.
+
+\begin{zgled}
+Kako bi zapisali množico vseh sodih naravnih števil? Spomnimo se, da je število sodo, kadar je deljivo z $2$. Za $n \in \NN$ to zapišemo takole: $2 \divides n$ (beri: \qt{dve deli $n$}). Množica sodih naravnih števil se potem zapiše kot
+\[\set[1]{n \in \NN}{2 \divides n}.\]
+\end{zgled}
+
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-master: "ucbenik-lmn"
+%%% End:

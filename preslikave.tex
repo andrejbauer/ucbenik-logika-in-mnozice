@@ -1,5 +1,84 @@
 \chapter{Preslikave}
 
+
+\section{Prestavljeno iz matematičnega izražanje sem, začasno}
+\label{sec:prest-iz-matem}
+
+
+
+\section{Preslikave}
+
+Množice ne obstajajo povsem ločene ena od druge, pač pa so med sabo povezane s \df{preslikavami} oziroma s tujko \df{funkcijami}\footnote{Nekateri uporabljajo izraz \qt{funkcija} samo za tiste preslikave, ki slikajo v realna ali kompleksna števila, ampak ta uporaba je že nekoliko zastarela. Dandanes večina matematiko besedo \qt{funkcija} obravnava kot sopomenko besede \qt{preslikava}. Tako jo bomo uporabljali tudi v tej knjigi.}. Posamična preslikava slika elemente ene množice po določenem predpisu v elemente druge množice.
+
+Če je $f$ preslikava, ki slika iz množice $X$ v množico $Y$, to zapišemo $f\colon X \to Y$. Rečemo, da je množica $X$ \df{začetna množica} ali \df{domena} preslikave $f$, množica $Y$ pa je \df{ciljna množica} ali \df{kodomena} preslikave $f$.
+
+Začetni množici ste v srednji šoli rekli tudi \qt{definicijsko območje}, ampak v tej knjigi bomo morali biti bolj previdni. Predpis za preslikavo po definiciji velja za vse elemente domene, ampak kasneje (v razdelku~\ref{razdelek:izpeljava-preslikav-iz-relacij}) obravnavamo delne preslikave, ki niso definirane na celi domeni; zanje je torej definicijsko območje manjše kot domena. Držimo se raje zgoraj danega poimenovanja.
+
+Običaj je, da predpis preslikave podamo s pomočjo spremenljivke, tipično z oznako $x$. Na primer, če je $f$ preslikava kvadriranja, njen predpis zapišemo kot
+\[f(x) = x^2.\]
+Na tem mestu je potrebno poudariti več reči.
+\begin{itemize}
+\item
+Velikokrat površno rečemo, da zgornji predpis podaja preslikavo. To ni povsem res --- to je zgolj predpis preslikave. Za to, da preslikavo v celoti podamo, je potrebno navesti tri stvari: poleg predpisa še domeno in kodomeno. Vse to je del informacije o preslikavi.
+
+To se jasno pokaže, če začnemo razmišljati o lastnostih preslikav. Se še spomnite iz srednje šole, kaj pomeni, da je preslikava surjektivna? (Bomo ponovili v razdelku~\ref{razdelek:injektivnost-in-surjektivnost}.) Če vzamemo, da preslikava $f$ zadošča zgornjemu predpisu in jo obravnavamo kot preslikavo $f\colon \RR \to \RR$, ni surjektivna, če jo obravnavamo recimo kot preslikavo $f\colon \RR_{\geq 0} \to \RR_{\geq 0}$, pa je.
+\item
+Za spremenljivko $x$ velja isto, kot smo razpravljali že v prejšnjem razdelku pri lastnostih elementov množic: spremenljivka $x$ nima vnaprej določene vrednosti, pač pa predstavlja mesto, kamor lahko vstavimo poljubno vrednost. Seveda je potem vseeno, če vzamemo kakšno drugo črko ali čisto drug simbol: $f(y) = y^2$ določa isti predpis kot $f(x) = x^2$; prav tako $f(\sun) = \sun^2$. Se pravi, tudi v tem primeru gre za \note{dummy variable}. Če si torej izberemo neko vrednost, jo lahko vstavimo na mesto spremenljivke in poračunamo, npr.~$f(3) = 3^2 = 9$ oziroma $f(2\pi) = (2\pi)^2 = 4\pi^2$. Predstavljajte si, da je spremenljivka pravzaprav škatlica, kamor lahko vstavite vrednost, torej
+\[f(\argbox) = \argbox^2.\]
+\item
+Alternativen način zapisa $f(x) = x^2$ je
+\[f\colon x \mapsto x^2.\]
+Pazimo: navadna puščica $\to$ podaja domeno in kodomeno, kot razloženo zgoraj. Repata puščica $\mapsto$ pa za posamičen element domene pove, v kateri element kodomene se preslika.
+
+Zapis z repato puščico je še posebej uporaben, kadar želimo podati preslikavo, ne da bi nam bilo potrebno izbrati ime zanjo. Na primer, realno funkcijo kvadriranja lahko v celoti podamo takole:
+\begin{align*}
+\RR &\to \RR \\
+x &\mapsto x^2
+\end{align*}
+(prva vrstica pove domeno in kodomeno, druga pa predpis). Tako podanim preslikavam potem rečemo \df{brezimne preslikave} (s tujko \df{anonimne funkcije}). Kasneje (v razdelku~\ref{razdelek:brezimne-preslikave}) bomo spoznali bolj strnjen zapis takih preslikav, ki je še posebej primeren za izvajanje operacij med preslikavami; takrat bomo takšno funkcijo zapisali kot $\xlam{x}[\RR]{x^2}[\RR]$.
+\end{itemize}
+
+\note{Sklop (kompozicija, kompozitum) preslikav. Identiteta kot enota za sklop. Razčlenitev (dekompozicija, faktorizacija) preslikav.}
+
+\davorin{Definirati moramo tudi oznako $\set{f(x)}{x \in X}$, kar je druge vrste oznaka kot prej definirana $\set{x \in X}{\phi(x)}$. Se gremo primerjavo s Pythonom (razlika med \texttt{\{f(x) for x in X\}} in \texttt{\{x if phi(x)\}})? Smo matematični hipsterji in uvedemo oznako $\{f(x) \,|\, x \in X \,|\, \phi(x)\}$, ki ustreza \texttt{\{f(x) for x in X if phi(x)\}}, kar bi tudi prišlo prav?}
+
+Zaenkrat smo imeli primere, ko je bil prepis preslikave dan z eno samo spremenljivko, npr.~$f(x) = x^2$. Zelo pogoste so pa tudi \df{preslikave več spremenljivk}, npr.~$f(x, y) = x^2 + y^2$. Že osnovne računske operacije so take --- na primer, pri seštevanju vzamemo \emph{dva} podatka in vrnemo rezultat (vsoto).
+
+V takem primeru je smiselno reči: domena preslikave sestoji iz \df{dvojic} ali \df{parov} števil. Pri seštevanju je to, katero število je prvo, katero pa drugo, sicer nepomembno, pri kakšni drugi operaciji (npr.~že odštevanju), pa je, zato posebej zahtevajmo: gre za \df{urejene dvojice} (\df{pare}). Urejeno dvojico elementov $a$ in $b$ (v tem vrstem redu) po dogovoru zapišemo kot $(a, b)$. Vrednosti $a$ in $b$ imenujemo \df{komponenti} tega para; natančneje, $a$ je \df{prva komponenta}, $b$ pa \df{druga komponenta}.
+
+Če imamo dve množici $A$ in $B$, tedaj množico vseh urejenih dvojic, katerih prva komponenta je element iz $A$, druga komponenta pa element iz $B$, označimo $A \times B$ in imenujemo \df{zmnožek} ali \df{produkt} množic $A$ in $B$. Glede na to, da obstaja mnogo operacij, ki se imenujejo \qt{produkt} (poznate že vsaj produkt števil, produkt števila z vektorjem, skalarni produkt vektorjev in vektorski produkt vektorjev, obstaja pa jih še precej več), je koristno produkt množic posebej poimenovati, da ga ločimo od drugih: zanj se je uveljavil izraz \df{kartezični produkt} (izhaja iz imena Cartesius, tj.~latinske različice priimka Renéja Descarta\footnote{René Descartes (1596 -- 1650) je bil francoski filozof, matematik in znanstvenik.}).
+
+Seštevanje potemtakem lahko razumemo kot preslikavo $+\colon \RR \times \RR \to \RR$. V tem smislu še vedno gre za preslikavo, ki dan vhodni podatek preslika v neki rezultat, le da je vhodni podatek dvojica števil, ne pa zgolj eno število. Kadar imamo produkt več enakih faktorjev, ga lahko (kot običajno) zapišemo v obliki potence; pisali bi lahko tudi $+\colon \RR^2 \to \RR$.
+
+Seveda nismo omejeni na preslikave samo ene ali dveh spremenljivk. Nič nam ne preprečuje definirati recimo $f(x, y, z) = 2x + y - 3z$. Smiselna domena te preslikave setoji iz \df{urejenih trojic} števil. V splošnem, če jemljemo elemente iz množic $A$, $B$, $C$, tedaj se množica vseh takih trojic označi z $A \times B \times C$. Prejšnji predpis določa potem preslikavo $f\colon \RR \times \RR \times \RR \to \RR$ (oziroma krajše $f\colon \RR^3 \to \RR$).
+
+Spremenljivk je lahko še več; poleg dvojic in trojic tako dobimo še četverice, peterice, šesterice\ldots V splošnem takšna končna zaporedja elementov imenujemo \df{urejene večterice}. Tudi število spremenljivk je lahko označeno s črko; na primer, preslikava, ki računa povprečje $n$ števil (kjer $n \in \NN_{\geq 1}$), je dana kot
+\begin{align*}
+\RR^n &\to \RR \\
+(x_1, x_2, \ldots, x_n) &\mapsto \frac{x_1 + x_2 + \ldots + x_n}{n}
+\end{align*}
+(če hočemo poudariti, da imajo naše večterice natanko $n$ komponent, jih imenujemo $n$-terice). Nadlega pri tem je sicer spet dvoumnost tropičja. Deloma jo je možno odpraviti tako, da celotno večterico označimo z eno spremenljivko. Pogosta izbira zapisa je $f(\bm{x})$ ali $f(\vec{x})$ (razlog za to je, da lahko večterico vidimo kot vektor).
+
+Marsikdaj želimo delati ne samo z eno preslikavo, pač pa s celo množico preslikav naenkrat. Zato uvedemo: množica vseh preslikav, ki slikajo iz $X$ v $Y$, se označi kot $Y^X$; temu se reče \df{eksponent} množic $X$ in $Y$ (\note{na primernem mestu kasneje} bomo razložili, od kod ta oznaka).
+
+\begin{zgled}
+Množico vseh preslikav, ki realna števila slikajo nazaj v realna števila, označimo z $\RR^\RR$. Če nas zanimajo realne preslikave, ki so definirana samo na intervalu $\intoo{-1}{1}$, opazujemo množico $\RR^{\intoo{-1}{1}}$. Definiramo lahko preslikavo
+\begin{align*}
+\RR^{\intoo{-1}{1}} &\to \RR \\
+f &\mapsto f(0),
+\end{align*}
+ki preslikavam priredi njihovo vrednost v točki $0$. Ta preslikava torej ima za argumente (tj.~vnose) celotne preslikave in ne števila! Sama po sebi je element množice $\RR^{\RR^{\intoo{-1}{1}}}$.
+\end{zgled}
+
+\begin{zgled}
+Za poljubne množice $A$, $B$, $C$ lahko definiramo sledečo preslikavo, katere argumenti so pari preslikav.
+\begin{align*}
+B^A \times C^B &\to C^A \\
+(f, g) &\mapsto g \circ f
+\end{align*}
+\end{zgled}
+
+
 \davorin{Glede na to, da gre za slovenski učbenik, dajem izrazu `preslikava' prednost pred izrazom `funkcija'. Seveda pa sem pojasnil tudi slednji izraz (v prvem poglavju).}
 
 \note{Uvod. Definicijsko območje in zaloga vrednosti \davorin{morda dodamo kot možno ime za zalogo vrednosti še prevod angleške besede `range', se pravi `razpon'?}. Zožitve (tako domene kot kodomene); oznake za to so $\rstr{f}_A$, $\rstr{f}^B$, $\rstr{f}_A^B$. Izvrednotenje (evalvacija) preslikave (če ne bomo tega pojasnili že pri eksponentih množic).}

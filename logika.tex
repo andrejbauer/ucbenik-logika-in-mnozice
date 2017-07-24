@@ -1,5 +1,157 @@
 \chapter{Logika}\label{poglavje:logika}
 
+\section{Prestavljeno iz matmatičnega izražanja, začasno}
+\label{sec:prest-iz-matm}
+
+
+\section{Logični simboli}\label{razdelek:logicni-simboli}
+
+Preproste izjave, kot na primer \nls{$n$ je sodo število.}, že znamo zapisati s simboli: $2 \divides n$. Povečini pa delamo z bolj kompleksnimi, sestavljenimi izjavami. Tudi za te obstaja simbolni zapis; na primer, izjavo \nls{Če je $n$ sodo število, je tudi kvadrat števila $n$ sod.}, zapišemo kot $2 \divides n \implies 2 \divides n^2$. Seveda ta izjava velja za vsa naravna števila (znaš to dokazati?). To zapišemo takole: $\all{n}[\NN]{2 \divides n \implies 2 \divides n^2}$. V tem razdelku si bomo ogledali, kako povezati preprostejše izjave v bolj sestavljene in kako to v splošnem simbolno zapisati.
+
+Kot smo navajeni iz običajnih jezikov, posamične stavke povežemo v sestavljeno poved z \emph{vezniki}. Najpogosteje uporabljeni matematični vezniki so v tabeli~\ref{tabela:standardni-izjavni-vezniki}.
+
+\begin{table}[!ht]
+\centering
+\begin{tabular}{|ccc|}
+\hline
+\textbf{Izjavni veznik} & \textbf{Oznaka} & \textbf{Kako preberemo} \\
+\hline
+negacija & $\lnot{p}$ & ne $p$ \\
+konjunkcija & $p \land q$ & $p$ in $q$ \\
+disjunkcija & $p \lor q$ & $p$ ali $q$ \\
+implikacija & $p \impl q$ & če $p$, potem $q$ \\
+ekvivalenca & $p \lequ q$ & $p$ natanko tedaj, ko $q$ \\
+\hline
+\end{tabular}
+\caption{Standardni izjavni vezniki}\label{tabela:standardni-izjavni-vezniki}
+\end{table}
+
+\begin{opomba}
+V matematiki se za izjavne veznike običajno uporabljajo zgoraj navedene tujke, ampak vsaka od njih seveda ima svoj pomen. Dobesedni prevodi teh tujk so:
+\begin{itemize}
+\item
+negacija $\to$ zanikanje,
+\item
+konjunkcija $\to$ vezava,
+\item
+disjunkcija $\to$ ločitev,
+\item
+implikacija $\to$ vpletenost,
+\item
+ekvivalenca $\to$ enakovrednost.
+\end{itemize}
+Za primerjavo: spomnite se vezalnega in ločnega priredja iz slovenščine!
+\end{opomba}
+
+\begin{zgled}
+Naj $p$ označuje stavek \nls{Zunaj dežuje.} in $q$ stavek \nls{Vzamem dežnik.}. Tedaj $\lnot{p}$ pomeni \nls{Zunaj ne dežuje.} in $p \impl q$ pomeni \nls{Če zunaj dežuje, potem vzamem dežnik.}.
+\end{zgled}
+
+Kose sestavljene izjave lahko veže več kot en veznik. V tem primeru se (tako kot pri računanju s števili) dogovorimo o prednosti veznikov. Po dogovoru je vrstni red veznikov tak, kot v tabeli~\ref{tabela:standardni-izjavni-vezniki}, tj.~najmočneje veže negacija, nato konjunkcija, nato disjunkcija, nato implikacija, nato ekvivalenca. Kadar želimo, da se najprej izvede veznik z nižjo prednostjo, uporabimo oklepaje.
+
+\begin{zgled}
+Označimo sledeče stavke:
+\begin{quote}
+$p$ \ \ldots\ldots\ \nls{Imam čas.} \\
+$q$ \ \ldots\ldots\ \nls{Ostanem doma.}
+\end{quote}
+Tedaj $\lnot{p} \land q$ pomeni isto kot $(\lnot{p}) \land q$, to je \nls{Nimam časa in ostanem doma.}, medtem ko $\lnot(p \land q)$ pomeni \nls{Ni res, da imam čas in ostanem doma.}.
+\end{zgled}
+\davorin{Če komu pade na pamet primer boljših stavkov, je zaželjeno, da popravi\ldots}
+
+Poleg zgoraj navedenih izjavnih veznikov se včasih uporabljajo še sledeči (tabela~\ref{tabela:nadaljnji-izjavni-vezniki}).
+
+\begin{table}[!ht]
+\centering
+\begin{tabular}{|ccc|}
+\hline
+\textbf{Izjavni veznik} & \textbf{Oznaka} & \textbf{Kako preberemo} \\
+\hline
+stroga disjunkcija & $p \xor q$ & bodisi $p$ bodisi $q$ \\
+Shefferjev\tablefootnote{Henry Maurice Sheffer (1882 -- 1964) je bil ameriški logik.} veznik & $p \shf q$ & ne hkrati $p$ in $q$ \\
+Łukasiewiczev\tablefootnote{Jan Łukasiewicz (beri: \hill{u}ukaśj\^{e}vič) (1878 -- 1956) je bil poljski logik in filozof.} veznik & $p \luk q$ & niti $p$ niti $q$ \\
+\hline
+\end{tabular}
+\caption{Nekateri nadaljnji izjavni vezniki}\label{tabela:nadaljnji-izjavni-vezniki}
+\end{table}
+
+Za strogo disjunkcijo (tudi: ekskluzivna disjunkcija, izključitvena disjunkcija) se uporabljajo še druge oznake: $p \oplus q$, $p + q$. Razlika med navadno in strogo disjunkcijo je sledeča: $p \lor q$ pomeni, da \emph{vsaj eden} od $p$ in $q$ velja, medtem ko $p \xor q$ pomeni, da velja \emph{natanko eden}.
+
+\begin{zgled}
+Stavek \nls{Pisni del predmeta je potrebno opraviti s kolokviji ali pisnim izpitom.} je primer navadne disjunkcije (seveda se vam prizna pisni del predmeta tudi, če uspešno odpišete tako kolokvije kot pisni izpit), stavek \nls{Grem bodisi na morje bodisi v hribe.} pa je primer stroge disjunkcije (ne da se biti na dveh mestih hkrati).
+\end{zgled}
+
+Pogosto veznike iz tabele~\ref{tabela:nadaljnji-izjavni-vezniki} (in vse preostale, ki jih nismo navedli) kar izrazimo s standardnimi na sledeči način.
+\begin{center}
+\begin{tabular}{|ccc|}
+\hline
+\textbf{Izjavni veznik} & \multicolumn{2}{c|}{\textbf{Nekatere izražave s standardnimi vezniki}} \\
+\hline
+$p \xor q$ & $(p \lor q) \land \lnot(p \land q)$ & $(p \land \lnot{q}) \lor (\lnot{p} \land q)$ \\
+$p \shf q$ & $\lnot(p \land q)$ & $\lnot{p} \lor \lnot{q}$ \\
+$p \luk q$ & $\lnot(p \lor q)$ & $\lnot{p} \land \lnot{q}$ \\
+\hline
+\end{tabular}
+\end{center}
+
+Včasih pa vendarle raje delamo neposredno z dodatnimi vezniki. Služijo lahko kot koristna okrajšava, so pa še drugi razlogi. Na primer, stroga disjunkcija igra vlogo seštevanja v Boolovem kolobarju (glej~\note{razdelek o Boolovih kolobarjih}), Shefferjev in Łukasiewiczev veznik pa se uporabljata pri preklopnih vezjih, saj je z vsakim od njiju možno izraziti vse izjavne veznike (glej vajo~\ref{vaja:polni-nabori-z-enim-veznikom}). V računalništvu imajo ti trije vezniki standardne oznake XOR, NAND, NOR.
+
+\davorin{Nekje tukaj povejmo, kakšno prednost damo tem trem veznikom v primerjavi s standardnimi. Kateremu dogovoru sledimo?}
+
+Včasih so izjave odvisne od kakšnih parametrov. Na primer, naj $\phi(x)$ pomeni \nls{$x$ je zelen.}; tedaj $\phi(\text{trava})$ pomeni \nls{Trava je zelena.}. Simbol $\phi$ torej predstavlja lastnost določenih objektov. Takšne primere smo imeli že v razdelku~\ref{razdelek:mnozice}, kjer smo navedli oznako za podmnožico tistih elementov, ki zadoščajo dani lastnosti.
+
+Lastnosti, odvisne od spremenljivk, lahko \emph{kvantificiramo} po njihovih spremenljivkah, tj.~povemo, \qt{kako pogosto} velja lastnost. Tabela~\ref{tabela:kvantifikatorji} podaja najpogosteje uporabljane kvantifikatorje in njihove oznake.
+
+\begin{table}[!ht]
+\centering
+\begin{tabular}{|ccc|}
+\hline
+\textbf{Kvantifikator} & \textbf{Oznaka} & \textbf{Kako preberemo} \\
+\hline
+univerzalni kvantifikator & $\xall{x}[X]{\phi(x)}$ & za vsak $x$ iz $X$ velja lastnost $\phi$ \\
+eksistenčni kvantifikator & $\xsome{x}[X]{\phi(x)}$ & obstaja $x$ iz $X$ z lastnostjo $\phi$ \\
+\note{kako se temu reče?} & $\xexactlyone{x}[X]{\phi(x)}$ & obstaja natanko en $x$ iz $X$ z lastnostjo $\phi$ \\
+\hline
+\end{tabular}
+\caption{Kvantifikatorji}\label{tabela:kvantifikatorji}
+\end{table}
+
+Oznaki $\forall$ in $\exists$ sta narobe obrnjena A in E in izhajata iz nemščine (\textbf{a}ll, \textbf{e}xistiert).
+
+Seveda je tudi kvantificirana spremenljivka \note{dummy} in jo lahko poljubno preimenujemo. Izjavi $\xall{x}[X]{\phi(x)}$ in $\xall{y}[X]{\phi(y)}$ povesta natanko isto: vsi elementi množice $X$ imajo lastnost $\phi$.
+
+\begin{zgled}
+Vemo, da za vsako nenegativno realno število obstaja enolično določen nenegativen kvadratni koren; to izjavo lahko zapišemo na sledeči način.
+\[\xall{a}[\RR_{\geq 0}]{\xexactlyone{b}[\RR_{\geq 0}]{b^2 = a}}\]
+Zaradi tega lahko definiramo kvadratni koren kot funkcijo $\sqrt{\phantom{I}}\colon \RR_{\geq 0} \to \RR_{\geq 0}$ \note{več o tem kasneje}.
+\end{zgled}
+
+Po dogovoru kvantifikatorji vežejo močneje kot izjavni vezniki. Izjavo, da je vsako celo število bodisi sodo bodisi liho, torej zapišemo takole.
+\[\all[2]{a}[\ZZ]{2 \divides a \xor 2 \divides (a-1)}\]
+
+\begin{zgled}
+Za poljubno naravno število $n \in \NN$ naj $P(n)$ označuje izjavo, da je $n$ praštevilo. Torej, $P$ definiramo takole.
+\[P(n) \dfeq \all[1]{x}[\NN]{x \divides n \implies x = 1 \xor x = n}\]
+(Premisli, kaj bi se zgodilo, če bi namesto stroge disjunkcije vzeli navadno. Bi še vedno dobili pravilni pojem praštevila?)
+
+Naj $S(n)$ označuje, da je $n$ sestavljeno število.
+\[S(n) \dfeq \xsome{x, y}[\intoo[\NN]{1}{n}]{x \cdot y = n}\]
+(Kadar imamo več zaporednih kvantifikatorjev iste vrste, jih po dogovoru lahko strnemo kot zgoraj. Dana formula za $S(n)$ je krajši zapis za $\xsome{x}[\intoo[\NN]{1}{n}]{\xsome{y}[\intoo[\NN]{1}{n}]{x \cdot y = n}}$.)
+
+Zdaj lahko na pregleden način zapišemo, da je vsako naravno število od $2$ naprej bodisi praštevilo bodisi sestavljeno.
+\[\all[1]{n}[\NN_{\geq 2}]{P(n) \xor S(n)}\]
+\end{zgled}
+
+\section{Definicije}
+
+\davorin{Predlagam, da v definicijah konsistentno uporabljamo `kadar' namesto `če' (\qt{Funkcija je zvezna, kadar velja to in to.}). V definicijah gre za ekvivalenco, ne implikacijo.}
+
+\davorin{Verjetno je smiselno v tem razdelku razložiti definicijsko enakost $\dfeq$ (oz.~$\revdfeq$). Če se tako odločimo, odstranimo zgornje uporabe teh simbolov.}
+
+
+% TU SE KONČA PRESTAVLJENA ROBA
+
+
         \note{uvod}
 
 
