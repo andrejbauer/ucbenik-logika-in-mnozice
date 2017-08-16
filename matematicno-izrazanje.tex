@@ -149,8 +149,7 @@ In zakaj pravzaprav potrebujemo tako veliko število črk? Verjetno zato, ker je
 matematiki krajši zapis bolj učinkovit, saj zasede manj prostora na papirju, pa še hitreje
 ga zapišemo in preberemo. Računalničarji imajo drugačne navade, saj pri njih velja, da naj
 se uporablja opisna imena, ki razkrijejo pomen: kjer bi matematik in fizik uporabila~$m$
-in~$a$, bi računalničar zapisal $\mathtt{masa\_delca}$ in $\texttt{pospesek}$. Kdo ima
-prav? Vsi, saj imajo vsak svoje razloge, da pišejo tako, kot je zanje najbolje.
+in~$a$, bi računalničar zapisal $\mathtt{masa\_delca}$ in $\texttt{pospesek}$.
 
 \section{Izrazi}
 \label{sec:irazi}
@@ -187,14 +186,36 @@ Kar smo ravnokar povedali, je bolj pomembno, kot se zdi na prvi pogled. V šoli 
 namreč v glavo hkrati vlivali matematična dejstva in dogovore o matematičnem zapisu, kot
 da med enimi in drugimi ni nobene razlike. Morda ni bilo časa za poglobljene pogovore o
 pisanju oklepajev, ali pa so učitelji vaših učiteljev ocenili, da mladi umi ne bi razumeli
-razlike. Tako marsikdo dobi vtis, da je matematika skupek bolj ali manj nesmiselnih
-predpisov, ki jih učencem vsiljujejo učitelji, učbeniki in šolski sistem. Ker ste kljub
-temu prišli študirat matematiko, je skrajni čas, da se naučite ločiti seme od kašče ter
-matematične vsebine od matematičnega zapisa.
+razlike. Tako marsikdo dobi vtis, da je matematika skupek predpisov, ki jih učencem
+vsiljujejo učitelji, učbeniki in šolski sistem. Ker ste kljub temu prišli študirat
+matematiko, je čas, da se naučite ločiti seme od kašče. A da ne bomo preveč filozofirali,
+si poglejmo nekaj dogovorov in navad v zvezi s pisanjem matematičnih izrazov.
 
-A da ne bomo preveč filozofirali, si poglejmo nekaj dogovorov in navad v zvezi s pisanjem
-matematičnih izrazov.
+Aritmetične operacije $+$, $-$, $\cdot$ in $/$ pišemo \emph{infiksno}, tako da operacija
+stoji med obema operandoma, na primer $x + y$. Kadar zapišemo operator za operand,
+pravimo, da je \emph{postfiksni}, na primer faktoriela~$x!$. Zapis operatorja je
+\emph{prefiksni} če stoji pred operandom, na primer nasprotna vrednost~$-x$. Poleg teh
+poznamo tudi druge zapise: potenciranje pišemo z eksponentom $x^y$, deljenje z ulomkom
+$\frac{x}{y}$, kvadratni koren s posebnim simbolom $\sqrt{x}$ itn. Skrajni primer je zapis
+množenja brez simbola, ko namesto $x \cdot y$ zapišemo kar $x y$.
 
+Infiksne operacije imajo \emph{precedenco} in \emph{asociativnost}. Precedenca pove,
+katera operacija ima prednost: potenciranje ima prednost pred množenjem in množenje pred
+seštevanjem. Asociativnost pove, ali računamo z leve ali z desne. Na primer, seštevanje
+$+$ ima levo asociativnost, zato je $5 + 2 + 1$ enako $(5 + 2) + 1$. Pri seštevanju to
+sicer ni pomembno, pri odštevanju pa moramo upoštevati levo asociativnost: $5 - 2 - 1$ je
+enako $(5 - 2) - 1$ in ne $5 - (2 - 1)$. \andrej{Ali imamo kak primer desno asociativne
+  operacije?}
+
+Iz vidika vsebine, raznolikost matematičnega zapisa ni potrebna, saj bi lahko vse izraze
+pisali na isti način. Namesto simbolov kot so $+$, $-$ in $\sqrt{\ }$ bi lahko uporabljali
+besede $\mathtt{plus}$, $\mathtt{minus}$, $\mathtt{sqrt}$ in izraze pisali prefiksno. Tak
+zapis je preprost in enoten, saj se nam ni treba ukvarjati z infiksnimi in postfiksnimi
+operacijami, s precedenco ter z levo in desno asociativnostjo. Uporablja se v
+računalništvu, a kdo bi želel na tablo namesto $3 + \sqrt{5 - 4}$ zapisati
+$\mathtt{plus(3, \mathtt{sqrt}(\mathtt{minus}(5, 4)))}$?
+
+\andrej{Ali bi pojasnili, da so izrazi drevesa?}
 
 % * Izrazi, oklepaji
 % * Izrazi kot sintaktična drevesa
