@@ -1,6 +1,6 @@
 \chapter{Dokazovanje}\label{poglavje:dokazovanje}
 
-        Matematične izsledke običajno podajamo preko jasno izraženih izjav. Med študijem matematike hitro opazite, da se takšne izjave podajajo pod imeni \quotesinglbase{izrek}', \quotesinglbase{trditev}', \quotesinglbase{lema}', \quotesinglbase{posledica}' in podobno. Kdaj uporabiti katerega teh imen ni natanko določeno, pač pa je prepuščeno presoji matematika. Približno vodilo je naslednje:
+        Matematične izsledke običajno podajamo preko jasno izraženih izjav. Med študijem matematike hitro opazite, da se takšne izjave podajajo pod imeni \sqt{izrek}, \sqt{trditev}, \sqt{lema}, \sqt{posledica} in podobno. Kdaj uporabiti katerega teh imen ni natanko določeno, pač pa je prepuščeno presoji matematika. Približno vodilo je naslednje:
         \begin{itemize}
                 \item
                         \df{izrek}: osrednji, bistven rezultat,
@@ -71,7 +71,7 @@
                                         $f$ na krajiščih intervala zavzame enaki vrednosti.
                                         \[f(a) = f(b)\]
                         \end{itemize}
-                        Če se vam slučajno zdita formuli za zveznost in odvedljivost begajoči, imate dve tolažbi. Prva je ta, da se boste čez čas takšnih formul navadili. ;) Druga je, da so tudi drugi matematiki leni po naravi in zato uvedejo oznake za daljše izraze, ki se pogosto uporabljajo. Zgornja zveznost se na krajše zapiše $f \in \mathcal{C}(\intcc{a}{b})$ ($\mathcal{C}$ kot \qt{continuous}, tj.~zvezno), odvedljivost pa $f \in \mathcal{D}^1(\intoo{a}{b})$ ($\mathcal{D}$ kot \qt{differentiable}, tj.~odvedljivo, enka pa pomeni \qt{(vsaj) enkrat odvedljivo}).
+                        Če se vam morda zdita formuli za zveznost in odvedljivost begajoči, imate dve tolažbi. Prva je ta, da se boste čez čas takšnih formul navadili. ;) Druga je, da so tudi drugi matematiki leni po naravi in zato uvedejo oznake za daljše izraze, ki se pogosto uporabljajo. Zgornja zveznost se na krajše zapiše $f \in \mathcal{C}(\intcc{a}{b})$ ($\mathcal{C}$ kot \qt{continuous}, tj.~zvezen), odvedljivost pa $f \in \mathcal{D}^1(\intoo{a}{b})$ ($\mathcal{D}$ kot \qt{differentiable}, tj.~odvedljiv, enka pa pomeni \qt{(vsaj) enkrat odvedljiv}).
                 \item
                         Sklep je eden: $f$ ima stacionarno točko na $\intoo{a}{b}$, kar simbolno zapišemo takole.
                         \[\xsome{x}[\intoo{a}{b}]{f'(x) = 0}\]
@@ -82,9 +82,9 @@
         Da ne bomo pisali dolgih seznamov, se dogovorimo za sledeče oznake. Izrek podamo tako, da najprej zapišemo kontekst, nato dvopičje, nato narišemo vodoravno črto, nad črto zapišemo predpostavke (ločene z vejicami), pod črto pa sklepe (ločene z vejicami). Rolleov izrek bi potemtakem povzeli takole.
         \[\claim{a \in \RR, b \in \RR_{> a}, f \in \RR^{\intcc{a}{b}}}{f \in \mathcal{C}(\intcc{a}{b}), f \in \mathcal{D}^1(\intoo{a}{b}), f(a) = f(b)}{\xsome{x}[\intoo{a}{b}]{f'(x) = 0}}\]
 
-        V splošnem velja: vse nevezane spremenljivke, ki se pojavijo v predpostavkah ali sklepih, morajo biti navedene v kontekstu. Po domače povedano: če trdite, da za neko stvar nekaj velja, morate najprej povedati, o kateri stvari sploh govorite.
+        V splošnem velja: vse proste spremenljivke, ki se pojavijo v predpostavkah ali sklepih, morajo biti navedene v kontekstu. Po domače povedano: če trdite, da za neko stvar nekaj velja, morate najprej povedati, o kateri stvari sploh govorite.
 
-        Medtem ko je za težje matematične izreke potrebno obilo ustvarjalnosti, da se jih dokaže, pa lažje trditve pogosto lahko avtomatično dokažemo (dobesedno --- obstajajo avtomatični dokazovalniki \davorin{koliko povemo na to temo?}), pa tudi za težje je pomembno, da vemo, kako pristopiti k dokazu. Gre za to, da za vse logične veznike in kvantifikatorje obstajajo splošna pravila, kako jih lahko uporabimo kot predpostavke in kako jih lahko dokažemo kot sklepe. To si bomo zdaj ogledali.
+        Medtem ko je za težje matematične izreke potrebno obilo ustvarjalnosti, da se jih dokaže, pa lažje trditve pogosto lahko avtomatično dokažemo (dobesedno --- obstajajo avtomatični dokazovalniki \davorin{koliko povemo na to temo?}), pa tudi za težje je pomembno, da vemo, kako pristopiti k dokazu. Gre za to, da za vse logične veznike in kvantifikatorje obstajajo splošna pravila, kako ravnamo, če nastopajo kot predpostavke oziroma kot sklepi. To si bomo zdaj ogledali.
 
         \begin{itemize}
                 \item\textbf{Konjunkcija}
@@ -167,9 +167,9 @@
                                                 \[\claim{\Gamma}{\Pi}{\Sigma', \xall{x}[X]{\phi(x, y)}, \Sigma''}\]
                                                 preidemo do
                                                 \[\claim{\Gamma, x \in X}{\Pi}{\Sigma', \phi(x, y), \Sigma''}\]
-                                                Zakaj tako postopamo in kaj smo s tem pravzaprav naredili? Premislimo: želimo dokazati, da neka lastnost velja za vse elemente dane množice $X$. Če ima $X$ slučajno samo končno mnogo elementov, bi lahko lastnost preverili za vsakega posebej, ampak povečini delamo z neskončnimi množicami, kjer to ne deluje. Morda ima množica $X$ kakšno posebno lastnost, zaradi katere lahko univerzalni kvantifikator dokažemo na svojevrsten način (na primer, univerzalno kvantificirane izjave na $\NN$ lahko dokazujemo z matematično indukcijo --- glej \note{razdelek o naravnih številih}), ampak to se zgodi v izjemnih primerih.
+                                                Zakaj tako postopamo in kaj smo s tem pravzaprav naredili? Premislimo: želimo dokazati, da neka lastnost velja za vse elemente dane množice $X$. Če ima $X$ slučajno samo končno mnogo elementov, bi lahko lastnost preverili za vsakega posebej, ampak povečini delamo z neskončnimi množicami, kjer to ne deluje. Morda ima množica $X$ kakšno posebno lastnost, zaradi katere lahko univerzalni kvantifikator dokažemo na svojevrsten način (na primer, univerzalno kvantificirane izjave nad $\NN$ lahko dokazujemo z matematično indukcijo --- glej \note{razdelek o naravnih številih}), ampak to se zgodi v izjemnih primerih.
 
-                                                V splošnem nimamo druge možnosti, kot da si izberemo simbol (tipično kar spremenljivko v kvantifikatorju), ki nam predstavlja poljuben, katerikoli element množice in zanj dokažemo željeno lastnost. Ideja je, da spremenljivka spet nastopa v vlogi \qt{škatlice}, kamor lahko vstavimo poljuben element množice $X$. Če nam je dokaz lastnosti uspel, ne da bi za spremenljivko predpostavili karkoli več, kot da predstavlja element množice $X$, tedaj dobimo dokaz lastnosti za katerikoli dejanski element množice $X$ tako, da v dobljeni dokaz namesto spremenljivke vstavimo ta element. Na ta način smo potem dejansko dobili dokaz lastnosti za vse elemente množice $X$.
+                                                V splošnem nimamo druge možnosti, kot da si izberemo simbol (tipično kar spremenljivko v kvantifikatorju), ki nam predstavlja poljuben, katerikoli element množice in zanj dokažemo želeno lastnost. Ideja je, da spremenljivka spet nastopa v vlogi \qt{škatlice}, kamor lahko vstavimo poljuben element množice $X$. Če nam je dokaz lastnosti uspel, ne da bi za spremenljivko predpostavili karkoli več, kot da predstavlja element množice $X$, tedaj dobimo dokaz lastnosti za katerikoli dejanski element množice $X$ tako, da v dobljeni dokaz namesto spremenljivke vstavimo ta element. Na ta način smo potem dejansko dobili dokaz lastnosti za vse elemente množice $X$.
 
                                                 Besedni dokazi univerzalno kvantificirane izjave se zato tipično začnejo takole: \qt{Vzemimo poljuben $x \in X$. Dokažimo, da zanj velja dana lastnost.}.
                                         \end{quote}

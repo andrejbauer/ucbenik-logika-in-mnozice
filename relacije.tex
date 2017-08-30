@@ -56,7 +56,7 @@
                 \begin{zgled}\label{zgled:graf-relacije}
                         Naj bo $X = \set{A, B, C, D, E, F}$ in naj bo
                         \[\rel \dfeq \set{...}\]
-                        relacija na $X$. Njen graf izgleda takole.
+                        relacija na $X$. Njen graf je videti takole.
 
                         \note{graf relacije $\rel$}
                         %\begin{center}
@@ -79,7 +79,7 @@
 
         \section{Operacije z relacijami}\label{razdelek:operacije-z-relacijami}
 
-                Običajno je, da iz že danih matematičnih objektov lahko skonstruiramo nove preko določenih operacij. Z relacijami ni nič drugače; v tem razdelku si bomo ogledali običajne operacije na relacijah.
+                Običajno je, da iz že danih matematičnih objektov lahko skonstruiramo nove s pomočjo določenih operacij. Z relacijami ni nič drugače; v tem razdelku si bomo ogledali običajne operacije na relacijah.
 
                 Ker so relacije podmnožice, imamo za začetek vse operacije na podmnožicah. Torej, za poljubno družino $(\rel_i)_{i \in I}$ podmnožic produkta $X \times Y$ sta tudi unija $\bigcup_{i \in I} \rel_i$ in presek $\bigcap_{i \in I} \rel_i$ relaciji. Če je $\rel \subseteq X \times Y$ relacija, je njena komplementarna relacija $\complement{\rel} = X \times Y \setminus \rel \ \subseteq \ X \times Y$.
 
@@ -89,7 +89,7 @@
 
                 Če so $X$, $Y$, $Z$ množice in $\rel \subseteq X \times Y$, $\srel \subseteq Y \times Z$ relaciji, tedaj je \df{sklop} (\df{kompozicija}, \df{kompozitum}) \df{relacij} definiran kot
                 \[\srel \circ \rel \dfeq \set[1]{(x, z) \in X \times Z}{\some{y}[Y]{\rel[x][y] \land \srel[y][z]}}\]
-                (po vzoru preslikav tudi sklop relacij pišemo v obratnem vrstnem redu; glej razdelek~\ref{razdelek:izpeljava-preslikav-iz-relacij}). Opazimo: domena $\srel \circ \rel$ je domena $\rel$, kodomena $\srel \circ \rel$ je kodomena $\srel$. Sklapljanje je asociativna operacija, torej pri sklopu večih relacij oklepaji niso pomembni.
+                (po vzoru preslikav tudi sklop relacij pišemo v obratnem vrstnem redu; glej razdelek~\ref{razdelek:izpeljava-preslikav-iz-relacij}). Opazimo: domena $\srel \circ \rel$ je domena $\rel$, kodomena $\srel \circ \rel$ je kodomena $\srel$. Sklapljanje je asociativna operacija, torej pri sklopu več relacij oklepaji niso pomembni.
 
                 \begin{vaja}
                         Dokaži, da je sklapljanje relacij asociativno!
@@ -114,7 +114,7 @@
                 \end{vaja}
 
                 \begin{zgled}
-                        Graf relacije, ki je obratna relaciji $\rel \subseteq X \times X$, dobimo tako, da v grafu relacije $\rel$ obrnemo puščice. Na primer, če je $\rel$ relacija iz zgleda~\ref{zgled:graf-relacije}, tedaj graf relacije $\rel^{-1}$ izgleda takole.
+                        Graf relacije, ki je obratna relaciji $\rel \subseteq X \times X$, dobimo tako, da v grafu relacije $\rel$ obrnemo puščice. Na primer, če je $\rel$ relacija iz zgleda~\ref{zgled:graf-relacije}, tedaj je graf relacije $\rel^{-1}$ videti takole.
 
                         \note{graf $\rel^{-1}$}
                 \end{zgled}
@@ -211,11 +211,11 @@
                                 \item
                                         Relacija $\rel$ je \df{sovisna}, kadar velja
                                         \[\all{x, y}[X]{x \neq y \implies \rel[x][y] \lor \rel[y][x]},\]
-                                        tj.~za vsaka dva različna elementa velja, da je eden od njiju v relaciji z drugim.
+                                        tj.~za vsaka dva različna elementa velja, da je vsaj eden od njiju v relaciji z drugim.
                                 \item
                                         Relacija $\rel$ je \df{strogo sovisna}, kadar velja
                                         \[\all{x, y}[X]{\rel[x][y] \lor \rel[y][x]},\]
-                                        tj.~za vsaka dva elementa velja, da je eden od njiju v relaciji z drugim.
+                                        tj.~za vsaka dva elementa velja, da je vsaj eden od njiju v relaciji z drugim.
                         \end{itemize}
                 \end{definicija}
 
@@ -236,8 +236,6 @@
                 \end{zgled}
 
                 Lastnosti operacij smo podali z izjavami, ampak lahko jih na ekvivalenten način podamo z operacijami ali lastnostmi grafa --- glej tabelo~\ref{tabela:lastnosti-relacije}.
-
-                \davorin{Ko \LaTeX\ hoče biti neumen, zna biti precej neumen. Tabelo~\ref{tabela:lastnosti-relacije} vrže na konec celotnega poglavja, čeprav mu je zapovedano, da jo naj da \emph{prav sem}.}
 
                 \begin{table}[!ht]
                         \centering
@@ -292,7 +290,7 @@
                 \end{trditev}
 
                 \begin{dokaz}
-                        Naj bo $\srel$ presek vseh relacij na $X$, ki vsebujejo $\rel$ in imajo lastnost $\mathscr{L}$. Posledično je $\srel$ vsebovana v vseh relacijah na $X$ z lastnostjo $\mathscr{L}$, ki vsebujejo $\rel$. Ker je $\mathscr{L}$ presečno dedna lastnost, jo ima tudi $\srel$.
+                        Naj bo $\srel$ presek vseh relacij na $X$, ki vsebujejo $\rel$ in imajo lastnost $\mathscr{L}$. Posledično je $\srel$ vsebovana v vseh relacijah na $X$ z lastnostjo $\mathscr{L}$, ki vsebujejo $\rel$. Ker je $\mathscr{L}$ presečno dedna lastnost, jo ima tudi $\srel$. Prav tako $\srel$ vsebuje $\rel$. Torej je $\srel$ $\mathscr{L}$-ogrinjača $\rel$.
                 \end{dokaz}
 
                 Kako pa vemo, kdaj je lastnost presečno dedna? Včasih lahko to razberemo kar iz oblike logične formule, s katero je lastnost podana.
@@ -306,7 +304,7 @@
                 \end{izrek}
 
                 \begin{dokaz}
-                        Naj bo $(\rel_i)_{i \in I}$ poljubna družina relacij na $X$ z lastnostjo $\mathscr{L}$ in naj bo $\rel \dfeq \bigcap_{i \in I} \rel_I$ njen presek. Dokazujemo, da $\mathscr{L}$ velja za $\rel$.
+                        Naj bo $(\rel_i)_{i \in I}$ poljubna družina relacij na $X$ z lastnostjo $\mathscr{L}$ in naj bo $\rel \dfeq \bigcap_{i \in I} \rel_i$ njen presek. Dokazujemo, da $\mathscr{L}$ velja za $\rel$.
 
                         Vzemimo poljubne $x_1, x_2, \ldots, x_n \in X$, za katere velja $\phi(\rel, x_1, x_2, \ldots, x_n)$. Ker je $\phi(\rel, x_1, x_2, \ldots, x_n)$ konjunkcija členov oblike $\rel[x_i][x_j]$, velja tudi $\phi(\rel_i, x_1, x_2, \ldots, x_n)$ za vsak $i \in I$. Po predpostavki torej velja $\psi(\rel_i, x_1, x_2, \ldots, x_n)$ za vsak $i \in I$.
 
@@ -343,7 +341,7 @@
 
         \section{Izpeljava preslikav iz relacij}\label{razdelek:izpeljava-preslikav-iz-relacij}
 
-                Ko definiramo temeljne matematične pojme, imamo določeno mero izbire, kaj vzamemo za izvoren pojem, kaj pa definiramo preko drugih pojmov. V tej knjigi smo od začetka vzeli preslikave za bolj osnoven pojem in relacije lahko definiramo s pomočjo preslikav (kot omenjeno v opombi~\ref{opomba:definicija-relacij}, relacijo lahko definiramo kot družino preslikav), lahko pa postopamo tudi obratno --- pojem preslikave izpeljemo iz pojma relacije. Kako to gre, si bomo pogledali v tem razdelku.
+                Ko definiramo temeljne matematične pojme, imamo določeno mero izbire, kaj vzamemo za izvoren pojem, kaj pa definiramo s pomočjo drugih pojmov. V tej knjigi smo od začetka vzeli preslikave za bolj osnoven pojem in relacije lahko definiramo s pomočjo preslikav (kot omenjeno v opombi~\ref{opomba:definicija-relacij}, relacijo lahko definiramo kot družino preslikav), lahko pa postopamo tudi obratno --- pojem preslikave izpeljemo iz pojma relacije. Kako to gre, si bomo ogledali v tem razdelku.
 
                 \begin{definicija}
                         \df{Delna preslikava} (ali \df{delna funkcija} ali \df{parcialna funkcija}) je enolična dvomestna relacija.
@@ -362,7 +360,7 @@
                 \end{zgled}
 
                 \begin{zgled}
-                        Delne preslikave so zelo uporabne v računalništvu. Za algoritme pričakujemo, da jim podamo vhodne podatke in bodo potem vrnili željene izhodne podatke. Zgodi se pa lahko, da se algoritem pri nekaterih vhodnih podatkih nikoli ne ustavi (ali javi napako), se pravi, ne dobimo rezultata. Če je $P$ množica možnih podatkov, lahko poljuben algoritem obravnavamo kot delno preslikavo $P \parto P$.\footnote{Natančneje, to velja za deterministične algoritme (takšne, ki se pri enakih vhodnih podatkih vedno enako obnašajo). V primeru nedeterminističnih algoritmov dobimo splošno relacijo na $P$.}
+                        Delne preslikave so zelo uporabne v računalništvu. Za algoritme pričakujemo, da jim podamo vhodne podatke in bodo potem vrnili želene izhodne podatke. Zgodi se pa lahko, da se algoritem pri nekaterih vhodnih podatkih nikoli ne ustavi (ali javi napako), se pravi, ne dobimo rezultata. Če je $P$ množica možnih podatkov, lahko poljuben algoritem obravnavamo kot delno preslikavo $P \parto P$.\footnote{Natančneje, to velja za deterministične algoritme (takšne, ki se pri enakih vhodnih podatkih vedno enako obnašajo). V primeru nedeterminističnih algoritmov dobimo splošno relacijo na $P$.}
 
                         Izkaže se, da za nekatere probleme ne obstaja računski postopek, ki bi pri vseh možnih vnosih vrnil pravilen odgovor. Primer tega je \df{problem zaustavitve}: želimo algoritem, ki kot vhodna podatka sprejme poljuben algoritem in poljuben vnos ter se odloči, ali se dani algoritem pri danem vnosu ustavi. Kakršenkoli program, ki sprejme takšna podatka in nikoli ne vrne napačnega rezultata, nujno določa delno preslikavo, ki ni povsod definirana. \davorin{Verjetno bomo nekje hoteli imeti razdelek o diagonalizaciji; morda lahko tja dodamo dokaz te trditve.}
                 \end{zgled}
@@ -424,7 +422,7 @@
                         \df{Ekvivalenčna relacija} je relacija, ki je refleksivna, simetrična in tranzitivna.
                 \end{definicija}
 
-                Ekvivalenčne relacije tipično označimo z $\equ$ (obstaja več načinov, kako to preberemo: vijuga, tilda, kača\ldots) ali čim podobnih.
+                Ekvivalenčne relacije tipično označimo z $\equ$ (obstaja več načinov, kako to preberemo: vijuga, tilda, kača\ldots) ali čim podobnim.
 
                 \begin{zgled}
                         Vsaka množica $X$ ima najmanjšo ekvivalenčno relacijo --- enakost $=_X$ --- in največjo --- polno relacijo $X \times X$.
@@ -438,13 +436,11 @@
                 \[\ec[\rel]{a} \dfeq \set{x \in X}{\rel[a][x]}.\]
                 Torej, $\ec[\rel]{a}$ sestoji iz vseh elementov, s katerimi je $a$ v relaciji. V primeru, da imamo ekvivalenčno relacijo $\equ$, imenujemo množico $\ec[\equ]{a}$ \df{ekvivalenčni razred} elementa $a$. Kadar je jasno, za katero ekvivalenčno relacijo gre, pogosto ekvivalenčne razrede krajše označujemo kar z $\ec{a}$.
 
-                Bistvo ekvivalenčne relacije je, da ekvivalenčni razredi tvorijo razbitje množice.
+                Bistvo ekvivalenčne relacije je, da ekvivalenčni razredi tvorijo razdelitev množice.
 
-                \davorin{Razbitje množice bomo verjetno definirali že prej, najbrž pri vsotah množic. Če ne, potem na tem mestu pride še definicija razbitja.}
+                \davorin{Razdelitev množice bomo verjetno definirali že prej, najbrž pri vsotah množic. Če ne, potem na tem mestu pride še definicija razdelitve.}
 
-                \davorin{Marko raje uporablja izraz `razdelitev množice', ker se mu `razbitje množice' zdi preveč \qt{nasilno}. ;) Kakšna so mnenja drugih? Kateri izraz bi uporabljali?}
-
-                \begin{izrek}[ekvivalenčne relacije natanko ustrezajo razbitjem]
+                \begin{izrek}[ekvivalenčne relacije natanko ustrezajo razdelitvam]
                         Naj bo $X$ poljubna množica.
                         \begin{enumerate}
                                 \item
@@ -453,10 +449,10 @@
                                                 \item
                                                         $\rel$ je ekvivalenčna relacija.
                                                 \item
-                                                        $\set[1]{\ec[\rel]{a}}{a \in X}$ je razbitje množice $X$.
+                                                        $\set[1]{\ec[\rel]{a}}{a \in X}$ je razdelitev množice $X$.
                                         \end{enumerate}
                                 \item
-                                        Za vsako razbitje množice $X$ obstaja enolično določena ekvivalenčna relacija $\equ$ na $X$, tako da je razbitje enako $\set[1]{\ec[\equ]{a}}{a \in X}$.
+                                        Za vsako razdelitev množice $X$ obstaja enolično določena ekvivalenčna relacija $\equ$ na $X$, tako da je razdelitev enaka $\set[1]{\ec[\equ]{a}}{a \in X}$.
                         \end{enumerate}
                 \end{izrek}
 
@@ -507,7 +503,7 @@
 
                 To je standarden trik, če preslikava ni surjektivna. Kaj pa, če ni injektivna? Pogosto v tem primeru zožimo še domeno na območje, na katerem je preslikava injektivna. Na primer, preslikavo $\xlam{x}{x^2}\colon \RR \to \RR$ zožimo do bijekcije $\xlam{x}{x^2}\colon \RR_{\geq 0} \to \RR_{\geq 0}$, kjer imamo obrat $\xlam{x}{\sqrt{x}}\colon \RR_{\geq 0} \to \RR_{\geq 0}$.
 
-                Ima pa ta prostop težave. Prvič, v nasprotju z zožanje kodomene pri zožitvi domene izgubimo določeno količino informacije o preslikavi (kam so se preslikale vrednosti, ki so prej bile v domeni, zdaj pa niso več?). Drugič, izbira zožene domene ni kanonična. Preslikavo $\xlam{x}{x^2}$ bi ravno tako lahko zožili na $\RR_{\leq 0} \to \RR_{\geq 0}$ ali na $\QQ_{\geq 0} \cup (\RR \setminus \QQ)_{\leq 0} \to \RR_{\geq 0}$ ali celo do $\emptyset \to \emptyset$ ali še neskončno drugih možnosti, pri katerih dobimo bijekcijo.
+                Ima pa ta pristop težave. Prvič, v nasprotju z zožanjem kodomene pri zožitvi domene izgubimo določeno količino informacije o preslikavi (kam so se preslikale vrednosti, ki so prej bile v domeni, zdaj pa niso več?). Drugič, izbira zožene domene ni kanonična. Preslikavo $\xlam{x}{x^2}$ bi ravno tako lahko zožili na $\RR_{\leq 0} \to \RR_{\geq 0}$ ali na $\QQ_{\geq 0} \cup (\RR \setminus \QQ)_{\leq 0} \to \RR_{\geq 0}$ ali celo do $\emptyset \to \emptyset$ ali še neskončno drugih možnosti, pri katerih dobimo bijekcijo.
 
                 S pomočjo kvocientov lahko rešimo te probleme in najdemo kanoničen način, kako preslikavo popraviti do injektivne (in če dodamo še zožitev kodomene, do surjektivne in torej v celoti do bijektivne). Vemo že, da sta injektivnost in surjektivnost dualni (razdelek~\ref{razdelek:injektivnost-in-surjektivnost}). Kaj je dualno zožitvi kodomene? Odgovor: kvocient domene. Namreč, če zožimo množico, je tako, kot da jo zdaj gledamo od precej bliže --- vidimo samo manjše območje okoli sebe. Kvocienti počnejo obratno --- tako je, kot če bi množico pogledali od precej daleč. Ne vidimo več posamičnih potez, pač pa se te združijo v bolj splošne oblike. (Seveda se ta dualnost, tako kot pri injektivnosti in surjektivnosti, da utemeljiti tudi formalno matematično. \davorin{Bomo govorili o zožkih in kozožkih?})
 

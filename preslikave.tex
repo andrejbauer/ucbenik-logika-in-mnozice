@@ -23,7 +23,7 @@ Velikokrat površno rečemo, da zgornji predpis podaja preslikavo. To ni povsem 
 
 To se jasno pokaže, če začnemo razmišljati o lastnostih preslikav. Se še spomnite iz srednje šole, kaj pomeni, da je preslikava surjektivna? (Bomo ponovili v razdelku~\ref{razdelek:injektivnost-in-surjektivnost}.) Če vzamemo, da preslikava $f$ zadošča zgornjemu predpisu in jo obravnavamo kot preslikavo $f\colon \RR \to \RR$, ni surjektivna, če jo obravnavamo recimo kot preslikavo $f\colon \RR_{\geq 0} \to \RR_{\geq 0}$, pa je.
 \item
-Za spremenljivko $x$ velja isto, kot smo razpravljali že v prejšnjem razdelku pri lastnostih elementov množic: spremenljivka $x$ nima vnaprej določene vrednosti, pač pa predstavlja mesto, kamor lahko vstavimo poljubno vrednost. Seveda je potem vseeno, če vzamemo kakšno drugo črko ali čisto drug simbol: $f(y) = y^2$ določa isti predpis kot $f(x) = x^2$; prav tako $f(\heartsuit) = \heartsuit^2$. Se pravi, tudi v tem primeru gre za \note{dummy variable}. Če si torej izberemo neko vrednost, jo lahko vstavimo na mesto spremenljivke in poračunamo, npr.~$f(3) = 3^2 = 9$ oziroma $f(2\pi) = (2\pi)^2 = 4\pi^2$. Predstavljajte si, da je spremenljivka pravzaprav škatlica, kamor lahko vstavite vrednost, torej
+Za spremenljivko $x$ velja isto, kot smo razpravljali že v prejšnjem razdelku pri lastnostih elementov množic: spremenljivka $x$ nima vnaprej določene vrednosti, pač pa predstavlja mesto, kamor lahko vstavimo poljubno vrednost. Seveda je potem vseeno, če vzamemo kakšno drugo črko ali čisto drug simbol: $f(y) = y^2$ določa isti predpis kot $f(x) = x^2$; prav tako $f(\heartsuit) = \heartsuit^2$. Se pravi, tudi v tem primeru gre za \note{dummy variable}. Če si torej izberemo neko vrednost, jo lahko vstavimo na mesto spremenljivke in izračunamo vrednost dobljenega izraza, npr.~$f(3) = 3^2 = 9$ oziroma $f(2\pi) = (2\pi)^2 = 4\pi^2$. Predstavljajte si, da je spremenljivka pravzaprav škatlica, kamor lahko vstavite vrednost, torej
 \[f(\argbox) = \argbox^2.\]
 \item
 Alternativen način zapisa $f(x) = x^2$ je
@@ -38,7 +38,7 @@ x &\mapsto x^2
 (prva vrstica pove domeno in kodomeno, druga pa predpis). Tako podanim preslikavam potem rečemo \df{brezimne preslikave} (s tujko \df{anonimne funkcije}). Kasneje (v razdelku~\ref{razdelek:brezimne-preslikave}) bomo spoznali bolj strnjen zapis takih preslikav, ki je še posebej primeren za izvajanje operacij med preslikavami; takrat bomo takšno funkcijo zapisali kot $\xlam{x}[\RR]{x^2}[\RR]$.
 \end{itemize}
 
-\note{Sklop (kompozicija, kompozitum) preslikav. Identiteta kot enota za sklop. Razčlenitev (dekompozicija, faktorizacija) preslikav.}
+\note{Sklop (kompozicija, kompozitum) preslikav. Identiteta kot enota za sklapljanje. Razčlenitev (dekompozicija, faktorizacija) preslikav.}
 
 \davorin{Definirati moramo tudi oznako $\set{f(x)}{x \in X}$, kar je druge vrste oznaka kot prej definirana $\set{x \in X}{\phi(x)}$. Se gremo primerjavo s Pythonom (razlika med \texttt{\{f(x) for x in X\}} in \texttt{\{x if phi(x)\}})? Smo matematični hipsterji in uvedemo oznako $\{f(x) \,|\, x \in X \,|\, \phi(x)\}$, ki ustreza \texttt{\{f(x) for x in X if phi(x)\}}, kar bi tudi prišlo prav?}
 
@@ -88,8 +88,6 @@ B^A \times C^B &\to C^A \\
 
 \note{Tj.~anonimne oz.~čiste funkcije. Na tem mestu pride tudi $\lambda$-notacija in določena mera $\lambda$-računa.}
 
-\davorin{Pripravil sem ukaza \texttt{$\backslash${lam}} in \texttt{$\backslash${xlam}}.}
-
 
 \section{Slike in praslike}
 
@@ -136,9 +134,9 @@ Ta predpis definira preslikavo $\pim{f}\colon \pst(Y) \to \pst(X)$.
 \begin{opomba}
 Tudi za prasliko obstajajo različne oznake. Praslika $\pim{f}{B}$ se označi tudi kot $f^{-1}[B]$ ali kar kot $f^{-1}(B)$. V slednjem primeru se spet zanašamo na izkušenost bralca, da praslike $f^{-1}\colon \pst(Y) \to \pst(X)$ ne zamenja z obratom $f^{-1}\colon Y \to X$. Slednji morda sploh ne obstaja! (Praslika seveda obstaja za vse funkcije.)
 
-Če inverz funkcije obstaja, tedaj velja $\pim[1]{f}{\set{y}} = \set[1]{f^{-1}(y)}$ za vsak $y \in Y$ (premisli!), kar nekoliko pojasni oznako $f^{-1}$ tudi za prasliko. Kljub vsemu, z namenom izogibanja dvoumnostim bomo se v tej knjigi skrbno držali oznake iz definicije~\ref{definicija:praslika} za prasliko.
+Če obrat funkcije obstaja, tedaj velja $\pim[1]{f}{\set{y}} = \set[1]{f^{-1}(y)}$ za vsak $y \in Y$ (premisli!), kar nekoliko pojasni oznako $f^{-1}$ tudi za prasliko. Kljub vsemu, z namenom izogibanja dvoumnostim se bomo v tej knjigi skrbno držali oznake iz definicije~\ref{definicija:praslika} za prasliko.
 
-Ko smo že pri alternativnih, potencialno zavajajočih oznakah: pri prasliki enojca se tipično spuščajo zaviti oklepaji, torej se namesto $\pim[1]{f}{\set{y}}$ piše $\pim{f}{y}$ (ali celo $f^{-1}(y)$).
+Ko smo že pri alternativnih, potencialno zavajajočih oznakah: pri prasliki enojca se tipično izpuščajo zaviti oklepaji, torej se namesto $\pim[1]{f}{\set{y}}$ piše $\pim{f}{y}$ (ali celo $f^{-1}(y)$).
 \end{opomba}
 
 \note{primeri, vaje}
@@ -153,7 +151,7 @@ Ko smo že pri alternativnih, potencialno zavajajočih oznakah: pri prasliki eno
 
 \section{Bijektivnost in obratne preslikave}\label{razdelek:bijektivnost-in-obratne-preslikave}
 
-Kot dobro veste že iz srednje šole, injektivnost in surjektivnost nam omogočata definicijo bijektivnosti.
+Kot dobro veste že iz srednje šole, nam injektivnost in surjektivnost omogočata definicijo bijektivnosti.
 
 \begin{definicija}
 Preslikava je \df{bijektivna}, kadar je injektivna in surjektivna.
@@ -203,9 +201,9 @@ Premisli: če ima preslikava $f$ obrat $f^{-1}$, tedaj je tudi $f^{-1}$ obrnljiv
 Pogosto rečemo, da sta seštevanje in odštevanje obratni operaciji. Strogo vzeto, ti dve operaciji nista obratni kot preslikavi, saj obe slikata (recimo, da ju gledamo na realnih številih) $\RR \times \RR \to \RR$, tj.~ne slikata v nasprotnih smereh. Ugotovi, v kakšnem smislu točno sta seštevanje in odštevanje obratni, tj.~kateri dve preslikavi sta pravzaprav druga drugi obratni.
 \end{vaja}
 
-Zakaj se sploh ukvarjamo z obrati? Pogosto obravnavamo preslikavo, ki izhaja iz nekega konkretnega (na primer fizikalnega) problema, v smislu, da preslikava vzame začetne podatke in nam vrne, kaj se bo na koncu zgodilo. Marsikdaj pa hočemo rešiti obraten problem: želimo določene končne rezultate in se sprašujemo, kaj morajo biti začetni pogoji, da jih bomo dosegli. V takem primeru pride prav obratna preslikava.
+Zakaj se sploh ukvarjamo z obrati? Pogosto obravnavamo preslikavo, ki izhaja iz nekega konkretnega (na primer fizikalnega) problema, v smislu, da preslikava vzame začetne podatke in nam vrne, kaj se bo na koncu zgodilo. Marsikdaj pa hočemo rešiti obraten problem: želimo določene končne rezultate in se sprašujemo, kakšni morajo biti začetni pogoji, da jih bomo dosegli. V takem primeru pride prav obratna preslikava.
 
-Kot omenjeno, obrat preslikave je enoličen. Ne velja pa, da za poljubne preslikave sploh obstaja. Na primer, naj bo $f$ edina možna preslikava $\set{0, 1} \to \set{\unit}$, torej tista, ki tako $0$ kot $1$ preslika v $\unit$. Nobena preslikava $g\colon \set{\unit} \to \set{0, 1}$ ne more biti obrat preslikave $f$, saj je $g \circ f$ gotovo konstantna in potemtakem ne more biti identiteta na $\set{0, 1}$.
+Kot omenjeno, je obrat preslikave enoličen. Ne velja pa, da za poljubne preslikave sploh obstaja. Na primer, naj bo $f$ edina možna preslikava $\set{0, 1} \to \set{\unit}$, torej tista, ki tako $0$ kot $1$ preslika v $\unit$. Nobena preslikava $g\colon \set{\unit} \to \set{0, 1}$ ne more biti obrat preslikave $f$, saj je $g \circ f$ gotovo konstantna in potemtakem ne more biti identiteta na $\set{0, 1}$.
 
 Kdaj torej obstaja obrat preslikave?
 
@@ -241,7 +239,7 @@ pomeni \qt{tisti (edini) element množice $X$, ki ima lastnost $\phi$} (simbolč
 
 Zaenkrat smo to joto uporabljali zgolj kot okrajšavo za stavek v običajnem jeziku, ampak če želimo $\iota$-izraze uporabljati v matematičnih dokazih, jim moramo dati natančen matematični pomen. Definirajmo torej joto formalno matematično.
 
-Naj bo $X$ poljubna množica. Na njej imamo enakost; obravnavajmo jo na tem mestu kot lastnost dvojic elementov iz $X$, torej kot predikat $=_X\colon X \times X \to \tvs$ (za vsak par elementov vrnemo resničnostno vrednost, ali sta komponenti para enaki). Transponirajmo to preslikavo; dobimo $\transposed{=_X}\colon X \to \tvs^X$. Ta transponiranka je injektivna: če se za $a, b \in X$ preslikavi $\xlam{x}[X]{a = x}$ in $\xlam{x}[X]{b = x}$ ujemata, se ujemata tudi njuni vrednosti pri $b$. Ker drži $b = b$, potem drži tudi $a = b$.
+Naj bo $X$ poljubna množica. Na njej imamo enakost; obravnavajmo jo na tem mestu kot lastnost dvojic elementov iz $X$, torej kot predikat $=_X\colon X \times X \to \tvs$ (za vsak par elementov vrnemo resničnostno vrednost izjave, da sta komponenti para enaki). Transponirajmo to preslikavo; dobimo $\transposed{=_X}\colon X \to \tvs^X$. Ta transponiranka je injektivna: če se za $a, b \in X$ preslikavi $\xlam{x}[X]{a = x}$ in $\xlam{x}[X]{b = x}$ ujemata, se ujemata tudi njuni vrednosti pri $b$. Ker drži $b = b$, potem drži tudi $a = b$.
 
 Če zožimo kodomeno preslikave $\transposed{=_X}$ na njeno sliko, potemtakem dobimo bijekcijo. Naj bo jota njen obrat, torej $\iota \dfeq \big(\rstr{\transposed{=_X}}^{\rn{\transposed{=_X}}}\big)^{-1}$. V tem smislu je zgornja oznaka $\xthat{x}[X]{\phi(x)}$ okrajšava za $\iota\big(\xlam{x}[X]{\phi(x)}\big)$ (kar bi seveda lahko še skrajšali do $\iota(\phi)$, ampak v praksi je to običajno manj zgovorno).
 

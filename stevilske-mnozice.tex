@@ -1,8 +1,43 @@
 \chapter{Številske množice}
 
-\note{Karakterizacije številskih množic. Dokaz obstoja in enoličnosti (do izomorfizma).}
+Številske množice (naravna števila, cela števila, \ldots) poznate že od nekdaj. O njih imate zadosti občutka oz.~intuitivne predstave, da jih lahko uporabljate in pridete do pravilnih rezultatov. Tudi v tej knjigi smo jih že kar naprej izkoriščali za razne primere.
+
+Ampak intuitivna predstava je tudi vse, kar zaenkrat imamo o številskih množicah. Nismo še podali natančne matematične definicije zanje, na osnovi katere bi lahko neizpodbitno dokazovali izreke o njih.
+
+Za vajo lahko sami premislite, ali bi znali na tem mestu podati natančno definicijo, kaj pomeni biti naravno, celo, racionalno oz.~realno število. Definicija seveda mora biti natančna --- npr.~reči, da so realna števila tista, ki ležijo na številski premici, ni zadovoljiva definicija (vsaj ne, če ne pojasnite nedvoumno, kaj pomeni \qt{številska premica} in kaj pomeni \qt{ležati} na njej).
+
+V tem poglavju se bomo sistematično lotili obravnave najpogosteje uporabljanih številskih množic. Podali bomo njihove konstrukcije, karakterizacije in temeljne lastnosti.
+
 
 \section{Naravna števila}
+
+Če vas kdo vpraša, kako dobiti vsa naravna števila, verjetno odgovorite nekaj v naslednjem smislu: naravna števila so $0$ in vsa tista števila, ki jih dobite s prištevanjem enice, tj.~jemanjem naslednika. Torej, začnemo z $0$, vzamemo naslednika in dobimo $1$, nato še enkrat vzamemo naslednika in dobimo $2$ itd.
+
+Prvi, ki je znal to intuitivno predstavo preliti v natančno matematično definicijo, je bil Peano\footnote{Giuseppe Peano (1858 -- 1932) je bil italijanski matematik.} komaj dobro stoletje nazaj. Pogoje, ki jih zahtevamo za neko množico, da jo lahko imenujemo \qt{množica naravnih števil}, po njem imenujemo \df{Peanovi aksiomi}. \davorin{Nekje bomo predebatirali, kaj je aksiom in zakaj jih uporabljamo. Peanove aksiome povežimo s tem.}
+
+Če boste brskali po literaturi, boste naleteli na mnogo različnih inačic Peanovih aksiomov, ki pa so seveda medsebojne ekvivalentne (razen kolikor se razlikujejo v tem, ali je najmanjše naravno število enota za seštevanje $0$ ali enota za množenje $1$). Mi bomo izbrali sledečo jedrnato različico.
+
+\begin{definicija}[Peano]
+\df{Množica naravnih števil} je množica (običajno označena z $\NN$), skupaj z izbranim njenim elementom (običajno označenim z $0$, kar beremo \qt{ničla} ali \qt{nič}) in preslikavo na tej množici (običajno označeno z $s\colon \NN \to \NN$, ki jo imenujemo \qt{naslednik}), kadar veljajo naslednje lastnosti:
+\begin{itemize}
+\item
+$s$ je injektivna preslikava,
+\item
+$0 \notin \rn{s}$,
+\item
+velja načelo \df{matematične indukcije}:
+\end{itemize}
+\end{definicija}
+
+Pojasnimo natančneje pomen teh pogojev.
+
+\subsection{Indukcija}
+\subsection{Rekurzija}
+\subsection{Računske operacije}
+\subsection{Urejenost}
+\subsection{Nadaljnje karakterizacije}
+
+
 \section{Cela števila}
 \section{Racionalna števila}
 \section{Realna števila}

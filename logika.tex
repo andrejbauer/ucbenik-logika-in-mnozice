@@ -8,7 +8,7 @@
 
 Preproste izjave, kot na primer \nls{$n$ je sodo število.}, že znamo zapisati s simboli: $2 \divides n$. Povečini pa delamo z bolj kompleksnimi, sestavljenimi izjavami. Tudi za te obstaja simbolni zapis; na primer, izjavo \nls{Če je $n$ sodo število, je tudi kvadrat števila $n$ sod.}, zapišemo kot $2 \divides n \implies 2 \divides n^2$. Seveda ta izjava velja za vsa naravna števila (znaš to dokazati?). To zapišemo takole: $\all{n}[\NN]{2 \divides n \implies 2 \divides n^2}$. V tem razdelku si bomo ogledali, kako povezati preprostejše izjave v bolj sestavljene in kako to v splošnem simbolno zapisati.
 
-Kot smo navajeni iz običajnih jezikov, posamične stavke povežemo v sestavljeno poved z \emph{vezniki}. Najpogosteje uporabljeni matematični vezniki so v tabeli~\ref{tabela:standardni-izjavni-vezniki}.
+Kot smo navajeni iz naravnih jezikov, posamične stavke povežemo v sestavljeno poved z \emph{vezniki}. Najpogosteje uporabljeni matematični vezniki so v tabeli~\ref{tabela:standardni-izjavni-vezniki}.
 
 \begin{table}[!ht]
 \centering
@@ -167,7 +167,7 @@ Zdaj lahko na pregleden način zapišemo, da je vsako naravno število od $2$ na
 
                 \davorin{Kako izrecno bomo ločevali med izjavami in njihovimi logičnimi vrednostmi?}
 
-                Izjavne veznike lahko potem formalno podamo kot preslikave. Na primer, negacija je preslikava $\lnot\colon \tvs \to \tvs$ (vsaki resničnostni vrednosti pripišemo njeno nasprotno vrednost). Preslikavo, definirano na majhni končni množici, lahko preprosto podamo s tabelo vseh njenih vrednosti. V primeru izjavnih veznikov takim tabelam rečemo \df{resničnostne tabele}. Resničnostna tabela za negacijo izgleda takole.
+                Izjavne veznike lahko potem formalno podamo kot preslikave. Na primer, negacija je preslikava $\lnot\colon \tvs \to \tvs$ (vsaki resničnostni vrednosti pripišemo njeno nasprotno vrednost). Preslikavo, definirano na majhni končni množici, lahko preprosto podamo s tabelo vseh njenih vrednosti. V primeru izjavnih veznikov takim tabelam rečemo \df{resničnostne tabele}. Resničnostna tabela za negacijo je videti takole.
                 \begin{center}
                         \begin{tabular}{c|c}
                                 $p$ & $\lnot{p}$ \\
@@ -182,7 +182,7 @@ Zdaj lahko na pregleden način zapišemo, da je vsako naravno število od $2$ na
 
                 V splošnem definiramo, da je \df{$n$-mestni izjavni veznik} preslikava oblike $\tvs^n \to \tvs$. Negacija je torej enomestni izjavni veznik, ostali vezniki, ki smo jih do zdaj omenili, pa so dvomestni.
 
-                Definirajmo zdaj konjunkcijo natančno preko resničnostne tabele. Množica $\tvs \times \tvs$ ima štiri elemente --- vse možne pare, sestavljene iz $\true$ oz.~$\false$. Intuitivni pomen konjunkcije razumemo: konjunkcija dveh izjav je resnična natanko tedaj, ko sta obe izjavi resnični. To nas vodi do naslednje tabele.
+                Definirajmo zdaj konjunkcijo natančno s pomočjo resničnostne tabele. Množica $\tvs \times \tvs$ ima štiri elemente --- vse možne pare, sestavljene iz $\true$ oz.~$\false$. Intuitivni pomen konjunkcije razumemo: konjunkcija dveh izjav je resnična natanko tedaj, ko sta obe izjavi resnični. To nas vodi do naslednje tabele.
                 \begin{center}
                         \begin{tabular}{cc|c}
                                 $p$ & $q$ & $p \land q$ \\
@@ -344,7 +344,7 @@ Zdaj lahko na pregleden način zapišemo, da je vsako naravno število od $2$ na
                         \item
                                 \df{izmenljiva} ali \df{komutativna}, kadar velja $a \oper b = b \oper a$ za vse $a, b \in X$ (na kratko: $a \oper b \equiv b \oper a$),
                         \item
-                                \df{družitvena} \davorin{ne spomnim se --- kako se že temu reče po slovensko?} ali \df{asociativna}, kadar velja $(a \oper b) \oper c = a \oper (b \oper c)$ za vse $a, b, c \in X$ (na kratko: $(a \oper b) \oper c \equiv a \oper (b \oper c)$),
+                                \df{družilna} ali \df{asociativna}, kadar velja $(a \oper b) \oper c = a \oper (b \oper c)$ za vse $a, b, c \in X$ (na kratko: $(a \oper b) \oper c \equiv a \oper (b \oper c)$),
                         \item
                                 \df{idempotentna} \davorin{a imamo slovenski izraz za to?}, kadar velja $a \oper a = a$ za vse $a \in X$ (torej $a \oper a \equiv a$).
                 \end{itemize}
@@ -433,7 +433,7 @@ Zdaj lahko na pregleden način zapišemo, da je vsako naravno število od $2$ na
                         \end{tabular}
                 \end{center}
 
-                Vidimo: vsi enomestni izjavni vezniki so obe konstantni funkciji v $\tvs$, identiteta na $\tvs$ in negacija.
+                Vidimo: enomestni izjavni vezniki so obe konstantni funkciji na $\tvs$, identiteta na $\tvs$ in negacija.
 
                 Kar se dvomestnih veznikov tiče, vidimo, da jih je $2^{2^2} = 2^4 = 16$.
 
@@ -443,7 +443,7 @@ Zdaj lahko na pregleden način zapišemo, da je vsako naravno število od $2$ na
 
                 Tromestnih veznikov je že $2^{2^3} = 2^8 = 256$ in ne bomo vseh naštevali. Kako pa bi kakega dobili? Preprost način je, da vzamemo tri spremenljivke in jih združimo z večimi znanimi vezniki, na primer $(p, q, r) \mapsto p \land \lnot{q} \impl r$.\footnote{Načeloma sploh ni nujno, da vse tri spremenljivke dejansko uporabimo. Na primer, $(p, q, r) \mapsto p \land q$ še vedno podaja tromestni veznik, saj gre za preslikavo $\tvs^3 \to \tvs$.}
 
-                Seveda se pojavi vprašanje, kako podati izjavne veznike, ki jih ne bi mogli sestaviti iz osnovnih. Izkaže se, da to ni problem: \emph{vsak veznik (ne glede na mestnost) je možno izraziti z osnovnimi}; pravzaprav zadostujejo že $\lnot$, $\land$ in $\lor$.
+                Seveda se pojavi vprašanje, ali obstajajo izjavni vezniki, ki jih ne bi mogli sestaviti iz osnovnih. Izkaže se, da je odgovor nikalen: \emph{vsak veznik (ne glede na mestnost) je možno izraziti z osnovnimi}; pravzaprav zadostujejo že $\lnot$, $\land$ in $\lor$.
 
                 Ideja je sledeča. Katerikoli izjavni veznik je oblike $V\colon \tvs^n \to \tvs$ in v celoti podan z resničnostno tabelo. Vzemimo konkreten primer; naj bo $V$ tromestni veznik, podan z naslednjo tabelo.
 
@@ -474,13 +474,13 @@ Zdaj lahko na pregleden način zapišemo, da je vsako naravno število od $2$ na
 
                 Iz tega primera je jasno, kako postopamo za poljuben izjavni veznik in zanj zapišemo DNO ali KNO. Opazimo: dolžina posamičnega člena, ki ga omejujejo oklepaji, je vedno enaka (vsebuje toliko literalov, kolikor je mestnost veznika), število teh členov pa razberemo iz stolpca, ki podaja vrednosti veznika v resničnostni tabeli. V primeru DNO je to število enako številu resnic $\true$, v primeru KNO pa številu neresnic $\false$. V zgornjem primeru sta bili DNO in KNO enako dolgi, ker smo imeli štiri $\true$ in $\false$, v splošnem pa se nam morda bolj splača uporabiti eno obliko kot drugo. Na primer, DNO implikacije se glasi $p \impl q \equiv (p \land q) \lor (\lnot{p} \land q) \lor (\lnot{p} \land \lnot{q})$, KNO pa je precej krajša: $p \impl q \equiv \lnot{p} \lor q$.
 
-                Vidimo pa, da tu naletimo na problem: kaj se zgodi, če se katera resničnostna vrednost v stolpcu veznika sploh ne pojavi --- z drugimi besedami, kaj če je funkcija, ki podaja veznik, konstantna? Najprej dajmo takim ime: izjavni veznik, ki je pri vseh argumentih resničen, se imenuje \df{istorečje} ali \df{tavtologija}, izjavni veznik, ki je vedno neresničen, pa se imenuje \df{protislovje} ali \df{kontradikcija}.
+                Vidimo pa, da tu naletimo na problem: kaj se zgodi, če se katera resničnostna vrednost v stolpcu veznika sploh ne pojavi --- z drugimi besedami, kaj če je funkcija, ki podaja veznik, konstantna? Najprej dajmo takim veznikom ime: izjavni veznik, ki je pri vseh argumentih resničen, se imenuje \df{istorečje} ali \df{tavtologija}, izjavni veznik, ki je vedno neresničen, pa se imenuje \df{protislovje} ali \df{kontradikcija}.
 
                 Za istorečje lahko vedno (ne glede na mestnost) zapišemo DNO (ki je sicer najdaljša možna), medtem ko bi KNO načeloma bila konjunkcija nič členov. Je to smiselno? V bistvu ja: če zahtevamo, da hkrati velja nič pogojev, je naša zahteva vedno izpolnjena. V tem smislu je konjunkcija nič členov enaka $\true$.
 
                 Poglejmo podobne primere iz računstva. Kaj je vsota nič členov? Odgovor je seveda $0$. To je enota za seštevanje, kar je smiselno: če nič členom prištejemo en člen, moramo imeti zgolj ta člen. Podobno sklepamo: zmnožek nič členov je enota za množenje $1$ --- če nič faktorjem dodamo še en faktor, imamo skupaj zgolj ta faktor. Spomni se tudi: $a^0 = 1$ in $0! = 1$. To, da je ničkratna uporabe neke operacije enaka enoti za to operacijo, se izide tudi za konjunkcijo: dejansko velja $p \land \true \equiv p \equiv \true \land p$ (preveri z resničnostno tabelo!).
 
-                Enak razmislek velja za protislovje. Zanj lahko zapišemo KNO na običajen način, medtem ko bi DNO bila disjunkcija nič členov. Smiselno je, da je disjunkcija nič členov enaka $\false$, tako zaradi tega, ker je $\false$ enota za disjunkcijo (preveri!), kot zaradi čisto intuitivnega razmisleka: kdaj je vsaj eden člen od nič členov resničen? Nikoli.
+                Enak razmislek velja za protislovje. Zanj lahko zapišemo KNO na običajen način, medtem ko bi DNO bila disjunkcija nič členov. Smiselno je, da je disjunkcija nič členov enaka $\false$, tako zaradi tega, ker je $\false$ enota za disjunkcijo (preveri!), kot zaradi čisto intuitivnega razmisleka: kdaj je vsaj en člen od nič členov resničen? Nikoli.
 
                 Vseeno je nekoliko nerodno delati s konjunkcijo ali disjunkcijo nič členov --- kako točno bi to zapisali? Da velja $V(p_1, p_2, \ldots, p_n) \equiv $? Če nič ne zapišemo, kako sploh vemo, ali smo mislili na ničkratno konjunkcijo, disjunkcijo ali katerokoli drugo operacijo? Nekateri se zato preprosto dogovorijo, da ne dopuščajo ničkratnih operacij v DNO oz.~KNO in potem štejejo, da istorečja nimajo KNO, protislovja pa ne DNO.
 
@@ -509,7 +509,7 @@ Zdaj lahko na pregleden način zapišemo, da je vsako naravno število od $2$ na
 
         \section{Predikati in kvantifikatorji}
 
-                \note{\qt{Lastnostim} elementov množic, ki smo jih prej uporabljali za podajanje podmnožic in pri kvantifikatorjih, zdaj \qt{uradno} rečemo \df{predikati} in jih formalno definiramo: predikat na množici $X$ je preslikava $X \to \tvs$. Karakteristične preslikave podmnožic. Spomnimo se kvantifikatorjev in jih definiramo kot preslikave $\tvs^X \to \tvs$. Povemo, da lahko imajo predikati več spremenljivk in da lahko kvantificiramo po samo nekaterih (dobimo torej preslikave oblike $\tvs^{X \times Y} \to \tvs^Y$). Vezane, nevezane spremenljivke. Pravila, ki veljajo za kvantifikatorje (de Morgan itd.).}
+                \note{\qt{Lastnostim} elementov množic, ki smo jih prej uporabljali za podajanje podmnožic in pri kvantifikatorjih, zdaj \qt{uradno} rečemo \df{predikati} in jih formalno definiramo: predikat na množici $X$ je preslikava $X \to \tvs$. Karakteristične preslikave podmnožic. Spomnimo se kvantifikatorjev in jih definiramo kot preslikave $\tvs^X \to \tvs$. Povemo, da lahko imajo predikati več spremenljivk in da lahko kvantificiramo po samo nekaterih (dobimo torej preslikave oblike $\tvs^{X \times Y} \to \tvs^Y$). Vezane, proste spremenljivke. Pravila, ki veljajo za kvantifikatorje (de Morgan itd.).}
 
 %%% Local Variables:
 %%% mode: latex
