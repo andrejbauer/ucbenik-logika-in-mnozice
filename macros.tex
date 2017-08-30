@@ -17,7 +17,9 @@
 
 \newcommand{\someref}{{\small\textcolor{blue}{[\textbf{ref.}]}}}
 \newcommand{\intermission}{\bigskip\medskip}
-\newcommand{\qt}[1]{{\quotedblbase}{#1}{‘‘}}  % text in quotation marks
+\newcommand{\ltc}[1]{$\backslash$\texttt{#1}}  % LaTeX command
+\newcommand{\sqt}[1]{{\quotesinglbase}{#1}{‘}}  % text in single quotation marks
+\newcommand{\qt}[1]{{\quotedblbase}{#1}{‘‘}}  % text in double quotation marks
 \newcommand{\nls}[1]{\qt{\textit{#1}}}  % sentence in a natural language
 
 \definecolor{andrejcolor}{rgb}{0.7,0,0.7}
@@ -142,6 +144,22 @@
 \newcommand{\transposed}[1]{\widehat{#1}}
 
 
+%%%%%%  Projections and Injections
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\NewDocumentCommand{\lpr}
+{O{\empty} O{\empty}}
+{\pi_{{#1}\ifthenelse{\equal{#2}{}}{}{,}{#2}}}
+\NewDocumentCommand{\rpr}
+{O{\empty} O{\empty}}
+{\rho_{{#1}\ifthenelse{\equal{#2}{}}{}{,}{#2}}}
+\NewDocumentCommand{\lin}
+{O{\empty} O{\empty}}
+{\iota_{{#1}\ifthenelse{\equal{#2}{}}{}{,}{#2}}}
+\NewDocumentCommand{\rin}
+{O{\empty} O{\empty}}
+{\kappa_{{#1}\ifthenelse{\equal{#2}{}}{}{,}{#2}}}
+
+
 %%%%%%  Misc.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \newcommand{\divides}[2]{#1 \mid #2} % deljivost
@@ -155,6 +173,7 @@
 \newcommand{\isdefined}[1]{{#1}\!\downarrow}  % given value is defined
 \newcommand{\kleq}{\simeq}  % Kleene equality
 \newcommand{\claim}[3]{{#1} \;\colon\; \frac{#2}{#3}}  % claim, divided on context, assumptions, conclusions
+\newcommand{\one}{\mathtt{\mathbf{1}}}  % generic singleton
 \newcommand{\unit}{\mathord{\boldsymbol{*}}}  % element in a generic singleton
 \NewDocumentEnvironment{implproof}  % proof of an implication
 {O{\empty} G{\empty} O{=>} G{\empty}}

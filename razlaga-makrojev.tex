@@ -1,0 +1,94 @@
+\chapter*{Pomembnejši makroji (razlaga uporabe)}
+
+\davorin{To poglavje je namenjeno zgolj za nas pisce, ne pa za bralce. Tu razložim uporabo nekaterih latexovskih makrojev, ki sem jih definiral. Če dodate svoje, katerih uporaba ni očitna, njihovo razlago prosim dodajte sem.}
+
+\newcommand{\ponazoritev}[2]{
+
+\medskip
+\begin{tabular}{lll}
+\textbf{Koda:} && \texttt{#1} \\[1ex]
+\textbf{Prikaz:} && {#2}
+\end{tabular}
+\bigskip
+
+}
+
+\section*{Nekateri zapisi}
+
+Za podajanje latexovskih ukazov uporabimo \ltc{ltc}. \davorin{Okolje \texttt{verbatim} ne deluje dobro znotraj makrojev, ampak če kdo ve, kako to razrešiti, naj popravi.}
+\ponazoritev{\ltc{ltc}\{sqrt$\backslash$\{2$\backslash$\}\}}{\ltc{sqrt\{2\}}}
+
+V slovenščini se uvodni narekovaji pišejo spodaj. Ker običajno zapisani narekovaji v LaTeXu ne delujejo tako, si definirajmo ukaz za besedila v narekovajih (tako za dvojne kot za enojne narekovaje).
+\ponazoritev{\ltc{qt}\{citat\}}{\qt{citat}}
+\ponazoritev{\ltc{sqt}\{citat\}}{\sqt{citat}}
+
+Včasih bomo želeli podati stavek v naravnem jeziku (namesto v simbolnem matematičnem).
+\ponazoritev{\ltc{nls}\{Stavek v naravnem jeziku.\}}{\nls{Stavek v naravnem jeziku.}}
+
+Za definirani izraz uporabimo \ltc{df}.
+\ponazoritev{Funkcija je \ltc{df}\{zvezna\}, kadar\ltc{ldots}}{Funkcija je \df{zvezna}, kadar\ldots}
+
+Za definicijsko enakost uporabimo \ltc{dfeq} oz.~za enakost v nasprotni smeri \ltc{revdfeq}.
+\ponazoritev{\textdollar{f(x,y) \ltc{dfeq} x + y}\textdollar}{$f(x,y) \dfeq x + y$}
+\ponazoritev{\textdollar{e\^{}2 + \ltc{pi} \ltc{revdfeq} a}\textdollar}{$e^2 + \pi \revdfeq a$}
+
+\section*{Množice}
+
+Za množice uporabimo ukaz \ltc{set}. Podamo lahko enega ali dva argumenta.
+\ponazoritev{\textdollar{\ltc{set}\{1,2,3\}}\textdollar}{$\set{1,2,3}$}
+\ponazoritev{\textdollar{\ltc{set}\{x \ltc{in} \ltc{RR}\}\{x > 1\}}\textdollar}{$\set{x \in \RR}{x > 1}$}
+
+Zaviti oklepaji se samodejno prilagajajo velikosti besedila.
+\ponazoritev{\textdollar{\ltc{set}\{1, \ltc{displaystyle}\{\ltc{frac}\{3\}\{4\}\}\} \ltc{cup} \ltc{set}\{x \ltc{in} \ltc{NN}\}\{x > 2\^{}\{2\^{}\{100\}\}\}}\textdollar}{$\set{1, \displaystyle{\frac{3}{4}}} \cup \set{x \in \NN}{x > 2^{2^{100}}}$}
+
+Če nam privzeta velikost oklepajev ni všeč, jo lahko spremenimo z izbirnim parametrom, ki je število od 0 do 4.
+\ponazoritev{\textdollar{\ltc{set}[0]\{0\}, \ltc{set}[1]\{1\}, \ltc{set}[2]\{2\}, \ltc{set}[3]\{3\}, \ltc{set}[4]\{4\}}\textdollar}{$\set[0]{0}, \set[1]{1}, \set[2]{2}, \set[3]{3}, \set[4]{4}$}
+
+Za generični enojec uporabimo ukaz \ltc{one}, za njegov element pa \ltc{unit}.
+\ponazoritev{\textdollar{\ltc{one} = \ltc{set}\{\ltc{unit}\}}\textdollar}{$\one = \set{\unit}$}
+
+\section*{Intervali}
+
+\davorin{Glej diskusijo, ki se trenutno nahaja v razdelku~2.1 (ampak to se bo spremenilo).}
+
+Za intervale uporabljamo ukaze \ltc{intoo}, \ltc{intoc}, \ltc{intco}, \ltc{intcc}, kjer \texttt{o} označuje odprtost, \texttt{c} pa zaprtost intervala. Krajišči intervala podamo kot argumenta.
+\ponazoritev{\textdollar{\ltc{intoo}\{0\}\{1\}, \ltc{intoc}\{2\}\{3\}, \ltc{intco}\{4\}\{5\}, \ltc{intcc}\{6\}\{7\}}\textdollar}{$\intoo{0}{1}, \intoc{2}{3}, \intco{4}{5}, \intcc{6}{7}$}
+
+Če želimo interval na neki drugi množici kot $\RR$, podamo to množico kot izbirni argument.
+\ponazoritev{\textdollar{\ltc{intco}[\ltc{NN}]\{1\}\{5\} = \ltc{set}\{1,2,3,4\}}\textdollar}{$\intco[\NN]{1}{5} = \set{1,2,3,4}$}
+
+\section*{Kvantifikatorji, $\lambda$- in $\iota$-izrazi}
+
+\davorin{Za kvantifikatorje sem vzel kot osnovo kodo, ki mi jo je posredoval Andrej že pred leti, sem pa jo nekoliko predelal in dopolnil.}
+
+Ukazi za kvantifikatorje so \ltc{all}, \ltc{some} in \ltc{exactlyone}. Obvezna argumenta sta kvantificirana spremenljivka in predikat, izbirna argumenta pa velikost oklepajev (deluje enako, kot pri \ltc{set}) in tip spremenljivke.
+\ponazoritev{\textdollar{\ltc{all}[1]\{x\}[X]\{\ltc{phi}(x) \ltc{implies} \ltc{psi}(x)\}}\textdollar}{$\all[1]{x}[X]{\phi(x) \implies \psi(x)}$}
+\ponazoritev{\textdollar{\ltc{some}\{x\}\{x > 2 \ltc{land} x < 4\}}\textdollar}{$\some{x}{x > 2 \land x < 4}$}
+
+Če ne želimo oklepajev, dodamo \texttt{x} na začetek imena ukaza.
+\ponazoritev{\textdollar{\ltc{xall}\{x\}[X]\{\ltc{xexactlyone}\{y\}[Y]\{\ltc{rel}[x][y]\}\}}\textdollar}{$\xall{x}[X]{\xexactlyone{y}[Y]{\rel[x][y]}}$}
+
+Ukazi za $\lambda$- in $\iota$-izraze delujejo enako, kot za kvantifikatorje, z edino razliko, da lahko pri $\lambda$-izrazih izbirno podamo še tip rezultata. Ukaza za izraze z oklepaji sta \ltc{lam} in \ltc{that}, brez oklepajev pa \ltc{xlam} in \ltc{xthat}.
+\ponazoritev{\textdollar{\ltc{lam}[1]\{x\}[\ltc{RR}]\{x\^{}2 + 1\}[\ltc{RR}]}\textdollar}{$\lam[1]{x}[\RR]{x^2 + 1}[\RR]$}
+\ponazoritev{\textdollar{\ltc{xlam}\{x\}\{e\^{}x\}}\textdollar}{$\xlam{x}{e^x}$}
+\ponazoritev{\textdollar{f(x) \ltc{dfeq} \ltc{xthat}\{y\}[Y]\{\ltc{rel}[x][y]\}}\textdollar}{$f(x) \dfeq \xthat{y}[Y]{\rel[x][y]}$}
+
+\section*{Projekcije in injekcije}
+
+Nismo še sprejeli odločitve, kako bomo označevali projekcije oz.~injekcije pri dvojiških produktih oz.~vsotah. Tudi ko jo bomo, bomo verjetno šli skozi več iteracij. Imejmo torej makroje zanje, ki jih bomo lahko na koncu poljubno spreminjali.
+
+\davorin{Projekcije in injekcije so naravne preslikave. Tega verjetno ne bomo omenjali študentom, dobro pa bi bilo, da se sami tega zavedamo in izrecno pišemo indekse komponent. Na ta način se izognemo zmedi v situacijah, kjer obravnavamo več kot en (ko)produkt.}
+
+Ukazi za leve oz.~desne projekcije oz.~injekcije so sledeči.
+\begin{center}
+\begin{tabular}{c|cc}
+& leva & desna \\
+\hline
+projekcija & \ltc{lpr} & \ltc{rpr} \\
+injekcija & \ltc{lin} & \ltc{rin}
+\end{tabular}
+\end{center}
+
+Tem ukazom kot izbirna parametra podamo faktorja oz.~sumanda.
+\ponazoritev{\textdollar{X \ltc{stackrel}\{\ltc{lpr}[X][Y]\}\{\ltc{longleftarrow}\} X \ltc{times} Y \ltc{stackrel}\{\ltc{rpr}[X][Y]\}\{\ltc{longrightarrow}\} Y}\textdollar}{$X \stackrel{\lpr[X][Y]}{\longleftarrow} X \times Y \stackrel{\rpr[X][Y]}{\longrightarrow} Y$}
+\ponazoritev{\textdollar{X \ltc{stackrel}\{\ltc{lin}[X][Y]\}\{\ltc{longrightarrow}\} X + Y \ltc{stackrel}\{\ltc{rin}[X][Y]\}\{\ltc{longleftarrow}\} Y}\textdollar}{$X \stackrel{\lin[X][Y]}{\longrightarrow} X + Y \stackrel{\rin[X][Y]}{\longleftarrow} Y$}
