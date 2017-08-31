@@ -17,7 +17,7 @@ Prvi, ki je znal to intuitivno predstavo preliti v natančno matematično defini
 
 Če boste brskali po literaturi, boste naleteli na mnogo različnih inačic Peanovih aksiomov, ki pa so seveda medsebojne ekvivalentne (razen kolikor se razlikujejo v tem, ali je najmanjše naravno število enota za seštevanje $0$ ali enota za množenje $1$). Mi bomo izbrali sledečo jedrnato različico.
 
-\begin{definicija}[Peano]
+\begin{definicija}[Peano]\label{definicija:naravna-stevila}
 \df{Množica naravnih števil} je množica (običajno označena z $\NN$), skupaj z izbranim njenim elementom (običajno označenim z $0$, kar beremo \qt{ničla} ali \qt{nič}) in preslikavo na tej množici (običajno označeno z $s\colon \NN \to \NN$, ki jo imenujemo \qt{naslednik}), kadar veljajo naslednje lastnosti:
 \begin{itemize}
 \item
@@ -25,11 +25,43 @@ $s$ je injektivna preslikava,
 \item
 $0 \notin \rn{s}$,
 \item
-velja načelo \df{matematične indukcije}:
+velja načelo \df{matematične indukcije}: če je $\phi$ predikat na $\NN$, za katerega velja
+\[\phi(0) \qquad\qquad \text{in} \qquad\qquad \all[2]{n}[\NN]{\phi(n) \implies \phi\big(s(n)\big)},\]
+tedaj $\phi$ velja za vse elemente $\NN$.
 \end{itemize}
 \end{definicija}
 
-Pojasnimo natančneje pomen teh pogojev.
+Poskusimo si zdaj natančno pojasniti pomen teh pogojev.
+
+S pomočjo elementa $0$ in preslikave $s$ lahko v nedogled generiramo elemente množice $\NN$. Začnemo z $0$, nato vzamemo naslednika in dobimo $s(0)$, nato vzamemo naslednika tega elementa in dobimo $s(s(0))$, nato naslednika $s(s(s(0)))$ itd. Takšen zapis je sicer precej nepraktičen --- si predstavljate, da rečete \qt{dobimo se čez naslednika od naslednika od naslednika od naslednika od naslednika ničle ur} (namesto \qt{dobimo se čez pet ur})? Zato sprejmemo dogovor: $s(0)$ označimo krajše z $1$ in preberemo \qt{ena}, $s(s(0))$ označimo z $2$ in preberemo \qt{dve} in tako naprej.\footnote{Trenutno dogovorjena sistematična imena za števila gredo do \df{centiljona}, ki ga zapišemo z enico, ki ji sledi 600 ničel (vsaj pri nas; ponekod po svetu centiljon pomeni enica s 303 ničlami). To pomeni, da lahko sistematično izrazimo števila do $10^{606}-1$ (= devetsto devetindevetdeset centiljard devetsto devetindevetdeset centiljonov devetsto devetindevetdeset novemnonagintiljard\ldots). Nekateri razširijo to lestvico še z nadaljnjimi latinskimi izpeljankami, obstajajo pa tudi posebna imena za nekatera posamična velika števila, na primer \df{gugol} za $10^{100}$ (od tod izhaja ime spletnega brskalnika Google).}
+
+Smo na ta način dobili neskončno različnih elementov $\NN$? Če ne bi zahtevali zgornjih pogojev, to ne bi bilo nujno. Lahko bi se namreč zaciklali (v smislu, da je naslednik nekega elementa element, ki smo ga že prej navedli).
+
+Včasih je takšno zaciklanje nekaj, kar dejansko hočemo. Na primer, pri algebri boste spoznali tako imenovane \df{ciklične grupe}. Ciklično grupo z $n$ elementi označimo $\ZZ_n$, njene elemente pa kar z $0, 1, \ldots, n-1$. Spodaj je slika ciklične grupe $\ZZ_5$.
+
+\note{slika usmerjenega grafa, ki predstavlja $\ZZ_5$}
+
+Puščice označujejo, kako slika naslednik v tej grupi: naslednik $0$ je $1$, naslednik $1$ je $2$, naslednik $2$ je $3$, naslednik $3$ je $4$, nato pa se zacikla in naslednik $4$ je $0$.
+
+Pogoj $0 \notin \rn{s}$ reče, da nič ni naslednik nobenega naravnega števila. Na ta način se izognemo, da bi naravna števila tvorila ciklično grupo.
+
+Obstaja pa še en način, kako se lahko jemanje naslednika zacikla. Vzemimo spodnji primer.
+
+\note{slike polgrupe $\set{0, \ldots, 4}$, ki se zacikla $4 \to 2$}
+
+Nasledniki se lahko zaciklajo tudi pri elementu, ki ni $0$. V danem primeru je naslednik $0$ element $1$, naslednik $1$ je $2$, naslednik $2$ je $3$, naslednik $3$ je $4$, naslednik $4$ pa je $2$.
+
+Zakaj naravna števila niso taka? Ker v danem primeru $s$ ni injektivna preslikava. Pogoj o injektivnosti nam v bistvu pove sledeče: naravna števila se ne morejo zaciklati pri nobenem nasledniku.
+
+Vidimo, da se naravna števila ne morejo zaciklati niti na začetku (pri $0$) niti nekje vmes v verigi naslednikov --- torej gredo v nedogled, kot želimo. Z drugimi besedami, $0$, $s(0)$, $s(s(0))$, $s(s(s(0)))$,\ldots so medsebojno različni elementi množice $\NN$ in naravnih števil je posledično neskončno.
+
+Čemu pa služi zadnji pogoj iz definicije~\ref{definicija:naravna-stevila}, tj.~načelo o indukciji? Že brez tega pogoja vemo, da so $0$, $s(0)$, $s(s(0))$, $s(s(s(0)))$,\ldots naravna števila, česar pa ne vemo, je, da so to \emph{vsa} naravna števila --- da torej ni nobenih drugih.
+
+\begin{vaja}
+Premisli, da množice $\ZZ$, $\QQ$, $\RR$ in $\CC$ z naslednikom $s(x) \dfeq x+1$ zadoščajo vsem pogojem iz definicije~\ref{definicija:naravna-stevila}, razen načelu indukcije.
+\end{vaja}
+
+Vidimo, da bi brez načela indukcije lahko imeli v množici $\NN$ odvečna števila (takšna, ki jih ne štejemo kot naravna).
 
 \subsection{Indukcija}
 \subsection{Rekurzija}
