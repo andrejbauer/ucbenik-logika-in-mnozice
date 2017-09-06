@@ -136,7 +136,18 @@ za vse $n \in \NN$.
 \begin{dokaz}
 \end{dokaz}
 
+Rekurzijo smo na ta način izpeljali iz indukcije, poudarimo pa, da je možen tudi obraten pristop: načelo o rekurziji vzamemo kot osnoven aksiom naravnih števil \emph{namesto} indukcije, nato pa od tod izpeljemo načelo o indukciji. Poglejmo, kako to storimo.
+
+Vzemimo poljuben predikat $\phi\colon \NN \to \tvs$, za katerega velja $\phi(0)$ in $\all[2]{n}[\NN]{\phi(n) \implies \phi\big(\suc[n]\big)}$. Po načelu rekurzije obstaja natanko ena preslikava $f\colon \NN \to \tvs$, za katero velja $f(0) = \true$ in $f\big(\suc[n]\big) = f(n) \lor \phi\big(\suc[n]\big)$ za vse $n \in \NN$. Ampak predikat $\phi$ sam zadošča tema pogojema, saj lahko izjavo $\phi(n) \implies \phi\big(\suc[n]\big)$ enakovredno zapišemo kot $\phi\big(\suc[n]\big) = \phi(n) \lor \phi\big(\suc[n]\big)$. Očitno pa tudi povsod resničen predikat zadošča danima pogojema, od koder zaključimo $\phi = \xlam{n}[\NN]{\true}$.
+
+V tem smislu sta načeli rekurzije in indukcije enakovredni. Kot vidimo, lahko pravzaprav na indukcijo gledamo kot na poseben primer rekurzije, konkretno za preslikave oblike $\NN \to \tvs$. To nam pove, da je ta primer tako generičen, da je iz njega možno dobiti načelo za poljubne preslikave oblike $\NN \times X \to Y$.
+
 \subsection{Računske operacije}
+
+Uporabimo zdaj izpeljano rekurzijo za natančno matematično definicijo strukture na naravnih številih, ki jo neformalno poznate že od malih nog.
+
+\note{Definicija in dokaz lastnosti seštevanja, množenja in odsekanega odštevanja \davorin{ali kakor bomo že pač prevedli \qt{cut-off subtraction}} --- slednje bo prav prišlo kasneje pri celih številih. \davorin{tudi potenciranje, ampak to bi prihranil za vajo}}
+
 \subsection{Urejenost}
 \subsection{Nadaljnje karakterizacije}
 
