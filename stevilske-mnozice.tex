@@ -11,6 +11,8 @@ V tem poglavju se bomo sistematično lotili obravnave najpogosteje uporabljanih 
 
 \section{Naravna števila}
 
+\subsection{Peanovi aksiomi}
+
 Če vas kdo vpraša, kako dobiti vsa naravna števila, verjetno odgovorite nekaj v naslednjem smislu: naravna števila so $0$ in vsa tista števila, ki jih dobite s prištevanjem enice, tj.~jemanjem naslednika. Torej, začnemo z $0$, vzamemo naslednika in dobimo $1$, nato še enkrat vzamemo naslednika in dobimo $2$ itd.
 
 Prvi, ki je znal to intuitivno predstavo preliti v natančno matematično definicijo, je bil Peano\footnote{Giuseppe Peano (1858 -- 1932) je bil italijanski matematik.} komaj dobro stoletje nazaj. Pogoje, ki jih zahtevamo za neko množico, da jo lahko imenujemo \qt{množica naravnih števil}, po njem imenujemo \df{Peanovi aksiomi}. \davorin{Nekje bomo predebatirali, kaj je aksiom in zakaj jih uporabljamo. Peanove aksiome povežimo s tem.}
@@ -26,14 +28,14 @@ $\suc$ je injektivna preslikava,
 $0 \notin \rn{\suc}$,
 \item
 velja načelo \df{matematične indukcije}: če je $\phi$ predikat na $\NN$, za katerega velja
-\[\phi(0) \qquad\qquad \text{in} \qquad\qquad \all[2]{n}[\NN]{\phi(n) \implies \phi\big(\suc(n)\big)},\]
+\[\phi(0) \qquad\qquad \text{in} \qquad\qquad \all[2]{n}[\NN]{\phi(n) \implies \phi\big(\suc[n]\big)},\]
 tedaj $\phi$ velja za vse elemente $\NN$.
 \end{itemize}
 \end{definicija}
 
 Poskusimo si zdaj natančno pojasniti pomen teh pogojev.
 
-S pomočjo elementa $0$ in preslikave $\suc$ lahko v nedogled generiramo elemente množice $\NN$. Začnemo z $0$, nato vzamemo naslednika in dobimo $\suc(0)$, nato vzamemo naslednika tega elementa in dobimo $\suc(\suc(0))$, nato naslednika $\suc(\suc(\suc(0)))$ itd. Takšen zapis je sicer precej nepraktičen --- si predstavljate, da rečete \qt{dobimo se čez naslednika od naslednika od naslednika od naslednika od naslednika ničle ur} (namesto \qt{dobimo se čez pet ur})? Zato sprejmemo dogovor: $\suc(0)$ označimo krajše z $1$ in preberemo \qt{ena}, $\suc(\suc(0))$ označimo z $2$ in preberemo \qt{dve} in tako naprej.\footnote{Trenutno dogovorjena sistematična imena za števila gredo do \df{centiljona}, ki ga zapišemo z enico, ki ji sledi 600 ničel (vsaj pri nas; ponekod po svetu centiljon pomeni enica s 303 ničlami). To pomeni, da lahko sistematično izrazimo števila do $10^{606}-1$ (= devetsto devetindevetdeset centiljard devetsto devetindevetdeset centiljonov devetsto devetindevetdeset novemnonagintiljard\ldots). Nekateri razširijo to lestvico še z nadaljnjimi latinskimi izpeljankami, obstajajo pa tudi posebna imena za nekatera posamična velika števila, na primer \df{gugol} za $10^{100}$ (od tod izhaja ime spletnega brskalnika Google).}
+S pomočjo elementa $0$ in preslikave $\suc$ lahko v nedogled generiramo elemente množice $\NN$. Začnemo z $0$, nato vzamemo naslednika in dobimo $\suc[0]$, nato vzamemo naslednika tega elementa in dobimo $\suc(\suc[0])$, nato naslednika $\suc(\suc(\suc[0]))$ itd. Takšen zapis je sicer precej nepraktičen --- si predstavljate, da rečete \qt{dobimo se čez naslednika od naslednika od naslednika od naslednika od naslednika ničle ur} (namesto \qt{dobimo se čez pet ur})? Zato sprejmemo dogovor: $\suc[0]$ označimo krajše z $1$ in preberemo \qt{ena}, $\suc(\suc[0])$ označimo z $2$ in preberemo \qt{dve} in tako naprej.\footnote{Trenutno dogovorjena sistematična imena za števila gredo do \df{centiljona}, ki ga zapišemo z enico, ki ji sledi 600 ničel (vsaj pri nas; ponekod po svetu centiljon pomeni enica s 303 ničlami). To pomeni, da lahko sistematično izrazimo števila do $10^{606}-1$ (= devetsto devetindevetdeset centiljard devetsto devetindevetdeset centiljonov devetsto devetindevetdeset novemnonagintiljard\ldots). Nekateri razširijo to lestvico še z nadaljnjimi latinskimi izpeljankami, obstajajo pa tudi posebna imena za nekatera posamična velika števila, na primer \df{gugol} za $10^{100}$ (od tod izhaja ime spletnega brskalnika Google).}
 
 Smo na ta način dobili neskončno različnih elementov $\NN$? Če ne bi zahtevali zgornjih pogojev, to ne bi bilo nujno. Lahko bi se namreč zaciklali (v smislu, da je naslednik nekega elementa element, ki smo ga že prej navedli).
 
@@ -53,47 +55,87 @@ Nasledniki se lahko zaciklajo tudi pri elementu, ki ni $0$. V danem primeru je n
 
 Zakaj naravna števila niso taka? Ker v danem primeru $\suc$ ni injektivna preslikava. Pogoj o injektivnosti nam v bistvu pove sledeče: naravna števila se ne morejo zaciklati pri nobenem nasledniku.
 
-Vidimo, da se naravna števila ne morejo zaciklati niti na začetku (pri $0$) niti nekje vmes v verigi naslednikov --- torej gredo v nedogled, kot želimo. Z drugimi besedami, $0$, $\suc(0)$, $\suc(\suc(0))$, $\suc(\suc(\suc(0)))$,\ldots so medsebojno različni elementi množice $\NN$ in naravnih števil je posledično neskončno.
+Vidimo, da se naravna števila ne morejo zaciklati niti na začetku (pri $0$) niti nekje vmes v verigi naslednikov --- torej gredo v nedogled, kot želimo. Z drugimi besedami, $0$, $\suc[0]$, $\suc(\suc[0])$, $\suc(\suc(\suc[0]))$,\ldots so medsebojno različni elementi množice $\NN$ in naravnih števil je posledično neskončno.
 
-Čemu pa služi zadnji pogoj iz definicije~\ref{definicija:naravna-stevila}, tj.~načelo o indukciji? Že brez tega pogoja vemo, da so $0$, $\suc(0)$, $\suc(\suc(0))$, $\suc(\suc(\suc(0)))$,\ldots naravna števila, česar pa ne vemo, je, da so to \emph{vsa} naravna števila --- da torej ni nobenih drugih.
+Čemu pa služi zadnji pogoj iz definicije~\ref{definicija:naravna-stevila}, tj.~načelo o indukciji? Že brez tega pogoja vemo, da so $0$, $\suc[0]$, $\suc(\suc[0])$, $\suc(\suc(\suc[0]))$,\ldots naravna števila, česar pa ne vemo, je, da so to \emph{vsa} naravna števila --- da torej ni nobenih drugih.
 
 \begin{vaja}
-Premisli, da množica $\RR_{> -1}$ z naslednikom $\suc(x) \dfeq x+1$ zadošča vsem pogojem iz definicije~\ref{definicija:naravna-stevila}, razen načelu indukcije.
+Premisli, da množica $\RR_{> -1}$ z naslednikom $\suc[x] \dfeq x+1$ zadošča vsem pogojem iz definicije~\ref{definicija:naravna-stevila}, razen načelu indukcije.
 \end{vaja}
 
-Vidimo, da bi brez načela indukcije lahko imeli v množici $\NN$ odvečna števila (takšna, ki jih ne štejemo kot naravna). S predpostavko o indukciji se to ne more zgoditi. Ta namreč pravi: če neka lastnost velja za začetni element verige $0$, $\suc(0)$, $\suc(\suc(0))$, $\suc(\suc(\suc(0)))$,\ldots in če lahko sklepamo, da kakor hitro ta lastnost velja za določen element verige, velja tudi za naslednjega, potem ta lastnost velja za vsa naravna števila. Če za lastnost vzamemo \qt{biti element te verige}, iz načela o indukciji sklenemo, da se vsako naravno število nahaja nekje v tej verigi. Peanovi aksiomi torej podajajo strukturo, ki ustreza naši intuitivni predstavi množice naravnih števil.
+Vidimo, da bi brez načela indukcije lahko imeli v množici $\NN$ odvečna števila (takšna, ki jih ne štejemo kot naravna). S predpostavko o indukciji se to ne more zgoditi. Ta namreč pravi: če neka lastnost velja za začetni element verige $0$, $\suc[0]$, $\suc(\suc[0])$, $\suc(\suc(\suc[0]))$,\ldots in če lahko sklepamo, da kakor hitro ta lastnost velja za določen element verige, velja tudi za naslednjega, potem ta lastnost velja za vsa naravna števila. Če za lastnost vzamemo \qt{biti element te verige}, iz načela o indukciji sklenemo, da se vsako naravno število nahaja nekje v tej verigi. Peanovi aksiomi torej podajajo strukturo, ki ustreza naši intuitivni predstavi množice naravnih števil.
 
-\subsection{Indukcija}
-
-Glede na to, da je načelo o matematični indukciji eden od osnovnih aksiomov, s katerimi so naravna števila podana, ne preseneča, da je indukcija eden najpogostejših načinov, kako dokazujemo izjave na naravnih številih. V tem podrazdelku si bomo podrobneje ogledali, kako deluje indukcija v praksi.
-
-Z matematično indukcijo dokazujemo univerzalno kvantificirane izjave na naravnih številih, torej izjave oblike
+Glede na to, da je načelo o matematični indukciji eden od osnovnih aksiomov, s katerimi so naravna števila podana, ne preseneča, da je indukcija eden najpogostejših načinov, kako dokazujemo izjave na naravnih številih. Natančneje rečeno, z matematično indukcijo dokazujemo univerzalno kvantificirane izjave na naravnih številih, torej izjave oblike
 \[\xall{n}[\NN]{\phi(n)}.\]
 Po načelu indukcije za dokaz take izjave zadostuje narediti naslednje. Najprej dokažemo
 \[\phi(0)\]
 (da torej lastnost $\phi$ velja za začetno naravno število). To imenujemo \df{temelj} ali \df{osnova} ali \df{baza} indukcije. Nato dokažemo izjavo
-\[\all[2]{n}[\NN]{\phi(n) \implies \phi\big(\suc(n)\big)};\]
+\[\all[2]{n}[\NN]{\phi(n) \implies \phi\big(\suc[n]\big)};\]
 to imenujemo \df{indukcijski korak}. Z besedami, dokažemo, da kakor hitro velja lastnost $\phi$ za neko naravno število, mora veljati ta lastnost tudi za naslednje.
 
 Intuitivno je jasno, da to mora delovati. Temelj indukcije nam pove, da dana lastnost velja za $0$. Ker zdaj vemo, da velja za $0$, mora po indukcijskem koraku veljati za naslednika ničle, torej za $1$. Zdaj vemo, da velja za $1$, torej mora po indukcijskem koraku veljati tudi za $2$. Tako nadaljujemo: sklepamo, da lastnost velja za $3$, nato za $4$ in tako naprej. Ker se vsa naravna števila pojavijo v verigi naslednikov ničle, mora z indukcijo dokazana lastnost dejansko veljati za vsa naravna števila.
 
-Oglejmo si nekaj dokazov konkretnih izjav z indukcijo.
-
-\note{preprosti primeri dokazov z indukcijo}
-
-\note{Od tod naprej obravnavano variante indukcije.}
-
-\note{indukcija na $\NN_{\geq n}$ ($n \in \NN$) in na $\ZZ_{\geq n}$ ($n \in \ZZ$)}
-
-\note{indukcija v dve smeri na $\ZZ$}
-
-\note{dvojna indukcija na $\NN \times \NN$ in splošneje večkratna gnezdena indukcija na $\NN^k$}
-
-\note{indukcija s parametrom na $\NN \times X$}
-
-\note{krepka indukcija (indukcijski korak se skliče na vsa manjša števila namesto na predhodnika; baza krepke indukcije ni potrebna)}
+V poglavju~\ref{poglavje:indukcija} se bomo vrnili k indukciji, jo natančneje preučili in si ogledali primere dokazovanja z njo. Na tem mestu pa jo bomo uporabili za izpeljavo \emph{rekurzije}, ki nam bo služila za definicijo nadaljnje strukture na naravnih številih.
 
 \subsection{Rekurzija}
+
+Poenostavljeno povedano, rekurzija pomeni, da določimo vrednost preslikave pri nekem argumentu iz (že prej naračunanih) vrednosti pri manjših argumentih. Tipičen primer rekurzivno podane preslikave je faktoriela: če zapišemo $0! \dfeq 1$ in $n! \dfeq (n+1) \cdot n!$ za vse $n \in \NN$, smo s tem enolično podali preslikavo $!\colon \NN \to \NN$.
+
+Naračunajmo nekaj vrednosti te preslikave. Neposredno iz definicije dobimo $0! = 1$ --- to je \df{temelj} oz.~\df{osnova} oz.~\df{baza} rekurzije. Od tod s pomočjo \df{rekurzijskega koraka} izpeljemo
+\[1! = 1 \cdot 0! = 1 \cdot 1 = 1.\]
+S pomočjo te vrednosti in z rekurzijskim korakom lahko naračunamo vrednost faktoriele pri naslednjem naravnem številu.
+\[2! = 2 \cdot 1! = 2 \cdot 1 = 2\]
+In tako naprej.
+\[3! = 3 \cdot 2! = 3 \cdot 2 = 6\]
+\[4! = 4 \cdot 3! = 4 \cdot 6 = 24\]
+\[5! = 5 \cdot 4! = 5 \cdot 24 = 120\]
+\[\vdots\]
+Vidimo, da lahko po tem postopku prej ali slej naračunamo $n!$ za poljuben $n \in \NN$.
+
+V primeru faktoriele smo neko vrednost naračunali iz predhodne, uporabljajo se pa tudi splošnejše rekurzivne definicije, kjer vrednost naračunamo iz večih prejšnjih. Slovit primer je \df{Fibonaccijevo zaporedje} $F\colon \NN \to \NN$, podano kot $F_0 \dfeq 0$, $F_1 \dfeq 1$ in $F_{n+2} \dfeq F_{n+1} + F_n$ za vse $n \in \NN$. Od tod lahko naračunamo:
+\begin{align*}
+F_0 &= 0, \\
+F_1 &= 1, \\
+F_2 &= F_1 + F_0 = 1 + 0 = 1, \\
+F_3 &= F_2 + F_1 = 1 + 1 = 2, \\
+F_4 &= F_3 + F_2 = 2 + 1 = 3, \\
+F_5 &= F_4 + F_3 = 3 + 2 = 5, \\
+F_6 &= F_5 + F_4 = 5 + 3 = 8, \\
+&\vdots
+\end{align*}
+Bo pa za naše potrebe zaenkrat zadostovala oblika rekurzije, kjer se skličemo samo na en predhodni člen, in na tako se bomo v tej knjigi tudi omejili. \davorin{Lahko pa vseeno v kakšni vaji zahtevamo od študentov, da zapišejo in dokažejo splošnejše načelo rekurzije.}
+
+Zakaj bi pa sploh podajali preslikave rekurzivno namesto z izrecnim (eksplicitnim) predpisom? Včasih to sledi iz narave problema. Na primer, imamo stanje, ki se razvija korak za korakom, kjer je trenutno stanje odvisno od prejšnjega. Zanima nas, kako se naš sistem razvija, in v tem primeru je naravno podati trenutno stanje sistema kot rekurzivno preslikavo. \note{ponazorimo s primerom}
+
+Včasih preslikavo podamo rekurzivno, ker je rekurzivni predpis mnogo enostavnejši kot izrecni. Na primer, izrecna predpisa za faktorielo in Fibonaccijevo zaporedje sta
+\[n! = \int_0^\infty x^n e^{-x} \; dx\]
+in
+\[F_n = \frac{\Big(\frac{1+\sqrt{5}}{2}\Big)^n - \Big(\frac{1-\sqrt{5}}{2}\Big)^n}{\sqrt{5}}.\]
+Odvisno od tega, katera vrednost vas zanima, utegneta biti ta dva predpisa mnogo bolj okorna za računanje, kot pa rekurzivna. Pravzaprav nekaj časa traja, da sploh dokažete, da so rezultati teh predpisov naravna števila!
+
+Včasih pa preslikavo podamo rekurzivno preprosto zato, ker nimamo druge možnosti. Zgornja predpisa sicer podajata preslikavi izrecno, ampak cena za to je uporaba zapletenih operacij na realnih številih, kot so integral, eksponentna funkcija z naravno osnovo in korenjenje. Strogo vzeto smo zaenkrat od številskih množic definirali samo naravna števila, pa še zanje znamo povedati zgolj, kaj je $0$ in kaj je naslednik. V bistvu še ne \qt{znamo} niti seštevati!
+
+S pomočjo rekurzije bomo lahko definirali ostalo strukturo, ki jo poznamo na naravnih številih: seštevanje, množenje in tako naprej. Za začetek pa natančno izoblikujmo in dokažimo načelo o rekurziji na naravnih številih. Iz zgornje razprave je jasno, da je rekurzija tesno povezana z indukcijo, od koder jo bomo tudi izpeljali.
+
+\begin{izrek}[Načelo rekurzije]
+Imejmo poljubni množici $X$ in $Y$ ter preslikavi $b\colon X \to Y$ in $r\colon \NN \times X \times Y \to Y$. Tedaj obstaja natanko ena preslikava $f\colon \NN \times X \to Y$, za katero velja
+\[f(0, x) = b(x)\]
+in
+\[f\big(\suc[n], x\big) = r\big(n, x, f(n)\big)\]
+za vse $x \in X$ in $n \in \NN$.
+
+Temu natančneje rečemo \df{načelo parametrizirane rekurzije}, ker pri preslikavi $f$ na naravnih številih dopuščamo še poljuben parameter iz množice $X$. Če za $X$ vzamemo enojec, se zgornja izjava reducira na sledeče \df{načelo neparametrizirane rekurzije}.
+
+Če imamo množico $Y$, element $b \in Y$ in preslikavo $r\colon \NN \times Y \to Y$, tedaj obstaja natanko ena preslikava $f\colon \NN \to Y$, za katero velja
+\[f(0) = b\]
+in
+\[f\big(\suc[n]\big) = r\big(n, f(n)\big)\]
+za vse $n \in \NN$.
+\end{izrek}
+
+\begin{dokaz}
+\end{dokaz}
+
 \subsection{Računske operacije}
 \subsection{Urejenost}
 \subsection{Nadaljnje karakterizacije}

@@ -175,7 +175,8 @@
 \newcommand{\claim}[3]{{#1} \;\colon\; \frac{#2}{#3}}  % claim, divided on context, assumptions, conclusions
 \newcommand{\one}{\mathtt{\mathbf{1}}}  % generic singleton
 \newcommand{\unit}{\mathord{\boldsymbol{*}}}  % element in a generic singleton
-\newcommand{\suc}{s}  % successor
+\newcommand{\suc}[1][]{s\ifthenelse{\equal{#1}{}}{}{({#1})}}  % successor
+\newcommand{\wf}{\prec}  % well-founded order
 \NewDocumentEnvironment{implproof}  % proof of an implication
 {O{\empty} G{\empty} O{=>} G{\empty}}
 {
