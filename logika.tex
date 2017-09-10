@@ -6,7 +6,7 @@
 
 \section{Logični simboli}\label{razdelek:logicni-simboli}
 
-Preproste izjave, kot na primer \nls{$n$ je sodo število.}, že znamo zapisati s simboli: $2 \divides n$. Povečini pa delamo z bolj kompleksnimi, sestavljenimi izjavami. Tudi za te obstaja simbolni zapis; na primer, izjavo \nls{Če je $n$ sodo število, je tudi kvadrat števila $n$ sod.}, zapišemo kot $2 \divides n \implies 2 \divides n^2$. Seveda ta izjava velja za vsa naravna števila (znaš to dokazati?). To zapišemo takole: $\all{n}[\NN]{2 \divides n \implies 2 \divides n^2}$. V tem razdelku si bomo ogledali, kako povezati preprostejše izjave v bolj sestavljene in kako to v splošnem simbolno zapisati.
+Preproste izjave, kot na primer \nls{$n$ je sodo število.}, že znamo zapisati s simboli: $2 \divides n$. Povečini pa delamo z bolj kompleksnimi, sestavljenimi izjavami. Tudi za te obstaja simbolni zapis; na primer, izjavo \nls{Če je $n$ sodo število, je tudi kvadrat števila $n$ sod.}, zapišemo kot $2 \divides n \implies 2 \divides n^2$. Seveda ta izjava velja za vsa naravna števila (znaš to dokazati?). To zapišemo takole: $\all{n \in \NN} (2 \divides n \implies 2 \divides n^2)$. V tem razdelku si bomo ogledali, kako povezati preprostejše izjave v bolj sestavljene in kako to v splošnem simbolno zapisati.
 
 Kot smo navajeni iz naravnih jezikov, posamične stavke povežemo v sestavljeno poved z \emph{vezniki}. Najpogosteje uporabljeni matematični vezniki so v tabeli~\ref{tabela:standardni-izjavni-vezniki}.
 
@@ -108,9 +108,9 @@ Lastnosti, odvisne od spremenljivk, lahko \emph{kvantificiramo} po njihovih spre
 \hline
 \textbf{Kvantifikator} & \textbf{Oznaka} & \textbf{Kako preberemo} \\
 \hline
-univerzalni kvantifikator & $\xall{x}[X]{\phi(x)}$ & za vsak $x$ iz $X$ velja lastnost $\phi$ \\
-eksistenčni kvantifikator & $\xsome{x}[X]{\phi(x)}$ & obstaja $x$ iz $X$ z lastnostjo $\phi$ \\
-\note{kako se temu reče?} & $\xexactlyone{x}[X]{\phi(x)}$ & obstaja natanko en $x$ iz $X$ z lastnostjo $\phi$ \\
+univerzalni kvantifikator & $\all{x \in X} \phi(x)$ & za vsak $x$ iz $X$ velja lastnost $\phi$ \\
+eksistenčni kvantifikator & $\some{x \in X} \phi(x)$ & obstaja $x$ iz $X$ z lastnostjo $\phi$ \\
+\note{kako se temu reče?} & $\exactlyone{x \in X} \phi(x)$ & obstaja natanko en $x$ iz $X$ z lastnostjo $\phi$ \\
 \hline
 \end{tabular}
 \caption{Kvantifikatorji}\label{tabela:kvantifikatorji}
@@ -118,16 +118,16 @@ eksistenčni kvantifikator & $\xsome{x}[X]{\phi(x)}$ & obstaja $x$ iz $X$ z last
 
 Oznaki $\forall$ in $\exists$ sta narobe obrnjena A in E in izhajata iz nemščine (\textbf{a}ll, \textbf{e}xistiert).
 
-Seveda je tudi kvantificirana spremenljivka nema in jo lahko poljubno preimenujemo. Izjavi $\xall{x}[X]{\phi(x)}$ in $\xall{y}[X]{\phi(y)}$ povesta natanko isto: vsi elementi množice $X$ imajo lastnost $\phi$.
+Seveda je tudi kvantificirana spremenljivka nema in jo lahko poljubno preimenujemo. Izjavi $\all{x \in X} \phi(x)$ in $\all{y \in X} \phi(y)$ povesta natanko isto: vsi elementi množice $X$ imajo lastnost $\phi$.
 
 \begin{zgled}
 Vemo, da za vsako nenegativno realno število obstaja enolično določen nenegativen kvadratni koren; to izjavo lahko zapišemo na sledeči način.
-\[\xall{a}[\RR_{\geq 0}]{\xexactlyone{b}[\RR_{\geq 0}]{b^2 = a}}\]
+\[\all{a \in \RR_{\geq 0}} \exactlyone{b \in \RR_{\geq 0}} b^2 = a\]
 Zaradi tega lahko definiramo kvadratni koren kot funkcijo $\sqrt{\phantom{I}}\colon \RR_{\geq 0} \to \RR_{\geq 0}$ \note{več o tem kasneje}.
 \end{zgled}
 
 Po dogovoru kvantifikatorji vežejo močneje kot izjavni vezniki. Izjavo, da je vsako celo število bodisi sodo bodisi liho, torej zapišemo takole.
-\[\all[2]{a}[\ZZ]{2 \divides a \xor 2 \divides (a-1)}\]
+\[\all{a \in \ZZ} (2 \divides a \xor 2 \divides (a-1))\]
 
 \begin{zgled}
 Za poljubno naravno število $n \in \NN$ naj $P(n)$ označuje izjavo, da je $n$ praštevilo. Torej, $P$ definiramo takole.
@@ -135,11 +135,11 @@ Za poljubno naravno število $n \in \NN$ naj $P(n)$ označuje izjavo, da je $n$ 
 (Premisli, kaj bi se zgodilo, če bi namesto stroge disjunkcije vzeli navadno. Bi še vedno dobili pravilni pojem praštevila?)
 
 Naj $S(n)$ označuje, da je $n$ sestavljeno število.
-\[S(n) \dfeq \xsome{x, y}[\intoo[\NN]{1}{n}]{x \cdot y = n}\]
-(Kadar imamo več zaporednih kvantifikatorjev iste vrste, jih po dogovoru lahko strnemo kot zgoraj. Dana formula za $S(n)$ je krajši zapis za $\xsome{x}[\intoo[\NN]{1}{n}]{\xsome{y}[\intoo[\NN]{1}{n}]{x \cdot y = n}}$.)
+\[S(n) \dfeq \some{x, y \in \intoo[\NN]{1}{n}} x \cdot y = n\]
+(Kadar imamo več zaporednih kvantifikatorjev iste vrste, jih po dogovoru lahko strnemo kot zgoraj. Dana formula za $S(n)$ je krajši zapis za $\some{x \in \intoo[\NN]{1}{n}} \some{y \in \intoo[\NN]{1}{n}} x \cdot y = n$.)
 
 Zdaj lahko na pregleden način zapišemo, da je vsako naravno število od $2$ naprej bodisi praštevilo bodisi sestavljeno.
-\[\all[1]{n}[\NN_{\geq 2}]{P(n) \xor S(n)}\]
+\[\all{n \in \NN_{\geq 2}} (P(n) \xor S(n))\]
 \end{zgled}
 
 \section{Definicije}
@@ -316,7 +316,7 @@ Zdaj lahko na pregleden način zapišemo, da je vsako naravno število od $2$ na
                 Kako simbolno zapisati, da sta dve izražavi enaki? Lahko bi pisali
                 \[\big((p, q) \mapsto p \shf q\big) = \big((p, q) \mapsto \lnot(p \land q)\big),\]
                 ampak to je nekoliko nerodno in nepregledno. Kasneje (v razdelku~\note{o anonimnih funkcijah}) se bomo naučili $\lambda$-notacijo, s katero dobimo
-                \[\xlam{(p, q)}[\tvs^2]{p \shf q} = \xlam{(p, q)}[\tvs^2]{\lnot(p \land q)},\]
+                \[(\lam{(p, q) \in \tvs^2} p \shf q) = (\lam{(p, q) \in \tvs^2} \lnot(p \land q)),\]
                 ampak to je še vedno nepregledno. Uveljavil se je običaj, da se izraze, ki so enakovredni v smislu, da dajo isti rezultat pri vsaki izbiri argumentov, poveže s simbolom $\equiv$, torej zapišemo
                 \[p \shf q \equiv \lnot(p \land q).\]
                 Konkretno za izraze v logiki se uporablja tudi $\sim$, se pravi, zapišemo lahko tudi

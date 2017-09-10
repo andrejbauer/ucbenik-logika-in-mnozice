@@ -38,40 +38,11 @@
 %%%%%%  Logical Quantifiers, λ- and ι-Expressions
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-%  no parenthesis (add x in front of the name of the command)
-\NewDocumentCommand{\xall}
-{m O{\empty} m}
-{\forall\, {#1} \ifthenelse{\equal{#2}{}}{}{\in{#2}} \,.\, {#3}}
-\NewDocumentCommand{\xsome}
-{m O{\empty} m}
-{\exists\, {#1} \ifthenelse{\equal{#2}{}}{}{\in{#2}} \,.\, {#3}}
-\NewDocumentCommand{\xexactlyone}
-{m O{\empty} m}
-{\exists\;\!!\, {#1} \ifthenelse{\equal{#2}{}}{}{\in{#2}} \,.\, {#3}}
-\NewDocumentCommand{\xlam}
-{m O{\empty} m O{\empty}}
-{\lambda{#1} \ifthenelse{\equal{#2}{}}{}{\in{#2}} \,.\, {#3} \ifthenelse{\equal{#4}{}}{}{\in{#4}}}
-\NewDocumentCommand{\xthat}
-{m O{\empty} m}
-{\iota{#1} \ifthenelse{\equal{#2}{}}{}{\in{#2}} \,.\, {#3}}
-
-%  with parenthesis -- the first optional argument is the size (values 0-4)
-\NewDocumentCommand{\all}
-{O{auto} m O{\empty} m}
-{\xall{#2}[#3]{\sizedescriptor{#1}{\left}( {#4} \sizedescriptor{#1}{\right})}}
-\NewDocumentCommand{\some}
-{O{auto} m O{\empty} m}
-{\xsome{#2}[#3]{\sizedescriptor{#1}{\left}( {#4} \sizedescriptor{#1}{\right})}}
-\NewDocumentCommand{\exactlyone}
-{O{auto} m O{\empty} m}
-{\xexactlyone{#2}[#3]{\sizedescriptor{#1}{\left}( {#4} \sizedescriptor{#1}{\right})}}
-\NewDocumentCommand{\lam}
-{O{auto} m O{\empty} m O{\empty}}
-{\xlam{#2}[#3]{\sizedescriptor{#1}{\left}( {#4} \sizedescriptor{#1}{\right})}[#5]}
-\NewDocumentCommand{\that}
-{O{auto} m O{\empty} m}
-{\xthat{#2}[#3]{\sizedescriptor{#1}{\left}( {#4} \sizedescriptor{#1}{\right})}}
-
+\newcommand{\all}[1]{\forall #1 .\,}
+\newcommand{\some}[1]{\exists #1 .\,}
+\newcommand{\exactlyone}[1]{\exists{!} #1 .\,}
+\newcommand{\lam}[1]{\lambda #1 .\,}
+\newcommand{\that}[1]{\iota #1 .\,}
 
 %%%%%%  Logic
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%

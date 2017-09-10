@@ -42,30 +42,22 @@
                                         $f$ je zvezna na $\intcc{a}{b}$.
                                         \[
                                                 \hspace{-2em}
-                                                \xall{x}[\intcc{a}{b}]{
-                                                        \xall{\epsilon}[\RR_{> 0}]{
-                                                                \xsome{\delta}[\RR_{> 0}]{
-                                                                        \all{y}[\intcc{a}{b}]{
-                                                                                |x - y| < \delta \implies \big|f(x) - f(y)\big| < \epsilon
-                                                                        }
-                                                                }
-                                                        }
-                                                }
+                                                \all{x \in \intcc{a}{b}}
+                                                        \all{\epsilon \in \RR_{> 0}}
+                                                                \some{\delta \in \RR_{> 0}}
+                                                                        \all{y \in \intcc{a}{b}}
+                                                                                (|x - y| < \delta \impl \big|f(x) - f(y)\big| < \epsilon
+                                                                        )
                                         \]
                                 \item
                                         $f$ je odvedljiva na $\intoo{a}{b}$.
                                         \begin{multline*}
-                                                \xall{x}[\intoo{a}{b}]{
-                                                        \xsome{v}[\RR]{
-                                                                \xall{\epsilon}[\RR_{> 0}]{
-                                                                        \xsome{\delta}[\RR_{> 0}]{
-                                                                        }
-                                                                }
-                                                        }
-                                                }\\
-                                                \all{h}[\RR_{\neq 0}]{
-                                                        |h| < \delta \implies \Big|\frac{f(x + h) - f(x)}{h} - v\Big| < \epsilon
-                                                }
+                                                \all{x \in \intoo{a}{b}}
+                                                        \some{v \in \RR}
+                                                                \all{\epsilon \in \RR_{> 0}}
+                                                                        \some{\delta \in \RR_{> 0}}
+                                                \all{h \in \RR_{\neq 0}} \\
+                                                        (|h| < \delta \implies \Big|\frac{f(x + h) - f(x)}{h} - v\Big| < \epsilon)
                                         \end{multline*}
                                 \item
                                         $f$ na krajiščih intervala zavzame enaki vrednosti.
@@ -74,13 +66,13 @@
                         Če se vam morda zdita formuli za zveznost in odvedljivost begajoči, imate dve tolažbi. Prva je ta, da se boste čez čas takšnih formul navadili. ;) Druga je, da so tudi drugi matematiki leni po naravi in zato uvedejo oznake za daljše izraze, ki se pogosto uporabljajo. Zgornja zveznost se na krajše zapiše $f \in \mathcal{C}(\intcc{a}{b})$ ($\mathcal{C}$ kot ``continuous'', tj.~zvezen), odvedljivost pa $f \in \mathcal{D}^1(\intoo{a}{b})$ ($\mathcal{D}$ kot ``differentiable'', tj.~odvedljiv, enka pa pomeni ``(vsaj) enkrat odvedljiv'').
                 \item
                         Sklep je eden: $f$ ima stacionarno točko na $\intoo{a}{b}$, kar simbolno zapišemo takole.
-                        \[\xsome{x}[\intoo{a}{b}]{f'(x) = 0}\]
+                        \[\some{x \in \intoo{a}{b}} f'(x) = 0\]
         \end{itemize}
 
         V splošnem imamo določeno mero svobode, kako natančno razčleniti izrek. Na primer, za Rolleov izrek bi lahko kontekst zapisali tudi kot $a \in \RR, b \in \RR, f \in \RR^{\intcc{a}{b}}$ in pogoj $a < b$ dodali med predpostavke.
 
         Da ne bomo pisali dolgih seznamov, se dogovorimo za sledeče oznake. Izrek podamo tako, da najprej zapišemo kontekst, nato dvopičje, nato narišemo vodoravno črto, nad črto zapišemo predpostavke (ločene z vejicami), pod črto pa sklepe (ločene z vejicami). Rolleov izrek bi potemtakem povzeli takole.
-        \[\claim{a \in \RR, b \in \RR_{> a}, f \in \RR^{\intcc{a}{b}}}{f \in \mathcal{C}(\intcc{a}{b}), f \in \mathcal{D}^1(\intoo{a}{b}), f(a) = f(b)}{\xsome{x}[\intoo{a}{b}]{f'(x) = 0}}\]
+        \[\claim{a \in \RR, b \in \RR_{> a}, f \in \RR^{\intcc{a}{b}}}{f \in \mathcal{C}(\intcc{a}{b}), f \in \mathcal{D}^1(\intoo{a}{b}), f(a) = f(b)}{\some{x \in \intoo{a}{b}} f'(x) = 0}\]
 
         V splošnem velja: vse proste spremenljivke, ki se pojavijo v predpostavkah ali sklepih, morajo biti navedene v kontekstu. Po domače povedano: če trdite, da za neko stvar nekaj velja, morate najprej povedati, o kateri stvari sploh govorite.
 
@@ -153,18 +145,18 @@
                 \item\textbf{Univerzalni kvantifikator}
                         \begin{itemize}
                                 \item
-                                        Če $\xall{x}[X]{\phi(x, y)}$ nastopa kot \emph{predpostavka}:
+                                        Če $\all{x \in X} \phi(x, y)$ nastopa kot \emph{predpostavka}:
                                         \begin{quote}
                                                 če vemo za (ali med dokazom najdemo) katerikoli konkreten element $a \in X$, tedaj lahko med predpostavke dodamo $\phi(a, y)$. Namreč, če vemo, da lastnost $\phi$ (z morebitnimi nadaljnjimi parametri) velja za vse elemente množice $X$, potem ta lastnost velja za poljuben konkreten element. Simbolno, od
-                                                \[\claim{\Gamma', a \in X, \Gamma''}{\Pi', \xall{x}[X]{\phi(x, y)}, \Pi''}{\Sigma}\]
+                                                \[\claim{\Gamma', a \in X, \Gamma''}{\Pi', \all{x \in X} \phi(x, y), \Pi''}{\Sigma}\]
                                                 preidemo do
-                                                \[\claim{\Gamma', a \in X, \Gamma''}{\Pi', \xall{x}[X]{\phi(x, y)}, \phi(a, y), \Pi''}{\Sigma}.\]
+                                                \[\claim{\Gamma', a \in X, \Gamma''}{\Pi', \all{x \in X} \phi(x, y), \phi(a, y), \Pi''}{\Sigma}.\]
                                         \end{quote}
                                 \item
-                                        Če $\xall{x}[X]{\phi(x, y)}$ nastopa kot \emph{sklep}:
+                                        Če $\all{x \in X} \phi(x, y)$ nastopa kot \emph{sklep}:
                                         \begin{quote}
-                                                v kontekst dodamo $x \in X$, sklep $\xall{x}[X]{\phi(x, y)}$ pa nadomestimo s sklepom $\phi(x, y)$. S simboli, od
-                                                \[\claim{\Gamma}{\Pi}{\Sigma', \xall{x}[X]{\phi(x, y)}, \Sigma''}\]
+                                                v kontekst dodamo $x \in X$, sklep $\all{x \in X} \phi(x, y)$ pa nadomestimo s sklepom $\phi(x, y)$. S simboli, od
+                                                \[\claim{\Gamma}{\Pi}{\Sigma', \all{x \in X} \phi(x, y), \Sigma''}\]
                                                 preidemo do
                                                 \[\claim{\Gamma, x \in X}{\Pi}{\Sigma', \phi(x, y), \Sigma''}\]
                                                 Zakaj tako postopamo in kaj smo s tem pravzaprav naredili? Premislimo: želimo dokazati, da neka lastnost velja za vse elemente dane množice $X$. Če ima $X$ slučajno samo končno mnogo elementov, bi lahko lastnost preverili za vsakega posebej, ampak povečini delamo z neskončnimi množicami, kjer to ne deluje. Morda ima množica $X$ kakšno posebno lastnost, zaradi katere lahko univerzalni kvantifikator dokažemo na svojevrsten način (na primer, univerzalno kvantificirane izjave nad $\NN$ lahko dokazujemo z matematično indukcijo --- glej \note{razdelek o naravnih številih}), ampak to se zgodi v izjemnih primerih.
@@ -177,16 +169,16 @@
                 \item\textbf{Eksistenčni kvantifikator}
                         \begin{itemize}
                                 \item
-                                        Če $\xsome{x}[X]{\phi(x, y)}$ nastopa kot \emph{predpostavka}:
+                                        Če $\some{x \in X} \phi(x, y)$ nastopa kot \emph{predpostavka}:
                                         \begin{quote}
                                                 v kontekst dodamo $x \in X$, eksistenčno predpostavko pa nadomestimo s $\phi(x, y)$. S simboli,
-                                                \[\claim{\Gamma}{\Pi', \xsome{x}[X]{\phi(x, y)}, \Pi''}{\Sigma}\]
+                                                \[\claim{\Gamma}{\Pi', \some{x \in X} \phi(x, y), \Pi''}{\Sigma}\]
                                                 popravimo v
                                                 \[\claim{\Gamma, x \in X}{\Pi', \phi(x, y), \Pi''}{\Sigma}.\]
                                                 Zakaj to deluje? Naša predpostavka je, da v množici $X$ obstaja element z lastnostjo $\phi$ (z morebitnimi nadaljnjimi parametri). Torej si lahko vzamemo neki konkreten element množice $X$ s to lastnostjo, ki ga lahko uporabljamo kasneje v dokazu (za to ga moramo nekako označiti; v praksi ga tipično označimo kar z isto spremenljivko, kot v kvantifikatorju).
                                         \end{quote}
                                 \item
-                                        Če $\xsome{x}[X]{\phi(x, y)}$ nastopa kot \emph{sklep}:
+                                        Če $\some{x \in X} \phi(x, y)$ nastopa kot \emph{sklep}:
                                         \begin{quote}
                                                 da dokažemo eksistenčno izjavo, moramo podati neki konkreten element $x \in X$ in zanj dokazati dano lastnost $\phi(x, y)$. \davorin{Hm, kako točno to zapišemo simbolno v zgornji obliki?}
                                         \end{quote}
@@ -202,10 +194,10 @@
                 \item
                         Za veznike $\xor$, $\shf$, $\luk$ si preprosto izberemo eno od izražav z negacijo, konjunkcijo in disjunkcijo in nato delamo z njo.
                 \item
-                        Kvantifikator $\xexactlyone{x}[X]{\phi(x, y)}$ ločimo na dva dela: na obstoj in enoličnost, in vsakega posebej dokažemo. Se pravi, skličemo se na izražavo
-                        \[\xexactlyone{x}[X]{\phi(x, y)} \equiv \xsome{x}[X]{\phi(x, y)} \land \all[1]{a, b}[X]{\phi(a, y) \land \phi(b, y) \implies a = b}.\]
+                        Kvantifikator $\exactlyone{x \in X} \phi(x, y)$ ločimo na dva dela: na obstoj in enoličnost, in vsakega posebej dokažemo. Se pravi, skličemo se na izražavo
+                        \[\exactlyone{x \in X} \phi(x, y) \equiv \some{x \in X} \phi(x, y) \land \all{a, b \in X} (\phi(a, y) \land \phi(b, y) \implies a = b).\]
                         Včasih je lažje, če najprej dokažemo obstoj elementa in ta element pri dokazu enoličnosti že uporabimo, torej dokazujemo izražavo
-                        \[\xexactlyone{x}[X]{\phi(x, y)} \equiv \some[2]{x}[X]{\phi(x, y) \land \all[1]{a}[X]{\phi(a, y) \implies a = x}}.\]
+                        \[\exactlyone{x \in X} \phi(x, y) \equiv \some{x \in X} (\phi(x, y) \land \all{a \in X} (\phi(a, y) \implies a = x)).\]
         \end{itemize}
 
         Seveda ne bo možno dokazati vsakega izreka s slepim sledenjem zgornjim pravilom; včasih moramo uporabiti še kakšno dodatno strategijo. Spodnji dve sta zelo pogosti.

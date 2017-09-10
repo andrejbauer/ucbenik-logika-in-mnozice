@@ -28,7 +28,7 @@ $\suc$ je injektivna preslikava,
 $0 \notin \rn{\suc}$,
 \item
 velja načelo \df{matematične indukcije}: če je $\phi$ predikat na $\NN$, za katerega velja
-\[\phi(0) \qquad\qquad \text{in} \qquad\qquad \all[2]{n}[\NN]{\phi(n) \implies \phi\big(\suc[n]\big)},\]
+\[\phi(0) \qquad\qquad \text{in} \qquad\qquad \all{n \in \NN} (\phi(n) \implies \phi\big(\suc[n]\big)),\]
 tedaj $\phi$ velja za vse elemente $\NN$.
 \end{itemize}
 \end{definicija}
@@ -66,11 +66,11 @@ Premisli, da množica $\RR_{> -1}$ z naslednikom $\suc[x] \dfeq x+1$ zadošča v
 Vidimo, da bi brez načela indukcije lahko imeli v množici $\NN$ odvečna števila (takšna, ki jih ne štejemo kot naravna). S predpostavko o indukciji se to ne more zgoditi. Ta namreč pravi: če neka lastnost velja za začetni element verige $0$, $\suc[0]$, $\suc(\suc[0])$, $\suc(\suc(\suc[0]))$,\ldots in če lahko sklepamo, da kakor hitro ta lastnost velja za določen element verige, velja tudi za naslednjega, potem ta lastnost velja za vsa naravna števila. Če za lastnost vzamemo ``biti element te verige'', iz načela o indukciji sklenemo, da se vsako naravno število nahaja nekje v tej verigi. Peanovi aksiomi torej podajajo strukturo, ki ustreza naši intuitivni predstavi množice naravnih števil.
 
 Glede na to, da je načelo o matematični indukciji eden od osnovnih aksiomov, s katerimi so naravna števila podana, ne preseneča, da je indukcija eden najpogostejših načinov, kako dokazujemo izjave na naravnih številih. Natančneje rečeno, z matematično indukcijo dokazujemo univerzalno kvantificirane izjave na naravnih številih, torej izjave oblike
-\[\xall{n}[\NN]{\phi(n)}.\]
+\[xall{n \in \NN} \phi(n).\]
 Po načelu indukcije za dokaz take izjave zadostuje narediti naslednje. Najprej dokažemo
 \[\phi(0)\]
 (da torej lastnost $\phi$ velja za začetno naravno število). To imenujemo \df{temelj} ali \df{osnova} ali \df{baza} indukcije. Nato dokažemo izjavo
-\[\all[2]{n}[\NN]{\phi(n) \implies \phi\big(\suc[n]\big)};\]
+\[\all{n \in \NN} \phi(n) \implies \phi(\suc[n]);\]
 to imenujemo \df{indukcijski korak}. Z besedami, dokažemo, da kakor hitro velja lastnost $\phi$ za neko naravno število, mora veljati ta lastnost tudi za naslednje.
 
 Intuitivno je jasno, da to mora delovati. Temelj indukcije nam pove, da dana lastnost velja za $0$. Ker zdaj vemo, da velja za $0$, mora po indukcijskem koraku veljati za naslednika ničle, torej za $1$. Zdaj vemo, da velja za $1$, torej mora po indukcijskem koraku veljati tudi za $2$. Tako nadaljujemo: sklepamo, da lastnost velja za $3$, nato za $4$ in tako naprej. Ker se vsa naravna števila pojavijo v verigi naslednikov ničle, mora z indukcijo dokazana lastnost dejansko veljati za vsa naravna števila.
@@ -138,7 +138,7 @@ za vse $n \in \NN$.
 
 Rekurzijo smo na ta način izpeljali iz indukcije, poudarimo pa, da je možen tudi obraten pristop: načelo o rekurziji vzamemo kot osnoven aksiom naravnih števil \emph{namesto} indukcije, nato pa od tod izpeljemo načelo o indukciji. Poglejmo, kako to storimo.
 
-Vzemimo poljuben predikat $\phi\colon \NN \to \tvs$, za katerega velja $\phi(0)$ in $\all[2]{n}[\NN]{\phi(n) \implies \phi\big(\suc[n]\big)}$. Po načelu rekurzije obstaja natanko ena preslikava $f\colon \NN \to \tvs$, za katero velja $f(0) = \true$ in $f\big(\suc[n]\big) = f(n) \lor \phi\big(\suc[n]\big)$ za vse $n \in \NN$. Ampak predikat $\phi$ sam zadošča tema pogojema, saj lahko izjavo $\phi(n) \implies \phi\big(\suc[n]\big)$ enakovredno zapišemo kot $\phi\big(\suc[n]\big) = \phi(n) \lor \phi\big(\suc[n]\big)$. Očitno pa tudi povsod resničen predikat zadošča danima pogojema, od koder zaključimo $\phi = \xlam{n}[\NN]{\true}$.
+Vzemimo poljuben predikat $\phi\colon \NN \to \tvs$, za katerega velja $\phi(0)$ in $\all{n \in \NN} (\phi(n) \implies \phi(\suc[n]))$. Po načelu rekurzije obstaja natanko ena preslikava $f\colon \NN \to \tvs$, za katero velja $f(0) = \true$ in $f\big(\suc[n]\big) = f(n) \lor \phi\big(\suc[n]\big)$ za vse $n \in \NN$. Ampak predikat $\phi$ sam zadošča tema pogojema, saj lahko izjavo $\phi(n) \implies \phi\big(\suc[n]\big)$ enakovredno zapišemo kot $\phi\big(\suc[n]\big) = \phi(n) \lor \phi\big(\suc[n]\big)$. Očitno pa tudi povsod resničen predikat zadošča danima pogojema, od koder zaključimo $\phi = \lam{n \in \NN}{\true}$.
 
 V tem smislu sta načeli rekurzije in indukcije enakovredni. Kot vidimo, lahko pravzaprav na indukcijo gledamo kot na poseben primer rekurzije, konkretno za preslikave oblike $\NN \to \tvs$. To nam pove, da je ta primer tako generičen, da je iz njega možno dobiti načelo za poljubne preslikave oblike $\NN \times X \to Y$.
 

@@ -3,7 +3,7 @@
         \section{Splošno o relacijah}
 
                 V matematiki pogosto želimo izraziti, da so določeni objekti v nekem odnosu, npr.~eno število je večje od drugega; temu s tujko rečemo \df{relacija}. Kako to formalno izraziti? Ideja je, da relacijo podamo z množico vseh skupin elementov, ki so v relaciji. Na primer, relacijo $\leq$ na naravnih številih podamo kot podmnožico
-                \[\set[1]{(a, b) \in \NN \times \NN}{\xsome{n}[\NN]{a + n = b}}.\]
+                \[\set[1]{(a, b) \in \NN \times \NN}{\some{n \in \NN} a + n = b}.\]
                 Torej, število $a$ je v relaciji $\leq$ s številom $b$ takrat, ko par $(a, b)$ pripada tej množici.
 
                 Splošne relacije so lahko med poljubno mnogo elementi iz poljubnih (ne nujno istih) množic. Na primer, relacija komplanarnosti štirih točk v prostoru je podmnožica produkta $\RR^3 \times \RR^3 \times \RR^3 \times \RR^3$, relacija pripadnosti $\in$ med elementi neke množice $X$ in podmnožicami množice $X$ pa je podmnožica produkta $X \times \pst(X)$.
@@ -30,9 +30,9 @@
                                 \item
                                         množica $Y$ je \df{ciljna množica} ali \df{kodomena} relacije $\rel$, kar označimo $\cod(\rel)$,
                                 \item
-                                        \df{definicijsko območje} ali \df{nosilec} relacije $\rel$ je množica $\dd{\rel} \dfeq \set{x \in X}{\xsome{y}[Y]{\rel[x][y]}}$ (torej $\dd{\rel} \subseteq \dom(\rel)$),
+                                        \df{definicijsko območje} ali \df{nosilec} relacije $\rel$ je množica $\dd{\rel} \dfeq \set{x \in X}{\some{y \in Y} \rel[x][y]}$ (torej $\dd{\rel} \subseteq \dom(\rel)$),
                                 \item
-                                        \df{zaloga vrednosti} ali \df{slika} \note{razpon?} relacije $\rel$ je množica $\rn{\rel} \dfeq \set{y \in Y}{\xsome{x}[X]{\rel[x][y]}}$ (torej $\dd{\rel} \subseteq \cod(\rel)$).
+                                        \df{zaloga vrednosti} ali \df{slika} \note{razpon?} relacije $\rel$ je množica $\rn{\rel} \dfeq \set{y \in Y}{\some{x \in X} \rel[x][y]}$ (torej $\dd{\rel} \subseteq \cod(\rel)$).
                         \end{itemize}
                 \end{definicija}
 
@@ -172,49 +172,49 @@
                         \begin{itemize}
                                 \item
                                         Relacija $\rel$ je \df{povratna} (ali \df{refleksivna}), kadar velja
-                                        \[\xall{x}[X]{\rel[x][x]},\]
+                                        \[\all{x \in X} \rel[x][x],\]
                                         tj.~vsak element je v relaciji s samim sabo.
                                 \item
                                         Relacija $\rel$ je \df{nepovratna} (ali \df{irefleksivna}), kadar velja
-                                        \[\xall{x}[X]{\lnot(\rel[x][x])},\]
+                                        \[\all{x \in X} \lnot(\rel[x][x]),\]
                                         tj.~noben element ni v relaciji s samim sabo.
                                 \item
                                         Relacija $\rel$ je \df{somerna} (ali \df{simetrična}), kadar velja
-                                        \[\all{x, y}[X]{\rel[x][y] \implies \rel[y][x]},\]
+                                        \[\all{x, y \in X} (\rel[x][y] \implies \rel[y][x]),\]
                                         tj.~če je en element v relaciji z drugim, je tudi drugi s prvim.
                                 \item
                                         Relacija $\rel$ je \df{protisomerna} (ali \df{antisimetrična}), kadar velja
-                                        \[\all{x, y}[X]{\rel[x][y] \land \rel[y][x] \implies x = y},\]
+                                        \[\all{x, y \in X} (\rel[x][y] \land \rel[y][x] \implies x = y),\]
                                         tj.~dva elementa sta obojestransko v relaciji samo v primeru, če gre za en in isti element.
 
                                         \davorin{Mogoče pretiravam s slovenskimi imeni\ldots}
                                 \item
                                         Relacija $\rel$ je \df{nesomerna} (ali \df{asimetrična}), kadar velja
-                                        \[\xall{x, y}[X]{\lnot(\rel[x][y] \land \rel[y][x])},\]
+                                        \[\all{x, y \in X} (\lnot(\rel[x][y] \land \rel[y][x])),\]
                                         tj.~nobena dva elementa nista obojestransko v relaciji.
                                 \item
                                         Relacija $\rel$ je \df{prehodna} (ali \df{tranzitivna}), kadar velja
-                                        \[\all{x, y, z}[X]{\rel[x][y] \land \rel[y][z] \implies \rel[x][z]},\]
+                                        \[\all{x, y, z \in X} (\rel[x][y] \land \rel[y][z] \implies \rel[x][z]),\]
                                         tj.~če je en element v relaciji z drugim in drugi s tretjim, je tudi prvi v relaciji s tretjim.
                                 \item
                                         Relacija $\rel$ je \df{neprehodna} (ali \df{intranzitivna}), kadar velja
-                                        \[\xall{x, y, z}[X]{\lnot(\rel[x][y] \land \rel[y][z] \land \rel[x][z])},\]
+                                        \[\all{x, y, z \in X} \lnot(\rel[x][y] \land \rel[y][z] \land \rel[x][z]),\]
                                         tj.~če je en element v relaciji z drugim in drugi s tretjim, prvi ne more tudi biti v relaciji s tretjim.
                                 \item
                                         Relacija $\rel$ je \df{enolična}, kadar velja
-                                        \[\all{x, y, z}[X]{\rel[x][y] \land \rel[x][z] \implies y = z},\]
+                                        \[\all{x, y, z \in X} (\rel[x][y] \land \rel[x][z] \implies y = z),\]
                                         tj.~vsak element je v relaciji s kvečjemu enim elementom.
                                 \item
                                         Relacija $\rel$ je \df{celovita}, kadar velja
-                                        \[\xall{x}[X]{\xsome{y}[Y]{\rel[x][y]}},\]
+                                        \[\all{x \in X} \some{y \in Y} \rel[x][y],\]
                                         tj.~vsak element je v relaciji z vsaj enim elementom, se pravi $\dd{f} = \dom(f)$.
                                 \item
                                         Relacija $\rel$ je \df{sovisna}, kadar velja
-                                        \[\all{x, y}[X]{x \neq y \implies \rel[x][y] \lor \rel[y][x]},\]
+                                        \[\all{x, y \in X} (x \neq y \implies \rel[x][y] \lor \rel[y][x]),\]
                                         tj.~za vsaka dva različna elementa velja, da je vsaj eden od njiju v relaciji z drugim.
                                 \item
                                         Relacija $\rel$ je \df{strogo sovisna}, kadar velja
-                                        \[\all{x, y}[X]{\rel[x][y] \lor \rel[y][x]},\]
+                                        \[\all{x, y \in X} (\rel[x][y] \lor \rel[y][x]),\]
                                         tj.~za vsaka dva elementa velja, da je vsaj eden od njiju v relaciji z drugim.
                         \end{itemize}
                 \end{definicija}
@@ -297,9 +297,9 @@
 
                 \begin{izrek}\label{izrek:presecna-dednost-iz-logicne-oblike}
                         Naj bo $\mathscr{L}$ lastnost relacij na množici $X$, ki jo lahko za poljubno relacijo $\rel$ podamo z zapisom oblike
-                        \[\all[1]{x_1, x_2, \ldots, x_n}[X]{\phi(\rel, x_1, x_2, \ldots, x_n) \implies \psi(\rel, x_1, x_2, \ldots, x_n)},\]
+                        \[\all{x_1, x_2, \ldots, x_n \in X} (\phi(\rel, x_1, x_2, \ldots, x_n) \implies \psi(\rel, x_1, x_2, \ldots, x_n)),\]
                         kjer sta $\phi(\rel, x_1, x_2, \ldots, x_n)$ in $\psi(\rel, x_1, x_2, \ldots, x_n)$ konjunkciji končno mnogo členov oblike $\rel[x_i][x_j]$ --- v posebnem primeru je lahko $\phi(\rel, x_1, x_2, \ldots, x_n)$ konjunkcija nič členov in potem je $\mathscr{L}$ podana z zapisom oblike
-                        \[\xall{x_1, x_2, \ldots, x_n}[X]{\psi(\rel, x_1, x_2, \ldots, x_n)}.\]
+                        \[\all{x_1, x_2, \ldots, x_n \in X} \psi(\rel, x_1, x_2, \ldots, x_n).\]
                         Tedaj je $\mathscr{L}$ presečno dedna lastnost in torej ima vsaka relacija na $X$ $\mathscr{L}$-ogrinjačo.
                 \end{izrek}
 
@@ -499,11 +499,11 @@
 
                 Ko smo obravnavali bijekcije v razdelku~\ref{razdelek:bijektivnost-in-obratne-preslikave}, smo omenili, zakaj je uporabno imeti obrate preslikav. Težava je seveda, da imajo samo bijekcije obrate (v smislu, da so tudi obrati preslikave --- kot relacije seveda imajo obrate), medtem ko včasih želimo obrniti tudi druge preslikave.
 
-                Vzemimo na primer eksponentno funkcijo $\xlam{x}{e^x}$. Če jo obravnavamo kot preslikavo $\RR \to \RR$, seveda nima obrata, saj ni surjektivna. Ideja je, da zožimo kodomeno do zaloge vrednosti --- preslikava $\xlam{x}{e^x}\colon \RR \to \RR_{> 0}$ je bijektivna in posledično lahko definiramo njen obrat (naravni logaritem) $\ln\colon \RR_{> 0} \to \RR$.
+                Vzemimo na primer eksponentno funkcijo $\lam{x} e^x$. Če jo obravnavamo kot preslikavo $\RR \to \RR$, seveda nima obrata, saj ni surjektivna. Ideja je, da zožimo kodomeno do zaloge vrednosti --- preslikava $(\lam{x} e^x) : \RR \to \RR_{> 0}$ je bijektivna in posledično lahko definiramo njen obrat (naravni logaritem) $\ln : \RR_{> 0} \to \RR$.
 
-                To je standarden trik, če preslikava ni surjektivna. Kaj pa, če ni injektivna? Pogosto v tem primeru zožimo še domeno na območje, na katerem je preslikava injektivna. Na primer, preslikavo $\xlam{x}{x^2}\colon \RR \to \RR$ zožimo do bijekcije $\xlam{x}{x^2}\colon \RR_{\geq 0} \to \RR_{\geq 0}$, kjer imamo obrat $\xlam{x}{\sqrt{x}}\colon \RR_{\geq 0} \to \RR_{\geq 0}$.
+                To je standarden trik, če preslikava ni surjektivna. Kaj pa, če ni injektivna? Pogosto v tem primeru zožimo še domeno na območje, na katerem je preslikava injektivna. Na primer, preslikavo $(\lam{x} x^2) : \RR \to \RR$ zožimo do bijekcije $(\lam{x} x^2) : \RR_{\geq 0} \to \RR_{\geq 0}$, kjer imamo obrat $(\lam{x} \sqrt{x}) : \RR_{\geq 0} \to \RR_{\geq 0}$.
 
-                Ima pa ta pristop težave. Prvič, v nasprotju z zožanjem kodomene pri zožitvi domene izgubimo določeno količino informacije o preslikavi (kam so se preslikale vrednosti, ki so prej bile v domeni, zdaj pa niso več?). Drugič, izbira zožene domene ni kanonična. Preslikavo $\xlam{x}{x^2}$ bi ravno tako lahko zožili na $\RR_{\leq 0} \to \RR_{\geq 0}$ ali na $\QQ_{\geq 0} \cup (\RR \setminus \QQ)_{\leq 0} \to \RR_{\geq 0}$ ali celo do $\emptyset \to \emptyset$ ali še neskončno drugih možnosti, pri katerih dobimo bijekcijo.
+                Ima pa ta pristop težave. Prvič, v nasprotju z zožanjem kodomene pri zožitvi domene izgubimo določeno količino informacije o preslikavi (kam so se preslikale vrednosti, ki so prej bile v domeni, zdaj pa niso več?). Drugič, izbira zožene domene ni kanonična. Preslikavo $\lam{x} x^2$ bi ravno tako lahko zožili na $\RR_{\leq 0} \to \RR_{\geq 0}$ ali na $\QQ_{\geq 0} \cup (\RR \setminus \QQ)_{\leq 0} \to \RR_{\geq 0}$ ali celo do $\emptyset \to \emptyset$ ali še neskončno drugih možnosti, pri katerih dobimo bijekcijo.
 
                 S pomočjo kvocientov lahko rešimo te probleme in najdemo kanoničen način, kako preslikavo popraviti do injektivne (in če dodamo še zožitev kodomene, do surjektivne in torej v celoti do bijektivne). Vemo že, da sta injektivnost in surjektivnost dualni (razdelek~\ref{razdelek:injektivnost-in-surjektivnost}). Kaj je dualno zožitvi kodomene? Odgovor: kvocient domene. Namreč, če zožimo množico, je tako, kot da jo zdaj gledamo od precej bliže --- vidimo samo manjše območje okoli sebe. Kvocienti počnejo obratno --- tako je, kot če bi množico pogledali od precej daleč. Ne vidimo več posamičnih potez, pač pa se te združijo v bolj splošne oblike. (Seveda se ta dualnost, tako kot pri injektivnosti in surjektivnosti, da utemeljiti tudi formalno matematično. \davorin{Bomo govorili o zožkih in kozožkih?})
 
