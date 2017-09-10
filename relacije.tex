@@ -14,9 +14,9 @@
                 \end{definicija}
 
                 \begin{opomba}\label{opomba:definicija-relacij}
-                        Kaj mislimo tu z izrazom \qt{skupaj s podatkom}? Določena podmnožica ima mnogo nadmnožic in podatek, med elementi katerih množic opazujemo odnos, je za relacijo prav tako pomemben, saj so od tega odvisne lastnosti relacije. Lastnosti relacij obravnavamo kasneje v razdelku~\ref{razdelek:lastnosti-relacij}, ampak če že zdaj damo primer: $\set{(a, a)}{a \in \NN}$ je refleksivna kot relacija na naravnih številih (tj.~kot podmnožica $\NN \times \NN$), ne pa tudi kot relacija na celih številih (tj.~kot podmnožica $\ZZ \times \ZZ$).
+                        Kaj mislimo tu z izrazom ``skupaj s podatkom''? Določena podmnožica ima mnogo nadmnožic in podatek, med elementi katerih množic opazujemo odnos, je za relacijo prav tako pomemben, saj so od tega odvisne lastnosti relacije. Lastnosti relacij obravnavamo kasneje v razdelku~\ref{razdelek:lastnosti-relacij}, ampak če že zdaj damo primer: $\set{(a, a)}{a \in \NN}$ je refleksivna kot relacija na naravnih številih (tj.~kot podmnožica $\NN \times \NN$), ne pa tudi kot relacija na celih številih (tj.~kot podmnožica $\ZZ \times \ZZ$).
 
-                        Kako \qt{priložiti} podatek o družini? Ena možnost je, da relacijo podamo kot urejeni par $\rel = (R, \mathscr{D})$, kjer $R \subseteq \prod_{X \in \mathscr{D}} X$. Še ena možnost je, da relacijo podamo kot družino preslikav $(\rel \to X)_{X \in \mathscr{D}}$, ki skupaj porodijo inkluzijo $\rel \hookrightarrow \prod_{X \in \mathscr{D}} X$. Ampak načeloma je povsem vseeno, ali vzamemo katero od teh dveh možnosti ali še kaj tretjega. V tej knjigi se ne bomo omejevali na posamičen formalen zapis za relacijo, bo pa seveda v vseh primerih jasno, za katero družino gre.
+                        Kako ``priložiti'' podatek o družini? Ena možnost je, da relacijo podamo kot urejeni par $\rel = (R, \mathscr{D})$, kjer $R \subseteq \prod_{X \in \mathscr{D}} X$. Še ena možnost je, da relacijo podamo kot družino preslikav $(\rel \to X)_{X \in \mathscr{D}}$, ki skupaj porodijo inkluzijo $\rel \hookrightarrow \prod_{X \in \mathscr{D}} X$. Ampak načeloma je povsem vseeno, ali vzamemo katero od teh dveh možnosti ali še kaj tretjega. V tej knjigi se ne bomo omejevali na posamičen formalen zapis za relacijo, bo pa seveda v vseh primerih jasno, za katero družino gre.
                 \end{opomba}
 
                 \davorin{Verjetno bi bilo smiselno omeniti še možnost podajanja relacije kot predikat $\prod_{X \in \mathscr{D}} X \to \tvs$.}
@@ -36,7 +36,7 @@
                         \end{itemize}
                 \end{definicija}
 
-                Skoraj vse relacije, ki nas zanimajo v tej knjigi, so dvomestne. Zato se dogovorimo, da z izrazom \qt{relacija} vselej mislimo dvomestno relacijo, razen če je izrecno rečeno drugače.
+                Skoraj vse relacije, ki nas zanimajo v tej knjigi, so dvomestne. Zato se dogovorimo, da z izrazom ``relacija'' vselej mislimo dvomestno relacijo, razen če je izrecno rečeno drugače.
 
                 Če je $\rel \subseteq X \times Y$ relacija, potemtakem lahko zapišemo, da sta $x \in X$ in $y \in Y$ v relaciji $\rel$ takole: $(x, y) \in \rel$. Ampak to vodi do čudnih zapisov v primeru običajnih relacij, npr.~$(2, 3) \in \mathnormal{<}$. To je bolje zapisati $2 < 3$ in posledično se dogovorimo, da v primeru dvojiške relacije raje uporabljamo zapis $\rel[x][y]$.
 
@@ -123,34 +123,34 @@
                         Naj bo $L$ množica ljudi. Vpeljimo oznake za naslednje relacije na $L$:
                         \begin{itemize}
                                 \item
-                                        $\texttt{St}$ je relacija \qt{je starš od},
+                                        $\texttt{St}$ je relacija ``je starš od'',
                                 \item
-                                        $\texttt{Oč}$ je relacija \qt{je oče od},
+                                        $\texttt{Oč}$ je relacija ``je oče od'',
                                 \item
-                                        $\texttt{Ma}$ je relacija \qt{je mati od},
+                                        $\texttt{Ma}$ je relacija ``je mati od'',
                                 \item
-                                        $\texttt{Si}$ je relacija \qt{je sin od},
+                                        $\texttt{Si}$ je relacija ``je sin od'',
                                 \item
-                                        $\texttt{Hč}$ je relacija \qt{je hči od},
+                                        $\texttt{Hč}$ je relacija ``je hči od'',
                                 \item
-                                        $\texttt{Br}$ je relacija \qt{je brat od},
+                                        $\texttt{Br}$ je relacija ``je brat od'',
                                 \item
-                                        $\texttt{Se}$ je relacija \qt{je sestra od}
+                                        $\texttt{Se}$ je relacija ``je sestra od''
                         \end{itemize}
 
-                        Na primer: Marko $\texttt{Br}$ Metka pomeni \qt{Marko je brat od Metke.} (oz.~v lepši slovenščini \qt{Marko je Metkin brat.}).
+                        Na primer: Marko $\texttt{Br}$ Metka pomeni ``Marko je brat od Metke.'' (oz.~v lepši slovenščini ``Marko je Metkin brat.'').
 
                         Velja med drugim:
 
                         \begin{tabular}{l}
                                 $\texttt{Oč} \cup \texttt{Ma} = \texttt{St}$, \\
-                                $\texttt{St} \circ \texttt{St} = \texttt{St}^2 = \text{\qt{je stari starš od}}$, \\
-                                $\texttt{St} \circ \texttt{Br} = \text{\qt{je stric od}}$, \\
-                                $\texttt{Br} \cup \texttt{Se} = \text{\qt{je sorojenec od}}$, \\
-                                $\texttt{St}^{-1} = \text{\qt{je otrok od}}$, \\
-                                $\bigcup_{n \in \NN_{\geq 1}} \texttt{St}^n = \text{\qt{je prednik od}}$, \\
-                                $\bigcup_{n \in \NN_{\geq 1}} \texttt{St}^{-n} = \text{\qt{je potomec od}}$, \\
-                                $\texttt{St} \circ (\texttt{Br} \cup \texttt{Se}) \circ \texttt{Hč} = \text{\qt{je sestrična od}}$.
+                                $\texttt{St} \circ \texttt{St} = \texttt{St}^2 = \text{``je stari starš od''}$, \\
+                                $\texttt{St} \circ \texttt{Br} = \text{``je stric od''}$, \\
+                                $\texttt{Br} \cup \texttt{Se} = \text{``je sorojenec od''}$, \\
+                                $\texttt{St}^{-1} = \text{``je otrok od''}$, \\
+                                $\bigcup_{n \in \NN_{\geq 1}} \texttt{St}^n = \text{``je prednik od''}$, \\
+                                $\bigcup_{n \in \NN_{\geq 1}} \texttt{St}^{-n} = \text{``je potomec od''}$, \\
+                                $\texttt{St} \circ (\texttt{Br} \cup \texttt{Se}) \circ \texttt{Hč} = \text{``je sestrična od''}$.
                         \end{tabular}
 
                         Sklapljanje relacij ni komutativno; na primer $\texttt{Ma} \circ \texttt{Oč}$ je stari oče po materini strani, $\texttt{Oč} \circ \texttt{Ma}$ pa stara mama po očetovi strani.
@@ -378,7 +378,7 @@
 
         \section{Relacije urejenosti}\label{razdelek:relacije-urejenosti}
 
-                Že od začetka tega poglavja kot klasične primere relacij podajamo razne urejenosti, kot $\leq$ in $<$. V tem razdelku si bomo ogledali, kakšne lastnosti morajo imeti relacije, da na določen način \qt{urejajo} množico.
+                Že od začetka tega poglavja kot klasične primere relacij podajamo razne urejenosti, kot $\leq$ in $<$. V tem razdelku si bomo ogledali, kakšne lastnosti morajo imeti relacije, da na določen način ``urejajo'' množico.
 
                 Sledeča definicija povzame štiri tipične primere relacij urejenosti.
 
@@ -414,7 +414,7 @@
 
         \section{Ekvivalenčne relacije in kvocientne množice}
 
-                Ena temeljnih matematičnih dejavnosti je \df{abstrakcija} \davorin{pojmovanje?}, tj.~iz posamičnih primerov izluščimo njihovo temeljno, bistveno lastnost in potem delamo s to lastnostjo. \davorin{To je pomembna stvar. Dajmo to razlago čimbolj izboljšati.} Na primer, vemo, kaj pomeni \qt{pet rac}, \qt{pet avtov}, \qt{pet sekund}, ampak kaj pomeni \qt{pet}?
+                Ena temeljnih matematičnih dejavnosti je \df{abstrakcija} \davorin{pojmovanje?}, tj.~iz posamičnih primerov izluščimo njihovo temeljno, bistveno lastnost in potem delamo s to lastnostjo. \davorin{To je pomembna stvar. Dajmo to razlago čimbolj izboljšati.} Na primer, vemo, kaj pomeni ``pet rac'', ``pet avtov'', ``pet sekund'', ampak kaj pomeni ``pet''?
 
                 V tem razdelku si bomo ogledali, kako lahko formalno abstrahiramo pojme s posamičnih primerov s pomočjo ekvivalenčnih relacij.
 

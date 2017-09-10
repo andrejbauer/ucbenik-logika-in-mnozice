@@ -1,6 +1,6 @@
 \chapter{Indukcija}\label{poglavje:indukcija}
 
-\note{Razlaga imena \sqt{indukcija}.}
+\note{Razlaga imena `indukcija'.}
 
 \section{Indukcija na $\NN$}
 \section{Indukcija na $\ZZ_{\geq n}$}
@@ -18,37 +18,37 @@
 
 \section{Dobro osnovane urejenosti}
 
-\davorin{Zaenkrat bom \qt{well-founded} prevajal kot \qt{dobro osnovan}, ker je ta izraz uporabljal Marko pri LMN. Ampak dobro bi bilo, da bi ta prevod še predebatirali.}
+\davorin{Zaenkrat bom ``well-founded'' prevajal kot ``dobro osnovan'', ker je ta izraz uporabljal Marko pri LMN. Ampak dobro bi bilo, da bi ta prevod še predebatirali.}
 
 V prejšnjih razdelkih smo si ogledali mnogo različic indukcij. Čas je, da vse te različice pripeljemo pod isto streho: da najdemo splošni pojem indukcije, ki zajema prejšnje kot posebne primere. To nam omogočajo tako imenovane dobro osnovano urejene množice.
 
 Na kratko rečeno, dobro osnovano urejene množice so množice s toliko strukture, da lahko na njih izvajamo indukcijo --- konkretno, indukcijo v krepkem smislu, kot podano v razdelku~\ref{razdelek:krepka-indukcija}. Natančna definicija je sledeča.
 
 \begin{definicija}
-	Naj bo $X$ množica in $\wf$ relacija na njej.
-	\begin{itemize}
-		\item
-			Za predikat $\phi$ na $X$ rečemo, da je \df{$\wf$-induktiven}, kadar za vsak $a \in X$ velja: če $\phi$ velja za vse $x \in X_{\wf a}$, tedaj velja tudi za $a$. Simbolno zapisano:
-			\[\all[2]{a}[X]{\xall{x}[X_{\wf a}]{\phi(x)} \implies \phi(a)}.\]
-		\item
-			Množica $X$, skupaj z relacijo $\wf$, je \df{dobro osnovano urejena}, kadar je posod resničen predikat edini $\wf$-induktiven predikat na $X$.
-	\end{itemize}
+        Naj bo $X$ množica in $\wf$ relacija na njej.
+        \begin{itemize}
+                \item
+                        Za predikat $\phi$ na $X$ rečemo, da je \df{$\wf$-induktiven}, kadar za vsak $a \in X$ velja: če $\phi$ velja za vse $x \in X_{\wf a}$, tedaj velja tudi za $a$. Simbolno zapisano:
+                        \[\all[2]{a}[X]{\xall{x}[X_{\wf a}]{\phi(x)} \implies \phi(a)}.\]
+                \item
+                        Množica $X$, skupaj z relacijo $\wf$, je \df{dobro osnovano urejena}, kadar je posod resničen predikat edini $\wf$-induktiven predikat na $X$.
+        \end{itemize}
 \end{definicija}
 
-Torej: če želimo dokazati, da neka lastnost $\phi$ velja za vse elemente dobro osnovano urejene množice, dokažemo indukcijski korak za $\phi$ (v smislu: če lastnost velja za vse elemente, \qt{manjše} od $a$, potem velja tudi za $a$).
+Torej: če želimo dokazati, da neka lastnost $\phi$ velja za vse elemente dobro osnovano urejene množice, dokažemo indukcijski korak za $\phi$ (v smislu: če lastnost velja za vse elemente, ``manjše'' od $a$, potem velja tudi za $a$).
 
 Zgornja definicija dobro osnovane urejenosti je neposredno naravnana na indukcijo. To je njena prednost, je pa tudi njena slabost: kako vemo, da neka relacija $\wf$ dejansko dobro osnovano ureja dano množico? Neposredno preveriti definicijo je lahko težje, kot pa neposredno preveriti željeno univerzalno kvantificirano lastnost; v tem primeru nismo nič pridobili. Zato je dobro imeti alternativne karakterizacije dobro osnovane urejenosti.
 
 \begin{izrek}
-	Naslednje izjave so ekvivalentne za poljubno množico $X$ in relacijo $\wf$ na njej.
-	\begin{itemize}
-		\item
-			$\wf$ dobro osnovano ureja $X$.
-		\item
-			Ne obstaja neskončna padajoča veriga v $X$. Natančneje: ne obstaja zaporedje $a\colon \NN \to X$, za katerega velja $a_{n+1} \wf a_n$ za vse $n \in \NN$.
-		\item
-			Vsaka nahajajoča podmnožica $S \subseteq X$ ima minimalni element v naslednjem smislu: obstaja $a \in S$, tako da za noben $x \in S$ ne velja $x \wf a$.
-	\end{itemize}
+        Naslednje izjave so ekvivalentne za poljubno množico $X$ in relacijo $\wf$ na njej.
+        \begin{itemize}
+                \item
+                        $\wf$ dobro osnovano ureja $X$.
+                \item
+                        Ne obstaja neskončna padajoča veriga v $X$. Natančneje: ne obstaja zaporedje $a\colon \NN \to X$, za katerega velja $a_{n+1} \wf a_n$ za vse $n \in \NN$.
+                \item
+                        Vsaka nahajajoča podmnožica $S \subseteq X$ ima minimalni element v naslednjem smislu: obstaja $a \in S$, tako da za noben $x \in S$ ne velja $x \wf a$.
+        \end{itemize}
 \end{izrek}
 
 \begin{dokaz}
@@ -57,19 +57,19 @@ Zgornja definicija dobro osnovane urejenosti je neposredno naravnana na indukcij
 Splošne dobro osnovane urejenosti so lahko precej razvejane (kot bomo kasneje videli iz primerov). Včasih se zato želimo omejiti na tako imenovane dobre urejenosti
 
 \begin{definicija}
-	Množica $X$, opremljena z relacijo $\wf$, je \df{dobra urejena}, kadar je dobro osnovano urejena in relacija $\wf$ je stroga linearna urejenost.
+        Množica $X$, opremljena z relacijo $\wf$, je \df{dobra urejena}, kadar je dobro osnovano urejena in relacija $\wf$ je stroga linearna urejenost.
 \end{definicija}
 
 Tudi za dobre urejenosti imamo karakterizacijo.
 
 \begin{izrek}
-	Naslednji izjavi sta ekvivalentni za poljubno množico $X$ in relacijo $\wf$ na njej.
-	\begin{itemize}
-		\item
-			$\wf$ dobro ureja $X$.
-		\item
-			Vsaka nahajajoča podmnožica $S \subseteq X$ ima najmanjši element v naslednjem smislu: obstaja $a \in S$, tako da za vsak $x \in S \setminus \set{a}$ velja $a \wf x$.
-	\end{itemize}
+        Naslednji izjavi sta ekvivalentni za poljubno množico $X$ in relacijo $\wf$ na njej.
+        \begin{itemize}
+                \item
+                        $\wf$ dobro ureja $X$.
+                \item
+                        Vsaka nahajajoča podmnožica $S \subseteq X$ ima najmanjši element v naslednjem smislu: obstaja $a \in S$, tako da za vsak $x \in S \setminus \set{a}$ velja $a \wf x$.
+        \end{itemize}
 \end{izrek}
 
 \begin{dokaz}

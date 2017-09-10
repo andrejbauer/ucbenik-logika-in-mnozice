@@ -4,7 +4,7 @@
 
 Ampak intuitivna predstava je tudi vse, kar zaenkrat imamo o številskih množicah. Nismo še podali natančne matematične definicije zanje, na osnovi katere bi lahko neizpodbitno dokazovali izreke o njih.
 
-Za vajo lahko sami premislite, ali bi znali na tem mestu podati natančno definicijo, kaj pomeni biti naravno, celo, racionalno oz.~realno število. Definicija seveda mora biti natančna --- npr.~reči, da so realna števila tista, ki ležijo na številski premici, ni zadovoljiva definicija (vsaj ne, če ne pojasnite nedvoumno, kaj pomeni \qt{številska premica} in kaj pomeni \qt{ležati} na njej).
+Za vajo lahko sami premislite, ali bi znali na tem mestu podati natančno definicijo, kaj pomeni biti naravno, celo, racionalno oz.~realno število. Definicija seveda mora biti natančna --- npr.~reči, da so realna števila tista, ki ležijo na številski premici, ni zadovoljiva definicija (vsaj ne, če ne pojasnite nedvoumno, kaj pomeni ``številska premica'' in kaj pomeni ``ležati'' na njej).
 
 V tem poglavju se bomo sistematično lotili obravnave najpogosteje uporabljanih številskih množic. Podali bomo njihove konstrukcije, karakterizacije in temeljne lastnosti.
 
@@ -15,12 +15,12 @@ V tem poglavju se bomo sistematično lotili obravnave najpogosteje uporabljanih 
 
 Če vas kdo vpraša, kako dobiti vsa naravna števila, verjetno odgovorite nekaj v naslednjem smislu: naravna števila so $0$ in vsa tista števila, ki jih dobite s prištevanjem enice, tj.~jemanjem naslednika. Torej, začnemo z $0$, vzamemo naslednika in dobimo $1$, nato še enkrat vzamemo naslednika in dobimo $2$ itd.
 
-Prvi, ki je znal to intuitivno predstavo preliti v natančno matematično definicijo, je bil Peano\footnote{Giuseppe Peano (1858 -- 1932) je bil italijanski matematik.} komaj dobro stoletje nazaj. Pogoje, ki jih zahtevamo za neko množico, da jo lahko imenujemo \qt{množica naravnih števil}, po njem imenujemo \df{Peanovi aksiomi}. \davorin{Nekje bomo predebatirali, kaj je aksiom in zakaj jih uporabljamo. Peanove aksiome povežimo s tem.}
+Prvi, ki je znal to intuitivno predstavo preliti v natančno matematično definicijo, je bil Peano\footnote{Giuseppe Peano (1858 -- 1932) je bil italijanski matematik.} komaj dobro stoletje nazaj. Pogoje, ki jih zahtevamo za neko množico, da jo lahko imenujemo ``množica naravnih števil'', po njem imenujemo \df{Peanovi aksiomi}. \davorin{Nekje bomo predebatirali, kaj je aksiom in zakaj jih uporabljamo. Peanove aksiome povežimo s tem.}
 
 Če boste brskali po literaturi, boste naleteli na mnogo različnih inačic Peanovih aksiomov. Mi bomo izbrali sledečo jedrnato različico.
 
 \begin{definicija}[Peano]\label{definicija:naravna-stevila}
-\df{Množica naravnih števil} je množica (običajno označena z $\NN$), skupaj z izbranim njenim elementom (običajno označenim z $0$, kar beremo \qt{ničla} ali \qt{nič}) in preslikavo na tej množici (običajno označeno z $\suc\colon \NN \to \NN$, ki jo imenujemo \qt{naslednik}), kadar veljajo naslednje lastnosti:
+\df{Množica naravnih števil} je množica (običajno označena z $\NN$), skupaj z izbranim njenim elementom (običajno označenim z $0$, kar beremo ``ničla'' ali ``nič'') in preslikavo na tej množici (običajno označeno z $\suc\colon \NN \to \NN$, ki jo imenujemo ``naslednik''), kadar veljajo naslednje lastnosti:
 \begin{itemize}
 \item
 $\suc$ je injektivna preslikava,
@@ -35,7 +35,7 @@ tedaj $\phi$ velja za vse elemente $\NN$.
 
 Poskusimo si zdaj natančno pojasniti pomen teh pogojev.
 
-S pomočjo elementa $0$ in preslikave $\suc$ lahko v nedogled generiramo elemente množice $\NN$. Začnemo z $0$, nato vzamemo naslednika in dobimo $\suc[0]$, nato vzamemo naslednika tega elementa in dobimo $\suc(\suc[0])$, nato naslednika $\suc(\suc(\suc[0]))$ itd. Takšen zapis je sicer precej nepraktičen --- si predstavljate, da rečete \qt{dobimo se čez naslednika od naslednika od naslednika od naslednika od naslednika ničle ur} (namesto \qt{dobimo se čez pet ur})? Zato sprejmemo dogovor: $\suc[0]$ označimo krajše z $1$ in preberemo \qt{ena}, $\suc(\suc[0])$ označimo z $2$ in preberemo \qt{dve} in tako naprej.\footnote{Trenutno dogovorjena sistematična imena za števila gredo do \df{centiljona}, ki ga zapišemo z enico, ki ji sledi 600 ničel (vsaj pri nas; ponekod po svetu centiljon pomeni enica s 303 ničlami). To pomeni, da lahko sistematično izrazimo števila do $10^{606}-1$ (= devetsto devetindevetdeset centiljard devetsto devetindevetdeset centiljonov devetsto devetindevetdeset novemnonagintiljard\ldots). Nekateri razširijo to lestvico še z nadaljnjimi latinskimi izpeljankami, obstajajo pa tudi posebna imena za nekatera posamična velika števila, na primer \df{gugol} za $10^{100}$ (od tod izhaja ime spletnega brskalnika Google).}
+S pomočjo elementa $0$ in preslikave $\suc$ lahko v nedogled generiramo elemente množice $\NN$. Začnemo z $0$, nato vzamemo naslednika in dobimo $\suc[0]$, nato vzamemo naslednika tega elementa in dobimo $\suc(\suc[0])$, nato naslednika $\suc(\suc(\suc[0]))$ itd. Takšen zapis je sicer precej nepraktičen --- si predstavljate, da rečete ``dobimo se čez naslednika od naslednika od naslednika od naslednika od naslednika ničle ur'' (namesto ``dobimo se čez pet ur'')? Zato sprejmemo dogovor: $\suc[0]$ označimo krajše z $1$ in preberemo ``ena'', $\suc(\suc[0])$ označimo z $2$ in preberemo ``dve'' in tako naprej.\footnote{Trenutno dogovorjena sistematična imena za števila gredo do \df{centiljona}, ki ga zapišemo z enico, ki ji sledi 600 ničel (vsaj pri nas; ponekod po svetu centiljon pomeni enica s 303 ničlami). To pomeni, da lahko sistematično izrazimo števila do $10^{606}-1$ (= devetsto devetindevetdeset centiljard devetsto devetindevetdeset centiljonov devetsto devetindevetdeset novemnonagintiljard\ldots). Nekateri razširijo to lestvico še z nadaljnjimi latinskimi izpeljankami, obstajajo pa tudi posebna imena za nekatera posamična velika števila, na primer \df{gugol} za $10^{100}$ (od tod izhaja ime spletnega brskalnika Google).}
 
 Smo na ta način dobili neskončno različnih elementov $\NN$? Če ne bi zahtevali zgornjih pogojev, to ne bi bilo nujno. Lahko bi se namreč zaciklali (v smislu, da je naslednik nekega elementa element, ki smo ga že prej navedli).
 
@@ -63,7 +63,7 @@ Vidimo, da se naravna števila ne morejo zaciklati niti na začetku (pri $0$) ni
 Premisli, da množica $\RR_{> -1}$ z naslednikom $\suc[x] \dfeq x+1$ zadošča vsem pogojem iz definicije~\ref{definicija:naravna-stevila}, razen načelu indukcije.
 \end{vaja}
 
-Vidimo, da bi brez načela indukcije lahko imeli v množici $\NN$ odvečna števila (takšna, ki jih ne štejemo kot naravna). S predpostavko o indukciji se to ne more zgoditi. Ta namreč pravi: če neka lastnost velja za začetni element verige $0$, $\suc[0]$, $\suc(\suc[0])$, $\suc(\suc(\suc[0]))$,\ldots in če lahko sklepamo, da kakor hitro ta lastnost velja za določen element verige, velja tudi za naslednjega, potem ta lastnost velja za vsa naravna števila. Če za lastnost vzamemo \qt{biti element te verige}, iz načela o indukciji sklenemo, da se vsako naravno število nahaja nekje v tej verigi. Peanovi aksiomi torej podajajo strukturo, ki ustreza naši intuitivni predstavi množice naravnih števil.
+Vidimo, da bi brez načela indukcije lahko imeli v množici $\NN$ odvečna števila (takšna, ki jih ne štejemo kot naravna). S predpostavko o indukciji se to ne more zgoditi. Ta namreč pravi: če neka lastnost velja za začetni element verige $0$, $\suc[0]$, $\suc(\suc[0])$, $\suc(\suc(\suc[0]))$,\ldots in če lahko sklepamo, da kakor hitro ta lastnost velja za določen element verige, velja tudi za naslednjega, potem ta lastnost velja za vsa naravna števila. Če za lastnost vzamemo ``biti element te verige'', iz načela o indukciji sklenemo, da se vsako naravno število nahaja nekje v tej verigi. Peanovi aksiomi torej podajajo strukturo, ki ustreza naši intuitivni predstavi množice naravnih števil.
 
 Glede na to, da je načelo o matematični indukciji eden od osnovnih aksiomov, s katerimi so naravna števila podana, ne preseneča, da je indukcija eden najpogostejših načinov, kako dokazujemo izjave na naravnih številih. Natančneje rečeno, z matematično indukcijo dokazujemo univerzalno kvantificirane izjave na naravnih številih, torej izjave oblike
 \[\xall{n}[\NN]{\phi(n)}.\]
@@ -113,7 +113,7 @@ in
 \[F_n = \frac{\Big(\frac{1+\sqrt{5}}{2}\Big)^n - \Big(\frac{1-\sqrt{5}}{2}\Big)^n}{\sqrt{5}}.\]
 Odvisno od tega, katera vrednost vas zanima, utegneta biti ta dva predpisa mnogo bolj okorna za računanje, kot pa rekurzivna. Pravzaprav nekaj časa traja, da sploh dokažete, da so rezultati teh predpisov naravna števila!
 
-Včasih pa preslikavo podamo rekurzivno preprosto zato, ker nimamo druge možnosti. Zgornja predpisa sicer podajata preslikavi izrecno, ampak cena za to je uporaba zapletenih operacij na realnih številih, kot so integral, eksponentna funkcija z naravno osnovo in korenjenje. Strogo vzeto smo zaenkrat od številskih množic definirali samo naravna števila, pa še zanje znamo povedati zgolj, kaj je $0$ in kaj je naslednik. V bistvu še ne \qt{znamo} niti seštevati!
+Včasih pa preslikavo podamo rekurzivno preprosto zato, ker nimamo druge možnosti. Zgornja predpisa sicer podajata preslikavi izrecno, ampak cena za to je uporaba zapletenih operacij na realnih številih, kot so integral, eksponentna funkcija z naravno osnovo in korenjenje. Strogo vzeto smo zaenkrat od številskih množic definirali samo naravna števila, pa še zanje znamo povedati zgolj, kaj je $0$ in kaj je naslednik. V bistvu še ne ``znamo'' niti seštevati!
 
 S pomočjo rekurzije bomo lahko definirali ostalo strukturo, ki jo poznamo na naravnih številih: seštevanje, množenje in tako naprej. Za začetek pa natančno izoblikujmo in dokažimo načelo o rekurziji na naravnih številih. Iz zgornje razprave je jasno, da je rekurzija tesno povezana z indukcijo, od koder jo bomo tudi izpeljali.
 
@@ -146,7 +146,7 @@ V tem smislu sta načeli rekurzije in indukcije enakovredni. Kot vidimo, lahko p
 
 Uporabimo zdaj izpeljano rekurzijo za natančno matematično definicijo strukture na naravnih številih, ki jo neformalno poznate že od malih nog.
 
-\note{Definicija in dokaz lastnosti seštevanja, množenja in odsekanega odštevanja \davorin{ali kakor bomo že pač prevedli \qt{cut-off subtraction}} --- slednje bo prav prišlo kasneje pri celih številih. \davorin{tudi potenciranje, ampak to bi prihranil za vajo}}
+\note{Definicija in dokaz lastnosti seštevanja, množenja in odsekanega odštevanja \davorin{ali kakor bomo že pač prevedli ``cut-off subtraction''} --- slednje bo prav prišlo kasneje pri celih številih. \davorin{tudi potenciranje, ampak to bi prihranil za vajo}}
 
 \subsection{Urejenost}
 \subsection{Nadaljnje karakterizacije}

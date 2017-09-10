@@ -1,6 +1,6 @@
 \chapter{Dokazovanje}\label{poglavje:dokazovanje}
 
-        Matematične izsledke običajno podajamo preko jasno izraženih izjav. Med študijem matematike hitro opazite, da se takšne izjave podajajo pod imeni \sqt{izrek}, \sqt{trditev}, \sqt{lema}, \sqt{posledica} in podobno. Kdaj uporabiti katerega teh imen ni natanko določeno, pač pa je prepuščeno presoji matematika. Približno vodilo je naslednje:
+        Matematične izsledke običajno podajamo preko jasno izraženih izjav. Med študijem matematike hitro opazite, da se takšne izjave podajajo pod imeni `izrek', `trditev', `lema', {posledica} in podobno. Kdaj uporabiti katerega teh imen ni natanko določeno, pač pa je prepuščeno presoji matematika. Približno vodilo je naslednje:
         \begin{itemize}
                 \item
                         \df{izrek}: osrednji, bistven rezultat,
@@ -71,7 +71,7 @@
                                         $f$ na krajiščih intervala zavzame enaki vrednosti.
                                         \[f(a) = f(b)\]
                         \end{itemize}
-                        Če se vam morda zdita formuli za zveznost in odvedljivost begajoči, imate dve tolažbi. Prva je ta, da se boste čez čas takšnih formul navadili. ;) Druga je, da so tudi drugi matematiki leni po naravi in zato uvedejo oznake za daljše izraze, ki se pogosto uporabljajo. Zgornja zveznost se na krajše zapiše $f \in \mathcal{C}(\intcc{a}{b})$ ($\mathcal{C}$ kot \qt{continuous}, tj.~zvezen), odvedljivost pa $f \in \mathcal{D}^1(\intoo{a}{b})$ ($\mathcal{D}$ kot \qt{differentiable}, tj.~odvedljiv, enka pa pomeni \qt{(vsaj) enkrat odvedljiv}).
+                        Če se vam morda zdita formuli za zveznost in odvedljivost begajoči, imate dve tolažbi. Prva je ta, da se boste čez čas takšnih formul navadili. ;) Druga je, da so tudi drugi matematiki leni po naravi in zato uvedejo oznake za daljše izraze, ki se pogosto uporabljajo. Zgornja zveznost se na krajše zapiše $f \in \mathcal{C}(\intcc{a}{b})$ ($\mathcal{C}$ kot ``continuous'', tj.~zvezen), odvedljivost pa $f \in \mathcal{D}^1(\intoo{a}{b})$ ($\mathcal{D}$ kot ``differentiable'', tj.~odvedljiv, enka pa pomeni ``(vsaj) enkrat odvedljiv'').
                 \item
                         Sklep je eden: $f$ ima stacionarno točko na $\intoo{a}{b}$, kar simbolno zapišemo takole.
                         \[\xsome{x}[\intoo{a}{b}]{f'(x) = 0}\]
@@ -169,9 +169,9 @@
                                                 \[\claim{\Gamma, x \in X}{\Pi}{\Sigma', \phi(x, y), \Sigma''}\]
                                                 Zakaj tako postopamo in kaj smo s tem pravzaprav naredili? Premislimo: želimo dokazati, da neka lastnost velja za vse elemente dane množice $X$. Če ima $X$ slučajno samo končno mnogo elementov, bi lahko lastnost preverili za vsakega posebej, ampak povečini delamo z neskončnimi množicami, kjer to ne deluje. Morda ima množica $X$ kakšno posebno lastnost, zaradi katere lahko univerzalni kvantifikator dokažemo na svojevrsten način (na primer, univerzalno kvantificirane izjave nad $\NN$ lahko dokazujemo z matematično indukcijo --- glej \note{razdelek o naravnih številih}), ampak to se zgodi v izjemnih primerih.
 
-                                                V splošnem nimamo druge možnosti, kot da si izberemo simbol (tipično kar spremenljivko v kvantifikatorju), ki nam predstavlja poljuben, katerikoli element množice in zanj dokažemo želeno lastnost. Ideja je, da spremenljivka spet nastopa v vlogi \qt{škatlice}, kamor lahko vstavimo poljuben element množice $X$. Če nam je dokaz lastnosti uspel, ne da bi za spremenljivko predpostavili karkoli več, kot da predstavlja element množice $X$, tedaj dobimo dokaz lastnosti za katerikoli dejanski element množice $X$ tako, da v dobljeni dokaz namesto spremenljivke vstavimo ta element. Na ta način smo potem dejansko dobili dokaz lastnosti za vse elemente množice $X$.
+                                                V splošnem nimamo druge možnosti, kot da si izberemo simbol (tipično kar spremenljivko v kvantifikatorju), ki nam predstavlja poljuben, katerikoli element množice in zanj dokažemo želeno lastnost. Ideja je, da spremenljivka spet nastopa v vlogi ``škatlice'', kamor lahko vstavimo poljuben element množice $X$. Če nam je dokaz lastnosti uspel, ne da bi za spremenljivko predpostavili karkoli več, kot da predstavlja element množice $X$, tedaj dobimo dokaz lastnosti za katerikoli dejanski element množice $X$ tako, da v dobljeni dokaz namesto spremenljivke vstavimo ta element. Na ta način smo potem dejansko dobili dokaz lastnosti za vse elemente množice $X$.
 
-                                                Besedni dokazi univerzalno kvantificirane izjave se zato tipično začnejo takole: \qt{Vzemimo poljuben $x \in X$. Dokažimo, da zanj velja dana lastnost.}.
+                                                Besedni dokazi univerzalno kvantificirane izjave se zato tipično začnejo takole: ``Vzemimo poljuben $x \in X$. Dokažimo, da zanj velja dana lastnost.''
                                         \end{quote}
                         \end{itemize}
                 \item\textbf{Eksistenčni kvantifikator}
@@ -217,7 +217,7 @@
                         \[p \lor q \equiv \lnot(\lnot{p} \land \lnot{q}) \equiv \lnot{p} \impl q \equiv \lnot{q} \impl p.\]
                         To pomeni, da lahko disjunkcijo (poleg zgoraj omenjenega načina) dokažemo tudi tako, da predpostavimo, da nobena od možnosti ne velja, in od tod izpeljemo neresnico, ali pa predpostavimo, da ena od možnosti ne velja, in od tod izpeljemo drugo.
 
-                        Zelo pogosta uporaba te ideje je \df{dokaz s protislovjem}, ki temelji na zakonu o dvojni negaciji $p \equiv \lnot\lnot{p}$. Izjavo torej lahko dokažemo tako, da predpostavimo njeno negacijo, in od tod izpeljemo neresnico. Tipičen besedni dokaz s protislovjem izgleda takole: \qt{Dokazujemo $p$. Pa recimo, da $p$ ne velja. Potem /neki sklepi/. To je v nasprotju s tem, kar smo dokazali prej, torej smo izpeljali protislovje. Se pravi, ni možno, da $p$ ne bi veljal, torej mora veljati.}.
+                        Zelo pogosta uporaba te ideje je \df{dokaz s protislovjem}, ki temelji na zakonu o dvojni negaciji $p \equiv \lnot\lnot{p}$. Izjavo torej lahko dokažemo tako, da predpostavimo njeno negacijo, in od tod izpeljemo neresnico. Tipičen besedni dokaz s protislovjem izgleda takole: ``Dokazujemo $p$. Pa recimo, da $p$ ne velja. Potem /neki sklepi/. To je v nasprotju s tem, kar smo dokazali prej, torej smo izpeljali protislovje. Se pravi, ni možno, da $p$ ne bi veljal, torej mora veljati.''
         \end{itemize}
 
         \note{mnogo zgovornih primerov dokazov, ki ponazorijo zgornje postopke}

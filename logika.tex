@@ -100,7 +100,7 @@ Včasih pa vendarle raje delamo neposredno z dodatnimi vezniki. Služijo lahko k
 
 Včasih so izjave odvisne od kakšnih parametrov. Na primer, naj $\phi(x)$ pomeni \nls{$x$ je zelen.}; tedaj $\phi(\text{trava})$ pomeni \nls{Trava je zelena.}. Simbol $\phi$ torej predstavlja lastnost določenih objektov. Takšne primere smo imeli že v razdelku~\ref{razdelek:mnozice}, kjer smo navedli oznako za podmnožico tistih elementov, ki zadoščajo dani lastnosti.
 
-Lastnosti, odvisne od spremenljivk, lahko \emph{kvantificiramo} po njihovih spremenljivkah, tj.~povemo, \qt{kako pogosto} velja lastnost. Tabela~\ref{tabela:kvantifikatorji} podaja najpogosteje uporabljane kvantifikatorje in njihove oznake.
+Lastnosti, odvisne od spremenljivk, lahko \emph{kvantificiramo} po njihovih spremenljivkah, tj.~povemo, ``kako pogosto'' velja lastnost. Tabela~\ref{tabela:kvantifikatorji} podaja najpogosteje uporabljane kvantifikatorje in njihove oznake.
 
 \begin{table}[!ht]
 \centering
@@ -144,7 +144,7 @@ Zdaj lahko na pregleden način zapišemo, da je vsako naravno število od $2$ na
 
 \section{Definicije}
 
-\davorin{Predlagam, da v definicijah konsistentno uporabljamo `kadar' namesto `če' (\qt{Funkcija je zvezna, kadar velja to in to.}). V definicijah gre za ekvivalenco, ne implikacijo.}
+\davorin{Predlagam, da v definicijah konsistentno uporabljamo `kadar' namesto `če' (``Funkcija je zvezna, kadar velja to in to.''). V definicijah gre za ekvivalenco, ne implikacijo.}
 
 \davorin{Verjetno je smiselno v tem razdelku razložiti definicijsko enakost $\dfeq$ (oz.~$\revdfeq$). Če se tako odločimo, odstranimo zgornje uporabe teh simbolov.}
 
@@ -207,7 +207,7 @@ Zdaj lahko na pregleden način zapišemo, da je vsako naravno število od $2$ na
                 \end{center}
                 Bodi pozoren na razliko med zadnjima dvema stolpcema!
 
-                Obenem lahko še na hitro opravimo z veznikoma $\shf$ in $\luk$. Spomnimo se, da $p \shf q$ pomeni \qt{ne hkrati $p$ in $q$}, medtem ko $p \luk q$ pomeni \qt{niti $p$ niti $q$}.
+                Obenem lahko še na hitro opravimo z veznikoma $\shf$ in $\luk$. Spomnimo se, da $p \shf q$ pomeni ``ne hkrati $p$ in $q$'', medtem ko $p \luk q$ pomeni ``niti $p$ niti $q$''.
                 \begin{center}
                         \begin{tabular}{cc|cc}
                                 $p$ & $q$ & $p \shf q$ & $p \luk q$ \\
@@ -323,7 +323,7 @@ Zdaj lahko na pregleden način zapišemo, da je vsako naravno število od $2$ na
                 \[p \shf q \sim \lnot(p \land q).\]
                 V tej knjigi se bomo držali uporabe simbola $\equiv$. \davorin{Recimo. Po mojem je to boljše, ker lahko $\equiv$ uporabljamo še za druge funkcije (npr.~$f(x) \equiv 0$ pomeni, da je $f$ konstantno enaka $0$, medtem ko $f(x) = 0$ predstavlja enačbo, s katero iščemo ničle funkcije) in ker bomo kasneje $\sim$ uporabljali za ekvivalenčne relacije.}
 
-                Med drugim smo s temi tabelami izpeljali tako imenovana \df{de Morganova zakona} za izjavno logiko \davorin{Verjetno je smiselno specificirati \qt{za izjavno logiko}. Imeli bomo namreč še zakona za predikatno logiko (za $\forall$ in $\exists$) ter za množice (za preseke in unije).}, ki povesta, kako negacija vpliva na konjunkcijo in disjunkcijo:
+                Med drugim smo s temi tabelami izpeljali tako imenovana \df{de Morganova zakona} za izjavno logiko \davorin{Verjetno je smiselno specificirati ``za izjavno logiko''. Imeli bomo namreč še zakona za predikatno logiko (za $\forall$ in $\exists$) ter za množice (za preseke in unije).}, ki povesta, kako negacija vpliva na konjunkcijo in disjunkcijo:
                 \[\lnot(p \land q) \equiv \lnot{p} \lor \lnot{q},\]
                 \[\lnot(p \lor q) \equiv \lnot{p} \land \lnot{q}.\]
                 To je smiselno: kadar ni res, da veljata oba $p$ in $q$, vsaj eden od njiju ne velja. Kadar ni res, da velja vsaj eden od njiju, nobeden od njiju ne velja.
@@ -509,7 +509,7 @@ Zdaj lahko na pregleden način zapišemo, da je vsako naravno število od $2$ na
 
         \section{Predikati in kvantifikatorji}
 
-                \note{\qt{Lastnostim} elementov množic, ki smo jih prej uporabljali za podajanje podmnožic in pri kvantifikatorjih, zdaj \qt{uradno} rečemo \df{predikati} in jih formalno definiramo: predikat na množici $X$ je preslikava $X \to \tvs$. Karakteristične preslikave podmnožic. Spomnimo se kvantifikatorjev in jih definiramo kot preslikave $\tvs^X \to \tvs$. Povemo, da lahko imajo predikati več spremenljivk in da lahko kvantificiramo po samo nekaterih (dobimo torej preslikave oblike $\tvs^{X \times Y} \to \tvs^Y$). Vezane, proste spremenljivke. Pravila, ki veljajo za kvantifikatorje (de Morgan itd.).}
+                \note{``Lastnostim'' elementov množic, ki smo jih prej uporabljali za podajanje podmnožic in pri kvantifikatorjih, zdaj ``uradno'' rečemo \df{predikati} in jih formalno definiramo: predikat na množici $X$ je preslikava $X \to \tvs$. Karakteristične preslikave podmnožic. Spomnimo se kvantifikatorjev in jih definiramo kot preslikave $\tvs^X \to \tvs$. Povemo, da lahko imajo predikati več spremenljivk in da lahko kvantificiramo po samo nekaterih (dobimo torej preslikave oblike $\tvs^{X \times Y} \to \tvs^Y$). Vezane, proste spremenljivke. Pravila, ki veljajo za kvantifikatorje (de Morgan itd.).}
 
 %%% Local Variables:
 %%% mode: latex
