@@ -91,14 +91,14 @@ Ukazi za leve oz.~desne projekcije oz.~injekcije so sledeči.
 \begin{tabular}{c|cc}
 & leva & desna \\
 \hline
-projekcija & \ltc{lpr} & \ltc{rpr} \\
-injekcija & \ltc{lin} & \ltc{rin}
+projekcija & \ltc{fst} & \ltc{snd} \\
+injekcija & \ltc{inl} & \ltc{inr}
 \end{tabular}
 \end{center}
 
 Tem ukazom kot izbirna parametra podamo faktorja oz.~sumanda.
-\ponazoritev{\textdollar{X \ltc{stackrel}\{\ltc{lpr}[X][Y]\}\{\ltc{longleftarrow}\} X \ltc{times} Y \ltc{stackrel}\{\ltc{rpr}[X][Y]\}\{\ltc{longrightarrow}\} Y}\textdollar}{$X \stackrel{\lpr[X][Y]}{\longleftarrow} X \times Y \stackrel{\rpr[X][Y]}{\longrightarrow} Y$}
-\ponazoritev{\textdollar{X \ltc{stackrel}\{\ltc{lin}[X][Y]\}\{\ltc{longrightarrow}\} X + Y \ltc{stackrel}\{\ltc{rin}[X][Y]\}\{\ltc{longleftarrow}\} Y}\textdollar}{$X \stackrel{\lin[X][Y]}{\longrightarrow} X + Y \stackrel{\rin[X][Y]}{\longleftarrow} Y$}
+\ponazoritev{\textdollar{X \ltc{stackrel}\{\ltc{fst}[X][Y]\}\{\ltc{longleftarrow}\} X \ltc{times} Y \ltc{stackrel}\{\ltc{snd}[X][Y]\}\{\ltc{longrightarrow}\} Y}\textdollar}{$X \stackrel{\fst[X][Y]}{\longleftarrow} X \times Y \stackrel{\snd[X][Y]}{\longrightarrow} Y$}
+\ponazoritev{\textdollar{X \ltc{stackrel}\{\ltc{inl}[X][Y]\}\{\ltc{longrightarrow}\} X + Y \ltc{stackrel}\{\ltc{inl}[X][Y]\}\{\ltc{longleftarrow}\} Y}\textdollar}{$X \stackrel{\inl[X][Y]}{\longrightarrow} X + Y \stackrel{\inr[X][Y]}{\longleftarrow} Y$}
 
 %%% Local Variables:
 %%% mode: latex
