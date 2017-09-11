@@ -28,14 +28,14 @@ $\suc$ je injektivna preslikava,
 $0 \notin \rn{\suc}$,
 \item
 velja načelo \df{matematične indukcije}: če je $\phi$ predikat na $\NN$, za katerega velja
-\[\phi(0) \qquad\qquad \text{in} \qquad\qquad \all{n \in \NN} (\phi(n) \implies \phi\big(\suc[n]\big)),\]
+\[\phi(0) \qquad\qquad \text{in} \qquad\qquad \all{n \in \NN} (\phi(n) \implies \phi\big(\suc(n)\big)),\]
 tedaj $\phi$ velja za vse elemente $\NN$.
 \end{itemize}
 \end{definicija}
 
 Poskusimo si zdaj natančno pojasniti pomen teh pogojev.
 
-S pomočjo elementa $0$ in preslikave $\suc$ lahko v nedogled generiramo elemente množice $\NN$. Začnemo z $0$, nato vzamemo naslednika in dobimo $\suc[0]$, nato vzamemo naslednika tega elementa in dobimo $\suc(\suc[0])$, nato naslednika $\suc(\suc(\suc[0]))$ itd. Takšen zapis je sicer precej nepraktičen --- si predstavljate, da rečete ``dobimo se čez naslednika od naslednika od naslednika od naslednika od naslednika ničle ur'' (namesto ``dobimo se čez pet ur'')? Zato sprejmemo dogovor: $\suc[0]$ označimo krajše z $1$ in preberemo ``ena'', $\suc(\suc[0])$ označimo z $2$ in preberemo ``dve'' in tako naprej.\footnote{Trenutno dogovorjena sistematična imena za števila gredo do \df{centiljona}, ki ga zapišemo z enico, ki ji sledi 600 ničel (vsaj pri nas; ponekod po svetu centiljon pomeni enica s 303 ničlami). To pomeni, da lahko sistematično izrazimo števila do $10^{606}-1$ (= devetsto devetindevetdeset centiljard devetsto devetindevetdeset centiljonov devetsto devetindevetdeset novemnonagintiljard\ldots). Nekateri razširijo to lestvico še z nadaljnjimi latinskimi izpeljankami, obstajajo pa tudi posebna imena za nekatera posamična velika števila, na primer \df{gugol} za $10^{100}$ (od tod izhaja ime spletnega brskalnika Google).}
+S pomočjo elementa $0$ in preslikave $\suc$ lahko v nedogled generiramo elemente množice $\NN$. Začnemo z $0$, nato vzamemo naslednika in dobimo $\suc(0)$, nato vzamemo naslednika tega elementa in dobimo $\suc(\suc(0))$, nato naslednika $\suc(\suc(\suc(0)))$ itd. Takšen zapis je sicer precej nepraktičen --- si predstavljate, da rečete ``dobimo se čez naslednika od naslednika od naslednika od naslednika od naslednika ničle ur'' (namesto ``dobimo se čez pet ur'')? Zato sprejmemo dogovor: $\suc(0)$ označimo krajše z $1$ in preberemo ``ena'', $\suc(\suc(0))$ označimo z $2$ in preberemo ``dve'' in tako naprej.\footnote{Trenutno dogovorjena sistematična imena za števila gredo do \df{centiljona}, ki ga zapišemo z enico, ki ji sledi 600 ničel (vsaj pri nas; ponekod po svetu centiljon pomeni enica s 303 ničlami). To pomeni, da lahko sistematično izrazimo števila do $10^{606}-1$ (= devetsto devetindevetdeset centiljard devetsto devetindevetdeset centiljonov devetsto devetindevetdeset novemnonagintiljard\ldots). Nekateri razširijo to lestvico še z nadaljnjimi latinskimi izpeljankami, obstajajo pa tudi posebna imena za nekatera posamična velika števila, na primer \df{gugol} za $10^{100}$ (od tod izhaja ime spletnega brskalnika Google).}
 
 Smo na ta način dobili neskončno različnih elementov $\NN$? Če ne bi zahtevali zgornjih pogojev, to ne bi bilo nujno. Lahko bi se namreč zaciklali (v smislu, da je naslednik nekega elementa element, ki smo ga že prej navedli).
 
@@ -55,22 +55,22 @@ Nasledniki se lahko zaciklajo tudi pri elementu, ki ni $0$. V danem primeru je n
 
 Zakaj naravna števila niso taka? Ker v danem primeru $\suc$ ni injektivna preslikava. Pogoj o injektivnosti nam v bistvu pove sledeče: naravna števila se ne morejo zaciklati pri nobenem nasledniku.
 
-Vidimo, da se naravna števila ne morejo zaciklati niti na začetku (pri $0$) niti nekje vmes v verigi naslednikov --- torej gredo v nedogled, kot želimo. Z drugimi besedami, $0$, $\suc[0]$, $\suc(\suc[0])$, $\suc(\suc(\suc[0]))$,\ldots so medsebojno različni elementi množice $\NN$ in naravnih števil je posledično neskončno.
+Vidimo, da se naravna števila ne morejo zaciklati niti na začetku (pri $0$) niti nekje vmes v verigi naslednikov --- torej gredo v nedogled, kot želimo. Z drugimi besedami, $0$, $\suc(0)$, $\suc(\suc(0))$, $\suc(\suc(\suc(0)))$,\ldots so medsebojno različni elementi množice $\NN$ in naravnih števil je posledično neskončno.
 
-Čemu pa služi zadnji pogoj iz definicije~\ref{definicija:naravna-stevila}, tj.~načelo o indukciji? Že brez tega pogoja vemo, da so $0$, $\suc[0]$, $\suc(\suc[0])$, $\suc(\suc(\suc[0]))$,\ldots naravna števila, česar pa ne vemo, je, da so to \emph{vsa} naravna števila --- da torej ni nobenih drugih.
+Čemu pa služi zadnji pogoj iz definicije~\ref{definicija:naravna-stevila}, tj.~načelo o indukciji? Že brez tega pogoja vemo, da so $0$, $\suc(0)$, $\suc(\suc(0))$, $\suc(\suc(\suc(0)))$,\ldots naravna števila, česar pa ne vemo, je, da so to \emph{vsa} naravna števila --- da torej ni nobenih drugih.
 
 \begin{vaja}
-Premisli, da množica $\RR_{> -1}$ z naslednikom $\suc[x] \dfeq x+1$ zadošča vsem pogojem iz definicije~\ref{definicija:naravna-stevila}, razen načelu indukcije.
+Premisli, da množica $\RR_{> -1}$ z naslednikom $\suc(x) \dfeq x+1$ zadošča vsem pogojem iz definicije~\ref{definicija:naravna-stevila}, razen načelu indukcije.
 \end{vaja}
 
-Vidimo, da bi brez načela indukcije lahko imeli v množici $\NN$ odvečna števila (takšna, ki jih ne štejemo kot naravna). S predpostavko o indukciji se to ne more zgoditi. Ta namreč pravi: če neka lastnost velja za začetni element verige $0$, $\suc[0]$, $\suc(\suc[0])$, $\suc(\suc(\suc[0]))$,\ldots in če lahko sklepamo, da kakor hitro ta lastnost velja za določen element verige, velja tudi za naslednjega, potem ta lastnost velja za vsa naravna števila. Če za lastnost vzamemo ``biti element te verige'', iz načela o indukciji sklenemo, da se vsako naravno število nahaja nekje v tej verigi. Peanovi aksiomi torej podajajo strukturo, ki ustreza naši intuitivni predstavi množice naravnih števil.
+Vidimo, da bi brez načela indukcije lahko imeli v množici $\NN$ odvečna števila (takšna, ki jih ne štejemo kot naravna). S predpostavko o indukciji se to ne more zgoditi. Ta namreč pravi: če neka lastnost velja za začetni element verige $0$, $\suc(0)$, $\suc(\suc(0))$, $\suc(\suc(\suc(0)))$,\ldots in če lahko sklepamo, da kakor hitro ta lastnost velja za določen element verige, velja tudi za naslednjega, potem ta lastnost velja za vsa naravna števila. Če za lastnost vzamemo ``biti element te verige'', iz načela o indukciji sklenemo, da se vsako naravno število nahaja nekje v tej verigi. Peanovi aksiomi torej podajajo strukturo, ki ustreza naši intuitivni predstavi množice naravnih števil.
 
 Glede na to, da je načelo o matematični indukciji eden od osnovnih aksiomov, s katerimi so naravna števila podana, ne preseneča, da je indukcija eden najpogostejših načinov, kako dokazujemo izjave na naravnih številih. Natančneje rečeno, z matematično indukcijo dokazujemo univerzalno kvantificirane izjave na naravnih številih, torej izjave oblike
 \[xall{n \in \NN} \phi(n).\]
 Po načelu indukcije za dokaz take izjave zadostuje narediti naslednje. Najprej dokažemo
 \[\phi(0)\]
 (da torej lastnost $\phi$ velja za začetno naravno število). To imenujemo \df{temelj} ali \df{osnova} ali \df{baza} indukcije. Nato dokažemo izjavo
-\[\all{n \in \NN} \phi(n) \implies \phi(\suc[n]);\]
+\[\all{n \in \NN} \phi(n) \implies \phi(\suc(n));\]
 to imenujemo \df{indukcijski korak}. Z besedami, dokažemo, da kakor hitro velja lastnost $\phi$ za neko naravno število, mora veljati ta lastnost tudi za naslednje.
 
 Intuitivno je jasno, da to mora delovati. Temelj indukcije nam pove, da dana lastnost velja za $0$. Ker zdaj vemo, da velja za $0$, mora po indukcijskem koraku veljati za naslednika ničle, torej za $1$. Zdaj vemo, da velja za $1$, torej mora po indukcijskem koraku veljati tudi za $2$. Tako nadaljujemo: sklepamo, da lastnost velja za $3$, nato za $4$ in tako naprej. Ker se vsa naravna števila pojavijo v verigi naslednikov ničle, mora z indukcijo dokazana lastnost dejansko veljati za vsa naravna števila.
@@ -117,11 +117,11 @@ Včasih pa preslikavo podamo rekurzivno preprosto zato, ker nimamo druge možnos
 
 S pomočjo rekurzije bomo lahko definirali ostalo strukturo, ki jo poznamo na naravnih številih: seštevanje, množenje in tako naprej. Za začetek pa natančno izoblikujmo in dokažimo načelo o rekurziji na naravnih številih. Iz zgornje razprave je jasno, da je rekurzija tesno povezana z indukcijo, od koder jo bomo tudi izpeljali.
 
-\begin{izrek}[Načelo rekurzije]
+\begin{izrek}[Načelo rekurzije]\label{izrek:rekurzija}
 Imejmo poljubni množici $X$ in $Y$ ter preslikavi $b\colon X \to Y$ in $r\colon \NN \times X \times Y \to Y$. Tedaj obstaja natanko ena preslikava $f\colon \NN \times X \to Y$, za katero velja
 \[f(0, x) = b(x)\]
 in
-\[f\big(\suc[n], x\big) = r\big(n, x, f(n)\big)\]
+\[f\big(\suc(n), x\big) = r\big(n, x, f(n, x)\big)\]
 za vse $x \in X$ in $n \in \NN$.
 
 Temu natančneje rečemo \df{načelo parametrizirane rekurzije}, ker pri preslikavi $f$ na naravnih številih dopuščamo še poljuben parameter iz množice $X$. Če za $X$ vzamemo enojec, se zgornja izjava reducira na sledeče \df{načelo neparametrizirane rekurzije}.
@@ -129,7 +129,7 @@ Temu natančneje rečemo \df{načelo parametrizirane rekurzije}, ker pri preslik
 Če imamo množico $Y$, element $b \in Y$ in preslikavo $r\colon \NN \times Y \to Y$, tedaj obstaja natanko ena preslikava $f\colon \NN \to Y$, za katero velja
 \[f(0) = b\]
 in
-\[f\big(\suc[n]\big) = r\big(n, f(n)\big)\]
+\[f\big(\suc(n)\big) = r\big(n, f(n)\big)\]
 za vse $n \in \NN$.
 \end{izrek}
 
@@ -138,15 +138,103 @@ za vse $n \in \NN$.
 
 Rekurzijo smo na ta način izpeljali iz indukcije, poudarimo pa, da je možen tudi obraten pristop: načelo o rekurziji vzamemo kot osnoven aksiom naravnih števil \emph{namesto} indukcije, nato pa od tod izpeljemo načelo o indukciji. Poglejmo, kako to storimo.
 
-Vzemimo poljuben predikat $\phi\colon \NN \to \tvs$, za katerega velja $\phi(0)$ in $\all{n \in \NN} (\phi(n) \implies \phi(\suc[n]))$. Po načelu rekurzije obstaja natanko ena preslikava $f\colon \NN \to \tvs$, za katero velja $f(0) = \true$ in $f\big(\suc[n]\big) = f(n) \lor \phi\big(\suc[n]\big)$ za vse $n \in \NN$. Ampak predikat $\phi$ sam zadošča tema pogojema, saj lahko izjavo $\phi(n) \implies \phi\big(\suc[n]\big)$ enakovredno zapišemo kot $\phi\big(\suc[n]\big) = \phi(n) \lor \phi\big(\suc[n]\big)$. Očitno pa tudi povsod resničen predikat zadošča danima pogojema, od koder zaključimo $\phi = \lam{n \in \NN}{\true}$.
+Vzemimo poljuben predikat $\phi\colon \NN \to \tvs$, za katerega velja $\phi(0)$ in $\all{n \in \NN} (\phi(n) \implies \phi(\suc(n)))$. Po načelu rekurzije obstaja natanko ena preslikava $f\colon \NN \to \tvs$, za katero velja $f(0) = \true$ in $f\big(\suc(n)\big) = f(n) \lor \phi\big(\suc(n)\big)$ za vse $n \in \NN$. Ampak predikat $\phi$ sam zadošča tema pogojema, saj lahko izjavo $\phi(n) \implies \phi\big(\suc(n)\big)$ enakovredno zapišemo kot $\phi\big(\suc(n)\big) = \phi(n) \lor \phi\big(\suc(n)\big)$. Očitno pa tudi povsod resničen predikat zadošča danima pogojema, od koder zaključimo $\phi = \lam{n \in \NN}{\true}$.
 
 V tem smislu sta načeli rekurzije in indukcije enakovredni. Kot vidimo, lahko pravzaprav na indukcijo gledamo kot na poseben primer rekurzije, konkretno za preslikave oblike $\NN \to \tvs$. To nam pove, da je ta primer tako generičen, da je iz njega možno dobiti načelo za poljubne preslikave oblike $\NN \times X \to Y$.
 
+\note{Rekurzor kot preslikava. Morda pripomba, ki zgornjo diskusijo poveže s primitivno rekurzijo iz teorije izračunljivosti.}
+
 \subsection{Računske operacije}
 
-Uporabimo zdaj izpeljano rekurzijo za natančno matematično definicijo strukture na naravnih številih, ki jo neformalno poznate že od malih nog.
+Uporabimo zdaj izpeljano rekurzijo za natančno matematično definicijo strukture na naravnih številih, ki jo neformalno poznate že od malih nog. Začnimo z osnovnimi računskimi operacijami.
 
-\note{Definicija in dokaz lastnosti seštevanja, množenja in odsekanega odštevanja \davorin{ali kakor bomo že pač prevedli ``cut-off subtraction''} --- slednje bo prav prišlo kasneje pri celih številih. \davorin{tudi potenciranje, ampak to bi prihranil za vajo}}
+Seštevanje želimo definirati kot preslikavo $\NN \times \NN \to \NN$. Da ga definiramo rekurzivno, moramo povedati, kaj pomeni prišteti ničlo in kaj pomeni prišteti naslednika nekega števila (izraženo z vsoto, ki jo dobimo iz prištetja tega števila samega). Smiselno je podati naslednje.
+\begin{align*}
+0 + m &\dfeq m \\
+\suc(n) + m &\dfeq \suc(n + m)
+\end{align*}
+V tej definiciji $m$ nastopa kot parameter --- se pravi, uporabili bomo načelo parametrizirane rekurzije. Glede na oznake iz izreka~\ref{izrek:rekurzija} smo vzeli $X = \NN$, $Y = \NN$, $b(m) = m$ (torej je $b$ identiteta na $\NN$) in $r(n, m, k) = \suc(k)$ (se pravi, $r$ je kompozicija projekcije na tretjo komponento in preslikave naslednika). Po tem izreku dobimo enolično določeno preslikavo $+\colon \NN \times \NN \to \NN$ (ki igra vlogo preslikave $f$ iz izreka).
+
+Dokažimo, da pravkar definirano seštevanje zadošča zakonom, na katere smo navajeni. Začnimo s tem, da preverimo, da je $0$ enota za seštevanje.
+
+Seveda velja $0 + a = a$ za vse $a \in \NN$ --- to je del definicije seštevanja. Od tod pa ne smemo takoj sklepati na $a + 0 = a$, saj še nismo dokazali izmenljivosti seštevanja. Lahko bi na tem mestu začeli z dokazom izmenljivosti, ampak kot bomo videli, bomo za to že potrebovali dejstvo, da je $0$ enota. Dokažimo torej $a + 0 = a$ za vse $a \in \NN$ neposredno.
+
+Trditev dokazujemo z indukcijo. Najprej dokažemo trditev za $a = 0$, torej $0 + 0 = 0$. To je res po definiciji.
+
+Privzemimo, da velja $a + 0 = a$ za neki $a \in \NN$. Dokazujemo $\suc(a) + 0 = \suc(a)$. Preverimo:
+\[\suc(a) + 0 = \suc(a + 0) = \suc(a).\]
+
+Kaj pa, če namesto $0$ prištejemo $1$? Takrat seveda pričakujemo, da dobimo naslednika. Preverimo.
+
+Za poljuben $a \in \NN$ dobimo $1 + a = \suc(0) + a = \suc(0 + a) = \suc(a)$. Tukaj sploh nismo potrebovali indukcije. Jo pa potrebujemo za dokaz, da za vsak $a \in \NN$ velja $a + 1 = \suc(a)$. Za $a = 0$ je to definicija oznake $1$. Recimo, da za neki $a \in \NN$ velja $a + 1 = \suc(a)$. Tedaj $\suc(a) + 1 = \suc(a + 1) = \suc(\suc(a))$.
+
+Prepričajmo se zdaj o družilnosti (asociativnosti) seštevanja. Dokazati želimo izjavo
+\[\all{a \in \NN}\all{b \in \NN}\all{c \in \NN}{(a + b) + c = a + (b + c)}.\]
+Dokažimo jo z indukcijo (po spremenljivki $a$). Najprej vzamemo $a = 0$; tedaj za vse $b, c \in \NN$ velja $(0 + b) + c = b + c = 0 + (b + c)$. Privzemimo zdaj, da pri nekem $a \in \NN$ za vse $b, c \in \NN$ velja $(a + b) + c = a + (b + c)$. Pri poljubnem $b$ in $c$ lahko poračunamo
+\[(\suc(a) + b) + c = \suc(a + b) + c = \suc((a + b) + c) = \suc(a + (b + c)) = \suc(a) + (b + c).\]
+
+Zdaj lahko dokažemo izmenljivost (komutativnost) seštevanja. Dokazati želimo izjavo
+\[\all{a \in \NN}\all{b \in \NN}{a + b = b + a}.\]
+Spet dokazujemo z indukcijo. Vzemimo $a = 0$. Potem trdimo, da za vse $b \in \NN$ velja $0 + b = b + 0$. To smo že dokazali --- obe strani enakosti sta enaki $b$, saj vemo, da je $0$ enota za seštevanje.
+
+Predpostavimo zdaj, da velja $\all{b \in \NN}{a + b = b + a}$ za neki $a \in \NN$. Trdimo $\all{b \in \NN}{\suc(a) + b = b + \suc(a)}$. Vzemimo poljuben $b \in \NN$ in preverimo:
+\[\suc(a) + b = \suc(a + b) = \suc(b + a) = (b + a) + 1 = b + (a + 1) = b + \suc(a).\]
+
+Na podoben način lahko definiramo množenje in dokažemo njegove lastnosti. Smiselna rekurzivna definicija množenja je sledeča.
+\begin{align*}
+0 \cdot m &\dfeq 0 \\
+\suc(n) \cdot m &\dfeq n \cdot m + m
+\end{align*}
+Če primerjamo z izrekom~\ref{izrek:rekurzija}, smo vzeli $X = Y = \NN$, $b(m) = 0$ (torej je $b$ konstantna ničelna preslikava) in $r(n, m, k) = k + m$ (to preslikavo lahko definiramo s pomočjo pravkar definiranega seštevanja). Izrek nam porodi enolično določeno preslikavo $\cdot\colon \NN \times \NN \to \NN$.
+
+Podobno kot prej pri seštevanju za začetek ugotovimo, kaj se zgodi, ko množimo z $0$ oziroma $1$. Po definiciji vemo $0 \cdot a = 0$ za vse $a \in \NN$. Dokažimo še $a \cdot 0 = 0$ za vse $a \in \NN$. Za $a = 0$ velja $0 \cdot 0 = 0$ po definiciji. Vzemimo, da velja $a \cdot 0 = 0$ za neki $a \in \NN$. Tedaj $\suc(a) \cdot 0 = a \cdot 0 + 0 = 0 + 0 = 0$.
+
+Število $1$ bi morala biti enota za množenje. Preverimo. Najprej $1 \cdot a = s(0) \cdot a = 0 \cdot a + a = 0 + a = a$. Po drugi strani trditev, da za vse $a \in \NN$ velja $a \cdot 1 = a$, dokažemo z indukcijo. Enakost $0 \cdot 1 = 0$ je jasna. Recimo, da trditev velja za neki $a \in \NN$. Tedaj $\suc(a) \cdot 1 = a \cdot 1 + 1 = a + 1 = \suc(a)$.
+
+Dokažimo, da je množenje razčlenitveno (distributivno) glede na seštevanje. Se pravi, dokazati želimo izjavi
+\[\all{a \in \NN}\all{b \in \NN}\all{c \in \NN}{(a + b) \cdot c = a \cdot c  + b \cdot c}\]
+in
+\[\all{a \in \NN}\all{b \in \NN}\all{c \in \NN}{a \cdot (b + c) = a \cdot b + a \cdot c}.\]
+Pri prvi od izjav (desni razčlenitvi) za $a = 0$ dobimo $(0 + b) \cdot c = b \cdot c = 0 + b \cdot c = 0 \cdot c + b \cdot c$ in če predpostavimo ozjavo za neki $a$, lahko sklepamo $(\suc(a) + b) \cdot c = \suc(a + b) \cdot c = (a + b) \cdot c + c = a \cdot c + b \cdot c + c = a \cdot c + c + b \cdot c = \suc(a) \cdot c + b \cdot c$. Pri drugi izjavi (levi razčlenitvi) sklepamo podobno: $0 \cdot (b + c) = 0 = 0 + 0 = 0 \cdot b + 0 \cdot c$ in $\suc(a) \cdot (b + c) = a \cdot (b + c) + (b + c) = a \cdot b + a \cdot c + b + c = a \cdot b + b + a \cdot c + c = \suc(a) \cdot b + \suc(a) \cdot c$.
+
+Preverimo družilnost množenja, torej izjavo
+\[\all{a \in \NN}\all{b \in \NN}\all{c \in \NN}{(a \cdot b) \cdot c = a \cdot (b \cdot c)}.\]
+Za $a = 0$ dobimo $(0 \cdot b) \cdot c = 0 \cdot c = 0 = 0 \cdot (b \cdot c)$. Nato predpostavimo zgornjo izjavo za neki $a$. Poračunamo $(\suc(a) \cdot b) \cdot c = (a \cdot b + b) \cdot c = (a \cdot b) \cdot c + b \cdot c = a \cdot (b \cdot c) + b \cdot c = \suc(a) \cdot (b \cdot c)$.
+
+Naposled preverimo še izmenljivost množenja na naravnih številih, torej izjavo
+\[\all{a \in \NN}\all{b \in \NN}{a \cdot b = b \cdot a}.\]
+Za $a = 0$ dobimo $0 \cdot b = 0 = b \cdot 0$. Vzemimo, da izjava velja za neki $a$. Tedaj $\suc(a) \cdot b = a \cdot b + b = b \cdot a + b = b \cdot a + b \cdot 1 = b \cdot (a + 1) = b \cdot \suc(a)$.
+
+Na kratko lahko to celotno razpravo povzamemo: množica naravnih števil $\NN$ tvori izmenljiv polkolobar z enico. \davorin{ta pojem bo pojasnjen že v prejšnjem poglavju o strukturah} Seveda pa ne tvori kolobarja; vemo, da naravnih števil ne moremo poljubno odštevati. Še vedno pa lahko odštevanje na naravnih številih podamo kot \emph{delno} operacijo, torej kot delno preslikavo $-\colon \NN \times \NN \parto \NN$. Spomnimo se namreč \note{od polkolobarjev v prejšnjem poglavju}, da je odštevanje delna preslikava natanko tedaj, ko je polkolobar krajšalen.
+
+Dokažimo krajšalnost polkolobarja naravnih števil, torej izjavo
+\[\all{a \in \NN}\all{x \in \NN}\all{y \in \NN}\big(a + x = a + y \implies x = y\big).\]
+Kot običajno se poslužimo indukcije. Pri $a = 0$ smo takoj na koncu. Recimo, da velja izjava za neki $a$ ter vzemimo poljubna $x$ in $y$, tako da velja $\suc(a) + x = \suc(a) + y$. Tedaj $\suc(a + x) = \suc(a + y)$ in ker je $\suc$ injektivna preslikava (eden od Peanovih aksiomov!), sklepamo $a + x = a + y$, od tod pa $x = y$.\footnote{Injektivnost preslikave $\suc$ je točno to, kar potrebujemo za krajšalnost. Velja namreč tudi obrat: če imamo $\suc(a) = \suc(b)$, tj.~$a + 1 = b + 1$, in lahko krajšamo, potem $a = b$.}
+
+S pomočjo (delnega) odštevanja lahko definiramo \df{predhodnika} na naravnih številih, in sicer kot $\prd(n) \dfeq n - 1$. Tudi to je zgolj delna preslikava $\prd\colon \NN \parto \NN$; ničla je edino naravno število, ki ni v njenem definicijskem območju.
+
+\begin{vaja}
+Dokaži $\all{n \in \NN}{\prd\big(\suc(n)\big) \kleq n}$.
+\end{vaja}
+
+Včasih je pa uporabno imeti obliko predhodnika in odštevanja, ki sta celoviti preslikavi. Pri predhodniku se dogovorimo, da se pomaknemo za eno nazaj, če se le da (pri ničli torej ostanemo, kjer smo). To različico predhodnika lahko definiramo z rekurzijo na naslednji način.
+\begin{align*}
+\tilde{\prd}(0) &\dfeq 0 \\
+\tilde{\prd}\big(\suc(n)\big) &\dfeq n
+\end{align*}
+Po načelu o neparametrizirani rekurziji dobimo enolično določeno preslikavo $\tilde{\prd}\colon \NN \to \NN$ (konkretno, v izreku~\ref{izrek:rekurzija} vzamemo $Y = \NN$, $b = 0$ in $r(n, m, k) = n$).\footnote{Morda se vam zdi vprašljivo, če bi to definicijo sploh imenovali ``rekurzivna'', saj $\tilde{\prd}\big(\suc(n)\big)$ nismo izrazili s $\tilde{\prd}(n)$ (ali z drugimi besedami, preslikava $r$ ni odvisna od svojega tretjega argumenta). Ampak izrek~\ref{izrek:rekurzija} za ta primer še vedno velja in zgornja definicija torej podaja dobro definirano preslikavo $\tilde{\prd}\colon \NN \to \NN$.}
+
+Od tod lahko definiramo tako imenovano \df{prisekano odštevanje} na naravnih številih. Simbol za to operacijo je $\monus$, kar se prebere ``monus'' (torej: $1 + 2$ se bere ``ena plus dve'', $1 - 2$ se bere ``ena minus dve'' in $1 \monus 2$ se bere ``ena monus dve'').
+
+Ideja prisekanega odštevanja je, da zmanjševanec zmanjšamo za tolikšen del odštevanca, kolikor le lahko (z drugimi besedami, če se običajno odštevanje izide v naravnih številih, velja $a \monus b = a - b$, sicer pa velja $a \monus b = 0$). Natančna rekurzivna definicija je sledeča.
+\begin{align*}
+m \monus 0 &\dfeq n \\
+m \monus \suc(n) &\dfeq \tilde{\prd}(m \monus n)
+\end{align*}
+
+\davorin{Moram dokončati razpravo o prisekanem odštevanju (bo prišlo prav kasneje pri celih številih) in popraviti načelo rekurzije, da bo parameter na levi. To bo bolje tudi v drugih primerih.}
+
+\note{Ena od vaj: rekurzivna definicija in dokaz lastnosti potenciranja}
 
 \subsection{Urejenost}
 \subsection{Nadaljnje karakterizacije}
