@@ -4,7 +4,9 @@
 \section{Kaj so množice?}
 \label{sec:kaj-so-mnoice}
 
-O konceptu množic: imamo dva koncepta, množica je zbirka elemetov, ki jih druži nekaj skupnega (imajo skupno strukturo), ali množica je poljubna zbirka elementov. Drugi pogled je bolj splošen, vendar lahko vodi v težave.
+O konceptu množic: množica je zbirka elemetov, običjano jih druži nekaj skupnega (imajo
+skupno strukturo), lahko pa je tudi poljubna zbirka elementov. Drugi pogled je bolj splošen,
+vendar lahko vodi v težave.
 
 Russellov paradoks.
 
@@ -28,6 +30,8 @@ bilo pomembno, kako hitro delajo.
 
 Nekatere osnovne množice: prazna $\emptyset$, enojec, $\{a_1, \ldots, a_n\}$.
 
+Tabelarični prikaz funkcije?
+
 Princip ekstenzionalnosti pove, da je $\set{x} = \set{x, x}$.
 
 Poznamo tudi že množice iz srednje šole, na primer $\NN$ in $\QQ$. Uporabljali jih bomo v
@@ -36,9 +40,15 @@ primerih, a kasneje bomo povedali več o njiju.
 \section{Kartezični produkt}
 \label{sec:kartezicni-produkt}
 
+Pojem splošne konstrukcije množic. Iz množic lahko na različne načine delamo nove množice.
+Temu pravimo konstrukcije. Konstrukcijo podamo s pravili.
+
 Urejeni par kot primitivni koncept. Povemo pravila, kako se dela elemente kartezičnega
 produkta in kako se jih uporablja (projekciji). Povemo enačbe, ki veljajo (beta in
 ekstenzionalnost).
+
+Zapis preslikava, ki slika v produkt.
+Zapis preslikava, definirane na produktu.
 
 \section{Vsota}
 \label{sec:vsota}
@@ -49,9 +59,22 @@ in $\inr$.
 
 Elementi $A + A$. Kasneje bomo spoznali tudi operacijo unija, ki jo tudi že poznamo.
 
-Pravila za vsoto množic. Notacija za ``pogojni stavek''.
-
-Definicija funkcij s pomočjo pogojnega stavka. Zapis funkcije, definirane s primeri.
+Pravila za vsoto množic. Notacija za preslikave, definirane na vsoti, $f : A + B \to C$:
+%
+\begin{align*}
+  f(\inl(x)) &= \cdots x \cdots \\
+  f(\inr(y)) &= \cdots y \cdots
+\end{align*}
+%
+in tudi
+%
+\begin{align*}
+  f(z) =
+  \begin{cases}
+    \cdots x \cdots & \text{če $z = \inl(x)$,} \\
+    \cdots y \cdots & \text{če $z = \inl(y)$.}
+  \end{cases}
+\end{align*}
 
 \section{Eksponent}
 \label{sec:eksponent}
@@ -83,6 +106,9 @@ Izomorfnost je kongruenca za produkt, vsoto in eksponent.
 \label{sec:aritmetika-tarskega}
 
 Aritmetični zakoni Tarskega za množice. Podobnost z običajno aritmetiko.
+
+Pri asociativnosti produkta obravnavamo $A_1 \times A_2 \times \cdots \times A_n$ in
+enojec kot produkt nič množic. Podobno za vsote.
 
 
 \section{Kar je že Davorin napisal}
