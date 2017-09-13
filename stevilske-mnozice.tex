@@ -224,19 +224,19 @@ Dokaži $\all{n \in \NN}{\prd\big(\suc(n)\big) \kleq n}$.
 
 Včasih je pa uporabno imeti obliko predhodnika in odštevanja, ki sta celoviti preslikavi. Pri predhodniku se dogovorimo, da se pomaknemo za eno nazaj, če se le da (pri ničli torej ostanemo, kjer smo). To različico predhodnika lahko definiramo z rekurzijo na naslednji način.
 \begin{align*}
-\tilde{\prd}(0) &\dfeq 0 \\
-\tilde{\prd}\big(\suc(n)\big) &\dfeq n
+\tprd(0) &\dfeq 0 \\
+\tprd\big(\suc(n)\big) &\dfeq n
 \end{align*}
-Po načelu o neparametrizirani rekurziji dobimo enolično določeno preslikavo $\tilde{\prd}\colon \NN \to \NN$ (konkretno, v izreku~\ref{izrek:rekurzija} vzamemo $Y = \NN$, $b = 0$ in $r(v, n) = n$).\footnote{Morda se vam zdi vprašljivo, če bi to definicijo sploh imenovali ``rekurzivna'', saj $\tilde{\prd}\big(\suc(n)\big)$ nismo izrazili s $\tilde{\prd}(n)$ (ali z drugimi besedami, preslikava $r$ ni odvisna od svojega prvega argumenta). Ampak izrek~\ref{izrek:rekurzija} za ta primer še vedno velja in zgornja definicija torej podaja dobro definirano preslikavo $\tilde{\prd}\colon \NN \to \NN$.}
+Po načelu o neparametrizirani rekurziji dobimo enolično določeno preslikavo $\tprd\colon \NN \to \NN$ (konkretno, v izreku~\ref{izrek:rekurzija} vzamemo $Y = \NN$, $b = 0$ in $r(v, n) = n$).\footnote{Morda se vam zdi vprašljivo, če bi to definicijo sploh imenovali ``rekurzivna'', saj $\tprd\big(\suc(n)\big)$ nismo izrazili s $\tprd(n)$ (ali z drugimi besedami, preslikava $r$ ni odvisna od svojega prvega argumenta). Ampak izrek~\ref{izrek:rekurzija} za ta primer še vedno velja in zgornja definicija torej podaja dobro definirano preslikavo $\tprd\colon \NN \to \NN$.}
 
 Od tod lahko definiramo tako imenovano \df{prisekano odštevanje} na naravnih številih. Simbol za to operacijo je $\monus$, kar se prebere ``monus'' (torej: $1 + 2$ se bere ``ena plus dve'', $1 - 2$ se bere ``ena minus dve'' in $1 \monus 2$ se bere ``ena monus dve'').
 
 Ideja prisekanega odštevanja je, da zmanjševanec zmanjšamo za tolikšen del odštevanca, kolikor le lahko (tako da še ostanemo v okviru naravnih števil). Z drugimi besedami: če se običajno odštevanje izide v naravnih številih, velja $a \monus b = a - b$, sicer pa velja $a \monus b = 0$. Natančna rekurzivna definicija je sledeča.
 \begin{align*}
 m \monus 0 &\dfeq m \\
-m \monus \suc(n) &\dfeq \tilde{\prd}(m \monus n)
+m \monus \suc(n) &\dfeq \tprd(m \monus n)
 \end{align*}
-Se pravi, če v izreku~\ref{izrek:rekurzija} vzamemo $X = Y = \NN$, $b(m) = m$ in $r(m, v, n) = \tilde{\prd}(v)$, dobimo preslikavo $\monus\colon \NN \times \NN \to \NN$.
+Se pravi, če v izreku~\ref{izrek:rekurzija} vzamemo $X = Y = \NN$, $b(m) = m$ in $r(m, v, n) = \tprd(v)$, dobimo preslikavo $\monus\colon \NN \times \NN \to \NN$.
 
 \davorin{Ko se dokončno dogovorimo, kako bomo prevajali precendenco in asociiranje, povejmo, da ima prisekano odštevanje isto precendenco kot navadno odštevanje in da se asociira z leve.}
 
@@ -250,52 +250,84 @@ Bolj zvito je preveriti, da za vse $n \in \NN$ velja $n \monus n = 0$. Če posku
 \[\all{n \in \NN}\all{a \in \NN}{(n + a) \monus n = a}.\]
 Dokažimo trditev za $n = 0$. Vzemimo poljuben $a \in \NN$ in poračunajmo $(0 + a) \monus 0 = a \monus 0 = 0$. Predpostavimo zdaj, da velja trditev $\all{a \in \NN}{(n + a) \monus n = a}$ za neki $n$. Dokazati želimo $\all{a \in \NN}{\big(\suc(n) + a\big) \monus \suc(n) = a}$. Vzemimo poljuben $a \in \NN$. Tedaj
 \[\big(\suc(n) + a\big) \monus \suc(n) = \big(n + 1 + a\big) \monus \suc(n) = \big(n + \suc(a)\big) \monus \suc(n) =\]
-\[= \tilde{\prd}\Big(\big(n + \suc(a)\big) \monus n\Big) = \tilde{\prd}\big(\suc(a)\big) = a.\]
+\[= \tprd\Big(\big(n + \suc(a)\big) \monus n\Big) = \tprd\big(\suc(a)\big) = a.\]
 Razmisli natančno, zakaj velja predzadnji enačaj! Če zamenjamo univerzalna kvantifikatorja v začetni izjavi, da dobimo $\all{a \in \NN}\all{n \in \NN}{(n + a) \monus n = a}$, in uporabimo trditev za $a = 0$, sklenemo naposled $n \monus n = 0$ za vse $n \in \NN$.
 
 Prisekano odštevanje seveda ni družilno (nič bolj kot navadno odštevanje). Kot nadomestek pa nam služi naslednja trditev:
 \[\all{a \in \NN}\all{b \in \NN}\all{c \in \NN}{(a \monus b) \monus c = a \monus (b + c)}.\]
 Dokažimo jo. Vzemimo poljubna $a, b \in \NN$ in se lotimo indukcije po $c$. Pri $c = 0$ dobimo $(a \monus b) \monus 0 = a \monus b = a \monus (b + 0)$. Privzemimo zdaj enakost pri nekem $c$ in jo preverimo pri nasledniku:
-\[(a \monus b) \monus \suc(c) = \tilde{\prd}\big((a \monus b) \monus c\big) = \tilde{\prd}\big(a \monus (b + c)\big) = a \monus \suc(b + c) = a \monus \big(b + \suc(c)\big).\]
+\[(a \monus b) \monus \suc(c) = \tprd\big((a \monus b) \monus c\big) = \tprd\big(a \monus (b + c)\big) = a \monus \suc(b + c) = a \monus \big(b + \suc(c)\big).\]
 
 Preden dokažemo še členjenje množenja čez prisekanego odštevanje, si pripravimo pomožno trditev.
 
-\begin{lema}
+\begin{lema}\label{lema:nic-ali-naslednik}
 Velja sledeče.
 \begin{enumerate}
 \item
 Vsako naravno število je bodisi nič bodisi naslednik; se pravi, velja trditev
 \[\all{n \in \NN}{n = 0 \xor \some{m \in \NN}{n = \suc(m)}}.\]
 Lahko smo še natančnejši: če je število naslednik, je naslednik svojega predhodnika. Trdimo torej
-\[\all{n \in \NN}{n = 0 \xor n = \suc\big(\tilde{\prd}(n)\big)}.\]
+\[\all{n \in \NN}{n = 0 \xor n = \suc\big(\tprd(n)\big)}.\]
 \item
 Velja
-\[\all{a \in \NN}\all{b \in \NN}{a \cdot \tilde{\prd}(b) = a \cdot b \monus a}.\]
+\[\all{a \in \NN}\all{b \in \NN}{a \cdot \tprd(b) = a \cdot b \monus a}.\]
 \end{enumerate}
 \end{lema}
 
 \begin{dokaz}
 \begin{enumerate}
 \item
-Po Peanovih aksiomih velja $0 \notin \rn{\suc}$, torej naravno število ne more biti hkrati nič in naslednik. Zadostuje potemtakem, da dokažemo samo še $\all{n \in \NN}{n = 0 \lor n = \suc\big(\tilde{\prd}(n)\big)}$.
+Po Peanovih aksiomih velja $0 \notin \rn{\suc}$, torej naravno število ne more biti hkrati nič in naslednik. Zadostuje potemtakem, da dokažemo samo še $\all{n \in \NN}{n = 0 \lor n = \suc\big(\tprd(n)\big)}$.
 
-Preverimo z indukcijo. Trditev očitno velja za $n = 0$. Recimo, da velja za neki $n$, in se lotimo dokazovanja za $\suc(n)$. Pri dokazovanju disjunkcije si izberimo, da dokazujemo drugi disjunkt. Z računom smo takoj konec: $\suc\Big(\tilde{\prd}\big(\suc(n)\big)\Big) = \suc(n)$ (uporabili smo družilnost sklapljanja preslikav in rekurzivno definicijo celovitega predhodnika).
+Preverimo z indukcijo. Trditev očitno velja za $n = 0$. Recimo, da velja za neki $n$, in se lotimo dokazovanja za $\suc(n)$. Pri dokazovanju disjunkcije si izberimo, da dokazujemo drugi disjunkt. Z računom smo takoj konec: $\suc\Big(\tprd\big(\suc(n)\big)\Big) = \suc(n)$ (uporabili smo družilnost sklapljanja preslikav in rekurzivno definicijo celovitega predhodnika).
 \item
-Vzemimo poljubna $a, b \in \NN$. Po prejšnji točki velja bodisi $b = 0$ bodisi $b = \suc\big(\tilde{\prd}(b)\big)$. V prvem primeru dobimo
-\[a \cdot \tilde{\prd}(0) = a \cdot 0 = 0 = 0 \monus a = a \cdot 0 \monus a.\]
-Predpostavimo, da smo v drugem primeru, da torej velja $b = \suc\big(\tilde{\prd}(b)\big)$. Račun bo bolj očiten, če začnemo z druge strani:
-\[a \cdot b \monus a = a \cdot \suc\big(\tilde{\prd}(b)\big) \monus b = \big(a \cdot \tilde{\prd}(b) + a\big) \monus a = a \cdot \tilde{\prd}(b).\]
+Vzemimo poljubna $a, b \in \NN$. Po prejšnji točki velja bodisi $b = 0$ bodisi $b = \suc\big(\tprd(b)\big)$. V prvem primeru dobimo
+\[a \cdot \tprd(0) = a \cdot 0 = 0 = 0 \monus a = a \cdot 0 \monus a.\]
+Predpostavimo, da smo v drugem primeru, da torej velja $b = \suc\big(\tprd(b)\big)$. Račun bo bolj očiten, če začnemo z druge strani:
+\[a \cdot b \monus a = a \cdot \suc\big(\tprd(b)\big) \monus b = \big(a \cdot \tprd(b) + a\big) \monus a = a \cdot \tprd(b).\]
 \end{enumerate}
 \end{dokaz}
 
 Zdaj smo naposled pripravljeni, da dokažemo členjenje množenja čez prisekano odštevanje v naravnih številih. Ker že vemo, da je množenje izmenljivo, zadostuje preveriti členjenje samo na eni strani. Dokažimo torej $\all{a \in \NN}\all{b \in \NN}\all{c \in \NN}{a \cdot (b \monus c) = a \cdot b \monus a \cdot c}$.
 
 Vzemimo poljubna $a, b \in \NN$ in nadaljujmo z indukcijo po $c$. Pri $c = 0$ takoj dobimo $a \cdot (b \monus 0) = a \cdot b = a \cdot b \monus 0 = a \cdot b \monus a \cdot 0$. Recimo zdaj, da trditev velja za neki $c$. Dokažimo jo za $\suc(c)$:
-\[a \cdot \big(b \monus \suc(c)\big) = a \cdot \tilde{\prd}(b \monus c) = a \cdot (b \monus c) \monus a = (a \cdot b \monus a \cdot c) \monus a = a \cdot b \monus (a \cdot c + a) = a \cdot b \monus a \cdot \suc(c).\]
+\[a \cdot \big(b \monus \suc(c)\big) = a \cdot \tprd(b \monus c) = a \cdot (b \monus c) \monus a = (a \cdot b \monus a \cdot c) \monus a = a \cdot b \monus (a \cdot c + a) = a \cdot b \monus a \cdot \suc(c).\]
 
 \note{Ena od vaj: rekurzivna definicija in dokaz lastnosti potenciranja}
 
 \subsection{Urejenost}
+
+V prejšnjem podrazdelku smo se posvetili algebrski strukturi naravnih števil. V tem podrazdelku dodajmo še urejenostno strukturo. Formalno bomo definirali $\leq$ in $<$ na $\NN$ in preverili lastnosti teh relacij.
+
+Obstaja sicer ogromno ekvivalentnih definicij relacij $\leq$ in $<$ na $\NN$. \note{Mi si bomo izbrali sledeči, ekvivalenco z nekaterimi ostalimi pa preverite v tej in tej vaji.}
+
+Definirajmo $\leq$ kot dvomestno relacijo na $\NN$, dano s podmnožico
+\[\set[1]{(a, b) \in \NN \times \NN}{\some{x \in \NN}{a + x = b}}.\]
+Preverimo, da je $\NN$ linearno urejena z $\leq$.
+
+Refleksivnost je preprosta, saj velja $a + 0 = a$. Tudi tranzitivnost takoj izpeljemo: če velja $a + x = b$ in $b + y = c$, tedaj $a + (x + y) = (a + x) + y = b + y = c$. To pomeni, da je $\leq$ (vsaj) šibka urejenost na $\NN$.
+
+Če natančneje pogledamo to izpeljavo, vidimo, da načeloma ni bilo pomembno, da smo jemali elemente iz množice naravnih števil. Uporabili smo zgolj družilnost seštevanja in obstoj enote za seštevanje. Z zgornjim predpisom torej lahko definiramo šibko urejenost $\leq$ na poljubni množici, opremljeni z družilno operacijo z enoto. Množicam s tako strukturo rečemo \df{monoidi} in tako definiran $\leq$ se imenuje \df{naravna urejenost} monoida.
+
+V splošnem ta urejenost ni nič več kot šibka, konkretno na naravnih številih pa ima še več drugih lastnosti. Dokažimo, da je $\leq$ antisimetričen, torej delna urejenost na $\NN$.
+
+Vzemimo poljubna $a, b \in \NN$, za katera obstajata $x, y \in \NN$, tako da velja $a + x = b$ in $b + y = a$. Tedaj $a + x + y = b + y = a = a + 0$. Krajšamo $a$ in dobimo $x + y = 0$.
+
+Spomnimo se leme~\ref{lema:nic-ali-naslednik}: za $x$ se odločimo, ali je nič ali naslednik. Če $x = 0$, iz $a + x = b$ sledi $a = b$, kot želimo. Če je naslednik, pa dobimo $0 = x + y = y + x = y + \suc\big(\tprd(x)\big) = \suc\big(y + \tprd(x)\big)$. To bi pomenilo, da je $0$ v zalogi vrednosti preslikave $\suc$, kar je v protislovju s Peanovimi aksiomi in ta primer torej ne more nastopiti.
+
+Dokažimo še strogo sovisnost relacije $\leq$ in s tem sklenimo, da je linearna urejenost na $\NN$. Dokazujemo $\all{a \in \NN}\all{b \in \NN}{a \leq b \lor b \leq a}$.
+
+Izvedimo indukcijo po $a$. Začnimo z $a = 0$ in vzemimo poljuben $b \in \NN$. Velja $0 \leq b$, saj $0 + b = b$. Predpostavimo zdaj, da velja $\all{b \in \NN}{a \leq b \lor b \leq a}$ za neki $a$, in dokažimo to trditev za $\suc(a)$. Vzemimo poljuben $b \in \NN$. Po lemi~\ref{lema:nic-ali-naslednik} je $b$ bodisi nič bodisi naslednik. V prvem primeru velja $b \leq \suc(a)$. V drugem primeru uporabimo predpostavko, da dobimo $a \leq \tprd(b) \lor \tprd(b) \leq a$. Če velja $a \leq \tprd(b)$, torej če obstaja $x \in \NN$, tako da $a + x = \tprd(b)$, tedaj $\suc(a) + x = a + 1 + x = a + \suc(x) = \suc(a + x) = \suc\big(\tprd(b)\big) = b$, torej $\suc(a) \leq b$. Če velja $\tprd(b) \leq a$, potem pa imamo $x \in \NN$, za katerega $\tprd(b) + x = a$. Tedaj $b + x = \suc\big(\tprd(b)\big) + x = \suc\big(\tprd(b) + x\big) = \suc(a)$, od koder sklenemo $b \leq \suc(a)$.
+
+Oglejmo si zdaj strogo urejenost $<$ na naravnih številih. \davorin{A imamo kako ime za ``nestrogo'' urejenost $\leq$? Recimo ``ohlapna''?} Definirajmo jo kot dvomestno relacijo na $\NN$, dano s podmnožico
+\[\set[1]{(a, b) \in \NN \times \NN}{\some{x \in \NN}{a + \suc(x) = b}}.\]
+
+Očitno velja $a < b \implies a \leq b$ za vse $a, b \in \NN$ --- se pravi, $a < b$ je strožji pogoj od $a \leq b$ (od tod ime ``stroga urejenost'').
+
+Trdimo, da je $<$ asimetrična (posledično je antisimetrična in irefleksivna \davorin{Pri relacijah imejmo vajo, kjer se dokaže asimetričnost $\iff$ antisimetričnost $\land$ irefleksivnost.}). Recimo, da bi imeli $a, b \in \NN$, za katera velja $a < b$ in $b < a$, torej obstajata $x, y \in \NN$, tako da $a + \suc(x) = b$ in $b + \suc(y) = a$. Potem $a + \suc\big(\suc(x) + y\big) = a + \suc(x) + \suc(y) = b + \suc(y) = a = a + 0$; krajšamo $a$ in dobimo $\suc\big(\suc(x) + y\big) = 0$, kar je neresnica, saj $0 \notin \rn{\suc}$.
+
+\note{ostale lastnosti $<$}
+
 \subsection{Nadaljnje karakterizacije}
 
 
