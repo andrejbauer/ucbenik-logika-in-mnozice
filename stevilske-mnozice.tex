@@ -233,11 +233,65 @@ Od tod lahko definiramo tako imenovano \df{prisekano odštevanje} na naravnih š
 
 Ideja prisekanega odštevanja je, da zmanjševanec zmanjšamo za tolikšen del odštevanca, kolikor le lahko (tako da še ostanemo v okviru naravnih števil). Z drugimi besedami: če se običajno odštevanje izide v naravnih številih, velja $a \monus b = a - b$, sicer pa velja $a \monus b = 0$. Natančna rekurzivna definicija je sledeča.
 \begin{align*}
-m \monus 0 &\dfeq n \\
+m \monus 0 &\dfeq m \\
 m \monus \suc(n) &\dfeq \tilde{\prd}(m \monus n)
 \end{align*}
+Se pravi, če v izreku~\ref{izrek:rekurzija} vzamemo $X = Y = \NN$, $b(m) = m$ in $r(m, v, n) = \tilde{\prd}(v)$, dobimo preslikavo $\monus\colon \NN \times \NN \to \NN$.
 
-\note{lastnosti prisekanega odštevanja}
+\davorin{Ko se dokončno dogovorimo, kako bomo prevajali precendenco in asociiranje, povejmo, da ima prisekano odštevanje isto precendenco kot navadno odštevanje in da se asociira z leve.}
+
+Oglejmo si nekaj lastnosti, ki veljajo za prisekano odštevanje. Po definiciji je $0$ desna enota, ni pa leva enota, kot takoj sledi iz naslednje vaje (od tod je jasno tudi, da $\monus$ ni izmenljiv).
+
+\begin{vaja}
+Dokaži $\all{n \in \NN}{0 \monus n = 0}$.
+\end{vaja}
+
+Bolj zvito je preveriti, da za vse $n \in \NN$ velja $n \monus n = 0$. Če poskusimo to neposredno dokazati z indukcijo, bomo hitro naleteli na oviro. Namesto tega se raje lotimo splošnejše trditve: dokažimo
+\[\all{n \in \NN}\all{a \in \NN}{(n + a) \monus n = a}.\]
+Dokažimo trditev za $n = 0$. Vzemimo poljuben $a \in \NN$ in poračunajmo $(0 + a) \monus 0 = a \monus 0 = 0$. Predpostavimo zdaj, da velja trditev $\all{a \in \NN}{(n + a) \monus n = a}$ za neki $n$. Dokazati želimo $\all{a \in \NN}{\big(\suc(n) + a\big) \monus \suc(n) = a}$. Vzemimo poljuben $a \in \NN$. Tedaj
+\[\big(\suc(n) + a\big) \monus \suc(n) = \big(n + 1 + a\big) \monus \suc(n) = \big(n + \suc(a)\big) \monus \suc(n) =\]
+\[= \tilde{\prd}\Big(\big(n + \suc(a)\big) \monus n\Big) = \tilde{\prd}\big(\suc(a)\big) = a.\]
+Razmisli natančno, zakaj velja predzadnji enačaj! Če zamenjamo univerzalna kvantifikatorja v začetni izjavi, da dobimo $\all{a \in \NN}\all{n \in \NN}{(n + a) \monus n = a}$, in uporabimo trditev za $a = 0$, sklenemo naposled $n \monus n = 0$ za vse $n \in \NN$.
+
+Prisekano odštevanje seveda ni družilno (nič bolj kot navadno odštevanje). Kot nadomestek pa nam služi naslednja trditev:
+\[\all{a \in \NN}\all{b \in \NN}\all{c \in \NN}{(a \monus b) \monus c = a \monus (b + c)}.\]
+Dokažimo jo. Vzemimo poljubna $a, b \in \NN$ in se lotimo indukcije po $c$. Pri $c = 0$ dobimo $(a \monus b) \monus 0 = a \monus b = a \monus (b + 0)$. Privzemimo zdaj enakost pri nekem $c$ in jo preverimo pri nasledniku:
+\[(a \monus b) \monus \suc(c) = \tilde{\prd}\big((a \monus b) \monus c\big) = \tilde{\prd}\big(a \monus (b + c)\big) = a \monus \suc(b + c) = a \monus \big(b + \suc(c)\big).\]
+
+Preden dokažemo še členjenje množenja čez prisekanego odštevanje, si pripravimo pomožno trditev.
+
+\begin{lema}
+Velja sledeče.
+\begin{enumerate}
+\item
+Vsako naravno število je bodisi nič bodisi naslednik; se pravi, velja trditev
+\[\all{n \in \NN}{n = 0 \xor \some{m \in \NN}{n = \suc(m)}}.\]
+Lahko smo še natančnejši: če je število naslednik, je naslednik svojega predhodnika. Trdimo torej
+\[\all{n \in \NN}{n = 0 \xor n = \suc\big(\tilde{\prd}(n)\big)}.\]
+\item
+Velja
+\[\all{a \in \NN}\all{b \in \NN}{a \cdot \tilde{\prd}(b) = a \cdot b \monus a}.\]
+\end{enumerate}
+\end{lema}
+
+\begin{dokaz}
+\begin{enumerate}
+\item
+Po Peanovih aksiomih velja $0 \notin \rn{\suc}$, torej naravno število ne more biti hkrati nič in naslednik. Zadostuje potemtakem, da dokažemo samo še $\all{n \in \NN}{n = 0 \lor n = \suc\big(\tilde{\prd}(n)\big)}$.
+
+Preverimo z indukcijo. Trditev očitno velja za $n = 0$. Recimo, da velja za neki $n$, in se lotimo dokazovanja za $\suc(n)$. Pri dokazovanju disjunkcije si izberimo, da dokazujemo drugi disjunkt. Z računom smo takoj konec: $\suc\Big(\tilde{\prd}\big(\suc(n)\big)\Big) = \suc(n)$ (uporabili smo družilnost sklapljanja preslikav in rekurzivno definicijo celovitega predhodnika).
+\item
+Vzemimo poljubna $a, b \in \NN$. Po prejšnji točki velja bodisi $b = 0$ bodisi $b = \suc\big(\tilde{\prd}(b)\big)$. V prvem primeru dobimo
+\[a \cdot \tilde{\prd}(0) = a \cdot 0 = 0 = 0 \monus a = a \cdot 0 \monus a.\]
+Predpostavimo, da smo v drugem primeru, da torej velja $b = \suc\big(\tilde{\prd}(b)\big)$. Račun bo bolj očiten, če začnemo z druge strani:
+\[a \cdot b \monus a = a \cdot \suc\big(\tilde{\prd}(b)\big) \monus b = \big(a \cdot \tilde{\prd}(b) + a\big) \monus a = a \cdot \tilde{\prd}(b).\]
+\end{enumerate}
+\end{dokaz}
+
+Zdaj smo naposled pripravljeni, da dokažemo členjenje množenja čez prisekano odštevanje v naravnih številih. Ker že vemo, da je množenje izmenljivo, zadostuje preveriti členjenje samo na eni strani. Dokažimo torej $\all{a \in \NN}\all{b \in \NN}\all{c \in \NN}{a \cdot (b \monus c) = a \cdot b \monus a \cdot c}$.
+
+Vzemimo poljubna $a, b \in \NN$ in nadaljujmo z indukcijo po $c$. Pri $c = 0$ takoj dobimo $a \cdot (b \monus 0) = a \cdot b = a \cdot b \monus 0 = a \cdot b \monus a \cdot 0$. Recimo zdaj, da trditev velja za neki $c$. Dokažimo jo za $\suc(c)$:
+\[a \cdot \big(b \monus \suc(c)\big) = a \cdot \tilde{\prd}(b \monus c) = a \cdot (b \monus c) \monus a = (a \cdot b \monus a \cdot c) \monus a = a \cdot b \monus (a \cdot c + a) = a \cdot b \monus a \cdot \suc(c).\]
 
 \note{Ena od vaj: rekurzivna definicija in dokaz lastnosti potenciranja}
 
