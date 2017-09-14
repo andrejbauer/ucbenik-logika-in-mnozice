@@ -319,14 +319,71 @@ Dokažimo še strogo sovisnost relacije $\leq$ in s tem sklenimo, da je linearna
 
 Izvedimo indukcijo po $a$. Začnimo z $a = 0$ in vzemimo poljuben $b \in \NN$. Velja $0 \leq b$, saj $0 + b = b$. Predpostavimo zdaj, da velja $\all{b \in \NN}{a \leq b \lor b \leq a}$ za neki $a$, in dokažimo to trditev za $\suc(a)$. Vzemimo poljuben $b \in \NN$. Po lemi~\ref{lema:nic-ali-naslednik} je $b$ bodisi nič bodisi naslednik. V prvem primeru velja $b \leq \suc(a)$. V drugem primeru uporabimo predpostavko, da dobimo $a \leq \tprd(b) \lor \tprd(b) \leq a$. Če velja $a \leq \tprd(b)$, torej če obstaja $x \in \NN$, tako da $a + x = \tprd(b)$, tedaj $\suc(a) + x = a + 1 + x = a + \suc(x) = \suc(a + x) = \suc\big(\tprd(b)\big) = b$, torej $\suc(a) \leq b$. Če velja $\tprd(b) \leq a$, potem pa imamo $x \in \NN$, za katerega $\tprd(b) + x = a$. Tedaj $b + x = \suc\big(\tprd(b)\big) + x = \suc\big(\tprd(b) + x\big) = \suc(a)$, od koder sklenemo $b \leq \suc(a)$.
 
+Povežimo zdaj urejenost $\leq$ s prisekanim odštevanjem in si pripravimo trditev, ki nam bo kasneje prišla prav v razdelku o celih številih.
+
+\begin{trditev}
+Za vse $a, b \in \NN$ velja $a \leq b \iff a \monus b = 0$.
+\end{trditev}
+
+\begin{dokaz}
+Vzemimo poljubna $a, b \in \NN$. Predpostavimo $a \leq b$, torej imamo $x \in \NN$, tako da $a + x = b$. Z upoštevanjem lastnosti, ki smo jih izpeljali za $\monus$, poračunamo: $a \monus b = a \monus (a + x) = (a \monus a) \monus x = 0 \monus x = 0$.
+
+Za dokaz obratne smeri predpostavimo $a \monus b = 0$. Ker je $\leq$ strogo sovisna relacija, velja $a \leq b \lor b \leq a$. V prvem primeru smo z dokazom končali. Predpostavimo, da smo v drugem primeru, da torej imamo $x \in \NN$, za katerega velja $b + x = a$. Tedaj $0 = a \monus b = (b + x) \monus b = x$, kar pomeni $a = b$ in posebej $a \leq b$.
+\end{dokaz}
+
 Oglejmo si zdaj strogo urejenost $<$ na naravnih številih. \davorin{A imamo kako ime za ``nestrogo'' urejenost $\leq$? Recimo ``ohlapna''?} Definirajmo jo kot dvomestno relacijo na $\NN$, dano s podmnožico
 \[\set[1]{(a, b) \in \NN \times \NN}{\some{x \in \NN}{a + \suc(x) = b}}.\]
 
 Očitno velja $a < b \implies a \leq b$ za vse $a, b \in \NN$ --- se pravi, $a < b$ je strožji pogoj od $a \leq b$ (od tod ime ``stroga urejenost'').
 
-Trdimo, da je $<$ asimetrična (posledično je antisimetrična in irefleksivna \davorin{Pri relacijah imejmo vajo, kjer se dokaže asimetričnost $\iff$ antisimetričnost $\land$ irefleksivnost.}). Recimo, da bi imeli $a, b \in \NN$, za katera velja $a < b$ in $b < a$, torej obstajata $x, y \in \NN$, tako da $a + \suc(x) = b$ in $b + \suc(y) = a$. Potem $a + \suc\big(\suc(x) + y\big) = a + \suc(x) + \suc(y) = b + \suc(y) = a = a + 0$; krajšamo $a$ in dobimo $\suc\big(\suc(x) + y\big) = 0$, kar je neresnica, saj $0 \notin \rn{\suc}$.
+Oglejmo si povezavo med $<$ in $\leq$ podrobneje.
 
-\note{ostale lastnosti $<$}
+\begin{trditev}
+Velja sledeče za vse $a, b \in \NN$.
+\begin{enumerate}
+\item
+$a < b$ je ekvivalentno tako $\lnot(b \leq a)$ kot tudi $a \leq b \land a \neq b$.
+\item
+$a \leq b$ je ekvivalentno tako $\lnot(b < a)$ kot tudi $a < b \lor a = b$.
+\end{enumerate}
+\end{trditev}
+
+\begin{dokaz}
+\begin{enumerate}
+\item
+Privzemimo $a < b$, torej imamo $x \in \NN$, tako da $a + \suc(x) = b$. Od tod izpeljimo $\lnot(b \leq a)$. Recimo, da velja $b \leq a$, da torej obstaja $y \in \NN$, tako da $b + y = a$. Potem $b + \suc(y + x) = b + y + \suc(x) = a + \suc(x) = b = b + 0$. Krajšamo $b$ in dobimo $\suc(y + x) = 0$. Izpeljali smo neresnico, saj po Peanovih aksiomih $0$ ni v zalogi vrednosti preslikave $\suc$. Sklenemo $\lnot(b \leq a)$.
+
+Predpostavimo $\lnot(b \leq a)$ in dokažimo $a \leq b \land a \neq b$. Vemo že, da je relacija $\leq$ strogo sovisna, torej velja $a \leq b \lor b \leq a$. Ker po predpostavki ne velja $b \leq a$, mora veljati $a \leq b$. Preverimo še $a \neq b$, kar je okrajšava za $\lnot(a = b)$. Recimo, da velja $a = b$. Tedaj velja tudi $b \leq a$, kar je v nasprotju s predpostavko.
+
+Privzemimo zdaj $a \leq b \land a \neq b$ in izpeljimo $a < b$. Po predpostavki obstaja $x \in \NN$, tako da velja $a + x = b$. Po lemi~\ref{lema:nic-ali-naslednik} velja $x = 0 \lor x = \suc\big(\tprd(x)\big)$. Če $x = 0$, potem $a = b$, kar je v nasprotju s predpostavko. Torej $a + \suc\big(\tprd(x)\big) = b$, kar pomeni $a < b$.
+\item
+Iz ekvivalence iz prejšnje točke po zakonu o dvojni negaciji sledi ekvivalenca $a \leq b \iff \lnot(b < a)$.
+
+Predpostavimo $a \leq b$ in izpeljimo $a < b \lor a = b$. Po zakonu o izključenem tretjem lahko ločimo primera $a = b$ in $a \neq b$. V prvem primeru smo takoj končali. V drugem primeru dobimo $a < b$ po ekvivalenci iz prejšnje točke.
+
+Predpostavimo $a < b \lor a = b$ in izpeljimo $a \leq b$. Vemo že, da iz $a < b$ sledi $a \leq b$. Po refleksivnosti $\leq$ seveda tudi iz $a = b$ sledi $a \leq b$.
+\end{enumerate}
+\end{dokaz}
+
+Iz te trditve lahko takoj izpeljemo nekaj lastnosti relacije $<$. Relacija je asimetrična: če bi hkrati veljalo $a < b$ in $b < a$, bi veljalo tudi $a < b$ in $b \leq a$, za kar pa že vemo, da se ne more zgoditi. Posledično je relacija $<$ tudi antisimetrična in irefleksivna. \davorin{Pri relacijah imejmo vajo, kjer se dokaže asimetričnost $\iff$ antisimetričnost $\land$ irefleksivnost.}
+
+Preverimo tranzitivnost relacije $<$. Pravzaprav lahko to lastnost okrepimo: ne samo, da lahko $a < c$ izpeljemo iz $a < b \land b < c$, pač pa lahko to izpeljemo tudi v primeru, ko naredimo enega od konjunktov ohlapnejšega. Dokažimo, da za vse $a, b, c \in \NN$ velja $a \leq b \land b < c \implies a < c$, drugo obliko ``krepke'' tranzitivnosti pa prepustimo za vajo.
+
+Vzemimo poljubne $a, b, c \in \NN$, za katere velja $a \leq b$ in $b < c$, torej imamo $x, y \in \NN$, tako da $a + x = b$ in $b + \suc(y) = c$. Potem $a + \suc(x + y) = a + x + \suc(y) = b + \suc(y) = c$, torej $a < c$.
+
+\begin{vaja}
+Dokaži $\all{a, b, c \in \NN}{a < b \land b \leq c \implies a < c}$. Premisli, zakaj takoj sledi tranzitivnost relacije $<$.
+\end{vaja}
+
+Tudi sovisnost $<$ takoj dobimo iz zgornje trditve. Vzemimo poljubna $a, b \in \NN$, za katera velja $a \neq b$. Gotovo velja $a \leq b \lor b \leq a$, kar je ekvivalentno $(a < b \lor a = b) \lor (b < a \lor b = a)$ ali krajše $a < b \lor b < a \lor a = b$. Zadnji disjunkt po predpostavki ne pride v poštev, torej smo izpeljali $a < b \lor b < a$.
+
+Če povzamemo: relacija $<$ na $\NN$ je stroga linearna urejenost.
+
+Ker je relacija $<$ asimetrična in sovisna, zadošča tako imenovanemu \df{zakonu trodelitve} (s tujko \df{zakon trihotomije}): za vsaka $a, b \in \NN$ velja natanko ena izmed možnosti $a < b$, $a = b$ oz.~$b < a$.
+
+\begin{vaja}
+Za poljubno dvomestno relacijo na neki množici formuliraj zakon trodelitve in dokaži, da mu relacija zadošča natanko tedaj, ko je asimetrična in sovisna.
+\end{vaja}
 
 \subsection{Nadaljnje karakterizacije}
 
