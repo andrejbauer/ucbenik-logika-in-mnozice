@@ -142,9 +142,9 @@ Vzemimo poljuben predikat $\phi\colon \NN \to \tvs$, za katerega velja $\phi(0)$
 
 V tem smislu sta načeli rekurzije in indukcije enakovredni. Kot vidimo, lahko pravzaprav na indukcijo gledamo kot na poseben primer rekurzije, konkretno za preslikave oblike $\NN \to \tvs$. To nam pove, da je ta primer tako generičen, da je iz njega možno dobiti načelo za poljubne preslikave oblike $X \times \NN \to Y$.
 
-\note{Rekurzor kot preslikava. Morda pripomba, ki zgornjo diskusijo poveže s primitivno rekurzijo iz teorije izračunljivosti.}
+\note{Premislek, da sta parametrizirano in neparametrizirano načelo rekurzije ekvivalentna (zaradi eksponentov). Rekurzor kot preslikava. Morda pripomba, ki zgornjo diskusijo poveže s primitivno rekurzijo iz teorije izračunljivosti.}
 
-\subsection{Računske operacije}
+\subsection{Računske operacije}\label{podrazdelek:racunske_operacije_na_naravnih_stevilih}
 
 Uporabimo zdaj izpeljano rekurzijo za natančno matematično definicijo strukture na naravnih številih, ki jo neformalno poznate že od malih nog. Začnimo z osnovnimi računskimi operacijami.
 
@@ -420,7 +420,28 @@ V razdelku o rekurziji smo že omenili, da lahko načelo indukcije izpeljemo iz 
 
 V prejšnjih dveh razdelkih smo izpeljali običajno algebrsko in urejenostno strukturo naravnih števil. Včasih se del te strukture vključi v definicijo naravnih števil. Na primer, operacija seštevanja se vzame kot del osnovne strukture naravnih števil in enakosti $m + 0 = m$ ter $m + \suc(n) = \suc(m + n)$ se privzameta kot aksioma (ter podobno z ostalo strukturo).
 
-\note{karakterizacija: začetni polkolobar z enico}
+Pravzaprav je možno podati strnjeno definicijo naravnih števil, ki že vključuje algebrsko strukturo, s pomočjo kategorij (spomni se jih iz \note{razdelka o kategorijah v poglavju o strukturah}). Na kratko: $\NN$ je začetni polkolobar z enico.
+
+Pojasnimo to definicijo natančneje. Naj $\upkol$ označuje kategorijo, katere objekti so polkolobarji z enico, morfizmi pa preslikave med njimi, ki ohranjajo seštevanje, množenje ter enoti zanju. Tedaj lahko $\NN$ karakteriziramo kot začetni objekt v kategoriji $\upkol$.
+
+Preverimo, da to drži. Zadostuje preveriti, da $\NN$, dan z definicijo~\ref{definicija:naravna-stevila} in opremljen s polkolobarsko strukturo, izpeljano v podrazdelku~\ref{podrazdelek:racunske_operacije_na_naravnih_stevilih}, zadošča pogoju za začetni objekt. Namreč, vemo že, da Peanovi aksiomi določajo naravna števila do izomorfizma natančno, po drugi strani pa so tudi začetni objekti določeni do izomorfizma. Strogo gledano sicer gre tu za dve različni strukturi (in posledično načeloma različna pojma izomorfizma), ampak polkolobarsko strukturo na naravnih številih smo izpeljali iz ničle in naslednika, po drugi strani pa lahko ničlo in naslednika izpeljemo iz polkolobarske strukture: $0$ je enota za seštevanje, $1$ je enota za množenje in naslednik je dan s predpisom $x \mapsto x + 1$. Posledično se pojma izomorfizmov ujemata v smislu, da določata isti razpon objektov.
+
+Naj bo $X$ poljuben objekt v $\upkol$. Za lažje razumevanje označimo operacije, ki so del njegove strukture, z $X$ v indeksu, torej $+_X$, $0_X$, $\cdot_X$, $1_X$. Če je $f\colon \NN \to X$ poljuben morfizem v $\upkol$, mora zaradi ohranjanja operacij veljati $f(0) = 0_X$ in $f\big(\suc(n)\big) = f(n + 1) = f(n) +_X f(1) = f(n) +_X 1_X$. Ampak pogoja
+\begin{align*}
+f(0) &\dfeq 0_X \\
+f\big(\suc(n)\big) &\dfeq f(n) +_X 1_X
+\end{align*}
+po načelu o rekurziji enolično določata preslikavo $f\colon \NN \to X$. Če preverimo, da je ta preslikava homomorfizem polkolobarjev z enico, lahko zaključimo, da je $\NN$ res začetni objekt v $\upkol$.
+
+Enota za seštevanje se ohranja po definiciji. Preverimo, da se ohranja seštevanje kot celota: dokazujemo $\all{a \in \NN}\all{b \in \NN}{f(a + b) = f(a) +_X f(b)}$. Vzemimo poljuben $a \in \NN$ in se lotimo indukcije po $b$. Pri $b = 0$ velja $f(a + 0) = f(a) = f(a) +_X 0_X = f(a) +_X f(0)$. Recimo, da trditev velja za neki $b \in \NN$. Tedaj $f\big(a + \suc(b)\big) = f\big(\suc(a + b)\big) = f(a + b) +_X 1_X = f(a) +_X f(b) +_X 1_X = f(a) + f\big(\suc(b)\big)$.
+
+Kar se ohranjanja enice tiče, lahko poračunamo $f(1) = f\big(\suc(0)\big) = f(0) +_X 1_X = 0_X +_X 1_X = 1_X$. Preverimo, da se ohranja množenje, da torej velja $\all{a \in \NN}\all{b \in \NN}{f(a \cdot b) = f(a) \cdot_X f(b)}$. Vzemimo poljuben $a \in \NN$ in se poslužimo indukcije po $b$. Najprej $f(a \cdot 0) = f(0) = 0_X = f(a) \cdot_X 0_X = f(a) \cdot_X f(0)$, nato pa predpostavimo trditev za neki $b \in \NN$. Dobimo $f\big(a \cdot \suc(b)\big) = f(a \cdot b + a) = f(a \cdot b) +_X f(a) = f(a) \cdot_X f(b) +_X f(a) \cdot_X 1_X = f(a) \cdot_X \big(f(b) +_X 1_X\big) = f(a) \cdot_X f\big(\suc(b)\big)$.
+
+\begin{vaja}
+Premisli, da lahko $\NN$ okarakteriziramo tudi kot začetni izmenljiv polkolobar z enico.
+\end{vaja}
+
+Karakterizacija ``$\NN$ je začetni polkolobar z enico'' sicer uporablja seštevanje in množenje na naravnih številih. Možno je podati tudi kategorično definicijo naravnih števil, ki se sklicuje samo na ničlo in naslednika, tako kot Peanovi aksiomi (kot podani v definiciji~\ref{definicija:naravna-stevila}). Še več: definicijo lahko zastavimo tako splošno, da bo delovala ne samo v okviru množic (tj.~znotraj kategorije množic~$\mnoz$), pač pa v poljubni kartezično zaprti kategoriji.
 
 \note{karakterizacija: objekt naravnih števil v kategoričnem smislu}
 
