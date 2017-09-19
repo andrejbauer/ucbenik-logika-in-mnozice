@@ -1,41 +1,178 @@
 \chapter{Preproste množice}
 \label{cha:preproste-mnozice}
 
-\section{Kaj so množice?}
-\label{sec:kaj-so-mnoice}
 
-O konceptu množic: množica je zbirka elemetov, običjano jih druži nekaj skupnega (imajo
-skupno strukturo), lahko pa je tudi poljubna zbirka elementov. Drugi pogled je bolj splošen,
-vendar lahko vodi v težave.
+Osrednji gradniki sodobne matematike so \df{množice}, ki so skupki ali zbirke matematičnih
+objektov, lahko spet množic. Vsaka množica sestoji iz \df{elementov} in je z njimi
+natančno določena. Kadar je $a$ element množice $M$, to zapišemo kot $a \in M$. Običajno
+obravnavamo množice, ki jih tvorijo objekti s skupno lastnostjo ali strukturo, vendar bi
+lahko načeloma obravnavali tudi povsem poljubne množice, katerih elementi nimajo nič
+skupnega.
 
-Russellov paradoks.
+Ideja množice kot poljubne zbirke elementov je zavajajoče preprosta, kot so se naučili
+matematiki na prelomu iz 19.~v 20.~stoletje. Takrat so že vedeli, da so množice zelo
+uporabne in da lahko iz njih tvorimo razne vrste matematičnih objektov. A znameniti
+matematik in filozof Bertrand Russell je odkril paradoks, ki se imenuje po njem, in gre
+takole. Naj bo~$R$ množica vseh množic, ki niso element same sebe. Ali $R$ je element~$R$?
+Če je $R$ element $R$, potem iz definicije $R$ sledi, da $R$ ni element $R$. In če $R$ ni
+element $R$, spet iz definicije $R$ sledi, da $R$ je element $R$.. Torej hkrati velja, da
+je $R$ svoj element in da ni svoj element, kar je protislovje! Russellov paradoks ste
+morda že spoznali v priljubljeni različici, ki govori o vaškem brivcu, ki brije vse
+vaščane, ki ne brijejo samih sebe.
 
-Potreba po natančni opredelitvi, kaj množice so in kaj lahko z njimi počnemo.
-
-Najprej bomo polgedali nekatere preproste konstrukcije množic in zakone, ki jim zadoščajo.
-Odkrili bomo, da so ti zakoni pravzaprav enaki zakonom aritmetike. Podobnost seveda ni naključje.
-Kasneje bomo obravnavali še druge konstrukcije množic, ter razliko med razredi in množicami.
-
-Množica je določena s svojimi elementi, princip ekstenzionalnosti. Kaj bi pomenilo, da
-princip ekstenzionalnosti ne bi veljal, na primer, če bi imele množice še kako ``skrito''
-strukturo (npr.\ kolikokrat se element pojavi).
-
-Preslikava med množicama, podana kot predpis, ki enolično določa vrednost pri vsakem
-argumentu. Princip ekstenzionalnosti za preslikave. Kaj bi pomenilo, da princip
-ekstenzionalnisti ne velja, na primer, če bi gledali na preslikave kot na programe in bi
-bilo pomembno, kako hitro delajo.
+Russellov paradoks je povzročil pravo krizo v temeljih matematike. Ker so bile množice
+zelo uporabne v vsej matematiki, jih niso hoteli kar zavreči, po drugi strani pa je bilo
+treba preprečiti Russellov in druge paradokse, ki so jih še odkrili. Bertrand Russell je
+predlagal rešitev, ki jo je poimenoval \df{teorija tipov}. Tako kot množice so bili tipi
+skupki elementov, a so tvorili neskončno hierarhijo, ki je preprečevala obstoj tipa vseh
+tipov, ki ne vsebujejo samega sebe. Russellova teorija tipov je pomembno vplivala na
+nadaljni razvoj temeljev matematike, sodobna teorija tipov pa je pomembno orodje v
+računalništvu. Za potrebe večine matematike zadostuje že preprostejša dvoslojna hierarhija
+množic in \df{razredov}. Množice smejo biti elementi množic in razredov, razredi pa ne.
+Russellov paradoks izgine, ker je $R$ razred vseh tistih množic, ki niso same svoj
+element. Vprašanje, ali je $R$ element samega sebe, tako postane nesmiselno, saj $R$ ni
+množica. A zaenkrat odložimo podrobnejšo obravnavo razredov in se raje posvetimo osnovnima
+pojmoma teorije množic, množicam in preslikavam.
 
 \section{Osnovne množice}
 \label{sec:osnovne-mnozice}
 
 Nekatere osnovne množice: prazna $\emptyset$, enojec, $\{a_1, \ldots, a_n\}$.
 
-Tabelarični prikaz funkcije?
-
 Princip ekstenzionalnosti pove, da je $\set{x} = \set{x, x}$.
+\note{
+Množica je določena s svojimi elementi, princip ekstenzionalnosti. Kaj bi pomenilo, da
+princip ekstenzionalnosti ne bi veljal, na primer, če bi imele množice še kako ``skrito''
+strukturo (npr.\ kolikokrat se element pojavi).}
 
 Poznamo tudi že množice iz srednje šole, na primer $\NN$ in $\QQ$. Uporabljali jih bomo v
 primerih, a kasneje bomo povedali več o njiju.
+
+Pojem množice nam omogoča, da več elementov obravnavamo kot eno celoto. To naredi obravnavo bolj obvladljivo in omogoča lažji simbolni zapis.
+
+Množico z majhnim številom elementov lahko zapišemo tako, da naštejemo vse elemente in jih obdamo z zavitimi oklepaji. Torej, če zapišemo
+\[A = \set[1]{\text{jabolko}, \text{hruška}, \text{breskev}},\]
+s tem trdimo, da je $A$ množica, katere elementi so natanko jabolko, hruška in breskev.
+
+Za vsak element, ki ga zapišemo med zavitimi oklepaji, preprosto trdimo, da pripada množici, in nič več. To pomeni, da vrstni red elementov ni pomemben --- množica
+\[\set[1]{\text{breskev}, \text{hruška}, \text{jabolko}}\]
+je ista množica kot $A$. V obeh primerih smo preprosto za tri dane elemente rekli, da pripadajo množici. Nadalje, vseeno je, kolikokrat za neki dani element rečemo, da je v množici; po prvi razglasitvi imamo ravno toliko informacije, kot po deseti. Potemtakem so množice $\set{a}$, $\set{a, a}$ in $\set{a, a, a}$ vse medsebojno enake in vsebujejo natanko en element (četudi pri zadnjih dveh morda na prvi pogled izgleda drugače).
+
+Množico, ki ne vsebuje nobenega elementa, imenujemo \df{prazna množica} in jo lahko zapišemo kot $\set{}$. Ker se ta množica tako pogosto pojavlja, ima še dodatno oznako: $\emptyset$.
+
+Če ima množica mnogo elementov, je nepraktično (ali včasih celo nemogoče) vse našteti. Zapišemo lahko na primer
+\[\set{1, 2, 3, \ldots, 1000000}\]
+in od tod razberemo, da je mišljena množica vseh celih števil od ena do milijon. Na ta način lahko podajamo tudi neskončne množice: iz zapisa
+\[\set{1, 2, 3, \ldots}\]
+sklepamo, da gre za množico vseh pozitivnih celih števil.
+
+Težava s tropičjem je seveda, da je ta zapis dvoumen. Množica $\set{1, 2, 3, \ldots}$ bi ravno tako lahko naštevala na primer Fibonaccijeva števila. Nejasnim zapisom se je bolje izogniti, razen če smo popolnoma prepričani, da bo bralec kljub dvoumnosti razumel, kaj točno smo imeli v mislih.
+
+Množice, s katerimi v matematiki delamo, tipično vsebujejo števila, ali pa so vsaj na tak ali drugačen način izpeljane iz številskih množic. Spomnimo se standardnih oznak najpogosteje uporabljanih številskih množic.
+\begin{center}
+\begin{tabular}{|cc|}
+\hline
+\textbf{Množica} & \textbf{Oznaka} \\
+\hline
+množica naravnih števil & $\NN$ \\
+množica celih števil & $\ZZ$ \\
+množica racionalnih števil & $\QQ$ \\
+množica realnih števil & $\RR$ \\
+množica kompleksnih števil & $\CC$ \\
+\hline
+\end{tabular}
+\end{center}
+
+Nekateri $0$ vzamejo za naravno število, nekateri ne. To je v celoti stvar dogovora, kaj pomeni pojem ``naravno število''. Za nas bo prišlo bolj prav, če ničlo štejemo kot element množice naravnih števil, torej $\NN = \set{0, 1, 2, 3, \ldots}$.
+
+
+
+\section{Preslikave}
+
+\note{
+Preslikava med množicama, podana kot predpis, ki enolično določa vrednost pri vsakem
+argumentu. Princip ekstenzionalnosti za preslikave. Kaj bi pomenilo, da princip
+ekstenzionalnisti ne velja, na primer, če bi gledali na preslikave kot na programe in bi
+bilo pomembno, kako hitro delajo.
+}
+
+Množice ne obstajajo povsem ločene ena od druge, pač pa so med sabo povezane s \df{preslikavami} oziroma s tujko \df{funkcijami}\footnote{Nekateri uporabljajo izraz ``funkcija'' samo za tiste preslikave, ki slikajo v realna ali kompleksna števila, ampak ta uporaba je že nekoliko zastarela. Dandanes večina matematiko besedo ``funkcija'' obravnava kot sopomenko besede ``preslikava''. Tako jo bomo uporabljali tudi v tej knjigi.}. Posamična preslikava slika elemente ene množice po določenem predpisu v elemente druge množice.
+
+Če je $f$ preslikava, ki slika iz množice $X$ v množico $Y$, to zapišemo $f\colon X \to Y$. Rečemo, da je množica $X$ \df{začetna množica} ali \df{domena} preslikave $f$, množica $Y$ pa je \df{ciljna množica} ali \df{kodomena} preslikave $f$.
+
+Začetni množici ste v srednji šoli rekli tudi ``definicijsko območje'', ampak v tej knjigi bomo morali biti bolj previdni. Predpis za preslikavo po definiciji velja za vse elemente domene, ampak kasneje (v razdelku~\ref{razdelek:izpeljava-preslikav-iz-relacij}) obravnavamo delne preslikave, ki niso definirane na celi domeni; zanje je torej definicijsko območje manjše kot domena. Držimo se raje zgoraj danega poimenovanja.
+
+Običaj je, da predpis preslikave podamo s pomočjo spremenljivke, tipično z oznako $x$. Na primer, če je $f$ preslikava kvadriranja, njen predpis zapišemo kot
+\[f(x) = x^2.\]
+Na tem mestu je potrebno poudariti več reči.
+\begin{itemize}
+\item
+Velikokrat površno rečemo, da zgornji predpis podaja preslikavo. To ni povsem res --- to je zgolj predpis preslikave. Za to, da preslikavo v celoti podamo, je potrebno navesti tri stvari: poleg predpisa še domeno in kodomeno. Vse to je del informacije o preslikavi.
+
+\andrej{Tabelarični prikaz funkcije?}
+
+To se jasno pokaže, če začnemo razmišljati o lastnostih preslikav. Se še spomnite iz srednje šole, kaj pomeni, da je preslikava surjektivna? (Bomo ponovili v razdelku~\ref{razdelek:injektivnost-in-surjektivnost}.) Če vzamemo, da preslikava $f$ zadošča zgornjemu predpisu in jo obravnavamo kot preslikavo $f\colon \RR \to \RR$, ni surjektivna, če jo obravnavamo recimo kot preslikavo $f\colon \RR_{\geq 0} \to \RR_{\geq 0}$, pa je.
+\item
+Za spremenljivko $x$ velja isto, kot smo razpravljali že v prejšnjem razdelku pri lastnostih elementov množic: spremenljivka $x$ nima vnaprej določene vrednosti, pač pa predstavlja mesto, kamor lahko vstavimo poljubno vrednost. Seveda je potem vseeno, če vzamemo kakšno drugo črko ali čisto drug simbol: $f(y) = y^2$ določa isti predpis kot $f(x) = x^2$; prav tako $f(\heartsuit) = \heartsuit^2$. Se pravi, tudi v tem primeru gre za nemo spremenljivko. Če si torej izberemo neko vrednost, jo lahko vstavimo na mesto spremenljivke in izračunamo vrednost dobljenega izraza, npr.~$f(3) = 3^2 = 9$ oziroma $f(2\pi) = (2\pi)^2 = 4\pi^2$. Predstavljajte si, da je spremenljivka pravzaprav škatlica, kamor lahko vstavite vrednost, torej
+\[f(\argbox) = \argbox^2.\]
+\item
+Alternativen način zapisa $f(x) = x^2$ je
+\[f\colon x \mapsto x^2.\]
+Pazimo: navadna puščica $\to$ podaja domeno in kodomeno, kot razloženo zgoraj. Repata puščica $\mapsto$ pa za posamičen element domene pove, v kateri element kodomene se preslika.
+
+Zapis z repato puščico je še posebej uporaben, kadar želimo podati preslikavo, ne da bi nam bilo potrebno izbrati ime zanjo. Na primer, realno funkcijo kvadriranja lahko v celoti podamo takole:
+\begin{align*}
+\RR &\to \RR \\
+x &\mapsto x^2
+\end{align*}
+(prva vrstica pove domeno in kodomeno, druga pa predpis). Tako podanim preslikavam potem rečemo \df{brezimne preslikave} (s tujko \df{anonimne funkcije}). Kasneje (v razdelku~\ref{razdelek:brezimne-preslikave}) bomo spoznali bolj strnjen zapis takih preslikav, ki je še posebej primeren za izvajanje operacij med preslikavami; takrat bomo takšno funkcijo zapisali kot $\lam{x \in \RR} x^2$.
+\end{itemize}
+
+\note{Sklop (kompozicija, kompozitum) preslikav. Identiteta kot enota za sklapljanje. Razčlenitev (dekompozicija, faktorizacija) preslikav.}
+
+\davorin{Definirati moramo tudi oznako $\set{f(x)}{x \in X}$, kar je druge vrste oznaka kot prej definirana $\set{x \in X}{\phi(x)}$. Se gremo primerjavo s Pythonom (razlika med \texttt{\{f(x) for x in X\}} in \texttt{\{x if phi(x)\}})? Smo matematični hipsterji in uvedemo oznako $\{f(x) \,|\, x \in X \,|\, \phi(x)\}$, ki ustreza \texttt{\{f(x) for x in X if phi(x)\}}, kar bi tudi prišlo prav?}
+
+Zaenkrat smo imeli primere, ko je bil prepis preslikave dan z eno samo spremenljivko, npr.~$f(x) = x^2$. Zelo pogoste so pa tudi \df{preslikave več spremenljivk}, npr.~$f(x, y) = x^2 + y^2$. Že osnovne računske operacije so take --- na primer, pri seštevanju vzamemo \emph{dva} podatka in vrnemo rezultat (vsoto).
+
+V takem primeru je smiselno reči: domena preslikave sestoji iz \df{dvojic} ali \df{parov} števil. Pri seštevanju je to, katero število je prvo, katero pa drugo, sicer nepomembno, pri kakšni drugi operaciji (npr.~že odštevanju), pa je, zato posebej zahtevajmo: gre za \df{urejene dvojice} (\df{pare}). Urejeno dvojico elementov $a$ in $b$ (v tem vrstem redu) po dogovoru zapišemo kot $(a, b)$. Vrednosti $a$ in $b$ imenujemo \df{komponenti} tega para; natančneje, $a$ je \df{prva komponenta}, $b$ pa \df{druga komponenta}.
+
+Če imamo dve množici $A$ in $B$, tedaj množico vseh urejenih dvojic, katerih prva komponenta je element iz $A$, druga komponenta pa element iz $B$, označimo $A \times B$ in imenujemo \df{zmnožek} ali \df{produkt} množic $A$ in $B$. Glede na to, da obstaja mnogo operacij, ki se imenujejo ``produkt'' (poznate že vsaj produkt števil, produkt števila z vektorjem, skalarni produkt vektorjev in vektorski produkt vektorjev, obstaja pa jih še precej več), je koristno produkt množic posebej poimenovati, da ga ločimo od drugih: zanj se je uveljavil izraz \df{kartezični produkt} (izhaja iz imena Cartesius, tj.~latinske različice priimka Renéja Descarta\footnote{René Descartes (1596 -- 1650) je bil francoski filozof, matematik in znanstvenik.}).
+
+Seštevanje potemtakem lahko razumemo kot preslikavo $+\colon \RR \times \RR \to \RR$. V tem smislu še vedno gre za preslikavo, ki dan vhodni podatek preslika v neki rezultat, le da je vhodni podatek dvojica števil, ne pa zgolj eno število. Kadar imamo produkt več enakih faktorjev, ga lahko (kot običajno) zapišemo v obliki potence; pisali bi lahko tudi $+\colon \RR^2 \to \RR$.
+
+Seveda nismo omejeni na preslikave samo ene ali dveh spremenljivk. Nič nam ne preprečuje definirati recimo $f(x, y, z) = 2x + y - 3z$. Smiselna domena te preslikave setoji iz \df{urejenih trojic} števil. V splošnem, če jemljemo elemente iz množic $A$, $B$, $C$, tedaj se množica vseh takih trojic označi z $A \times B \times C$. Prejšnji predpis določa potem preslikavo $f\colon \RR \times \RR \times \RR \to \RR$ (oziroma krajše $f\colon \RR^3 \to \RR$).
+
+Spremenljivk je lahko še več; poleg dvojic in trojic tako dobimo še četverice, peterice, šesterice\ldots V splošnem takšna končna zaporedja elementov imenujemo \df{urejene večterice}. Tudi število spremenljivk je lahko označeno s črko; na primer, preslikava, ki računa povprečje $n$ števil (kjer $n \in \NN_{\geq 1}$), je dana kot
+\begin{align*}
+\RR^n &\to \RR \\
+(x_1, x_2, \ldots, x_n) &\mapsto \frac{x_1 + x_2 + \ldots + x_n}{n}
+\end{align*}
+(če hočemo poudariti, da imajo naše večterice natanko $n$ komponent, jih imenujemo $n$-terice). Nadlega pri tem je sicer spet dvoumnost tropičja. Deloma jo je možno odpraviti tako, da celotno večterico označimo z eno spremenljivko. Pogosta izbira zapisa je $f(\mathbf{x})$ ali $f(\vec{x})$ (razlog za to je, da lahko večterico vidimo kot vektor).
+
+Marsikdaj želimo delati ne samo z eno preslikavo, pač pa s celo množico preslikav naenkrat. Zato uvedemo: množica vseh preslikav, ki slikajo iz $X$ v $Y$, se označi kot $Y^X$; temu se reče \df{eksponent} množic $X$ in $Y$ (\note{na primernem mestu kasneje} bomo razložili, od kod ta oznaka).
+
+\begin{zgled}
+Množico vseh preslikav, ki realna števila slikajo nazaj v realna števila, označimo z $\RR^\RR$. Če nas zanimajo realne preslikave, ki so definirana samo na intervalu $\intoo{-1}{1}$, opazujemo množico $\RR^{\intoo{-1}{1}}$. Definiramo lahko preslikavo
+\begin{align*}
+\RR^{\intoo{-1}{1}} &\to \RR \\
+f &\mapsto f(0),
+\end{align*}
+ki preslikavam priredi njihovo vrednost v točki $0$. Ta preslikava torej ima za argumente (tj.~vnose) celotne preslikave in ne števila! Sama po sebi je element množice $\RR^{\RR^{\intoo{-1}{1}}}$.
+\end{zgled}
+
+\begin{zgled}
+Za poljubne množice $A$, $B$, $C$ lahko definiramo sledečo preslikavo, katere argumenti so pari preslikav.
+\begin{align*}
+B^A \times C^B &\to C^A \\
+(f, g) &\mapsto g \circ f
+\end{align*}
+\end{zgled}
+
+
+\davorin{Glede na to, da gre za slovenski učbenik, dajem izrazu `preslikava' prednost pred izrazom `funkcija'. Seveda pa sem pojasnil tudi slednji izraz (v prvem poglavju).}
+
+\note{Uvod. Definicijsko območje in zaloga vrednosti \davorin{morda dodamo kot možno ime za zalogo vrednosti še prevod angleške besede `range', se pravi `razpon'?}. Zožitve (tako domene kot kodomene); oznake za to so $\rstr{f}_A$, $\rstr{f}^B$, $\rstr{f}_A^B$. Izvrednotenje (evalvacija) preslikave (če ne bomo tega pojasnili že pri eksponentih množic).}
+
 
 \section{Kartezični produkt}
 \label{sec:kartezicni-produkt}
@@ -79,7 +216,12 @@ in tudi
 \section{Eksponent}
 \label{sec:eksponent}
 
-Zapis funkcijskega predpisa na razne načine. Aplikacija kot operacija.
+
+
+Zapis funkcijskega predpisa na razne načine.
+\note{Tj.~anonimne oz.~čiste funkcije. Na tem mestu pride tudi $\lambda$-notacija in določena mera $\lambda$-računa.}
+
+Aplikacija kot operacija.
 
 Eksponent kot množica vseh preslikav. Pravila za eksponent: kako naredimo elemente
 eksponenta in kako jih uporabimo. Enačbe ($\beta$ in ekstenzionalnost).
@@ -87,6 +229,7 @@ eksponenta in kako jih uporabimo. Enačbe ($\beta$ in ekstenzionalnost).
 Vezane spremenljivke v zapisu funkcijskega predpisa. Substitucija in vezane spremenljivke.
 
 Preslikave iz prazne množice in v prazno množice. Preslikave iz enojca in v enojec.
+
 
 Transponiranje (currying).
 
@@ -112,43 +255,6 @@ enojec kot produkt nič množic. Podobno za vsote.
 
 
 \section{Kar je že Davorin napisal}
-
-Pojem množice nam omogoča, da več elementov obravnavamo kot eno celoto. To naredi obravnavo bolj obvladljivo in omogoča lažji simbolni zapis.
-
-Množico z majhnim številom elementov lahko zapišemo tako, da naštejemo vse elemente in jih obdamo z zavitimi oklepaji. Torej, če zapišemo
-\[A = \set[1]{\text{jabolko}, \text{hruška}, \text{breskev}},\]
-s tem trdimo, da je $A$ množica, katere elementi so natanko jabolko, hruška in breskev.
-
-Za vsak element, ki ga zapišemo med zavitimi oklepaji, preprosto trdimo, da pripada množici, in nič več. To pomeni, da vrstni red elementov ni pomemben --- množica
-\[\set[1]{\text{breskev}, \text{hruška}, \text{jabolko}}\]
-je ista množica kot $A$. V obeh primerih smo preprosto za tri dane elemente rekli, da pripadajo množici. Nadalje, vseeno je, kolikokrat za neki dani element rečemo, da je v množici; po prvi razglasitvi imamo ravno toliko informacije, kot po deseti. Potemtakem so množice $\set{a}$, $\set{a, a}$ in $\set{a, a, a}$ vse medsebojno enake in vsebujejo natanko en element (četudi pri zadnjih dveh morda na prvi pogled izgleda drugače).
-
-Množico, ki ne vsebuje nobenega elementa, imenujemo \df{prazna množica} in jo lahko zapišemo kot $\set{}$. Ker se ta množica tako pogosto pojavlja, ima še dodatno oznako: $\emptyset$.
-
-Če ima množica mnogo elementov, je nepraktično (ali včasih celo nemogoče) vse našteti. Zapišemo lahko na primer
-\[\set{1, 2, 3, \ldots, 1000000}\]
-in od tod razberemo, da je mišljena množica vseh celih števil od ena do milijon. Na ta način lahko podajamo tudi neskončne množice: iz zapisa
-\[\set{1, 2, 3, \ldots}\]
-sklepamo, da gre za množico vseh pozitivnih celih števil.
-
-Težava s tropičjem je seveda, da je ta zapis dvoumen. Množica $\set{1, 2, 3, \ldots}$ bi ravno tako lahko naštevala na primer Fibonaccijeva števila. Nejasnim zapisom se je bolje izogniti, razen če smo popolnoma prepričani, da bo bralec kljub dvoumnosti razumel, kaj točno smo imeli v mislih.
-
-Množice, s katerimi v matematiki delamo, tipično vsebujejo števila, ali pa so vsaj na tak ali drugačen način izpeljane iz številskih množic. Spomnimo se standardnih oznak najpogosteje uporabljanih številskih množic.
-\begin{center}
-\begin{tabular}{|cc|}
-\hline
-\textbf{Množica} & \textbf{Oznaka} \\
-\hline
-množica naravnih števil & $\NN$ \\
-množica celih števil & $\ZZ$ \\
-množica racionalnih števil & $\QQ$ \\
-množica realnih števil & $\RR$ \\
-množica kompleksnih števil & $\CC$ \\
-\hline
-\end{tabular}
-\end{center}
-
-Nekateri $0$ vzamejo za naravno število, nekateri ne. To je v celoti stvar dogovora, kaj pomeni pojem ``naravno število''. Za nas bo prišlo bolj prav, če ničlo štejemo kot element množice naravnih števil, torej $\NN = \set{0, 1, 2, 3, \ldots}$.
 
 Interval realnih števil podamo s krajiščema intervala v oklepajih --- okrogli oklepaji ( ) označujejo odprtost intervala (krajišče ni vključeno v interval), oglati oklepaji [ ] pa zaprtost (krajišče je vključeno). Tako se npr.~interval realnih števil od $0$ do $1$, ki ne vsebuje krajišč, označi z $(0, 1)$, če jih vsebuje, pa z $[0, 1]$.
 
