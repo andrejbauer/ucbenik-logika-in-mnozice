@@ -385,7 +385,46 @@ Ker je relacija $<$ asimetrična in sovisna, zadošča tako imenovanemu \df{zako
 Za poljubno dvomestno relacijo na neki množici formuliraj zakon trodelitve in dokaži, da mu relacija zadošča natanko tedaj, ko je asimetrična in sovisna.
 \end{vaja}
 
-\subsection{Nadaljnje karakterizacije}
+\subsection{Karakterizacije}
+
+Množico naravnih števil, skupaj z njeno strukturo, smo podali preko Peanovih aksiomov. Koliko pa pravzaprav je množic naravnih števil?
+
+Namreč, naravnih števil nismo podali kot neke konkretne množice; Peanovi aksiomi jo zgolj karakterizirajo. \note{Ko bomo napisali razdelek o definicijah oziroma poglavje o strukturah, navežimo to diskusijo s tisto. Torej, če definicija podaja objekt preko karakterizacije njegove strukture, potem se pojavi vprašanje obstoja in enoličnosti do izomorfizma.}
+
+Če obstaja vsaj ena množica naravnih števil, jih obstaja poljubno mnogo --- elemente lahko namreč poljubno preimenujemo, pa bodo še vedno zadoščali Peanovim aksiomom. Z drugimi besedami, karkoli izomorfnega množici naravnih števil je spet množica naravnih števil. Še dobro, da je tako --- bilo bi nadležno, če ne bi mogli vseh naslednjih zadev obravnavati kot množice naravnih števil: $\set{0, \suc(0), \suc(\suc(0)), \suc(\suc(\suc(0))),\ldots}$, $\set{0, 1, 2, 3,\ldots}$, $\set{\mathrm{0}, \mathrm{I}, \mathrm{II}, \mathrm{III},\ldots}$, $\set{\text{nič}, \text{ena}, \text{dve}, \text{tri},\ldots}$, $\set{\text{zero}, \text{one}, \text{two}, \text{three},\ldots}$, $\set{\text{null}, \text{eins}, \text{zwei}, \text{drei},\ldots}$\ldots
+
+Kako pa vemo, da obstaja vsaj ena množica naravnih števil? Ne moremo preprosto reči, da jo lahko skonstruiramo recimo kot množico $\set{0, 1, 2, 3,\ldots}$, saj tropičje nima natančnega matematičnega pomena.
+
+Dokaz obstoja bi podajala konstrukcija množice $\NN$ (skupaj z izbiro nekega njenega elementa, ki igra vlogo $0$, in konstrukcijo ustrezne preslikave $\suc\colon \NN \to \NN$). Taka konstrukcija bi iz določenih množic, za katere že vemo, da obstajajo, po določenih pravilih izpeljala $\NN$. Seveda to vprašanje obstoja zgolj pomakne za en korak nazaj: kako vemo, da te določene množice obstajajo in katera pravila za konstrukcijo množic so dopustna?
+
+Če hočemo karkoli izpeljati, moramo nekje začeti. Dogovoriti se torej moramo, katere \emph{aksiome} bomo sprejeli za množice same. Obstoj nekaterih množic in dopustnost nekateri pravil za konstrukcije novih množic iz starih preprosto privzamemo.
+
+Obstaja več različic aksiomov teorije množic. Na to temo bomo več povedali v \note{poglavju o hierarhiji množic}. Nasplošno pa velja, da se množica naravnih števil šteje za tako osnovno, da je njen obstoj kar eden od aksiomov. \davorin{Odvisno od tega, kako točno bomo formulirali aksiom o neskončnosti, lahko ta stavek še popravimo.} Z drugimi besedami, da množica naravnih števil obstaja, ``vemo'' zaradi tega, ker smo njen obstoj privzeli.
+
+Kaj pa enoličnost do izomorfizma? No, struktura množice naravnih števil je podana z izbiro elementa, ki predstavlja nič, in preslikavo, ki predstavlja naslednika. Vzemimo poljubni dve taki strukturirani množici $(\NN', 0', \suc')$ in $(\NN'', 0'', \suc'')$ in skonstruirajmo bijekcijo med njima, ki ohranja vso strukturo (v obe smeri).
+
+Za ti dve množici velja načelo o rekurziji, tako da lahko skonstruiramo preslikavi $f\colon \NN' \to \NN''$ in $g\colon \NN'' \to \NN'$ z rekurzivnima pogojema
+\begin{align*}
+f(0') &\dfeq 0'', & g(0'') &\dfeq 0', \\
+f\big(\suc'(x)\big) &\dfeq \suc''\big(f(x)\big), & g\big(\suc''(y)\big) &\dfeq \suc'\big(g(y)\big).
+\end{align*}
+Po definiciji $f$ in $g$ ohranjata strukturo naravnih števil. Kakor hitro preverimo, da sta ti dve preslikavi druga drugi obratni, imamo željeni izormorfizem.
+
+Dokažimo, da velja $g\big(f(x)\big) = x$ za vsak $x \in \NN'$. To bomo seveda dokazali z indukcijo. Po definiciji velja $g\big(f(0')\big) = g(0'') = 0'$. Predpostavimo, da trditev drži za neki $x \in \NN'$. Tedaj
+\[g\Big(f\big(\suc'(x)\big)\Big) = g\Big(\suc''\big(f(x)\big)\Big) = \suc'\Big(g\big(f(x)\big)\Big) = \suc'(x).\]
+Na enak način preverimo še, da $f\big(g(y)\big) = y$ za vse $y \in \NN''$. Sklenemo, da so Peanovi aksiomi dopustna karakterizacija strukture, saj določajo množico naravnih števil enolično do izomorfizma.
+
+Ni pa definicija~\ref{definicija:naravna-stevila} edina smiselna karakterizacija naravnih števil. V preostanku tega razdelka bomo omenili še nekaj drugih, ki se uporabljajo.
+
+V razdelku o rekurziji smo že omenili, da lahko načelo indukcije izpeljemo iz rekurzije (in obratno). Peanovi aksiomi se potemtakem lahko podajo z rekurzijo namesto indukcijo.
+
+V prejšnjih dveh razdelkih smo izpeljali običajno algebrsko in urejenostno strukturo naravnih števil. Včasih se del te strukture vključi v definicijo naravnih števil. Na primer, operacija seštevanja se vzame kot del osnovne strukture naravnih števil in enakosti $m + 0 = m$ ter $m + \suc(n) = \suc(m + n)$ se privzameta kot aksioma (ter podobno z ostalo strukturo).
+
+\note{karakterizacija: začetni polkolobar z enico}
+
+\note{karakterizacija: objekt naravnih števil v kategoričnem smislu}
+
+\note{karakterizacija: začetna algebra za funktor $X \mapsto X + 1$} \davorin{če se bo to dalo povedati brez, da bi pregloboko zašli v teorijo kategorij}
 
 
 \section{Cela števila}
