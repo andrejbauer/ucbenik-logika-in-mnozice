@@ -134,7 +134,7 @@
 \newcommand{\divides}{\,|\,}
 % Načeloma bi morala biti navpična črta v \divides obdana z \mathrel, ampak to vodi do prevelikih presledkov.
 \newcommand{\df}[1]{\emph{\textbf{#1}}}  % defined notion
-\newcommand{\oper}{\mathop{\circledast}}  % symbol for a general operation
+\newcommand{\oper}{\mathop{\circledast}}  % symbol for a generic operation
 \newcommand{\ism}{\cong}  % isomorphic
 \newcommand{\equ}{\sim}  % equivalent
 \newcommand{\dfeq}{\mathrel{\mathop:}=}  % definitional equality
@@ -144,7 +144,11 @@
 \newcommand{\claim}[3]{{#1} \;\colon\; \frac{#2}{#3}}  % claim, divided on context, assumptions, conclusions
 \newcommand{\one}{\mathtt{\mathbf{1}}}  % generic singleton
 \newcommand{\unit}{\mathord{\boldsymbol{*}}}  % element in a generic singleton
-\newcommand{\suc}[1][]{s\ifthenelse{\equal{#1}{}}{}{({#1})}}  % successor
+\newcommand{\suc}{\mathtt{S}}  % successor
+\newcommand{\prd}{\mathtt{P}}  % predecessor
+\newcommand{\tprd}{\tilde{\prd}}  % predecessor as a total function
+\newcommand{\monus}{\mathbin{\vphantom{+}\text{\mathsurround=0pt \ooalign{\noalign{\kern-.35ex}\hidewidth$\smash{\cdot}$\hidewidth\cr\noalign{\kern.35ex}$-$\cr}}}}
+% Definicija za monus pobrana s TeX Stack Exchange
 \newcommand{\wf}{\prec}  % well-founded order
 \NewDocumentEnvironment{implproof}  % proof of an implication
 {O{\empty} G{\empty} O{=>} G{\empty}}
