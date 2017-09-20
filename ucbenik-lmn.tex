@@ -10,7 +10,7 @@
 \usepackage{ifthen}
 \usepackage{amssymb}
 \usepackage{amsmath}
-\usepackage{theorem}
+\usepackage{amsthm} % Must come after amsmath!
 \usepackage{textgreek}
 \usepackage{phonetic}
 \usepackage{tablefootnote}
@@ -81,7 +81,7 @@
 %%%  Theorems etc.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 {
-\theorembodyfont{\itshape}
+\theoremstyle{theorem}
 \newtheorem{izrek}{Izrek}[section]
 \newtheorem{lema}[izrek]{Lema}
 \newtheorem{trditev}[izrek]{Trditev}
@@ -89,7 +89,7 @@
 }
 
 {
-\theorembodyfont{\rmfamily}
+\theoremstyle{definition}
 \newtheorem{definicija}[izrek]{Definicija}
 \newtheorem{opomba}[izrek]{Opomba}
 \newtheorem{primer}[izrek]{Primer}
