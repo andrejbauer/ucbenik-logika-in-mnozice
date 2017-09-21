@@ -77,7 +77,7 @@ Intuitivno je jasno, da to mora delovati. Temelj indukcije nam pove, da dana las
 
 V poglavju~\ref{poglavje:indukcija} se bomo vrnili k indukciji, jo natančneje preučili in si ogledali primere dokazovanja z njo. Na tem mestu pa jo bomo uporabili za izpeljavo \emph{rekurzije}, ki nam bo služila za definicijo nadaljnje strukture na naravnih številih.
 
-\subsection{Rekurzija}
+\subsection{Rekurzija}\label{podrazdelek:rekurzija}
 
 Poenostavljeno povedano, rekurzija pomeni, da določimo vrednost preslikave pri nekem argumentu iz (že prej naračunanih) vrednosti pri manjših argumentih. Tipičen primer rekurzivno podane preslikave je faktoriela: če zapišemo $0! \dfeq 1$ in $n! \dfeq (n+1) \cdot n!$ za vse $n \in \NN$, smo s tem enolično podali preslikavo $!\colon \NN \to \NN$.
 
@@ -293,7 +293,7 @@ Zdaj smo naposled pripravljeni, da dokažemo členjenje množenja čez prisekano
 Vzemimo poljubna $a, b \in \NN$ in nadaljujmo z indukcijo po $c$. Pri $c = 0$ takoj dobimo $a \cdot (b \monus 0) = a \cdot b = a \cdot b \monus 0 = a \cdot b \monus a \cdot 0$. Recimo zdaj, da trditev velja za neki $c$. Dokažimo jo za $\suc(c)$:
 \[a \cdot \big(b \monus \suc(c)\big) = a \cdot \tprd(b \monus c) = a \cdot (b \monus c) \monus a = (a \cdot b \monus a \cdot c) \monus a = a \cdot b \monus (a \cdot c + a) = a \cdot b \monus a \cdot \suc(c).\]
 
-\subsection{Urejenost}
+\subsection{Urejenost}\label{podrazdelek:urejenost-na-naravnih-stevilih}
 
 V prejšnjem podrazdelku smo se posvetili algebrski strukturi naravnih števil. V tem podrazdelku dodajmo še urejenostno strukturo. Formalno bomo definirali $\leq$ in $<$ na $\NN$ in preverili lastnosti teh relacij.
 
@@ -383,6 +383,10 @@ Ker je relacija $<$ asimetrična in sovisna, zadošča tako imenovanemu \df{zako
 Za poljubno dvomestno relacijo na neki množici formuliraj zakon trodelitve in dokaži, da mu relacija zadošča natanko tedaj, ko je asimetrična in sovisna.
 \end{naloga}
 
+\davorin{Mogoče dodamo še mrežno strukturo množice $\NN$, tj.~$\min$ in $\max$? Verjetno bomo že pri mrežah (v poglavju o strukturah) povedali, da je vsaka linearna urejenost mreža.}
+
+\note{monotonost operacij}
+
 \subsection{Karakterizacije}
 
 Množico naravnih števil, skupaj z njeno strukturo, smo podali preko Peanovih aksiomov. Koliko pa pravzaprav je množic naravnih števil?
@@ -439,14 +443,79 @@ Kar se ohranjanja enice tiče, lahko poračunamo $f(1) = f\big(\suc(0)\big) = f(
 Premisli, da lahko $\NN$ okarakteriziramo tudi kot začetni izmenljiv polkolobar z enico.
 \end{naloga}
 
-Karakterizacija ``$\NN$ je začetni polkolobar z enico'' sicer uporablja seštevanje in množenje na naravnih številih. Možno je podati tudi kategorično definicijo naravnih števil, ki se sklicuje samo na ničlo in naslednika, tako kot Peanovi aksiomi (kot podani v definiciji~\ref{definicija:naravna-stevila}). Še več: definicijo lahko zastavimo tako splošno, da bo delovala ne samo v okviru množic (tj.~znotraj kategorije množic~$\mnoz$), pač pa v poljubni kartezično zaprti kategoriji.
+Karakterizacija ``$\NN$ je začetni polkolobar z enico'' sicer uporablja seštevanje in množenje na naravnih številih. Možno je pa podati tudi kategorično definicijo naravnih števil, ki se sklicuje samo na ničlo in naslednika, tako kot Peanovi aksiomi (kot podani v definiciji~\ref{definicija:naravna-stevila}).
 
-\note{karakterizacija: objekt naravnih števil v kategoričnem smislu}
+Definirajmo kategorijo, katere objekti so diagrami oblike $\one \to X \to X$, kjer je $X$ poljubna množica, puščici pa predstavljata poljubni preslikavi (z domeno in kodomeno, kot podano v diagramu). Dogovorimo se, da so morfizmi iz objekta $\one \stackrel{a}{\longrightarrow} X \stackrel{t}{\longrightarrow} X$ v objekt $\one \stackrel{b}{\longrightarrow} Y \stackrel{u}{\longrightarrow} Y$ preslikave $f\colon X \to Y$, za katere velja $f \circ a = b$ in $f \circ t = u \circ f$ --- z drugimi besedami, komutirati mora sledeči diagram.
 
-\note{karakterizacija: začetna algebra za funktor $X \mapsto X + 1$} \davorin{če se bo to dalo povedati brez, da bi pregloboko zašli v teorijo kategorij}
+\note{diagram}
+
+Naravna števila potem lahko definiramo kot začetni objekt v tej kategoriji.
+
+Preverimo, da je to res. Trdimo, da je $\one \stackrel{\nul}{\longrightarrow} \NN \stackrel{\suc}{\longrightarrow} \NN$ začetni objekt dane kategorije, kjer $\NN$ označuje množico naravnih števil, definirano s Peanovimi aksiomi, $\nul$ označuje preslikavo, ki odbere element $0$, $\suc$ pa kot običajno označuje naslednika.
+
+Vzemimo poljuben objekt $\one \stackrel{b}{\longrightarrow} Y \stackrel{u}{\longrightarrow} Y$. Preveriti želimo, da obstaja enolična preslikava $f\colon \NN \to Y$, za katero komutira sledeči diagram.
+
+\note{diagram}
+
+To pomeni, da imamo dva pogoja na $f$. Za začetek mora veljati $f \circ \nul = b$, kar je ekvivalentno $f\big(\nul(\unit)\big) = b(\unit)$ oziroma $f(0) = b(\unit)$. Drugi pogoj pravi $f \circ \suc = u \circ f$, tj.~za vsak $n \in \NN$ mora veljati $f\big(\suc(n)\big) = u\big(f(n)\big)$. Obstoj in enoličnost takšne preslikave $f$ nam poda načelo o rekurziji.
+
+Naravna števila (skupaj s podatkom o ničli in nasledniku) so torej res začetni objekt dane kategorije. Spomnimo se še, da tako Peanovi aksiomi kot začetnost objekta podajajo objekt do izomorfizma natančno. Bralcu prepuščamo, da preveri, da se pojma izomorfizma v obeh primerih ujemata.
+
+Videli smo, da je kategorična definicija naravnih števil ekvivalentna Peanovi, je pa v določenem smislu splošnejša. Objekti dane kategorije so bili oblike $\one \to X \to X$, kjer sta bila $\one$ in $X$ množici, puščici pa sta preslikavi (tj.~objekte in morfizme smo jemali iz kategorije~$\mnoz$). Takšne diagrame pa lahko tvorimo tudi v splošnejših kategorijah --- za $\one$ vzamemo končni objekt, $X$ je poljuben objekt, puščici pa poljubna morfizma (z ustrezno domeno in kodomeno). Zgornja definicija naravnih števil nam v bistvu da načelo neparametrizirane rekurzije in če imamo eksponente, lahko izpeljemo še načelo parametrizirane rekurzije (kot v podrazdelku~\ref{podrazdelek:rekurzija}). Torej nam kategorična definicija poda pojem naravnih števil v poljubni kartezično zaprti kategoriji! (Obstaja način, kako prilagoditi to definicijo, da že od začetka vključuje parametre; v tem primeru deluje celo za poljubno kategorijo s končnimi produkti.) To je uporabno, kadar želimo za temelje matematike vzeti kaj drugega kot običajne množice.
 
 
 \section{Cela števila}
+
+Zdaj ko imamo množico naravnih števil, lahko skonstruiramo nadaljnje številske množice. Naslednji korak so cela števila.
+
+\subsection{Konstrukcija}
+
+Težava z naravnimi števili je, da je odštevanje zgolj delna preslikava. Namen konstrukcije celih števil je razširiti množico naravnih števil ravno za toliko, da lahko neomejeno odštevamo (in ostale računske operacije še vedno imajo smisel ter zadoščajo običajnim zakonom).
+
+Kako to doseči? Za vsak par naravnih števil $a, b \in \NN$ želimo imeti element, ki predstavlja njuno razliko. Pretkana ideja, kako to doseči, je: razliko teh elementov predstavimo kar z elementoma samima, tj.~njuno razliko naj predstavlja par $(a, b)$.
+
+Takšni pari so elementi množice $\NN \times \NN$. Na tem produktu lahko definiramo urejenost. Če nam pari predstavljajo razlike, kdaj bi moralo veljati $a - b \leq c - d$? Natanko tedaj, ko $a + d \leq b + c$, ampak ta pogoj ima smisel za vsa naravna števila $a, b, c, d \in \NN$. Vpeljimo torej urejenost na $\NN \times \NN$ s predpisom
+\[(a, b) \leq (c, d) \dfeq a + d \leq b + c.\]
+Pri tem smo si privoščili zlorabo oznak: simbol $\leq$ na desni predstavlja v podrazdelku~\ref{podrazdelek:urejenost-na-naravnih-stevilih} definirano urejenost na naravnih številih, isti simbol $\leq$ na levi pa pravkar definirano relacijo na $\NN \times \NN$.
+
+\begin{naloga}
+Preveri, da je $\leq$ na $\NN \times \NN$ šibka urejenost (refleksivna in tranzitivna).
+\end{naloga}
+
+Ni pa $\leq$ delna urejenost na $\NN \times \NN$ (tj.~ni antisimetrična). Velja na primer tako $(2, 1) \leq (5, 4)$ kot $(5, 4) \leq (2, 1)$ (kar je smiselno, saj sta razliki $2 - 1$ in $5 - 4$ enaki).
+
+Spomnimo se \note{od relacij urejenosti}, da vsaka šibka urejenost $\leq$ določa ekvivalenčno relacijo, dano z $x \approx y \dfeq x \leq y \land y \leq x$. V našem primeru to pomeni $(a, b) \approx (c, d) \iff a + d = b + c$. Definirajmo $\ZZ \dfeq (\NN \times \NN)/_\approx$; tedaj šibka urejenost $\leq$ na $\NN \times \NN$ porodi delno urejenost na kvocientu $\ZZ$, ki jo bomo spet označili z $\leq$.
+
+Ker v tem kontekstu par $(a, b)$ predstavlja razliko števil $a$ in $b$, ga imenujemo \df{formalna razlika} teh dveh elementov. Cela števila smo definirali kot množico formalnih razlik naravnih števil, pri čemer smo poistovetili tiste razlike, ki morajo imeti isto vrednost. Elementi množice $\ZZ$ so torej ekvivalenčni razredi $\ec[\approx]{(a, b)}$, ki jih bomo pa zavoljo lažje berljivosti pisali kar kot $\ec{a, b}$.
+
+Množico naravnih števil lahko obravnavamo kot podmnožico množice celih števil v smislu, da imamo vložitev $\NN \to \ZZ$, dano s predpisom $n \mapsto \ec{n, 0}$ (ideja je, da vsako naravno število $n \in \NN$ predstavimo kot razliko $n - 0$). \davorin{Koliko podrobneje bomo to razjasnili, je odvisno od tega, kaj bomo že predtem povedali o podmnožicah oziroma vložitvah.} Trdimo, da je ta preslikava res injektivna. Vzemimo poljubna $m, n \in \NN$, za katera velja $\ec{m, 0} = \ec{n, 0}$. To pomeni $(m, 0) \approx (n, 0)$, torej $m + 0 = 0 + n$ oziroma $m = n$.
+
+Podoben razmislek nam pove, da relacija $\leq$ na $\ZZ$ razširja relacijo $\leq$ na $\NN$. Namreč, za poljubna $m, n \in \NN$ velja
+\[\ec{m, 0} \leq \ec{n, 0} \iff (m, 0) \leq (n, 0) \iff m + 0 \leq 0 + n \iff m \leq n.\]
+Zato ni problema, če vse te relacije označujemo z istim simbolom.
+
+\begin{naloga}
+Preveri, da je $\leq$ linearna urejenost na $\ZZ$.
+\end{naloga}
+
+Podobno lahko razširimo tudi ostalo strukturo z $\NN$ na $\ZZ$. Relacijo $<$ prepustimo za vajo, algebrskim operacijam pa se natančneje posvetimo.
+
+\begin{naloga}
+Podaj smiselno definicijo stroge urejenosti $<$ na $\ZZ$, ki razširja $<$ na $\NN$. Preveri, da je stroga linearna urejenost.
+\end{naloga}
+
+Če imamo dve razliki naravnih števil, kako bi njuno vsoto spet izrazili kot razliko naravnih števil? Pričakujemo, da bi moralo veljati $(a - b) + (c - d) = (a + c) - (b + d)$. Zato definiramo seštevanje $+\colon \ZZ \times \ZZ \to \ZZ$ s sledečim predpisom.
+\[\ec{a, b} + \ec{c, d} \dfeq \ec{a + c, b + d}\]
+Najprej se moramo prepričati, da je ta definicija sploh dobra --- konkretno, preveriti moramo, da tako definiran $+$ zadošča enoličnosti. Recimo da velja $\ec{a', b'} = \ec{a'', b''}$ in $\ec{c', d'} = \ec{c'', d''}$, tj. $(a', b') \approx (a'' , b'')$ in $(c', d') \approx (c'', d'')$ oziroma $a' + b'' = a'' + b'$ in $c' + d'' = c'' + d'$. Tedaj
+\[(a' + c') + (b'' + d'') = (a' + b'') + (c' + d'') = (a'' + b') + (c'' + d') = (a'' + c'') + (b' + d').\]
+Velja torej $(a' + c', b' + d') \approx (a'' + c'', b'' + d'')$ oziroma $\ec{a' + c', b' + d'} = \ec{a'' + c'', b'' + d''}$; seštevanje na $\ZZ$ je potemtakem dobro definirana preslikava.
+
+Takoj vidimo, da seštevanje na $\ZZ$ razširja seštevanje na $\NN$: $\ec{a, 0} + \ec{b, 0} = \ec{a + b, 0 + 0} = \ec{a + b, 0}$. Trdimo, da še vedno zadošča običajnim računskim zakonom.
+
+
+\subsection{Karakterizacije}
+
+
 \section{Racionalna števila}
 \section{Realna števila}
 \section{Kompleksna števila}
@@ -467,9 +536,13 @@ Premisli, da načelo o rekurziji zagotavlja dobro definiranost te preslikave, in
 \item
 $a^1 = a$
 \item
+$1^n = 1$
+\item
 $a^{m + n} = a^m \cdot a^n$
 \item
 $a^{m \cdot n} = (a^m)^n$
+\item
+$(a \cdot b)^n = a^n \cdot b^n$
 \item
 $\vdots$
 \end{enumerate}
