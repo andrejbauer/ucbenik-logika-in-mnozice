@@ -22,7 +22,7 @@ Kot običajno, obstajajo različne oznake v uporabi. Sliko $\img{f}{A}$ se ozna�
 V tej knjigi se bomo načrtno izogibali takšnim dvoumnostim in za sliko dosledno uporabljali oznako iz definicije~\ref{definicija:slika}.
 \end{opomba}
 
-\begin{vaja}
+\begin{naloga}
 Prepričaj se, da za poljubno preslikavo $f\colon X \to Y$ velja sledeče:
 \begin{itemize}
 \item
@@ -32,7 +32,7 @@ $\img{f}{\emptyset} = \emptyset$,
 \item
 $\img[1]{f}{\set{x}} = \set[1]{f(x)}$ za vsak $x \in X$.
 \end{itemize}
-\end{vaja}
+\end{naloga}
 
 \note{primeri in lastnosti slik že tu ali kasneje skupaj s primeri/lastnostmi praslik?}
 
@@ -98,21 +98,21 @@ Z drugimi besedami, $g$ je obrat $f$, kadar slika v nasprotni smeri in za vsak $
 Kot veš že iz srednje šole, logaritmiranje je obratno od eksponenciranja. Če smo natančnejši: preslikavi $\lam{x \in \RR}  b^x$ in $\lam{x \in \RR_{>0}} \log_b x$ sta si obratni pri vsaki osnovi $b \in \RR_{> 0} \setminus \set{1}$.
 \end{zgled}
 
-\begin{vaja}\label{vaja:enolicnost-obrata-preslikave}
+\begin{naloga}\label{naloga:enolicnost-obrata-preslikave}
 Dokaži: če sta $g$ in $h$ obrata iste preslikave $f$, tedaj $g = h$.
-\end{vaja}
+\end{naloga}
 
-Vaja~\ref{vaja:enolicnost-obrata-preslikave} pove, da je obrat funkcije enolično določen, tj.~vsaka funkcija ima kvečjemu en obrat. Zato lahko uvedemo izrecno oznako: obrat preslikave $f$ (kadar obstaja) označimo z $f^{-1}$. Velja torej: kadar je preslikava $f\colon X \to Y$ obrnljiva, določa preslikavo $f^{-1}\colon Y \to X$.
+Vaja~\ref{naloga:enolicnost-obrata-preslikave} pove, da je obrat funkcije enolično določen, tj.~vsaka funkcija ima kvečjemu en obrat. Zato lahko uvedemo izrecno oznako: obrat preslikave $f$ (kadar obstaja) označimo z $f^{-1}$. Velja torej: kadar je preslikava $f\colon X \to Y$ obrnljiva, določa preslikavo $f^{-1}\colon Y \to X$.
 
 Ta oznaka je nekoliko nerodna --- pomembno se je zavedati, da $f^{-1}(x)$ pomeni obrat preslikave $f$, izvrednoten na $x$, medtem kot $\big(f(x)\big)^{-1}$ pomeni obratna vrednost (v smislu deljenja) izvrednotenja preslikave $f$ na $x$. Za primerjavo, kot omenjeno v zgledu~\ref{zgled:logaritmiranje-je-obratno-od-eksponenciranja}, je obrat eksponenciranja logaritmiranje, medtem ko je obratna vrednost od $b^x$ enaka $(b^x)^{-1} = \frac{1}{b^x} = b^{-x}$.
 
-\begin{vaja}
+\begin{naloga}
 Premisli: če ima preslikava $f$ obrat $f^{-1}$, tedaj je tudi $f^{-1}$ obrnljiva preslikava in velja $(f^{-1})^{-1} = f$ (torej, obrat obrata je izvorna preslikava).
-\end{vaja}
+\end{naloga}
 
-\begin{vaja}
+\begin{naloga}
 Pogosto rečemo, da sta seštevanje in odštevanje obratni operaciji. Strogo vzeto, ti dve operaciji nista obratni kot preslikavi, saj obe slikata (recimo, da ju gledamo na realnih številih) $\RR \times \RR \to \RR$, tj.~ne slikata v nasprotnih smereh. Ugotovi, v kakšnem smislu točno sta seštevanje in odštevanje obratni, tj.~kateri dve preslikavi sta pravzaprav druga drugi obratni.
-\end{vaja}
+\end{naloga}
 
 Zakaj se sploh ukvarjamo z obrati? Pogosto obravnavamo preslikavo, ki izhaja iz nekega konkretnega (na primer fizikalnega) problema, v smislu, da preslikava vzame začetne podatke in nam vrne, kaj se bo na koncu zgodilo. Marsikdaj pa hočemo rešiti obraten problem: želimo določene končne rezultate in se sprašujemo, kakšni morajo biti začetni pogoji, da jih bomo dosegli. V takem primeru pride prav obratna preslikava.
 
@@ -155,6 +155,9 @@ Zaenkrat smo to joto uporabljali zgolj kot okrajšavo za stavek v običajnem jez
 Naj bo $X$ poljubna množica. Na njej imamo enakost; obravnavajmo jo na tem mestu kot lastnost dvojic elementov iz $X$, torej kot predikat $=_X\colon X \times X \to \tvs$ (za vsak par elementov vrnemo resničnostno vrednost izjave, da sta komponenti para enaki). Transponirajmo to preslikavo; dobimo $\transposed{=_X}\colon X \to \tvs^X$. Ta transponiranka je injektivna: če se za $a, b \in X$ preslikavi $\lam{x \in X} (a = x)$ in $\lam{x \in X} (b = x)$ ujemata, se ujemata tudi njuni vrednosti pri $b$. Ker drži $b = b$, potem drži tudi $a = b$.
 
 Če zožimo kodomeno preslikave $\transposed{=_X}$ na njeno sliko, potemtakem dobimo bijekcijo. Naj bo jota njen obrat, torej $\iota \dfeq \big(\rstr{\transposed{=_X}}^{\rn{\transposed{=_X}}}\big)^{-1}$. V tem smislu je zgornja oznaka $\that{x \in X} \phi(x)$ okrajšava za $\iota (\lam{x \in X} \phi(x))$ (kar bi seveda lahko še skrajšali do $\iota(\phi)$, ampak v praksi je to običajno manj zgovorno).
+
+
+\section{Vaje}
 
 
 %%% Local Variables:

@@ -59,9 +59,9 @@ Vidimo, da se naravna števila ne morejo zaciklati niti na začetku (pri $0$) ni
 
 Čemu pa služi zadnji pogoj iz definicije~\ref{definicija:naravna-stevila}, tj.~načelo o indukciji? Že brez tega pogoja vemo, da so $0$, $\suc(0)$, $\suc(\suc(0))$, $\suc(\suc(\suc(0)))$,\ldots naravna števila, česar pa ne vemo, je, da so to \emph{vsa} naravna števila --- da torej ni nobenih drugih.
 
-\begin{vaja}
+\begin{naloga}
 Premisli, da množica $\RR_{> -1}$ z naslednikom $\suc(x) \dfeq x+1$ zadošča vsem pogojem iz definicije~\ref{definicija:naravna-stevila}, razen načelu indukcije.
-\end{vaja}
+\end{naloga}
 
 Vidimo, da bi brez načela indukcije lahko imeli v množici $\NN$ odvečna števila (takšna, ki jih ne štejemo kot naravna). S predpostavko o indukciji se to ne more zgoditi. Ta namreč pravi: če neka lastnost velja za začetni element verige $0$, $\suc(0)$, $\suc(\suc(0))$, $\suc(\suc(\suc(0)))$,\ldots in če lahko sklepamo, da kakor hitro ta lastnost velja za določen element verige, velja tudi za naslednjega, potem ta lastnost velja za vsa naravna števila. Če za lastnost vzamemo ``biti element te verige'', iz načela o indukciji sklenemo, da se vsako naravno število nahaja nekje v tej verigi. Peanovi aksiomi torej podajajo strukturo, ki ustreza naši intuitivni predstavi množice naravnih števil.
 
@@ -218,9 +218,9 @@ Vzemimo poljubna $a, b \in \NN$, nato pa se kot običajno poslužimo indukcije. 
 
 S pomočjo (delnega) odštevanja lahko definiramo \df{predhodnika} na naravnih številih, in sicer kot $\prd(n) \dfeq n - 1$. Tudi to je zgolj delna preslikava $\prd\colon \NN \parto \NN$; ničla je edino naravno število, ki ni v njenem definicijskem območju.
 
-\begin{vaja}
+\begin{naloga}
 Dokaži $\all{n \in \NN}{\prd\big(\suc(n)\big) \kleq n}$.
-\end{vaja}
+\end{naloga}
 
 Včasih je pa uporabno imeti obliko predhodnika in odštevanja, ki sta celoviti preslikavi. Pri predhodniku se dogovorimo, da se pomaknemo za eno nazaj, če se le da (pri ničli torej ostanemo, kjer smo). To različico predhodnika lahko definiramo z rekurzijo na naslednji način.
 \begin{align*}
@@ -242,9 +242,9 @@ Se pravi, če v izreku~\ref{izrek:rekurzija} vzamemo $X = Y = \NN$, $b(m) = m$ i
 
 Oglejmo si nekaj lastnosti, ki veljajo za prisekano odštevanje. Po definiciji je $0$ desna enota, ni pa leva enota, kot takoj sledi iz naslednje vaje (od tod je jasno tudi, da $\monus$ ni izmenljiv).
 
-\begin{vaja}
+\begin{naloga}
 Dokaži $\all{n \in \NN}{0 \monus n = 0}$.
-\end{vaja}
+\end{naloga}
 
 Bolj zvito je preveriti, da za vse $n \in \NN$ velja $n \monus n = 0$. Če poskusimo to neposredno dokazati z indukcijo, bomo hitro naleteli na oviro. Namesto tega se raje lotimo splošnejše trditve: dokažimo
 \[\all{n \in \NN}\all{a \in \NN}{(n + a) \monus n = a}.\]
@@ -292,8 +292,6 @@ Zdaj smo naposled pripravljeni, da dokažemo členjenje množenja čez prisekano
 
 Vzemimo poljubna $a, b \in \NN$ in nadaljujmo z indukcijo po $c$. Pri $c = 0$ takoj dobimo $a \cdot (b \monus 0) = a \cdot b = a \cdot b \monus 0 = a \cdot b \monus a \cdot 0$. Recimo zdaj, da trditev velja za neki $c$. Dokažimo jo za $\suc(c)$:
 \[a \cdot \big(b \monus \suc(c)\big) = a \cdot \tprd(b \monus c) = a \cdot (b \monus c) \monus a = (a \cdot b \monus a \cdot c) \monus a = a \cdot b \monus (a \cdot c + a) = a \cdot b \monus a \cdot \suc(c).\]
-
-\note{Ena od vaj: rekurzivna definicija in dokaz lastnosti potenciranja}
 
 \subsection{Urejenost}
 
@@ -371,9 +369,9 @@ Preverimo tranzitivnost relacije $<$. Pravzaprav lahko to lastnost okrepimo: ne 
 
 Vzemimo poljubne $a, b, c \in \NN$, za katere velja $a \leq b$ in $b < c$, torej imamo $x, y \in \NN$, tako da $a + x = b$ in $b + \suc(y) = c$. Potem $a + \suc(x + y) = a + x + \suc(y) = b + \suc(y) = c$, torej $a < c$.
 
-\begin{vaja}
+\begin{naloga}
 Dokaži $\all{a, b, c \in \NN}{a < b \land b \leq c \implies a < c}$. Premisli, zakaj takoj sledi tranzitivnost relacije $<$.
-\end{vaja}
+\end{naloga}
 
 Tudi sovisnost $<$ takoj dobimo iz zgornje trditve. Vzemimo poljubna $a, b \in \NN$, za katera velja $a \neq b$. Gotovo velja $a \leq b \lor b \leq a$, kar je ekvivalentno $(a < b \lor a = b) \lor (b < a \lor b = a)$ ali krajše $a < b \lor b < a \lor a = b$. Zadnji disjunkt po predpostavki ne pride v poštev, torej smo izpeljali $a < b \lor b < a$.
 
@@ -381,9 +379,9 @@ Tudi sovisnost $<$ takoj dobimo iz zgornje trditve. Vzemimo poljubna $a, b \in \
 
 Ker je relacija $<$ asimetrična in sovisna, zadošča tako imenovanemu \df{zakonu trodelitve} (s tujko \df{zakon trihotomije}): za vsaka $a, b \in \NN$ velja natanko ena izmed možnosti $a < b$, $a = b$ oz.~$b < a$.
 
-\begin{vaja}
+\begin{naloga}
 Za poljubno dvomestno relacijo na neki množici formuliraj zakon trodelitve in dokaži, da mu relacija zadošča natanko tedaj, ko je asimetrična in sovisna.
-\end{vaja}
+\end{naloga}
 
 \subsection{Karakterizacije}
 
@@ -437,9 +435,9 @@ Enota za seštevanje se ohranja po definiciji. Preverimo, da se ohranja sešteva
 
 Kar se ohranjanja enice tiče, lahko poračunamo $f(1) = f\big(\suc(0)\big) = f(0) +_X 1_X = 0_X +_X 1_X = 1_X$. Preverimo, da se ohranja množenje, da torej velja $\all{a \in \NN}\all{b \in \NN}{f(a \cdot b) = f(a) \cdot_X f(b)}$. Vzemimo poljuben $a \in \NN$ in se poslužimo indukcije po $b$. Najprej $f(a \cdot 0) = f(0) = 0_X = f(a) \cdot_X 0_X = f(a) \cdot_X f(0)$, nato pa predpostavimo trditev za neki $b \in \NN$. Dobimo $f\big(a \cdot \suc(b)\big) = f(a \cdot b + a) = f(a \cdot b) +_X f(a) = f(a) \cdot_X f(b) +_X f(a) \cdot_X 1_X = f(a) \cdot_X \big(f(b) +_X 1_X\big) = f(a) \cdot_X f\big(\suc(b)\big)$.
 
-\begin{vaja}
+\begin{naloga}
 Premisli, da lahko $\NN$ okarakteriziramo tudi kot začetni izmenljiv polkolobar z enico.
-\end{vaja}
+\end{naloga}
 
 Karakterizacija ``$\NN$ je začetni polkolobar z enico'' sicer uporablja seštevanje in množenje na naravnih številih. Možno je podati tudi kategorično definicijo naravnih števil, ki se sklicuje samo na ničlo in naslednika, tako kot Peanovi aksiomi (kot podani v definiciji~\ref{definicija:naravna-stevila}). Še več: definicijo lahko zastavimo tako splošno, da bo delovala ne samo v okviru množic (tj.~znotraj kategorije množic~$\mnoz$), pač pa v poljubni kartezično zaprti kategoriji.
 
@@ -454,6 +452,28 @@ Karakterizacija ``$\NN$ je začetni polkolobar z enico'' sicer uporablja seštev
 \section{Kompleksna števila}
 
 \davorin{Se ustavimo že pri realnih številih? Gremo še dlje do kvaternionov?}
+
+
+\section{Vaje}
+
+\begin{vaja}
+Potenciranje na naravnih številih (torej kot preslikavo $\NN \times \NN \to \NN$) lahko definiramo rekurzivno z naslednjim predpisom.
+\begin{align*}
+m^0 &\dfeq 1 \\
+m^{\suc(n)} &\dfeq m^n \cdot m
+\end{align*}
+Premisli, da načelo o rekurziji zagotavlja dobro definiranost te preslikave, in izpelji sledeče znane zakone potenciranja.
+\begin{enumerate}
+\item
+$a^1 = a$
+\item
+$a^{m + n} = a^m \cdot a^n$
+\item
+$a^{m \cdot n} = (a^m)^n$
+\item
+$\vdots$
+\end{enumerate}
+\end{vaja}
 
 
 %%% Local Variables:

@@ -94,7 +94,7 @@ $p \luk q$ & $\lnot(p \lor q)$ & $\lnot{p} \land \lnot{q}$ \\
 \end{tabular}
 \end{center}
 
-Včasih pa vendarle raje delamo neposredno z dodatnimi vezniki. Služijo lahko kot koristna okrajšava, so pa še drugi razlogi. Na primer, stroga disjunkcija igra vlogo seštevanja v Boolovem kolobarju (glej~\note{razdelek o Boolovih kolobarjih}), Shefferjev in Łukasiewiczev veznik pa se uporabljata pri preklopnih vezjih, saj je z vsakim od njiju možno izraziti vse izjavne veznike (glej vajo~\ref{vaja:polni-nabori-z-enim-veznikom}). V računalništvu imajo ti trije vezniki standardne oznake XOR, NAND, NOR.
+Včasih pa vendarle raje delamo neposredno z dodatnimi vezniki. Služijo lahko kot koristna okrajšava, so pa še drugi razlogi. Na primer, stroga disjunkcija igra vlogo seštevanja v Boolovem kolobarju (glej~\note{razdelek o Boolovih kolobarjih}), Shefferjev in Łukasiewiczev veznik pa se uporabljata pri preklopnih vezjih, saj je z vsakim od njiju možno izraziti vse izjavne veznike (glej vajo~\ref{naloga:polni-nabori-z-enim-veznikom}). V računalništvu imajo ti trije vezniki standardne oznake XOR, NAND, NOR.
 
 \davorin{Nekje tukaj povejmo, kakšno prednost damo tem trem veznikom v primerjavi s standardnimi. Kateremu dogovoru sledimo?}
 
@@ -394,15 +394,15 @@ Zdaj lahko na pregleden način zapišemo, da je vsako naravno število od $2$ na
 
                 Enako velja tudi za disjunkcijo.
 
-                \begin{vaja}
+                \begin{naloga}
                         Dokaži, da je disjunkcija komutativna, asociativna in idempotentna!
-                \end{vaja}
+                \end{naloga}
 
                 Preostali dvomestni vezniki, ki smo jih omenili, ne zadoščajo vsem trem lastnostim naenkrat.
 
-                \begin{vaja}
+                \begin{naloga}
                         Preveri, kateri znani dvomestni izjavni vezniki so komutativni, asociativni oziroma idempotentni!
-                \end{vaja}
+                \end{naloga}
 
                 Ko rešite zgornjo vajo, boste med drugim opazili: implikacija ni komutativna. To pomeni, da lahko definiramo nov izjavni veznik $\revimpl$ na naslednji način: $p \revimpl q \dfeq q \impl p$ za vse $p, q \in \tvs$. Z drugimi besedami, $\revimpl$ je dan s sledečo resničnostno tabelo.
                 \begin{center}
@@ -437,9 +437,9 @@ Zdaj lahko na pregleden način zapišemo, da je vsako naravno število od $2$ na
 
                 Kar se dvomestnih veznikov tiče, vidimo, da jih je $2^{2^2} = 2^4 = 16$.
 
-                \begin{vaja}
+                \begin{naloga}
                         Preveri, da so vsi dvomestni vezniki natanko: konstanta z vrednostjo $\top$, projekcija na prvo komponento (tj.~$(p, q) \mapsto p$), projekcija na drugo komponento (tj.~$(p, q) \mapsto q$), konjunkcija $\land$, disjunkcija $\lor$, implikacija $\impl$, povratna implikacija $\revimpl$, ekvivalenca $\lequ$ in negacije vseh teh.
-                \end{vaja}
+                \end{naloga}
 
                 Tromestnih veznikov je že $2^{2^3} = 2^8 = 256$ in ne bomo vseh naštevali. Kako pa bi kakega dobili? Preprost način je, da vzamemo tri spremenljivke in jih združimo z večimi znanimi vezniki, na primer $(p, q, r) \mapsto p \land \lnot{q} \impl r$.\footnote{Načeloma sploh ni nujno, da vse tri spremenljivke dejansko uporabimo. Na primer, $(p, q, r) \mapsto p \land q$ še vedno podaja tromestni veznik, saj gre za preslikavo $\tvs^3 \to \tvs$.}
 
@@ -492,7 +492,7 @@ Zdaj lahko na pregleden način zapišemo, da je vsako naravno število od $2$ na
 
                 Je možno iti še dlje in najti en sam veznik, s katerim lahko izrazimo ostale? Odgovor je da: $\set{\shf}$ in $\set{\luk}$ sta polna nabora. (Izkaže se, da sta to edina taka veznika med dvomestnimi vezniki.)
 
-                \begin{vaja}\label{vaja:polni-nabori-z-enim-veznikom}
+                \begin{naloga}\label{naloga:polni-nabori-z-enim-veznikom}
                         \
                         \begin{enumerate}
                                 \item
@@ -500,7 +500,7 @@ Zdaj lahko na pregleden način zapišemo, da je vsako naravno število od $2$ na
                                 \item
                                         Izrazi negacijo samo z veznikom $\luk$. Izrazi še konjunkcijo ali disjunkcijo samo z veznikom $\luk$. Sklepaj, da je $\set{\luk}$ poln nabor.
                         \end{enumerate}
-                \end{vaja}
+                \end{naloga}
 
                 \davorin{Bi na tem mestu predebatirali preklopna vezja?}
 
@@ -510,6 +510,10 @@ Zdaj lahko na pregleden način zapišemo, da je vsako naravno število od $2$ na
         \section{Predikati in kvantifikatorji}
 
                 \note{``Lastnostim'' elementov množic, ki smo jih prej uporabljali za podajanje podmnožic in pri kvantifikatorjih, zdaj ``uradno'' rečemo \df{predikati} in jih formalno definiramo: predikat na množici $X$ je preslikava $X \to \tvs$. Karakteristične preslikave podmnožic. Spomnimo se kvantifikatorjev in jih definiramo kot preslikave $\tvs^X \to \tvs$. Povemo, da lahko imajo predikati več spremenljivk in da lahko kvantificiramo po samo nekaterih (dobimo torej preslikave oblike $\tvs^{X \times Y} \to \tvs^Y$). Vezane, proste spremenljivke. Pravila, ki veljajo za kvantifikatorje (de Morgan itd.).}
+
+
+\section{Vaje}
+
 
 %%% Local Variables:
 %%% mode: latex

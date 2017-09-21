@@ -91,9 +91,9 @@
                 \[\srel \circ \rel \dfeq \set[1]{(x, z) \in X \times Z}{\some{y}[Y]{\rel[x][y] \land \srel[y][z]}}\]
                 (po vzoru preslikav tudi sklop relacij pišemo v obratnem vrstnem redu; glej razdelek~\ref{razdelek:izpeljava-preslikav-iz-relacij}). Opazimo: domena $\srel \circ \rel$ je domena $\rel$, kodomena $\srel \circ \rel$ je kodomena $\srel$. Sklapljanje je asociativna operacija, torej pri sklopu več relacij oklepaji niso pomembni.
 
-                \begin{vaja}
+                \begin{naloga}
                         Dokaži, da je sklapljanje relacij asociativno!
-                \end{vaja}
+                \end{naloga}
 
                 Večkraten sklop relacije $\rel \subseteq X \times X$ same s sabo označimo
                 \[\rel^n \dfeq \underbrace{\rel \circ \rel \circ \ldots \circ \rel}_{\text{$n$ $\rel$-jev}}\]
@@ -109,9 +109,9 @@
                 \[\rel^{-1} \dfeq \set{(y, x) \in Y \times X}{\rel[x][y]}\]
                 (torej ima obratna relacija glede na izvorno zamenjano domeno in kodomeno). Posledično lahko za poljubno relacijo $\rel \subseteq X \times X$ definiramo njeno potenco s poljubno celo stopnjo: $\rel^{-n} \dfeq (\rel^{-1})^n = (\rel^n)^{-1}$.
 
-                \begin{vaja}
+                \begin{naloga}
                         Preveri, da velja $(\srel \circ \rel)^{-1} = \rel^{-1} \circ \srel^{-1}$!
-                \end{vaja}
+                \end{naloga}
 
                 \begin{zgled}
                         Graf relacije, ki je obratna relaciji $\rel \subseteq X \times X$, dobimo tako, da v grafu relacije $\rel$ obrnemo puščice. Na primer, če je $\rel$ relacija iz zgleda~\ref{zgled:graf-relacije}, tedaj je graf relacije $\rel^{-1}$ videti takole.
@@ -261,9 +261,9 @@
                         \caption{Lastnosti relacije $\rel \subseteq X \times X$ in njihove karakterizacije}\label{tabela:lastnosti-relacije}
                 \end{table}
 
-                \begin{vaja}
+                \begin{naloga}
                         Dokaži, da so vse karakterizacije v vsaki vrstici tabele~\ref{tabela:lastnosti-relacije} res ekvivalentne!
-                \end{vaja}
+                \end{naloga}
 
                 Marsikdaj imamo sledeči problem: za določene pare elementov $(x_i, y_i)_{i \in I}$ hočemo, da so v neki relaciji in relacija mora zadoščati predpisani lastnosti. Kako definirati takšno relacijo? Smiselna izbira je vzeti najmanjšo relacijo s predpisano lastnostjo, ki vsebuje vse $(x_i, y_i)$. V ta namen definiramo pojem ogrinjače relacij.
 
@@ -281,9 +281,9 @@
                         Naj bo $X$ množica in $\mathscr{L}$ lastnost relacij na $X$. Rečemo, da je $\mathscr{L}$ \df{presečno dedna}, kadar velja: poljuben presek relacij na $X$ z lastnostjo $\mathscr{L}$ prav tako ima lastnost $\mathscr{L}$.
                 \end{definicija}
 
-                \begin{vaja}\label{vaja:presecna-dednost-zaprta-za-konjunkcije}
+                \begin{naloga}\label{naloga:presecna-dednost-zaprta-za-konjunkcije}
                         Dokaži: konjunkcija končno mnogo presečno dednih lastnosti relacij na dani množici je presečno dedna.
-                \end{vaja}
+                \end{naloga}
 
                 \begin{trditev}\label{trditev:obstoj-ogrinjace-iz-presecne-dednosti}
                         Če je $\mathscr{L}$ presečno dedna lastnost relacij na $X$, tedaj za vsako relacijo $\rel$ na $X$ obstaja njena $\mathscr{L}$-ogrinjača, in sicer je enaka preseku vseh relacij na $X$, ki vsebujejo $\rel$ in imajo lastnost $\mathscr{L}$.
@@ -318,10 +318,10 @@
                 \end{posledica}
 
                 \begin{dokaz}
-                        Vse izmed naštetih lastnosti se po definiciji dajo zapisati v obliki iz izreka~\ref{izrek:presecna-dednost-iz-logicne-oblike}. Za njihovo konjunkcijo glej še vajo~\ref{vaja:presecna-dednost-zaprta-za-konjunkcije} in trditev~\ref{trditev:obstoj-ogrinjace-iz-presecne-dednosti}.
+                        Vse izmed naštetih lastnosti se po definiciji dajo zapisati v obliki iz izreka~\ref{izrek:presecna-dednost-iz-logicne-oblike}. Za njihovo konjunkcijo glej še vajo~\ref{naloga:presecna-dednost-zaprta-za-konjunkcije} in trditev~\ref{trditev:obstoj-ogrinjace-iz-presecne-dednosti}.
                 \end{dokaz}
 
-                \begin{vaja}
+                \begin{naloga}
                         Dokaži, da za poljubno relacijo $\rel$ na množici $X$ velja spodnja tabela!
                         \begin{center}
                                 \begin{tabular}{|c|c|}
@@ -334,7 +334,7 @@
                                         \hline
                                 \end{tabular}
                         \end{center}
-                \end{vaja}
+                \end{naloga}
 
                 \note{ena izmed nalog: Za relacijo $\rel[n][(n+1)]$ na $\NN$ (ali $\ZZ$) preveri, da je njena tranzitivna ogrinjača $<$.}
 
@@ -371,9 +371,9 @@
 
                 Seveda lahko vsako delno preslikavo zožimo do preslikave: delna preslikava $f\colon X \parto Y$ porodi preslikavo $\rstr{f}_{\dd{f}}\colon \dd{f} \to Y$.
 
-                \begin{vaja}
+                \begin{naloga}
                         Operacijo sklapljanja $\circ$ smo definirali za splošne relacije (razdelek~\ref{razdelek:operacije-z-relacijami}). Preveri, da se ta definicija ujema z običajno definicijo sklapljanja preslikav. Premisli še, kaj je sklop delnih preslikav.
-                \end{vaja}
+                \end{naloga}
 
 
         \section{Relacije urejenosti}\label{razdelek:relacije-urejenosti}
@@ -474,12 +474,12 @@
 
                 \note{kvocientna množica kot množica abstrahiranih pojmov}
 
-                \begin{vaja}
+                \begin{naloga}
                         Iz posledice~\ref{posledica:obstoj-ogrinjac} sklepamo, da za vsako relacijo na katerikoli množici obstaja njena ekvivalenčna ogrinjača. Dokaži: če je $\rel$ relacija na množici $X$, tedaj je njena ekvivalenčna ogrinjača enaka
                         \[\bigcup_{n \in \NN} (\rel \cup \rel^{-1})^n.\]
-                \end{vaja}
+                \end{naloga}
 
-                \begin{vaja}
+                \begin{naloga}
                         Naj bo $(X, \preceq)$ šibka urejenost. Za poljubna $a, b \in X$ definiramo
                         \[a \approx b \dfeq a \preceq b \land b \preceq a.\]
                         \begin{enumerate}
@@ -493,7 +493,7 @@
                                         Dokaži: $(X/_\approx, \leq)$ je delna urejenost.
                         \end{enumerate}
                         To je kanoničen način, kako šibko urejenost okrepimo do delne urejenosti.
-                \end{vaja}
+                \end{naloga}
 
                 \note{Kakšen zanimiv zgled uporabe te vaje?}
 
@@ -524,6 +524,10 @@
                 \begin{dokaz}
                         \note{napiši dokaz}
                 \end{dokaz}
+
+
+\section{Vaje}
+
 
 %%% Local Variables:
 %%% mode: latex
