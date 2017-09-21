@@ -53,14 +53,14 @@ ki jo uporablja velika večina matematikov.
 
 Zamisel, da je množica natančno določena s svojimi elementi, izrazimo z matematičnim
 zakonom, ki mu pravimo \df{princip ekstenzionalnosti}:
-%
-\begin{quote}
-  \emph{Množici sta enaki, če vsebujeta iste elemente.}
-\end{quote}
-%
-Kaj pravzaprav pomeni, da je to ``matematični zakon'' ali ``princip''? So ga razglasili v
-parlementu, je to zakon narave, ali morda dogma, ki jo je razglasil profesor na
-predavanjih? Bodo tisti, ki principa ekstenzionalnosti ne spoštujejo, deležni Lešnikove
+
+\begin{pravilo}[Princip ekstenzionalnosti]
+  Množici sta enaki, če vsebujeta iste elemente.
+\end{pravilo}
+
+Kaj pravzaprav pomeni, da je to ``pravilo'', ``matematični zakon'' ali ``princip''? So ga
+razglasili v parlementu, je to zakon narave, ali morda dogma, ki jo je razglasil profesor
+na predavanjih? Bodo tisti, ki principa ekstenzionalnosti ne spoštujejo, deležni Lešnikove
 masti? Ne. Matematični zakoni so \emph{dogovori}, nekakšna pravila matematične igre. V
 zgodovinskem razvoju matematike so se uveljavili tisti dogovori, ki so bili uporabni v
 naravoslovju in tehniki, ali pa so v njih matematiki videli notranjo lepoto in lastno
@@ -118,15 +118,15 @@ $1 + 1 = 1$ ali $1 + 1 = 2$ ali $1 + 1 = 3$. Iz druge trditve sledi, da
 $5 \in \set{1, 2, 3}$ ne velja, ker bi potem moralo veljati tudi $5 = 1$ ali $5 = 2$ ali
 $5 = 3$, kar seveda ni res.
 
-Seveda lahko tvorimo množico iz poljubnega končnega nabora objektov,
-%
-\begin{equation*}
-  \set{a, b, \ldots, z}.
-\end{equation*}
-%
+Splošna konstrukcija končnih množic poteka takole.
+
+\begin{pravilo}
+  Iz objektov $a$, $b$, \dots, $z$ tvorimo množico $\set{a, b, \ldots, z}$, katere
+  elementi so natanko objekti $a$, $b$, \dots, $z$.
+\end{pravilo}
+
 Za trenutek ustavimo tok misli in opozorimo, da zapis s tropičjem `$\ldots$' ni dovolj
-natančen, saj dopušča dvoumnosti. Ali zgornji zapis vključuje šumnika `č' in `š'? Kateri
-pa so elementi množice
+natančen, saj dopušča dvoumnosti. Denimo, so elementi množice
 %
 \begin{equation*}
   \set{3, 5, 7, \ldots, 31},
@@ -136,22 +136,17 @@ liha števila med $3$ in $31$, ali samo praštevila? Zapis res ni dovolj natanč
 temu tak zapis v praksi uporabljamo, ker v praksi bralec večinoma pravilno ugane, kaj je
 bilo mišljeno, saj imamo ljudje zelo podobne sposobnosti prepoznavanja vzorcev. Z
 matematičnega vidika pa to ni dopustno, saj lahko tropičje \emph{vedno} razumemo na več
-načinov. Ne verjamete? Naslednji člen v zaporedju
-%
-\begin{equation*}
-  1, 2, 3, \ldots
-\end{equation*}
-%
-je seveda~$5$, ker je naslednji člen vsota prejšnjih dveh, kot v Fibonaccijevem zaporedju.
+načinov. (Ne verjamete? Naslednji člen v zaporedju $1, 2, 3, \ldots$ je seveda~$5$, ker je
+naslednji člen vsota prejšnjih dveh, kot v Fibonaccijevem zaporedju.)
 
 Kot smo že omenili, želimo pojem množice, pri kateri vrstni red elementov ni pomemben.
 Torej bi morali biti množici $\set{1, 2}$ in $\set{2, 1}$ enaki. Pa je to res? Velja ena
 od treh možnosti:
 %
 \begin{enumerate}
-\item Iz principa ekstenzionalnosti in definicije množic $\set{1, 2}$ in $\set{2, 1}$ sledi, da sta enaki.
-\item Iz principa ekstenzionalnosti in definicije množic $\set{1, 2}$ in $\set{2, 1}$ sledi, da nista enaki.
-\item Princip ekstenzionalnosti in definiciji množic $\set{1, 2}$ in $\set{2, 1}$ ne določajo, ali sta enaki.
+\item Iz principa ekstenzionalnosti in konstrukcije množic $\set{1, 2}$ in $\set{2, 1}$ sledi, da sta enaki.
+\item Iz principa ekstenzionalnosti in konstrukcije množic $\set{1, 2}$ in $\set{2, 1}$ sledi, da nista enaki.
+\item Princip ekstenzionalnosti in konstrukcije množic $\set{1, 2}$ in $\set{2, 1}$ ne določajo, ali sta enaki.
 \end{enumerate}
 %
 V prvem primeru bi želeli dokazati enakost. V drugem primeru smo v zagati, saj smo se
@@ -167,8 +162,17 @@ dodati še kakšne nove zakone o množicah. Na srečo obvelja prva možnost.
   saj je z njegovim branjem več dela, kot če bi naredili sami. Ker pa želimo pokazati, da
   tudi najbolj trivialna dejstva lahko dokažemo, ga zapišimo.
 
-  Princip ekstenzionalnosti pravi, da sta $\set{1, 2}$ in $\set{2, 1}$ enaki, če imata
-  iste elemente. Dokažimo torej, da imata iste elemente. To naredimo v dveh korakih:
+  Izhajati smemo izključno iz naslednji dejstev:
+  %
+  \begin{itemize}
+  \item princip ekstenzionalnosti,
+  \item $x \in \set{1, 2}$, če in samo če $x = 1$ ali $x = 2$,
+  \item $x \in \set{2, 1}$, če in samo če $x = 2$ ali $x = 1$.
+  \end{itemize}
+  %
+  Najprej uporabimo princip ekstenzionalnosti, ki zagotavlja, da sta $\set{1, 2}$ in
+  $\set{2, 1}$ enaki, če imata iste elemente. Dokažimo torej, da imata iste elemente. To
+  naredimo v dveh korakih:
   %
   \begin{enumerate}
   \item Dokažimo, da za vsak element $\set{1, 2}$ dokažemo, da je element $\set{2, 1}$.
@@ -211,17 +215,32 @@ lahko dokažemo, da ni pomembno, ali se element pojavi enkrat ali večkrat.
 \section{Prazna množica}
 \label{sec:prazna-mnozica}
 
+Poseben primer končne množice je $\set{\,}$. To je množica, ki ne vsebuje nobenega
+elementa. Imenujemo jo \df{prazna množica} in jo zapišemo tudi kot $\emptyset$.
 
-Množico, ki ne vsebuje nobenega elementa, imenujemo \df{prazna množica} in jo lahko zapišemo kot $\set{}$. Ker se ta množica tako pogosto pojavlja, ima še dodatno oznako: $\emptyset$.
+\andrej{Ali je treba povedati še kaj o prazni množici na tem mestu?}
 
 \section{Enojec}
 \label{sec:enojec}
+
+Naslednji primer končne množice je \df{enojec} $\set{a}$, ki vsebuje en sam element $a$.
+Pogosto potrebujemo enojec in nas ne zanima, kaj točno je njegov element. V ta namen
+uvedemo novo konstrukcijo.
+
+\begin{pravilo}
+  \df{Standardni enojec} je množica $\one$, katere edini element je~$\unit$.
+\end{pravilo}
+
+
+
 
 
 Potemtakem so množice $\set{a}$, $\set{a, a}$ in $\set{a, a, a}$ vse medsebojno enake in vsebujejo natanko en element (četudi pri zadnjih dveh morda na prvi pogled izgleda drugače).
 
 \section{Druge osnovne množice}
 
+\andrej{To ne paše sem, ker bi bilo tu dosti bolj naravno nadaljevati s kartezičnim
+  produktom. To bomo prestavili na mesto, kjer bo dejansko prišlo prav.}
 
 Množice, s katerimi v matematiki delamo, tipično vsebujejo števila, ali pa so vsaj na tak ali drugačen način izpeljane iz številskih množic. Spomnimo se standardnih oznak najpogosteje uporabljanih številskih množic.
 \begin{center}
