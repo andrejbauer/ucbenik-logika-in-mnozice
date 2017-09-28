@@ -566,8 +566,38 @@ torej res velja $\ec{a, b} = \ec{a \monus b, b \monus a}$. Upoštevajmo še trdi
 
 Vsako celo število torej lahko predstavimo v obliki $\ec{n, 0}$ ali $\ec{0, n}$. V prvem primeru je celo število v zalogi vrednosti vložitve $\NN$ v $\ZZ$ in ga zato pišemo kar kot $n$ (ali če hočemo poudariti predznak, kot $+n$). V drugem primeru pa lahko upoštevamo $\ec{0, n} = -\ec{n, 0}$ in ga zato pišemo kot $-n$. V vsakem primeru ga lahko zapišemo kot predznačeno naravno število. V mejnem primeru, ko sta obe komponenti enaki $0$, gre za enoto za seštevanje, tj.~ničlo v celih števili, ki jo seveda lahko zapišemo s poljubnim predznakom.
 
+Načeloma bi lahko cela števila skonstruirali tudi na tovrsten način --- recimo kot $\set{+, -} \times \NN_{> 0} + \set{0}$ ali kot kvocient vsote $\NN + \NN$, kjer poistovetimo obe ničli, je pa potem bolj nadležno uvesti strukturo na cela števila, ker je kar naprej potrebno ločevati primere. Spomnite se definicije operacij in urejenosti na $\ZZ$ iz osnovne šole --- za vsa števila ste ločili primere glede na njihov predznak.
+
 
 \subsection{Karakterizacija}
+
+Naravna števila smo v prejšnjem razdelku karakterizirali s Peanovimi aksiomi, preverili, da so s tem določena do izomorfizma natančno, njihov obstoj pa smo privzeli. Pri celih številih smo zaenkrat ubrali drugačno strategijo --- zanje smo podali izrecno konstrukcijo.
+
+Pri naravnih številih smo že omenili, da je smiselno, da so določena le do izomorfizma: če števila zgolj preimenujemo, še vedno ohranijo strukturo, ki jo želimo. Enak argument velja tudi za druge številske množice. Spremenimo torej definicijo celih števil tako, da bodo podana s karakterizacijo, ki jih bo določala do izomorfizma natančno.
+
+Spomnimo se, da je ena od karakterizacij naravnih števil bila ``začetni polkolobar z enico''. Da dobimo cela števila, moramo dodati še neomejeno odštevanje, kar nam da idejo: definirajmo cela števila $\ZZ$ kot \emph{začetni kolobar z enico}.
+
+Če to natančneje pojasnimo: naj $\ukol$ označuje kategorijo, katere objekti so kolobarji z enico, morfizmi pa homomorfizmi kolobarjev, ki ohranjajo tudi enico. Tedaj je $\ZZ$ po definiciji začetni objekt kategorije $\ukol$.
+
+Kot začetni objekt je $\ZZ$ seveda določen do izomorfizma natančno. Konstrukcijo iz prejšnjega podrazdelka lahko potem obravnavamo kot en konkreten primerek $\ZZ$-ja, kar dokaže obstoj množice celih števil. Preverimo, da je kvocient množice formalnih razlik z danimi operacijami res začetni kolobar z enico.
+
+Vemo že, da je kolobar z enico. Naj bo $X$ z operacijami $+_X$, $0_X$, $-_X$, $\cdot_X$, $1_X$ poljuben kolobar z enico. Dokažimo, da obstaja natanko en homomorfizem kolobarjev z enico $\NN^2/_\approx \to X$.
+
+Vsak kolobar z enico je tudi polkolobar z enico, torej imamo enolično določen homomorfizem polkolobarjev z enico $v\colon \NN \to X$. Definirajmo preslikavo $f\colon \NN^2/_\approx \to X$ s predpisom
+\[f\big(\ec{a, b}\big) \dfeq v(a) -_X v(b).\]
+Preverimo, da je $f$ dobro definirana. Naj velja $(a, b) \approx (c, d)$, torej $a + d = b + c$. Posledično $v(a) +_X v(d) = v(a + d) = v(b + c) = v(b) +_X v(c)$. Odštejmo $v(b)$ in $v(d)$ na obeh straneh enačbe, da dobimo $v(a) -_X v(b) = v(c) -_X v(d)$, torej $f\big(\ec{a, b}\big) = f\big(\ec{c, d}\big)$, kot željeno.
+
+Dokaz, da je podani $f$ homomorfizem kolobarjev z enico, prepuščamo bralcu. Preverimo pa njegovo enoličnost.
+
+Naj bo $g\colon \NN^2/_\approx \to X$ poljuben homomorfizem kolobarjev z enico. Označimo z $i\colon \NN \to \NN^2/_\approx$ vložitev naravnih števil v cela, tj.~$i(n) = \ec{n, 0}$. Tedaj je $g \circ i\colon \NN \to X$ homomorfizem polkolobarjev z enico in je torej enak zgoraj omenjenemu $v$. Za poljubna $a, b \in \NN$ velja $\ec{a, b} = \ec{a, 0} + \ec{0, b} = \ec{a, 0} - \ec{b, 0} = i(a) - i(b)$, kar pomeni
+\[g\big(\ec{a, b}\big) = g\big(i(a) - i(b)\big) = g\big(i(a)\big) -_X g\big(i(b)\big) = v(a) -_X v(b).\]
+Torej je $g$ enak zgornjemu $f$.
+
+Seveda karakterizacija celih števil kot začetni kolobar z enico ni edina možna. S pomočjo teorije kategorij lahko neposredno izrazimo, kaj pomeni ``zapreti objekt za neko dodatno strukturo'' (v našem primeru želimo polkolobar $\NN$ zapreti za odštevanje). Pojem, ki formalno zajame tovrstna zaprtja, se imenuje kategorična \df{refleksija}. Natančen opis tega pojma je precej abstrakten in onkraj ciljev te knjige (tako da bomo, kar se celih števil tiče, ostali pri definiciji ``začetni kolobar z enico''), lahko pa ga vsaj v grobem opišemo v našem primeru.
+
+Kategorijo kolobarjev $\kol$ lahko vložimo v kategorijo polkolobarjev $\pkol$. Refleksija je preslikava v nasprotni smeri, ki polkolobar razširi za najmanj, kolikor lahko, da postane kolobar. Formalno se to izrazi na naslednji način: če je $X$ poljuben polkolobar, tedaj je refleksija $R(X)$ polkolobarja $X$ določena s pogoji, da je $R(X)$ kolobar, da se $X$ vloži v $R(X)$ in da se mora vsak homomorfizem polkolobarjev $X \to Y$, kjer je $Y$ kolobar, enolično razširiti do homomorfizma kolobarjev $R(X) \to Y$.
+
+Našo definicijo celih števil lahko izpeljemo iz tega splošnejšega pogleda. Velja namreč, da refleksije slikajo začetne objekte v začetne objekte. Če se z refleksijo omejimo na (pol)kolobarje z enico in že vemo, da so naravna števila začetni polkolobar z enico, tedaj mora njihova refleksija $\ZZ = R(\NN)$ biti začetni kolobar z enico.
 
 
 \section{Racionalna števila}
