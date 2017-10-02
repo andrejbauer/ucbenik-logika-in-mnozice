@@ -6,8 +6,8 @@ Temeljni gradniki sodobne matematike so \df{množice}, ki so skupki ali zbirke m
 objektov, lahko spet množice. Vsaka množica sestoji iz \df{elementov} in je z njimi
 natančno določena. Kadar je $a$ element množice $M$, to zapišemo kot $a \in M$.
 
-Ideja množice kot poljubne zbirke elementov je zavajajoče preprosta, kot so se naučili
-matematiki na prelomu iz 19.~v 20.~stoletje. Takrat so že vedeli, da so množice zelo
+Ideja množice kot poljubne zbirke elementov je zavajajoče preprosta, kar so na lastni koži
+izkusili matematiki na prelomu iz 19.~v 20.~stoletje. Takrat so že vedeli, da so množice zelo
 uporabne in da lahko iz njih tvorimo razne vrste matematičnih objektov. A znameniti
 matematik in filozof Bertrand Russell je odkril paradoks, ki se imenuje po njem, in gre
 takole. Naj bo~$R$ množica vseh množic, ki niso element same sebe. Ali $R$ je element~$R$?
@@ -84,10 +84,10 @@ način.
 
 Vrnimo se k našim množicam. Princip ekstenzionalnosti nam pove, da lahko množico podamo
 tako, da natančno opredelimo njene elemente. A to ne pomeni, da množica obstaja, brž ko jo
-lahko natančno opredelimo! To je pot, ki vodi naravnost do Russelovega paradoska, saj so
+lahko natančno opredelimo! To je pot, ki vodi naravnost do Russelovega paradoksa, saj so
 elementi paradoksalne množice~$R$ natančno opredeljeni. Potrebujemo dodatna pravila, ki
-določajo dopustne \df{konstrukcije množic}. Izbrati jih moramo previdno, da ne privedejo
-do paradoksov.
+določajo dopustne \df{konstrukcije množic}. Izbrati jih moramo previdno, da se izognemo
+težavam.
 
 \section{Končne množice}
 \label{sec:koncne-mnozice}
@@ -99,14 +99,14 @@ Na primer, če so $a$, $b$ in $c$ matematični objekti, potem lahko tvorimo mno�
   \set{a, b, c}
 \end{equation*}
 %
-katere objekti so natanko $a$, $b$ in $c$. To pomeni, da za vsak poljubni matematični
-objekt~$x$ velja
+katere objekti so natanko $a$, $b$ in $c$. To pomeni, da za vsak matematični objekt~$x$
+velja
 %
 \begin{equation*}
   \text{$x \in \set{a, b, c}$, če in samo če $x = a$ ali $x = b$ ali $x = c$.}
 \end{equation*}
 %
-Fraza ``če in samo če'' pomeni, da velja dvoje:
+Fraza ``če in samo če'' tu pomeni, da velja dvoje:
 %
 \begin{enumerate}
 \item Če $x = a$ ali $x = b$ ali $x = c$, potem $x \in \set{a, b, c}$.
@@ -114,15 +114,16 @@ Fraza ``če in samo če'' pomeni, da velja dvoje:
 \end{enumerate}
 %
 Tako nam na primer prva trditev zagotavlja $1+1 \in \set{1, 2, 4}$, ker velja
-$1 + 1 = 1$ ali $1 + 1 = 2$ ali $1 + 1 = 3$. Iz druge trditve sledi, da
-$5 \in \set{1, 2, 3}$ ne velja, ker bi potem moralo veljati tudi $5 = 1$ ali $5 = 2$ ali
-$5 = 3$, kar seveda ni res.
+vsaj ena od možnosti: $1 + 1 = 1$ ali $1 + 1 = 2$ ali $1 + 1 = 3$. Iz druge trditve sledi, da
+$5 \in \set{1, 2, 3}$ ne velja, ker ne velja nobena od možnosti: $5 = 1$ ali $5 = 2$ ali
+$5 = 3$.
 
 Splošna konstrukcija končnih množic poteka takole.
 
 \begin{pravilo}
-  Iz objektov $a$, $b$, \dots, $z$ tvorimo množico $\set{a, b, \ldots, z}$, katere
-  elementi so natanko objekti $a$, $b$, \dots, $z$.
+  \label{pravilo:koncna-mnozica}
+  Iz poljubnih objektov $a$, $b$, \dots, $z$ lahko tvorimo množico
+  $\set{a, b, \ldots, z}$, katere elementi so natanko objekti $a$, $b$, \dots, $z$.
 \end{pravilo}
 
 Za trenutek ustavimo tok misli in opozorimo, da zapis s tropičjem `$\ldots$' ni dovolj
@@ -209,10 +210,50 @@ lahko dokažemo, da ni pomembno, ali se element pojavi enkrat ali večkrat.
   Podrobno dokažite, da sta množici $\set{1, 1, 2}$ in $\set{1, 2}$ enaki.
 \end{naloga}
 
-\andrej{Dodati opombo, da je dovoljeno pisati $\set{1, 1, 2}$. Če rečemo, da imamo objekte $a$, $b$ in $c$, s tem \emph{ne} trdimo, da so različni.}
+V prejšnji nalogi smo zapisali $\set{1, 1, 2}$. Pa je to sploh dovoljeno?
+Pravilo~\ref{pravilo:koncna-mnozica} pravi, da lahko iz objektov $a, b, c, \ldots, z$
+tvorimo končno množico $\set{a, b, \ldots, z}$. Nikjer ne piše, da smeta biti $a$ in $b$
+enaka, zato je upravičeno vprašanje, ali je dovoljeno za $a$ in $b$ vzeti~$1$. V
+matematiki vse razumemo dobesedno. V pravilu~\ref{pravilo:koncna-mnozica} piše ``iz
+poljubnih objektov'', torej imamo povsem proste roke. Povedano z drugimi besedami, množico
+$\set{1, 1, 2}$ smemo tvoriti, ker nikjer ne piše, da morajo biti elementi različni.
+
+V zvezi s pravilom~\ref{pravilo:koncna-mnozica} se pojavljajo še drugi dvomi. Ali smemo
+tvoriti množico, ki ima več elementov, kot je črk abecede? Ali bi bilo pravilo še vedno
+isto, če bi namesto ``$a, b, \ldots, z$'' zapisali ``$a, b, \ldots, j$''? Ali smemo
+tvoriti množico z nič elementi? Iz nesrečnega tropičja se res ne vidi, kaj je in kaj ni
+dovoljeno. Če poškilite v razdelek~\ref{sec:aksiomi-teorije-mnozic}, kjer so našteti
+``uradni'' aksiomih teorije množic, tam pravila o končnih množicah ne boste našli, saj
+sledi iz treh bolj osnovnih pravil.
+
+\begin{pravilo}
+  \label{pravilo:prazna-mnozica}
+  Obstaja množica $\emptyset$, ki nima elementov. Imenujemo jo \df{prazna množica}.
+\end{pravilo}
+
+\begin{pravilo}
+  \label{pravilo:neurejeni-dvojec}
+  Za vsak $x$ in $y$ lahko tvorimo množico $\set{x, y}$, imenovano \df{(neurejeni)
+    dvojec}. Elementa $\set{x, y}$ sta natanko $x$ in $y$.
+\end{pravilo}
+
+\begin{pravilo}
+  \label{pravilo:unija}
+  Iz poljubnih množic $A$ in $B$, lahko tvorimo množico $A \cup B$, imenovano \df{unija
+    $A$ in $B$}. Elementi $A \cup B$ so natanko tisti objekti, ki so elementi $A$ ali
+  elementi $B$.
+\end{pravilo}
+
+V pravilu~\ref{pravilo:neurejeni-dvojec} smo besedo ``neurejeni'' zapisali v oklepaju, kar
+pomeni, da beseda pravzaprav ni pombembna in bi jo lahko tudi izpustili. Se pravi, da
+``neurejeni dvojec'' in ``dvojec'' pomenita isto. V primeru nejasnosti raje uporabimo
+daljšo obliko.
 
 
-\section{Prazna množica}
+
+
+
+\subsection{Prazna množica}
 \label{sec:prazna-mnozica}
 
 Poseben primer končne množice je $\set{\,}$. To je množica, ki ne vsebuje nobenega
