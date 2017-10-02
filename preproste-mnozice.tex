@@ -370,18 +370,164 @@ $Y$ v $Z$ in s preslikavo $g$ is $W$ v $Z$. Diagrami so lahko še precej bolj za
 Tretji del preslikave je predpis, ki določa, kako se elemente domene preslikamo v elemente
 kodomene. Kaj pravzaprav to pomeni? Možnih je več odgovorov. V srednji šoli predpis
 enačimo z matematično formulo, ki spremenljivko preslika v vrednost, na primer $x$ slika v
-$2 \sin(x + \pi/4)$. Take predpise zapišemo tudi s pušico $\mapsto$,
+$2 \sin(x + \pi/4)$. Take predpise zapišemo tudi s \df{funkcijskim predpisom},
 %
 \begin{equation*}
   x \mapsto 2 \sin(x + \pi/4).
 \end{equation*}
 %
-Matematiki smo natančni, zato ne mešamo uporabe puščic $\to$ in $\mapsto$. Računalničarjem
-beseda `predpis' pomeni program, zato o funkcijah razmišljajo kar kot o programih---tudi
-to je eden od možnih pogledov na funkcije. V teoriji množic razumemo besedo `predpis' v
-najbolj splošnem pomenu.
+To preberemo ``$x$ se slika v dvakrat sinus od $x$ plus pi četrtin.''
+%
+Matematiki smo natančni, zato ne mešamo uporabe puščic $\to$ in $\mapsto$. Navadna puščica
+se uporablja pri oznaki domene in kodomene, repata pa v funkcijskem predpisu. V
+računalništvu besedo `predpis' razumemo kot `programska koda' in o funkcijah razmišljajo
+kar kot o algoritmih---tudi to je eden od možnih pogledov na funkcije.
+
+V teoriji množic razumemo besedo `predpis' kot kakršnokoli prirejanje med elementi množic
+domene~$X$ in kodomene~$Y$, mora pa veljati:
+%
+\begin{itemize}
+\item \emph{definiranost}: vsakemu elementu iz $X$ je prirejen vsaj en element iz $Y$,
+\item \emph{enoličnost}: če sta elementu $x$ prirejena $y \in Y$ in $z \in Y$, potem $y = z$.
+\end{itemize}
 
 
+\subsection{Funkcijski predpisi}
+\label{sec:funkcijski-predpisi}
+
+Predpise lahko podamo na različne načine. Omenili smo že funkcijski predpis, ki se mu še
+posebej posvetimo in se ob njem naučimo nekaj natančnosti. Funkcijski predpis ima obliko
+%
+\begin{equation*}
+  x \mapsto \cdots
+\end{equation*}
+%
+Na desni, lahko namesto $\cdots$ zapišemo izraz, v katerem se sme pojaviti simbol~$x$,
+denimo
+%
+\begin{equation*}
+  x \mapsto 1 + x^2.
+\end{equation*}
+%
+Spremenljivka $x$ nima v naprej določene vrednosti, pač pa kaže, kam lahko vstavimo
+elemente domene. Pravimo, da je \df{vezana spremenljivka}, kar pomeni, da je veljavna le v
+funkcijskem predpisu in da ni pomembno, s katerim simbolom jo označimo. Tako sta funkcijska
+predpisa
+%
+\begin{equation*}
+  x \mapsto 1 + x^2
+  \qquad\text{in}\qquad
+  a \mapsto 1 + a^2
+\end{equation*}
+%
+enaka in lahko bi celo pisali $\Box \mapsto 1 + \Box^2$ ali
+$\heartsuit \mapsto 1 + \heartsuit^2$.  Opozoriti še velja, da funkcijska predpisa
+%
+\begin{equation*}
+  x \mapsto 1 + x^2
+  \qquad\text{in}\qquad
+  x \mapsto x^2 + 1
+\end{equation*}
+%
+\emph{nista} enaka. Prvi pravi, da je treba sešteti $1$ in $x^2$, drugi pa da je treba
+sešteti $x^2$ in $1$. Res je, da bomo dobili enak rezultat, a se bosta postopka računanja
+razlikovala.
+
+V funkcijskem predpisu mora na levi stati en sam simbol, ki na desni kaže, kam je je treba
+vstaviti element iz domene. Tako
+%
+\begin{equation*}
+  \sin(x) \mapsto \cos(2 x),
+  \qquad
+  3 + 2 \mapsto 5
+  \qquad\text{in}\qquad
+  \sin(x) \mapsto 2 \cdot \sin(x)
+\end{equation*}
+%
+\emph{niso} veljavni funkcijski predpisi.
+
+Seveda dopuščamo možnost, da se vezana spremenljivka pojavi enkrat, večkrat ali sploh ne.
+Funkcijska predpisa
+%
+%
+\begin{equation*}
+  x \mapsto 42
+  \qquad\text{in}\qquad
+  x \mapsto x \cdot \sin(x)
+\end{equation*}
+%
+sta torej veljavna.
+
+Če želimo funkcijo z danim funkcijskim predpisom poimenovati, na primer $f$, zapišemo
+%
+\begin{equation*}
+  f : x \mapsto 1 + x^2.
+\end{equation*}
+%
+To preberemo ``$f$ slika $x$ v ena plus $x$ na kvadrat.'' Običajna sta tudi zapisa
+%
+\begin{equation*}
+  f(x) = 1 + x^2
+  \qquad\text{in}\qquad
+  f(x) \dfeq 1 + x^2.
+\end{equation*}
+%
+Funkcijske predpise je podrobno prvi preučeval Alonzo Church,\footnote{Alonzo Church je
+  imel študenta Dano Stewarta Scotta, ki je imel študenta Marka Petkovška in Andreja
+  Bauerja, ta pa je imel študenta Davorina Lešnika. Alonzo Church je vaš akademski
+  prednik!} ki je uporabljal zapis
+%
+\begin{equation*}
+  \lambda x \,.\, 1 + x^2
+\end{equation*}
+%
+in teorijo funkcijskih predpisov poimenoval \df{$\lambda$-račun}. V logiki se je njegov
+zapis obdržal in se uveljavil tudi v programski jezikih. Tako v programskih jezikih
+Python, Haskell in OCaml po vrsti pišemo
+%
+\begin{center}
+ \verb|lambda x : 1+x**2|
+ \qquad
+ \verb|\x -> 1+x**2|
+ \qquad
+ \verb|fun x => 1+x*x|.
+\end{center}
+
+Nekateri sterejši zapisi funkcijskih predpisov so slabi, a jih ljudje vztrajno
+uporabljajo. Opozorimo le na en slab zapis, ki povzroča precej preglavic, ne da bi se
+matematiki tega zares zavedali. V funkcisjkem predpisu \emph{moramo} določiti vezano
+spremenljivko, a na žalost jo matematiki pogosto izpustijo skupaj z $\mapsto$, da ostane
+samo izraz na desni.
+%
+Težava je v tem, da se lahko v funkcijskem predpisu pojavi več kot en simbol. Če vam na primer povem, da imam v mislih funkcijski predpis
+%
+\begin{equation*}
+  a \cdot x + b
+\end{equation*}
+%
+boste vsi mislili, da je mišljeno $x \mapsto a \cdot x + b$. A pravzprav bi lahko bilo
+tudi $a \mapsto a \cdot x + b$ ali $b \mapsto a \cdot x + b$ ali celo
+$t \mapsto a \cdot x + b$! Namreč, nič ni narobe s funkcijskim predpisom, v katerem se
+pojavijo dodatni simboli. Predpis
+%
+\begin{equation*}
+  x \mapsto a \cdot x + 2
+\end{equation*}
+%
+priredi elementu $x$ element $a \cdot x + 2$. Definiranosti in enoličnosti predpisa je
+zadoščeno, vendar je dejanska vrednost izraza $a \cdot x + 2$ \emph{odvisna} od
+vrednosti~$a$. Kdo bi pomislil, da lahko vezano spremenljivko in $\mapsto$ izpustimo, če v
+izrazu nastopa samo en simbol, denimo
+%
+\begin{equation*}
+  1 + x^2.
+\end{equation*}
+%
+A to ni res, saj na ta način ne ločimo med $x \mapsto 1 + x^2$ in $a \mapsto 1 + x^2$.
+
+
+\bigskip
+\hrulefill
 
 
 Množice ne obstajajo ločene ena od druge pač pa so med sabo povezane s
