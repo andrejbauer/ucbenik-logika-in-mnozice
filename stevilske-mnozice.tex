@@ -599,8 +599,38 @@ Kategorijo kolobarjev $\kol$ lahko vložimo v kategorijo polkolobarjev $\pkol$. 
 
 Našo definicijo celih števil lahko izpeljemo iz tega splošnejšega pogleda. Velja namreč, da refleksije slikajo začetne objekte v začetne objekte. Če se z refleksijo omejimo na (pol)kolobarje z enico in že vemo, da so naravna števila začetni polkolobar z enico, tedaj mora njihova refleksija $\ZZ = R(\NN)$ biti začetni kolobar z enico.
 
+Mimogrede: tudi refleksije so določene do izomorfizma natančno.
+\note{komentar o splošnosti konstrukcije s formalnimi razlikami}
+
 
 \section{Racionalna števila}
+
+Kar se številskih množic tiče, smo začeli z naravnimi števili, ki jih lahko poljubno seštevamo in množimo (tj.~tvorijo polkolobar). Želeli smo še neomejeno odštevati (tj.~imeti kolobar), zato smo jih razširili do celih števil. Naslednji korak je seveda, da želimo še neomejeno deliti (razen z $0$, tj.~dobiti obseg), in jih zato razširimo do racionalnih števil.
+
+Ta razdelek bomo zastavili podobno kot prejšnji: podajmo konkretno konstrukcijo racionalnih števil, nato pa splošno karakterizacijo racionalnih števil in preverimo, da ji dana konstrukcija zadošča.
+
+\subsection{Konstrukcija}
+
+Ideja za konstrukcijo racionalnih števil je podobna, kot za cela števila: količnike predstavimo kar kot pare $(\text{deljenec}, \text{delitelj})$. Deljenci so lahko poljubna cela števila, delitelji pa morajo biti neničelni. Načeloma bi torej začeli z uvedbo operacij in urejenosti na $\ZZ \times \ZZ_{\neq 0}$, ampak to vodi do nadležnih ločevanj primerov pri urejenosti. Lahko se znajdemo in se omejimo na delitelje, ki so pozitivni: vemo namreč, da lahko minus ``nesemo'' iz imenovalca v števec.
+
+Definirajmo torej množico \df{formalnih količnikov} kot $\ZZ \times \ZZ_{> 0}$. Opremimo jo s strukturo. Če se spomnimo, kako računamo s količniki, pridemo do naslednjih definicij.
+\[(a, b) + (c, d) \dfeq (a \cdot d + b \cdot c, b \cdot d) \qquad\qquad (a, b) \cdot (c, d) \dfeq (a \cdot c, b \cdot d)\]
+Seštevanje in množenje sta na ta način dobro definirani, saj je zmnožek dveh pozitivnih celih števil spet pozitivno celo število. \note{če ne bo to že kje prej omenjeno, se na tem mestu preveri} Hitro vidimo, da je $(0, 1)$ enota za seštevanje in $(1, 1)$ enota za množenje.
+
+\begin{naloga}
+Prepričaj se, da je $\ZZ \times \ZZ_{> 0}$ z danima operacijama izmenljiv krajšalen polkolobar z enico in da predpis $a \mapsto (a, 1)$ podaja homomorfizem polkolobarjev z enico, če ga obravnavamo kot preslikavo $\NN \to \ZZ \times \ZZ_{> 0}$ oziroma $\ZZ \to \ZZ \times \ZZ_{> 0}$.
+\end{naloga}
+
+Uvedimo še urejenost: definirajmo
+\[(a, b) \leq (c, d) \dfeq a \cdot d \leq b \cdot d \qquad \text{in} \qquad (a, b) < (c, d) \dfeq a \cdot d < b \cdot c.\]
+
+\begin{naloga}
+Preveri, da je $\leq$ šibka urejenost na $\ZZ \times \ZZ_{> 0}$ (refleksivna in tranzitivna).
+\end{naloga}
+
+\subsection{Karakterizacija}
+
+
 \section{Realna števila}
 \section{Kompleksna števila}
 
