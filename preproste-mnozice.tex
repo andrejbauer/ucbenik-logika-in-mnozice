@@ -292,7 +292,7 @@ Morda se zdi nenavadno, da množico označimo s številom, a ta občutek bo hitr
 bomo računali z množicami. Pravaprav bi lahko prazno množico označili z nič $\mathbf{0}$,
 in nekateri matematiki to dejansko počnejo.
 
-\section{Druge osnovne množice}
+\subsection{Durge množice}
 
 \andrej{To ne paše sem, ker bi bilo tu dosti bolj naravno nadaljevati s kartezičnim
   produktom. To bomo prestavili na mesto, kjer bo dejansko prišlo prav.}
@@ -367,21 +367,21 @@ imamo opravka z večimi funkcijami, ki jih predstavimo z diagramom. Na primer,
 nam pove, da imamo opravka z (neimenovano) preslikavo iz $X$ v $Y$, s preslikavo $f$ iz
 $Y$ v $Z$ in s preslikavo $g$ is $W$ v $Z$. Diagrami so lahko še precej bolj zapleteni.
 
-Tretji del preslikave je predpis, ki določa, kako se elemente domene preslikamo v elemente
+Tretji del preslikave je predpis, ki določa, kako elemente domene preslikamo v elemente
 kodomene. Kaj pravzaprav to pomeni? Možnih je več odgovorov. V srednji šoli predpis
 enačimo z matematično formulo, ki spremenljivko preslika v vrednost, na primer $x$ slika v
-$2 \sin(x + \pi/4)$. Take predpise zapišemo tudi s \df{funkcijskim predpisom},
+$2 \sin(x + \pi/4)$. S simboli to zapišemo
 %
 \begin{equation*}
   x \mapsto 2 \sin(x + \pi/4).
 \end{equation*}
 %
-To preberemo ``$x$ se slika v dvakrat sinus od $x$ plus pi četrtin.''
+in preberemo ``$x$ se slika v dvakrat sinus od $x$ plus pi četrtin.''
 %
 Matematiki smo natančni, zato ne mešamo uporabe puščic $\to$ in $\mapsto$. Navadna puščica
-se uporablja pri oznaki domene in kodomene, repata pa v funkcijskem predpisu. V
-računalništvu besedo `predpis' razumemo kot `programska koda' in o funkcijah razmišljajo
-kar kot o algoritmih---tudi to je eden od možnih pogledov na funkcije.
+se uporablja pri oznaki domene in kodomene, repata pa v predpisu. V računalništvu besedo
+`predpis' razumemo kot `programska koda' in o funkcijah razmišljajo kar kot o
+algoritmih---tudi to je eden od možnih pogledov na funkcije.
 
 V teoriji množic razumemo besedo `predpis' kot kakršnokoli prirejanje med elementi množic
 domene~$X$ in kodomene~$Y$, mora pa veljati:
@@ -395,24 +395,25 @@ domene~$X$ in kodomene~$Y$, mora pa veljati:
 \subsection{Funkcijski predpisi}
 \label{sec:funkcijski-predpisi}
 
-Predpise lahko podamo na različne načine. Omenili smo že funkcijski predpis, ki se mu še
-posebej posvetimo in se ob njem naučimo nekaj natančnosti. Funkcijski predpis ima obliko
+Predpise lahko podamo na različne načine, najbolj pogost pa je \df{funkcijski predpis}, ki
+se mu še posebej posvetimo in se ob njem naučimo nekaj natančnosti. Funkcijski predpis ima
+obliko
 %
 \begin{equation*}
-  x \mapsto \cdots
+  x \mapsto \cdots,
 \end{equation*}
 %
-Na desni, lahko namesto $\cdots$ zapišemo izraz, v katerem se sme pojaviti simbol~$x$,
-denimo
+ki smo jo že videli maloprej. Na desni, lahko namesto $\cdots$ zapišemo izraz, v katerem
+se sme pojaviti simbol~$x$, denimo
 %
 \begin{equation*}
   x \mapsto 1 + x^2.
 \end{equation*}
 %
 Spremenljivka $x$ nima v naprej določene vrednosti, pač pa kaže, kam lahko vstavimo
-elemente domene. Pravimo, da je \df{vezana spremenljivka}, kar pomeni, da je veljavna le v
-funkcijskem predpisu in da ni pomembno, s katerim simbolom jo označimo. Tako sta funkcijska
-predpisa
+elemente domene. Pravimo, da je $x$ \df{vezana spremenljivka}, kar pomeni, da je veljavna
+le v funkcijskem predpisu, nanj je vezana, in da ni pomembno, s katerim simbolom jo
+označimo. Tako sta funkcijska predpisa
 %
 \begin{equation*}
   x \mapsto 1 + x^2
@@ -492,12 +493,15 @@ Python, Haskell in OCaml po vrsti pišemo
  \qquad
  \verb|fun x => 1+x*x|.
 \end{center}
+%
+Predvsem v programiranju funkcijskim predpisom pravijo tudi \df{anonimne} ali \df{brezimne
+  funkcije}.
 
-Nekateri sterejši zapisi funkcijskih predpisov so slabi, a jih ljudje vztrajno
+Nekateri starejši zapisi funkcijskih predpisov so slabi, a jih ljudje vztrajno
 uporabljajo. Opozorimo le na en slab zapis, ki povzroča precej preglavic, ne da bi se
-matematiki tega zares zavedali. V funkcisjkem predpisu \emph{moramo} določiti vezano
-spremenljivko, a na žalost jo matematiki pogosto izpustijo skupaj z $\mapsto$, da ostane
-samo izraz na desni.
+matematiki tega zares zavedali. Funkcijski predpis mora določati vezano spremenljivko,
+sicer ne vemo, kako vstaviti vrednosti, a na žalost jo matematiki pogosto izpustijo skupaj
+z $\mapsto$, da ostane samo izraz na desni.
 %
 Težava je v tem, da se lahko v funkcijskem predpisu pojavi več kot en simbol. Če vam na primer povem, da imam v mislih funkcijski predpis
 %
@@ -516,18 +520,36 @@ pojavijo dodatni simboli. Predpis
 %
 priredi elementu $x$ element $a \cdot x + 2$. Definiranosti in enoličnosti predpisa je
 zadoščeno, vendar je dejanska vrednost izraza $a \cdot x + 2$ \emph{odvisna} od
-vrednosti~$a$. Kdo bi pomislil, da lahko vezano spremenljivko in $\mapsto$ izpustimo, če v
-izrazu nastopa samo en simbol, denimo
+\df{parametra}~$a$.
+
+Morda pa lahko vezano spremenljivko in $\mapsto$ brez škode izpustimo, če v izrazu nastopa
+samo en simbol, denimo $1 + x^2?$
 %
-\begin{equation*}
-  1 + x^2.
-\end{equation*}
-%
-A to ni res, saj na ta način ne ločimo med $x \mapsto 1 + x^2$ in $a \mapsto 1 + x^2$.
+A spet bi zabredli v težave. Je $42$ število ali funkcijski predpis $x \mapsto 42$? Je
+$1 + x^2$ funkcijski predpis $x \mapsto 1 + x^2$ ali $a \mapsto 1 + x^2$? Kdor hoče res
+dobro razumeti funkcijske zapise, naj se nauči funkcijskega programiranja. Računalniki so
+neizprosni, ko gre za nejasen ali pomanjkljiv zapis.
+
+\subsection{Ostali predpisi}
+\label{sec:ostali-predpisi}
 
 
-\bigskip
-\hrulefill
+Tabelarični prikaz.
+
+Implicitne funkcije.
+
+Ostali primeri.
+
+\subsection{Aplikacija}
+\label{sec:aplikacija}
+
+
+
+
+
+\subsection{Stara roba}
+\label{sec:stara-roba}
+
 
 
 Množice ne obstajajo ločene ena od druge pač pa so med sabo povezane s
