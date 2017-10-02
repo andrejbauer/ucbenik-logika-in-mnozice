@@ -30,7 +30,7 @@
                                 \item
                                         množica $Y$ je \df{ciljna množica} ali \df{kodomena} relacije $\rel$, kar označimo $\cod(\rel)$,
                                 \item
-                                        \df{definicijsko območje} ali \df{nosilec} relacije $\rel$ je množica $\dd{\rel} \dfeq \set{x \in X}{\some{y \in Y} \rel[x][y]}$ (torej $\dd{\rel} \subseteq \dom(\rel)$),
+                                        \df{območje definiranosti} ali \df{nosilec} relacije $\rel$ je množica $\dd{\rel} \dfeq \set{x \in X}{\some{y \in Y} \rel[x][y]}$ (torej $\dd{\rel} \subseteq \dom(\rel)$),
                                 \item
                                         \df{zaloga vrednosti} ali \df{slika} \note{razpon?} relacije $\rel$ je množica $\rn{\rel} \dfeq \set{y \in Y}{\some{x \in X} \rel[x][y]}$ (torej $\dd{\rel} \subseteq \cod(\rel)$).
                         \end{itemize}
@@ -347,7 +347,7 @@
                         \df{Delna preslikava} (ali \df{delna funkcija} ali \df{parcialna funkcija}) je enolična dvomestna relacija.
                 \end{definicija}
 
-                Kot dvomestna relacija ima vsaka delna preslikava določeno domeno, kodomeno, definicijsko območje in zalogo vrednosti. Če je $f$ delna preslikava z domeno $X$ in kodomeno $Y$, to zapišemo kot $f\colon X \parto Y$.
+                Kot dvomestna relacija ima vsaka delna preslikava določeno domeno, kodomeno, nosilec in zalogo vrednosti. Če je $f$ delna preslikava z domeno $X$ in kodomeno $Y$, to zapišemo kot $f\colon X \parto Y$.
 
                 V primeru delne preslikave podmnožico produkta domene in kodomene, ki določa relacijo, označimo z $\graph{f}$ in imenujemo \df{graf} delne preslikave $f$ (ne zamešaj tega s prej definiranim pojmom grafa relacije --- prejšnji pojem je pomenil graf v smislu teorije grafov, sedanji pojem pa graf v smislu preslikav). Delna preslikava je torej v celoti podana z informacijo o domeni, kodomeni in grafu.
 
@@ -356,7 +356,7 @@
                 Če imamo dve vrednosti, ki morda nista definirani, ni posebej smiselno pisati enakosti med njima. Smiselna relacija med njima je \df{Kleenejeva enakost}, kar pišemo $f(x) \kleq g(y)$, kar pomeni naslednje: leva stran $f(x)$ je definirana natanko tedaj, ko je definirana desna stran $g(y)$, in če sta obe definirani, sta enaki.
 
                 \begin{zgled}
-                        Deljenje na realnih številih lahko obravnavamo kot delno preslikavo $/\colon \RR \times \RR \parto \RR$; njeno definicijsko območje je $\dd{/} = \RR \times \RR_{\neq 0}$. Za vsak $x \in \RR$ velja $\frac{x}{x^2} \kleq \frac{1}{x}$, ne pa tudi $\frac{x^2}{x} \kleq x$ (premisli, zakaj).
+                        Deljenje na realnih številih lahko obravnavamo kot delno preslikavo $/\colon \RR \times \RR \parto \RR$; njen nosilec je $\dd{/} = \RR \times \RR_{\neq 0}$. Za vsak $x \in \RR$ velja $\frac{x}{x^2} \kleq \frac{1}{x}$, ne pa tudi $\frac{x^2}{x} \kleq x$ (premisli, zakaj).
                 \end{zgled}
 
                 \begin{zgled}

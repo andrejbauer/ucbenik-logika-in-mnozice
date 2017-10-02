@@ -122,8 +122,8 @@ Splošna konstrukcija končnih množic poteka takole.
 
 \begin{pravilo}
   \label{pravilo:koncna-mnozica}
-  Iz poljubnih objektov $a$, $b$, \dots, $z$ lahko tvorimo množico
-  $\set{a, b, \ldots, z}$, katere elementi so natanko objekti $a$, $b$, \dots, $z$.
+  Za vse objekte $a$, $b$, \dots, $z$ je $\set{a, b, \ldots, z}$ množica, katere elementi
+  so natanko objekti $a$, $b$, \dots, $z$.
 \end{pravilo}
 
 Za trenutek ustavimo tok misli in opozorimo, da zapis s tropičjem `$\ldots$' ni dovolj
@@ -184,7 +184,7 @@ dodati še kakšne nove zakone o množicah. Na srečo obvelja prva možnost.
     \item Primer $x = 1$: iz $x = 1$ sledi, da je $x = 2$ ali $x = 1$, zato je $x \in \set{2, 1}$.
     \item Primer $x = 2$: iz $x = 2$ sledi, da je $x = 2$ ali $x = 1$, zato je $x \in \set{2, 1}$.
     \end{enumerate}
-    % 
+    %
   \item Dokažimo, da za vsak element $\set{2, 1}$ dokažemo, da je element $\set{1, 2}$.
 
     Ta korak je povsem podoben prvemu, le da je treba povsod zamenjati~$1$ in~$2$.
@@ -214,34 +214,35 @@ V prejšnji nalogi smo zapisali $\set{1, 1, 2}$. Pa je to sploh dovoljeno?
 Pravilo~\ref{pravilo:koncna-mnozica} pravi, da lahko iz objektov $a, b, c, \ldots, z$
 tvorimo končno množico $\set{a, b, \ldots, z}$. Nikjer ne piše, da smeta biti $a$ in $b$
 enaka, zato je upravičeno vprašanje, ali je dovoljeno za $a$ in $b$ vzeti~$1$. V
-matematiki vse razumemo dobesedno. V pravilu~\ref{pravilo:koncna-mnozica} piše ``iz
-poljubnih objektov'', torej imamo povsem proste roke. Povedano z drugimi besedami, množico
+matematiki vse razumemo dobesedno. V pravilu~\ref{pravilo:koncna-mnozica} piše ``Za vse
+objekte'', torej imamo povsem proste roke. Povedano z drugimi besedami, množico
 $\set{1, 1, 2}$ smemo tvoriti, ker nikjer ne piše, da morajo biti elementi različni.
 
 V zvezi s pravilom~\ref{pravilo:koncna-mnozica} se pojavljajo še drugi dvomi. Ali smemo
 tvoriti množico, ki ima več elementov, kot je črk abecede? Ali bi bilo pravilo še vedno
 isto, če bi namesto ``$a, b, \ldots, z$'' zapisali ``$a, b, \ldots, j$''? Ali smemo
-tvoriti množico z nič elementi? Iz nesrečnega tropičja se res ne vidi, kaj je in kaj ni
-dovoljeno. Če poškilite v razdelek~\ref{sec:aksiomi-teorije-mnozic}, kjer so našteti
-``uradni'' aksiomih teorije množic, tam pravila o končnih množicah ne boste našli, saj
-sledi iz treh bolj osnovnih pravil.
+tvoriti množico z nič elementi? Če namreč vstavimo nič elementov, se pravilo glasi ``Za
+vse objekte je $\set{\,}$ množica, katere elementi so natanko objekti,'' kar je vsaj
+nenavadno. Iz nesrečnega tropičja se res ne vidi, kaj je in kaj ni dovoljeno. Če poškilite
+v razdelek~\ref{sec:aksiomi-teorije-mnozic}, kjer so našteti ``uradni'' aksiomih teorije
+množic, tam pravila o končnih množicah ne boste našli, saj sledi iz treh bolj osnovnih
+pravil.
 
 \begin{pravilo}
   \label{pravilo:prazna-mnozica}
-  Obstaja množica $\emptyset$, ki nima elementov. Imenujemo jo \df{prazna množica}.
+  \df{Prazna množica} $\emptyset$ je množica, ki nima elementov.
 \end{pravilo}
 
 \begin{pravilo}
   \label{pravilo:neurejeni-dvojec}
-  Za vsak $x$ in $y$ lahko tvorimo množico $\set{x, y}$, imenovano \df{(neurejeni)
-    dvojec}. Elementa $\set{x, y}$ sta natanko $x$ in $y$.
+  Za vsak $x$ in $y$ je \df{(neurejeni) dvojec} $\set{x, y}$ množica, katere elementa sta
+  natanko $x$ in $y$.
 \end{pravilo}
 
 \begin{pravilo}
   \label{pravilo:unija}
-  Iz poljubnih množic $A$ in $B$, lahko tvorimo množico $A \cup B$, imenovano \df{unija
-    $A$ in $B$}. Elementi $A \cup B$ so natanko tisti objekti, ki so elementi $A$ ali
-  elementi $B$.
+  Za vsaki množici $A$ in $B$ je \df{unija $A \cup B$} množica, ki ima za elemente
+  natanko vse objekte, ki so element $A$ ali element $B$.
 \end{pravilo}
 
 V pravilu~\ref{pravilo:neurejeni-dvojec} smo besedo ``neurejeni'' zapisali v oklepaju, kar
@@ -249,34 +250,47 @@ pomeni, da beseda pravzaprav ni pombembna in bi jo lahko tudi izpustili. Se prav
 ``neurejeni dvojec'' in ``dvojec'' pomenita isto. V primeru nejasnosti raje uporabimo
 daljšo obliko.
 
+Tri nova pravila skupaj nadomestijo pravilo~\ref{pravilo:koncna-mnozica} in odstranijo
+marsikateri dvom o uporabi. Prvo pravilo pojasni, da lahko tvorimo množico brez elementov.
+Poleg oznake $\emptyset$ je za prazno množico smiselno uporabiti tudi zapis $\set{\,}$.
 
+Drugo pravilo pove, kako lahko tvorimo množico z dvema elementoma, pa tudi z enim.
+Spomnimo se, pravila je treba brati dobesedno: za $x$ in $y$ bi lahko vzeli dvakrat isti
+objekt~$z$ in tvorili množico $\set{z, z}$, ki ima natanko elementa $z$ in $z$. To je
+pravzaprav množica z enim samim elementom $z$, zato ji pravimo tudi \df{enojec} in jo
+zapišemo~$\set{z}$.
 
+Tretje pravilo nam omogoča, da tvorimo večje množice. Denimo, množico z elementi $a$, $b$,
+$c$ lahko tvorimo kot unijo
+%
+\begin{equation*}
+  \set{a, b} \cup \set{c}.
+\end{equation*}
+%
+To ni edini način, enako množico lahko dobimo na več načinov:
+%
+\begin{equation*}
+  (\set{a} \cup \set{b}) \cup \set{c}
+  \quad\text{ali}\quad
+  \set{b} \cup \set{c, a}
+  \quad\text{ali}\quad
+  \set{a,c,a} \cup \set{b,c}
+  \quad\text{itn.}
+\end{equation*}
+%
+Seveda bi morali dokazati, da so vse te množice enake, a tega ne bomo storili.
 
-
-\subsection{Prazna množica}
-\label{sec:prazna-mnozica}
-
-Poseben primer končne množice je $\set{\,}$. To je množica, ki ne vsebuje nobenega
-elementa. Imenujemo jo \df{prazna množica} in jo zapišemo tudi kot $\emptyset$.
-
-\andrej{Ali je treba povedati še kaj o prazni množici na tem mestu?}
-
-\section{Enojec}
-\label{sec:enojec}
-
-Naslednji primer končne množice je \df{enojec} $\set{a}$, ki vsebuje en sam element $a$.
-Pogosto potrebujemo enojec in nas ne zanima, kaj točno je njegov element. V ta namen
-uvedemo novo konstrukcijo.
+Pogosto nam bo prišlo prav, da bomo imeli pri roki množico z enim elementom, pri čemer nam
+bo vseeno, kaj ta element je. V ta namen postavimo pravilo, ki zagotavlja obstoj množice z
+enim elementom.
 
 \begin{pravilo}
-  \df{Standardni enojec} je množica $\one$, katere edini element je~$\unit$.
+  \df{Standardni enojec} je množica, katere edini element je~$\unit$. Označimo jo z~$\one$.
 \end{pravilo}
 
-
-
-
-
-Potemtakem so množice $\set{a}$, $\set{a, a}$ in $\set{a, a, a}$ vse medsebojno enake in vsebujejo natanko en element (četudi pri zadnjih dveh morda na prvi pogled izgleda drugače).
+Morda se zdi nenavadno, da množico označimo s številom, a ta občutek bo hitro izginil, ko
+bomo računali z množicami. Pravaprav bi lahko prazno množico označili z nič $\mathbf{0}$,
+in nekateri matematiki to dejansko počnejo.
 
 \section{Druge osnovne množice}
 
@@ -300,22 +314,89 @@ množica kompleksnih števil & $\CC$ \\
 
 Nekateri $0$ vzamejo za naravno število, nekateri ne. To je v celoti stvar dogovora, kaj pomeni pojem ``naravno število''. Za nas bo prišlo bolj prav, če ničlo štejemo kot element množice naravnih števil, torej $\NN = \set{0, 1, 2, 3, \ldots}$.
 
-
-
 \section{Preslikave}
 
-\note{
-Preslikava med množicama, podana kot predpis, ki enolično določa vrednost pri vsakem
-argumentu. Princip ekstenzionalnosti za preslikave. Kaj bi pomenilo, da princip
-ekstenzionalnisti ne velja, na primer, če bi gledali na preslikave kot na programe in bi
-bilo pomembno, kako hitro delajo.
-}
+Temelj matematike ne tvorijo le množice, ampak tudi drugi matematični pojmi. Prvi izmed
+njih je \df{preslikava}, oziroma s tujko \df{funkcija}.\footnote{Nekateri uporabljajo
+  izraz ``funkcija'' samo za tiste preslikave, ki slikajo v realna ali kompleksna števila,
+  vendar to navado izpodriva računalništvo, saj funkcije v programskih jezikih nimajo
+  omejitev. Dandanes večina matematiko besedo ``funkcija'' obravnava kot sopomenko besede
+  ``preslikava'' in tako jo bomo uporabljali tudi mi.} V srednji šoli ste že spoznali
+nekatere preslikave, kot so na primer linearne preslikave, trigonometrijske funkcije,
+logaritem itd. Nas pa ne bodo zanimale posamezne preslikave, ali posebne lastnosti
+preslikav, ampak preslikave na splošno.
 
-Množice ne obstajajo povsem ločene ena od druge, pač pa so med sabo povezane s \df{preslikavami} oziroma s tujko \df{funkcijami}\footnote{Nekateri uporabljajo izraz ``funkcija'' samo za tiste preslikave, ki slikajo v realna ali kompleksna števila, ampak ta uporaba je že nekoliko zastarela. Dandanes večina matematiko besedo ``funkcija'' obravnava kot sopomenko besede ``preslikava''. Tako jo bomo uporabljali tudi v tej knjigi.}. Posamična preslikava slika elemente ene množice po določenem predpisu v elemente druge množice.
+Vsaka preslikava ima tri sestavne dele: \df{domeno} ali \df{začetno množico},
+\df{kodomeno} ali \df{ciljno množico} in \df{predpis}. Domeni se pogosto reče tudi
+\df{definicijsko območje}. Če govorimo o preslikavi, ki ima domeno~$X$ in kodomeno~$Y$, to
+ponazorimo s puščico med $X$ in $Y$, takole
+%
+\begin{equation*}
+  \xymatrix{
+    {X} \ar[r] &
+    {Y}
+  }
+\end{equation*}
+%
+Če želimo preslikavo poimenovati, na primer $f$, zapišemo
+%
+\begin{equation*}
+  \xymatrix{
+   {f : X} \ar[r] &
+    {Y}
+  }
+  \qquad\text{ali}\qquad
+  \xymatrix{
+   {X} \ar[r]^{f} &
+   {Y}
+  }
+\end{equation*}
+%
+Pravimo, da je \df{$f$ preslikava iz $X$ v $Y$}. Zapis nad puščico je prikladen, kadar
+imamo opravka z večimi funkcijami, ki jih predstavimo z diagramom. Na primer,
+%
+\begin{equation*}
+  \xymatrix{
+    {X} \ar[r] &
+    {Y} \ar[r]^{f} &
+    {Z}  &
+    {W} \ar[l]_{g}
+  }
+\end{equation*}
+%
+nam pove, da imamo opravka z (neimenovano) preslikavo iz $X$ v $Y$, s preslikavo $f$ iz
+$Y$ v $Z$ in s preslikavo $g$ is $W$ v $Z$. Diagrami so lahko še precej bolj zapleteni.
 
-Če je $f$ preslikava, ki slika iz množice $X$ v množico $Y$, to zapišemo $f\colon X \to Y$. Rečemo, da je množica $X$ \df{začetna množica} ali \df{domena} preslikave $f$, množica $Y$ pa je \df{ciljna množica} ali \df{kodomena} preslikave $f$.
+Tretji del preslikave je predpis, ki določa, kako se elemente domene preslikamo v elemente
+kodomene. Kaj pravzaprav to pomeni? Možnih je več odgovorov. V srednji šoli predpis
+enačimo z matematično formulo, ki spremenljivko preslika v vrednost, na primer $x$ slika v
+$2 \sin(x + \pi/4)$. Take predpise zapišemo tudi s pušico $\mapsto$,
+%
+\begin{equation*}
+  x \mapsto 2 \sin(x + \pi/4).
+\end{equation*}
+%
+Matematiki smo natančni, zato ne mešamo uporabe puščic $\to$ in $\mapsto$. Računalničarjem
+beseda `predpis' pomeni program, zato o funkcijah razmišljajo kar kot o programih---tudi
+to je eden od možnih pogledov na funkcije. V teoriji množic razumemo besedo `predpis' v
+najbolj splošnem pomenu.
 
-Začetni množici ste v srednji šoli rekli tudi ``definicijsko območje'', ampak v tej knjigi bomo morali biti bolj previdni. Predpis za preslikavo po definiciji velja za vse elemente domene, ampak kasneje (v razdelku~\ref{razdelek:izpeljava-preslikav-iz-relacij}) obravnavamo delne preslikave, ki niso definirane na celi domeni; zanje je torej definicijsko območje manjše kot domena. Držimo se raje zgoraj danega poimenovanja.
+
+
+
+Množice ne obstajajo ločene ena od druge pač pa so med sabo povezane s
+\df{preslikavami} oziroma s tujko \df{funkcijami}.  Posamična preslikava slika elemente ene
+množice po določenem predpisu v elemente druge množice.
+
+Če je $f$ preslikava, ki slika iz množice $X$ v množico $Y$, to zapišemo
+%
+\begin{equation*}
+  f : X \to Y.
+\end{equation*}
+%
+Rečemo, da je množica~$X$ \df{začetna množica} ali \df{domena} preslikave~$f$, množica~$Y$
+pa je \df{ciljna množica} ali \df{kodomena} preslikave $f$.
+
 
 Običaj je, da predpis preslikave podamo s pomočjo spremenljivke, tipično z oznako $x$. Na primer, če je $f$ preslikava kvadriranja, njen predpis zapišemo kot
 \[f(x) = x^2.\]
