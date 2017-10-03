@@ -483,16 +483,13 @@ Funkcijske predpise je podrobno prvi preučeval Alonzo Church,\footnote{Alonzo C
 \end{equation*}
 %
 in teorijo funkcijskih predpisov poimenoval \df{$\lambda$-račun}. V logiki se je njegov
-zapis obdržal in se uveljavil tudi v programski jezikih. Tako v programskih jezikih
-Python, Haskell in OCaml po vrsti pišemo
+zapis obdržal in se uveljavil tudi v programski jezikih:
 %
-\begin{center}
- \verb|lambda x : 1+x**2|
- \qquad
- \verb|\x -> 1+x**2|
- \qquad
- \verb|fun x => 1+x*x|.
-\end{center}
+\begin{itemize}
+\item v Pythonu pišemo \verb|lambda x : 1+x**2|,
+\item v Haskellu pišemo \verb|\x -> 1+x**2| in
+\item v OCamlu pišemo \verb|fun x => 1+x*x|.
+\end{itemize}
 %
 Predvsem v programiranju funkcijskim predpisom pravijo tudi \df{anonimne} ali \df{brezimne
   funkcije}.
@@ -512,27 +509,18 @@ Težava je v tem, da se lahko v funkcijskem predpisu pojavi več kot en simbol. 
 boste vsi mislili, da je mišljeno $x \mapsto a \cdot x + b$. A pravzprav bi lahko bilo
 tudi $a \mapsto a \cdot x + b$ ali $b \mapsto a \cdot x + b$ ali celo
 $t \mapsto a \cdot x + b$! Namreč, nič ni narobe s funkcijskim predpisom, v katerem se
-pojavijo dodatni simboli. Predpis
-%
-\begin{equation*}
-  x \mapsto a \cdot x + 2
-\end{equation*}
-%
-priredi elementu $x$ element $a \cdot x + 2$. Definiranosti in enoličnosti predpisa je
-zadoščeno, vendar je dejanska vrednost izraza $a \cdot x + 2$ \emph{odvisna} od
-\df{parametra}~$a$.
+pojavijo dodatni simboli.
 
 Morda pa lahko vezano spremenljivko in $\mapsto$ brez škode izpustimo, če v izrazu nastopa
 samo en simbol, denimo $1 + x^2?$
 %
 A spet bi zabredli v težave. Je $42$ število ali funkcijski predpis $x \mapsto 42$? Je
-$1 + x^2$ funkcijski predpis $x \mapsto 1 + x^2$ ali $a \mapsto 1 + x^2$? Kdor hoče res
-dobro razumeti funkcijske zapise, naj se nauči funkcijskega programiranja. Računalniki so
-neizprosni, ko gre za nejasen ali pomanjkljiv zapis.
+$1 + x^2$ funkcijski predpis $x \mapsto 1 + x^2$ ali $a \mapsto 1 + x^2$?
 
-\subsection{Ostali predpisi}
+\subsection{Ostali načini podajanja predpisov}
 \label{sec:ostali-predpisi}
 
+Funkcijski predpisi niso edini način za podajanje predpisov. 
 
 Tabelarični prikaz.
 
@@ -542,7 +530,6 @@ Ostali primeri.
 
 \subsection{Aplikacija}
 \label{sec:aplikacija}
-
 
 
 
@@ -650,6 +637,9 @@ ekstenzionalnost).
 
 Zapis preslikava, ki slika v produkt.
 Zapis preslikava, definirane na produktu.
+
+
+
 
 \section{Vsota}
 \label{sec:vsota}
