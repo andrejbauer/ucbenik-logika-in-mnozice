@@ -95,8 +95,12 @@ Uporabimo lahko tudi \emph{podpis} ali
   a^{\dagger}.
 \end{equation*}
 %
-\davorin{`Podpis' in `nadpis' sta sicer mnogo bolj pravilna izraza, ampak dobro bi bilo omeniti tudi, kako ljudje temu rečejo v praksi: reče se, da je znak v \emph{indeksu} oz.~\emph{eksponentu}. To sicer ni prav (indeksi niso vedno podpisani in nadpis ne predstavlja vedno potenciranja), ampak morda vseeno to omenimo? Mogoče šele, ko definiramo indekse (verjetno pri funkcijah kot alternativen zapis argumenta, zlasti ko gre za zaporedje)?}. Kljub temu obilju črk in oznak posežemo še po drugih abecedah, še posebej grški, zato
-se jo čimprej naučite! Grške črke skupaj z njihovo izgovorjavo najdete v
+Podpisu in nadpisu pogovorno pravimo tudi \emph{indeks} in \emph{eksponent}, a to ni
+najbolj posrečena raba, ker se indeks lahko pojavi tudi v nadpisu ali kje drugje,
+eksponent pa lahko pomeni tudi število, s katerim potenciramo.
+
+Kljub temu obilju črk in oznak posežemo še po drugih abecedah, še posebej grški, zato se
+jo čimprej naučite! Grške črke skupaj z njihovo izgovorjavo najdete v
 tabeli~\ref{tabela:grska-abeceda}. Prostoročni zapis grških črk se boste naučili v
 razredu.
 %
@@ -169,7 +173,11 @@ Ste se kdaj vprašali, zakaj pravzaprav pišemo ulomke z vodoravno črto, integr
 $\int$, zakaj ima množenje prednost pred seštevanjem in zakaj seštevamo od leve proti
 desni, čeprav bi lahko tudi v drugi smeri? Odgovor je vedno isti: to so splošno sprejete
 navade, ki so se izoblikovale v razvoju matematike. To niso matematične resnice, ampak
-\emph{dogovori} med ljudmi. \davorin{Ki pa imajo svoje razloge. Na primer, integralski znak $\int$ je Leibniz izpeljal iz črke S, ker je na integral gledal kot na določene vrste vsoto.}
+\emph{dogovori} med ljudmi, ki se jih držimo zato, ker so se izkazali za smiselne. Na
+primer, integralski znak $\int$ je Leibniz\footnote{Gottfried Wilhelm von Leibniz
+  (1646--1716) je bil nemški filozof, matematik, fizik, pravnik, zgodovinar, jezikoslovec,
+  knjižničar in diplomat lužiško sorbskega porekla.} izpeljal iz črke S, ker je na
+integral gledal kot na določene vrste vsoto (latinsko `summa').
 
 Poglejmo na primer ``množenje ima prednost pred seštevanjem''. Če tega dogovora ne bi
 imeli, bi bil zapis $3 + 4 \cdot 6$ dvoumen: ali naj najprej seštejemo~$3$ in~$4$ ter
@@ -180,64 +188,53 @@ prednost pred seštevanjem, smemo v enem od obeh primerov oklepaje izpustiti in 
 nekaj črnila. Prav lahko si predstavljamo svet, v katerem bi obveljal drugačen dogovor in
 bi $3 + 4 \cdot 6$ pomenilo $(3 + 4) \cdot 6$.
 
-\andrej{Ta odstavek je precej ``oster'', če ga zna kdo omiliti, se priporočam.}
-%
 Kar smo ravnokar povedali, je bolj pomembno, kot se zdi na prvi pogled. V šoli so vam
 namreč v glavo hkrati vlivali matematična dejstva in dogovore o matematičnem zapisu, kot
-da med enimi in drugimi ni nobene razlike. Morda ni bilo časa za poglobljene pogovore o
-pisanju oklepajev, ali pa so učitelji vaših učiteljev ocenili, da mladi umi ne bi razumeli
-razlike. Tako marsikdo dobi vtis, da je matematika skupek predpisov, ki jih učencem
-vsiljujejo učitelji, učbeniki in šolski sistem. Ker ste kljub temu prišli študirat
-matematiko, je čas, da se naučite ločiti seme od kašče. A da ne bomo preveč filozofirali,
+da med enimi in drugimi ni nobene razlike. Morda res ni bilo časa za poglobljene pogovore
+o pisanju oklepajev. Tako marsikdo dobi vtis, da je matematika skupek predpisov, ki jih
+učencem vsiljujejo učitelji, učbeniki in šolski sistem. Na naučimo ločiti seme od plev. A da ne bomo preveč filozofirali,
 si poglejmo nekaj dogovorov in navad v zvezi s pisanjem matematičnih izrazov.
 
-Aritmetične operacije $+$, $-$, $\cdot$ in $/$ pišemo \emph{infiksno}, tako da operacija
+Aritmetične operacije $+$, $-$, $\cdot$ in $/$ pišemo kot \emph{medpone}, tako da operacija
 stoji med obema operandoma, na primer $x + y$. Kadar zapišemo operator za operand,
-pravimo, da je \emph{postfiksni}, na primer faktoriela~$x!$. Zapis operatorja je
-\emph{prefiksni} če stoji pred operandom, na primer nasprotna vrednost~$-x$. Poleg teh
+pravimo, da je \emph{pripona}, na primer faktoriela~$x!$. Zapis operatorja je
+\emph{predpona} če stoji pred operandom, na primer nasprotna vrednost~$-x$. Poleg teh
 poznamo tudi druge zapise: potenciranje pišemo z eksponentom $x^y$, deljenje z ulomkom
 $\frac{x}{y}$, kvadratni koren s posebnim simbolom $\sqrt{x}$ itn. Skrajni primer je zapis
-množenja brez simbola, ko namesto $x \cdot y$ zapišemo kar $x y$. \davorin{prefiks = predpona, infiks = medpona, postfiks oz.\ sufiks = pripona}
+množenja brez simbola, ko namesto $x \cdot y$ zapišemo kar $x y$.
 
-Infiksne operacije imajo \emph{precedenco} in \emph{asociativnost}. Precedenca pove,
-katera operacija ima prednost: potenciranje ima prednost pred množenjem in množenje pred
-seštevanjem. Asociativnost pove, ali računamo z leve ali z desne. Na primer, seštevanje
-$+$ ima levo asociativnost, zato je $5 + 2 + 1$ enako $(5 + 2) + 1$. Pri seštevanju to
-sicer ni pomembno, pri odštevanju pa moramo upoštevati levo asociativnost: $5 - 2 - 1$ je
-enako $(5 - 2) - 1$ in ne $5 - (2 - 1)$. \andrej{Ali imamo kak primer desno asociativne
-  operacije?} \davorin{Potenciranje: $a^{b^c} = a^{(b^c)}$.}
+Nekatere operacije imajo \emph{prednost} pred drugimi in nekatere \emph{združujejo} levo
+ali desno. Prednost pove, katera operacija pride prej na vrsto, kadar ni oklepajev:
+potenciranje ima prednost pred množenjem in množenje pred seštevanjem. Operacija lahko
+tudi združuje levo ali desno. Na primer, seštevanje $+$ združuje levo, zato je $5 + 2 + 1$
+enako $(5 + 2) + 1$. Pri seštevanju to sicer ni pomembno, pri odštevanju pa moramo
+upoštevati združevanje na levo: $5 - 2 - 1$ je enako $(5 - 2) - 1$ in ne $5 - (2 - 1)$.
+Potenciranje združuje na desno, saj $2^{3^4}$ pomeni $2^{(3^4)}$. Nekatere operacije ne
+združujejo in v takih primerih moramo uporabiti oklepaje.
 
 Z vidika vsebine raznolikost matematičnega zapisa ni potrebna, saj bi lahko vse izraze
-pisali na isti način. Namesto simbolov, kot so $+$, $-$ in $\sqrt{\ }$, bi lahko uporabljali
-besede $\mathtt{plus}$, $\mathtt{minus}$, $\mathtt{sqrt}$ in izraze pisali prefiksno. Tak
-zapis je preprost in enoten, saj se nam ni treba ukvarjati z infiksnimi in postfiksnimi
-operacijami, s precedenco ter z levo in desno asociativnostjo. Uporablja se v
+pisali na isti način. Namesto simbolov, kot so $+$, $-$ in $\sqrt{\ }$, bi lahko
+uporabljali besede $\mathtt{plus}$, $\mathtt{minus}$, $\mathtt{sqrt}$ in jih zapisovali
+kot preslikave. Tak zapis je preprost in enoten, saj se nam ni treba ukvarjati s
+predponami, medponami in priponami ter z levim in desnim združevanjem. Uporablja se v
 računalništvu, a kdo bi želel na tablo namesto $3 + \sqrt{5 - 4}$ zapisati
 $\mathtt{plus(3, \mathtt{sqrt}(\mathtt{minus}(5, 4)))}$?
 
-\andrej{Ali bi pojasnili, da so izrazi drevesa?}
+% V bodoče tu pojasniti, da so izrazi pravzaprav drevesa.
 
-% * Izrazi, oklepaji
-% * Izrazi kot sintaktična drevesa
-% * Razni simboli, kateri se uporabljajo za kaj (omenimo LaTeX)
-% * Infiksni operatorji: oklepaji, precedenca, asociativnost
-% * Ostali zapisi (ulomki, množice)
-
-% Kako je z izrazi, ki vsebujejo ...
 
 \section{Slike in diagrami}
 \label{sec:slike-in-diagrami}
 
-% * Diagrami in slike
-% * Ali se lahko zanašamo na slike?
+Matematiki uporabljamo tudi diagrame in slike, slednje predvsem v geometriji in analizi. Z
+njimi lahko razjasnimo pojme in si pomagamo pri predstavi zapletenih pojmov in
+konstrukcij, zato so nepogrešljivo orodje. To še posebej velja za poučevanje matematike.
 
-% * Razlika med natančnim in nenatančnim zapisom
-%   * ne moremo se zanašati na `...`
-%   * napačna uporaba vezanih spremenljivk, recimo `f(x) ≡ 0` namesto `f ≡ 0` ali `∀ x . f(x) ≡ 0`
+Vendar pa moramo biti pri uporabi slik pazljivi, ker nas lahko zavedejo. Načeloma je možno
+vsako konstrukcijo in dokaz, tudi v geometriji, izpeljati brez uporabe slik, a takega
+početja ne priporočamo.
 
-% Primer zavajujoče slike: dokaz, da je vsak trikotnik enakokrak.
-
-% Omenimo knjigo Mateje Jamnik o vizualnih dokazih, morda vzamemo en primer iz nje.
+% Tu bi vstavili "dokaz", da je vsak trikotnik enakokra.
 
 
 \section{Vaje}
