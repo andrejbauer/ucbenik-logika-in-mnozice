@@ -831,56 +831,114 @@ zelo pomembna.
 \label{sec:kartezicni-produkt}
 
 Množice lahko \df{tvorimo} ali \df{konstruiramo} iz drugih množic na različne načine. V
-tem poglavju bomo spoznali tri osnovne konstrukcije, kasneje, ko bomo že nekaj vedeli o
-logiki, pa še ostale. Najprej obravnavajmo kartezični produkt ali zmnožek množic.
+tem poglavju bomo spoznali tri osnovne konstrukcije, ostale pa kasneje, ko bomo že nekaj
+vedeli o logiki. Najprej obravnavajmo kartezični produkt ali zmnožek množic.
 
-Takoj se zastavi vprašanje, kako sploh opisti novo konstrukcijo množic. Ker že vemo, da je
-po načelu ekstenzionalnosti
+Takoj se zastavi vprašanje, kako sploh opisati novo konstrukcijo množic. Načelo
+ekstenzionalnosti pove, da je množica opredeljena s svojimi elementi. Torej moramo
+pojasniti, kaj so elementi nove množice, se pravi, kako jih vpeljemo, kaj lahko z njimi
+počnemo in kakšne so njihove zakonitosti. Natančneje, novo konstrukcijo množic
+določajo naslednja pravila:
+%
+\begin{enumerate}
+\item pravilo \df{tvorbe}, ki vpelje novo množico,
+\item pravila \df{vpeljave} elementov, ki podajo operacije, s katerimi gradimo elemente,
+\item pravila \df{uporabe}, ki podajo opreacije, s katerimi razgradimo elemente,
+\item \df{enačbe}, ki veljajo med temi operacijami.
+\end{enumerate}
+%
+Najbolje je, da si postopek ogledamo na primeru.
 
-\begin{pravilo}
-  \label{pravilo:kartezicni-produkt}
-  Za vsaki množici $A$ in $B$ je \df{kartezični produkt} ali \df{zmnožek} množic $A$ in $B$ množica $A \times B$
+\begin{pravilo}[Tvorba kartezičnega produkta]
+  \label{pravilo:zmnozek-tvorba}
+  Za vsaki množici $A$ in $B$ je $A \times B$ množica, ki se imenuje \df{zmnožek} ali
+  \df{kartezični produkt} $A$ in $B$.
 \end{pravilo}
 
+\noindent
+%
+Pravilo tvorbe pove, da lahko tvorimo novo množico $A \times B$, ne pove pa, kakšne
+elemente ima, kar je vsebina naslednjih dveh pravil, ki povesta, kako sestavimo in
+razstavimo elemente kartezičnega produkta.
 
-Iz množic lahko na različne načine sestavimo ali \df{konstruiramo} nove množice.
-Konstrukcijo opišemo z naslednjimi pravili:
+\begin{pravilo}[Vpeljava urejenih parov]
+  \label{pravilo:zmnozek-vpeljava}
+  %
+  Za vse $a \in A$ in $b \in B$ je $(a, b) \in A \times B$. Element $(a, b)$ imenujemo
+  \df{urejeni par}.
+\end{pravilo}
+
+\begin{pravilo}[Uporaba urejenih parov]
+  \label{pravilo:zmnozek-uporaba}
+    %
+  Za vsak $p \in A \times B$ je $\fst(p) \in A$ \df{prva projekcija} in $\snd(p) \in B$
+  \df{druga projekcija} elementa~$p$.
+\end{pravilo}
+
+Nazadnje podamo še enačbe.
+
+\begin{pravilo}[Računsko pravilo za urejene pare]
+  \label{pravilo:zmnozek-racunanje}
+  Za vse $a \in A$, $b \in B$ velja $\fst(a, b) = a$ in $\snd(a, b) = b$.
+\end{pravilo}
+
+\begin{pravilo}[Ekstenzionalnost urejenih parov]
+  \label{pravilo:zmnozek-ekstenzionalnost}
+  Za vse $p, q \in A \times B$ velja: če $\fst(p) = \fst(q)$ in $\snd(p) = \snd(q)$,
+  potem $p = q$.
+\end{pravilo}
+
+\noindent
 %
-\begin{itemize}
-\item pravilo \df{formacije} pove \davorin{izoblikovanje, tvorba}
-\item pravila \df{vpeljave} povedo, kaj 
-\item pravila \df{uporabe}
-\item \df{enačbe}
-\end{itemize}
-%
-Kot prvi primer poglejmo \df{kartezični produkt}: \davorin{dodajmo tudi `zmnožek'}
-%
-\begin{itemize}
-\item formacija: za vsaki množici $A$ in $B$ je tudi $A \times B$ množica, ki se imenuje \df{(kartezični) produkt} $A$ in $B$,
-\item vpeljava: za vsak $a \in A$ in $b \in B$ lahko tvorimo element $(a, b) \in A \times B$, ki se imenuje \df{urejeni par}
-\item uporaba: za vsak $p \in A \times B$ je $\fst(p) \in A$ in $\snd(p) \in B$,
-\item enačbe: za vse $a \in A$, $b \in B$ in $p \in A \times B$ velja
-  % 
+Računsko pravilo se tako imenuje, ker lahko z njim poenostavljamo izraze, drugo pa je
+načelo ekstenzionalnosti, ker pravi, da je urejeni par določen s prvo in drugo projekcijo.
+
+Malo bolj naivna konstrukcija kartezičnega produkta bi se glasila takole: kartezični
+produkt $A \times B$ je množica vseh urejenih parov $(a, b)$, kjer je $a \in A$ in
+$b \in B$. A taka konstrukcija ni popolna, saj ne pove, kaj lahko z urejenim parom
+počnemo. Kako naj vemo, da iz $(a, b)$ lahko izluščimo $a$ in $b$? Da zgornja pravila
+kartezični produkt res natančno določajo, izpeljimi iz njih nekaj osnovnih lastnosti
+urejenih parov in kartezičnih produktov.
+
+\begin{trditev}
+  Vsi elementi kartezičnega produkta so urejeni pari.
+\end{trditev}
+
+\begin{dokaz}
+  Ali je trditev sploh treba dokazovati? Vsekakor, saj pravila govorijo le o tem, da
+  urejeni pari so elementi kartezičnega produkta, ne pa tudi, da so to edini elementi.
+  Spet bomo napisali zelo podroben dokaz.
+
+  Naj bosta $A$ in $B$ množici in $p \in A \times B$. Dokazati moramo, da je $p$ enak
+  urejenemu paru, se pravi, da iščemo taka $a \in A$ in $b \in B$, da velja $p = (a, b)$.
+  Vzemimo $a = \fst(p)$ in $b = \snd(p)$ term preverimo, da velja $p = (a, b)$. V ta namen
+  uporabimo načelo ekstenzionalnosti za pare, ki nam da želeni zaključek, če dokažemo
+  %
   \begin{equation*}
-    \fst{(a,b)} = a,
-    \qquad
-    \snd{(a,b)} = b
+    \fst(p) = \fst(a, b)
     \qquad\text{in}\qquad
-    p = (\fst(p), \snd(p)).
+    \snd(p) = \snd(a, b).
   \end{equation*}
-\end{itemize}
+  %
+  Prva enačba velja, ker uporabimo definicijo $a$ in $b$ ter računska pravila:
+  %
+  \begin{equation*}
+    \fst(a,b) = \fst(\fst(p), \snd(p)) = \fst(p) = a
+  \end{equation*}
+  %
+  Prav tako velja druga enačba:
+  %
+  \begin{equation*}
+    \snd(a,b) = \snd(\fst(p), \snd(p)) = \snd(p) = b.
+    \qedhere
+  \end{equation*}
+  %
+\end{dokaz}
 
-\davorin{A bomo imeli makro za urejene večterice?}
+Tako podrobne dokaze je težko brati, bolje bi bilo, če bi jih preverili kar z
+računalnikom. Bistvo dokaza bi lahko izrazili z eno samo opazko: vsak element
+$p \in A \times B$ je urejenei par, namreč $p = (\fst(p), \snd(p))$.
 
-Pojem splošne konstrukcije množic. Iz množic lahko na različne načine delamo nove množice.
-Temu pravimo konstrukcije. Konstrukcijo podamo s pravili.
-
-Urejeni par kot primitivni koncept. Povemo pravila, kako se dela elemente kartezičnega
-produkta in kako se jih uporablja (projekciji). Povemo enačbe, ki veljajo (beta in
-ekstenzionalnost).
-
-Zapis preslikava, ki slika v produkt.
-Zapis preslikava, definirane na produktu.
 
 
 
