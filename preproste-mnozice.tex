@@ -52,10 +52,10 @@ ki jo uporablja velika večina matematikov.
 \label{sec:princip-ekstenzionalnosti}
 
 Zamisel, da je množica natančno določena s svojimi elementi, izrazimo z matematičnim
-zakonom, ki mu pravimo \df{princip ekstenzionalnosti}:
+zakonom, ki mu pravimo \df{princip ekstenzionalnosti}: \davorin{princip = načelo}
 
 \begin{pravilo}[Princip ekstenzionalnosti]
-  Množici sta enaki, če vsebujeta iste elemente.
+  Množici sta enaki, če vsebujeta iste elemente. \davorin{predlagam, da v definicijah namesto `če' uporabljamo `kadar', da ne bodo preveč izgledale kot implikacije}
 \end{pravilo}
 
 Kaj pravzaprav pomeni, da je to ``pravilo'', ``matematični zakon'' ali ``princip''? So ga
@@ -236,7 +236,7 @@ pravil.
 \begin{pravilo}
   \label{pravilo:neurejeni-dvojec}
   Za vsak $x$ in $y$ je \df{(neurejeni) dvojec} $\set{x, y}$ množica, katere elementa sta
-  natanko $x$ in $y$.
+  natanko $x$ in $y$. \davorin{podajmo tako slovenske izraze kot tujke, torej tudi `(neurejeni) par'}
 \end{pravilo}
 
 \begin{pravilo}
@@ -291,6 +291,8 @@ enim elementom.
 Morda se zdi nenavadno, da množico označimo s številom, a ta občutek bo hitro izginil, ko
 bomo računali z množicami. Pravaprav bi lahko prazno množico označili z nič $\mathbf{0}$,
 in nekateri matematiki to dejansko počnejo.
+
+\davorin{A dodamo, da obstaja neskončno enojcev, ampak (po načelu ekstenzionalnosti) samo ena prazna množica?}
 
 \subsection{Druge množice}
 
@@ -381,13 +383,13 @@ in preberemo ``$x$ se slika v dvakrat sinus od $x$ plus pi četrtin.''
 Matematiki smo natančni, zato ne mešamo uporabe puščic $\to$ in $\mapsto$. Navadna puščica
 se uporablja pri oznaki domene in kodomene, repata pa v predpisu. V računalništvu besedo
 `predpis' razumemo kot `programska koda' in o funkcijah razmišljajo kar kot o
-algoritmih---tudi to je eden od možnih pogledov na funkcije.
+algoritmih --- tudi to je eden od možnih pogledov na funkcije.
 
 V teoriji množic razumemo besedo `predpis' kot kakršnokoli prirejanje med elementi množic
 domene~$X$ in kodomene~$Y$, mora pa veljati:
 %
 \begin{itemize}
-\item \emph{definiranost}: vsakemu elementu iz $X$ je prirejen vsaj en element iz $Y$,
+\item \emph{definiranost}: vsakemu elementu iz $X$ je prirejen vsaj en element iz $Y$, \davorin{prevajamo `total'; naj bo `celovitost'}
 \item \emph{enoličnost}: če sta elementu $x$ prirejena $y \in Y$ in $z \in Y$, potem $y = z$.
 \end{itemize}
 
@@ -442,9 +444,9 @@ $\heartsuit \mapsto 1 + \heartsuit^2$.  Opozoriti še velja, da funkcijska predp
 %
 \emph{nista} enaka. Prvi pravi, da je treba sešteti $1$ in $x^2$, drugi pa da je treba
 sešteti $x^2$ in $1$. Res je, da bomo dobili enak rezultat, a se bosta postopka računanja
-razlikovala.
+razlikovala. \davorin{Če se že spuščamo v to, potem dajmo opredeliti, kdaj \emph{sta} predpisa enaka. Na primer, ali sta enaka $x \mapsto 1 + x^2$ in $x\mapsto 1 + x \cdot x$? Kaj pa $x \mapsto \suc(0) + x^2$?}
 
-V funkcijskem predpisu mora na levi stati en sam simbol, ki na desni kaže, kam je je treba
+V funkcijskem predpisu mora na levi stati en sam simbol, ki na desni kaže, kam je treba
 vstaviti element iz domene. Tako
 %
 \begin{equation*}
@@ -557,6 +559,8 @@ priredi $10$. Tabelo lahko predstavimo na različne načine, lahko kar naštejem
   f(5) &= 10.
 \end{align*}
 
+\davorin{Tudi: $1 \mapsto 10$ itd.}
+
 Preslikava je lahko določena tudi z opisom računskega postopka, pravimo mu \df{algoritem},
 s pomočjo katerega izračunamo vrednost funkcije pri danem argumentu. Paziti moramo, da je
 opis postopka res natančen in nedvoumen, lahko ga kar zapišemo kot program. Teoretični
@@ -571,12 +575,12 @@ bomo spoznali skupaj s konstrukcijami množic.
 \subsection{Aplikacija}
 \label{sec:aplikacija}
 
-\andrej{Kako bomo poslovenili ``aplikacija''?}
+\andrej{Kako bomo poslovenili ``aplikacija''?} \davorin{uporaba, izvedba (ta prevod premislimo skupaj z `elimination rule', da se ne bo prekrivalo)}
 
 Do sedaj smo se ukvarjali s tem, kako preslikavo podamo, zdaj pa se vprašajmo, kako lahko
 preslikavo uporabimo. Če je $f : X \to Y$ preslikava iz $X$ v $Y$ in je $x \in X$, potem
 lahko \df{$f$ uporabimo na $x$} in dobimo \df{vrednost} funkcije~$f$ pri
-\df{argumentu}~$x$, to je tisti edini element $Y$, ki ga~$f$ priredi~$x$. Vrednost $f$
+\df{argumentu}~$x$ \davorin{vnosu?}, to je tisti edini element $Y$, ki ga~$f$ priredi~$x$. Vrednost $f$
 pri~$x$ zapišemo
 %
 \begin{equation*}
@@ -692,13 +696,13 @@ Iz množic lahko na različne načine sestavimo ali \df{konstruiramo} nove množ
 Konstrukcijo opišemo z naslednjimi pravili:
 %
 \begin{itemize}
-\item pravilo \df{formacije} pove
+\item pravilo \df{formacije} pove \davorin{izoblikovanje, tvorba}
 \item pravila \df{vpeljave} povedo, kaj 
 \item pravila \df{uporabe}
 \item \df{enačbe}
 \end{itemize}
 %
-Kot prvi primer poglejmo \df{kartezični produkt}:
+Kot prvi primer poglejmo \df{kartezični produkt}: \davorin{dodajmo tudi `zmnožek'}
 %
 \begin{itemize}
 \item formacija: za vsaki množici $A$ in $B$ je tudi $A \times B$ množica, ki se imenuje \df{(kartezični) produkt} $A$ in $B$,
@@ -715,7 +719,7 @@ Kot prvi primer poglejmo \df{kartezični produkt}:
   \end{equation*}
 \end{itemize}
 
-
+\davorin{A bomo imeli makro za urejene večterice?}
 
 Pojem splošne konstrukcije množic. Iz množic lahko na različne načine delamo nove množice.
 Temu pravimo konstrukcije. Konstrukcijo podamo s pravili.
@@ -780,7 +784,9 @@ Transponiranje (currying).
 \section{Izomorfizmi med množicami}
 \label{sec:izom-med-mnoic}
 
-Definicija inverza in izomorfizma.
+Definicija inverza in izomorfizma. \davorin{inverz = obrat}
+
+\davorin{Hm\ldots Pa poskusimo\ldots\\ izomorfizem = istoličje,\\ morfizem = ličje.\\ Dobesedno prevedeno je homomorfizem = enakoličje, ampak to ni najboljši prevod v tem kontekstu. Predlagam\\ homomorfizem = naličje,\\ ker `naličen' (med drugim) pomeni `podoben', `soroden'.}
 
 Če je preslikava izomorfizem, je tudi njen inverz.
 
