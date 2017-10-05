@@ -129,16 +129,16 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \NewDocumentCommand{\fst}
 {O{\empty} O{\empty}}
-{\pi_{{#1}\ifthenelse{\equal{#2}{}}{}{,}{#2}}}
+{\pi_1^{{#1}\ifthenelse{\equal{#2}{}}{}{,}{#2}}}
 \NewDocumentCommand{\snd}
 {O{\empty} O{\empty}}
-{\rho_{{#1}\ifthenelse{\equal{#2}{}}{}{,}{#2}}}
+{\pi_2^{{#1}\ifthenelse{\equal{#2}{}}{}{,}{#2}}}
 \NewDocumentCommand{\inl}
 {O{\empty} O{\empty}}
-{\iota_{{#1}\ifthenelse{\equal{#2}{}}{}{,}{#2}}}
+{\iota_1^{{#1}\ifthenelse{\equal{#2}{}}{}{,}{#2}}}
 \NewDocumentCommand{\inr}
 {O{\empty} O{\empty}}
-{\kappa_{{#1}\ifthenelse{\equal{#2}{}}{}{,}{#2}}}
+{\iota_2^{{#1}\ifthenelse{\equal{#2}{}}{}{,}{#2}}}
 
 
 %%%%%%  Categories
