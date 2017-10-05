@@ -898,49 +898,91 @@ $A \times B$ je množica vseh urejenih parov $(a, b)$, kjer je $a \in A$ in $b \
 taka konstrukcija ni popolna, saj ne pove, kaj lahko z urejenim parom počnemo. Kako naj
 vemo, da iz $(a, b)$ lahko izluščimo $a$ in $b$, in kako preverimo, ali sta dva urejena
 para enaka? Če takih zadev ne določimo, bi lahko kdo mislil, da je urejeni par kaka druga
-neželena operacija, seštevanje, unija, ali kdovekaj se mota po človeških glavah.
+operacija, denimo seštevanje, unija, ali kdovekaj.
+
+Dejstvo, da je vsak element zmnožka množic urejen par, in to celo na en sam način, lahko
+dokažemo.
 
 \begin{trditev}
-  Vsi elementi kartezičnega produkta so urejeni pari.
+  Naj bosta $A$ in $B$ množici. Za vsak element $p \in A \times B$ obstaja natanko en
+  $a \in A$ in natanko en $b \in B$, da velja $p = (a, b)$.
 \end{trditev}
 
 \begin{proof}
-  Ali je trditev sploh treba dokazovati? Vsekakor, saj pravila govorijo le o tem, da
-  urejeni pari so elementi kartezičnega produkta, ne pa tudi, da so to edini elementi.
-  Spet bomo napisali zelo podroben dokaz.
-
-  Naj bosta $A$ in $B$ množici in $p \in A \times B$. Dokazati moramo, da je $p$ enak
-  urejenemu paru, se pravi, da iščemo taka $a \in A$ in $b \in B$, da velja $p = (a, b)$.
-  Vzemimo $a = \fst(p)$ in $b = \snd(p)$ term preverimo, da velja $p = (a, b)$. V ta namen
-  uporabimo načelo ekstenzionalnosti za pare, ki nam da želeni zaključek, če dokažemo
+  Naj bosta $A$ in $B$ množici in $p \in A \times B$. Najprej pokažimo, da $p$ res je enak
+  nekemu urejenemu paru, namreč
   %
   \begin{equation*}
-    \fst(p) = \fst(a, b)
+    p = (\fst(p), \snd(p)).
+  \end{equation*}
+  %
+  Uporabimo načelo ekstenzionalnosti za pare, ki nam zagotavlja to enačbo, če dokažemo
+  %
+  \begin{equation*}
+    \fst(p) = \fst(\fst(p), \snd(p))
     \qquad\text{in}\qquad
-    \snd(p) = \snd(a, b).
+    \snd(p) = \snd(\fst(p), \snd(p)).
   \end{equation*}
   %
-  Prva enačba velja, ker uporabimo definicijo $a$ in $b$ ter računska pravila:
+  Ti dve enačbi pa veljata, ker sta primerka računskih pravil za pare.
+
+  Preveriti moramo še, da je $(\fst(p), \snd(p))$ edini urejeni par, ki je enak~$p$.
+  Povedano z drugimi besedami, dokazati moramo: če je $p = (a, b)$ za neki $a \in A$ in
+  $b \in B$, potem velja $a = \fst(p)$ in $b = \snd(p)$. Pa denimo, da bi za neki
+  $a \in A$ in $B \in B$ veljalo $p = (a,b)$. Tedaj bi lahko uporabili računska pravila za
+  pare in dobili
   %
   \begin{equation*}
-    \fst(a,b) = \fst(\fst(p), \snd(p)) = \fst(p) = a
+    \fst(p) = \fst(a, b) = a
+    \qquad\text{in}\qquad
+    \snd(p) = \snd(a, b) = b,
   \end{equation*}
   %
-  Prav tako velja druga enačba:
-  %
-  \begin{equation*}
-    \snd(a,b) = \snd(\fst(p), \snd(p)) = \snd(p) = b. \qedhere
-  \end{equation*}
-  %
+  kar smo želeli dokazati.
 \end{proof}
 
-Tako podrobne dokaze je težko brati, bolje bi bilo, če bi jih preverili kar z
-računalnikom. Bistvo dokaza bi lahko izrazili z eno samo opazko: vsak element
-$p \in A \times B$ je urejeni par, namreč $p = (\fst(p), \snd(p))$.
+Trditev je prikladna, ko želimo podati funkcijsko pravilo za preslikavo, katere domena je
+zmnožek množic. Primer take preslikave je
+%
+\begin{gather*}
+  \RR \times \RR \to \RR \\
+  p \mapsto \fst(p) + \snd(p)^2 \cdot \fst(p).
+\end{gather*}
+%
+Ta zapis je precej nepregleden, a sledili smo navodilu, da mora stati na levi strani
+funkcijskega predpisa simbol. Prejšnja trditev nam zagotavlja, da lahko vsak element
+$\RR \times \RR$ na en sam način izrazimo kot urejeni par $(x, y)$, in zato ne bo nič
+narobe, če zapišemo ta isti funkcijski predpis bolj pregledno tako, da upoštevamo, da
+je $p$ enak $(x, y)$ za enolično določena $x$ in $y$:
+%
+\begin{gather*}
+  \RR \times \RR \to \RR \\
+  (x, y) \mapsto x + y^2 \cdot x.
+\end{gather*}
+%
+Če bi funkcijo poimenovali, denimo $f$, bi dobili običajni zapis:
+%
+\begin{gather*}
+  f : \RR \times \RR \to \RR \\
+  f(x, y) = x + y^2 \cdot x.
+\end{gather*}
+%
+Za tako preslikavo pravimo, da je ``funkcija dveh spremenljivk'', ker si mislimo, da smo
+podali argumenta $x$ in $y$ ločeno drug od drugega. Tu pravzaprav vidimo, da bi lahko
+rekli tudi, da je funkcija dveh spremenljivk pravzaprav običajna funkcija, katere
+arugmenti so urejeni pari.
+
+Poleg zmnožka dveh množic bi lahko tvorili tudi zmnožek treh ali več množic. Pravila bodo
+podobna kot za zmnožek dveh množic, le da bi namesto urejenih parov tvorili \df{urejene
+  večterice} in da bi imeli več projekcij. Za vsako projekcijo bi zapisali eno računsko
+pravilo, princip ekstenzionalnosti pa bi bil tudi podoben tistemu za urejene pare.
+Podorobnosti prepustimo za vajo.
 
 
 % \section{Vsota}
 % \label{sec:vsota}
+
+
 
 % Vsota množic, pri čemer vpeljemo primitivne oznake za injekcije (kar je dosti bolj
 % smiselno, kot da vedno uporabljamo $\inl$ in $\inr$). Kadar smo leni, uporabljamo $\inl$
@@ -1060,6 +1102,11 @@ $p \in A \times B$ je urejeni par, namreč $p = (\fst(p), \snd(p))$.
   \end{quote}
   %
   Dokažite, da je ta različica enakovredna običajnem načelu ekstenzionalnosti.
+\end{vaja}
+
+\begin{vaja}
+  Zapišite pravila za zmnožek treh množic. Nato premislite še, kako bi podali pravila za
+  zmnožek $n$ množic, kjer je~$n$ naravno število.
 \end{vaja}
 
 
