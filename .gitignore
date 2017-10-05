@@ -19,3 +19,5 @@
 *.ind
 .DS_Store
 *.fdb_latexmk
+*.pdf
+/verzija.tex

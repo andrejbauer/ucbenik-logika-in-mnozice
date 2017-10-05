@@ -1,0 +1,166 @@
+%% TO NI GLAVNA DATOTEKA
+\documentclass[11pt,a4paper,twoside]{book}
+
+%%% Globalne nastavitve
+\def\OPTtitle{Logika in množice}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%  Imported Packages
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\usepackage[slovene]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+
+\usepackage{ifthen}
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage{amsthm} % Must come after amsmath!
+\usepackage{textgreek}
+\usepackage{phonetic}
+\usepackage{tablefootnote}
+\usepackage{datetime2}
+
+\usepackage{xcolor}
+\definecolor{andrejcolor}{rgb}{0.7,0,0.7}
+\definecolor{davorincolor}{rgb}{0,0.45,1}
+\definecolor{anjacolor}{rgb}{1.0,0.5,0.5}
+
+\newcommand{\andrej}[1]{{\small\textcolor{andrejcolor}{(#1 \ \mbox{--Andrej})}}}
+\newcommand{\davorin}[1]{{\small\textcolor{davorincolor}{(#1 \ \mbox{--Davorin})}}}
+\newcommand{\anja}[1]{{\small\textcolor{anjacolor}{(#1 \ \mbox{--Marko})}}}
+
+\definecolor{notecolor}{rgb}{0.6,0.5,0.7}
+\newcommand{\note}[1]{{\small\textcolor{notecolor}{(#1)}}}
+\newcommand{\alert}[1]{{\small\textcolor{red}{\textbf{#1}}}}
+
+\usepackage{tikz}
+\usepackage{tkz-graph}
+\usepackage{xparse}
+\usepackage{mathrsfs}
+
+\usepackage{xypic}
+
+%%% Trenutna verzija, če jo imamo
+\IfFileExists{\input{./verzija.tex}}{\newcommand{\OPTversion}{unknown}}
+
+%%% Fonti kot v HoTT book.
+\usepackage{mathpazo}
+\usepackage[scaled=0.95]{helvet}
+\usepackage{courier}
+\linespread{1.05} % Palatino looks better with this
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%  Page Style & Margins (A4 page = 210mm x 297mm)
+
+% PAGE GEOMETRY
+\usepackage[papersize={210mm,297mm}, % A4
+            twoside,
+            includehead,
+            top=1in, % margina na vrhu strani
+            bottom=1in, % margina na dnu strani
+            inner=1in, % margina na notranji strani strani
+            outer=1in, % margina na zunanji strani strani
+            bindingoffset=0pt % dodatna margina na notranji strani
+           ]{geometry}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% HYPERLINKING AND PDF METADATA
+\usepackage[backref=page,
+            colorlinks,
+            citecolor=linkcolor,
+            linkcolor=linkcolor,
+            urlcolor=linkcolor,
+            unicode,
+            pdfauthor={Andrej Bauer, Davorin Lešnik},
+            pdftitle={\OPTtitle},
+            pdfsubject={matematika},
+            pdfkeywords={logika,množice,osnove matematike}]{hyperref}
+\renewcommand{\backref}[1]{}
+\renewcommand{\backrefalt}[4]{%
+   \ifcase #1 %
+   (Ni citirano.)
+   \or
+   (Citirano na strani\ #2.)
+   \else
+   (Citirano na straneh\ #2.)
+   \fi}
+
+\definecolor{linkcolor}{rgb}{0,0,0} % Barva hiperpovezav
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%% Header and footers
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\usepackage{fancyhdr} % To set headers and footers
+\pagestyle{fancyplain}
+\setlength{\headheight}{15pt}
+\renewcommand{\chaptermark}[1]{\markboth{\textsc{Poglavje \thechapter. #1}}{}}
+\renewcommand{\sectionmark}[1]{\markright{\textsc{\thesection\ #1}}}
+
+\lhead[\fancyplain{}{{\thepage}}]%
+      {\fancyplain{}{\nouppercase{\rightmark}}}
+\rhead[\fancyplain{}{\nouppercase{\leftmark}}]%
+      {\fancyplain{}{\thepage}}
+\cfoot[\texttt{\footnotesize [delovna verzija {\OPTversion} - \DTMnow]}]{\texttt{\footnotesize [delovna verzija {\OPTversion} - \DTMnow]}}
+\lfoot[]{}
+\rfoot[]{}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%% Macros
+\input{macros.tex}
+
+\begin{document}
+
+%--------------------------------------------------------------------
+%--------------------------------------------------------------------
+% TITLE PAGE
+
+% če se spremeni naslov, je treba spremeniti tudi zgoraj v paketu hyperref
+\title{\OPTtitle}
+\author{Andrej Bauer \and Davorin Lešnik}
+\maketitle
+
+%--------------------------------------------------------------------
+%--------------------------------------------------------------------
+% Foreword
+
+\chapter*{Predgovor}%\addcontentsline{toc}{chapter}{\numberline{}Predgovor}
+
+%--------------------------------------------------------------------
+%--------------------------------------------------------------------
+% TOC
+
+\tableofcontents
+% \listoftables % To se meni zdi nepotrebno, zakaj se to daje v knjige? (Andrej)
+
+%--------------------------------------------------------------------
+%--------------------------------------------------------------------
+% BODY
+
+\input{razlaga-makrojev.tex}
+\input{matematicno-izrazanje.tex}
+\input{preproste-mnozice.tex}
+
+% Pod to vrstico so poglavja, ki še niso pripravljena
+% za javno dostopno verzijo
+\ifOPTincludeall
+\input{logika.tex}
+\input{dokazovanje.tex}
+\input{konstrukcije.tex}
+\input{preslikave.tex}
+\input{relacije.tex}
+\input{strukture.tex}
+\input{stevilske-mnozice.tex}
+\input{indukcija.tex}
+\input{kumulativna-hierarhija.tex}
+\input{kardinalna-stevila.tex}
+\input{ordinalna-stevila.tex}
+\else
+\fi
+
+\end{document}
+
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-master: "ucbenik-lmn"
+%%% End:

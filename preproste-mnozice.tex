@@ -939,121 +939,117 @@ računalnikom. Bistvo dokaza bi lahko izrazili z eno samo opazko: vsak element
 $p \in A \times B$ je urejeni par, namreč $p = (\fst(p), \snd(p))$.
 
 
+% \section{Vsota}
+% \label{sec:vsota}
+
+% Vsota množic, pri čemer vpeljemo primitivne oznake za injekcije (kar je dosti bolj
+% smiselno, kot da vedno uporabljamo $\inl$ in $\inr$). Kadar smo leni, uporabljamo $\inl$
+% in $\inr$.
+
+% Elementi $A + A$. Kasneje bomo spoznali tudi operacijo unija, ki jo tudi že poznamo.
+
+% Pravila za vsoto množic. Notacija za preslikave, definirane na vsoti, $f : A + B \to C$:
+% %
+% \begin{align*}
+%   f(\inl(x)) &= \cdots x \cdots \\
+%   f(\inr(y)) &= \cdots y \cdots
+% \end{align*}
+% %
+% in tudi
+% %
+% \begin{align*}
+%   f(z) =
+%   \begin{cases}
+%     \cdots x \cdots & \text{če $z = \inl(x)$,} \\
+%     \cdots y \cdots & \text{če $z = \inl(y)$.}
+%   \end{cases}
+% \end{align*}
+
+% \section{Eksponent}
+% \label{sec:eksponent}
 
 
 
+% Zapis funkcijskega predpisa na razne načine.
+% \note{Tj.~anonimne oz.~čiste funkcije. Na tem mestu pride tudi $\lambda$-notacija in določena mera $\lambda$-računa.}
 
-\section{Vsota}
-\label{sec:vsota}
+% Aplikacija kot operacija.
 
-Vsota množic, pri čemer vpeljemo primitivne oznake za injekcije (kar je dosti bolj
-smiselno, kot da vedno uporabljamo $\inl$ in $\inr$). Kadar smo leni, uporabljamo $\inl$
-in $\inr$.
+% Eksponent kot množica vseh preslikav. Pravila za eksponent: kako naredimo elemente
+% eksponenta in kako jih uporabimo. Enačbe ($\beta$ in ekstenzionalnost).
 
-Elementi $A + A$. Kasneje bomo spoznali tudi operacijo unija, ki jo tudi že poznamo.
+% Vezane spremenljivke v zapisu funkcijskega predpisa. Substitucija in vezane spremenljivke.
 
-Pravila za vsoto množic. Notacija za preslikave, definirane na vsoti, $f : A + B \to C$:
-%
-\begin{align*}
-  f(\inl(x)) &= \cdots x \cdots \\
-  f(\inr(y)) &= \cdots y \cdots
-\end{align*}
-%
-in tudi
-%
-\begin{align*}
-  f(z) =
-  \begin{cases}
-    \cdots x \cdots & \text{če $z = \inl(x)$,} \\
-    \cdots y \cdots & \text{če $z = \inl(y)$.}
-  \end{cases}
-\end{align*}
-
-\section{Eksponent}
-\label{sec:eksponent}
+% Preslikave iz prazne množice in v prazno množice. Preslikave iz enojca in v enojec.
 
 
-
-Zapis funkcijskega predpisa na razne načine.
-\note{Tj.~anonimne oz.~čiste funkcije. Na tem mestu pride tudi $\lambda$-notacija in določena mera $\lambda$-računa.}
-
-Aplikacija kot operacija.
-
-Eksponent kot množica vseh preslikav. Pravila za eksponent: kako naredimo elemente
-eksponenta in kako jih uporabimo. Enačbe ($\beta$ in ekstenzionalnost).
-
-Vezane spremenljivke v zapisu funkcijskega predpisa. Substitucija in vezane spremenljivke.
-
-Preslikave iz prazne množice in v prazno množice. Preslikave iz enojca in v enojec.
+% Transponiranje (currying).
 
 
-Transponiranje (currying).
+% \section{Izomorfizmi med množicami}
+% \label{sec:izom-med-mnoic}
+
+% Definicija inverza in izomorfizma. \davorin{inverz = obrat}
+
+% \davorin{Hm\ldots Pa poskusimo\ldots\\ izomorfizem = istoličje,\\ morfizem = ličje.\\ Dobesedno prevedeno je homomorfizem = enakoličje, ampak to ni najboljši prevod v tem kontekstu. Predlagam\\ homomorfizem = naličje,\\ ker `naličen' (med drugim) pomeni `podoben', `soroden'.}
+
+% Če je preslikava izomorfizem, je tudi njen inverz.
+
+% Izomorfnost množic. Je refleksivna, simetrična in tranzitivna (a ne poudarjamo preveč pojma ekvivalence na tem mestu).
+
+% Izomorfnost je kongruenca za produkt, vsoto in eksponent.
+
+% \section{Aritmetika Tarskega}
+% \label{sec:aritmetika-tarskega}
+
+% Aritmetični zakoni Tarskega za množice. Podobnost z običajno aritmetiko.
+
+% Pri asociativnosti produkta obravnavamo $A_1 \times A_2 \times \cdots \times A_n$ in
+% enojec kot produkt nič množic. Podobno za vsote.
+
+% Tu je treba pojasniti, zakaj pišemo $\unit$ za element $\one$.
 
 
-\section{Izomorfizmi med množicami}
-\label{sec:izom-med-mnoic}
+% \section{Kar je že Davorin napisal}
 
-Definicija inverza in izomorfizma. \davorin{inverz = obrat}
+% Interval realnih števil podamo s krajiščema intervala v oklepajih --- okrogli oklepaji ( ) označujejo odprtost intervala (krajišče ni vključeno v interval), oglati oklepaji [ ] pa zaprtost (krajišče je vključeno). Tako se npr.~interval realnih števil od $0$ do $1$, ki ne vsebuje krajišč, označi z $(0, 1)$, če jih vsebuje, pa z $[0, 1]$.
 
-\davorin{Hm\ldots Pa poskusimo\ldots\\ izomorfizem = istoličje,\\ morfizem = ličje.\\ Dobesedno prevedeno je homomorfizem = enakoličje, ampak to ni najboljši prevod v tem kontekstu. Predlagam\\ homomorfizem = naličje,\\ ker `naličen' (med drugim) pomeni `podoben', `soroden'.}
+% Včasih pridejo prav tudi intervali na drugih množicah kot $\RR$. Zato se dogovorimo, da bomo intervale označevali tako, da podamo množico, ob kateri v indeksu zapišemo krajišči v oklepajih, npr.~$\intco[\NN]{1}{5} = \set{1, 2, 3, 4}$. Realna intervala iz prejšnjega odstavka tako zapišemo kot $\intoo{0}{1}$ in $\intcc{0}{1}$.
 
-Če je preslikava izomorfizem, je tudi njen inverz.
+% Če interval v katero smer gre v nedogled, preprosto zapišemo množico z ustreznim simbolom za urejenost in krajiščem v indeksu. Na primer, $\RR_{> 0}$ označuje množico pozitivnih realnih števil, $\RR_{\geq 0}$ pa množico nenegativnih realnih števil.
 
-Izomorfnost množic. Je refleksivna, simetrična in tranzitivna (a ne poudarjamo preveč pojma ekvivalence na tem mestu).
+% Primerjave med elementi, kot npr.~pravkar podani $>$ in $\geq$, imenujemo \df{relacije} (podrobneje jih bomo spoznali v poglavju~\ref{poglavje:relacije}). Zgornji zapis bomo uporabljali tudi za druge vrste relacij, ne samo za relacije urejenosti. Na primer, množico vseh neničelnih realnih števil zapišemo kot $\RR_{\neq 0}$.
 
-Izomorfnost je kongruenca za produkt, vsoto in eksponent.
+% \davorin{To bi vsaj bil moj predlog. Na ta način se izognemo dvoumnostim (kar je namen). Na primer, kaj pomeni $\forall\, a > 0$? Če zapišemo $\forall\, a \in \NN_{> 0}$ ali $\forall\, a \in \RR_{> 0}$, je jasno. Razlog, da matematiki ``goljufajo'' in pridejo skozi brez tega, je (napol dogovorjena in ponotranjena, ampak arbitrarna) izbira črk; vsak izkušen matematik ve, da $\forall\, \epsilon > 0$ pomeni $\forall\, \epsilon \in \RR_{> 0}$. Dodaten problem je, da kasneje uporabljamo urejene pare, ki jih vsi na naši fakulteti pišejo z okroglimi oklepaji. Poskusimo se izogniti zmedi, ali $(a, b)$ pomeni urejeni par ali odprti interval. Če se ne strinjate, popravite in pustite komentar.}
 
-\section{Aritmetika Tarskega}
-\label{sec:aritmetika-tarskega}
+% Če imamo dan neki element in neko množico, potem pripadnost tega elementa tej množici izrazimo s simbolom $\in$. Na primer, da je štiri naravno število, zapišemo $4 \in \NN$ (beri: ``štiri pripada množici naravnih števil'').
 
-Aritmetični zakoni Tarskega za množice. Podobnost z običajno aritmetiko.
+% Elementi množic lahko zadoščajo raznim lastnostim. Na primer, recimo, da $\phi$ označuje lastnost ``biti manj od pet''; to potem zapišemo
+% \[\phi(x) \ = \ \ x < 5.\]
+% V tem primeru $x$ imenujemo \df{spremenljivka}, saj ne gre za točno določeno vrednost, pač pa predstavlja splošno število (recimo, da se dogovorimo, da s $\phi$ označujemo lastnost na realnih številih).
 
-Pri asociativnosti produkta obravnavamo $A_1 \times A_2 \times \cdots \times A_n$ in
-enojec kot produkt nič množic. Podobno za vsote.
+% Tovrstne lastnosti nam omogočajo, da iz neke množice odberemo elemente z dano lastnostjo in na ta način dobimo novo množico, ki je podmnožica prejšnje. Množico vseh realnih števil, ki so manjša od pet, zapišemo na naslednji način.
+% \[\set{x \in \RR}{x < 5}\]
+% Seveda, ker je primerjava s števili zelo pogosta lastnost, je uporabno, če uvedemo krajše oznake, ki povejo isto; že prej smo se dogovorili, da tako množico označimo z $\RR_{< 5}$. Za povsem splošne lastnosti pa ne bomo imeli vnaprej dogovorjenih oznak, zato je dobro, da poznamo splošni zapis. Torej, če je $X$ poljubna množica in $\phi$ poljubna lastnost njenih elementov, tedaj podmnožico, ki vsebuje točno tiste elemente množice $X$, ki zadoščajo lastnosti $\phi$, označimo takole.
+% \[\set[1]{x \in X}{\phi(x)}\]
 
-Tu je treba pojasniti, zakaj pišemo $\unit$ za element $\one$.
+% Pri tem se zavedajmo: ni pomembno, da spremenljivko označimo ravno z $x$. Zapis
+% \[\set[1]{y \in X}{\phi(y)}\]
+% še vedno označuje isto množico. V vsakem primeru gre za množico vseh elementov iz $X$ z lastnostjo $\phi$. Pravzaprav sploh ni nujno, da uporabimo črko; poslužimo se lahko kateregakoli simbola (ki mu nismo predtem že predpisali določenega pomena). Taisto množico lahko zapišemo tudi $\set{\heartsuit \in X}{\phi(\heartsuit)}$.
 
+% Kadar imamo spremenljivko, ki jo lahko preimenujemo, ne da bi spremenili pomen izraza, jo imenujemo \df{nema spremenljivka}. Takšne primere že dobro poznate; na primer, integral $\int_0^1 x^2 \,dx$ se ne spremeni, če preimenujete spremenljivko in zapišete $\int_0^1 y^2 \,dy$.
 
-\section{Kar je že Davorin napisal}
-
-Interval realnih števil podamo s krajiščema intervala v oklepajih --- okrogli oklepaji ( ) označujejo odprtost intervala (krajišče ni vključeno v interval), oglati oklepaji [ ] pa zaprtost (krajišče je vključeno). Tako se npr.~interval realnih števil od $0$ do $1$, ki ne vsebuje krajišč, označi z $(0, 1)$, če jih vsebuje, pa z $[0, 1]$.
-
-Včasih pridejo prav tudi intervali na drugih množicah kot $\RR$. Zato se dogovorimo, da bomo intervale označevali tako, da podamo množico, ob kateri v indeksu zapišemo krajišči v oklepajih, npr.~$\intco[\NN]{1}{5} = \set{1, 2, 3, 4}$. Realna intervala iz prejšnjega odstavka tako zapišemo kot $\intoo{0}{1}$ in $\intcc{0}{1}$.
-
-Če interval v katero smer gre v nedogled, preprosto zapišemo množico z ustreznim simbolom za urejenost in krajiščem v indeksu. Na primer, $\RR_{> 0}$ označuje množico pozitivnih realnih števil, $\RR_{\geq 0}$ pa množico nenegativnih realnih števil.
-
-Primerjave med elementi, kot npr.~pravkar podani $>$ in $\geq$, imenujemo \df{relacije} (podrobneje jih bomo spoznali v poglavju~\ref{poglavje:relacije}). Zgornji zapis bomo uporabljali tudi za druge vrste relacij, ne samo za relacije urejenosti. Na primer, množico vseh neničelnih realnih števil zapišemo kot $\RR_{\neq 0}$.
-
-\davorin{To bi vsaj bil moj predlog. Na ta način se izognemo dvoumnostim (kar je namen). Na primer, kaj pomeni $\forall\, a > 0$? Če zapišemo $\forall\, a \in \NN_{> 0}$ ali $\forall\, a \in \RR_{> 0}$, je jasno. Razlog, da matematiki ``goljufajo'' in pridejo skozi brez tega, je (napol dogovorjena in ponotranjena, ampak arbitrarna) izbira črk; vsak izkušen matematik ve, da $\forall\, \epsilon > 0$ pomeni $\forall\, \epsilon \in \RR_{> 0}$. Dodaten problem je, da kasneje uporabljamo urejene pare, ki jih vsi na naši fakulteti pišejo z okroglimi oklepaji. Poskusimo se izogniti zmedi, ali $(a, b)$ pomeni urejeni par ali odprti interval. Če se ne strinjate, popravite in pustite komentar.}
-
-Če imamo dan neki element in neko množico, potem pripadnost tega elementa tej množici izrazimo s simbolom $\in$. Na primer, da je štiri naravno število, zapišemo $4 \in \NN$ (beri: ``štiri pripada množici naravnih števil'').
-
-Elementi množic lahko zadoščajo raznim lastnostim. Na primer, recimo, da $\phi$ označuje lastnost ``biti manj od pet''; to potem zapišemo
-\[\phi(x) \ = \ \ x < 5.\]
-V tem primeru $x$ imenujemo \df{spremenljivka}, saj ne gre za točno določeno vrednost, pač pa predstavlja splošno število (recimo, da se dogovorimo, da s $\phi$ označujemo lastnost na realnih številih).
-
-Tovrstne lastnosti nam omogočajo, da iz neke množice odberemo elemente z dano lastnostjo in na ta način dobimo novo množico, ki je podmnožica prejšnje. Množico vseh realnih števil, ki so manjša od pet, zapišemo na naslednji način.
-\[\set{x \in \RR}{x < 5}\]
-Seveda, ker je primerjava s števili zelo pogosta lastnost, je uporabno, če uvedemo krajše oznake, ki povejo isto; že prej smo se dogovorili, da tako množico označimo z $\RR_{< 5}$. Za povsem splošne lastnosti pa ne bomo imeli vnaprej dogovorjenih oznak, zato je dobro, da poznamo splošni zapis. Torej, če je $X$ poljubna množica in $\phi$ poljubna lastnost njenih elementov, tedaj podmnožico, ki vsebuje točno tiste elemente množice $X$, ki zadoščajo lastnosti $\phi$, označimo takole.
-\[\set[1]{x \in X}{\phi(x)}\]
-
-Pri tem se zavedajmo: ni pomembno, da spremenljivko označimo ravno z $x$. Zapis
-\[\set[1]{y \in X}{\phi(y)}\]
-še vedno označuje isto množico. V vsakem primeru gre za množico vseh elementov iz $X$ z lastnostjo $\phi$. Pravzaprav sploh ni nujno, da uporabimo črko; poslužimo se lahko kateregakoli simbola (ki mu nismo predtem že predpisali določenega pomena). Taisto množico lahko zapišemo tudi $\set{\heartsuit \in X}{\phi(\heartsuit)}$.
-
-Kadar imamo spremenljivko, ki jo lahko preimenujemo, ne da bi spremenili pomen izraza, jo imenujemo \df{nema spremenljivka}. Takšne primere že dobro poznate; na primer, integral $\int_0^1 x^2 \,dx$ se ne spremeni, če preimenujete spremenljivko in zapišete $\int_0^1 y^2 \,dy$.
-
-\begin{zgled}
-Kako bi zapisali množico vseh sodih naravnih števil? Spomnimo se, da je število sodo, kadar je deljivo z $2$. Za $n \in \NN$ to zapišemo takole: $2 \divides n$ (beri: ``dve deli $n$''). Množica sodih naravnih števil se potem zapiše kot
-\[\set[1]{n \in \NN}{2 \divides n}.\]
-\end{zgled}
+% \begin{zgled}
+% Kako bi zapisali množico vseh sodih naravnih števil? Spomnimo se, da je število sodo, kadar je deljivo z $2$. Za $n \in \NN$ to zapišemo takole: $2 \divides n$ (beri: ``dve deli $n$''). Množica sodih naravnih števil se potem zapiše kot
+% \[\set[1]{n \in \NN}{2 \divides n}.\]
+% \end{zgled}
 
 
-\section{Vaje}
+% \section{Vaje}
 
-\begin{vaja}
-  Kaj veste povedati o množici $A$, če zanjo velja, da so vsi njeni elementi enaki?
-\end{vaja}
+% \begin{vaja}
+%   Kaj veste povedati o množici $A$, če zanjo velja, da so vsi njeni elementi enaki?
+% \end{vaja}
 
 
 %%% Local Variables:
