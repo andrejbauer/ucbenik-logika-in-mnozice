@@ -133,8 +133,8 @@ in
 za vse $n \in \NN$.
 \end{izrek}
 
-\begin{dokaz}
-\end{dokaz}
+\begin{proof}
+\end{proof}
 
 Rekurzijo smo na ta način izpeljali iz indukcije, poudarimo pa, da je možen tudi obraten pristop: načelo o rekurziji vzamemo kot osnoven aksiom naravnih števil \emph{namesto} indukcije, nato pa od tod izpeljemo načelo o indukciji. Poglejmo, kako to storimo.
 
@@ -274,7 +274,7 @@ Velja
 \end{enumerate}
 \end{lema}
 
-\begin{dokaz}
+\begin{proof}
 \begin{enumerate}
 \item
 Po Peanovih aksiomih velja $0 \notin \rn{\suc}$, torej naravno število ne more biti hkrati nič in naslednik. Zadostuje potemtakem, da dokažemo samo še $\all{n \in \NN}{n = 0 \lor n = \suc\big(\tprd(n)\big)}$.
@@ -286,7 +286,7 @@ Vzemimo poljubna $a, b \in \NN$. Po prejšnji točki velja bodisi $b = 0$ bodisi
 Predpostavimo, da smo v drugem primeru, da torej velja $b = \suc\big(\tprd(b)\big)$. Račun bo bolj očiten, če začnemo z druge strani:
 \[a \cdot b \monus a = a \cdot \suc\big(\tprd(b)\big) \monus b = \big(a \cdot \tprd(b) + a\big) \monus a = a \cdot \tprd(b).\]
 \end{enumerate}
-\end{dokaz}
+\end{proof}
 
 Zdaj smo naposled pripravljeni, da dokažemo členjenje množenja čez prisekano odštevanje v naravnih številih. Ker že vemo, da je množenje izmenljivo, zadostuje preveriti členjenje samo na eni strani. Dokažimo torej $\all{a \in \NN}\all{b \in \NN}\all{c \in \NN}{a \cdot (b \monus c) = a \cdot b \monus a \cdot c}$.
 
@@ -334,7 +334,7 @@ $a \leq b$ je ekvivalentno tako $\lnot(b < a)$ kot tudi $a < b \lor a = b$.
 \end{enumerate}
 \end{trditev}
 
-\begin{dokaz}
+\begin{proof}
 \begin{enumerate}
 \item
 Privzemimo $a < b$, torej imamo $x \in \NN$, tako da $a + \suc(x) = b$. Od tod izpeljimo $\lnot(b \leq a)$. Recimo, da velja $b \leq a$, da torej obstaja $y \in \NN$, tako da $b + y = a$. Potem $b + \suc(y + x) = b + y + \suc(x) = a + \suc(x) = b = b + 0$. Krajšamo $b$ in dobimo $\suc(y + x) = 0$. Izpeljali smo neresnico, saj po Peanovih aksiomih $0$ ni v zalogi vrednosti preslikave $\suc$. Sklenemo $\lnot(b \leq a)$.
@@ -349,7 +349,7 @@ Predpostavimo $a \leq b$ in izpeljimo $a < b \lor a = b$. Po zakonu o izključen
 
 Predpostavimo $a < b \lor a = b$ in izpeljimo $a \leq b$. Vemo že, da iz $a < b$ sledi $a \leq b$. Po refleksivnosti $\leq$ seveda tudi iz $a = b$ sledi $a \leq b$.
 \end{enumerate}
-\end{dokaz}
+\end{proof}
 
 Iz te trditve lahko takoj izpeljemo nekaj lastnosti relacije $<$. Relacija je asimetrična: če bi hkrati veljalo $a < b$ in $b < a$, bi veljalo tudi $a < b$ in $b \leq a$, za kar pa že vemo, da se ne more zgoditi. Posledično je relacija $<$ tudi antisimetrična in irefleksivna. \davorin{Pri relacijah imejmo vajo, kjer se dokaže asimetričnost $\iff$ antisimetričnost $\land$ irefleksivnost.}
 
@@ -385,7 +385,7 @@ $a \monus b + b = \max\set{a, b}$
 \end{enumerate}
 \end{trditev}
 
-\begin{dokaz}
+\begin{proof}
 \begin{enumerate}
 \item
 Vzemimo poljubna $a, b \in \NN$. Predpostavimo $a \leq b$, torej imamo $x \in \NN$, tako da $a + x = b$. Z upoštevanjem lastnosti, ki smo jih izpeljali za $\monus$, poračunamo: $a \monus b = a \monus (a + x) = (a \monus a) \monus x = 0 \monus x = 0$.
@@ -394,7 +394,7 @@ Za dokaz obratne smeri predpostavimo $a \monus b = 0$. Ker je $\leq$ strogo sovi
 \item
 Ponovno zaradi stroge sovisnosti ločimo primera $a \leq b$ in $b \leq a$. V prvem primeru trditev sledi iz prejšnje točke in enakosti $\max\set{a, b} = b$. Recimo zdaj, da velja $b \leq a$, torej $\max\set{a, b} = a$ in obstaja $x \in \NN$, tako da $b + x = a$. Tedaj $a \monus b + b = (b + x) \monus b + b = x + b = a$.
 \end{enumerate}
-\end{dokaz}
+\end{proof}
 
 \subsection{Karakterizacija}
 
@@ -556,13 +556,13 @@ Morda se vam sicer zdi predstavitev celih števil s formalnimi razlikami nekolik
 Vsak ekvivalenčni razred $\ec{a, b} \in \ZZ$ vsebuje natanko enega predstavnika, ki ima vsaj eno komponento enako $0$, in sicer velja $\ec{a, b} = \ec{a \monus b, b \monus a}$.
 \end{trditev}
 
-\begin{dokaz}
+\begin{proof}
 Preverimo najprej enoličnost. Naj bosta $m, n \in \NN$ poljubni naravni števili. Vemo že, da iz $\ec{m, 0} = \ec{n, 0}$ sledi $m = n$ --- to je ravno injektivnost vložitve naravnih števil v cela. Na podoben način izpeljemo $\ec{0, m} = \ec{0, n} \implies (0, m) = (0, n)$. Recimo še, da velja $\ec{m, 0} = \ec{0, n}$, torej $m + n = 0$. V podrazdelku~\ref{podrazdelek:urejenost-na-naravnih-stevilih} smo že izpeljali, da potem velja $m = n = 0$, torej se predstavnika spet ujemata.
 
 S pomočjo trditve~\ref{trditev:monus-in-urejenost}(\ref{trditev:monus-in-urejenost:maksimum}) izpeljemo
 \[a + (b \monus a) = \max\set{b, a} = \max\set{a, b} = b + (a \monus b),\]
 torej res velja $\ec{a, b} = \ec{a \monus b, b \monus a}$. Upoštevajmo še trditev~\ref{trditev:monus-in-urejenost}(\ref{trditev:monus-in-urejenost:neenakost}) in sovisnost relacije $\leq$ na naravnih številih ter zaključimo, da je vsaj ena od komponent $a \monus b$, $b \monus a$ enaka $0$.
-\end{dokaz}
+\end{proof}
 
 Vsako celo število torej lahko predstavimo v obliki $\ec{n, 0}$ ali $\ec{0, n}$. V prvem primeru je celo število v zalogi vrednosti vložitve $\NN$ v $\ZZ$ in ga zato pišemo kar kot $n$ (ali če hočemo poudariti predznak, kot $+n$). V drugem primeru pa lahko upoštevamo $\ec{0, n} = -\ec{n, 0}$ in ga zato pišemo kot $-n$. V vsakem primeru ga lahko zapišemo kot predznačeno naravno število. V mejnem primeru, ko sta obe komponenti enaki $0$, gre za enoto za seštevanje, tj.~ničlo v celih števili, ki jo seveda lahko zapišemo s poljubnim predznakom.
 

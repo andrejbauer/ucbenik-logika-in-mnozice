@@ -289,9 +289,9 @@
                         Če je $\mathscr{L}$ presečno dedna lastnost relacij na $X$, tedaj za vsako relacijo $\rel$ na $X$ obstaja njena $\mathscr{L}$-ogrinjača, in sicer je enaka preseku vseh relacij na $X$, ki vsebujejo $\rel$ in imajo lastnost $\mathscr{L}$.
                 \end{trditev}
 
-                \begin{dokaz}
+                \begin{proof}
                         Naj bo $\srel$ presek vseh relacij na $X$, ki vsebujejo $\rel$ in imajo lastnost $\mathscr{L}$. Posledično je $\srel$ vsebovana v vseh relacijah na $X$ z lastnostjo $\mathscr{L}$, ki vsebujejo $\rel$. Ker je $\mathscr{L}$ presečno dedna lastnost, jo ima tudi $\srel$. Prav tako $\srel$ vsebuje $\rel$. Torej je $\srel$ $\mathscr{L}$-ogrinjača $\rel$.
-                \end{dokaz}
+                \end{proof}
 
                 Kako pa vemo, kdaj je lastnost presečno dedna? Včasih lahko to razberemo kar iz oblike logične formule, s katero je lastnost podana.
 
@@ -303,7 +303,7 @@
                         Tedaj je $\mathscr{L}$ presečno dedna lastnost in torej ima vsaka relacija na $X$ $\mathscr{L}$-ogrinjačo.
                 \end{izrek}
 
-                \begin{dokaz}
+                \begin{proof}
                         Naj bo $(\rel_i)_{i \in I}$ poljubna družina relacij na $X$ z lastnostjo $\mathscr{L}$ in naj bo $\rel \dfeq \bigcap_{i \in I} \rel_i$ njen presek. Dokazujemo, da $\mathscr{L}$ velja za $\rel$.
 
                         Vzemimo poljubne $x_1, x_2, \ldots, x_n \in X$, za katere velja $\phi(\rel, x_1, x_2, \ldots, x_n)$. Ker je $\phi(\rel, x_1, x_2, \ldots, x_n)$ konjunkcija členov oblike $\rel[x_i][x_j]$, velja tudi $\phi(\rel_i, x_1, x_2, \ldots, x_n)$ za vsak $i \in I$. Po predpostavki torej velja $\psi(\rel_i, x_1, x_2, \ldots, x_n)$ za vsak $i \in I$.
@@ -311,15 +311,15 @@
                         Vzemimo poljuben člen $\rel[x_a][x_b]$ iz $\psi(\rel, x_1, x_2, \ldots, x_n)$. Videli smo, da velja $x_a \mathrel{\rel_i} x_b$ za vsak $i \in I$, torej velja $\rel[x_a][x_b]$.
 
                         Vidimo, da pod našimi predpostavkami velja $\psi(\rel, x_1, x_2, \ldots, x_n)$. Sklenemo, da velja lastnost $\mathscr{L}$ za relacijo $\rel$.
-                \end{dokaz}
+                \end{proof}
 
                 \begin{posledica}\label{posledica:obstoj-ogrinjac}
                         Za naslednje lastnosti relacij (in njihovo poljubno konjunkcijo) vselej obstaja ogrinjača: refleksivnost, simetričnost, tranzitivnost.
                 \end{posledica}
 
-                \begin{dokaz}
+                \begin{proof}
                         Vse izmed naštetih lastnosti se po definiciji dajo zapisati v obliki iz izreka~\ref{izrek:presecna-dednost-iz-logicne-oblike}. Za njihovo konjunkcijo glej še vajo~\ref{naloga:presecna-dednost-zaprta-za-konjunkcije} in trditev~\ref{trditev:obstoj-ogrinjace-iz-presecne-dednosti}.
-                \end{dokaz}
+                \end{proof}
 
                 \begin{naloga}
                         Dokaži, da za poljubno relacijo $\rel$ na množici $X$ velja spodnja tabela!
@@ -456,7 +456,7 @@
                         \end{enumerate}
                 \end{izrek}
 
-                \begin{dokaz}
+                \begin{proof}
                         \begin{enumerate}
                                 \item
                                         \begin{implproof}{\text{\textit{a}}}{\text{\textit{b}}}
@@ -466,7 +466,7 @@
                                 \item
                         \end{enumerate}
                         \note{dokončaj dokaz}
-                \end{dokaz}
+                \end{proof}
 
                 Če je $\equ$ ekvivalenčna relacija na množici $X$, tedaj množico vseh njenih ekvivalenčnih razredov označimo z
                 \[X/_\equ \dfeq \set[1]{\ec{a}}{a \in X}\]
@@ -521,9 +521,9 @@
                         \note{diagram s tikz}
                 \end{izrek}
 
-                \begin{dokaz}
+                \begin{proof}
                         \note{napiši dokaz}
-                \end{dokaz}
+                \end{proof}
 
 
 \section{Vaje}

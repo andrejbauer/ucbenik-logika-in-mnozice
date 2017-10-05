@@ -158,7 +158,7 @@ dodati še kakšne nove zakone o množicah. Na srečo obvelja prva možnost.
   Množici $\set{1, 2}$ in $\set{2, 1}$ sta enaki.
 \end{trditev}
 
-\begin{dokaz}
+\begin{proof}
   Dokaz, ki ga bomo zapisali je izjemno podroben in ga v praksi matematik ne bi zapisal,
   saj je z njegovim branjem več dela, kot če bi naredili sami. Ker pa želimo pokazati, da
   tudi najbolj trivialna dejstva lahko dokažemo, ga zapišimo.
@@ -200,7 +200,7 @@ dodati še kakšne nove zakone o množicah. Na srečo obvelja prva možnost.
     \end{enumerate}
     %
   \end{enumerate}
-\end{dokaz}
+\end{proof}
 
 Mimogrede, črn kvadratek označuje konec dokaza. Imenuje se tudi ``Halmos'' po matematiku
 Paulu Halmosu, ki ga je prvi uporabljal. S podobnim razmislekom, ki ga prepuščamo za vajo,
@@ -735,7 +735,7 @@ snovi vsaj na začetku študija raje vztrajajo pri doslednem zapisu.
 
 Vrnimo se še k načelu ekstenzionalnosti preslikav. Ali ne pravzaprav očitno, da sta
 preslikavi enaki, če imata enaki domeni, kodomeni in vrednosti? Morda res, a to ni razlog,
-da tega ne bi eksplicitno zapisali. Vsak matematik vam pove povedati kako zgodbo o tem,
+da tega ne bi eksplicitno zapisali. Vsak matematik vam ve povedati kako zgodbo o tem,
 kako se je v dokazu skrivala napako ravno tam, kjer je bilo nekaj ``očitno''. Poleg tega
 pa si lahko predstavljamo razmere, v katerih je smiselno razlikovati med dvema
 preslikavama, ki imata vedno enake vrednosti, denimo v programiranju, kjer je učinkovitost
@@ -827,7 +827,7 @@ zelo pomembna.
 % \note{Uvod. Definicijsko območje in zaloga vrednosti \davorin{morda dodamo kot možno ime za zalogo vrednosti še prevod angleške besede `range', se pravi `razpon'?}. Zožitve (tako domene kot kodomene); oznake za to so $\rstr{f}_A$, $\rstr{f}^B$, $\rstr{f}_A^B$. Izvrednotenje (evalvacija) preslikave (če ne bomo tega pojasnili že pri eksponentih množic).}
 
 
-\section{Kartezični produkt}
+\section{Zmnožek}
 \label{sec:kartezicni-produkt}
 
 Množice lahko \df{tvorimo} ali \df{konstruiramo} iz drugih množic na različne načine. V
@@ -849,7 +849,7 @@ določajo naslednja pravila:
 %
 Najbolje je, da si postopek ogledamo na primeru.
 
-\begin{pravilo}[Tvorba kartezičnega produkta]
+\begin{pravilo}[Tvorba zmnožka]
   \label{pravilo:zmnozek-tvorba}
   Za vsaki množici $A$ in $B$ je $A \times B$ množica, ki se imenuje \df{zmnožek} ali
   \df{kartezični produkt} $A$ in $B$.
@@ -859,7 +859,7 @@ Najbolje je, da si postopek ogledamo na primeru.
 %
 Pravilo tvorbe pove, da lahko tvorimo novo množico $A \times B$, ne pove pa, kakšne
 elemente ima, kar je vsebina naslednjih dveh pravil, ki povesta, kako sestavimo in
-razstavimo elemente kartezičnega produkta.
+razstavimo elemente zmnožka.
 
 \begin{pravilo}[Vpeljava urejenih parov]
   \label{pravilo:zmnozek-vpeljava}
@@ -893,18 +893,18 @@ Nazadnje podamo še enačbe.
 Računsko pravilo se tako imenuje, ker lahko z njim poenostavljamo izraze, drugo pa je
 načelo ekstenzionalnosti, ker pravi, da je urejeni par določen s prvo in drugo projekcijo.
 
-Malo bolj naivna konstrukcija kartezičnega produkta bi se glasila takole: kartezični
-produkt $A \times B$ je množica vseh urejenih parov $(a, b)$, kjer je $a \in A$ in
-$b \in B$. A taka konstrukcija ni popolna, saj ne pove, kaj lahko z urejenim parom
-počnemo. Kako naj vemo, da iz $(a, b)$ lahko izluščimo $a$ in $b$? Da zgornja pravila
-kartezični produkt res natančno določajo, izpeljimi iz njih nekaj osnovnih lastnosti
-urejenih parov in kartezičnih produktov.
+Malo bolj naivna konstrukcija zmnožka bi se glasila takole: kartezični produkt
+$A \times B$ je množica vseh urejenih parov $(a, b)$, kjer je $a \in A$ in $b \in B$. A
+taka konstrukcija ni popolna, saj ne pove, kaj lahko z urejenim parom počnemo. Kako naj
+vemo, da iz $(a, b)$ lahko izluščimo $a$ in $b$, in kako preverimo, ali sta dva urejena
+para enaka? Če takih zadev ne določimo, bi lahko kdo mislil, da je urejeni par kaka druga
+neželena operacija, seštevanje, unija, ali kdovekaj se mota po človeških glavah.
 
 \begin{trditev}
   Vsi elementi kartezičnega produkta so urejeni pari.
 \end{trditev}
 
-\begin{dokaz}
+\begin{proof}
   Ali je trditev sploh treba dokazovati? Vsekakor, saj pravila govorijo le o tem, da
   urejeni pari so elementi kartezičnega produkta, ne pa tudi, da so to edini elementi.
   Spet bomo napisali zelo podroben dokaz.
@@ -929,15 +929,15 @@ urejenih parov in kartezičnih produktov.
   Prav tako velja druga enačba:
   %
   \begin{equation*}
-    \snd(a,b) = \snd(\fst(p), \snd(p)) = \snd(p) = b.
-    \qedhere
+    \snd(a,b) = \snd(\fst(p), \snd(p)) = \snd(p) = b. \qedhere
   \end{equation*}
   %
-\end{dokaz}
+\end{proof}
 
 Tako podrobne dokaze je težko brati, bolje bi bilo, če bi jih preverili kar z
 računalnikom. Bistvo dokaza bi lahko izrazili z eno samo opazko: vsak element
-$p \in A \times B$ je urejenei par, namreč $p = (\fst(p), \snd(p))$.
+$p \in A \times B$ je urejeni par, namreč $p = (\fst(p), \snd(p))$.
+
 
 
 
