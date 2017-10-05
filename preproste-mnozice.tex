@@ -661,7 +661,7 @@ Se vam zdi tak zapis nenavaden? Verjetno, a pomislite, zakaj je tako: ker običa
 preslikave poimenujemo in se nanje vedno sklicujemo z njihovim imenom. Prav nobenega
 razloga ni, da ne bi s funkcijskimi predpisi delali tako, kot s števili, vektorji in
 ostalimi matematičnimi objekti, na katere smo že navajeni. Računalničarji radi rečejo, da
-je treba tudi preslikave obravnavati kot ``enakopravne državljane''. Pravi imajo, zato
+je treba tudi preslikave obravnavati kot ``enakopravne državljane''. Prav imajo, zato
 bomo vadili uporabo funkcijskih predpisov ter z njimi delali, kot da niso nič posebnega,
 saj niso!
 
@@ -733,7 +733,7 @@ pisanju nebistvenih podrobnosti in lahko bistveno izboljšamo komunikacijo in ra
 med izkušenimi matematiki. A začetnikom priporočamo, da v dobrobit boljšega razumevanja
 snovi vsaj na začetku študija raje vztrajajo pri doslednem zapisu.
 
-Vrnimo se še k načelu ekstenzionalnosti preslikav. Ali ne pravzaprav očitno, da sta
+Vrnimo se še k načelu ekstenzionalnosti preslikav. Ali ni pravzaprav očitno, da sta
 preslikavi enaki, če imata enaki domeni, kodomeni in vrednosti? Morda res, a to ni razlog,
 da tega ne bi eksplicitno zapisali. Vsak matematik vam ve povedati kako zgodbo o tem,
 kako se je v dokazu skrivala napako ravno tam, kjer je bilo nekaj ``očitno''. Poleg tega
@@ -828,11 +828,11 @@ zelo pomembna.
 
 
 \section{Zmnožek}
-\label{sec:kartezicni-produkt}
+\label{sec:zmnozek}
 
 Množice lahko \df{tvorimo} ali \df{konstruiramo} iz drugih množic na različne načine. V
 tem poglavju bomo spoznali tri osnovne konstrukcije, ostale pa kasneje, ko bomo že nekaj
-vedeli o logiki. Najprej obravnavajmo kartezični produkt ali zmnožek množic.
+vedeli o logiki. Najprej obravnavajmo zmnožek ali kartezični produkt.
 
 Takoj se zastavi vprašanje, kako sploh opisati novo konstrukcijo množic. Načelo
 ekstenzionalnosti pove, da je množica opredeljena s svojimi elementi. Torej moramo
@@ -843,8 +843,8 @@ določajo naslednja pravila:
 \begin{enumerate}
 \item pravilo \df{tvorbe}, ki vpelje novo množico,
 \item pravila \df{vpeljave} elementov, ki podajo operacije, s katerimi gradimo elemente,
-\item pravila \df{uporabe}, ki podajo opreacije, s katerimi razgradimo elemente,
-\item \df{enačbe}, ki veljajo med temi operacijami.
+\item pravila \df{uporabe}, ki podajo opreacije, s katerimi razgradimo ali uporabimo elemente,
+\item \df{enačbe}, ki opredeljujejo zakonitosti, ki veljajo za operacije vpeljave in uporabe.
 \end{enumerate}
 %
 Najbolje je, da si postopek ogledamo na primeru.
@@ -858,7 +858,7 @@ Najbolje je, da si postopek ogledamo na primeru.
 \noindent
 %
 Pravilo tvorbe pove, da lahko tvorimo novo množico $A \times B$, ne pove pa, kakšne
-elemente ima, kar je vsebina naslednjih dveh pravil, ki povesta, kako sestavimo in
+elemente ima. To je vsebina naslednjih dveh pravil, ki povesta, kako sestavimo in
 razstavimo elemente zmnožka.
 
 \begin{pravilo}[Vpeljava urejenih parov]
@@ -1045,11 +1045,22 @@ $p \in A \times B$ je urejeni par, namreč $p = (\fst(p), \snd(p))$.
 % \end{zgled}
 
 
-% \section{Vaje}
+\section{Vaje}
 
-% \begin{vaja}
-%   Kaj veste povedati o množici $A$, če zanjo velja, da so vsi njeni elementi enaki?
-% \end{vaja}
+\begin{vaja}
+  Kaj veste povedati o množici $A$, če zanjo velja, da so vsi njeni elementi enaki?
+\end{vaja}
+
+\begin{vaja}
+  Načelo ekstenzionalnosti preslikav bi lahko zapisali tudi takole:
+  %
+  \begin{quote}
+    Preslikavi $f : A \to B$ in $g : C \to D$ sta enaki, če velja $A = C$, $B = D$ in za
+    vse $x_1, x_2 \in A$ velja, da iz $x_1 = x_2$ sledi $f(x_1) = g(x_2)$.
+  \end{quote}
+  %
+  Dokažite, da je ta različica enakovredna običajnem načelu ekstenzionalnosti.
+\end{vaja}
 
 
 %%% Local Variables:
