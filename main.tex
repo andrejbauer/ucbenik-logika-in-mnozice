@@ -1,9 +1,6 @@
 %% TO NI GLAVNA DATOTEKA
 \documentclass[11pt,a4paper,twoside]{book}
 
-%%% Globalne nastavitve
-\def\OPTtitle{Logika in množice}
-
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%  Imported Packages
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -48,6 +45,10 @@
 \usepackage[scaled=0.95]{helvet}
 \usepackage{courier}
 \linespread{1.05} % Palatino looks better with this
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% Globalne nastavitve
+\def\OPTtitle{Logika in množice}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%  Page Style & Margins (A4 page = 210mm x 297mm)
@@ -137,7 +138,6 @@
 %--------------------------------------------------------------------
 % BODY
 
-\input{razlaga-makrojev.tex}
 \input{matematicno-izrazanje.tex}
 \input{preproste-mnozice.tex}
 
@@ -155,6 +155,8 @@
 \input{kumulativna-hierarhija.tex}
 \input{kardinalna-stevila.tex}
 \input{ordinalna-stevila.tex}
+\appendix
+\input{razlaga-makrojev.tex}
 \else
 \fi
 
