@@ -979,8 +979,61 @@ pravilo, princip ekstenzionalnosti pa bi bil tudi podoben tistemu za urejene par
 Podorobnosti prepustimo za vajo.
 
 
-% \section{Vsota}
-% \label{sec:vsota}
+\section{Vsota}
+\label{sec:vsota}
+
+Včasih boste spoznali novo matematično idejo neposredno s pravili, brez posebne razlage
+ali spremnega besedila, ki bi pomagalo vaši domišljiji. To se pogosto zgodi v matematičnih
+besedilih, ki so namenjena izkušenim matematikom, čeprav je treba priznati, da izkušenost
+ne more nadomestiti dobre razlage. Kakorkoli že, spoznajmo naslednjo konstrukcijo tako, da
+najprej povemo pravila, nato pa bomo iz njih poskusili izluščiti razlago.
+
+\begin{pravilo}
+  \label{vsota:tvorba}
+  Za vsaki množici $A$ in $B$ je $A + B$ množica, ki se imenuje \df{vsota} ali
+  \df{koprodukt} množic $A$ in $B$.
+\end{pravilo}
+
+\begin{pravilo}
+  \label{vsota:vpeljava}
+  Za vsaki množici $A$ in $B$ ter za vsaka $a \in A$ in $b \in B$, je $\inl(a) \in A + B$
+  in $\inr(b) \in A + B$.
+\end{pravilo}
+
+\begin{pravilo}
+  \label{vsota:uporaba}
+  Za vsaki množici $A$ in $B$ in za vsak $u \in A + B$, bodisi obstaja $a \in A$, da
+  je $u = \inl(a)$, bodisi obstaja tak $b \in B$, da je $u = \inr(b)$.
+\end{pravilo}
+
+\begin{pravilo}
+  \label{vsota:inl-injektivna}
+  Za vsaki množici $A$ in $B$ in za vsaka $a_1, a_2 \in A$, če je $\inl(a_1) = \inl(a_2)$,
+  potem $a_1 = a_2$.
+\end{pravilo}
+
+\begin{pravilo}
+  \label{vsota:inr-injektivna}
+  Za vsaki množici $A$ in $B$ in za vsaka $b_1, b_2 \in B$, če je $\inr(b_1) = \inr(b_2)$,
+  potem $b_1 = b_2$.
+\end{pravilo}
+
+\begin{pravilo}
+  \label{vsota:ekstenzionalnost}
+  Za vsaki množici $A$ in $B$ in za vsaka $u, v \in A + B$, če velja $u = v$, potem bodisi
+  obstaja $a \in A$, da je $u = \inl(a) = v$, bodisi obstaja $b \in B$, da je
+  $u = \inr(b) = v$.
+\end{pravilo}
+
+
+
+\begin{pravilo}
+  \label{vsota:}
+\end{pravilo}
+
+\begin{pravilo}
+  \label{vsota:}
+\end{pravilo}
 
 
 
