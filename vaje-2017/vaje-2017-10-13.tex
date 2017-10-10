@@ -61,9 +61,46 @@
 \end{vaja}
 
 \begin{vaja}
-  Vaja iz razumevanja simbolnega zapisa.
+Naslednje izjave zapiši v simbolni obliki z uporabo $+$, $\cdot$ in $=$.
+ \begin{enumerate}
+ \item Naravno število $n$ je popoln kvadrat. % \\ \mbox{} \hfill {\small $\exists m \in \mathbb{N}: n = m^2$}
+ \item Naravno število $a$ deli naravno število $b$.  % \\ \mbox{} \hfill {\small $\exists k \in \mathbb{N}: b = ak$}
+ \item Naravno število $n$ je praštevilo. %\\ \mbox{} \hfill {\small $\lnot \exists m,k \in \mathbb{N}: m > 1 \wedge k > 1 \wedge n > 1 \wedge n = mk$ ali $n > 1 \wedge \lnot \exists a,b \in \mathbb{N}: n = (a+1)(b+1)$}
+  \item Naravno število $n$ ni potenca naravnega števila. % \\ \mbox{} \hfill \small{$\lnot \exists m,k \in \mathbb{N}:  k > 1 \wedge n = m^k$ ali $\forall m,k \in \mathbb{N}. k > 1 \implies n \neq m^k$}
+  \item Naravno število $c$ je največji skupni delitelj naravnih števil $a$ in $b$. % \\ \mbox{} \hfill {\small $c | a \wedge c | b \wedge (\forall d \in \mathbb{N}: (d | a \wedge d | b) \implies d | c)$}
+ 
+\end{enumerate}
 \end{vaja}
 
+\begin{vaja}
+Razložite pomen naslednjih matematičnih izjav.
+\begin{enumerate}
+ \item $\exists y \in \mathbb{R}\,\ \forall x \in \mathbb{R}:  f(x) \leq y$, kjer je $f \colon \mathbb{R} \to \mathbb{R}$ realna funkcija.
+ \item $\forall x \in \mathbb{R}\,\ \exists y \in \mathbb{R}:  f(x) \leq y$, kjer je $f \colon \mathbb{R} \to \mathbb{R}$ realna funkcija.
+ \end{enumerate}
+\end{vaja}
+
+\newcommand{\rad}{\mathrel{\heartsuit}}
+\begin{vaja}
+Dana naj bo množica oseb~$\mathbb{O}$. Naj $a \rad b$ pomeni, da ima oseba $a$ rada osebo $b$.
+Razložite pomen naslednjih izjav.
+\begin{enumerate}
+\item $\exists x \in \mathbb{O}\,\ \forall y \in \mathbb{O}: x \rad y$
+\item $\forall x \in \mathbb{O}\,\ \exists y \in \mathbb{O}: x \rad x$
+\item $\lnot \forall a \in \mathbb{O}\,\ \exists b \in \mathbb{O}:  a \rad b$
+\item $\exists a \in \mathbb{O}\,\ \exists b \in \mathbb{O}: a \not\rad b$
+\item $\exists a \in \mathbb{O}\,\ \forall b \in \mathbb{O}: a \not\rad b$
+\item $\lnot \forall y \in \mathbb{O}: a \rad y$
+\item $\exists y \in \mathbb{O}: a \not\rad y$
+\item $\lnot \exists a \in \mathbb{O}\,\ \exists b \in \mathbb{O}: a \rad b$
+\item $\lnot \forall a \in \mathbb{O}\,\ \forall b \in \mathbb{O}: a \rad b$
+\item $\forall b \in \mathbb{O}: a \not\rad b$
+\item $\exists a \in \mathbb{O}: \lnot \forall b \in \mathbb{O}:  a \rad b$
+\item $\lnot \exists a \in \mathbb{O}\,\ \forall b \in \mathbb{O}: a \rad b$
+\item $\lnot \exists b \in \mathbb{O}: a \rad b$
+\item $\forall a \in \mathbb{O}\,\ \forall b \in \mathbb{O}:  a \not\rad b$
+\end{enumerate}
+\end{vaja}
 
 
 \end{document}
