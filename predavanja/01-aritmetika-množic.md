@@ -54,22 +54,24 @@
 
 Aritmetična pravila:
 
- 1. A + ∅ ≅ A
- 2. A + B ≅ B + A
- 3. (A + B) + C ≅ A + (B + C)
+1.  A + ∅ ≅ A
+2.  A + B ≅ B + A
+3.  (A + B) + C ≅ A + (B + C)
 
- 4. A × 1 ≅ A
- 5. A × B ≅ B × A
- 6. (A × B) × C ≅ A × (B × C)
+4.  A × 1 ≅ A
+5.  A × B ≅ B × A
+6.  (A × B) × C ≅ A × (B × C)
 
- 7. A × (B + C) ≅ A × B + A × C
- 8. A × ∅ ≅ ∅
+7.  A × (B + C) ≅ A × B + A × C
+8.  A × ∅ ≅ ∅
 
- 9. A^∅ ≅ 1
-10. A¹ ≅ A
-11. ∅ᴬ ≅ ∅ če A ≠ ∅
-12. A^(B × C) ≅ (A^B)^C
-13. A^(B + C) ≅ A^B × A^C
+9.  A¹ ≅ A
+10. 1ᴬ ≅ 1
+11. A^∅ ≅ 1
+12. ∅ᴬ ≅ ∅ če A ≠ ∅
+13. A^(B × C) ≅ (A^B)^C
+14. A^(B + C) ≅ A^B × A^C
+15. (A × B)^C ≅ A^C × B^C
 
 Na predavanjih naredimo: 5, 3, 9, 10, 12
 

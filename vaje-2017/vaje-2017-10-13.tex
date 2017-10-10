@@ -1,0 +1,69 @@
+\documentclass{article}
+
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{xparse}
+
+\usepackage[slovene]{babel}
+
+\newcommand{\RR}{\mathbb{R}}
+
+%\input{../macros.tex}
+{
+\theoremstyle{definition}
+\newtheorem{vaja}{Vaja}
+}
+
+
+\begin{document}
+
+\title{Logika in množice -- vaje}
+\date{13.~10.~2017}
+\maketitle
+
+\begin{vaja}
+  Preverite, da velja $(B \times C)^A \cong B^A \times C^A$.
+\end{vaja}
+
+\begin{vaja}
+  Definirajmo preslikavo $\min : \RR \times \RR \to \RR$ s funkcijskim predpisom
+  %
+  \begin{equation*}
+    \min : (x, y) \mapsto
+    \begin{cases}
+      x & \text{če $x \leq y$,} \\
+      y & \text{če $y \leq x$.}
+    \end{cases}
+  \end{equation*}
+  %
+  V funkcijski predpis za~$\min$ vstavite argument $(\pi, \sqrt[3]{31})$ in izračunajte
+  rezultat.
+\end{vaja}
+
+\begin{vaja}
+  Definirajmo preslikavo:
+  %
+  \begin{align*}
+    \RR^\RR &\to \RR \\
+    f &\mapsto \min (f(0), f(1)).
+  \end{align*}
+  %
+  V ta funkcijski predpis vstavite argument
+  %
+  \begin{align*}
+    \RR &\to \RR \\
+    x &\mapsto 3 - 2 \cdot x
+  \end{align*}
+  %
+  in izračunajte rezultat.
+\end{vaja}
+
+\begin{vaja}
+  Vaja iz razumevanja simbolnega zapisa.
+\end{vaja}
+
+
+
+\end{document}
