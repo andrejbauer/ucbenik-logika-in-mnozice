@@ -982,83 +982,123 @@ Podorobnosti prepustimo za vajo.
 \section{Vsota}
 \label{sec:vsota}
 
-Včasih boste spoznali novo matematično idejo neposredno s pravili, brez posebne razlage
-ali spremnega besedila, ki bi pomagalo vaši domišljiji. To se pogosto zgodi v matematičnih
-besedilih, ki so namenjena izkušenim matematikom, čeprav je treba priznati, da izkušenost
-ne more nadomestiti dobre razlage. Kakorkoli že, spoznajmo naslednjo konstrukcijo tako, da
-najprej povemo pravila, nato pa bomo iz njih poskusili izluščiti razlago.
+Spoznali smo že unijo $A \cup B$ množic $A$ in $B$, ki vsebuje tiste elemente, ki so v $A$
+ali v $B$. Če imata $A$ in $B$ skupne elemente, bodo ti v uniji seveda nastopili samo
+enkrat. V skranjem primeru dobimo $A \cup A = A$. Včasih pa želimo združiti množici tako,
+da ne pride do prekrivanja. Taka konstrukcija je \df{vsota} $A + B$ množic $A$ in $B$.
+Prekrivanje preprečimo tako, da elemente, ki jih je prispevala~$A$ označimo z eno oznako,
+tiste, ki jih je prispevala~$B$, pa z drugo.
 
-\begin{pravilo}
+\begin{pravilo}[Vsota]
   \label{vsota:tvorba}
   Za vsaki množici $A$ in $B$ je $A + B$ množica, ki se imenuje \df{vsota} ali
   \df{koprodukt} množic $A$ in $B$.
 \end{pravilo}
 
-\begin{pravilo}
+\begin{pravilo}[Vpeljava elementov vsote]
   \label{vsota:vpeljava}
-  Za vsaki množici $A$ in $B$ ter za vsaka $a \in A$ in $b \in B$, je $\inl(a) \in A + B$
-  in $\inr(b) \in A + B$.
+  Za vsaki množici $A$ in $B$ velja:
+  %
+  \begin{enumerate}
+  \item za vsak $a \in A$ je $\inl(a) \in A + B$,
+  \item za vsak $b \in B$ je $\inr(b) \in A + B$.
+  \end{enumerate}
 \end{pravilo}
+
+S pravilom vpeljave smo pojasnili, da uporabljamo oznaki $\inl$ in $\inr$, prvo za
+elemente iz~$A$ in drugo za elemente iz~$B$. Oznakama pravimo tudi
+\df{injekciji}\footnote{Pravzaprav niti ni pomembno, kako poimenujemo oznaki, da sta le
+  različni. V funkcijskem programiranju, kjer poznamo vsote podatkovnih tipov, programer
+  sam določi, kakšne oznake bo uporabljal za injekcije.} in sta preslikavi
+%
+\begin{equation*}
+  \iota_1 : A \to A + B
+  \qquad\text{and}\qquad
+  \iota_2 : N \to A + B.
+\end{equation*}
+%
+Kadar imamo opravka z večimi vsotami, na primer $A + B$ in $C + D$, bi lahko prišlo do
+zmede glede oznak. Takrat injekcije opremimo še z dodatnimi oznakami množic, da razločimo
+injekciji $\inl[A][B] : A \to A + B$ in $\inl[C][D] : C \to C + D$, in podobno za~$\inr$.
+
+Potrebujemo še pravili za uporabo in enakost elementov vsote, ki ju združimo v eno samo
+pravilo.
 
 \begin{pravilo}
   \label{vsota:uporaba}
-  Za vsaki množici $A$ in $B$ in za vsak $u \in A + B$, bodisi obstaja $a \in A$, da
-  je $u = \inl(a)$, bodisi obstaja tak $b \in B$, da je $u = \inr(b)$.
+  Za vsaki množici $A$ in $B$ in za vsak $u \in A + B$, bodisi obstaja natanko en
+  $a \in A$, da je $u = \inl(a)$, bodisi obstaja natanko en $b \in B$, da je
+  $u = \inr(b)$.
 \end{pravilo}
 
-\begin{pravilo}
-  \label{vsota:inl-injektivna}
-  Za vsaki množici $A$ in $B$ in za vsaka $a_1, a_2 \in A$, če je $\inl(a_1) = \inl(a_2)$,
-  potem $a_1 = a_2$.
-\end{pravilo}
+Fraza ``bodisi \dots bodisi'' pomeni, da je vsak element $u \in A + B$ enak $\inl(a)$
+za natanko en $a \in A$ ali $\inr(b)$ za natanko en $b \in B$, ne more pa se zgoditi oboje
+hkrati ali nič od tega. Torej $\inl(a) = \inr(b)$ ne drži in celo v primeru, ko je
+$A = B$ in $a = b$, je $\inl(a) \neq \inr(b)$. S tem smo v $A + B$ res ločili elemente $A$
+od elementov $B$.
+%
+Fraza ``natanko en'' pove, da iz $u = \inl(a_1)$ in $u = \inl(a_2)$ sledi $a_1 = a_2$.
+Povedano drugače, če velja $\inl(a_1) = \inl(a_2)$, potem je $a_1 = a_2$. Podobno iz
+$\inr(b_1) = \inr(b_2)$ sledi $b_1 = b_2$.
+%
+Podajmo prepost primer, ki verjetno marsikaj pojasni:
+%
+\begin{equation*}
+  \set{a, b, c} + \set{a, d, e} =
+  \set{\inl(a), \inl(b), \inl(c), \inr(a), \inr(d), \inr(e)}.
+\end{equation*}
 
-\begin{pravilo}
-  \label{vsota:inr-injektivna}
-  Za vsaki množici $A$ in $B$ in za vsaka $b_1, b_2 \in B$, če je $\inr(b_1) = \inr(b_2)$,
-  potem $b_1 = b_2$.
-\end{pravilo}
+Kako definiramo preslikavo $A + B \to C$? Ker je vsak element domene $A + B$ bodisi
+$\inl(a)$ za neki $a \in A$ bodisi $\inr(b)$ za neki $b \in B$, \emph{obravnavamo oba
+  primera}. Tako funkcijski zapis za preslikavo $A + B \to C$ zapišemo kot
+%
+\begin{equation*}
+  u \mapsto
+  \begin{cases}
+    \cdots a \cdots & \text{če $u = \inl(a)$,}\\
+    \cdots b \cdots & \text{če $u = \inr(b)$,}
+  \end{cases}
+\end{equation*}
+%
+kjer smemo v $\cdots a \cdots$ zapisati izraz, ki vsebuje simbol~$a$, in v
+$\cdots b \cdots$ izraz, ki vsebuje simbol~$b$. Ker je tak zapis nekoliko neroden, se
+dogovorimo, da ga lahko zapišemo tudi s \emph{večdelnim} funkcijskim predpisom:
+%
+\begin{align*}
+  \inl(a) &\mapsto \cdots a \cdots, \\
+  \inr(b) &\mapsto \cdots b \cdots.
+\end{align*}
+%
+Če želimo preslikavo poimenovati, zapišemo
+%
+\begin{align*}
+  f &: A + B \to C, \\
+  f(\inl(a)) &= \cdots a \cdots \\
+  f(\inr(b)) &= \cdots b \cdots.
+\end{align*}
+%
+Vsi ti zapisi res določajo celovito in enolično prirejanje, saj nam pravila za vsoto
+zagotavljajo, da vedno obvelja natanko en primer. Na sploh lahko podamo funkcijski zapis z
+večimi primeri, če le pazimo, da obravnavamo vse možnosti, in da se le-te ne prekrivajo.
+Na primer, predpis
+%
+\begin{align*}
+  (A + B) \times C &\to B + A \\
+  (\inl[A][B](a), c) &\mapsto \inr[B][A](a) \\
+  (\inr[A][B](b), c) &\mapsto \inl[B][A](b)
+\end{align*}
+%
+je celovit in enoličen, medtem ko predpis
+%
+\begin{align*}
+  (A \times A) + B &\to A \\
+  \inl(a_1, a_2) &\mapsto a_2
+\end{align*}
+%
+ni veljaven, ker ni celovit, saj manjka primer $\inr(b) \mapsto \cdots$.
 
-\begin{pravilo}
-  \label{vsota:ekstenzionalnost}
-  Za vsaki množici $A$ in $B$ in za vsaka $u, v \in A + B$, če velja $u = v$, potem bodisi
-  obstaja $a \in A$, da je $u = \inl(a) = v$, bodisi obstaja $b \in B$, da je
-  $u = \inr(b) = v$.
-\end{pravilo}
-
-
-
-\begin{pravilo}
-  \label{vsota:}
-\end{pravilo}
-
-\begin{pravilo}
-  \label{vsota:}
-\end{pravilo}
-
-
-
-% Vsota množic, pri čemer vpeljemo primitivne oznake za injekcije (kar je dosti bolj
-% smiselno, kot da vedno uporabljamo $\inl$ in $\inr$). Kadar smo leni, uporabljamo $\inl$
-% in $\inr$.
-
-% Elementi $A + A$. Kasneje bomo spoznali tudi operacijo unija, ki jo tudi že poznamo.
-
-% Pravila za vsoto množic. Notacija za preslikave, definirane na vsoti, $f : A + B \to C$:
-% %
-% \begin{align*}
-%   f(\inl(x)) &= \cdots x \cdots \\
-%   f(\inr(y)) &= \cdots y \cdots
-% \end{align*}
-% %
-% in tudi
-% %
-% \begin{align*}
-%   f(z) =
-%   \begin{cases}
-%     \cdots x \cdots & \text{če $z = \inl(x)$,} \\
-%     \cdots y \cdots & \text{če $z = \inl(y)$.}
-%   \end{cases}
-% \end{align*}
+Poleg vsote dveh množic bi lahko tvorili zmnožek treh ali več množic. Pravila bi bila
+podobna, le da bi imeli več injekcij in več primerov.
 
 % \section{Eksponent}
 % \label{sec:eksponent}
