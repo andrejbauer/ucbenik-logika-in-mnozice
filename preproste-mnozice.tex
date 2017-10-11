@@ -1100,10 +1100,34 @@ ni veljaven, ker ni celovit, saj manjka primer $\inr(b) \mapsto \cdots$.
 Poleg vsote dveh množic bi lahko tvorili zmnožek treh ali več množic. Pravila bi bila
 podobna, le da bi imeli več injekcij in več primerov.
 
-% \section{Eksponent}
-% \label{sec:eksponent}
+\section{Eksponent}
+\label{sec:eksponent}
 
+Denimo, da sta $A$ in $B$ množici. Tedaj lahko obravnavamo preslikave
+%
+\begin{equation*}
+  A \to B
+\end{equation*}
+%
+z domeno $A$ in kodomeno $B$. Ali vse take preslikave tvorijo množico? Russellov paradoks
+nas je izučil, da moramo pazljivo postaviti pravila za konstrukcije množic, nato pa jih
+strogo držati. Pravila, ki smo jih podali do sedaj, ne zagotavljajo knostrukcije množic
+vseh preslikav iz $A$ v $B$. Potrebujemo novo pravilo.
 
+\begin{pravilo}[Eksponentna množica]
+  Za vsaki množici $A$ in $B$ ima \df{eksponentna množica $B^A$} za elemente natanko vse
+  preslikave iz~$A$ v~$B$.
+\end{pravilo}
+
+Potemtakem je zapis $f : A \to B$ enakovreden zapisu $f \in B^A$.
+
+Pravila, ki opredeljujejo elemente množice $B^A$ smo že spoznali. Pravilo vpeljave pravi,
+da je funkcija podana z domeno, kodomeno ter celovitim in enoličnim prirejanjem med njima.
+Pravilo uporabe je kar uporaba funkcije na argumentu: če je $f \in B^A$ in $a \in A$,
+lahko tvorimo $f(a) \in B$. Tudi računsko pravilo za preslikave smo že spoznali, saj je to
+kar pravilo zamenjave: funkcijski predpis uporabimo na argumentu tako, da vezano
+spremenljivko v predpisu zamenjamo z argumentom. Ekstenzionalnost preslikav pove, kdaj sta
+dve preslikavi enaki.
 
 % Zapis funkcijskega predpisa na razne načine.
 % \note{Tj.~anonimne oz.~čiste funkcije. Na tem mestu pride tudi $\lambda$-notacija in določena mera $\lambda$-računa.}
