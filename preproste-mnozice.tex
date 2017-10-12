@@ -1114,51 +1114,156 @@ nas je izučil, da moramo pazljivo postaviti pravila za konstrukcije množic, na
 strogo držati. Pravila, ki smo jih podali do sedaj, ne zagotavljajo knostrukcije množic
 vseh preslikav iz $A$ v $B$. Potrebujemo novo pravilo.
 
-\begin{pravilo}[Eksponentna množica]
-  Za vsaki množici $A$ in $B$ ima \df{eksponentna množica $B^A$} za elemente natanko vse
-  preslikave iz~$A$ v~$B$.
+\begin{pravilo}[Eksponent]
+  Za vsaki množici $A$ in $B$ ima \df{eksponent} ali \df{eksponentna množica $B^A$} za
+  elemente natanko vse preslikave iz~$A$ v~$B$.
 \end{pravilo}
 
 Potemtakem je zapis $f : A \to B$ enakovreden zapisu $f \in B^A$.
 
 Pravila, ki opredeljujejo elemente množice $B^A$ smo že spoznali. Pravilo vpeljave pravi,
-da je funkcija podana z domeno, kodomeno ter celovitim in enoličnim prirejanjem med njima.
-Pravilo uporabe je kar uporaba funkcije na argumentu: če je $f \in B^A$ in $a \in A$,
-lahko tvorimo $f(a) \in B$. Tudi računsko pravilo za preslikave smo že spoznali, saj je to
-kar pravilo zamenjave: funkcijski predpis uporabimo na argumentu tako, da vezano
-spremenljivko v predpisu zamenjamo z argumentom. Ekstenzionalnost preslikav pove, kdaj sta
-dve preslikavi enaki.
+da je preslikava podana z domeno, kodomeno ter celovitim in enoličnim prirejanjem med
+njima. Pravilo uporabe je kar aplikacija: če je $f \in B^A$ in $a \in A$, lahko tvorimo
+$f(a) \in B$. Tudi računsko pravilo za preslikave smo že spoznali, saj je to kar pravilo
+zamenjave: funkcijski predpis uporabimo na argumentu tako, da vezano spremenljivko v
+predpisu zamenjamo z argumentom. In ekstenzionalnost preslikav pove, kdaj sta dve
+preslikavi enaki.
 
-% Zapis funkcijskega predpisa na razne načine.
-% \note{Tj.~anonimne oz.~čiste funkcije. Na tem mestu pride tudi $\lambda$-notacija in določena mera $\lambda$-računa.}
+Preslikavi, ki sprejme kot argument preslikavo, pravimo \df{funkcional} ali \df{preslikava
+  višjega reda}. Primer take preslikave je \df{kompozicija}:
+%
+\begin{align*}
+  {\circ} &: C^B \times B^A \to C^A \\
+  {\circ} &: (g, f) \mapsto (x \mapsto g(f(x))).
+\end{align*}
+%
+Pišemo jo kot operacijo, torej $g \circ f$ namesto ${\circ}(g, f)$. V zgornjem zapisu smo
+uporabili eksponente, a v tem primeru je bolj pregleden diagram:
+%
+\begin{equation*}
+  \xymatrix{
+    {A}
+    \ar[r]^{f}
+    \ar@/_2ex/[rr]_{g \circ f}
+    &
+    {B}
+    \ar[r]^{g}
+    &
+    {C}
+  }
+\end{equation*}
+%
+Zakaj smo $\circ$ definirali tako, da kompozicijo $f$ in $g$ pišemo $g \circ f$ namesto $f \circ g$? Ker si je mnogo lažje zapomniti računsko pravilo
+%
+\begin{equation*}
+  (g \circ f)(x) = g(f(x)),
+\end{equation*}
+%
+ki velja z našo definicijo, kot pa $(f \circ g)(x) = g(f(x))$, kar bi veljalo, če bi
+zamenjali vlogi~$f$ in~$g$.
 
-% Aplikacija kot operacija.
+Kompozicijo smo zapisali z \emph{vgnezdenim} funkcijskim predpisom, ki argumentu priredi
+preslikavo, ki je spet podana s funkcijskim predpisom. V splošnem je vgnezdeni funkcijski
+predpis oblike
+%
+\begin{align*}
+  A &\mapsto C^B \\
+  a &\mapsto (b \mapsto \cdots),
+\end{align*}
+%
+kjer se lahko v $\cdots$ pojavita~$a$ in~$b$. Na tak zapis se je treba navaditi, a je zelo
+prikladen, še posebej v funkcijskem programiranju. V matematiki ni zelo pogost, a mi se ga
+ne bomo bali.
 
-% Eksponent kot množica vseh preslikav. Pravila za eksponent: kako naredimo elemente
-% eksponenta in kako jih uporabimo. Enačbe ($\beta$ in ekstenzionalnost).
+Pri računanju s preslikavami višjega reda včasih hkrati obravnavamo več funkicjskih
+predpisov in lahko pride do zmede, če za vse uporabimo isto vezano spremenljivko. Na
+primer, kompozitum preslikav
+%
+\begin{equation*}
+  \begin{aligned}
+    \RR &\to \RR \\
+    x &\mapsto x^2 - 4
+  \end{aligned}
+  %
+  \qquad\text{in}\qquad
+  %
+  \begin{aligned}
+    \RR &\to \RR \\
+    x &\mapsto 2 - x
+  \end{aligned}
+\end{equation*}
+%
+bi lahko izračunali takole:
+%
+\begin{align*}
+  (x \mapsto x^2  - 4) \circ (x \mapsto 2 - x)
+  &= (x \mapsto (x \mapsto x^2 - 4) ((x \mapsto 2 - x) x)) \\
+  &= (x \mapsto (x \mapsto x^2 - 4) (2 - x)) \\
+  &= (x \mapsto (2 - x)^2 - 4) \\
+  &= (x \mapsto x^2 - 4 x).
+\end{align*}
+%
+Tu imamo tri pojavitve $x$, ki bi jih morali ločiti, ker vsaka nastopa kot vezana
+spremenljivka v svojem funkcijskem predpisu. Še posebej nejasen je računski korak
+$(x \mapsto (x \mapsto x^2 - 4) (2 - x)) = (x \mapsto (2 - x)^2 - 4)$, ko vezano
+spremenljivko~$x$ v funkcijskem predpisu zamenjamo z izrazom $2 - x$, ki tudi vsebuje~$x$.
+To sta dva različna $x$-a! Spomnimo se, da lahko vezane spremenljivke vedno preminujemo.
+Ponovimo račun, a tokrat tako, da imajo različni funkcijski predpisi različne vezane
+spremenljivke. Kompozitum
+%
+\begin{equation*}
+  \begin{aligned}
+    \RR &\to \RR \\
+    y &\mapsto y^2 - 4
+  \end{aligned}
+  %
+  \qquad\text{in}\qquad
+  %
+  \begin{aligned}
+    \RR &\to \RR \\
+    z &\mapsto 2 - z
+  \end{aligned}
+\end{equation*}
+%
+izračunamo takole:
+%
+\begin{align*}
+  (y \mapsto y^2  - 4) \circ (z \mapsto 2 - z)
+  &= (x \mapsto (y \mapsto y^2 - 4) ((z \mapsto 2 - z) x)) \\
+  &= (x \mapsto (y \mapsto y^2 - 4) (2 - x)) \\
+  &= (x \mapsto (2 - x)^2 - 4) \\
+  &= (x \mapsto x^2 - 4 x).
+\end{align*}
+%
+To je dosti bolj pregledno. Da ne bo prihajalo do zapletov z vezanimi spremenljivkami, se
+dogovorimo: \emph{kadar imamo opravka z večimi vezanimi spremenljivkami, jih vedno
+  preimenujemo tako, da so med seboj različne.}
 
-% Vezane spremenljivke v zapisu funkcijskega predpisa. Substitucija in vezane spremenljivke.
+Funkcionale srečamo v analizi in funkcijskem programiranju. Limita zaporedja je
+funkcional, ker sprejme kot argument zaporedje realnih števil, se pravi element $\RR^\NN$,
+in mu pridedi realno število. Odvod je funkcional, ki sprejme element $\RR^\RR$ in mu
+priredi element $\RR^\RR$. Če smo povsem natančni, limita kot preslikava $\RR^\NN \to \RR$
+ni celovit funkcional, ker nekatera zaporedja ne konvergirajo. Prav tako odvod kot
+preslikave $\RR^\RR \to \RR^\RR$ ni celovit, ker nekatere preslikave niso odvedljive.
+Preslikavam, ki niso celovite, pravimo \emph{delne} in o njih bomo več povedali v
+razdelku~\ref{delne-preslikve}.
 
-% Preslikave iz prazne množice in v prazno množice. Preslikave iz enojca in v enojec.
 
 
-% Transponiranje (currying).
+\section{Izomorfizmi}
+\label{sec:izomorfizmi}
 
+\davorin{Andrej, o inverzih sem že nekaj pisal v razdelku o bijekcijah (razdelek~\ref{razdelek:bijektivnost-in-obratne-preslikave}) --- poglej, če ti bo kaj prišlo prav.}
 
-% \section{Izomorfizmi med množicami}
-% \label{sec:izom-med-mnoic}
+Definicija inverza in izomorfizma. \davorin{inverz = obrat}
 
-% \davorin{Andrej, o inverzih sem že nekaj pisal v razdelku o bijekcijah (razdelek~\ref{razdelek:bijektivnost-in-obratne-preslikave}) --- poglej, če ti bo kaj prišlo prav.}
+\davorin{Hm\ldots Pa poskusimo\ldots\\ izomorfizem = istoličje,\\ morfizem = ličje.\\ Dobesedno prevedeno je homomorfizem = enakoličje, ampak to ni najboljši prevod v tem kontekstu. Predlagam\\ homomorfizem = naličje,\\ ker `naličen' (med drugim) pomeni `podoben', `soroden'.}
 
-% Definicija inverza in izomorfizma. \davorin{inverz = obrat}
+Če je preslikava izomorfizem, je tudi njen inverz.
 
-% \davorin{Hm\ldots Pa poskusimo\ldots\\ izomorfizem = istoličje,\\ morfizem = ličje.\\ Dobesedno prevedeno je homomorfizem = enakoličje, ampak to ni najboljši prevod v tem kontekstu. Predlagam\\ homomorfizem = naličje,\\ ker `naličen' (med drugim) pomeni `podoben', `soroden'.}
+Izomorfnost množic. Je refleksivna, simetrična in tranzitivna (a ne poudarjamo preveč pojma ekvivalence na tem mestu).
 
-% Če je preslikava izomorfizem, je tudi njen inverz.
-
-% Izomorfnost množic. Je refleksivna, simetrična in tranzitivna (a ne poudarjamo preveč pojma ekvivalence na tem mestu).
-
-% Izomorfnost je kongruenca za produkt, vsoto in eksponent.
+Izomorfnost je kongruenca za produkt, vsoto in eksponent.
 
 % \section{Aritmetika Tarskega}
 % \label{sec:aritmetika-tarskega}
