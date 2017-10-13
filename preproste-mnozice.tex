@@ -1456,8 +1456,51 @@ Sami premislite, kaj je $\inv{(\inv{f}(x))}$.
 
 % TODO Izomorfnost je kongruenca za produkt, vsoto in eksponent.
 
-% \section{Aritmetika Tarskega}
-% \label{sec:aritmetika-tarskega}
+\section{Aritmetika Tarskega}
+\label{sec:aritmetika-tarskega}
+
+Kot že veste, seštevanje, množenje in potenciranje števil zadoščajo naslednjim arimetičnim
+zakonom:
+%
+\begin{align*}
+  a + 0 &= a                   &     a \cdot 1 &= a \\
+  a + b &= b + a               &     a \cdot b &= b \cdot a \\
+  a + (b + c) &= (a + b) + c   &     a \cdot (b \cdot c) &= (a \cdot b) \cdot c \\[1ex]
+  0 \cdot a &= 0                           &   1^a &= 1 \\
+  (a + b) \cdot c &= a \cdot c + b \cdot c &   (a \cdot b)^c &= a^c \cdot b^c \\[1ex]
+  a^0 &= 1                     &   a^1 &= a \\
+  a^{b + c} &= a^b \cdot a^c   &   a^{b \cdot c} &= (a^b)^c \\[1ex]
+  0^a &= 0 \quad \text{če $a \neq 0$.}
+\end{align*}
+%
+Že prej smo opazili, da je zakon $a \cdot b = b \cdot a$ podoben izomorfizmu
+$A \times B \ism B \times A$. Kaj pa ostali zakoni?
+
+\begin{izrek}
+  \label{izrek:aritmetika-tarskega}
+  Za vse množice $A$, $B$ in $C$ velja:
+  %
+  \begin{align*}
+    A + \emptyset &= A                   &     A \times \one &= A \\
+    A + B &= B + A               &     A \times B &= B \times A \\
+    A + (B + C) &= (A + B) + C   &     A \times (B \times C) &= (A \times B) \times C \\[1ex]
+    \emptyset \times A &= \emptyset                           &   \one^A &= \one \\
+    (A + B) \times C &= A \times C + B \times C &   (A \times B)^C &= A^C \times B^C \\[1ex]
+    A^\emptyset &= \one                     &   A^\one &= A \\
+    A^{B + C} &= A^B \times A^C   &   A^{B \times C} &= (A^B)^C \\[1ex]
+    \emptyset^A &= \emptyset \quad \text{če $A \neq \emptyset$.}
+  \end{align*}
+\end{izrek}
+
+Izmed vseh zakonov, ki so zapisani v izreku, dokažimo nekaj bolj poučnih, ostale pa
+pustimo za vajo.
+
+TODO
+
+\begin{naloga}
+  Zapiši še preostale izomorfizme iz izreka~\ref{izrek:aritmetika-tarskega}.
+\end{naloga}
+
 
 % Aritmetični zakoni Tarskega za množice. Podobnost z običajno aritmetiko.
 
