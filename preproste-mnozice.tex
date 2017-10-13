@@ -295,7 +295,7 @@ in nekateri matematiki to dejansko počnejo.
 
 Edini element množice $\one$ smo označili z nenavadnim zapisom $\unit$. Na tem mestu ne
 bomo pojasnili, zakaj pišemo tako, radovedneži pa lahko pogledajo v
-razdelek~\ref{sec:aritmetika-tarskega}. Mimogrede, seveda velja $\one = \set{\unit}$.
+razdelek~\ref{sec:algebra-mnozic}. Mimogrede, seveda velja $\one = \set{\unit}$.
 
 Pravilo~\ref{pravilo:enojec} ni nujno potrebno, saj lahko tvorimo veliko različnih enojcev
 kar sami $\set{\emptyset}$, $\set{42}$, $\set{\set{\emptyset}}$ itn. Ali je kateri od njih
@@ -1253,15 +1253,15 @@ preslikave $\RR^\RR \to \RR^\RR$ ni celovit, ker nekatere preslikave niso odvedl
 Preslikavam, ki niso celovite, pravimo \emph{delne} in o njih bomo več povedali v
 razdelku~\ref{delne-preslikve}.
 
-\section{Aritmetika množic}
-\label{sec:aritmetika-mnozic}
+\section{Algebra množic}
+\label{sec:algebra-mnozic}
 
 Ko otrok prvič spozna pojem števila, je ta zanimiv sam po sebi. Z vnemo šteje do sto in se
 rad pogovarja se o tem, koliko je en miljon. Sčasoma se radovednost osredotoči na
 aritmetične operacije in, če ima mladenič ali mladenka v sebi matematično žilico, na
 \emph{zakonitosti} števil: množenje z~$1$ nima učinka, vrstni red seštevanja ni pomemben
 itd. Ali tudi operacijam na množicah, ki smo jih spoznali do sedaj, vladajo kakšne
-zakonitosti?
+podobne zakonitosti?
 
 \subsection{Izomorfizem množic}
 \label{sec:izomorfizem-mnozic}
@@ -1456,11 +1456,11 @@ Sami premislite, kaj je $\inv{(\inv{f}(x))}$.
 
 % TODO Izomorfnost je kongruenca za produkt, vsoto in eksponent.
 
-\section{Aritmetika Tarskega}
-\label{sec:aritmetika-tarskega}
+\section{Algebra množic}
+\label{sec:algebra-mnozic}
 
-Kot že veste, seštevanje, množenje in potenciranje števil zadoščajo naslednjim arimetičnim
-zakonom:
+Kot že veste, seštevanje, množenje in potenciranje števil zadoščajo naslednjim
+algebrajskim zakonom:
 %
 \begin{align*}
   a + 0 &= a                   &     a \cdot 1 &= a \\
@@ -1477,32 +1477,90 @@ zakonom:
 $A \times B \ism B \times A$. Kaj pa ostali zakoni?
 
 \begin{izrek}
-  \label{izrek:aritmetika-tarskega}
+  \label{izrek:algebra-mnozic}
   Za vse množice $A$, $B$ in $C$ velja:
   %
   \begin{align*}
-    A + \emptyset &= A                   &     A \times \one &= A \\
-    A + B &= B + A               &     A \times B &= B \times A \\
-    A + (B + C) &= (A + B) + C   &     A \times (B \times C) &= (A \times B) \times C \\[1ex]
-    \emptyset \times A &= \emptyset                           &   \one^A &= \one \\
-    (A + B) \times C &= A \times C + B \times C &   (A \times B)^C &= A^C \times B^C \\[1ex]
-    A^\emptyset &= \one                     &   A^\one &= A \\
-    A^{B + C} &= A^B \times A^C   &   A^{B \times C} &= (A^B)^C \\[1ex]
-    \emptyset^A &= \emptyset \quad \text{če $A \neq \emptyset$.}
+    A + \emptyset &\ism A                   &     A \times \one &\ism A \\
+    A + B &\ism B + A               &     A \times B &\ism B \times A \\
+    A + (B + C) &\ism (A + B) + C   &     A \times (B \times C) &\ism (A \times B) \times C \\[1ex]
+    \emptyset \times A &\ism \emptyset                           &   \one^A &\ism \one \\
+    (A + B) \times C &\ism A \times C + B \times C &   (A \times B)^C &\ism A^C \times B^C \\[1ex]
+    A^\emptyset &\ism \one                     &   A^\one &\ism A \\
+    A^{B + C} &\ism A^B \times A^C   &   A^{B \times C} &\ism (A^B)^C \\[1ex]
+    \emptyset^A &\ism \emptyset \quad \text{če $A \neq \emptyset$.}
   \end{align*}
 \end{izrek}
 
-Izmed vseh zakonov, ki so zapisani v izreku, dokažimo nekaj bolj poučnih, ostale pa
+Izmed vseh zakonov, ki so zapisani v izreku, dokažimo nenavadne in poučne, ostale pa
 pustimo za vajo.
 
-TODO
+Za ogrevanje dokažimo asociativnost zmnožkov,
+$A \times (B \times C) \ism (A \times B) \times C$. Splošni element
+$A \times (B \times C)$ urejeni par oblike $(x, (y, z))$, kjer je $x \in A$, $y \in B$ in
+$z \in C$, med tem ko je splošni element $(A \times B) \times C$ oblike $((u, v), w)$,
+kjer je $u \in A$, $v \in B$ in $w \in C$. Izomorfizmov ni težko zapisati:
+%
+\begin{align*}
+  f &:  A \times (B \times C) \to (A \times B) \times C &
+  g &: (A \times B) \times C \to A \times (B \times C) \\
+  f &: (x, (y, z)) \mapsto ((x, y), z) &
+  g &: ((u, v), w) \mapsto (u, (v, w)).
+\end{align*}
+%
+Preverimo, da je $g$ obrat $f$. Za vse $x \in A$, $y \in B$ in $z \in C$ velja:
+%
+\begin{equation*}
+  g(f(x, (y, z))) = g((x, y), z) = (x, (y, z))
+\end{equation*}
+%
+in za vse $u \in A$, $v \in B$ in $w \in C$ velja
+%
+\begin{equation*}
+  f(g((u, v), w)) = f(u, (v, w)) = ((u, v), w).
+\end{equation*}
+%
+Tudi asociativnost vsote, $A + (B + C) \cong (A + B) + C$ ni nič bolj zapletena, le da
+imamo opravka z injekcijami in obravnavanjem primerov. Najprej zapišimo izomorfizma s
+popolnoma natančnim zapisom, kjer vse injekcije opremimo z oznakami množic:
+%
+\begin{align*}
+  f &:  A + (B + C) \to (A + B) + C &
+  g &: (A + B) + C \to A + (B + C) \\
+  f &: \inl[A][B+C](x)             \mapsto \inl[A+B][C](\inl[A][B](x)) &
+  g &: \inl[A+B][C](\inl[A][B](u)) \mapsto \inl[A][B+C](u)\\
+  f &: \inr[A][B+C](\inl[B][C](y)) \mapsto \inl[A+B][C](\inr[A][B](y)) &
+  g &: \inl[A+B][C](\inr[A][B](v)) \mapsto \inr[A][B+C](\inl[B][C](v))  \\
+  f &: \inr[A][B+C](\inr[B][C](z)) \mapsto \inr[A+B][C](z) &
+  g &: \inr[A+B][C](w)              \mapsto \inr[A][B+C](\inr[B][C](w))
+\end{align*}
+%
+Isti zapis brez oznak množic je precej bolj čitljiv:
+%
+\begin{align*}
+  f &:  A + (B + C) \to (A + B) + C &
+  g &: (A + B) + C \to A + (B + C) \\
+  f &: \inl(x)             \mapsto \inl(\inl(x)) &
+  g &: \inl(\inl(u)) \mapsto \inl(u)\\
+  f &: \inr(\inl(y)) \mapsto \inl(\inr(y)) &
+  g &: \inl(\inr(v)) \mapsto \inr(\inl(v))  \\
+  f &: \inr(\inr(z)) \mapsto \inr(z) &
+  g &: \inr(w)              \mapsto \inr(\inr(w))
+\end{align*}
+%
+Ali vidite, zakaj matematiki cenimo kratek in pregleden zapis? Preveč podrobnosti lahko
+zakrije bistvo ideje. Preverjanje, da je $g$ obrat $f$, prepustimo tistim, ki radi veliko
+pišejo.
+
+TODO.
 
 \begin{naloga}
-  Zapiši še preostale izomorfizme iz izreka~\ref{izrek:aritmetika-tarskega}.
+  Preveri še preostale zakone iz izreka~\ref{izrek:algebra-mnozic}.
 \end{naloga}
 
+% TODO Potence A^n in binomski izrek.
 
-% Aritmetični zakoni Tarskega za množice. Podobnost z običajno aritmetiko.
+% TODO zmnozek, vsota in eksponent zo kongruenca za izomorfizme
 
 % Pri asociativnosti produkta obravnavamo $A_1 \times A_2 \times \cdots \times A_n$ in
 % enojec kot produkt nič množic. Podobno za vsote.
