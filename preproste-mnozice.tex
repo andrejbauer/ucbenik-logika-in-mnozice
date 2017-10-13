@@ -893,6 +893,11 @@ Nazadnje podamo še enačbe.
 Računsko pravilo se tako imenuje, ker lahko z njim poenostavljamo izraze, drugo pa je
 načelo ekstenzionalnosti, ker pravi, da je urejeni par določen s prvo in drugo projekcijo.
 
+Kadar imamo opravka z večimi zmnožki, na primer $A \times B$ in $C \times D$, bi lahko
+prišlo do zmede glede projekcij. Takrat jih opremimo še z dodatnimi oznakami množic, da
+razločimo projekciji $\fst[A][B] : A \times B \to A$ in $\fst[C][D] : C \times D \to C$,
+in podobno za~$\snd$.
+
 Malo bolj naivna konstrukcija zmnožka bi se glasila takole: kartezični produkt
 $A \times B$ je množica vseh urejenih parov $(a, b)$, kjer je $a \in A$ in $b \in B$. A
 taka konstrukcija ni popolna, saj ne pove, kaj lahko z urejenim parom počnemo. Kako naj
@@ -1014,7 +1019,7 @@ elemente iz~$A$ in drugo za elemente iz~$B$. Oznakama pravimo tudi
 \begin{equation*}
   \iota_1 : A \to A + B
   \qquad\text{and}\qquad
-  \iota_2 : N \to A + B.
+  \iota_2 : B \to A + B.
 \end{equation*}
 %
 Kadar imamo opravka z večimi vsotami, na primer $A + B$ in $C + D$, bi lahko prišlo do
@@ -1251,48 +1256,205 @@ razdelku~\ref{delne-preslikve}.
 \section{Aritmetika množic}
 \label{sec:aritmetika-mnozic}
 
+Ko otrok prvič spozna pojem števila, je ta zanimiv sam po sebi. Z vnemo šteje do sto in se
+rad pogovarja se o tem, koliko je en miljon. Sčasoma se radovednost osredotoči na
+aritmetične operacije in, če ima mladenič ali mladenka v sebi matematično žilico, na
+\emph{zakonitosti} števil: množenje z~$1$ nima učinka, vrstni red seštevanja ni pomemben
+itd. Ali tudi operacijam na množicah, ki smo jih spoznali do sedaj, vladajo kakšne
+zakonitosti?
 
+\subsection{Izomorfizem množic}
+\label{sec:izomorfizem-mnozic}
 
-Povejmo več o obratih preslikav. Začnimo s formalno definicijo.
+Za števili $a$ in $b$ velja $a \cdot b = b \cdot a$. Nekaj podobnega velja tudi za množici
+$A$ in $B$ in njuna zmnožka $A \times B$ in $B \times A$. V splošnem sicer nista enaka, a
+sta v nekem smislu enakovredna, ker lahko par $(x, y) \in A \times B$ pretvorimo v par
+$(y, x) \in B \times A$ in obratno. Ta razmislek vodi do pojma izomorfizma.
+
+% Pojasnilo: izomorfnost $A \ism B$ je struktura, ki je naravno podana z dvema
+% preslikavama $A \to B$ in $B \to A$ ter dvema enačbama med njima. Zato tu zapišemo
+% definicijo, ki hkrati uvede vse te pojme.
 
 \begin{definicija}
-Naj bo $f\colon X \to Y$ poljubna preslikava. Za preslikavo $g\colon Y \to X$ rečemo, da je \df{obrat} ali \df{inverz} preslikave $f$, kadar velja
-\[g \circ f = \id[X] \qquad\qquad \text{in} \qquad\qquad f \circ g = \id[Y].\]
-Z drugimi besedami, $g$ je obrat $f$, kadar slika v nasprotni smeri in za vsak $x \in X$ velja $g\big(f(x)\big) = x$ ter za vsak $y \in Y$ velja $f\big(g(y)\big) = y$. Kadar obrat preslikave $f$ obstaja, rečemo, da je $f$ \df{obrnljiva} (ali \df{invertibilna}) preslikava.
+  Množici $A$ in $B$ sta \df{izomorfni} in pišemo $A \ism B$, kadar obstajata preslikavi
+  %
+  \begin{equation*}
+    f : A \to B
+    \qquad\text{in}\qquad
+    g : B \to A,
+  \end{equation*}
+  %
+  za kateri velja
+  %
+  \begin{equation*}
+    g \circ f = \id[A]
+    \qquad\text{in}\qquad
+    f \circ g = \id[B].
+  \end{equation*}
+  %
+  Pravimo, da je~$f$ \df{izomorfizem} med~$A$ in~$B$ in da je~$g$ \df{inverz} ali
+  \df{obrat}~$f$.
 \end{definicija}
 
+Preverimo, da velja $A \times B \cong B \times A$ za poljubni množici $A$ in $B$. To
+storimo tako, da zapišemo preslikavi med zmnožkoma in preverimo, da tvorita
+izomorfizem:\footnote{Držimo se pravila, da nikoli ne uporabimo iste vezane spremenljivke
+  dvakrat, zato pravilo za $f$ zapišemo z $x$ in $y$ in pravilo za $g$ z $v$ in $u$.
+  Marsikdo bi oba funkcisjka predpisa zapisal z $x$ in $y$, torej
+  $f : (x, y) \mapsto (y, x)$ in $g : (y, x) \mapsto (x, y)$. To zmede nekatere študente,
+  ker mislijo, da ``sta je $x$ v definiciji $f$ isti kot v definiciji $g$'', karkoli že
+  naj bi to pomenilo. Poudarimo še enkat: vezana spremenljivka v funkcijskem predpisu nima
+  nikakršne zveze z nobeno drugo pojavitvijo iste spremenljivke kje druge.}
+%
+\begin{align*}
+  f &: A \times B \to B \times A &
+  g &: B \times A \to A \times B \\
+  f &: (x, y) \mapsto (y, x) &
+  g &: (v, u) \mapsto (u, v).
+\end{align*}
+%
+Treba je preveriti, da velja $g \circ f = \id[A \times B]$ in
+$f \circ g = \id[B \times A]$. To naredimo z uporabo ekstenzionalnosti preslikav, ki pravi
+da $g \circ f = \id[A]$ velja, če velja $(g \circ f)(a,b) = \id[A](a,b)$ za vse $a \in A$
+in $b \in B$, in podobno za $f \circ g$. Obravnavajmo torej poljubna $a \in A$ in
+$b \in B$ in izračunajmo:
+%
+\begin{equation*}
+  (g \circ f)(a, b) =
+  g (f (a, b)) = g (b, a) = (a, b).
+\end{equation*}
+%
+Na podoben način preverimo $f \circ g = \id[B \times A]$.
+
 \begin{zgled}\label{zgled:logaritmiranje-je-obratno-od-eksponenciranja}
-Kot veš že iz srednje šole, logaritmiranje je obratno od eksponenciranja. Če smo natančnejši: preslikavi $\lam{x \in \RR}  b^x$ in $\lam{x \in \RR_{>0}} \log_b x$ sta si obratni pri vsaki osnovi $b \in \RR_{> 0} \setminus \set{1}$.
+  Nekatere druge primere izmorfizma že poznamo iz srednje šole. Denimo, naj bo $\RR$
+  množica vseh realnih števil (glej razdelek~\ref{sec:realna-stevila}) in $\RR_{>0}$
+  množica vseh pozitivnih realnih števil. Tedaj logaritem in eksponentna funkcija,
+  %
+  \begin{equation*}
+    \log : \RR_{>0} \to \RR
+    \qquad\text{in}\qquad
+    \exp : \RR \to \RR_{>0}
+  \end{equation*}
+  %
+  tvorita izomorfizem, saj za vse $x \in \RR$ velja $\log (\exp x) = x$ in za vse
+  $y \in \RR_{>0}$ velja $\exp (\log y) = y$.
 \end{zgled}
 
-\begin{naloga}\label{naloga:enolicnost-obrata-preslikave}
-Dokaži: če sta $g$ in $h$ obrata iste preslikave $f$, tedaj $g = h$.
-\end{naloga}
+Dokažimo nekaj osnovih lastnosti izmorfnosti in izomorizmov.Tokrat ne bomo zapisali
+podrobnih dokazov. Za vajo jih dopolnite do tolikšnih podrobnosti, da boste sami sebe
+prepričali, da trditve držijo.
 
-Naloga~\ref{naloga:enolicnost-obrata-preslikave} pove, da je obrat funkcije enolično določen, tj.~vsaka funkcija ima kvečjemu en obrat. Zato lahko uvedemo izrecno oznako: obrat preslikave $f$ (kadar obstaja) označimo z $f^{-1}$. Velja torej: kadar je preslikava $f\colon X \to Y$ obrnljiva, določa preslikavo $f^{-1}\colon Y \to X$.
+\begin{trditev}
+  Če je $f : A \to B$ izomorfizem med množicama $A$ in $B$ ter sta preslikavi
+  $g : B \to A$ in $h : B \to A$ obe obrata~$f$, potem je $g = h$.
+\end{trditev}
 
-Ta oznaka je nekoliko nerodna --- pomembno se je zavedati, da $f^{-1}(x)$ pomeni obrat preslikave $f$, izvrednoten na $x$, medtem kot $\big(f(x)\big)^{-1}$ pomeni obratna vrednost (v smislu deljenja) izvrednotenja preslikave $f$ na $x$. Za primerjavo, kot omenjeno v zgledu~\ref{zgled:logaritmiranje-je-obratno-od-eksponenciranja}, je obrat eksponenciranja logaritmiranje, medtem ko je obratna vrednost od $b^x$ enaka $(b^x)^{-1} = \frac{1}{b^x} = b^{-x}$.
+\begin{proof}
+  Ker je $g$ obrat $f$, velja
+  %
+  \begin{equation*}
+    g \circ f = \id[A]
+    \qquad\text{in}\qquad
+    f \circ g = \id[B],
+  \end{equation*}
+  %
+  in ker je $h$ obrat $f$, velja
+  %
+  \begin{equation*}
+    h \circ f = \id[A]
+    \qquad\text{in}\qquad
+    f \circ h = \id[B].
+  \end{equation*}
+  %
+  Dokazati moramo, da iz teh štirih predpostavk sledi $g = h$, kar storimo z naslednjim
+  računom:
+  %
+  \begin{align*}
+    g
+    &= \id[A] \circ g \tag{kompozicija z $\id[A]$ nima učinka} \\
+    &= (h \circ f) \circ g \tag{predpostavka $h \circ f = \id[A]$} \\
+    &= h \circ (f \circ g) \tag{kompozicija je asociativna} \\
+    &= h \circ \id[B] \tag{predpostavka $f \circ g = \id[B]$} \\
+    &= h. \tag{kompozicija z $\id[B]$ nima učinka}
+  \end{align*}
+\end{proof}
+
+Če je $f : A \to B$ izomorfizem, potem ima natanko en obrat, ki ga označimo $\inv{f}$. Če
+$f$ ni izomorfizem, zapis $f^{-1}$ ni veljaven izraz.
+
+Oznaka za obrat je nekoliko nerodna, ker se prekriva z zapisom za obratno vrednost
+števila: če je $x \in \RR$ neničelno realno število, potem je $\inv{x}$ tisto realno
+število, za katerega velja $x \cdot \inv{x} = 1$. Torej moramo paziti: če je
+$f : \RR \to \RR$ izomorfizem in $x \in \RR$, je $\inv{(f(x))}$ obrat števila $f(x)$,
+medtem ko je $\inv{f}(x)$ število, ki ga dobimo, ko obrat preslikave $f$ uporabimo na~$x$.
+Sami premislite, kaj je $\inv{(\inv{f}(x))}$.
+
+\begin{vaja}
+  Podajte primer izomorfizma $f : \RR \to \RR$ in števila $x \in \RR$, da velja
+  $\inv{f}(x) = \inv{(f(x))}$. Nato podajte še primer, ko velja
+  $\inv{f}(x) \neq \inv{(f(x))}$.
+\end{vaja}
+
+\begin{vaja}
+  Ozrimo se še enkrat na dokaz prejšnje trditve. Ali smo uporabili vse štiri predpostavke?
+  Zapišite \emph{bolj splošno trditev}, se pravi tako, ki navede samo tiste predpostavke,
+  ki jih res potrebujemo v dokazu.
+\end{vaja}
+
+\begin{trditev}
+  Za vse izmorfizme $f : A \to B$ in $g : B \to C$ velja
+  %
+  \begin{equation*}
+    \inv{(\inv{f})} = f
+    \qquad\text{in}\qquad
+    \inv{(g \circ f)} = \inv{f} \circ \inv{g}.
+  \end{equation*}
+\end{trditev}
+
+\begin{proof}
+  Dokaz prepuščamo za vajo. Pozor, v desni enakosti se je zamenjal vrstni red $f$ in $g$!
+  Nadalje opazimo še to: zapisali smo $\inv{(\inf{f})}$ in $\inv{(g \circ f)}$, ne da bi
+  predhodno preverili, ali sta $\inv{f}$ in $g \circ f$ izomorfizma. Torej morate v dokazu
+  preveriti še, da je ovrat inverza izomorfizem in da je kompozitum izomorfizmov spet
+  izomorfizem.
+\end{proof}
+
+\begin{trditev}
+  Za vse množice $A$, $B$ in $C$ velja:
+  %
+  \begin{enumerate}
+  \item $A \ism A$,
+  \item če $A \ism B$, potem $B \ism A$,
+  \item če $A \ism B$ in $B \ism C$, potem $A \ism C$.
+  \end{enumerate}
+\end{trditev}
+
+\begin{proof}
+  \parbox{0pt}{}
+  %
+  \begin{enumerate}
+  \item $\id[A]$ je izomorfizem iz $A$ v $A$, ki je sam svoj obrat,
+  \item če je $f : A \to B$ izomorfizem iz $A$ v $B$, potem je $\inv{f}$ izomorfizem iz
+    $B$ v $A$ in $f$,
+  \item če je $f : A \to B$ izomorfizem iz $A$ v $B$ in $g : B \to C$ izomorfizem iz $B$ v
+    $C$, potem je $g \circ f$ izomorfizem iz $A \to C$. \qedhere
+  \end{enumerate}
+\end{proof}
+
+\begin{trditev}
+  Preslikava ima največ en inverz.
+\end{trditev}
 
 \begin{naloga}
-Premisli: če ima preslikava $f$ obrat $f^{-1}$, tedaj je tudi $f^{-1}$ obrnljiva preslikava in velja $(f^{-1})^{-1} = f$ (torej, obrat obrata je izvorna preslikava).
+  Pogosto rečemo, da sta seštevanje in odštevanje obratni operaciji. Strogo vzeto, ti dve
+  operaciji nista obratni kot preslikavi, saj obe slikata (recimo, da ju gledamo na
+  realnih številih) $\RR \times \RR \to \RR$, tj.~ne slikata v nasprotnih smereh. Ugotovi,
+  v kakšnem smislu točno sta seštevanje in odštevanje obratni, tj.~kateri dve preslikavi
+  sta pravzaprav druga drugi obratni.
 \end{naloga}
 
-\begin{naloga}
-Pogosto rečemo, da sta seštevanje in odštevanje obratni operaciji. Strogo vzeto, ti dve operaciji nista obratni kot preslikavi, saj obe slikata (recimo, da ju gledamo na realnih številih) $\RR \times \RR \to \RR$, tj.~ne slikata v nasprotnih smereh. Ugotovi, v kakšnem smislu točno sta seštevanje in odštevanje obratni, tj.~kateri dve preslikavi sta pravzaprav druga drugi obratni.
-\end{naloga}
-
-
-% \davorin{Andrej, o inverzih sem že nekaj pisal v razdelku o bijekcijah (razdelek~\ref{razdelek:bijektivnost-in-obratne-preslikave}) --- poglej, če ti bo kaj prišlo prav.}
-
-% Definicija inverza in izomorfizma. \davorin{inverz = obrat}
-
-% \davorin{Hm\ldots Pa poskusimo\ldots\\ izomorfizem = istoličje,\\ morfizem = ličje.\\ Dobesedno prevedeno je homomorfizem = enakoličje, ampak to ni najboljši prevod v tem kontekstu. Predlagam\\ homomorfizem = naličje,\\ ker `naličen' (med drugim) pomeni `podoben', `soroden'.}
-
-% Če je preslikava izomorfizem, je tudi njen inverz.
-
-% Izomorfnost množic. Je refleksivna, simetrična in tranzitivna (a ne poudarjamo preveč pojma ekvivalence na tem mestu).
-
-% Izomorfnost je kongruenca za produkt, vsoto in eksponent.
+% TODO Izomorfnost je kongruenca za produkt, vsoto in eksponent.
 
 % \section{Aritmetika Tarskega}
 % \label{sec:aritmetika-tarskega}
