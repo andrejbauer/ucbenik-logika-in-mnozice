@@ -73,6 +73,5 @@ Aritmetična pravila:
 14. A^(B + C) ≅ A^B × A^C
 15. (A × B)^C ≅ A^C × B^C
 
-Na predavanjih naredimo: 5, 3, 9, 10, 12
 
-Pri 12: funkcijske predpise lahko gnezdimo!
+

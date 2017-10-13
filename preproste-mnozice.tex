@@ -1248,22 +1248,49 @@ preslikave $\RR^\RR \to \RR^\RR$ ni celovit, ker nekatere preslikave niso odvedl
 Preslikavam, ki niso celovite, pravimo \emph{delne} in o njih bomo več povedali v
 razdelku~\ref{delne-preslikve}.
 
-
-
 \section{Izomorfizmi}
 \label{sec:izomorfizmi}
 
-\davorin{Andrej, o inverzih sem že nekaj pisal v razdelku o bijekcijah (razdelek~\ref{razdelek:bijektivnost-in-obratne-preslikave}) --- poglej, če ti bo kaj prišlo prav.}
+Povejmo več o obratih preslikav. Začnimo s formalno definicijo.
 
-Definicija inverza in izomorfizma. \davorin{inverz = obrat}
+\begin{definicija}
+Naj bo $f\colon X \to Y$ poljubna preslikava. Za preslikavo $g\colon Y \to X$ rečemo, da je \df{obrat} ali \df{inverz} preslikave $f$, kadar velja
+\[g \circ f = \id[X] \qquad\qquad \text{in} \qquad\qquad f \circ g = \id[Y].\]
+Z drugimi besedami, $g$ je obrat $f$, kadar slika v nasprotni smeri in za vsak $x \in X$ velja $g\big(f(x)\big) = x$ ter za vsak $y \in Y$ velja $f\big(g(y)\big) = y$. Kadar obrat preslikave $f$ obstaja, rečemo, da je $f$ \df{obrnljiva} (ali \df{invertibilna}) preslikava.
+\end{definicija}
 
-\davorin{Hm\ldots Pa poskusimo\ldots\\ izomorfizem = istoličje,\\ morfizem = ličje.\\ Dobesedno prevedeno je homomorfizem = enakoličje, ampak to ni najboljši prevod v tem kontekstu. Predlagam\\ homomorfizem = naličje,\\ ker `naličen' (med drugim) pomeni `podoben', `soroden'.}
+\begin{zgled}\label{zgled:logaritmiranje-je-obratno-od-eksponenciranja}
+Kot veš že iz srednje šole, logaritmiranje je obratno od eksponenciranja. Če smo natančnejši: preslikavi $\lam{x \in \RR}  b^x$ in $\lam{x \in \RR_{>0}} \log_b x$ sta si obratni pri vsaki osnovi $b \in \RR_{> 0} \setminus \set{1}$.
+\end{zgled}
 
-Če je preslikava izomorfizem, je tudi njen inverz.
+\begin{naloga}\label{naloga:enolicnost-obrata-preslikave}
+Dokaži: če sta $g$ in $h$ obrata iste preslikave $f$, tedaj $g = h$.
+\end{naloga}
 
-Izomorfnost množic. Je refleksivna, simetrična in tranzitivna (a ne poudarjamo preveč pojma ekvivalence na tem mestu).
+Naloga~\ref{naloga:enolicnost-obrata-preslikave} pove, da je obrat funkcije enolično določen, tj.~vsaka funkcija ima kvečjemu en obrat. Zato lahko uvedemo izrecno oznako: obrat preslikave $f$ (kadar obstaja) označimo z $f^{-1}$. Velja torej: kadar je preslikava $f\colon X \to Y$ obrnljiva, določa preslikavo $f^{-1}\colon Y \to X$.
 
-Izomorfnost je kongruenca za produkt, vsoto in eksponent.
+Ta oznaka je nekoliko nerodna --- pomembno se je zavedati, da $f^{-1}(x)$ pomeni obrat preslikave $f$, izvrednoten na $x$, medtem kot $\big(f(x)\big)^{-1}$ pomeni obratna vrednost (v smislu deljenja) izvrednotenja preslikave $f$ na $x$. Za primerjavo, kot omenjeno v zgledu~\ref{zgled:logaritmiranje-je-obratno-od-eksponenciranja}, je obrat eksponenciranja logaritmiranje, medtem ko je obratna vrednost od $b^x$ enaka $(b^x)^{-1} = \frac{1}{b^x} = b^{-x}$.
+
+\begin{naloga}
+Premisli: če ima preslikava $f$ obrat $f^{-1}$, tedaj je tudi $f^{-1}$ obrnljiva preslikava in velja $(f^{-1})^{-1} = f$ (torej, obrat obrata je izvorna preslikava).
+\end{naloga}
+
+\begin{naloga}
+Pogosto rečemo, da sta seštevanje in odštevanje obratni operaciji. Strogo vzeto, ti dve operaciji nista obratni kot preslikavi, saj obe slikata (recimo, da ju gledamo na realnih številih) $\RR \times \RR \to \RR$, tj.~ne slikata v nasprotnih smereh. Ugotovi, v kakšnem smislu točno sta seštevanje in odštevanje obratni, tj.~kateri dve preslikavi sta pravzaprav druga drugi obratni.
+\end{naloga}
+
+
+% \davorin{Andrej, o inverzih sem že nekaj pisal v razdelku o bijekcijah (razdelek~\ref{razdelek:bijektivnost-in-obratne-preslikave}) --- poglej, če ti bo kaj prišlo prav.}
+
+% Definicija inverza in izomorfizma. \davorin{inverz = obrat}
+
+% \davorin{Hm\ldots Pa poskusimo\ldots\\ izomorfizem = istoličje,\\ morfizem = ličje.\\ Dobesedno prevedeno je homomorfizem = enakoličje, ampak to ni najboljši prevod v tem kontekstu. Predlagam\\ homomorfizem = naličje,\\ ker `naličen' (med drugim) pomeni `podoben', `soroden'.}
+
+% Če je preslikava izomorfizem, je tudi njen inverz.
+
+% Izomorfnost množic. Je refleksivna, simetrična in tranzitivna (a ne poudarjamo preveč pojma ekvivalence na tem mestu).
+
+% Izomorfnost je kongruenca za produkt, vsoto in eksponent.
 
 % \section{Aritmetika Tarskega}
 % \label{sec:aritmetika-tarskega}

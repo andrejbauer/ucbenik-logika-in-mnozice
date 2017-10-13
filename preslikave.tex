@@ -73,6 +73,7 @@ Preslikava je \df{bijektivna}, kadar je injektivna in surjektivna.
 To pomeni: če imamo bijektivno preslikavo (na kratko kar: \df{bijekcijo}) $f\colon X \to Y$, smo povezali elemente množice $X$ z elementi množice $Y$, in sicer tako, da vsakemu elementu v katerikoli od množic $X$ oz.~$Y$ pripišemo natanko en element druge množice.
 
 \note{slika dveh množic s poparjenimi pikami}
+\andrej{Nevarno se je igrati s kropom.}
 
 Rečemo, da so elementi množice $X$ v \df{bijektivni korespondenci} (ali po slovensko \df{povratno enolični zvezi}) z elementi množice $Y$. Bijektivnost se na grafih kaže takole: preslikava je bijektivna, kadar vsaka vodoravnica seka njen graf natanko enkrat.
 
@@ -86,33 +87,9 @@ Predstavljajmo si, da so elementi neke množice $X$ imena za določene objekte. 
 Če imamo povratno enolično zvezo med elementi množic $X$ in $Y$, potem ta zveza ne podaja zgolj preslikave v smeri $X \to Y$, pač pa tudi v smeri $Y \to X$, ker za vsak element iz $Y$ obstaja enolično določen element iz $X$, ki se vanj preslika. Z drugimi besedami, bijektivne preslikave imajo \df{obrate}.
 \end{itemize}
 
-Povejmo več o obratih preslikav. Začnimo s formalno definicijo.
+\andrej{Od tu sem iztrgal robo o obratih in izomorfizmih, tako da bo treba ta razdelek še
+  popraviti.}
 
-\begin{definicija}
-Naj bo $f\colon X \to Y$ poljubna preslikava. Za preslikavo $g\colon Y \to X$ rečemo, da je \df{obrat} ali \df{inverz} preslikave $f$, kadar velja
-\[g \circ f = \id[X] \qquad\qquad \text{in} \qquad\qquad f \circ g = \id[Y].\]
-Z drugimi besedami, $g$ je obrat $f$, kadar slika v nasprotni smeri in za vsak $x \in X$ velja $g\big(f(x)\big) = x$ ter za vsak $y \in Y$ velja $f\big(g(y)\big) = y$. Kadar obrat preslikave $f$ obstaja, rečemo, da je $f$ \df{obrnljiva} (ali \df{invertibilna}) preslikava.
-\end{definicija}
-
-\begin{zgled}\label{zgled:logaritmiranje-je-obratno-od-eksponenciranja}
-Kot veš že iz srednje šole, logaritmiranje je obratno od eksponenciranja. Če smo natančnejši: preslikavi $\lam{x \in \RR}  b^x$ in $\lam{x \in \RR_{>0}} \log_b x$ sta si obratni pri vsaki osnovi $b \in \RR_{> 0} \setminus \set{1}$.
-\end{zgled}
-
-\begin{naloga}\label{naloga:enolicnost-obrata-preslikave}
-Dokaži: če sta $g$ in $h$ obrata iste preslikave $f$, tedaj $g = h$.
-\end{naloga}
-
-Naloga~\ref{naloga:enolicnost-obrata-preslikave} pove, da je obrat funkcije enolično določen, tj.~vsaka funkcija ima kvečjemu en obrat. Zato lahko uvedemo izrecno oznako: obrat preslikave $f$ (kadar obstaja) označimo z $f^{-1}$. Velja torej: kadar je preslikava $f\colon X \to Y$ obrnljiva, določa preslikavo $f^{-1}\colon Y \to X$.
-
-Ta oznaka je nekoliko nerodna --- pomembno se je zavedati, da $f^{-1}(x)$ pomeni obrat preslikave $f$, izvrednoten na $x$, medtem kot $\big(f(x)\big)^{-1}$ pomeni obratna vrednost (v smislu deljenja) izvrednotenja preslikave $f$ na $x$. Za primerjavo, kot omenjeno v zgledu~\ref{zgled:logaritmiranje-je-obratno-od-eksponenciranja}, je obrat eksponenciranja logaritmiranje, medtem ko je obratna vrednost od $b^x$ enaka $(b^x)^{-1} = \frac{1}{b^x} = b^{-x}$.
-
-\begin{naloga}
-Premisli: če ima preslikava $f$ obrat $f^{-1}$, tedaj je tudi $f^{-1}$ obrnljiva preslikava in velja $(f^{-1})^{-1} = f$ (torej, obrat obrata je izvorna preslikava).
-\end{naloga}
-
-\begin{naloga}
-Pogosto rečemo, da sta seštevanje in odštevanje obratni operaciji. Strogo vzeto, ti dve operaciji nista obratni kot preslikavi, saj obe slikata (recimo, da ju gledamo na realnih številih) $\RR \times \RR \to \RR$, tj.~ne slikata v nasprotnih smereh. Ugotovi, v kakšnem smislu točno sta seštevanje in odštevanje obratni, tj.~kateri dve preslikavi sta pravzaprav druga drugi obratni.
-\end{naloga}
 
 Zakaj se sploh ukvarjamo z obrati? Pogosto obravnavamo preslikavo, ki izhaja iz nekega konkretnega (na primer fizikalnega) problema, v smislu, da preslikava vzame začetne podatke in nam vrne, kaj se bo na koncu zgodilo. Marsikdaj pa hočemo rešiti obraten problem: želimo določene končne rezultate in se sprašujemo, kakšni morajo biti začetni pogoji, da jih bomo dosegli. V takem primeru pride prav obratna preslikava.
 
