@@ -4,7 +4,7 @@
 
 Temeljni gradniki sodobne matematike so \df{množice}, ki so skupki ali zbirke matematičnih
 objektov, lahko spet množice. Vsaka množica sestoji iz \df{elementov} in je z njimi
-natančno določena. Kadar je $a$ element množice $M$, to zapišemo kot $a \in M$.
+natančno določena. Kadar je $a$ element množice $M$, to zapišemo $a \in M$.
 
 Ideja množice kot poljubne zbirke elementov je zavajajoče preprosta, kar so na lastni koži
 izkusili matematiki na prelomu iz 19.~v 20.~stoletje. Takrat so že vedeli, da so množice zelo
@@ -402,6 +402,24 @@ domene~$X$ in kodomene~$Y$, mora pa veljati:
 \item \df{enoličnost}: če sta elementu $x$ prirejena $y \in Y$ in $z \in Y$, potem $y = z$.
 \end{itemize}
 
+Za vsako množico~$A$ je \df{identiteta} na~$A$ preslikava
+%
+\begin{equation*}
+  \id[A] : A \to A
+\end{equation*}
+%
+ki poljubnemu elementu $x \in A$ priredi~$x$. To je celovito prirejanje, saj vsak
+$x \in A$ ima prirejeni element, namreč kar $x$, je pa tudi enolično: če sta $y_1$ in
+$y_2$ prirejena $x \in A$, potem sta oba enaka~$x$ in zato enaka drug drugemu.
+
+Za vsaki množici $A$ in $B$ ter $b \in B$ \df{konstantna preslikava}
+%
+\begin{equation*}
+  \konst{b} : A \to B
+\end{equation*}
+%
+priredu vsakemu elementu iz~$A$ element~$b$. Sami premislite, da je tako prirejanje
+celovito in enolično.
 
 \subsection{Funkcijski predpisi}
 \label{sec:funkcijski-predpisi}
@@ -421,6 +439,18 @@ se sme pojaviti simbol~$x$, denimo
   x \mapsto 1 + x^2.
 \end{equation*}
 %
+S funkcijskip predpisom zapišemo identiteto in konstantno preslikavo takole:
+%
+\begin{align*}
+  \id[A] &: A \to A
+  &
+  \konst{b} &: A \to B
+  \\
+  \id[A] &: x \mapsto x
+  &
+  \konst{b} &: x \mapsto b.
+\end{align*}
+
 Ni nujno, da se~$x$ pojavi, denimo $x \mapsto 42$ vsakemu elementu iz domene priredi
 število $42$. V funkcijskem predpisu se smejo pojaviti tudi drugi simboli, ki jim
 pravimo \df{parametri}. Tako je
@@ -1158,7 +1188,8 @@ uporabili eksponente, a v tem primeru je bolj pregleden diagram:
   }
 \end{equation*}
 %
-Zakaj smo $\circ$ definirali tako, da kompozicijo $f$ in $g$ pišemo $g \circ f$ namesto $f \circ g$? Ker si je mnogo lažje zapomniti računsko pravilo
+Zakaj smo $\circ$ definirali tako, da kompozicijo $f$ in $g$ pišemo $g \circ f$ namesto
+$f \circ g$? Ker si je mnogo lažje zapomniti računsko pravilo
 %
 \begin{equation*}
   (g \circ f)(x) = g(f(x)),
@@ -1166,6 +1197,82 @@ Zakaj smo $\circ$ definirali tako, da kompozicijo $f$ in $g$ pišemo $g \circ f$
 %
 ki velja z našo definicijo, kot pa $(f \circ g)(x) = g(f(x))$, kar bi veljalo, če bi
 zamenjali vlogi~$f$ in~$g$.
+
+\begin{trditev}
+  \parbox{0pt}{}
+  %
+  \begin{enumerate}
+  \item Identiteta je nevtralna za kompozicijo: $\id[B] \circ f = f = f \circ \id[A]$.
+  \item Kompozicija je asociativna: $(h \circ g) \circ f = h \circ (g \circ f)$.
+  \end{enumerate}
+\end{trditev}
+
+\begin{proof}
+  Trditev je zapisana pomanjkljivo, saj ne piše, kaj so $A$, $B$,$ f$ in~$g$. Avtorja
+  trditve bi lahko vprašali, kaj je hotel povedati, a je bolje, da poskusimo to razvozlati
+  sami, ker je to odlična vaja iz razumevanja matematičnih besedil.
+
+  Takoj vidimo, da je $A$ množica, sicer zapis $\id[A]$ ne bi bil smiselen, in podobno je
+  tudi $B$ množica. Simboli $f$, $g$ in $h$ zagotovo označujejo preslikave, saj nastopajo
+  v kompoziciji. Kaj pa njihove domene in kodomene? Preslikava $f$ mora imeti domeno $A$,
+  sicer ne bi bilo dovoljeno komponirati $f \circ \id[A]$, in mora imeti kodomeno $B$,
+  sicer ne bi bilo dovoljeno komponirati $\id[B] \circ f$. Ostaneta še domeni in kodomeni
+  preslikav $g$ in~$h$. Kompozicija $g \circ f$ kaže, da mora bii domena $g$ enaka
+  kodomeni~$f$, torej $B$. Kompozicija $h \circ g$ pa pove, da je kodomena $C$ enaka
+  domeni $h$. Če vse to zložimo v diagram, dobimo
+  %
+  \begin{equation*}
+    \xymatrix{
+      {A} \ar[r]^{f}
+      &
+      {B} \ar[r]^{g}
+      &
+      {\text{?}} \ar[r]^{h}
+      &
+      {\text{?}}
+    }
+  \end{equation*}
+  %
+  Trditev moramo razumeti tako, da bo čim bolj splošna in smiselna. Torej bomo za neznani
+  množici vzeli kar poljubni množici $C$ in $D$:
+  %
+  \begin{equation*}
+    \xymatrix{
+      {A} \ar[r]^{f}
+      &
+      {B} \ar[r]^{g}
+      &
+      {C} \ar[r]^{h}
+      &
+      {D}
+    }
+  \end{equation*}
+  %
+  Preverimo, ali smo trditev pravilno razumeli. Ko vstavimo podrobnosti, se prvi del
+  glasi: ``Za vse množice $A$ in $B$ ter preslikavo $f : A \to B$ velja
+  $\id[B] \circ f = f = f \circ \id[A]$.''
+  %
+  Ker je to smiselna izjava, jo dokažimo. Enakost preslikav se dokaže z ekstenzionalnostjo
+  preslikav, torej preverimo, ali imajo $\id[B] \circ f$, $f$ in $f \circ \id[A]$ enako
+  vrednost za poljuben $x \in A$:
+  %
+  \begin{align*}
+    (\id[B] \circ f)(x) &= \id[B] (f (x)) = f (x), \\
+    f (x) &= f(x), \\
+    (f \circ \id[A])(x) &= f (\id[A](x)) = f(x).\\
+  \end{align*}
+  %
+  Zapišimo podrobno še drugi del: ``Za vse množice $A$, $B$, $C$ in $D$ ter preslikave
+  $f : A \to B$, $g : B \to C$ in $h : C \to D$ velja
+  $(h \circ g) \circ f = h \circ (g \circ f)$. To spet dokažemo tako, da uporabimo levo in
+  desno stran enačbe na poljubnem $x \in A$:
+  %
+  \begin{align*}
+    ((h \circ g) \circ f)(x) &= (h \circ g)(f(x)) = h(g(f(x))) \\
+    (h \circ (g \circ f))(x) &= h((g \circ f)(x)) = h(g(f(x))). \qedhere
+  \end{align*}
+\end{proof}
+
 
 Kompozicijo smo zapisali z \emph{vgnezdenim} funkcijskim predpisom, ki argumentu priredi
 preslikavo, ki je spet podana s funkcijskim predpisom. V splošnem je vgnezdeni funkcijski
@@ -1327,9 +1434,9 @@ $b \in B$ in izračunajmo:
 Na podoben način preverimo $f \circ g = \id[B \times A]$.
 
 \begin{zgled}\label{zgled:logaritmiranje-je-obratno-od-eksponenciranja}
-  Nekatere druge primere izmorfizma že poznamo iz srednje šole. Denimo, naj bo $\RR$
-  množica vseh realnih števil (glej razdelek~\ref{sec:realna-stevila}) in $\RR_{>0}$
-  množica vseh pozitivnih realnih števil. Tedaj logaritem in eksponentna funkcija,
+  Primere izmorfizmov poznamo že iz srednje šole. Naj bo $\RR$ množica vseh realnih števil
+  (glej razdelek~\ref{sec:realna-stevila}) in $\RR_{>0}$ množica vseh pozitivnih realnih
+  števil. Tedaj logaritem in eksponentna funkcija,
   %
   \begin{equation*}
     \log : \RR_{>0} \to \RR
@@ -1337,11 +1444,33 @@ Na podoben način preverimo $f \circ g = \id[B \times A]$.
     \exp : \RR \to \RR_{>0}
   \end{equation*}
   %
-  tvorita izomorfizem, saj za vse $x \in \RR$ velja $\log (\exp x) = x$ in za vse
-  $y \in \RR_{>0}$ velja $\exp (\log y) = y$.
+  tvorita izomorfizem, saj za $x \in \RR$ velja $\log (\exp x) = x$ in za $y \in \RR_{>0}$
+  velja $\exp (\log y) = y$. Eksponentna funkcija seštevanje slika v množenje:
+  $\exp 0 = 1$ in $\exp (x + y) = \exp x \cdot \exp y$, zato ni samo izomorfizem med
+  množicama, ampak celo izomorfizem med grupama $(\RR, {+}, 0)$ in
+  $(\RR_{>0}, {\cdot}, 1)$.
+
+  Če ne veste, kaj je grupa in izomorfizem grup, nikar ne obupavajte. Vsak matematik se v
+  vsakdanjem delu nenehno srečuje z neznanimi pojmi. Veste, da je znameniti profesor
+  France Križanič\footnote{France Križanič (1928--2002), slovenski matematik} v enega od
+  svojih učbenikov zapisal, da naj tisti, ki mu je branje dokazov odveč, ravna tako kot Du
+  Fu:\footnote{Du Fu (712--770 pr.~n.~š), kitajski pesnik}
+  %
+  \begin{center}
+    \begin{tabular}{l}
+      Ko berem knjige,\\
+      z vinom se krepčam\\
+      in znak preskočim,\\
+      če ga ne poznam.
+    \end{tabular}
+  \end{center}
 \end{zgled}
 
-Dokažimo nekaj osnovih lastnosti izmorfnosti in izomorizmov.Tokrat ne bomo zapisali
+\begin{naloga}
+  Odkorakajte v knjižnico, izposodite si knjigo profesorja Križaniča in jo preberite.
+\end{naloga}
+
+Dokažimo nekaj osnovih lastnosti izmorfnosti in izomorizmov. Tokrat ne bomo zapisali
 podrobnih dokazov. Za vajo jih dopolnite do tolikšnih podrobnosti, da boste sami sebe
 prepričali, da trditve držijo.
 
@@ -1414,10 +1543,10 @@ Sami premislite, kaj je $\inv{(\inv{f}(x))}$.
 
 \begin{proof}
   Dokaz prepuščamo za vajo. Pozor, v desni enakosti se je zamenjal vrstni red $f$ in $g$!
-  Nadalje opazimo še to: zapisali smo $\inv{(\inf{f})}$ in $\inv{(g \circ f)}$, ne da bi
+  Nadalje opazimo še to: zapisali smo $\inv{(\inv{f})}$ in $\inv{(g \circ f)}$, ne da bi
   predhodno preverili, ali sta $\inv{f}$ in $g \circ f$ izomorfizma. Torej morate v dokazu
-  preveriti še, da je ovrat inverza izomorfizem in da je kompozitum izomorfizmov spet
-  izomorfizem.
+  najprej preveriti, da je sta $\inv{f}$ in $g \circ f$ izomorfizma, če sta $f$ in $g$
+  izomorfizma.
 \end{proof}
 
 \begin{trditev}
@@ -1492,13 +1621,21 @@ $A \times B \ism B \times A$. Kaj pa ostali zakoni?
   \end{align*}
 \end{izrek}
 
-Izmed vseh zakonov, ki so zapisani v izreku, dokažimo nenavadne in poučne, ostale pa
-pustimo za vajo.
+Izrek ni sam sebi namen, ampak je v njem nauk: \emph{z množicami lahko računamo}, tako kot
+s števili. Preostanek razdelka je posvečen dokazu izreka.
+
+\begin{naloga}
+  Ugotovite, katerih zakonov iz izreka~\ref{izrek:algebra-mnozic} v tem razdelku ne bomo
+  utemeljili in to storite sami.
+\end{naloga}
+
+\subsection{Asociativnost}
+\label{sec:asociativnost}
 
 Za ogrevanje dokažimo asociativnost zmnožkov,
 $A \times (B \times C) \ism (A \times B) \times C$. Splošni element
-$A \times (B \times C)$ urejeni par oblike $(x, (y, z))$, kjer je $x \in A$, $y \in B$ in
-$z \in C$, med tem ko je splošni element $(A \times B) \times C$ oblike $((u, v), w)$,
+$A \times (B \times C)$ je urejeni par oblike $(x, (y, z))$, kjer je $x \in A$, $y \in B$
+in $z \in C$, med tem ko je splošni element $(A \times B) \times C$ oblike $((u, v), w)$,
 kjer je $u \in A$, $v \in B$ in $w \in C$. Izomorfizmov ni težko zapisati:
 %
 \begin{align*}
@@ -1552,11 +1689,153 @@ Ali vidite, zakaj matematiki cenimo kratek in pregleden zapis? Preveč podrobnos
 zakrije bistvo ideje. Preverjanje, da je $g$ obrat $f$, prepustimo tistim, ki radi veliko
 pišejo.
 
-TODO.
+\subsection{Preslikave in enojec}
+\label{sec:preslikave-enojec}
 
-\begin{naloga}
-  Preveri še preostale zakone iz izreka~\ref{izrek:algebra-mnozic}.
-\end{naloga}
+Preslikavi
+%
+\begin{align*}
+  f &: A \times \one \to A &
+  g &: A \to A \times \one \\
+  f &: (x, u) \mapsto a &
+  g &: y \mapsto (y, \unit)
+\end{align*}
+%
+tvorita izomorfizem $A \times \one \ism A$, saj za vsak $a \in A$ in $t \in \one$ velja,
+upoštevaje da so vsi elementi~$\one$ enaki~$\unit$,
+%
+\begin{equation*}
+  g(f(a, t)) = g(a) = (a, \unit) = (a, t)
+  \qquad\text{in}\qquad
+  f(g(a)) = f(a, t) = a.
+\end{equation*}
+%
+Lahko bi rekli, da je $\one$ nevtralni element za zmnožek \emph{do izomorfizma natančno},
+s čimer povemo, da ne velja \emph{enakost} $A \times \one = A$, ampak le
+\emph{izomorfizem} $A \times \one \ism A$. Na tem mestu lahko tudi pojasnimo nenavadni
+zapis edinega elementa~$\one$. Elementi zmnožka dveh množic so urejene dvojice, zmnožka
+treh množic urejene trojice itd. Zmnožek nič množic je nevtralni element za množenje,
+torej so njegovi elementi urejen ničterice, oziroma urejena ničterica~$\unit$, ker je ena
+sama.
+
+Izomorfizma $A^\one \ism A$ ni težko zapisati:
+%
+\begin{align*}
+  f &: A^\one \to A &
+  g &: A \to A^\one \\
+  f &: h \mapsto h(\unit) &
+  g &: x \mapsto (y \mapsto x)
+\end{align*}
+%
+Preverimo, da je $g$ inverz $f$. Za vsak $x \in A$ velja
+%
+\begin{equation*}
+  f(g(x)) = f(y \mapsto x) = x,
+\end{equation*}
+%
+zato je $f \circ g = \id[A]$. Za vsak $h \in A^\one$ velja
+%
+\begin{equation*}
+  g(f(h)) = g(h(\unit)) = (y \mapsto h(\unit)).
+\end{equation*}
+%
+Ali sta $h$ in $y \mapsto h(\unit)$ enaki preslikavi? Kot vsakič, uporabimo
+ekstenzionalnost preslikav, le da je tokrat še posebej preprosta: preslikavi z
+domeno~$\one$ sta enaki, če imata enako vrednost pri argumentu $\unit$, saj je to edini
+element~$\one$. Torej je $h = (y \mapsto h(\unit))$, saj velja
+%
+\begin{equation*}
+  (y \mapsto h(\unit))(\unit) = h(\unit).
+\end{equation*}
+%
+Izomorfnost $A$ in $A^\one$ pravzaprav pove nekaj zanimivega: preslikave $\one \to A$
+lahko obravnavamo kot elemente~$A$ in obratno.
+
+
+\subsection{Preslikave in prazna množica}
+\label{sec:presl-prazna-mnozica}
+
+Lotimo se izomorfizmov, v katere je vpletena prazna množica. Tu se ne moremo več zanašati
+le na prirojen občutek za logiko, saj s prazno množico nimamo vsakdanjih izkušenj, oziroma
+jo obravnavamo kot posebnost. Kako bi odgovorili na vprašanje, ali so vsi elementi prazne
+množice praštevila? Pravilni odgovor je ``da''. In hkrati so vsi elementi prazne množice
+sestavljena števila. Zakaj je to res bomo spoznali v
+razdelku~\ref{sec:logika-prazna-mnozica}, ko bomo podrobno obravnavali pravila sklepanja.
+Zaenkrat si zapomnimo, da je pravilna vsaka izjava ``za vse elemente prazne množice velja
+\dots''. Pravimo, da je taka izjava \emph{na prazno izpolnjena}
+
+Začnimo z vprašanjem, ali lahko tvorimo kako preslikavo $\emptyset \to A$. Najprej
+ugotovimo, da so vse preslikave $\emptyset \to A$ enake. Res, za $f, g : \emptyset \to A$
+velja $f = g$ natanko tedaj, ko za vse $x \in \emptyset$ velja $f(x) = g(x)$. A ravnokar
+smo povedali, da je vsaka izjava oblike ``za vse $x \in \emptyset$ \dots'' veljavna. Pa
+imamo kako preslikavo $\emptyset \to A$? Odgovor je pritrdilen, če lahko podamo kako
+celovito in enolično prirejanje med elementi~$\emptyset$ in~$A$. Ker sta celovitost in
+enoličnost spet izavi oblike ``za vse $x \in \emptyset$ \dots'', sta na prazno izpolnjena,
+zato bo zadoščalo kakršnokoli prirejanje, denimo: nobenemu elementu ne priredimo nobenega
+elementa. S tem smo utemeljili naslednjo trditev.
+
+\begin{trditev}
+  Za vsako množico $A$ obstaja natanko ena preslikava $\emptyset \to A$.
+\end{trditev}
+
+Edini preslikavi $\emptyset \to A$ pravimo \df{prazna preslikava}. S tem smo utemeljili
+$A^\emptyset \ism \one$, saj izomorfizem prazni preslikavi priredu
+$\unit$, njegov obrat pa priredi $\unit$ prazno preslikavo.
+
+\subsection{Izomorfizmi in eksponenti}
+\label{sec:izomorfizmi-in-eksponenti}
+
+Nazadnje se posvetimo še zakonu $A^{B \times C} \ism (A^B)^C$.
+Preverimo, da preslikavi\footnote{Saj ste se že naučili grške črke, ali ne?}
+%
+\begin{align*}
+  \Lambda &: A^{B \times C} \to (A^B)^C
+  &
+  \Theta &: (A^B)^C \to A^{B \times C}
+  \\
+  \Lambda &: f \mapsto (c \mapsto (b \mapsto f(b, c)))
+  &
+  \Theta &: g \mapsto ((b, c) \mapsto g(c)(b))
+\end{align*}
+%
+tvorita izomorfizem. Za vse $f \in A^{B \times C}$, $x \in B$ in $y \in C$ velja
+%
+\begin{align*}
+  \Theta(\Lambda(f))(x, y)
+  &= ((b, c) \mapsto \Lambda(f)(c)(b)) (x, y)  \\
+  &= \Lambda(f)(y)(x) \\
+  &= (c \mapsto (b \mapsto f(b, c)))(y)(x) \\
+  &= (b \mapsto f(b, y)(x) \\
+  &= f(x, y),
+\end{align*}
+%
+zato je $\Theta(\Lambda(f)) = f$. Prav tako za vse $g \in (A^B)^C$ in $x \in B$ in
+$y \in C$ velja
+%
+\begin{align*}
+  \Lambda(\Theta(g))(y)(x)
+  &= (c \mapsto (b \mapsto \Theta(g)(b, c)))(y)(x) \\
+  &= (b \mapsto \Theta(g)(b, y))(x) \\
+  &= \Theta(g)(x, y) \\
+  &= ((b, c) \mapsto g(c)(b)) (x, y) \\
+  &= g(y)(x)
+\end{align*}
+%
+in zato $\Lambda(\Theta(g)) = g$.
+%
+Preslikavi $\Lambda(f)$ pravimo \df{transpozicija} preslikave~$f$, in prav tako preslikavi
+$\Theta(g)$ pravimo transpozicija preslikave~$g$.
+
+Izomorfizem $A^{B \times C} \ism (A^B)^C$ je zanimiv, ker pove, da lahko preslikavo dveh
+argumentov vedno prevedemo na preslikavo enega argumenta. Natančneje, če je
+$f : B \times C \to A$ preslikava dveh argumentov, je njena transpozicija
+$\Lambda(f) : C \to A^B$ preslikava enega argumenta, njena vrednost pa je preslikava, ki
+pričakuje še en argument. To dejstvo se s pridom izkorišča v funkcijskem programiranju:
+namesto, da bi definirali preslikavo $f : B \times C \to A$, ki sprejme urejeni par
+$(b, c)$ in vrne vrednost $f(b,c)$, raje definiramo enakovredno preslikavo
+$\tilde{f} : B \to C \to A$, ki sprejme $b$ in vrne preslikavo $\tilde{f}(b)$, ta pa
+sprejme še $c$ in vrne vrednost $\tilde{f}(b)(c)$.
+
 
 % TODO Potence A^n in binomski izrek.
 
@@ -1625,6 +1904,13 @@ TODO.
   zmnožek $n$ množic, kjer je~$n$ naravno število.
 \end{vaja}
 
+\begin{vaja}
+  Naštejte vse elemente množice $\one + \one + \one$.
+\end{vaja}
+
+\begin{naloga}
+  Preveri tiste zakone iz izreka~\ref{izrek:algebra-mnozic}, ki jih še nismo dokazali.
+\end{naloga}
 
 %%% Local Variables:
 %%% mode: latex
