@@ -1360,8 +1360,8 @@ preslikave $\RR^\RR \to \RR^\RR$ ni celovit, ker nekatere preslikave niso odvedl
 Preslikavam, ki niso celovite, pravimo \emph{delne} in o njih bomo več povedali v
 razdelku~\ref{delne-preslikve}.
 
-\section{Algebra množic}
-\label{sec:algebra-mnozic}
+\section{Izomorfizem množic}
+\label{sec:izomorfizem-mnozic}
 
 Ko otrok prvič spozna pojem števila, je ta zanimiv sam po sebi. Z vnemo šteje do sto in se
 rad pogovarja se o tem, koliko je en miljon. Sčasoma se radovednost osredotoči na
@@ -1369,9 +1369,6 @@ aritmetične operacije in, če ima mladenič ali mladenka v sebi matematično ž
 \emph{zakonitosti} števil: množenje z~$1$ nima učinka, vrstni red seštevanja ni pomemben
 itd. Ali tudi operacijam na množicah, ki smo jih spoznali do sedaj, vladajo kakšne
 podobne zakonitosti?
-
-\subsection{Izomorfizem množic}
-\label{sec:izomorfizem-mnozic}
 
 Za števili $a$ in $b$ velja $a \cdot b = b \cdot a$. Nekaj podobnega velja tudi za množici
 $A$ in $B$ in njuna zmnožka $A \times B$ in $B \times A$. V splošnem sicer nista enaka, a
@@ -1624,12 +1621,7 @@ $A \times B \ism B \times A$. Kaj pa ostali zakoni?
 Izrek ni sam sebi namen, ampak je v njem nauk: \emph{z množicami lahko računamo}, tako kot
 s števili. Preostanek razdelka je posvečen dokazu izreka.
 
-\begin{naloga}
-  Ugotovite, katerih zakonov iz izreka~\ref{izrek:algebra-mnozic} v tem razdelku ne bomo
-  utemeljili in to storite sami.
-\end{naloga}
-
-\subsection{Asociativnost}
+\subsubsection{Asociativnost}
 \label{sec:asociativnost}
 
 Za ogrevanje dokažimo asociativnost zmnožkov,
@@ -1689,7 +1681,7 @@ Ali vidite, zakaj matematiki cenimo kratek in pregleden zapis? Preveč podrobnos
 zakrije bistvo ideje. Preverjanje, da je $g$ obrat $f$, prepustimo tistim, ki radi veliko
 pišejo.
 
-\subsection{Preslikave in enojec}
+\subsubsection{Preslikave in enojec}
 \label{sec:preslikave-enojec}
 
 Preslikavi
@@ -1752,7 +1744,7 @@ Izomorfnost $A$ in $A^\one$ pravzaprav pove nekaj zanimivega: preslikave $\one \
 lahko obravnavamo kot elemente~$A$ in obratno.
 
 
-\subsection{Preslikave in prazna množica}
+\subsubsection{Preslikave in prazna množica}
 \label{sec:presl-prazna-mnozica}
 
 Lotimo se izomorfizmov, v katere je vpletena prazna množica. Tu se ne moremo več zanašati
@@ -1782,7 +1774,7 @@ Edini preslikavi $\emptyset \to A$ pravimo \df{prazna preslikava}. S tem smo ute
 $A^\emptyset \ism \one$, saj izomorfizem prazni preslikavi priredu
 $\unit$, njegov obrat pa priredi $\unit$ prazno preslikavo.
 
-\subsection{Izomorfizmi in eksponenti}
+\subsubsection{Izomorfizmi in eksponenti}
 \label{sec:izomorfizmi-in-eksponenti}
 
 Nazadnje se posvetimo še zakonu $A^{B \times C} \ism (A^B)^C$.
@@ -1908,9 +1900,10 @@ sprejme še $c$ in vrne vrednost $\tilde{f}(b)(c)$.
   Naštejte vse elemente množice $\one + \one + \one$.
 \end{vaja}
 
-\begin{naloga}
-  Preveri tiste zakone iz izreka~\ref{izrek:algebra-mnozic}, ki jih še nismo dokazali.
-\end{naloga}
+\begin{vaja}
+  Preveri tiste izomorfnosti iz izreka~\ref{izrek:algebra-mnozic}, ki jih v
+  razdelku~\ref{sec:algebra-mnozic} nismo utemeljili.
+\end{vaja}
 
 %%% Local Variables:
 %%% mode: latex
