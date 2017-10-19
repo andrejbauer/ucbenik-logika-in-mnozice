@@ -34,22 +34,26 @@ popoln, ko smo utemeljili vse pod-dokaze, ki ga sestavljajo.
 
 #### Primer
 
-Izjava: (A ∨ B) ∧ C ⇒ A ∨ C.
+Izjava: (p ∨ q) ∧ r ⇒ (p ∧ r) ∨ (p ∧ r).
 
 Dokaz:
 
-Dokazujemo (A ∨ B) ∧ C ⇒ (A ∨ C) ∨ (A ∨ B).
-  Predpostavimo (A ∨ B) ∧ C.                   (1)
-  Dokazujemo (A ∨ C) ∨ (A ∨ B).
-     Velja A ∨ B zaradi (1).                   (2)
-     Velja C zaradi (1).                       (3)
-     Obravnavamo primera A, B zaradi (2):
-         1. Če velja A:                        (4)
-            Velja A ∨ B zaradi (4)             (5)
-            (A ∨ C) ∨ (A ∨ B) zaradi (5)
-         2. Če velja B:                        (6)
-            Velja A ∨ B zaradi (4)             (7)
-            (A ∨ C) ∨ (A ∨ B) zaradi (7).
+Dokazujemo (p ∨ q) ∧ r ⇒ (p ∧ r) ∨ (p ∧ r).
+  Predpostavimo (p ∨ q) ∧ r.                   (1)
+  Dokazujemo (p ∧ r) ∨ (p ∧ r).
+     Velja p ∨ q zaradi (1).                   (2)
+     Velja r zaradi (1).                       (3)
+     Obravnavamo primera p, q zaradi (2):
+         1. Predpostavimo p:                        (4)
+             Dokazujemo (p ∧ r) ∨ (p ∧ r)
+                Dokažimo p ∧ r:
+                     1.1. Dokažimo p: velja p zaradi (4)
+                     1.2. Dokažimo r: velja q zaradi (3)
+         2. Predpostavimo q:                        (5)
+             Dokazujemo (p ∧ r) ∨ (q ∧ r)
+                Dokažimo q ∧ r:
+                     1.1. Dokažimo q: velja q zaradi (5)
+                     1.2. Dokažimo r: velja r zaradi (3)
 Konec dokaza.
 
 ## Pravila sklepanja
