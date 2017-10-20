@@ -23,7 +23,12 @@
 \newtheorem{zgled}[izrek]{Zgled}
 \newtheorem{naloga}[izrek]{Naloga}
 \newtheorem{vaja}{Vaja}[chapter]
+\newtheorem{innerresitev}{Rešitev}
 }
+\newenvironment{resitev}[1]
+  {\renewcommand\theinnerresitev{#1}\innerresitev}
+  {\endinnerresitev}
+
 
 %%%%%%  Proofs
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
