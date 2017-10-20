@@ -514,6 +514,75 @@ Zdaj lahko na pregleden način zapišemo, da je vsako naravno število od $2$ na
 
 \section{Vaje}
 
+\anja{Ali želimo imeti toliko nalog iz polnih naborov? Jaz sem samo skopirala te naloge od prejšnjih vaj.}
+
+\begin{vaja}
+Pokaži, da so naslednji nabori izjavnih povezav polni.
+\begin{enumerate}
+ \item $\set{ \land, \xor, \true }$
+ \item $\set{ \impl, \lnot }$
+ \item $\set{ \impl, \false }$
+ \item $\set{ \land, \false, \true, \Delta }$, kjer je $\Delta(p,q,r) \equiv p \xor q \xor r$.
+\end{enumerate}
+\end{vaja}
+
+\begin{vaja}
+ Naslednje izjave izrazi le z veznikoma $\lnot$ in $\impl$.
+\begin{itemize}
+  \item $p\land q$
+  \item $(p\xor q)\lequ (p\lor q)$
+  \item $p\luk q$
+\end{itemize}
+\end{vaja}
+
+\begin{vaja}
+Pokaži, da spodnja nabora izjavnih veznikov {\em nista} polna:
+\begin{itemize}
+ \item  $\set{\land, \lequ }$,
+ \item  $\set{ \land, \xor }$.
+\end{itemize}
+\end{vaja}
+
+%\begin{vaja}
+%Trimestna izjavna povezava $\ifthen{p}{q}{r}$ je določena takole:
+%\[
+%\ifthen{p}{q}{r} = \left\{ \begin{array}{ll}
+% q, & p = 1 \\
+% r, & p = 0.
+%\end{array} \right.
+%\]
+%\begin{itemize}
+% \item Izrazi povezavo $\ifthen{p}{q}{r}$ čim krajše z običajnimi izjavnimi povezavami.
+%  Pokaži, da velja enakovrednost $\ifthen{p}{q}{r} \sim (p \Rightarrow q) \land (\lnot p \Rightarrow r)$.
+% \item Pokaži, da je nabor $\{ 0, 1, \ifthen{p}{q}{r} \}$ poln.
+% \item Izrazi z naborom iz prejšnje točke izjavo $p \Leftrightarrow q$.
+%\end{itemize}
+%\end{vaja}
+
+\begin{vaja}
+Kateri izmed naslednjih izjavnih veznikov sestavlja poln nabor?
+\begin{itemize}
+ \item $\Lambda(p,q,r) \equiv p \impl (q \lor r)$
+ \item $\Lambda(p,q,r) \equiv (p \shf q) \luk r$
+ \item $\Lambda(p,q,r) \equiv (\lnot p \land \lnot r) \impl q$
+ \item $\Lambda(p,q,r) \equiv p \impl (q \impl \lnot r)$
+\end{itemize}
+\end{vaja}
+
+
+\begin{vaja}
+Ali sestavljata izjavni povezavi $\set{ \impl, \not\impl }$, kjer je $p \not\impl q \equiv \lnot (p \impl q)$, poln nabor?
+\end{vaja}
+
+\begin{vaja}
+Izjavna povezava $\square$ je določena z $p \square q \equiv p \land \lnot q$. Ugotovi, kateri nabori od spodnjih naborov izjavnih povezav so polni.
+\begin{itemize}
+ \item $\set{ \square }$
+ \item $\set{ \square, \lnot }$
+ \item $\set{ \square, \impl }$
+\end{itemize}
+\end{vaja}
+
 
 %%% Local Variables:
 %%% mode: latex
