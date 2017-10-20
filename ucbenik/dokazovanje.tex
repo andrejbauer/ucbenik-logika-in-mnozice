@@ -217,6 +217,51 @@
 
 \section{Vaje}
 
+\anja{Kako bomo zapisovali rešitve nalog z navodilom \nls{dokaži}? Ali jih bomo pisali tako kot na predavanjih in bomo posodobili to poglavje v učbeniku?}
+
+\begin{vaja}
+  Dokažite naslednje izjave:
+  %
+  \begin{enumerate}
+  \item $p \land q \impl p \lor q$
+  \item $p \impl (q \impl p)$
+  \item $p \land q \impl \lnot (\lnot p \lor \lnot q)$
+  \item $(p \land q) \lor r \equiv (p \lor r) \land (q \lor r)$
+  \end{enumerate}
+\end{vaja}
+
+\begin{vaja}
+  Dokažite naslednje izjave:
+  %
+  \begin{enumerate}
+  \item $(\all{x \in A} p(x)) \lor (\all{y \in A} q(y)) \impl \all{z \in A} p(z) \lor q(z)$
+  \item $(\some{x \in A} p(x)) \lor (\some{y \in A} q(y)) \impl \some{z \in A} p(z) \lor q(z)$
+  \item $(\some{x \in A} \all{y \in B} p(x, y)) \impl \all{b \in B} \some{a \in A} p(a, b)$
+  \end{enumerate}
+\end{vaja}
+
+\begin{vaja}
+  Dokažite naslednje izjave:
+  %
+  \begin{enumerate}
+  \item $(\some{n \in \NN} 24 \cdot n = a) \impl \some{k \in \NN} 3 \cdot k = a$.
+  \item $\all{m \in \NN} \some{\ell \in \NN} (m^2 = 4 \ell \lor m^2 = 4 \ell + 1).$\\
+    Namig:  brez dokaza smemo uporabiti dejstvo
+    $\all{n \in \NN} \some{k \in \NN} (n = 2 k \lor n = 2 k + 1).$
+  \end{enumerate}
+\end{vaja}
+
+\begin{vaja}
+  Dana je funkcija $f : \RR \to \RR$. Dokažite naslednje izjave:
+  %
+  \begin{enumerate}
+  \item  $\all{x \in \RR} \some{y \in \RR} f(x) \leq y.$
+  \item$(\some{M \in \RR} \all{x \in \RR} f(x) \leq M) \impl \all{x \in \RR} \some{y \in \RR} f(x) \leq y.$
+  \item $(\some{M \in \RR} \all{x \in \RR} f(x) \leq M) \impl \some{N \in \RR} \all {x \in \RR} 2 \cdot f(x) + 7 \leq N.$
+  \item $(\some{M \in \RR} \all{x \in \RR} x^2 + 7 \leq M) \impl \all{x \in \RR} \some{y \in \RR} x^2 + 7 \leq y$.
+  \end{enumerate}
+\end{vaja}
+
 
 %%% Local Variables:
 %%% mode: latex
