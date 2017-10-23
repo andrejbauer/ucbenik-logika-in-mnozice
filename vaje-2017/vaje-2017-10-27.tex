@@ -1,0 +1,65 @@
+\documentclass{article}
+
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{xparse}
+
+\usepackage[slovene]{babel}
+\newcommand{\lthen}{\Rightarrow}
+
+%\input{../macros.tex}
+{
+\theoremstyle{definition}
+\newtheorem{vaja}{Vaja}
+}
+
+
+\begin{document}
+
+\title{Logika in množice -- vaje}
+\date{27.~10.~2017}
+\maketitle
+
+\begin{vaja}
+  Dokaži ekvivalenco $\lnot (p \land q) \iff \lnot p \lor \lnot q$.
+  Nato jo preveri še z resničnostno tabelo.
+\end{vaja}
+
+\begin{vaja}
+  Z resničnostno tabelo preveri, da je $(p \lthen q) \lor (q \lthen p)$ tavtologija.
+\end{vaja}
+
+\begin{vaja}
+  Preveri, da je $(p \lthen q) \lor (q \lthen p)$ tavtologija z resničnostno tabelo in s
+  poenostavljanjem.
+\end{vaja}
+
+\begin{vaja}
+  Dokaži
+  %
+  \[
+    \lnot (\exists x \in A . p(x))
+    \iff
+    \forall x \in A . \lnot p(x).
+  \]
+\end{vaja}
+
+\begin{vaja}
+  Dokaži
+  %
+  \[
+    \lnot (\forall x \in A . p(x))
+    \iff
+    \exists x \in A . \lnot p(x).
+  \]  
+  % To rešimo tako, da v prejšnji vaji obe strani zanikamo.
+\end{vaja}
+
+\begin{vaja}
+  Vezja!
+\end{vaja}
+
+
+\end{document}
