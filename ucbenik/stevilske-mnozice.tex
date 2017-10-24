@@ -552,7 +552,7 @@ Razmisli, kako je z monotonostjo algebrskih operacij na polkolobarju formalnih r
 
 Morda se vam sicer zdi predstavitev celih števil s formalnimi razlikami nekoliko nenavadna; povečini nismo navajeni nanjo. Vsekakor niste celih števil podali na ta način v osnovni šoli. Običajno pišemo cela števila kot naravna z ustreznim predznakom. Preverimo, da zgornja definicija celih števil dopušča takšen zapis.
 
-\begin{trditev}
+\begin{trditev}\label{trditev:kanonicna-oblika-celega-stevila}
 Vsak ekvivalenčni razred $\ec{a, b} \in \ZZ$ vsebuje natanko enega predstavnika, ki ima vsaj eno komponento enako $0$, in sicer velja $\ec{a, b} = \ec{a \monus b, b \monus a}$.
 \end{trditev}
 
@@ -627,6 +627,34 @@ Uvedimo še urejenost: definirajmo
 \begin{naloga}
 Preveri, da je $\leq$ šibka urejenost na $\ZZ \times \ZZ_{> 0}$ (refleksivna in tranzitivna).
 \end{naloga}
+
+Tako kot prej pri celih številih bomo dobili željeno šele, ko naredimo kvocient po ekvivalenčni relaciji $\approx$, dani z $(a, b) \approx (c, d) \dfeq (a, b) \leq (c, d) \land (c, d) \leq (a, b)$, kar pomeni $(a, b) \approx (c, d) \iff a \cdot d = b \cdot c$. Definirajmo torej množico racionalnih števil kot $\QQ \dfeq (\ZZ \times \ZZ_{> 0})/_\approx$.
+
+Elementi tega kvocienta so ekvivalenčni razredi $\ec[\approx]{(a, b)}$, ki pa jih raje pišemo kot $\frac{a}{b}$. Na primer, ker velja $2 \cdot 3 = 6 \cdot 1$, dobimo $\ec[\approx]{(2, 6)} = \ec[\approx]{(1, 3)}$ oziroma $\frac{2}{6} = \frac{1}{3}$. \note{Če te razprave ne bo že prej (ob debati o razliki med izrazom in vrednostjo, ki jo izraz predstavlja), tu pojasnimo razliko med ulomkom in racionalnim številom, vključno s tem, kaj pomeni enakost v enem oz.~drugem primeru.}
+
+\begin{naloga}
+Preveri, da je $\approx$ kongruenca na polkolobarju $\ZZ \times \ZZ_{> 0}$ in da je potem tudi $\QQ$ izmenljiv krajšalen polkolobar z enico za porojene operacije. Preveri tudi, da je porojena $\leq$ linearna urejenost na $\QQ$ (torej je $\QQ$ mreža), porojena $<$ pa je stroga linearna urejenost na $\QQ$ (ki posledično zadošča zakonu trodelitve).
+\end{naloga}
+
+Trdimo: za poljuben $\frac{a}{b} \in \QQ$ je $\frac{-a}{b}$ njegov nasprotni element. Res: $\frac{a}{b} + \frac{-a}{b} = \frac{a \cdot b + b \cdot (-a)}{b^2} = \frac{0}{b^2} = \frac{0}{1}$, kar je enota za seštevanje v $\QQ$. Sklenemo, da je $\QQ$ kolobar.
+
+\begin{naloga}
+Preveri, da je preslikava $\NN \to \QQ$, $a \mapsto \frac{a}{1}$ homomorfizem polkolobarjev z enico, preslikava $\ZZ \to \QQ$, $a \mapsto \frac{a}{1}$ pa homomorfizem kolobarjev z enico. V tem smislu obravnavamo $\NN$ in $\ZZ$ kot pomnožici množice $\QQ$.
+\end{naloga}
+
+Ostane še preveriti, da je $\QQ$ obseg, da torej ima vsak neničelni element obrat. Očitno velja $\frac{a}{b} = \frac{0}{1} \iff a = 0$. Po zakonu trodelitve za cela števila lahko ločimo primere $a < 0$, $a = 0$, $a > 0$, pri čemer primer $a = 0$ odpade, če se omejimo na neničelna racionalna števila. V primeru $a > 0$ lahko zapišemo $(\frac{a}{b})^{-1} = \frac{b}{a}$, v primeru $a < 0$ pa $(\frac{a}{b})^{-1} = \frac{-b}{-a}$.
+
+\begin{naloga}
+Preveri, da na ta način dejansko dobimo obrat poljubnega neničelnega racionalnega števila.
+\end{naloga}
+
+Vidimo, da smo si pri računanju obratov nekoliko zakomplicirali življenje s tem, da smo za množico formalnih količnikov vzeli $\ZZ \times \ZZ_{> 0}$ namesto $\ZZ \times \ZZ_{\neq 0}$ --- v slednjem primeru bi namreč za obrat zadostovala zgolj formula $(\frac{a}{b})^{-1} = \frac{b}{a}$. Bi pa potem imeli več ločevanja primerov pri $\leq$ in $<$.
+
+\begin{naloga}
+Za primerjavo konstruiraj racionalna števila kot $(\ZZ \times \ZZ_{\neq 0})/_\approx$. Zapiši vse podrobnosti, predvsem definicijo in lastnosti relacij urejenosti. Dokaži, da sta obe konstrukciji izomorfni kot obsega in kot urejenosti.
+\end{naloga}
+
+V prejšnjem razdelku smo videli: če cela števila predstavimo s formalnimi razlikami naravnih števil, ima sicer vsako celo število mnogo predstavnikov, ampak eden izmed njih, dan v trditvi~\ref{trditev:kanonicna-oblika-celega-stevila}, je ``najboljši'', v smislu, da je z njim najlažje računati. Podobno trditev imamo tudi za racionalna števila: vsako racionalno število je možno predstaviti z okrajšanim ulomkom. Ker to že zelo dobro poznate, te trditve ne bomo izrecno dokazovali, lahko pa za vajo sami natančno formulirate trditev in jo skrbno dokažete.
 
 \subsection{Karakterizacija}
 
