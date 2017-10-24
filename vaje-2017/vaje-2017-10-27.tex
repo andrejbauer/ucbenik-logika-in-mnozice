@@ -30,8 +30,8 @@
 \end{vaja}
 
 \begin{vaja}
-  Preverite, da je $(p \lthen q) \lor (q \lthen p)$ tavtologija z resničnostno tabelo in s
-  poenostavljanjem.
+  Preverite z resničnostno tabelo in s
+  poenostavljanjem, da je $(p \lthen q) \lor (q \lthen p)$ tavtologija.
 \end{vaja}
 
 \begin{vaja}
@@ -76,8 +76,8 @@ potem tok teče, če je vklopljeno stikalo $A$ ali stikalo $B$. Tako lahko simul
 (6,2) node[nor port](mynor){}
 (2,0) node(o) {ali}
 (2,2) node(a) {in}
-(9,0) node(n) {negacija}
-(9,2) node(no) { Łukasiewiczev veznik};
+(9,0) node(n) {ne}
+(9,2) node(no) { niti};
 %(myand1.out) -- (myxnor.in 1)
 %(myand2.out) -- (myxnor.in 2);
 \end{circuitikz}
@@ -100,8 +100,8 @@ Prvi dve vezji lahko torej z vrati zapišemo takole
 \end{circuitikz}
 \end{center}
 
-Andrej prenavlja stanovanje in načrtuje električno napeljavo. Ker se mu pred spanjem ne ljubi vstajati, da bi ugasnil luč, si želi v spalnici imeti dve stikali, eno ob postelji in eno pri vhodu. Seveda pa morata obe stikali delovati, torej ko pritisnemo na katero koli stikalo, se mora luč prižgati ali pa ugasniti, če je že prižgana. Pri izdelavi električnega omrežja sme Andrej uporabiti le vrata ``in'', ``ali'' ter negacijo. Ker pa so vrata draga, si želi uporabiti čim manj vrat. Pomagajte Andreju načrtovati vezje za njegovo spalnico. Kaj pa če lahko uporabi samo vrata ``in'' ter ``ali''? Ali lahko uporabi le vrata, ki predstavljajo Łukasiewiczev veznik ($\downarrow$)?
-%
+Andrej prenavlja stanovanje in načrtuje električno napeljavo. Ker se mu pred spanjem ne ljubi vstajati, da bi ugasnil luč, si želi v spalnici imeti dve stikali, eno ob postelji in eno pri vhodu. Seveda pa morata obe stikali delovati, torej ko pritisnemo na katero koli stikalo, se mora luč prižgati ali pa ugasniti, če je že prižgana. Pri izdelavi električnega omrežja sme Andrej uporabiti le vrata ``in'', ``ali'' ter ``ne''. Ker pa so vrata draga, si želi uporabiti čim manj vrat. Pomagajte Andreju načrtovati vezje za njegovo spalnico. Kaj pa če lahko uporabi samo vrata ``in'' ter ``ali''? Ali lahko uporabi le vrata ``niti'' ($\downarrow$)?
+
 %\begin{circuitikz} \draw
 %(2,0) node[anchor=north] (q) {}
 %(2,8) node[anchor=south] (p) {}
@@ -119,8 +119,6 @@ Andrej prenavlja stanovanje in načrtuje električno napeljavo. Ker se mu pred s
 %(mynot1.out) -- (myand2.in 1)
 %(myor1.out) -- (myand2.in 2)
 %(myand2.out) to [lamp] (10,4);
-%%(myand1.out) -- (myxnor.in 1)
-%%(myand2.out) -- (myxnor.in 2);
 %\end{circuitikz}
 
 \end{vaja}
