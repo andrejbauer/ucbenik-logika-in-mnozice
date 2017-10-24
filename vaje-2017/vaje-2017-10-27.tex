@@ -72,12 +72,12 @@ potem tok teče, če je vklopljeno stikalo $A$ ali stikalo $B$. Tako lahko simul
 \begin{circuitikz} \draw
 (0,0) node[or port] (myor1) {}
 (0,2) node[and port] (myand1) {}
-(0,4) node[not port](mynot1){}
-(0,-2) node[nor port](mynor){}
-(4,0) node(o) {ali}
-(4,2) node(a) {in}
-(4,4) node(n) {negacija}
-(4,-2) node(no) {Łukasiewiczev veznik};
+(6,0) node[not port](mynot1){}
+(6,2) node[nor port](mynor){}
+(2,0) node(o) {ali}
+(2,2) node(a) {in}
+(9,0) node(n) {negacija}
+(9,2) node(no) { Łukasiewiczev veznik};
 %(myand1.out) -- (myxnor.in 1)
 %(myand2.out) -- (myxnor.in 2);
 \end{circuitikz}
@@ -90,17 +90,13 @@ Prvi dve vezji lahko torej z vrati zapišemo takole
 (3,2) node[and port] (myand1) {}
 (0,0) to[switch,  l^=$B$] (1,0)
 (1,4) -- (myand1.in 1)
-(1,0)-- (myand1.in 2);
-\end{circuitikz}
-\end{center}
-in
-\begin{center}
-\begin{circuitikz} \draw
-(0,4) to[switch, l^=$A$] (1,4)
-(3,2) node[or port] (myand1) {}
-(0,0) to[switch,  l^=$B$] (1,0)
-(1,4) -- (myand1.in 1)
-(1,0)-- (myand1.in 2);
+(1,0)-- (myand1.in 2)
+(5,2) node(in){ter}
+(6,4) to[switch, l^=$A$] (7,4)
+(9,2) node[or port] (myand1) {}
+(6,0) to[switch,  l^=$B$] (7,0)
+(7,4) -- (myand1.in 1)
+(7,0)-- (myand1.in 2);
 \end{circuitikz}
 \end{center}
 
