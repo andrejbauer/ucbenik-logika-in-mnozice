@@ -22,12 +22,7 @@
 \newtheorem{primer}[izrek]{Primer}
 \newtheorem{zgled}[izrek]{Zgled}
 \newtheorem{naloga}[izrek]{Naloga}
-\newtheorem{vaja}{Vaja}[chapter]
-\newtheorem{innerresitev}{Rešitev}
 }
-\newenvironment{resitev}[1]
-  {\renewcommand\theinnerresitev{#1}\innerresitev}
-  {\endinnerresitev}
 
 
 %%%%%%  Proofs
@@ -155,6 +150,16 @@
 \newcommand{\upkol}{\pkol_1}  % category of unital semirings
 \newcommand{\kol}{\ct{Kol}}  % category of rings
 \newcommand{\ukol}{\kol_1}  % category of unital rings
+
+
+%%%%%%  Exercises and Solutions
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\Newassociation{resitev}{Resitev}{resitve}
+\renewcommand{\Resitevlabel}[1]{\emph{Re\v{s}itev~#1}}
+{
+\theoremstyle{definition}
+\newtheorem{vaja}{Vaja}[chapter]
+}
 
 
 %%%%%%  Misc.
