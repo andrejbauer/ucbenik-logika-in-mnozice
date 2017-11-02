@@ -1,0 +1,59 @@
+\documentclass{article}
+
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{xparse}
+\usepackage{circuitikz}
+
+
+\usepackage[slovene]{babel}
+\newcommand{\lthen}{\Rightarrow}
+\newcommand{\two}{\mathbf{2}}
+\newcommand{\true}{\top}
+\newcommand{\false}{\bot}
+
+\newcommand{\NN}{\mathbb{N}}
+\newcommand{\ZZ}{\mathbb{Z}}
+\newcommand{\QQ}{\mathbb{Q}}
+\newcommand{\RR}{\mathbb{R}}
+
+%\input{../macros.tex}
+{
+\theoremstyle{definition}
+\newtheorem{vaja}{Vaja}
+}
+
+
+\begin{document}
+
+\title{Logika in množice -- vaje}
+\date{10.~11.~2017}
+\maketitle
+
+\begin{vaja}
+  %Presek družine množic, indeksirane s čudnimi rečmi.
+  Za katere množice gre v spodnjih primerih? Svojo trditev utemeljite.
+  % Tj. dokažemo vsebovanost množic v obe smeri.
+  \begin{enumerate}
+    \item
+      $\displaystyle{\bigcap_{t \in (0, 1)} (0, t)}$
+    \item
+      $\displaystyle{\bigcap_{t \in (0, 1)} [0, t]}$
+    \item
+      $\displaystyle{\bigcup_{n \in \NN} [-n, n]}$
+    \item
+      $\displaystyle{\bigcup_{t \in (0, 1)} [-t, t]}$
+  \end{enumerate}
+\end{vaja}
+
+\begin{vaja}
+  %2^N ≅ Cantorjeva ⊆ [0,1]
+  Cantorjevo množico definiramo kot podmnožico intervala $[0, 1]$ na sledeči način:
+  \[C = [0, 1] \setminus \bigcup_{n \in \NN} \bigcup_{k \in \{0, 1,\ldots, 3^n - 1\}} \Big(\frac{3k+1}{3^{n+1}}, \frac{3k+2}{3^{n+1}}\Big).\]
+  % Na vajah razlaga s sliko, kaj dobimo.
+  Preverite, da je množica $C$ izomorfna eksponentu $\two^\NN$.
+\end{vaja}
+
+\end{document}

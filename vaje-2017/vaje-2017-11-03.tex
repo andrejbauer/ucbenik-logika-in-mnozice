@@ -19,6 +19,8 @@
 \newcommand{\QQ}{\mathbb{Q}}
 \newcommand{\RR}{\mathbb{R}}
 
+
+
 %\input{../macros.tex}
 {
 \theoremstyle{definition}
@@ -33,7 +35,9 @@
 \maketitle
 
 \begin{vaja}
-  Zapišite predpis za Boolovo funkcijo $V\colon \two^3 \to \two$, dano s spodnjo res\-ni\-čno\-stno tabelo. Predpis naj vključuje samo spremenljivke in običajne izjavne veznike.
+  Zapišite predpis za Boolovo funkcijo $V\colon \two^3 \to \two$, dano s spodnjo
+  res\-ni\-čno\-stno tabelo. Predpis naj vključuje samo izjavne spremenljivke $p$, $q$ in
+  $r$ ter običajne izjavne veznike.
   % Zapišimo tako DNO kot KNO.
   \smallskip
   \begin{center}
@@ -56,27 +60,18 @@
 \end{vaja}
 
 \begin{vaja}
-  %Presek družine množic, indeksirane s čudnimi rečmi.
-  Za katere množice gre v spodnjih primerih? Svojo trditev utemeljite.
-  % Tj. dokažemo vsebovanost množic v obe smeri.
+  Dana je množica $U$ in podmnožice $A, B, C \subseteq U$. Za vsakega od naslednjih
+  sistemov enačb poiščite vse rešitve za neznano množico~$X \subseteq U$:
+  % Glej 45.~nalogo iz
+  % https://ucilnica.fmf.uni-lj.si/pluginfile.php/26906/mod_resource/content/6/vaje.pdf
+  %
   \begin{enumerate}
-    \item
-      $\displaystyle{\bigcap_{t \in (0, 1)} (0, t)}$
-    \item
-      $\displaystyle{\bigcap_{t \in (0, 1)} [0, t]}$
-    \item
-      $\displaystyle{\bigcup_{n \in \NN} [-n, n]}$
-    \item
-      $\displaystyle{\bigcup_{t \in (0, 1)} [-t, t]}$
+  \item $X \cup A = B$,
+  \item $A \cap X = B$ in $A \cup X = C$,
+  \item $A \cup X = B$ in $B \cap X = A$,
+  \item $A \setminus X = X \setminus B$ in $X \setminus A = C \setminus X$.
   \end{enumerate}
 \end{vaja}
 
-\begin{vaja}
-  %2^N ≅ Cantorjeva ⊆ [0,1]
-  Cantorjevo množico definiramo kot podmnožico intervala $[0, 1]$ na sledeči način:
-  \[C = [0, 1] \setminus \bigcup_{n \in \NN} \bigcup_{k \in \{0, 1,\ldots, 3^n - 1\}} \Big(\frac{3k+1}{3^{n+1}}, \frac{3k+2}{3^{n+1}}\Big).\]
-  % Na vajah razlaga s sliko, kaj dobimo.
-  Preverite, da je množica $C$ izomorfna eksponentu $\two^\NN$.
-\end{vaja}
 
 \end{document}

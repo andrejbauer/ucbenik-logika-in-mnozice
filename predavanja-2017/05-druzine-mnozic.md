@@ -1,4 +1,4 @@
-# Definicije in enolični opis
+œ# Definicije in enolični opis
 
 Vedno lahko uvedemo nov simbol c, ki je *okrajšava* za dani izraz E, pišemo
 
@@ -18,7 +18,7 @@ ali
 
    ∃¹ x ∈ A . p(x)
 
-in to je okrajšava za:
+in to je okrajšava za:œ
 
    (∃ x ∈ A . p(x)) ∧ (∀ y z ∈ A . p(y) ∧ p(z) ⇒ y = z)
 
