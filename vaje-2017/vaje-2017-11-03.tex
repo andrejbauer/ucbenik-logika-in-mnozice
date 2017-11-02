@@ -10,6 +10,14 @@
 
 \usepackage[slovene]{babel}
 \newcommand{\lthen}{\Rightarrow}
+\newcommand{\two}{\mathbf{2}}
+\newcommand{\true}{\top}
+\newcommand{\false}{\bot}
+
+\newcommand{\NN}{\mathbb{N}}
+\newcommand{\ZZ}{\mathbb{Z}}
+\newcommand{\QQ}{\mathbb{Q}}
+\newcommand{\RR}{\mathbb{R}}
 
 %\input{../macros.tex}
 {
@@ -25,15 +33,50 @@
 \maketitle
 
 \begin{vaja}
-  DNC in CNF, zapis Boolove funkcije glede na dano tabelo.
+  Zapišite predpis za Boolovo funkcijo $V\colon \two^3 \to \two$, dano s spodnjo res\-ni\-čno\-stno tabelo. Predpis naj vključuje samo spremenljivke in običajne izjavne veznike.
+  % Zapišimo tako DNO kot KNO.
+  \smallskip
+  \begin{center}
+    \begin{tabular}{ccc|c}
+      $p$ & $q$ & $r$ & $V(p, q, r)$ \\
+      \hline
+      $\true$ & $\true$ & $\true$ & $\true$  \\
+      $\true$ & $\true$ & $\false$ & $\false$  \\
+      $\true$ & $\false$ & $\true$ & $\true$  \\
+      $\true$ & $\false$ & $\false$ & $\true$  \\
+      $\false$ & $\true$ & $\true$ & $\false$  \\
+      $\false$ & $\true$ & $\false$ & $\false$  \\
+      $\false$ & $\false$ & $\true$ & $\true$  \\
+      $\false$ & $\false$ & $\false$ & $\true$  \\
+    \end{tabular}
+  \end{center}
+  \smallskip
+  Dobljeni predpis čimbolj poenostavite.
+  % Dobimo $q \lthen p \land r$.
 \end{vaja}
 
 \begin{vaja}
-  2^N ≅ Cantorjeva ⊆ [0,1]
+  %Presek družine množic, indeksirane s čudnimi rečmi.
+  Za katere množice gre v spodnjih primerih? Svojo trditev utemeljite.
+  % Tj. dokažemo vsebovanost množic v obe smeri.
+  \begin{enumerate}
+    \item
+      $\displaystyle{\bigcap_{t \in (0, 1)} (0, t)}$
+    \item
+      $\displaystyle{\bigcap_{t \in (0, 1)} [0, t]}$
+    \item
+      $\displaystyle{\bigcup_{n \in \NN} [-n, n]}$
+    \item
+      $\displaystyle{\bigcup_{t \in (0, 1)} [-t, t]}$
+  \end{enumerate}
 \end{vaja}
 
 \begin{vaja}
-  Presek družine množic, indeksirane s čudnimi rečmi.
+  %2^N ≅ Cantorjeva ⊆ [0,1]
+  Cantorjevo množico definiramo kot podmnožico intervala $[0, 1]$ na sledeči način:
+  \[C = [0, 1] \setminus \bigcup_{n \in \NN} \bigcup_{k \in \{0, 1,\ldots, 3^n - 1\}} \Big(\frac{3k+1}{3^{n+1}}, \frac{3k+2}{3^{n+1}}\Big).\]
+  % Na vajah razlaga s sliko, kaj dobimo.
+  Preverite, da je množica $C$ izomorfna eksponentu $\two^\NN$.
 \end{vaja}
 
 \end{document}
