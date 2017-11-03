@@ -66,11 +66,30 @@
   % https://ucilnica.fmf.uni-lj.si/pluginfile.php/26906/mod_resource/content/6/vaje.pdf
   %
   \begin{enumerate}
-  \item $X \cup A = B$,
-  \item $A \cap X = B$ in $A \cup X = C$,
-  \item $A \cup X = B$ in $B \cap X = A$,
-  \item $A \setminus X = X \setminus B$ in $X \setminus A = C \setminus X$.
+    \item $X \cup A = B$,
+    \item $A \setminus X = B$ in $X \setminus A = C$,
+    \item $A \cap X = B$ in $A \cup X = C$,
+    \item $A \cup X = B$ in $B \cap X = A$,
+    \item $A \setminus X = X \setminus B$ in $X \setminus A = C \setminus X$.
   \end{enumerate}
+  
+  \bigskip
+  \noindent
+  \textit{\small
+  Postopek za reševanje (sistemov) enačb z množicami:
+  \begin{enumerate}
+    \item
+      Enačbo $L = D$ pretvorimo v ekvivalentno obliko $L \oplus D = \emptyset$.
+    \item
+      Sistem več enačb oblike $L_i = \emptyset$ prevedemo na eno samo enačbo oblike $\bigcup_i L_i = \emptyset$.
+    \item
+      Levo stran enačbe zapišemo kot unijo presekov množic oz.~njihovih komplementov.
+    \item
+      Enačbo prevedemo v obliko $(X \cap P) \cup (X^C \cap Q) = \emptyset$. Pri tem si pomagamo z enakostjo $A = (X \cap A) \cup (X^C \cap A)$.
+    \item
+      Rešitve so natanko tiste množice $X$, ki zadoščajo pogoju $Q \subseteq X \subseteq P^C$. Sistem enačb je torej rešljiv natanko tedaj, ko velja $Q \subseteq P^C$, tj.~$P \cap Q = \emptyset$.
+  \end{enumerate}
+  }
 \end{vaja}
 
 
