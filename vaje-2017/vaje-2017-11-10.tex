@@ -49,11 +49,22 @@
 \end{vaja}
 
 \begin{vaja}
-  %2^N ≅ Cantorjeva ⊆ [0,1]
-  Cantorjevo množico definiramo kot podmnožico intervala $[0, 1]$ na sledeči način:
-  \[C = [0, 1] \setminus \bigcup_{n \in \NN} \bigcup_{k \in \{0, 1,\ldots, 3^n - 1\}} \Big(\frac{3k+1}{3^{n+1}}, \frac{3k+2}{3^{n+1}}\Big).\]
-  % Na vajah razlaga s sliko, kaj dobimo.
-  Preverite, da je množica $C$ izomorfna eksponentu $\two^\NN$.
+  \begin{enumerate}
+
+  \item Zapišite Cantorjevo množico $C$, ki jo dobimo s konstrukcijo ``izreza srednje
+    tretjine'', kot jo bosta ponazorila asistentka in asistent.
+
+    Odgovor: $T = \{0, 2\}$ in
+    \[C = \bigcap_{n \in \NN} \bigcup_{r \in T^n} 
+          [\ell(n,r), d(n,r)]
+    \]
+    in
+    \[\ell(n,r) = \sum_{i = 0}^{n} r_i \cdot 3^{-i-1}\]
+    in
+    \[d(n, r) = \ell(n, r) + 3^{-n}\]
+
+  \item Dokažite, da je množica $C$ izomorfna $\two^\NN$.
+  \end{enumerate}
 \end{vaja}
 
 \end{document}
