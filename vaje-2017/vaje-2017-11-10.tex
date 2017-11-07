@@ -34,34 +34,48 @@
 
 \begin{vaja}
   %Presek družine množic, indeksirane s čudnimi rečmi.
-  Za katere množice gre v spodnjih primerih? Svojo trditev utemeljite.
+  Za katere množice gre v spodnjih primerih, kjer z $(a, b)$ in $[a, b]$ označimo odprti
+  in zaprti interval? Svojo trditev utemeljite.
   % Tj. dokažemo vsebovanost množic v obe smeri.
   \begin{enumerate}
     \item
-      $\displaystyle{\bigcap_{t \in (0, 1)} (0, t)}$
+      $\bigcap_{t \in (0, 1)} (0, t)$
     \item
-      $\displaystyle{\bigcap_{t \in (0, 1)} [0, t]}$
+      $\bigcap_{t \in (0, 1)} [0, t]$
     \item
-      $\displaystyle{\bigcup_{n \in \NN} [-n, n]}$
+      $\bigcap_{n \in \NN} (n, \infty)$
     \item
-      $\displaystyle{\bigcup_{t \in (0, 1)} [-t, t]}$
+      $\bigcup_{t \in (0, 1)} [-t, t]$
+    \item
+      $\bigcup_{k \in \{0, \ldots, n-1\}} [k/n, (k+1)/n]$, kjer je $n \in \NN$ in $n \geq 1$.
+    \item
+      Naj bo $L = \{x \in \RR \mid x^3 < 2\}$ in $D = \{x \in \RR \mid 2 < x^3\}$.
+      Določite $\bigcap_{\ell \in L} \bigcap_{d \in D} [\ell, d]$.
   \end{enumerate}
 \end{vaja}
 
 \begin{vaja}
+  Slika Cantorjeve množice, kjer so razvidne stopnje konstrukcije
+  $C_0 \supseteq C_1 \supseteq C_2 \cdots$.
+  %
   \begin{enumerate}
+  \item Če zapišemo realno število $x \in [0,1]$ v trojiškem sistemu, kako ugotovimo, ali
+    velja $x \in C_n$?
 
-  \item Zapišite Cantorjevo množico $C$, ki jo dobimo s konstrukcijo ``izreza srednje
-    tretjine'', kot jo bosta ponazorila asistentka in asistent.
+  \item Zapiši množico $C_n$ kot unijo $2^n$ zaprtih intervalov oblike
+    %
+    \begin{equation*}
+      C_n = \bigcup_{r \in \{0,2\}^n} [\ell(n, r), d(n, r)].
+    \end{equation*}
+    %
+    Se pravi, da je treba določiti vrednosti $\ell(n, r)$ in $d(n, r)$.
+    %\[\ell(n,r) = \sum_{i = 0}^{n} r_i \cdot 3^{-i-1}\]
+    %in
+    %\[d(n, r) = \ell(n, r) + 3^{-n}\]
 
-    Odgovor: $T = \{0, 2\}$ in
-    \[C = \bigcap_{n \in \NN} \bigcup_{r \in T^n} 
-          [\ell(n,r), d(n,r)]
-    \]
-    in
-    \[\ell(n,r) = \sum_{i = 0}^{n} r_i \cdot 3^{-i-1}\]
-    in
-    \[d(n, r) = \ell(n, r) + 3^{-n}\]
+  \item Zapišite Cantorjevo množico $C$ s pomočjo množic $C_0, C_1, C_2, \ldots$.
+
+  \item Katera števila so v $C$, glede na njihov trojiški zapis?
 
   \item Dokažite, da je množica $C$ izomorfna $\two^\NN$.
   \end{enumerate}
