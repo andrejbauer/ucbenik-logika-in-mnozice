@@ -34,29 +34,36 @@
 
 \begin{vaja}
   %Presek družine množic, indeksirane s čudnimi rečmi.
-  Za katere množice gre v spodnjih primerih, kjer z $(a, b)$ in $[a, b]$ označimo odprti
+  Za katere podmnožice $\RR$ gre v spodnjih primerih, kjer z $(a, b)$ in $[a, b]$ označimo odprti
   in zaprti interval? Svojo trditev utemeljite.
   % Tj. dokažemo vsebovanost množic v obe smeri.
-  \begin{enumerate}
+  \begin{itemize}
     \item
-      $\bigcap_{t \in (0, 1)} (0, t)$
+       $$ \bigcap_{t \in (0, 1)} (0, t)$$
     \item
-      $\bigcap_{t \in (0, 1)} [0, t]$
+      $$\bigcap_{t \in (0, 1)} [0, t]$$
     \item
-      $\bigcap_{n \in \NN} (n, \infty)$
+      $$\bigcap_{n \in \NN} (n, \infty)$$
     \item
-      $\bigcup_{t \in (0, 1)} [-t, t]$
+      $$\bigcup_{t \in (0, 1)} [-t, t]$$
     \item
-      $\bigcup_{k \in \{0, \ldots, n-1\}} [k/n, (k+1)/n]$, kjer je $n \in \NN$ in $n \geq 1$.
+    $$\bigcup_{k \in \{0, \ldots, n-1\}} [\frac{k}{n}, \frac{k+1}{n}],$$ kjer je $n \in \NN$ in $n \geq 1.$
     \item
       Naj bo $L = \{x \in \RR \mid x^3 < 2\}$ in $D = \{x \in \RR \mid 2 < x^3\}$.
-      Določite $\bigcap_{\ell \in L} \bigcap_{d \in D} [\ell, d]$.
-  \end{enumerate}
+      Določite $$\bigcap_{\ell \in L} \bigcap_{d \in D} [\ell, d].$$
+  \end{itemize}
 \end{vaja}
 
+\clearpage
+
 \begin{vaja}
-  Slika Cantorjeve množice, kjer so razvidne stopnje konstrukcije
-  $C_0 \supseteq C_1 \supseteq C_2 \cdots$.
+  \begin{figure}[!h]
+    \includegraphics{cantor_set.jpg}
+    \caption{Stopnje konstrukcije Cantorjeve množice}
+    \label{fig:cantor_set}
+  \end{figure}
+  Na sliki \ref{fig:cantor_set} vidimo stopnje konstrukcije Cantorjeve množice
+  $$C_0 \supseteq C_1 \supseteq C_2 \cdots.$$
   %
   \begin{enumerate}
   \item Če zapišemo realno število $x \in [0,1]$ v trojiškem sistemu, kako ugotovimo, ali
