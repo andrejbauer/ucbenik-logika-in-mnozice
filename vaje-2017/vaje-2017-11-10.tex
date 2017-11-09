@@ -32,7 +32,6 @@
 \maketitle
 
 \begin{vaja}
-  %Presek družine množic, indeksirane s čudnimi rečmi.
   Za katere podmnožice $\RR$ gre v spodnjih primerih, kjer z $(a, b)$ in $[a, b]$ označimo odprti
   in zaprti interval? Svojo trditev utemeljite.
   % Tj. dokažemo vsebovanost množic v obe smeri.
@@ -46,7 +45,7 @@
     \item
       $\displaystyle \bigcup_{t \in (0, 1)} [-t, t]$
     \item
-      $\displaystyle \bigcup_{k \in \{0, \ldots, n-1\}} [\frac{k}{n}, \frac{k+1}{n}],$
+      $\displaystyle \bigcup_{k \in \{0, \ldots, n-1\}} \Big[\frac{k}{n}, \frac{k+1}{n}\Big],$
       kjer je $n \in \NN$ in $n \geq 1$.
     \item
       Naj bo $L = \{x \in \RR \mid x^3 < 2\}$ in $D = \{x \in \RR \mid 2 < x^3\}$.
@@ -90,7 +89,7 @@
     \end{tikzpicture}
   \end{center}
   %
-  Naslednjo stopnjo dobimo tako, da iz intervalo prejšnje stopnje izrežemo srednje
+  Naslednjo stopnjo dobimo tako, da iz intervala prejšnje stopnje izrežemo srednje
   tretjine. Intervali, ki ostanejo, so vedno zaprti intervali.
   %
   \begin{enumerate}
@@ -100,7 +99,7 @@
   \item Zapiši množico $C_n$ kot unijo $2^n$ zaprtih intervalov oblike
     %
     \begin{equation*}
-      C_n = \bigcup_{r \in \{0,2\}^n} [\ell(n, r), d(n, r)].
+      C_n = \bigcup_{r \in \{0,2\}^n} \big[\ell(n, r), d(n, r)\big].
     \end{equation*}
     %
     Torej je treba določiti vrednosti $\ell(n, r)$ in $d(n, r)$. Tu je
