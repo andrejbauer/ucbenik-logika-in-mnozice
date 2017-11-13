@@ -1,0 +1,59 @@
+\documentclass{article}
+
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsthm}
+%\usepackage{tikz}
+%\usetikzlibrary{decorations.fractals}
+
+\usepackage[slovene]{babel}
+\newcommand{\lthen}{\Rightarrow}
+\newcommand{\two}{\mathbf{2}}
+\newcommand{\true}{\top}
+\newcommand{\false}{\bot}
+
+\newcommand{\NN}{\mathbb{N}}
+\newcommand{\ZZ}{\mathbb{Z}}
+\newcommand{\QQ}{\mathbb{Q}}
+\newcommand{\RR}{\mathbb{R}}
+
+%\input{../macros.tex}
+{
+\theoremstyle{definition}
+\newtheorem{vaja}{Vaja}
+}
+
+
+\begin{document}
+
+\title{Logika in množice -- vaje}
+\date{17.~11.~2017}
+\maketitle
+
+\begin{vaja}
+  Naj bosta $X$ in $Y$ poljubni množici in $f\colon X \to Y$ ter $g\colon Y \to X$ taki preslikavi, da je $f \circ g \circ f$ bijekcija. Dokažite, da sta $f$ in $g$ bijekciji.
+\end{vaja}
+
+\begin{vaja}
+  Dokažite, da so za funkcijo $f\colon X \to Y$ ekvivalentne naslednje trditve:
+  \begin{enumerate}
+    \item Funkcija $f$ je injektivna.
+    \item Za poljubni podmnožici $A, B \subseteq X$ velja $f[A \cap B] = f[A] \cap f[B]$.
+    \item Za poljubni disjunktni podmnožici $A, B \subseteq X$ velja $f[A] \cap f[B] = \emptyset$.
+    \item Za vse $A \subseteq X$ velja $f^{-1}[f[A]] = A$.
+    \item Funkcija $f[{-}]\colon \mathcal{P}(X) \to \mathcal{P}(Y)$ je injektivna.
+  \end{enumerate}
+\end{vaja}
+
+\begin{vaja}
+  Preslikavo $f\colon \mathcal{P}(\NN) \to \mathcal{P}(\NN)$ definiramo s predpisom
+  \[f(S) := \{n \in \mathbb{N} \mid \forall m \in S.\, n \leq m\}.\]
+  \begin{enumerate}
+    \item Dokažite, da za vse $A, B \in \mathcal{P}(\mathbb{N})$ velja $f(A \cup B) = f(A) \cap f(B)$.
+    \item Poiščite taki množici $A, B \in \mathcal{P}(\mathbb{N})$, za kateri \emph{ne velja} $f(A \cap B) = f(A) \cup f(B)$.
+    \item Izračunajte zalogo vrednosti preslikave $f \circ f$.
+  \end{enumerate}
+\end{vaja}
+
+\end{document}
