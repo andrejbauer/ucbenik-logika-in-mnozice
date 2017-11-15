@@ -32,28 +32,28 @@
 \maketitle
 
 \begin{vaja}
-  Naj bosta $X$ in $Y$  množici in $f\colon X \to Y$ ter $g\colon Y \to X$ taki preslikavi, da je $f \circ g \circ f$ bijekcija. Dokažite, da sta $f$ in $g$ bijekciji.
+  Naj bosta $X$ in $Y$ množici ter $f\colon X \to Y$ in $g\colon Y \to X$ taki preslikavi, da je $f \circ g \circ f$ bijekcija. Dokažite, da sta $f$ in $g$ bijekciji.
 \end{vaja}
 
 \begin{vaja}
 	Preslikavo $f\colon \mathcal{P}(\NN) \to \mathcal{P}(\NN)$ definiramo s predpisom
 	\[f(S) := \{n \in \mathbb{N} \mid \forall m \in S.\, n \leq m\}.\]
 	\begin{enumerate}
-		\item Določite $f(\{20,17\})$ in $f(\emptyset)$
+		\item Določite $f\big(\{20,17\}\big)$ in $f(\emptyset)$.
 		\item Dokažite, da za vse $A, B \in \mathcal{P}(\mathbb{N})$ velja $f(A \cup B) = f(A) \cap f(B)$.
-		\item Poiščite taki množici $A, B \in \mathcal{P}(\mathbb{N})$, za kateri \emph{ne velja} $f(A \cap B) = f(A) \cup f(B)$.
+		\item Poiščite primer takih množic $A, B \in \mathcal{P}(\mathbb{N})$, za kateri \emph{ne velja} $f(A \cap B) = f(A) \cup f(B)$.
 		\item Izračunajte zalogo vrednosti preslikave $f \circ f$.
 	\end{enumerate}
 \end{vaja}
 
 \begin{vaja}
-  Dokažite, da so za funkcijo $f\colon X \to Y$ ekvivalentne naslednje trditve:
+  Dokažite, da so za preslikavo $f\colon X \to Y$ ekvivalentne naslednje trditve:
   \begin{enumerate}
-    \item Funkcija $f$ je injektivna.
-    \item Za podmnožici $A, B \subseteq X$ velja $f_*(A \cap B) = f_*(A) \cap f_*(B)$.
-    \item Za disjunktni podmnožici $A, B \subseteq X$ velja $f_*(A) \cap f_*(B) = \emptyset$.
-    \item Za vse $A \subseteq X$ velja $f^{*}(f_*(A)) = A$.
-    \item Funkcija $f_* \colon \mathcal{P}(X) \to \mathcal{P}(Y)$ je injektivna.
+    \item Preslikava $f$ je injektivna.
+    \item Za vse podmnožice $A, B \subseteq X$ velja $f_*(A \cap B) = f_*(A) \cap f_*(B)$.
+    \item Za vsaki disjunktni podmnožici $A, B \subseteq X$ velja $f_*(A) \cap f_*(B) = \emptyset$.
+    \item Za vse $A \subseteq X$ velja $f^{*}\big(f_*(A)\big) = A$.
+    \item Preslikava $f_* \colon \mathcal{P}(X) \to \mathcal{P}(Y)$ je injektivna.
   \end{enumerate}
 \end{vaja}
 
