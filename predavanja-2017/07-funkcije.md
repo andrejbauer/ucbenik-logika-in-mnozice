@@ -108,3 +108,17 @@ Dokaz:
 
    * ∃ x . f(x) = y je surjektivnost f
    * ∀ x₁ x₂ . f(x₁) = y ∧ f(x₂) = y ⇒ x₁ = x₂ sledi iz injektivnosti f
+
+**Definicija:**
+  Če sta f : A → B in g : B → A taki preslikava, da velja f ∘ g = id_B, pravimo:
+
+  * f je **levi** inverz g
+  * g je **desni** inverz f
+  * g je prerez za f
+  * f je retrakcija iz B na A
+
+**Izrek:** Retrakcija je epimorfizem, prerez je monomorfizem.
+
+**Izrek:** Vsak epimorfizem ima prerez.
+
+**Aksiom izbire:** Kartezični produkt družine nepraznih množic je neprazen.
