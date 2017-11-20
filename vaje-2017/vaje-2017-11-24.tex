@@ -1,0 +1,259 @@
+\documentclass{article}
+
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{ifthen}
+\usepackage{xparse}
+%\usepackage{tikz}
+%\usetikzlibrary{decorations.fractals}
+
+\newcommand{\sizedescriptor}[2]
+{
+\ifthenelse{\equal{#1}{0}}{}{
+\ifthenelse{\equal{#1}{1}}{\big}{
+\ifthenelse{\equal{#1}{2}}{\Big}{
+\ifthenelse{\equal{#1}{3}}{\bigg}{
+\ifthenelse{\equal{#1}{4}}{\Bigg}{
+#2}}}}}
+}
+
+\NewDocumentCommand{\set}
+{O{auto} m G{\empty}}
+{\sizedescriptor{#1}{\left}\{ {#2} \ifthenelse{\equal{#3}{}}{}{ \; \sizedescriptor{#1}{\middle}| \; {#3}} \sizedescriptor{#1}{\right}\}}
+
+\newcommand{\all}[1]{\forall #1 .\,}
+\newcommand{\some}[1]{\exists #1 .\,}
+\newcommand{\exactlyone}[1]{\exists{!} #1 .\,}
+\newcommand{\lam}[1]{\lambda #1 .\,}
+\newcommand{\that}[1]{\iota #1 .\,}
+
+\usepackage[slovene]{babel}
+\newcommand{\lthen}{\Rightarrow}
+\newcommand{\two}{\mathbf{2}}
+\newcommand{\true}{\top}
+\newcommand{\false}{\bot}
+
+\newcommand{\NN}{\mathbb{N}}
+\newcommand{\ZZ}{\mathbb{Z}}
+\newcommand{\QQ}{\mathbb{Q}}
+\newcommand{\RR}{\mathbb{R}}
+
+%\input{../macros.tex}
+{
+\theoremstyle{definition}
+\newtheorem{vaja}{Vaja}
+}
+
+
+\begin{document}
+
+\title{Logika in množice -- vaje}
+\date{24.~11.~2017}
+\maketitle
+
+\begin{vaja}
+Naj bodo $R$, $S$ in $T$ relacije na množici $A$. Pokaži, da velja
+\begin{enumerate}
+\item $(R \circ S)^{-1} = S^{-1} \circ R^{-1}$
+\item $R \circ (S \cup T) = (R \circ S) \cup (R \circ T)$
+\item $(R \cup S)^{-1} = R^{-1} \cup S^{-1}$
+\end{enumerate}
+\end{vaja}
+
+\begin{vaja}
+Naj bosta $R$ is $S$ simetrični relaciji na $A$. Pokaži, da je relacija $R \circ S$ simetrična natanko tedaj, ko je $R \circ S = S \circ R$.
+\end{vaja}
+
+\begin{vaja}
+Naj bo $A = \set{a,b,c,d}$ in $R = \set{(a,b),(b,c),(c,d),(c,a)}$. Izračunaj $R^3$, $R^{2016}$, $R^+$ in $R^*$.
+\end{vaja}
+
+\begin{vaja}
+Dani sta relaciji $R$, $S$ na množici $A = \set{1,2,3,4,5,6}$:
+\[R = \set{(1,2),(1,4),(1,6),(2,1),(3,4),(3,6),(5,6)}\]
+in
+\[S = \set{(2,4),(2,6),(4,4),(6,6)}.\]
+\begin{itemize}
+\item Določite relaciji $R^{-1}$, $R \circ S$ in $S \circ R$.
+\item Katere od naslednjih lastnosti ima relacija $R$:
+refleksivnost, irefleksivnost, simetričnost, asi\-metrič\-nost, anti\-si\-met\-rič\-nost,
+tranzitivnost, sovisnost, strogo sovisnost?
+\end{itemize}
+\end{vaja}
+
+\begin{vaja}
+Na množici dvomestnih naravnih števil definiramo relacijo $Q$ takole:
+\[x_1x_2 \, Q y_1y_2 \ \Leftrightarrow \ x_1 \ge x_2 \ \mbox{ali} \ y_1 > y_2.\]
+\begin{itemize}
+\item Kateri pari števil so med sabo v relaciji $Q$:
+           $72,75,82,85$?
+\item Katere od naslednjih lastnosti ima relacija $Q$:
+refleksivnost, irefleksivnost, simetričnost, asi\-metrič\-nost, anti\-si\-met\-rič\-nost,
+tranzitivnost, sovisnost, strogo sovisnost?
+\end{itemize}
+\end{vaja}
+
+\begin{vaja}
+Za relacijo $R \subseteq A \times B$ definiramo
+%
+\begin{align*}
+  R^T &= \set{(y,x) \in B \times A}{(x,y) \in R},\\
+  R^C &= \set{(x,y) \in A \times B}{(x,y) \notin R}.
+\end{align*}
+%
+Kompozitum relacij $R \subseteq A \times B$ in $S \subseteq B \times
+C$ je relacija $S \circ R \subseteq A \times C$, definirana z
+%
+\begin{equation*}
+  S \circ R = \set{(x,z) \in A \times C}{\some{y \in B}{(x,y) \in R \land (y,z) \in S}}.
+\end{equation*}
+\end{vaja}
+
+\begin{vaja}
+\begin{enumerate}
+  \item Dokaži, $R \subseteq S \iff R^T \subseteq
+  S^T \iff S^C \subseteq R^C$.
+
+  \item Dokaži: če je $R^T \subseteq R$, potem je $R = R^T$.
+
+  \item Poišči relacijo $R$, za katero velja $R^T = R$.
+
+  \item Poišči relacijo $R$, za katero velja $R^T = R^C$.
+
+  % Relacija na prazni množici.
+
+  \item Ali obstaja taka relacija $I$ na množici $B$, da velja $R
+  \circ I = R$ za vse relacije $R \subseteq B \times C$ in $I \circ S
+  = S$ za vse relacije $S \subseteq A \times B$?
+\end{enumerate}
+\end{vaja}
+
+\begin{vaja}
+\begin{enumerate}
+  \item Naj bo $a D b$ relacija ``$a$ je delitelj $b$''. Izračunaj
+  kompozituma $D \circ D^T$ in $D^T \circ D$.
+
+  \item Naj bo $a M b$ relacija ``$a$ je mati od $b$''. Izračunaj
+  kompozituma $M^T \circ M$ in $M \circ M^T$.
+
+  \item Naj bo $a R b$ relacija $|a - b| = 1$, definirana za $a, b
+  \in \RR$. Izračunaj $R \circ R$ in $R \circ R \circ R$.
+\end{enumerate}
+\end{vaja}
+
+\begin{vaja}
+\begin{enumerate}
+  \item Dokaži, da velja $(S \circ R)^T = R^T \circ S^T$.
+
+  \item Dokaži, da velja $(S \cup R) \circ T = (S \circ T) \cup (R
+  \circ T)$.
+
+  \item Ali velja $(S \cap R) \circ T = (S \circ T) \cap (R
+  \circ T)$?
+\end{enumerate}
+\end{vaja}
+
+\begin{vaja}
+  Relacija $R \subseteq A \times B$ je \emph{funkcijska}, če velja
+  %
+  \begin{equation*}
+    \all{x \in A}{\exactlyone{y}{B}{(x,y) \in R}}.
+  \end{equation*}
+  %
+  Vsaka funkcija $f : A \to B$ določa funkcijsko relacijo $R_f
+  \subseteq A \times B$,
+  %
+  \begin{equation*}
+    R_f = \set{(x,y) \in A \times B}{f(x) = y},
+  \end{equation*}
+  %
+  ki ji pravimo \emph{graf} funkcije~$f$. Obratno vsaka funkcijska
+  relacija $R \subseteq A \times B$ določa funkcijo $f_R : A \to B$,
+  definirano s predpisom
+  %
+  \begin{equation*}
+    f_R(x) = \text{tisti $y \in B$, za katerega velja $(x,y) \in R$}.
+  \end{equation*}
+  %
+  Za naslednje relacije ugotovi, ali so funkcijske. Če so, katero
+  funkcijo določajo?
+\begin{enumerate}
+  \item $K = \set{(x,y) \in \RR \times \RR}{x = y^2}$.
+
+  \item $K = \set{(x,y) \in \RR \times \RR}{x = y^3}$.
+
+  \item $K = \set{(x,y) \in \RR_{+} \times \RR_{+}}{x =
+    y^2}$, pri čemer je $\RR_{+}$ množica pozitivnih realnih števil.
+
+  \item $I = \set{(x,y) \in \RR_{+} \times \RR_{+}}{x y =
+    1}$, pri čemer je $\RR_{+}$ množica pozitivnih realnih števil.
+
+  \item $R = \set{(m,n) \in \NN \times \NN}{(n = 0 \lor n = 1) \land \some{k \in \NN}{m = 2 k + n}}$.
+
+  \item Za dani $a \in A$ definiramo relacijo $R_a = \set{(x,y)
+    \in A \times B}{x = a}$.
+
+  % $R_a$ je funkcijska samo v primeru, da je $A = \set{a}$ in $B = \set{b}$.
+
+  \item Za dani $b \in B$ definiramo relacijo $R_b = \set{(x,y)
+    \in A \times B}{y = b}$.
+\end{enumerate}
+\end{vaja}
+
+\begin{vaja}
+\begin{enumerate}
+  \item Dokaži: če sta $R$ in $S$ funkcijski relaciji, je tudi $S
+  \circ R$ funkcijska relacija.
+
+  \item Ali se lahko zgodi, da je $S \circ R$ funkcijska relacija,
+  če $S$ in $R$ nista funkcijski relaciji?  
+\end{enumerate}
+\end{vaja}
+
+\begin{vaja}
+Na množici vseh ravnin v $\mathbb{R}^3$ vpeljemo relacijo $\bot$:
+$$r_1\bot r_2\;\Leftrightarrow\;{\rm ravnini\;}r_1\;{\rm in\;}r_2\;{\rm sta\;pravokotni.}$$
+Katere lastnosti ima ta relacija?
+
+% Je irefleksivna in simetri"cna.
+\end{vaja}
+
+\begin{vaja}
+Polji šahovnice sta v relaciji $F$, če lahko figura $\mathcal F$ pride s prvega polja na drugo v eni potezi. Ugotovi, katere lastnosti ima relacija $F$, če je $\mathcal F$ kraljica. Kaj pa, če je konj? In trdnjava?
+
+% Je irefleksivna in simetrična. Če je figura konj, je tudi intranzitivna.
+\end{vaja}
+
+\begin{vaja}
+Na neskončni šahovnici $\ZZ \times \ZZ$ definiramo naslednjo relacijo:
+\begin{equation*}
+(x,y)R(z,w)\Leftrightarrow\text{ šahovski konjiček lahko skoči z }(x,y)\text{ na }(z,w).
+\end{equation*}
+\begin{enumerate}
+\item Za vsak $n\in\mathbb N$ opiši relacijo $R^n$. (Kdaj sta polji v relaciji $R^n$?)
+\item Za katere $n\in\mathbb N$ je $R^n$ refleksivna?
+\item Ali je $R$ tranzitivna? Za katere $n\in\mathbb N$ je $R^n$ tranzitivna?
+\item Poišči tranzitivno ovojnico relacije $R$.
+\end{enumerate}
+\end{vaja}
+
+\begin{vaja}
+Naj bodo $R, S, T$ relacije na množici $A$. Pokaži, da velja:
+\begin{enumerate}
+\item $(R\circ S)^{-1}=S^{-1}\circ R^{-1}$,
+\item $R\circ (S\cup T) = (R\circ S)\cup (R\circ T)$,
+\item $(R\cup S)^{-1}=R^{-1}\cup S^{-1}$.
+\end{enumerate}
+\end{vaja}
+
+\begin{vaja}
+Naj bosta $R$ in $S$ simetrični relaciji na $A$. Pokaži, da je relacija $R\circ S$ simetrična natanko tedaj, ko je $R\circ S = S\circ R$.
+\end{vaja}
+
+\begin{vaja}
+Naj bo $R$ tranzitivna relacija. Dokaži: če je $R$ antisimetrična, je tudi $R^2$ antisimetrična. Ali velja obrat?
+\end{vaja}
+
+\end{document}
