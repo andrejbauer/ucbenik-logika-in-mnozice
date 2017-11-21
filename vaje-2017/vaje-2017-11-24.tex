@@ -59,18 +59,25 @@ Dani sta relaciji $R$ in $S$ na množici $A = \set{1,2,3,4,5,6}$:
 in
 \[S = \set{(2,4),(2,6),(4,4),(6,6)}.\]
 \begin{itemize}
+\item Narišite relaciji $R$ in $S$.
 \item Določite relaciji $R^{-1}$, $R \circ S$ in $S \circ R$.
 \item Katere od naslednjih lastnosti ima relacija $R$:
-refleksivnost, irefleksivnost, simetričnost, asi\-metrič\-nost, anti\-si\-met\-rič\-nost,
-tranzitivnost, sovisnost, strogo sovisnost?
+refleksivnost, irefleksivnost, simetričnost, asimetričnost, antisimetričnost,
+tranzitivnost, intranzitivnost, sovisnost, strogo sovisnost?
 \end{itemize}
 \end{vaja}
 
+\begin{vaja}
+Na množici vseh ravnin v $\mathbb{R}^3$ vpeljemo relacijo $\bot$:
+$$r_1\bot r_2\;\Leftrightarrow\;{\rm ravnini\;}r_1\;{\rm in\;}r_2\;{\rm sta\;pravokotni.}$$
+Katere od naslednjih lastnosti ima relacija $\bot$:
+refleksivnost, irefleksivnost, simetričnost, asimetričnost, antisimetričnost,
+tranzitivnost, intranzitivnost, sovisnost, strogo sovisnost?
+\end{vaja}
 
 \begin{vaja}
-(TA JE SUMLJIVA, PO POTREBI POPRAVI)
 Naj bosta $ab$ in $cd$ dvomestni števili s števkami $a$, $b$, $c$ in $d$.
-Pravimo, da sta $ab$ in $cd$ v relaciji $Q$, ko velja $a \geq b$ ali $c > d$.
+Pravimo, da sta $ab$ in $cd$ v relaciji $Q$, ko velja $a \geq c$ ali $b > d$.
 
 Na primer, $32 \; Q \; 15$ velja in prav tako $23 \; Q \; 98$. Ne velja pa
 $23 \; Q \; 17$.
@@ -80,31 +87,34 @@ $23 \; Q \; 17$.
 \begin{itemize}
 \item Katera izmed števil $72$, $75$, $82$ in $85$ so v relaciji $Q$?
 \item Katere od naslednjih lastnosti ima relacija $Q$:
-refleksivnost, irefleksivnost, simetričnost, asi\-metrič\-nost, anti\-si\-met\-rič\-nost,
-tranzitivnost, sovisnost, strogo sovisnost?
+refleksivnost, irefleksivnost, simetričnost, asimetričnost, antisimetričnost,
+tranzitivnost, intranzitivnost, sovisnost, strogo sovisnost?
 \end{itemize}
 \end{vaja}
 
 \begin{vaja}
-Naj bo $A = \set{a,b,c,d}$ in $R = \set{(a,b),(b,c),(c,d),(c,a)}$. Izračunaj $R^3$, $R^{2017}$, $R^+$ in $R^*$.
+Naj bo $A = \set{a,b,c,d}$ in $R = \set{(a,b),(b,c),(c,d),(c,a)}$. Narišite relacijo $R$ in izračunajte $R^3$, $R^{2017}$, $R^+$ in $R^*$.
 \end{vaja}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \begin{vaja}
-Naj bodo $R$, $S$ in $T$ relacije na množici $A$. Pokaži, da velja
-\begin{enumerate}
-\item $(R \circ S)^{-1} = S^{-1} \circ R^{-1}$
-\item $R \circ (S \cup T) = (R \circ S) \cup (R \circ T)$
-\item $(R \cup S)^{-1} = R^{-1} \cup S^{-1}$
-\end{enumerate}
+  Polji šahovnice sta v relaciji $R_F$, če lahko figura $F$ pride s prvega polja na drugo
+  v eni potezi. Za vse šahovske figure $F$ ugotovite, katere lastnosti (refleksivnost, irefleksivnost, simetričnost, asimetričnost, antisimetričnost, tranzitivnost, intranzitivnost, sovisnost, strogo sovisnost) imajo relacije $R_F$.
 \end{vaja}
 
 \begin{vaja}
-Naj bosta $R$ is $S$ simetrični relaciji na $A$. Pokaži, da je relacija $R \circ S$ simetrična natanko tedaj, ko je $R \circ S = S \circ R$.
+Na neskončni šahovnici $\ZZ \times \ZZ$ definiramo naslednjo relacijo:
+\begin{equation*}
+(x,y)R(z,w) \iff \text{ šahovski konjiček lahko skoči z }(x,y)\text{ na }(z,w).
+\end{equation*}
+\begin{enumerate}
+\item Za vsak $n\in\mathbb N$ opišite relacijo $R^n$. (Kdaj sta polji v relaciji $R^n$?)
+\item Za katere $n\in\mathbb N$ je $R^n$ refleksivna?
+\item Ali je $R$ tranzitivna? Za katere $n\in\mathbb N$ je $R^n$ tranzitivna?
+\item Poiščite tranzitivno ovojnico relacije $R$.
+\end{enumerate}
 \end{vaja}
-
-
 
 \begin{vaja}
 Za relacijo $R \subseteq A \times B$ definiramo
@@ -120,18 +130,15 @@ C$ je relacija $S \circ R \subseteq A \times C$, definirana z
 \begin{equation*}
   S \circ R = \set{(x,z) \in A \times C}{\some{y \in B}{(x,y) \in R \land (y,z) \in S}}.
 \end{equation*}
-\end{vaja}
-
-\begin{vaja}
 \begin{enumerate}
-  \item Dokaži, $R \subseteq S \iff R^T \subseteq
+  \item Dokažite, $R \subseteq S \iff R^T \subseteq
   S^T \iff S^C \subseteq R^C$.
 
-  \item Dokaži: če je $R^T \subseteq R$, potem je $R = R^T$.
+  \item Dokažite: če je $R^T \subseteq R$, potem je $R = R^T$.
 
-  \item Poišči relacijo $R$, za katero velja $R^T = R$.
+  \item Poiščite relacijo $R$, za katero velja $R^T = R$.
 
-  \item Poišči relacijo $R$, za katero velja $R^T = R^C$.
+  \item Poiščite relacijo $R$, za katero velja $R^T = R^C$.
 
   % Relacija na prazni množici.
 
@@ -142,28 +149,34 @@ C$ je relacija $S \circ R \subseteq A \times C$, definirana z
 \end{vaja}
 
 \begin{vaja}
+\
 \begin{enumerate}
-  \item Naj bo $a D b$ relacija ``$a$ je delitelj $b$''. Izračunaj
-  kompozituma $D \circ D^T$ in $D^T \circ D$.
+  \item Naj $a D b$ pomeni "`$a$ je delitelj $b$"'. Izračunajte kompozituma $D \circ D^T$ in $D^T \circ D$.
 
-  \item Naj bo $a M b$ relacija ``$a$ je mati od $b$''. Izračunaj
-  kompozituma $M^T \circ M$ in $M \circ M^T$.
+  \item Naj $a M b$ pomeni "`$a$ je mati od $b$"'. Izračunajte kompozituma $M^T \circ M$ in $M \circ M^T$.
 
-  \item Naj bo $a R b$ relacija $|a - b| = 1$, definirana za $a, b
-  \in \RR$. Izračunaj $R \circ R$ in $R \circ R \circ R$.
+  \item Naj $a R b$ pomeni $|a - b| = 1$, definirana za $a, b \in \RR$. Izračunajte $R \circ R$ in $R \circ R \circ R$.
+\end{enumerate}
+\end{vaja}
+
+\pagebreak
+
+\begin{vaja}
+Naj bodo $R$, $S$ in $V$ relacije na množici $A$. Pokažite, da velja
+\begin{enumerate}
+\item $(R \circ S)^T = S^T \circ R^T$,
+\item $(R \cup S)^T = R^T \cup S^T$,
+\item $R \circ (S \cup V) = (R \circ S) \cup (R \circ V)$,
+\item $R \circ (S \cap V) = (R \circ S) \cap (R \circ V)$.
 \end{enumerate}
 \end{vaja}
 
 \begin{vaja}
-\begin{enumerate}
-  \item Dokaži, da velja $(S \circ R)^T = R^T \circ S^T$.
+Naj bosta $R$ is $S$ simetrični relaciji na $A$. Pokažite, da je relacija $R \circ S$ simetrična natanko tedaj, ko je $R \circ S = S \circ R$.
+\end{vaja}
 
-  \item Dokaži, da velja $(S \cup R) \circ T = (S \circ T) \cup (R
-  \circ T)$.
-
-  \item Ali velja $(S \cap R) \circ T = (S \circ T) \cap (R
-  \circ T)$?
-\end{enumerate}
+\begin{vaja}
+Naj bo $R$ tranzitivna relacija. Dokažite: če je $R$ antisimetrična, je tudi $R^2$ antisimetrična. Ali velja implikacija v obratno smer?
 \end{vaja}
 
 \begin{vaja}
@@ -173,7 +186,7 @@ C$ je relacija $S \circ R \subseteq A \times C$, definirana z
     \all{x \in A}{\exactlyone{y}{B}{(x,y) \in R}}.
   \end{equation*}
   %
-  Vsaka funkcija $f : A \to B$ določa funkcijsko relacijo $R_f
+  Vsaka funkcija $f\colon A \to B$ določa funkcijsko relacijo $R_f
   \subseteq A \times B$,
   %
   \begin{equation*}
@@ -181,14 +194,14 @@ C$ je relacija $S \circ R \subseteq A \times C$, definirana z
   \end{equation*}
   %
   ki ji pravimo \emph{graf} funkcije~$f$. Obratno vsaka funkcijska
-  relacija $R \subseteq A \times B$ določa funkcijo $f_R : A \to B$,
+  relacija $R \subseteq A \times B$ določa funkcijo $f_R\colon A \to B$,
   definirano s predpisom
   %
   \begin{equation*}
     f_R(x) = \text{tisti $y \in B$, za katerega velja $(x,y) \in R$}.
   \end{equation*}
   %
-  Za naslednje relacije ugotovi, ali so funkcijske. Če so, katero
+  Za naslednje relacije ugotovite, ali so funkcijske. Če so, katero
   funkcijo določajo?
 \begin{enumerate}
   \item $K = \set{(x,y) \in \RR \times \RR}{x = y^2}$.
@@ -214,44 +227,14 @@ C$ je relacija $S \circ R \subseteq A \times C$, definirana z
 \end{vaja}
 
 \begin{vaja}
+\
 \begin{enumerate}
-  \item Dokaži: če sta $R$ in $S$ funkcijski relaciji, je tudi $S
+  \item Dokažite: če sta $R$ in $S$ funkcijski relaciji, je tudi $S
   \circ R$ funkcijska relacija.
 
   \item Ali se lahko zgodi, da je $S \circ R$ funkcijska relacija,
   če $S$ in $R$ nista funkcijski relaciji?  
 \end{enumerate}
-\end{vaja}
-
-\begin{vaja}
-Na množici vseh ravnin v $\mathbb{R}^3$ vpeljemo relacijo $\bot$:
-$$r_1\bot r_2\;\Leftrightarrow\;{\rm ravnini\;}r_1\;{\rm in\;}r_2\;{\rm sta\;pravokotni.}$$
-Katere lastnosti ima ta relacija?
-
-% Je irefleksivna in simetri"cna.
-\end{vaja}
-
-\begin{vaja}
-  Polji šahovnice sta v relaciji $R_F$, če lahko figura $F$ pride s prvega polja na drugo
-  v eni potezi. Ugotovi, katere lastnosti imajo relacije $R_\text{kraljica}$, $R_\text{konj}$ in $R_\text{trdnjava}$. Dodatno vprašanje: poišči uradna slovenska imena šahovskih figur.
-  % Je irefleksivna in simetrična. Če je figura konj, je tudi intranzitivna.
-\end{vaja}
-
-\begin{vaja}
-Na neskončni šahovnici $\ZZ \times \ZZ$ definiramo naslednjo relacijo:
-\begin{equation*}
-(x,y)R(z,w)\Leftrightarrow\text{ šahovski konjiček lahko skoči z }(x,y)\text{ na }(z,w).
-\end{equation*}
-\begin{enumerate}
-\item Za vsak $n\in\mathbb N$ opiši relacijo $R^n$. (Kdaj sta polji v relaciji $R^n$?)
-\item Za katere $n\in\mathbb N$ je $R^n$ refleksivna?
-\item Ali je $R$ tranzitivna? Za katere $n\in\mathbb N$ je $R^n$ tranzitivna?
-\item Poišči tranzitivno ovojnico relacije $R$.
-\end{enumerate}
-\end{vaja}
-
-\begin{vaja}
-Naj bo $R$ tranzitivna relacija. Dokaži: če je $R$ antisimetrična, je tudi $R^2$ antisimetrična. Ali velja implikacija v obratno smer?
 \end{vaja}
 
 \end{document}
