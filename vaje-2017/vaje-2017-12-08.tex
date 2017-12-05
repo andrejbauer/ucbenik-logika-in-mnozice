@@ -53,91 +53,105 @@
 \date{8.~12.~2017}
 \maketitle
 
+
 \begin{vaja}
-  Naj bo $\mathbb{P}$ množica vseh psov in $\mathbb{B}$ množica barv. Dana naj bo tudi funkcija $f\colon \mathbb{P} \to \mathbb{B}$, ki psu priredi barvo njegove dlake. Na množici $\mathbb{P}$ definiramo relacijo $R$ takole:
+	Na množici naravnih števil definiramo naslednjo relacijo:
+	\[m R n \iff \text{$m n$ je kvadrat naravnega števila}.\]
+	\begin{itemize}
+		\item
+		Pokažite, da je $R$ ekvivalenčna relacija.
+		\item
+		Kaj je $[30]_R$? Kaj je $[12]_R$?
+		\item
+		Poiščite tako množico $A \subseteq \NN$, ki bo vsebovala natanko en element iz vsakega ekvivalenčnega razreda.
+	\end{itemize}
+\end{vaja}
+
+\begin{vaja}
+	Čevljar gospod Šuštar že leta izdeluje čevlje ob Šuštarskem mostu v Ljubljani. Zaradi izjemno kvalitetne obrti ima že dolg spisek rednih strank. Trenutno oblikuje nov model čevlja, ki bi ga želel ponuditi prav vsem rednim strankam.
+	
+  Naj bo $\mathcal{S}$ množica vseh strank in $\mathcal{C}$ množica številk čevljev. Dana naj bo tudi funkcija $f\colon \mathcal{S} \to \mathcal{C}$, ki osebi priredi številko stopala. Na množici $\mathcal{S}$ definiramo relacijo $R$ takole:
   \begin{equation*}
     x R y \iff f(x) = f(y).
   \end{equation*}
-  Dokažite, da je ta relacija ekvivalenčna, razložite njen pomen in ugotovite, kaj so njeni ekvivalenčni razredi.
+  Razložite pomen relacije in ugotovite, kaj so njeni ekvivalenčni razredi.
 \end{vaja}
 
-\begin{vaja}
-  Na množico naravnih števil, ki so strogo večja od $1$, vpeljemo naslednjo relacijo:
-  \[x \mathcal{P} y \iff \text{$x$ in $y$ imata enak največji praštevilski delitelj}.\]
-  \begin{itemize}
-    \item
-      Pokažite, da je $\mathcal{P}$ ekvivalenčna relacija.
-    \item
-      Določite ekvivalenčni razred $\mathcal{P}[3]$.
-    \item
-      Določite ekvivalenčni razred poljubnega praštevila.
-    \item
-      Poiščite množico $\mathcal{A}$, ki vsebuje natanko en element iz vsakega ekvivalenčnega razreda relacije $\mathcal{P}$.
-  \end{itemize}
-\end{vaja}
+%\begin{vaja}
+%	Naj bo $\mathbb{P}$ množica vseh psov in $\mathbb{B}$ množica barv. Dana naj bo tudi funkcija $f\colon \mathbb{P} \to \mathbb{B}$, ki psu priredi barvo njegove dlake. Na množici $\mathbb{P}$ definiramo relacijo $R$ takole:
+%	\begin{equation*}
+%		x R y \iff f(x) = f(y).
+%	\end{equation*}
+%	Dokažite, da je ta relacija ekvivalenčna, razložite njen pomen in ugotovite, kaj so njeni ekvivalenčni razredi.
+%\end{vaja}
 
 \begin{vaja}
-  Vsako naravno število $n \geq 2$ ima (enoličen) praštevilski razcep $n = p_1^{k_1} \cdot \ldots \cdot p_r^{k_r}$. Definiramo
-  \[\psi(n) = k_1 + \ldots + k_r\]
-  in na $\NN \setminus \set{0, 1}$ vpeljemo relacijo
-  \[m R n \iff \psi(m) = \psi(n).\]
-  \begin{itemize}
-    \item Dokažite, da je $R$ ekvivalenčna relacija.
-    \item Ali sta števili $360$ in $900$ v relaciji $R$?
-    \item Opišite $[143]$.
-    \item Kaj je ekvivalenčni razred praštevila?
-    \item Opišite ekvivalenčne razrede, ki razbijejo $\NN \setminus \set{0, 1}$.
-  \end{itemize}
+	Naj bo $f\colon A \to B$ poljubna funkcija. Na $A$ definiramo relacijo $\sim$ s predpisom $x \sim y \iff f(x) = f(y)$.
+	\begin{enumerate}
+		\item
+		Preverite, da je $\sim$ ekvivalenčna relacija. Pravimo, da je $\sim$ \emph{inducirana} s preslikavo~$f$.
+		\item
+		Naj bo $f\colon A \to B$ surjektivna funkcija in $\sim$ ekvivalenčna relacija, inducirana z~$f$. Dokažite, da je $B \cong A/_\sim$.
+		\item
+		Definirajmo relacijo $\sim$ na $\RR$ s predpisom
+		%
+		\begin{equation*}
+			x \sim y \iff \some{k \in \ZZ}{x - y = 2 \pi k}.
+		\end{equation*}
+		%
+		Poiščite preslikavo $f\colon \RR \to \RR \times \RR$, ki inducira $\sim$. Ali obstaja več takih preslikav?
+	\end{enumerate}
 \end{vaja}
 
-\begin{vaja}
-  Na $\NN$ definiramo naslednjo relacijo
-  \[a R b \iff 7 | (5a+2b).\]
-  \begin{itemize}
-    \item Pokažite, da je $R$ ekvivalenčna relacija.
-    \item Določite ekvivalenčne razrede relacije $R$.
-    \item Poiščite še faktorsko množico $\NN/R$.
-  \end{itemize}
-\end{vaja}
 
-\begin{vaja}
-  Na množici naravnih števil definiramo naslednjo relacijo:
-  \[m R n \iff \text{$m n$ je kvadrat naravnega števila}.\]
-  \begin{itemize}
-    \item
-      Pokažite, da je $R$ ekvivalenčna relacija.
-    \item
-      Kaj je $R[30]$? Kaj je $R[12]$?
-    \item
-      Poiščite tako množico $A \subseteq \NN$, ki bo vsebovala natanko en element iz vsakega ekvivalenčnega razreda.
-  \end{itemize}
-\end{vaja}
+%\begin{vaja}
+%  Na množico naravnih števil, ki so strogo večja od $1$, vpeljemo naslednjo relacijo:
+%  \[x \mathcal{P} y \iff \text{$x$ in $y$ imata enak največji praštevilski delitelj}.\]
+%  \begin{itemize}
+%    \item
+%      Pokažite, da je $\mathcal{P}$ ekvivalenčna relacija.
+%    \item
+%      Določite ekvivalenčni razred $\mathcal{P}[3]$.
+%    \item
+%      Določite ekvivalenčni razred poljubnega praštevila.
+%    \item
+%      Poiščite množico $\mathcal{A}$, ki vsebuje natanko en element iz vsakega ekvivalenčnega razreda relacije $\mathcal{P}$.
+%  \end{itemize}
+%\end{vaja}
 
-\begin{vaja}
-  Na množici naravnih števil je definirana relacija
-  \begin{equation*}
-    a R b \iff \text{$5$ deli $(3a+2b)$}.
-  \end{equation*}
-  Dokažite, da je $R$ ekvivalenčna relacija.
-\end{vaja}
+%\begin{vaja}
+%  Vsako naravno število $n \geq 2$ ima (enoličen) praštevilski razcep $n = p_1^{k_1} \cdot \ldots \cdot p_r^{k_r}$. Definiramo
+%  \[\psi(n) = k_1 + \ldots + k_r\]
+%  in na $\NN \setminus \set{0, 1}$ vpeljemo relacijo
+%  \[m R n \iff \psi(m) = \psi(n).\]
+%  \begin{itemize}
+%    \item Dokažite, da je $R$ ekvivalenčna relacija.
+%    \item Ali sta števili $360$ in $900$ v relaciji $R$?
+%    \item Opišite $[143]$.
+%    \item Kaj je ekvivalenčni razred praštevila?
+%    \item Opišite ekvivalenčne razrede, ki razbijejo $\NN \setminus \set{0, 1}$.
+%  \end{itemize}
+%\end{vaja}
 
-\begin{vaja}
-  Naj bo $f\colon A \to B$ poljubna funkcija. Na $A$ definiramo relacijo $\sim$ s predpisom $x \sim y \iff f(x) = f(y)$.
-  \begin{enumerate}
-    \item
-      Preverite, da je $\sim$ ekvivalenčna relacija. Pravimo, da je $\sim$ \emph{inducirana} s preslikavo~$f$.
-    \item
-      Naj bo $f\colon A \to B$ surjektivna funkcija in $\sim$ ekvivalenčna relacija, inducirana z~$f$. Dokažite, da je $B \cong A/_\sim$.
-    \item
-      Definirajmo relacijo $\sim$ na $\RR$ s predpisom
-      %
-      \begin{equation*}
-        x \sim y \iff \some{k \in \ZZ}{x - y = 2 \pi k}.
-      \end{equation*}
-      %
-      Poiščite preslikavo $f\colon \RR \to \RR \times \RR$, ki inducira $\sim$. Ali obstaja več takih preslikav?
-  \end{enumerate}
-\end{vaja}
+%\begin{vaja}
+%  Na $\NN$ definiramo naslednjo relacijo
+%  \[a R b \iff 7 | (5a+2b).\]
+%  \begin{itemize}
+%    \item Pokažite, da je $R$ ekvivalenčna relacija.
+%    \item Določite ekvivalenčne razrede relacije $R$.
+%    \item Poiščite še faktorsko množico $\NN/R$.
+%  \end{itemize}
+%\end{vaja}
+
+
+%\begin{vaja}
+%  Na množici naravnih števil je definirana relacija
+%  \begin{equation*}
+%    a R b \iff \text{$5$ deli $(3a+2b)$}.
+%  \end{equation*}
+%  Dokažite, da je $R$ ekvivalenčna relacija.
+%\end{vaja}
+
 
 \begin{vaja}
   Na množici $\NN \times \NN$ definiramo relacijo $\sim$ s predpisom
@@ -149,14 +163,15 @@
     \item
       Preverite, da je $\sim$ ekvivalenčna relacija.
     \item
-      Naj bo $Z = (\NN \times \NN)/_\sim$ kvocientna množica. Matija je želel na $Z$ definirati operaciji seštevanja in množenja s predpisoma
+      Naj bo $Z = (\NN \times \NN)/_\sim$ kvocientna množica. Andrej je želel na $Z$ definirati operaciji seštevanja in množenja s predpisoma
       %
       \begin{align*}
         [a,b] \oplus [c,d] &= [a+c, b+d],\\
         [a,b] \otimes [c,d] &= [a c, b d],
       \end{align*}
       %
-      kjer smo zapisali ekvivalenčni razred $[(a,b)]_\sim$ krajše kot $[a,b]$. Ali sta $\oplus$ in $\otimes$ dobro definirana? Če ne, kako bi ju popravili, da bi dobili na~$Z$ strukturo kolobarja? Kateri kolobar smo dobili?
+      kjer smo zapisali ekvivalenčni razred $[(a,b)]_\sim$ krajše kot $[a,b]$. Ali sta $\oplus$ in $\otimes$ dobro definirani preslikavi $Z \times Z \to Z$? 
+      %Če ne, kako bi ju popravili, da bi dobili na~$Z$ strukturo kolobarja? Kateri kolobar smo dobili?
   \end{enumerate}
 \end{vaja}
 
