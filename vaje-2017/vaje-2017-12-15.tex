@@ -53,38 +53,261 @@
 \date{15.~12.~2017}
 \maketitle
 
+%\begin{vaja}
+%  Ali je delna urejenost?
+%\end{vaja}
+%
+%\begin{vaja}
+%  Ali je delna urejenost linearna?
+%\end{vaja}
+%
+%\begin{vaja}
+%  Nariši Hassejev diagram.
+%\end{vaja}
+%
+%\begin{vaja}
+%  Ali je monotona preslikava?
+%\end{vaja}
+%
+%\begin{vaja}
+%  Kompozitum monotonih preslikav je monotona preslikava.
+%
+%  Kompozitum monotonih in ne-monotonih: kaj se lahko zgodi? (Trije primeri.)
+%\end{vaja}
+%
+%\begin{vaja}
+%  Ali je dana množica omejena?
+%\end{vaja}
+%
+%\begin{vaja}
+%  Za dano množico, poišči minimalni, prvi, maksimalni, zadnji element.
+%\end{vaja}
+%
+%\begin{vaja}
+%  Ali je dana delna urejenost mreža? Polna mreža?
+%\end{vaja}
+
 \begin{vaja}
-  Ali je delna urejenost?
+  Narišite Hassejev diagram množice $\set{1, 2, \ldots, 12}$, delno urejene z relacijo deljivosti $|$. Ali obstajajo minimalni, maksimalni, prvi ali zadnji elementi? Poiščite jih.
 \end{vaja}
 
 \begin{vaja}
-  Ali je delna urejenost linearna?
+  Množico vseh nepraznih zaprtih podintervalov intervala $[0, 1]$, torej $\set{[a, b]}{0 \leq a \leq b \leq 1}$ delno uredimo z relacijo vsebovanosti $\subseteq$. Ali obstajajo minimalni, maksimalni, prvi ali zadnji elementi? Poiščite jih. Kaj pa, če vzamemo množico vseh (tudi praznih) zaprtih podintervalov?
 \end{vaja}
 
 \begin{vaja}
-  Nariši Hassejev diagram.
+  Na množici kompleksnih števil definiramo relacijo
+  \begin{equation*}
+    z \preccurlyeq w \iff \text{$z$ in $w$ ležita na istem poltraku iz izhodišča in $|z| \leq |w|$}.
+  \end{equation*}
+  Dokažite, da je $\preccurlyeq$ relacija delne urejenosti. Ali obstajajo minimalni, maksimalni, prvi ali zadnji elementi? Poiščite jih.
 \end{vaja}
 
 \begin{vaja}
-  Ali je monotona preslikava?
+  Za delno urejeni množici $(P, \leq_P)$ in $(Q \leq_Q)$ lahko na kartezičnem produktu $P \times Q$ definiramo delno urejenost $\leq$ s predpisom
+  \[(p_1, q_1) \leq (p_2, q_2) \iff p_1 \leq_P p_2 \land q_1 \leq_Q q_2.\]
+  \begin{enumerate}
+    \item Preverite, da je $\leq$ res delna urejenost.
+    \item Če sta $\leq_P$ in $\leq_Q$ linearni urejenosti, ali je to tudi $\leq$?
+    \item Kako bi na kartezičnem produktu dveh linearno urejenih množic lahko definirali linearno urejenost?
+  \end{enumerate}
 \end{vaja}
 
 \begin{vaja}
-  Kompozitum monotonih preslikav je monotona preslikava.
-
-  Kompozitum monotonih in ne-monotonih: kaj se lahko zgodi? (Trije primeri.)
+  Poiščite delno urejeno množico, ki ima natanko en minimalni element, vendar nima prvega elementa.
 \end{vaja}
 
 \begin{vaja}
-  Ali je dana množica omejena?
+  Naj bosta $(P, \leq_P)$ in $(Q, \leq_Q)$ delno urejeni množici. Pravimo, da je preslikava $f\colon P \to Q$ \emph{monotona}, kadar za vse $x, y \in P$ velja
+  \[x \leq_P y \implies f(x) \leq_Q f(y)\]
+  Katere od naslednjih preslikav so monotone?
+  \begin{enumerate}
+    \item[(a)] $f \colon \RR \to \mathcal{P}(\RR), f(x) = \set{x}$
+    \item[(b)] $g \colon \RR \to \mathcal{P}(\RR), g(x) = (-\infty, x)$
+    \item[(c)] $h \colon \mathcal{P}(A) \to \mathcal{P}(\mathcal{P}(A)), h(X) = \mathcal{P}(X)$
+  \end{enumerate}
+  Pri tem za ureditev na $\RR$ vzemite običajno relacijo $\leq$, na potenčnih množicah pa relacijo vsebovanosti $\subseteq$.
 \end{vaja}
 
 \begin{vaja}
-  Za dano množico, poišči minimalni, prvi, maksimalni, zadnji element.
+  Potenčno množico $\mathcal{P}(A)$ množice $A$ uredimo z relacijo $\subseteq$. Vzemimo preslikavo $f\colon A \to A$ ter podmnožici $S, T \subseteq A$. Katere od spodnjih preslikav $\mathcal{P}(A) \to \mathcal{P}(A)$ so monotone ne glede na izbiro $A$, $f$, $S$ in $T$?
+  \begin{enumerate}
+    \item $X \mapsto f_*\big(X \setminus f^*(S \setminus T)\big)$
+    \item $X \mapsto f^*\big(X \setminus f_*(S \setminus T)\big)$
+    \item $X \mapsto f_*\big(S \setminus f_*(X \setminus T)\big)$
+    \item $X \mapsto f^*\big(S \setminus f^*(X \setminus T)\big)$
+    \item $X \mapsto f^*\big(S \setminus f^*(T \setminus X)\big)$
+    \item $X \mapsto f^*\big(S \setminus f_*(T \setminus X)\big)$
+  \end{enumerate}
 \end{vaja}
 
 \begin{vaja}
-  Ali je dana delna urejenost mreža? Polna mreža?
+  \begin{enumerate}
+    \item
+      Nariši Hassejev diagram delno urejene množice $\big(\mathcal{P}(\set{0, 1}), \subseteq\big)$.
+    \item
+      Nariši Hassejev diagram delno urejene množice $\big(\mathcal{P}(\set{0, 1, 2}), \subseteq\big)$.
+    \item
+      Nariši Hassejev diagram za relacijo "`je večkratnik"' na $\set{0, 1, 2, \ldots, 12}$.
+  \end{enumerate}
+\end{vaja}
+
+\begin{vaja}
+  \begin{enumerate}
+    \item
+      Preveri, ali je relacija $a | b$ ("`$a$ deli $b$"') na množici $\NN$ delna ureditev.
+    \item
+      Preveri, ali je relacija $a | b$ na množici $\ZZ$ delna ureditev.
+    \item
+      Naj bo $(P, \leq)$ delno urejena in $f\colon A \to P$ funkcija. Na $A$ definiramo relacijo
+      %
+      \begin{equation*}
+        x \sqsubseteq y \iff f(x) \leq f(y).
+      \end{equation*}
+      %
+      Ali je $(A, \sqsubseteq)$ delna ureditev?
+    \item
+      Dani sta delno urejeni $(A, \leq_A)$, $(B, \leq_B)$. Na $A \times B$ definiramo
+      %
+      \begin{equation*}
+        (x_1, y_1) \leq (x_2, y_2) \iff x_1 \leq_A x_2 \land y_1 \leq_B y_2.
+      \end{equation*}
+      %
+      Ali je $(A \times B, \leq)$ delna ureditev?
+  \end{enumerate}
+\end{vaja}
+
+\begin{vaja}
+  Naj bosta $(P, \leq_P)$, $(Q, \leq_Q)$ delni ureditvi. Preslikava $f\colon P \to Q$ je \emph{monotona}, kadar velja
+  %
+  \begin{equation}
+    \all{x, y \in P}{x \leq_P y \implies f(x) \leq_Q f(y)}.
+  \end{equation}
+  \begin{enumerate}
+    \item
+      Ali je funkcija $f \colon \NN \to \NN$, podana s predpisom $f(n) = n^2$, monotona?
+    \item
+      Ali je funkcija $f \colon \ZZ \to \ZZ$, podana s predpisom $f(n) = n^2$, monotona?
+    \item
+      Ali je funkcija $f \colon \NN \to \NN$, podana s predpisom $f(n) = \text{ število deliteljev $n$}$, monotona?
+    \item
+      Vzemimo množico $A$ in $T \subseteq A$. Ali je funkcija $f \colon \mathcal{P}(A) \to \mathcal{P}(A)$, podana s predpisom $f(S) = T \cap S$, monotona?
+    \item
+      Vzemimo množico $A$ in $T \subseteq A$. Ali je funkcija $f\colon \mathcal{P}(A) \to \mathcal{P}(A)$, podana s predpisom $f(S) = T \cup S$, monotona?
+    \item
+      Vzemimo množico $A$ in $T \subseteq A$. Ali je funkcija $f\colon \mathcal{P}(A) \to \mathcal{P}(A)$, podana s predpisom $f(S) = T \setminus S$, monotona?
+    \item
+      Vzemimo množico $A$ in $T \subseteq A$. Ali je funkcija $fcolon \mathcal{P}(A) \to \mathcal{P}(A)$, podana s predpisom $f(S) = S \setminus T$, monotona?
+  \end{enumerate}
+\end{vaja}
+
+\begin{vaja}
+  Naj bo $(P, \leq)$ delno urejena.
+  \begin{itemize}
+    \item
+      $S \subseteq P$ je \emph{veriga}, kadar velja $\all{x, y \in S}{x \leq y \lor y \leq x}$.
+    \item
+      $S \subseteq P$ je \emph{antiveriga}, kadar velja $\all{x, y \in S}{x \leq y \implies x = y}$.
+  \end{itemize}
+
+  Naj bo $R = \{0, 1, 2, \ldots, 10\}$, delno urejena z relacijo "`deli"'.
+  \begin{enumerate}
+    \item
+      V delno urejeni množici $R$ poišči čim večjo verigo.
+    \item
+      V delno urejeni množici $R$ poišči čim večjo antiverigo.
+    \item
+      V delno urejeni množici $R$ poišči podmnožico, ki ni niti veriga niti antiveriga.
+  \end{enumerate}
+\end{vaja}
+
+\begin{vaja}
+  Naj bo $(P, \leq)$ delna ureditev in $A$ poljubna množica. Na eksponentni množici $P^A$ definiramo ureditev
+  %
+  \begin{equation*}
+    f \preceq g \iff \all{x \in A}{f(x) \leq g(x)}.
+  \end{equation*}
+  %
+  Denimo, da je $\leq$ linearna ureditev. V kakšnem primeru je tudi $\preceq$ linearna ureditev? (Obravnavaj primere, ko imata $P$ in $A$ nič, en in več kot en element.)  
+\end{vaja}
+
+
+\begin{vaja}
+  Za vsako od naslednjih množic $S$ ugotovi, ali je navzgor in navzdol omejena, ali ima največji in najmanjši element ter supremum in infimum.
+  \begin{enumerate}
+    \item
+      Odprti interval $S = (a,b)$ kot podmnožica $(\RR, \leq)$.
+    \item
+      Zaprti interval $S = [a,b]$ kot podmnožica $(\RR, \leq)$.
+    \item
+      Družina $S = \set{\set{n}}{n \in \NN}$ kot podmnožica $(\mathcal{P}(\NN), \subseteq)$.
+    \item
+      Glavni ultrafilter $S = \set{A \subseteq \NN}{0 \in A}$ kot podmnožica $(\mathcal{P}(\NN), \subseteq)$.
+  \end{enumerate}
+\end{vaja}
+
+\begin{vaja}
+  Poišči podmnožico $S \subseteq \mathcal{P}(\NN)$, ki nima najmanjšega in nima največjega elementa glede na relacijo $\subseteq$. Ali taka podmnožica $S$ ima infimum in supremum?
+\end{vaja}
+
+\begin{vaja}
+  Naj bo $(P, \leq)$ delna ureditev in $f\colon P \to P$ monotona preslikava.
+  \begin{enumerate}
+    \item
+      Dokaži, da $f$ slika omejene množice v omejene množice.
+    \item
+      Denimo, da množica $S \subseteq P$ ima supremum. Dokaži, da velja $\bigvee_{x \in S} f(x) \leq f(\bigvee_{x \in S} x)$. Ali vedno velja tudi obratna neenakost?
+  \end{enumerate}
+\end{vaja}
+
+\begin{vaja}
+  Na $\RR^2$ definiramo:
+  \[(x,y) R (z,w) \iff y \leq w \text{ in } x - y \leq z - w.\]
+  \begin{enumerate}
+    \item
+      Pokaži, da je $R$ delna urejenost.
+    \item
+      Ali je $R$ linearna urejenost?
+    \item
+      Poišči kakšno neskončno množico $A \subseteq \RR^2$, ki bo imela prvi element glede na $R$.
+    \item
+      Za poljubna elementa $(x,y), (z,w) \in \RR^2$ poišči $\sup\set{(x,y), (z,w)}$ in $\inf\set{(x,y), (z,w)}$ glede na relacijo $R$.
+    \item
+      Relacijo $R$ zožimo na $\RR_0^+ \times \RR$. Ali je $\RR_0^+ \times \RR$ z zožitvijo relacije $R$ mreža? Določi minimalne, maksimalne, prve in zadnje elemente.
+  \end{enumerate}
+\end{vaja}
+
+\begin{vaja}
+  Dokaži, da je kartezični produkt delno urejenih množic z urejenostjo po komponentah delno urejen.
+\end{vaja}
+
+\begin{vaja}
+  Označimo z $\leq$ običajno urejenost na $\RR^2$ (tj.~po komponentah) in z $\leq_{\:lex}$ leksikografsko urejenost. Naj bo dan $(u,v) \in \RR^2$ in naj bo $(x,y)$ tak element, da velja $(0,0) \leq (nx,ny) \leq (u,v)$ za vsak $n \in \NN$. Pokaži, da je $(x,y) = (0,0)$. Ali to velja tudi v primeru, ko $\leq$ zamenjamo z $\leq_{\:lex}$? Če velja, dokaži, sicer pa poišči protiprimer.
+\end{vaja}
+
+\begin{vaja}
+  Naj bo dana družina funkcij $f_\lambda\colon A \to \RR$. Na $A$ definiramo relacijo $R$ s predpisom
+  \[x R y \iff \all{\lambda \in A}{f_\lambda(x) \leq f_\lambda(y)}.\]
+  Ali je $R$ delna urejenost? (Kaj je potreben in zadosten pogoj za to, da bo $R$ antisimetrična?)
+\end{vaja}
+
+\begin{vaja}
+  Naj bo $\set{(A_n, \leq_n)}{n \in \NN}$ družina delno urejenih množic. Za $\displaystyle f, g \in \prod_{n \in \NN} A_n$ definiramo relacijo $\leq$:
+  \[f \leq g \iff (f = g) \lor (f \neq g \land f(x_0) \leq g(x_0)),\]
+  pri čemer je z $x_0$ označen $\min\set{x \in \NN}{f(x) \neq g(x)}$. Pokažite:
+  \begin{enumerate}
+    \item $\leq$ je delna urejenost,
+    \item $\leq$ je linearna urejenost.
+  \end{enumerate}
+\end{vaja}
+
+\begin{vaja}
+  Naj bo relacija $R$ refleksivna in tranzitivna (ne pa nujno antisimetrična). Relacijo $S$ definiramo takole:
+  \[x S y \iff x R y \land y R x.\]
+  Pokaži, da je $S$ ekvivalenčna relacija.\\
+  Na množici ekvivalenčnih razredov $A/_S$ nato definiramo relacijo $T$ takole:
+  \[[x] T [y] \iff x R y.\]
+  Pokaži, da je $T$ dobro definirana in je delna urejenost.
 \end{vaja}
 
 \end{document}
