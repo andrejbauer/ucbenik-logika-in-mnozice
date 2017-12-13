@@ -23,6 +23,8 @@
 {O{auto} m G{\empty}}
 {\sizedescriptor{#1}{\left}\{ {#2} \ifthenelse{\equal{#3}{}}{}{ \; \sizedescriptor{#1}{\middle}| \; {#3}} \sizedescriptor{#1}{\right}\}}
 
+\newcommand{\pow}{\mathcal{P}}
+
 \newcommand{\all}[1]{\forall #1 .\,}
 \newcommand{\some}[1]{\exists #1 .\,}
 \newcommand{\exactlyone}[1]{\exists{!} #1 .\,}
@@ -53,46 +55,41 @@
 \date{15.~12.~2017}
 \maketitle
 
-%\begin{vaja}
-%  Ali je delna urejenost?
-%\end{vaja}
-%
-%\begin{vaja}
-%  Ali je delna urejenost linearna?
-%\end{vaja}
-%
-%\begin{vaja}
-%  Nariši Hassejev diagram.
-%\end{vaja}
-%
-%\begin{vaja}
-%  Ali je monotona preslikava?
-%\end{vaja}
-%
-%\begin{vaja}
-%  Kompozitum monotonih preslikav je monotona preslikava.
-%
-%  Kompozitum monotonih in ne-monotonih: kaj se lahko zgodi? (Trije primeri.)
-%\end{vaja}
-%
-%\begin{vaja}
-%  Ali je dana množica omejena?
-%\end{vaja}
-%
-%\begin{vaja}
-%  Za dano množico, poišči minimalni, prvi, maksimalni, zadnji element.
-%\end{vaja}
-%
-%\begin{vaja}
-%  Ali je dana delna urejenost mreža? Polna mreža?
-%\end{vaja}
+\bigskip
+
+\noindent
+Naj bo $(P, \leq)$ delna ureditev.
+\begin{itemize}
+  \item
+    $S \subseteq P$ je \emph{veriga}, kadar velja $\all{x, y \in S}{x \leq y \lor y \leq x}$.
+  \item
+    $S \subseteq P$ je \emph{antiveriga}, kadar velja $\all{x, y \in S}{x \leq y \implies x = y}$.
+\end{itemize}
+
+\bigskip
+
+\noindent
+Naj bosta $(P, \leq_P)$, $(Q, \leq_Q)$ delni ureditvi. Preslikava $f\colon P \to Q$ je \emph{monotona}, kadar velja
+\begin{equation*}
+  \all{x, y \in P}{\ x \leq_P y \implies f(x) \leq_Q f(y)}.
+\end{equation*}
+
+\bigskip
 
 \begin{vaja}
-  Narišite Hassejev diagram množice $\set{1, 2, \ldots, 12}$, delno urejene z relacijo deljivosti $|$. Ali obstajajo minimalni, maksimalni, prvi ali zadnji elementi? Poiščite jih.
+  Obravnavajmo množico $\set{1, 2, 3, \ldots, 12}$, delno urejeno z relacijo deljivosti $|$.
+  \begin{enumerate}
+    \item
+      Narišite Hassejev diagram te delne ureditve.
+    \item
+      Poiščite čim večjo verigo, čim večjo antiverigo in kakšno podmnožico, ki ni niti veriga niti antiveriga.
+    \item
+      Ali obstajajo minimalni, maksimalni, prvi ali zadnji elementi? Poiščite jih. Kako se odgovor spremeni, če ureditvi odvzamemo $1$ ali dodamo $0$?
+  \end{enumerate}
 \end{vaja}
 
 \begin{vaja}
-  Množico vseh nepraznih zaprtih podintervalov intervala $[0, 1]$, torej $\set{[a, b]}{0 \leq a \leq b \leq 1}$ delno uredimo z relacijo vsebovanosti $\subseteq$. Ali obstajajo minimalni, maksimalni, prvi ali zadnji elementi? Poiščite jih. Kaj pa, če vzamemo množico vseh (tudi praznih) zaprtih podintervalov?
+  Množico vseh nepraznih zaprtih podintervalov intervala $[0, 1]$, torej $\set[1]{[a, b]}{0 \leq a \leq b \leq 1}$, delno uredimo z relacijo vsebovanosti $\subseteq$. Ali obstajajo minimalni, maksimalni, prvi ali zadnji elementi? Poiščite jih. Kaj pa, če vzamemo množico vseh (tudi praznih) zaprtih podintervalov?
 \end{vaja}
 
 \begin{vaja}
@@ -104,33 +101,74 @@
 \end{vaja}
 
 \begin{vaja}
-  Za delno urejeni množici $(P, \leq_P)$ in $(Q \leq_Q)$ lahko na kartezičnem produktu $P \times Q$ definiramo delno urejenost $\leq$ s predpisom
-  \[(p_1, q_1) \leq (p_2, q_2) \iff p_1 \leq_P p_2 \land q_1 \leq_Q q_2.\]
-  \begin{enumerate}
-    \item Preverite, da je $\leq$ res delna urejenost.
-    \item Če sta $\leq_P$ in $\leq_Q$ linearni urejenosti, ali je to tudi $\leq$?
-    \item Kako bi na kartezičnem produktu dveh linearno urejenih množic lahko definirali linearno urejenost?
-  \end{enumerate}
-\end{vaja}
-
-\begin{vaja}
   Poiščite delno urejeno množico, ki ima natanko en minimalni element, vendar nima prvega elementa.
 \end{vaja}
 
 \begin{vaja}
-  Naj bosta $(P, \leq_P)$ in $(Q, \leq_Q)$ delno urejeni množici. Pravimo, da je preslikava $f\colon P \to Q$ \emph{monotona}, kadar za vse $x, y \in P$ velja
-  \[x \leq_P y \implies f(x) \leq_Q f(y)\]
-  Katere od naslednjih preslikav so monotone?
+  Za vsako od naslednjih množic $S$ ugotovite, ali je navzgor in navzdol omejena, ali ima največji in najmanjši element ter supremum in infimum.
   \begin{enumerate}
-    \item[(a)] $f \colon \RR \to \mathcal{P}(\RR), f(x) = \set{x}$
-    \item[(b)] $g \colon \RR \to \mathcal{P}(\RR), g(x) = (-\infty, x)$
-    \item[(c)] $h \colon \mathcal{P}(A) \to \mathcal{P}(\mathcal{P}(A)), h(X) = \mathcal{P}(X)$
+    \item
+      Odprti interval $S = (a,b)$ kot podmnožica $(\RR, \leq)$.
+    \item
+      Zaprti interval $S = [a,b]$ kot podmnožica $(\RR, \leq)$.
+    \item
+      Družina $S = \set[1]{\set{n}}{n \in \NN}$ kot podmnožica $(\pow(\NN), \subseteq)$.
+    \item
+      $S = \set{A \subseteq \NN}{0 \in A}$ kot podmnožica $(\pow(\NN), \subseteq)$.
   \end{enumerate}
-  Pri tem za ureditev na $\RR$ vzemite običajno relacijo $\leq$, na potenčnih množicah pa relacijo vsebovanosti $\subseteq$.
 \end{vaja}
 
 \begin{vaja}
-  Potenčno množico $\mathcal{P}(A)$ množice $A$ uredimo z relacijo $\subseteq$. Vzemimo preslikavo $f\colon A \to A$ ter podmnožici $S, T \subseteq A$. Katere od spodnjih preslikav $\mathcal{P}(A) \to \mathcal{P}(A)$ so monotone ne glede na izbiro $A$, $f$, $S$ in $T$?
+  Poiščite podmnožico $S \subseteq \pow(\NN)$, ki nima najmanjšega in nima največjega elementa glede na relacijo $\subseteq$. Ali taka podmnožica $S$ ima infimum in supremum?
+\end{vaja}
+
+\begin{vaja}
+  Na $\RR^2$ definiramo:
+  \[(x,y) R (z,w) \iff y \leq w \text{ in } x - y \leq z - w.\]
+  \begin{enumerate}
+    \item
+      Pokažite, da je $R$ delna urejenost.
+    \item
+      Ali je $R$ linearna urejenost?
+    \item
+      Poiščite kakšno neskončno množico $A \subseteq \RR^2$, ki bo imela prvi element glede na $R$.
+    \item
+      Za poljubna elementa $(x,y), (z,w) \in \RR^2$ poiščite supremum $(x,y) \vee (z,w)$ in infimum $(x,y) \wedge (z,w)$ glede na relacijo $R$. Sklepajte, da je $(\RR^2, R)$ mreža.
+    \item
+      Relacijo $R$ zožimo na $[0, \infty) \times \RR$. Ali je $[0, \infty) \times \RR$ z zožitvijo relacije $R$ mreža? Določi minimalne, maksimalne, prve in zadnje elemente.
+  \end{enumerate}
+\end{vaja}
+
+\begin{vaja}
+  Za spodnje preslikave ugotovite, ali so monotone (številske množice so urejene z $\leq$, potenčne množice pa z $\subseteq$). Pri tem je $A$ množica, $S \subseteq A$ pa izbrana podmnožica.
+  \begin{enumerate}
+    \item
+      $\NN \to \NN$, $n \mapsto n^2$
+    \item
+      $\ZZ \to \ZZ$, $n \mapsto n^2$
+    \item
+      $\NN \setminus \set{0} \to \NN \setminus \set{0}$, $n \mapsto \text{število deliteljev $n$ v $\NN \setminus \set{0}$}$
+    \item
+      $\RR \to \pow(\RR)$, $x \mapsto \set{x}$
+    \item
+      $\RR \to \pow(\RR)$, $x \mapsto (-\infty, x)$
+    \item
+      $\pow(A) \to \pow(A)$, $X \mapsto X^C$
+    \item
+      $\pow(A) \to \pow(A)$, $X \mapsto X \cup S$
+    \item
+      $\pow(A) \to \pow(A)$, $X \mapsto X \cap S$
+    \item
+      $\pow(A) \to \pow(A)$, $X \mapsto X \setminus S$
+    \item
+      $\pow(A) \to \pow(A)$, $X \mapsto S \setminus X$
+    \item
+      $\pow(A) \to \pow\big(\pow(A)\big)$, $X \mapsto \pow(X)$
+  \end{enumerate}
+\end{vaja}
+
+\begin{vaja}
+  Potenčno množico $\pow(A)$ množice $A$ uredimo z relacijo $\subseteq$. Vzemimo preslikavo $f\colon A \to A$ ter podmnožici $S, T \subseteq A$. Katere od spodnjih preslikav $\pow(A) \to \pow(A)$ so monotone ne glede na izbiro $A$, $f$, $S$ in $T$?
   \begin{enumerate}
     \item $X \mapsto f_*\big(X \setminus f^*(S \setminus T)\big)$
     \item $X \mapsto f^*\big(X \setminus f_*(S \setminus T)\big)$
@@ -142,82 +180,27 @@
 \end{vaja}
 
 \begin{vaja}
+  Utemeljite sledeče trditve.
   \begin{enumerate}
     \item
-      Nariši Hassejev diagram delno urejene množice $\big(\mathcal{P}(\set{0, 1}), \subseteq\big)$.
+      Kompozitum dveh monotonih preslikav je monotona preslikava.
     \item
-      Nariši Hassejev diagram delno urejene množice $\big(\mathcal{P}(\set{0, 1, 2}), \subseteq\big)$.
+      Kompozitum dveh nemonotonih preslikav ni nujno nemonotona preslikava.
     \item
-      Nariši Hassejev diagram za relacijo "`je večkratnik"' na $\set{0, 1, 2, \ldots, 12}$.
+      Ali je kompozitum monotone in nemonotone preslikave (v takem ali drugačnem vrstnem redu) nujno (ne)monotona preslikava?
   \end{enumerate}
 \end{vaja}
 
 \begin{vaja}
+  Za delno urejeni množici $(P, \leq_P)$ in $(Q \leq_Q)$ lahko na kartezičnem produktu $P \times Q$ definiramo delno urejenost $\leq$ s predpisom
+  \[(p_1, q_1) \leq (p_2, q_2) \iff p_1 \leq_P p_2 \land q_1 \leq_Q q_2.\]
   \begin{enumerate}
     \item
-      Preveri, ali je relacija $a | b$ ("`$a$ deli $b$"') na množici $\NN$ delna ureditev.
+      Preverite, da je $\leq$ res delna urejenost.
     \item
-      Preveri, ali je relacija $a | b$ na množici $\ZZ$ delna ureditev.
+      Če sta $\leq_P$ in $\leq_Q$ linearni urejenosti, ali je to tudi $\leq$?
     \item
-      Naj bo $(P, \leq)$ delno urejena in $f\colon A \to P$ funkcija. Na $A$ definiramo relacijo
-      %
-      \begin{equation*}
-        x \sqsubseteq y \iff f(x) \leq f(y).
-      \end{equation*}
-      %
-      Ali je $(A, \sqsubseteq)$ delna ureditev?
-    \item
-      Dani sta delno urejeni $(A, \leq_A)$, $(B, \leq_B)$. Na $A \times B$ definiramo
-      %
-      \begin{equation*}
-        (x_1, y_1) \leq (x_2, y_2) \iff x_1 \leq_A x_2 \land y_1 \leq_B y_2.
-      \end{equation*}
-      %
-      Ali je $(A \times B, \leq)$ delna ureditev?
-  \end{enumerate}
-\end{vaja}
-
-\begin{vaja}
-  Naj bosta $(P, \leq_P)$, $(Q, \leq_Q)$ delni ureditvi. Preslikava $f\colon P \to Q$ je \emph{monotona}, kadar velja
-  %
-  \begin{equation}
-    \all{x, y \in P}{x \leq_P y \implies f(x) \leq_Q f(y)}.
-  \end{equation}
-  \begin{enumerate}
-    \item
-      Ali je funkcija $f \colon \NN \to \NN$, podana s predpisom $f(n) = n^2$, monotona?
-    \item
-      Ali je funkcija $f \colon \ZZ \to \ZZ$, podana s predpisom $f(n) = n^2$, monotona?
-    \item
-      Ali je funkcija $f \colon \NN \to \NN$, podana s predpisom $f(n) = \text{ število deliteljev $n$}$, monotona?
-    \item
-      Vzemimo množico $A$ in $T \subseteq A$. Ali je funkcija $f \colon \mathcal{P}(A) \to \mathcal{P}(A)$, podana s predpisom $f(S) = T \cap S$, monotona?
-    \item
-      Vzemimo množico $A$ in $T \subseteq A$. Ali je funkcija $f\colon \mathcal{P}(A) \to \mathcal{P}(A)$, podana s predpisom $f(S) = T \cup S$, monotona?
-    \item
-      Vzemimo množico $A$ in $T \subseteq A$. Ali je funkcija $f\colon \mathcal{P}(A) \to \mathcal{P}(A)$, podana s predpisom $f(S) = T \setminus S$, monotona?
-    \item
-      Vzemimo množico $A$ in $T \subseteq A$. Ali je funkcija $fcolon \mathcal{P}(A) \to \mathcal{P}(A)$, podana s predpisom $f(S) = S \setminus T$, monotona?
-  \end{enumerate}
-\end{vaja}
-
-\begin{vaja}
-  Naj bo $(P, \leq)$ delno urejena.
-  \begin{itemize}
-    \item
-      $S \subseteq P$ je \emph{veriga}, kadar velja $\all{x, y \in S}{x \leq y \lor y \leq x}$.
-    \item
-      $S \subseteq P$ je \emph{antiveriga}, kadar velja $\all{x, y \in S}{x \leq y \implies x = y}$.
-  \end{itemize}
-
-  Naj bo $R = \{0, 1, 2, \ldots, 10\}$, delno urejena z relacijo "`deli"'.
-  \begin{enumerate}
-    \item
-      V delno urejeni množici $R$ poišči čim večjo verigo.
-    \item
-      V delno urejeni množici $R$ poišči čim večjo antiverigo.
-    \item
-      V delno urejeni množici $R$ poišči podmnožico, ki ni niti veriga niti antiveriga.
+      Kako lahko na kartezičnem produktu dveh linearno urejenih množic definiramo linearno urejenost?
   \end{enumerate}
 \end{vaja}
 
@@ -228,86 +211,68 @@
     f \preceq g \iff \all{x \in A}{f(x) \leq g(x)}.
   \end{equation*}
   %
-  Denimo, da je $\leq$ linearna ureditev. V kakšnem primeru je tudi $\preceq$ linearna ureditev? (Obravnavaj primere, ko imata $P$ in $A$ nič, en in več kot en element.)  
+  Denimo, da je $\leq$ linearna ureditev. V kakšnem primeru je tudi $\preceq$ linearna ureditev? (Obravnavajte primere, ko imata $P$ in $A$ nič, en in več kot en element.)  
 \end{vaja}
 
-
 \begin{vaja}
-  Za vsako od naslednjih množic $S$ ugotovi, ali je navzgor in navzdol omejena, ali ima največji in najmanjši element ter supremum in infimum.
+  Naj bosta $(P, \leq_P)$ in $(Q, \leq_Q)$ delni ureditvi ter $f\colon P \to P$ monotona preslikava.
   \begin{enumerate}
     \item
-      Odprti interval $S = (a,b)$ kot podmnožica $(\RR, \leq)$.
+      Dokažite, da $f$ slika omejene množice v omejene množice.
     \item
-      Zaprti interval $S = [a,b]$ kot podmnožica $(\RR, \leq)$.
-    \item
-      Družina $S = \set{\set{n}}{n \in \NN}$ kot podmnožica $(\mathcal{P}(\NN), \subseteq)$.
-    \item
-      Glavni ultrafilter $S = \set{A \subseteq \NN}{0 \in A}$ kot podmnožica $(\mathcal{P}(\NN), \subseteq)$.
+      Denimo, da ima množica $S \subseteq P$ supremum v $P$ in množica $f_*(S)$ supremum v $Q$. Dokažite, da velja $\bigvee_{x \in S} f(x) \leq f(\bigvee_{x \in S} x)$. Ali velja tudi enakost, tj.~ali monotone preslikave v splošnem ohranjajo supremume?
   \end{enumerate}
 \end{vaja}
 
 \begin{vaja}
-  Poišči podmnožico $S \subseteq \mathcal{P}(\NN)$, ki nima najmanjšega in nima največjega elementa glede na relacijo $\subseteq$. Ali taka podmnožica $S$ ima infimum in supremum?
+  Označimo z $\leq$ običajno urejenost na $\RR^2$ (tj.~po komponentah) in z $\leq_{\:lex}$ leksikografsko urejenost. Naj bo dan $(u,v) \in \RR^2$ in naj bo $(x,y)$ tak element, da velja $(0,0) \leq (nx,ny) \leq (u,v)$ za vsak $n \in \NN$. Pokažite, da je $(x,y) = (0,0)$. Ali to velja tudi v primeru, ko $\leq$ zamenjamo z $\leq_{\:lex}$? Če velja, dokažite, sicer pa poiščite protiprimer.
 \end{vaja}
 
 \begin{vaja}
-  Naj bo $(P, \leq)$ delna ureditev in $f\colon P \to P$ monotona preslikava.
-  \begin{enumerate}
-    \item
-      Dokaži, da $f$ slika omejene množice v omejene množice.
-    \item
-      Denimo, da množica $S \subseteq P$ ima supremum. Dokaži, da velja $\bigvee_{x \in S} f(x) \leq f(\bigvee_{x \in S} x)$. Ali vedno velja tudi obratna neenakost?
-  \end{enumerate}
-\end{vaja}
-
-\begin{vaja}
-  Na $\RR^2$ definiramo:
-  \[(x,y) R (z,w) \iff y \leq w \text{ in } x - y \leq z - w.\]
-  \begin{enumerate}
-    \item
-      Pokaži, da je $R$ delna urejenost.
-    \item
-      Ali je $R$ linearna urejenost?
-    \item
-      Poišči kakšno neskončno množico $A \subseteq \RR^2$, ki bo imela prvi element glede na $R$.
-    \item
-      Za poljubna elementa $(x,y), (z,w) \in \RR^2$ poišči $\sup\set{(x,y), (z,w)}$ in $\inf\set{(x,y), (z,w)}$ glede na relacijo $R$.
-    \item
-      Relacijo $R$ zožimo na $\RR_0^+ \times \RR$. Ali je $\RR_0^+ \times \RR$ z zožitvijo relacije $R$ mreža? Določi minimalne, maksimalne, prve in zadnje elemente.
-  \end{enumerate}
-\end{vaja}
-
-\begin{vaja}
-  Dokaži, da je kartezični produkt delno urejenih množic z urejenostjo po komponentah delno urejen.
-\end{vaja}
-
-\begin{vaja}
-  Označimo z $\leq$ običajno urejenost na $\RR^2$ (tj.~po komponentah) in z $\leq_{\:lex}$ leksikografsko urejenost. Naj bo dan $(u,v) \in \RR^2$ in naj bo $(x,y)$ tak element, da velja $(0,0) \leq (nx,ny) \leq (u,v)$ za vsak $n \in \NN$. Pokaži, da je $(x,y) = (0,0)$. Ali to velja tudi v primeru, ko $\leq$ zamenjamo z $\leq_{\:lex}$? Če velja, dokaži, sicer pa poišči protiprimer.
-\end{vaja}
-
-\begin{vaja}
-  Naj bo dana družina funkcij $f_\lambda\colon A \to \RR$. Na $A$ definiramo relacijo $R$ s predpisom
-  \[x R y \iff \all{\lambda \in A}{f_\lambda(x) \leq f_\lambda(y)}.\]
-  Ali je $R$ delna urejenost? (Kaj je potreben in zadosten pogoj za to, da bo $R$ antisimetrična?)
-\end{vaja}
-
-\begin{vaja}
-  Naj bo $\set{(A_n, \leq_n)}{n \in \NN}$ družina delno urejenih množic. Za $\displaystyle f, g \in \prod_{n \in \NN} A_n$ definiramo relacijo $\leq$:
-  \[f \leq g \iff (f = g) \lor (f \neq g \land f(x_0) \leq g(x_0)),\]
+  Naj bo $(A_n, \leq_n)_{n \in \NN}$ družina delno urejenih množic. Za $\displaystyle{f, g \in \prod_{n \in \NN} A_n}$ definiramo relacijo $\leq$:
+  \[f \leq g \iff (f = g) \lor \big(f \neq g \land f(x_0) \leq g(x_0)\big),\]
   pri čemer je z $x_0$ označen $\min\set{x \in \NN}{f(x) \neq g(x)}$. Pokažite:
   \begin{enumerate}
-    \item $\leq$ je delna urejenost,
-    \item $\leq$ je linearna urejenost.
+    \item
+      $\leq$ je delna urejenost,
+    \item
+      če so $\leq_n$ linearne urejenosti, je tudi $\leq$ linearna urejenost.
   \end{enumerate}
 \end{vaja}
 
 \begin{vaja}
-  Naj bo relacija $R$ refleksivna in tranzitivna (ne pa nujno antisimetrična). Relacijo $S$ definiramo takole:
-  \[x S y \iff x R y \land y R x.\]
-  Pokaži, da je $S$ ekvivalenčna relacija.\\
-  Na množici ekvivalenčnih razredov $A/_S$ nato definiramo relacijo $T$ takole:
-  \[[x] T [y] \iff x R y.\]
-  Pokaži, da je $T$ dobro definirana in je delna urejenost.
+  Naj bo $(A, \preceq)$ šibka ureditev. Relacijo $\sim$ na $A$ definiramo takole:
+  \[x \sim y \iff x \preceq y \land y \preceq x.\]
+  \begin{enumerate}
+    \item
+      Pokažite, da je $\sim$ ekvivalenčna relacija.
+    \item
+      Na množici ekvivalenčnih razredov $A/_\sim$ definiramo relacijo $\leq$ takole:
+      \[[x] \leq [y] \iff x \preceq y.\]
+      Pokažite, da je $\leq$ dobro definirana in je delna urejenost.
+  \end{enumerate}
+\end{vaja}
+
+\begin{vaja}
+  Naj bo $f\colon A \to B$ preslikava in $\leq$ relacija na $B$. Na $A$ definiramo relacijo $\preceq$:
+  \[x \preceq y \iff f(x) \leq f(y).\]
+  Dokažite sledeče.
+  \begin{enumerate}
+    \item
+      Če je $\leq$ šibka urejenost na $B$, je $\preceq$ šibka urejenost na $A$.
+    \item
+      Če je $\leq$ delna urejenost na $B$, ni nujno, da je $\preceq$ delna urejenost na $A$.
+    \item
+      Poiščite potreben in zadosten pogoj na preslikavo $f$, da iz delne urejenosti $\leq$ sledi delna urejenost $\preceq$.
+    \item
+      Pokažite: za vsako šibko ureditev $(A, \preceq)$ obstaja delna ureditev $(B, \leq)$ in preslikava $f\colon A \to B$, da je $\preceq$ porojena iz $\leq$ na zgoraj podani način.
+  \end{enumerate}
+\end{vaja}
+
+\begin{vaja}
+  Naj bo dana družina funkcij $(f_i\colon A \to \RR)_{i \in I}$. Na $A$ definiramo relacijo $R$ s predpisom
+  \[x R y \iff \all{i \in I}{f_i(x) \leq f_i(y)}.\]
+  Ali je $R$ nujno delna urejenost? Kaj je potreben in zadosten pogoj za to, da bo $R$ antisimetrična?
 \end{vaja}
 
 \end{document}
