@@ -333,10 +333,12 @@
 \begin{vaja}
 	\emph{Dvojiška drevesa} so rekurzivno definirana struktura. Sestavljena so iz vozlišč in povezav med njimi (torej so grafi), za katere velja:
 	\begin{itemize}
-		\item vsako vozlišče ima največ dva otroka, ki jima pravimo levi in desni otrok,
-		\item otroci so tudi dvojiška drevesa. 
-		\item vozlišču, ki ne pripada otroku nobenega drugega vozlišča, pravimo \emph{koren}.
-		\item vozlišču brez otrok pravimo \emph{list}.
+		\item Prazno drevo je dvojiško drevo.
+		\item Vsako vozlišče ima največ dva otroka, ki jima pravimo levi in desni otrok ter nista povezana med seboj.
+		\item Otroci so tudi dvojiška drevesa.
+		\item Vozlišču, ki ne pripada otroku nobenega drugega vozlišča, pravimo \emph{koren}.
+		\item V drevesu obstaja največ en koren.
+		\item Vozlišču brez otrok pravimo \emph{list}. Listov je lahko več.
 	\end{itemize}
 	Primer dvojiškega drevesa je na sliki \ref{fig:drevo}.
 	\begin{figure}[!h]
@@ -350,6 +352,7 @@
 	\emph{Obrnjeno drevo} dobimo iz dvojiškega drevesa, če vsakemu vozlišču zamenjamo levega in desnega otroka. 
 	\begin{enumerate}
 		\item Narišite obrnjeno drevo od drevesa na sliki.
+		\item Zapišite globino drevesa in obračanje drevesa kot rekurzivni funkciji na dvojiških drevesih.
 		\item Z indukcijo dokažite, da je globina obrnjenega drevesa enaka globini prvotnega drevesa. 
 	\end{enumerate}
 \end{vaja}
