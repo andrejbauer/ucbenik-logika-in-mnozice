@@ -56,6 +56,54 @@
 \date{22.~12.~2017}
 \maketitle
 
+\vspace{\stretch{2}}
+
+\section{Strukturna indukcija}
+
+\begin{vaja}
+	\emph{Končne nize} elementov iz množice $S$ označimo z $a_0 a_1 \ldots a_n$, kjer je $n \in \NN$ in $a_i \in S$ za $i\in \set{1, 2, \ldots, n}$. \emph{Dolžina} ($l$) končnega niza je število elementov v nizu, tj.~$l(a_0 a_1 \ldots a_n) = n + 1$. Prazen niz označimo z $\varepsilon$ in velja $l(\varepsilon) = 0$. Končne nize lahko med seboj stikamo tako, da dobimo (kvečjemu daljši) niz, sestavljen iz elementov obeh nizov, torej dobimo najprej elemente prvega niza, nato elemente drugega niza. Stikanje označimo z dvojnim dvopičjem (::). Če sta torej $a_0a_1 \ldots a_n$ in $b_0 b_1 \ldots b_m$ končna niza elementov iz množice $S$, potem je njun stik
+	\[(a_0a_1 \ldots a_n) :: (b_0 b_1 \ldots b_m) = a_0a_1 \ldots a_n b_0 b_1 \ldots b_m\]
+	tudi končen niz. 
+	\begin{enumerate}
+		\item
+			Zgornje definicije niso povsem natančne, saj so podane s tropičji. Podajte induktivno definicijo končnih nizov in rekurzivni definiciji stika ter dolžine.
+		\item
+			Z indukcijo dokažite, da je dolžina staknjenega niza enaka vsoti dolžin ustreznih podnizov, tj.~če sta $a$ in $b$ končna niza, velja:
+			\[l(a :: b) = l(a) + l(b).\]
+	\end{enumerate}
+\end{vaja}
+
+\vspace{\stretch{5}}
+\newpage
+
+\begin{vaja}
+	\emph{Dvojiška drevesa} so induktivno podana struktura. Sestavljena so iz vozlišč in povezav med njimi (torej so grafi), za katere velja:
+	\begin{itemize}
+		\item Prazno drevo je dvojiško drevo.
+		\item Eno vozlišče je dvojiško drevo.
+		\item Vsako vozlišče ima največ dva otroka, ki jima pravimo levi in desni otrok ter nista povezana med seboj.
+		\item Otroci so tudi dvojiška drevesa.
+		\item Vozlišču, ki ne pripada otroku nobenega drugega vozlišča, pravimo \emph{koren}.
+		\item V drevesu obstaja največ en koren.
+		\item Vozlišču brez otrok pravimo \emph{list}. Listov je lahko več.
+	\end{itemize}
+	Primer dvojiškega drevesa je na sliki \ref{fig:drevo}.
+	\begin{figure}[!ht]
+		\centering
+		\includegraphics[width = 5cm]{Binary_tree.png}
+		\caption{Primer dvojiškega drevesa.}
+		\label{fig:drevo}
+	\end{figure}
+	
+	\emph{Globina} drevesa je dolžina najdaljše poti od korena do (poljubnega) lista. Drevo na sliki ima globino $4$ (obstajajo tri različne poti, ki realizirajo to globino). Globina praznega drevesa je 0.  
+	\emph{Obrnjeno drevo} dobimo iz dvojiškega drevesa, če vsakemu vozlišču zamenjamo levega in desnega otroka. 
+	\begin{enumerate}
+		\item Narišite obrnjeno drevo drevesa na sliki.
+		\item Zapišite globino drevesa in obračanje drevesa kot rekurzivni funkciji na dvojiških drevesih.
+		\item Z indukcijo dokažite, da je globina obrnjenega drevesa enaka globini prvotnega drevesa. 
+	\end{enumerate}
+\end{vaja}
+
 
 \section{Dobre urejenosti}
 
@@ -65,7 +113,7 @@
     \item
       Dokažite: če je relacija $R \subseteq A \times A$ asimetrična, je irefleksivna.
     \item
-      Dokažite: če je relacija $R \subseteq A \times A$ tranzitivna, sta zanjo asimetričnost in ireflesivnost ekvivalentni.
+      Dokažite: če je relacija $R \subseteq A \times A$ tranzitivna, sta zanjo asimetričnost in irefleksivnost ekvivalentni.
     \item
       Naj bo $\leq$ linearna ureditev na $A$. Dokažite, da je relacija $<$, definirana kot
       \[x < y \iff x \leq y \land x \neq y,\]
@@ -105,82 +153,9 @@
   \end{enumerate}
 \end{vaja}
 
-
-\section{Strukturna indukcija}
-
-\begin{vaja}
-	\emph{Končne nize} elementov iz množice $S$ označimo z $a_0 a_1 \ldots a_n$, kjer je $n \in \NN$ in $a_i \in S$ za $i\in \set{1, 2, \ldots, n}$. \emph{Dolžina} ($l$) končnega niza je število elementov v nizu, tj.~$l(a_0 a_1 \ldots a_n) = n + 1$. Prazen niz označimo z $\varepsilon$ in velja $l(\varepsilon) = 0$. Končne nize lahko med seboj stikamo tako, da dobimo (kvečjemu daljši) niz, sestavljen iz elementov obeh nizov, torej dobimo najprej elemente prvega niza, nato elemente drugega niza. Stikanje označimo z dvojnim dvopičjem (::). Če sta torej $a_0a_1 \ldots a_n$ in $b_0 b_1 \ldots b_m$ končna niza elementov iz množice $S$, potem je njun stik
-	\[(a_0a_1 \ldots a_n) :: (b_0 b_1 \ldots b_m) = a_0a_1 \ldots a_n b_0 b_1 \ldots b_m\]
-	tudi končen niz. 
-	\begin{enumerate}
-		\item
-			Zgornje definicije niso povsem natančne, saj so podane s tropičji. Podajte induktivno definicijo končnih nizov in rekurzivni definiciji stika ter dolžine.
-		\item
-			Z indukcijo dokažite, da je dolžina staknjenega niza enaka vsoti dolžin ustreznih podnizov, tj.~če sta $a$ in $b$ končna niza, velja:
-			\[l(a :: b) = l(a) + l(b).\]
-	\end{enumerate}
-\end{vaja}
-
-\begin{vaja}
-	\emph{Dvojiška drevesa} so induktivno podana struktura. Sestavljena so iz vozlišč in povezav med njimi (torej so grafi), za katere velja:
-	\begin{itemize}
-		\item Prazno drevo je dvojiško drevo.
-		\item Eno vozlišče je dvojiško drevo.
-		\item Vsako vozlišče ima največ dva otroka, ki jima pravimo levi in desni otrok ter nista povezana med seboj.
-		\item Otroci so tudi dvojiška drevesa.
-		\item Vozlišču, ki ne pripada otroku nobenega drugega vozlišča, pravimo \emph{koren}.
-		\item V drevesu obstaja največ en koren.
-		\item Vozlišču brez otrok pravimo \emph{list}. Listov je lahko več.
-	\end{itemize}
-	Primer dvojiškega drevesa je na sliki \ref{fig:drevo}.
-	\begin{figure}[!h]
-		\centering
-		\includegraphics[width = 5cm]{Binary_tree.png}
-		\caption{Primer dvojiškega drevesa.}
-		\label{fig:drevo}
-	\end{figure}
-	
-	\emph{Globina} drevesa je dolžina najdaljše poti od korena do (poljubnega) lista. Drevo na sliki ima globino $4$ (obstajajo tri različne poti, ki realizirajo to globino). Globina praznega drevesa je 0.  
-	\emph{Obrnjeno drevo} dobimo iz dvojiškega drevesa, če vsakemu vozlišču zamenjamo levega in desnega otroka. 
-	\begin{enumerate}
-		\item Narišite obrnjeno drevo drevesa na sliki.
-		\item Zapišite globino drevesa in obračanje drevesa kot rekurzivni funkciji na dvojiških drevesih.
-		\item Z indukcijo dokažite, da je globina obrnjenega drevesa enaka globini prvotnega drevesa. 
-	\end{enumerate}
-\end{vaja}
-
+\pagebreak
 
 \section{Moč končnih množic}
-
-\begin{vaja}
-  Koliko števil med $1$ in $1000$ je deljivih z vsaj enim od števil $6$, $7$ ali $10$?
-\end{vaja}
-
-\begin{vaja}
-  Koliko je števil med $1$ in $1\,000\,000$, ki niso niti kvadrati niti kubi?
-\end{vaja}
-
-\begin{vaja}
-  Koliko naravnih števil na intervalu $[1, 1000]$ je deljivih s $6$ ali $8$, ne pa deljivih z $10$?
-\end{vaja}
-
-\begin{vaja}
-  Pri reševanju naslednjih nalog uporabite pravilo vključitev in izključitev.
-  \begin{enumerate}
-    \item
-      Koliko je števil med $1$ in $2009$ ki so deljiva s~$4$ ali z~$9$?
-    \item
-      Koliko je števil med $1$ in $2009$ ki so deljiva s~$4$ in z~$9$?
-    \item
-      Koliko je števil med $1$ in $2009$ ki so deljiva s~$4$ ali s~$6$?
-    \item
-      Koliko je števil med $1$ in $2009$ ki so deljiva s~$4$ in niso deljiva s~$6$?
-    \item
-      Koliko je števil med $1$ in $2009$ ki so niso deljiva s~$4$ in niso deljiva s~$6$?
-    \item
-      Koliko dni je med 29.~novembrom~1943 in 25.~junijem~1991?
-  \end{enumerate}
-\end{vaja}
 
 \begin{vaja}
   Pri reševanju naslednjih nalog poleg samega odgovora ugotovite tudi, za katere vrednosti parametrov $k, m, n \in \NN$ je odgovor veljaven. Pazite na to, ali so dovoljene ničelne vrednosti, ali mora biti eden od parametrov manjši od drugega ipd.
@@ -192,6 +167,34 @@
     \item
       Koliko je večkratnikov števila $n$ med števili $k, k+1, \ldots, m$?
   \end{enumerate}
+\end{vaja}
+
+\begin{vaja}
+  Koliko je naravnih števil od $1$ do $2018$, ki:
+  \begin{enumerate}
+    \item
+      so deljiva s~$4$ ali z~$9$?
+    \item
+      so deljiva s~$4$ in z~$9$?
+    \item
+      so deljiva s~$4$ ali s~$6$?
+    \item
+      so deljiva s~$4$ in niso deljiva s~$6$?
+    \item
+      niso deljiva s~$4$ in niso deljiva s~$6$?
+    \item
+      so deljiva z vsaj enim od števil~$4$, $6$ ali $9$?
+    \item
+      so deljiva s~$4$ ali $6$ in niso deljiva z~$9$?
+  \end{enumerate}
+\end{vaja}
+
+\begin{vaja}
+  Koliko je števil med $1$ in $1\,000\,000$, ki niso niti kvadrati niti kubi?
+\end{vaja}
+
+\begin{vaja}
+  Koliko dni je med 29.~novembrom~1943 in 25.~junijem~1991?
 \end{vaja}
 
 \begin{vaja}
@@ -213,14 +216,6 @@
 \end{vaja}
 
 \begin{vaja}
-  Za naravno število $n \in \NN$ naj bo
-  %
-  \begin{equation*}
-    [n] = \set{k \in \NN}{k < n} = \set{0, 1, \ldots, n-1}
-  \end{equation*}
-  %
-  množica prvih $n$ naravnih števil.
-  %
   Matriki, ki sestoji iz samih ničel in enic, pravimo \emph{$0$-$1$ matrika}.
   \begin{enumerate}
     \item
@@ -325,6 +320,16 @@
 \section{Moč neskončnih množic}
 
 \begin{vaja}
+  \
+  \begin{enumerate}
+    \item
+      Poiščite bijektivno preslikavo $g\colon \RR \to (a,b)$ iz realnih števil na dani odprti interval $(a,b)$.
+    \item
+      Dokažite, da imajo množica $\RR$, odprti interval $(a,b)$ in zaprti interval $[a,b]$ enako moč.
+  \end{enumerate}
+\end{vaja}
+
+\begin{vaja}
   Podajte bijekcijo med množico $\bigcup_{n = 1}^{\infty} [n^2, n^2 + n]$ in $\mathbb{R}$.
 \end{vaja}
 
@@ -363,17 +368,6 @@
       Naj bo $A$ množica, ki ni števna, in $B \subseteq A$ števna podmnožica. Dokažite, da $A \setminus B$ ni števna.
   \end{enumerate}
 \end{vaja}
-
-\begin{vaja}
-  \
-  \begin{enumerate}
-    \item
-      Poiščite bijektivno funkcijo $g\colon \RR \to (a,b)$ iz realnih števil na dani odprti interval $(a,b)$.
-    \item
-      Dokažite, da imajo množica $\RR$, odprti interval $(a,b)$ in zaprti interval $[a,b]$ enako moč.
-  \end{enumerate}
-\end{vaja}
-
 
 \begin{vaja}
   \
