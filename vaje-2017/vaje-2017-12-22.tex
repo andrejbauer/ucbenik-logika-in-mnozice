@@ -6,7 +6,8 @@
 \usepackage{amsthm}
 \usepackage{ifthen}
 \usepackage{xparse}
-%\usepackage{tikz}
+\usepackage{tikz}
+\usetikzlibrary{trees}
 %\usetikzlibrary{decorations.fractals}
 \usepackage{graphicx}
 
@@ -91,18 +92,40 @@
 
 \begin{vaja}
 	Primer dvojiškega drevesa je na sliki \ref{fig:drevo}.
-	\begin{figure}[!ht]
+
+	\begin{figure}
 		\centering
-		\includegraphics[width = 5cm]{Binary_tree.png}
-		\caption{Primer dvojiškega drevesa.}
+		\begin{tikzpicture}
+		[level distance=1.5cm,
+		level 1/.style={sibling distance=3cm},
+		level 2/.style={sibling distance=2cm},
+		level 2/.style={sibling distance=1.5cm}]
+		\node[circle,draw]{}
+		child {node[circle,draw] {}
+			child {node[circle,draw] {}}
+			child {node[circle,draw] {}
+				child {node[circle,draw] {} }
+				child {node[circle,draw] {} } }
+		}
+		child {node[circle,draw] {}
+			child[missing]
+			child {node[circle,draw] {}
+				child {node[circle,draw] {} } }
+		};
+		\end{tikzpicture}
+		\caption{Primer dvojiškega drevesa}
 		\label{fig:drevo}
 	\end{figure}
+
+
 	
-	\emph{Globina} drevesa je dolžina najdaljše poti od korena do (poljubnega) lista. Drevo na sliki ima globino $4$ (obstajajo tri različne poti, ki realizirajo to globino). Globina praznega drevesa je 0.  
+	
+	\emph{Globina} drevesa je dolžina najdaljše poti (število vozlišč na poti) od korena do (poljubnega) lista. Drevo na sliki ima globino $4$ (obstajajo tri različne poti, ki realizirajo to globino). Globina praznega drevesa je 0.  
 	\emph{Obrnjeno drevo} dobimo iz dvojiškega drevesa, če vsakemu vozlišču zamenjamo levega in desnega otroka. 
 	\begin{enumerate}
 		\item Narišite obrnjeno drevo drevesa na sliki.
 		\item Zapišite globino drevesa in obračanje drevesa kot rekurzivni funkciji na dvojiških drevesih.
+		\item Z indukcijo dokažite, da ima polno dvojiško drevo z $n$ vozlišči globino največ $\left \lfloor{ \log_2(n)}\right \rfloor $. 
 		\item Z indukcijo dokažite, da je globina obrnjenega drevesa enaka globini prvotnega drevesa. 
 	\end{enumerate}
 \end{vaja}
