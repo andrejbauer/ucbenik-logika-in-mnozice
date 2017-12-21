@@ -56,37 +56,40 @@
 \date{22.~12.~2017}
 \maketitle
 
-\vspace{\stretch{2}}
-
-\section{Strukturna indukcija}
+\begin{vaja}
+  Seštevanje na $\NN$ rekurzivno definiramo kot
+  \begin{align*}
+    &n + 0 := n, \\
+    &n + m^+ := (n + m)^+.
+  \end{align*}
+  Dokažite naslednje trditve za vse $a, b, c \in \NN$ (pri tem $1 := 0^+$).
+  \begin{enumerate}
+    \item
+      $a + 1 = a^+$
+    \item
+      $1 + a = a^+$
+    \item
+      $(a + b) + c = a + (b + c)$
+    \item
+      $a + b = b + a$
+  \end{enumerate}
+\end{vaja}
 
 \begin{vaja}
-	\emph{Končne nize} elementov iz množice $S$ označimo z $a_0 a_1 \ldots a_n$, kjer je $n \in \NN$ in $a_i \in S$ za $i\in \set{1, 2, \ldots, n}$. \emph{Dolžina} ($l$) končnega niza je število elementov v nizu, tj.~$l(a_0 a_1 \ldots a_n) = n + 1$. Prazen niz označimo z $\varepsilon$ in velja $l(\varepsilon) = 0$. Končne nize lahko med seboj stikamo tako, da dobimo (kvečjemu daljši) niz, sestavljen iz elementov obeh nizov, torej dobimo najprej elemente prvega niza, nato elemente drugega niza. Stikanje označimo z dvojnim dvopičjem (::). Če sta torej $a_0a_1 \ldots a_n$ in $b_0 b_1 \ldots b_m$ končna niza elementov iz množice $S$, potem je njun stik
-	\[(a_0a_1 \ldots a_n) :: (b_0 b_1 \ldots b_m) = a_0a_1 \ldots a_n b_0 b_1 \ldots b_m\]
-	tudi končen niz. 
+	\emph{Končne nize} elementov iz množice $S$ označimo z $a_0 a_1 \ldots a_{n-1}$, kjer je $n \in \NN$ in $a_i \in S$ za $i \in \set{0, 1, 2, \ldots, n-1}$. \emph{Dolžina} $\ell$ končnega niza je število elementov v nizu, tj.~$\ell(a_0 a_1 \ldots a_{n-1}) = n$. Prazen niz označimo z $\varepsilon$ in velja $\ell(\varepsilon) = 0$.
+	
+	\emph{Stik} ali \emph{spoj} dveh končnih nizov dobimo tako, da za prvi niz pripnemo drugega. Stikanje označimo z dvojnim dvopičjem (::). Če sta torej $a_0 a_1 \ldots a_{n-1}$ in $b_0 b_1 \ldots b_{m-1}$ končna niza elementov iz množice $S$, potem je njun stik
+	\[(a_0 a_1 \ldots a_{n-1}) :: (b_0 b_1 \ldots b_{m-1}) = a_0 a_1 \ldots a_{n-1} b_0 b_1 \ldots b_{m-1}.\]
 	\begin{enumerate}
 		\item
 			Zgornje definicije niso povsem natančne, saj so podane s tropičji. Podajte induktivno definicijo končnih nizov in rekurzivni definiciji stika ter dolžine.
 		\item
 			Z indukcijo dokažite, da je dolžina staknjenega niza enaka vsoti dolžin ustreznih podnizov, tj.~če sta $a$ in $b$ končna niza, velja:
-			\[l(a :: b) = l(a) + l(b).\]
+			\[\ell(a :: b) = \ell(a) + \ell(b).\]
 	\end{enumerate}
 \end{vaja}
 
-\vspace{\stretch{5}}
-\newpage
-
 \begin{vaja}
-	\emph{Dvojiška drevesa} so induktivno podana struktura. Sestavljena so iz vozlišč in povezav med njimi (torej so grafi), za katere velja:
-	\begin{itemize}
-		\item Prazno drevo je dvojiško drevo.
-		\item Eno vozlišče je dvojiško drevo.
-		\item Vsako vozlišče ima največ dva otroka, ki jima pravimo levi in desni otrok ter nista povezana med seboj.
-		\item Otroci so tudi dvojiška drevesa.
-		\item Vozlišču, ki ne pripada otroku nobenega drugega vozlišča, pravimo \emph{koren}.
-		\item V drevesu obstaja največ en koren.
-		\item Vozlišču brez otrok pravimo \emph{list}. Listov je lahko več.
-	\end{itemize}
 	Primer dvojiškega drevesa je na sliki \ref{fig:drevo}.
 	\begin{figure}[!ht]
 		\centering
@@ -103,9 +106,6 @@
 		\item Z indukcijo dokažite, da je globina obrnjenega drevesa enaka globini prvotnega drevesa. 
 	\end{enumerate}
 \end{vaja}
-
-
-\section{Dobre urejenosti}
 
 \begin{vaja}
   Naj bo $A$ množica.
@@ -153,230 +153,24 @@
   \end{enumerate}
 \end{vaja}
 
-\pagebreak
-
-\section{Moč končnih množic}
-
 \begin{vaja}
-  Pri reševanju naslednjih nalog poleg samega odgovora ugotovite tudi, za katere vrednosti parametrov $k, m, n \in \NN$ je odgovor veljaven. Pazite na to, ali so dovoljene ničelne vrednosti, ali mora biti eden od parametrov manjši od drugega ipd.
-  \begin{enumerate}
-    \item
-      Koliko je večkratnikov števila $n$ med števili $1, 2, \ldots, m$?
-    \item
-      Koliko je večkratnikov števila $n$ med števili $0, 1, 2, \ldots, m$?
-    \item
-      Koliko je večkratnikov števila $n$ med števili $k, k+1, \ldots, m$?
-  \end{enumerate}
-\end{vaja}
-
-\begin{vaja}
-  Koliko je naravnih števil od $1$ do $2018$, ki:
-  \begin{enumerate}
-    \item
-      so deljiva s~$4$ ali z~$9$?
-    \item
-      so deljiva s~$4$ in z~$9$?
-    \item
-      so deljiva s~$4$ ali s~$6$?
-    \item
-      so deljiva s~$4$ in niso deljiva s~$6$?
-    \item
-      niso deljiva s~$4$ in niso deljiva s~$6$?
-    \item
-      so deljiva z vsaj enim od števil~$4$, $6$ ali $9$?
-    \item
-      so deljiva s~$4$ ali $6$ in niso deljiva z~$9$?
-  \end{enumerate}
-\end{vaja}
-
-\begin{vaja}
-  Koliko je števil med $1$ in $1\,000\,000$, ki niso niti kvadrati niti kubi?
-\end{vaja}
-
-\begin{vaja}
-  Koliko dni je med 29.~novembrom~1943 in 25.~junijem~1991?
-\end{vaja}
-
-\begin{vaja}
-  V anketi je sodelovalo 32 študentov. Iz njihovih odgovorov izvemo, da jih
+  Za podmnožico $S \subseteq \NN$ rečemo, da je
   \begin{itemize}
-    \item 11 zanima algebra,
-    \item 19 zanima analiza,
-    \item 17 zanima diskretni svet,
-    \item 6 zanima algebra in diskretni svet,
-    \item 15 zanima algebra in analiza,
-    \item 6 zanima analiza in diskretni svet,
-    \item 3 ne zanima nobeden od teh predmetov.
+    \item
+      \emph{spodnja}, kadar velja $\all{a \in S}\all{n \in \NN}{n \leq a \lthen n \in S}$, oz.
+    \item
+      \emph{zgornja}, kadar velja $\all{a \in S}\all{n \in \NN}{a \leq n \lthen n \in S}$.
   \end{itemize}
-  Določite število dijakov, ki jih zanimajo vsi trije predmeti. Določite število dijakov, ki jih zanima natanko eden od teh treh predmetov.
-\end{vaja}
-
-\begin{vaja}
-  V razredu je 50 študentov, ki pišejo test s tremi vprašanji. Vsak od študentov je pravilno odgovoril na vsaj eno vprašanje. Recimo, da 12 študentov ni odgovorilo na prvo vprašanje, 14 na drugo in 10 na tretje. Predpostavimo še, da je 25 študentov pravilno odgovorilo na vsa tri vprašanja. Koliko študentov je odgovorilo pravilno na natanko eno vprašanje? 
-\end{vaja}
-
-\begin{vaja}
-  Matriki, ki sestoji iz samih ničel in enic, pravimo \emph{$0$-$1$ matrika}.
   \begin{enumerate}
     \item
-      Koliko je $0$-$1$ matrik velikosti $n \times n$?
+      Ali je množica vseh spodnjih podmnožic~$\NN$, urejena s strogo vsebovanostjo~$\subset$, dobra ureditev?
     \item
-      Koliko je $0$-$1$ matrik velikosti $n \times n$, ki imajo v vsaki vrstici natanko eno enico?
-    \item
-      Koliko je $0$-$1$ matrik velikosti $n \times n$, ki imajo v vsakem stolpcu natanko eno enico?
-    \item
-      Koliko je $0$-$1$ matrik velikosti $n \times n$, ki imajo v vsakem stolpcu in vsaki vrstici natanko eno enico? Takim matrikam pravimo \emph{permutacijske} matrike.
-    \item
-      S pomočjo dobljenih rezultatov utemeljite, da velja $n! \leq n^n \leq 2^{n^2}$.
+      Ali je množica vseh zgornjih podmnožic~$\NN$, urejena s strogo vsebovanostjo~$\subset$, dobra ureditev?
   \end{enumerate}
 \end{vaja}
 
 \begin{vaja}
-  Če je $A \subseteq B$ podmnožica s $k$~elementi, pravimo, da je $A$ \emph{$k$-podmnožica} $B$.
-  %
-  S $\pow_k(A)$ označimo množico vseh $k$-podmnožic množice~$A$:
-  %
-  \begin{equation*}
-    \pow_k(A) = \set{B \subseteq A}{|B| = k}.
-  \end{equation*}
-  %
-  \emph{Binomski koeficient} $n \choose m$ definiramo kot moč množice $\pow_k([n])$. Povedano z besedami, $n \choose m$ je število $k$-podmnožic množice z $n$ elementi.
-  
-  Pri reševanju naslednjih nalog izhajajte iz definicije binomskega koeficienta in \emph{ne} uporabljajte splošno znanega dejstva, da je ${n \choose m} = n!/(m! \cdot (n - m)!)$.
-  \begin{enumerate}
-    \item
-      Dokažite, da velja $\pow_k([n]) \cong \pow_{n - k}([n])$. Za katere $k$ in $n$ je to res? Ali mora biti $k \leq n$, je lahko $k = 0$?
-    \item
-      Dokažite, da velja
-      %
-      \begin{equation*}
-        {n \choose k} = {n \choose n - k}.
-      \end{equation*}
-    \item
-      Dokažite, da velja $\pow_k([n]) \cong \pow_k([n-1]) + \pow_{k-1}([n-1])$. Za katere $k$ in $n$ je to res? Ali mora biti $k \leq n$, je lahko $k = 0$?
-    \item
-      Dokažite, da velja
-      %
-      \begin{equation*}
-        {n \choose k} = {n - 1 \choose k} + {n - 1 \choose k - 1}
-      \end{equation*}
-    \item
-      Dokažite, da velja
-      %
-      \begin{equation*}
-        {n \choose 0} + {n \choose 1} + \cdots + {n \choose n} = 2^n.
-      \end{equation*}
-      %
-      Najprej zapišite ustrezni izomorfizem množic, iz katerega zgornja enačba neposredno sledi.
-    \item
-      Naj bo
-      %
-      \begin{align*}
-        I_{k,n} &= \set{f\colon [k] \to [n]}{\text{$f$ je injektivna}},\\
-        B_k &= \set{f\colon [k] \to [k]}{\text{$f$ je bijekcija}}.
-      \end{align*}
-      %
-      Dokažite, da velja
-      % 
-      \begin{equation*}
-        I_{k,n} \cong B_k \times \pow_k([n]).
-      \end{equation*}
-      %
-      Od tod sklepajte, da velja
-      %
-      \begin{equation*}
-         {n \choose k} = \frac{n (n-1) \cdots (n - k +1)}{n!}.
-      \end{equation*}
-  \end{enumerate}
-\end{vaja}
-
-%Preštevanje seznamov
-%Zapišite elemente seznamov, definiranih z:
-%S(0) = [1]
-%S(n+1) = S(n) : (vsota elementov seznama T(n))
-%T(0) = [0]
-%T(n+1) = S(n) : (vsota elementov seznama S(n))
-
-%Seznami dolžine n elementov {1, 2, ..., k}.
-
-%Koliko je palindromov dane dolžine?
-
-%Na koliko načinov lahko dobimo seznam dolžine n kot stik dveh (treh, k) seznamov?
-
-%Drevesa
-%Narišite vsa dvojiška drevesa z 0, 1, 2, 3, 4 vozlišči.
-
-%Narišite vsa dvojiška drevesa z 0, 1, 2, 3, 4 listi.
-
-%Poiščite zvezo med:
-%- številom povezav in vozlišč v drevesu
-%- številom listov in številom vozlišč v drevesu
-
-%Preštejte dvojiška drevesa z n vozlišči:
-%- zapišite rekurzivno formulo
-%- morda: dokaz z indukcijo?!
-
-
-\section{Moč neskončnih množic}
-
-\begin{vaja}
-  \
-  \begin{enumerate}
-    \item
-      Poiščite bijektivno preslikavo $g\colon \RR \to (a,b)$ iz realnih števil na dani odprti interval $(a,b)$.
-    \item
-      Dokažite, da imajo množica $\RR$, odprti interval $(a,b)$ in zaprti interval $[a,b]$ enako moč.
-  \end{enumerate}
-\end{vaja}
-
-\begin{vaja}
-  Podajte bijekcijo med množico $\bigcup_{n = 1}^{\infty} [n^2, n^2 + n]$ in $\mathbb{R}$.
-\end{vaja}
-
-\begin{vaja}
-  Množica $S$ je \emph{števna}, kadar je prazna ali pa obstaja surjektivna preslikava $e\colon \NN \to S$. Za naslednje množice dokažite, da so števne:
-  \begin{enumerate}
-    \item
-      $\NN \times \NN$,
-    \item
-      množica celih števil $\ZZ$,
-    \item
-      množica racionalnih števil $\QQ$,
-    \item
-      števna unija števnih množic,
-    \item
-      množica $\set{A \subseteq \NN}{|A| = n}$, kjer je $n$ dano naravno število,
-    \item
-      množica končnih podmnožic naravnih števil $\set{A \subseteq \NN}{|A| < \aleph_0}$,
-    \item
-      kartezični produkt $\NN^k$, kjer je $k$ dano naravno število,
-    \item
-      množica vseh kočnih zaporedij naravnih števil $\set{(a_1, \ldots, a_k) \in \NN^k}{k \in \NN}$.
-  \end{enumerate}
-\end{vaja}
-
-\begin{vaja}
-  \
-  \begin{enumerate}
-    \item
-      Denimo, da je $S$ neprazna množica z naslednjo lastnostjo: za vsako zaporedje $a\colon \NN \to S$ obstaja $x \in S$, da velja $x \neq a_n$ za vse $n \in \NN$. Dokažite, da $S$ ni števna množica.
-    \item
-      Dokažite, da $\set{0,1}^\NN$ ni števna.
-    \item
-      Dokažite, da za vsako zaporedje realnih števil $(a_n)_{n \in \NN}$ obstaja $x \in \RR$, ki je različen od vseh členov zaporedja. Od tod sledi, da $\RR$ ni števna množica.
-    \item
-      Naj bo $A$ množica, ki ni števna, in $B \subseteq A$ števna podmnožica. Dokažite, da $A \setminus B$ ni števna.
-  \end{enumerate}
-\end{vaja}
-
-\begin{vaja}
-  \
-  \begin{enumerate}
-    \item
-      Dokažite, da velja $|\set{0,1}^\NN| = |\NN^\NN|$.
-    \item
-      Dokažite, da velja $|\set{0,1}^\NN| = |\RR|$. Navodilo: $|\set{0,1}^\NN| \leq |\RR|$ dokažete tako, da poiščete injektivno funkcijo $\set{0,1}^\NN \to \RR$, ter $|\RR| \leq |\set{0,1}^\NN|$ tako, da poiščete injektivno funkcijo $\RR \to \pow(\QQ)$ in upoštevate $\pow(\QQ) \cong \pow(\NN) \cong \set{0,1}^\NN$.
-  \end{enumerate}
+  Množico $\NN$ opremimo z relacijo stroge deljivosti ($a$ strogo deli $b$, kadar $a$ deli $b$ in $a \neq b$). Ali dobimo dobro osnovano ureditev? Ali dobimo dobro ureditev?
 \end{vaja}
 
 \end{document}
