@@ -60,6 +60,26 @@
 \section{Dobre urejenosti}
 
 \begin{vaja}
+  Naj bo $A$ množica.
+  \begin{enumerate}
+    \item
+      Dokažite: če je relacija $R \subseteq A \times A$ asimetrična, je irefleksivna.
+    \item
+      Dokažite: če je relacija $R \subseteq A \times A$ tranzitivna, sta zanjo asimetričnost in ireflesivnost ekvivalentni.
+    \item
+      Naj bo $\leq$ linearna ureditev na $A$. Dokažite, da je relacija $<$, definirana kot
+      \[x < y \iff x \leq y \land x \neq y,\]
+      stroga linearna ureditev na $A$ (to pomeni: $<$ je irefleksivna tranzitivna relacija, ki zadošča pogoju $\all{x, y \in A}{x \neq y \lthen x < y \lor y < x}$).
+    \item
+      Naj bo $<$ stroga linearna ureditev na $A$. Dokažite, da je relacija $\leq$, definirana kot
+      \[x \leq y \iff x < y \lor x = y,\]
+      linearna ureditev na $A$.
+    \item
+      Naj bo $\mathcal{L}_A$ množica linearnih ureditev na $A$ in $\mathcal{SL}_A$ množica strogih linearnih ureditev na $A$. Dokažite $\mathcal{L}_A \cong \mathcal{SL}_A$.
+  \end{enumerate}
+\end{vaja}
+
+\begin{vaja}
   Konstruirajte dobro urejenost na množici racionalnih števil.
 \end{vaja}
 
@@ -83,6 +103,50 @@
     \item Ali je $S$ z običajno relacijo $<$ na realnih številih dobro urejena?
     \item Ali je $S$ z običajno relacijo $>$ na realnih številih dobro urejena?
   \end{enumerate}
+\end{vaja}
+
+
+\section{Strukturna indukcija}
+
+\begin{vaja}
+	\emph{Končne nize} elementov iz množice $S$ označimo z $a_0 a_1 \ldots a_n$, kjer je $n \in \NN$ in $a_i \in S$ za $i\in \set{1, 2, \ldots, n}$. \emph{Dolžina} ($l$) končnega niza je število elementov v nizu, tj.~$l(a_0 a_1 \ldots a_n) = n + 1$. Prazen niz označimo z $\varepsilon$ in velja $l(\varepsilon) = 0$. Končne nize lahko med seboj stikamo tako, da dobimo (kvečjemu daljši) niz, sestavljen iz elementov obeh nizov, torej dobimo najprej elemente prvega niza, nato elemente drugega niza. Stikanje označimo z dvojnim dvopičjem (::). Če sta torej $a_0a_1 \ldots a_n$ in $b_0 b_1 \ldots b_m$ končna niza elementov iz množice $S$, potem je njun stik
+	\[(a_0a_1 \ldots a_n) :: (b_0 b_1 \ldots b_m) = a_0a_1 \ldots a_n b_0 b_1 \ldots b_m\]
+	tudi končen niz. 
+	\begin{enumerate}
+		\item
+			Zgornje definicije niso povsem natančne, saj so podane s tropičji. Podajte induktivno definicijo končnih nizov in rekurzivni definiciji stika ter dolžine.
+		\item
+			Z indukcijo dokažite, da je dolžina staknjenega niza enaka vsoti dolžin ustreznih podnizov, tj.~če sta $a$ in $b$ končna niza, velja:
+			\[l(a :: b) = l(a) + l(b).\]
+	\end{enumerate}
+\end{vaja}
+
+\begin{vaja}
+	\emph{Dvojiška drevesa} so induktivno podana struktura. Sestavljena so iz vozlišč in povezav med njimi (torej so grafi), za katere velja:
+	\begin{itemize}
+		\item Prazno drevo je dvojiško drevo.
+		\item Eno vozlišče je dvojiško drevo.
+		\item Vsako vozlišče ima največ dva otroka, ki jima pravimo levi in desni otrok ter nista povezana med seboj.
+		\item Otroci so tudi dvojiška drevesa.
+		\item Vozlišču, ki ne pripada otroku nobenega drugega vozlišča, pravimo \emph{koren}.
+		\item V drevesu obstaja največ en koren.
+		\item Vozlišču brez otrok pravimo \emph{list}. Listov je lahko več.
+	\end{itemize}
+	Primer dvojiškega drevesa je na sliki \ref{fig:drevo}.
+	\begin{figure}[!h]
+		\centering
+		\includegraphics[width = 5cm]{Binary_tree.png}
+		\caption{Primer dvojiškega drevesa.}
+		\label{fig:drevo}
+	\end{figure}
+	
+	\emph{Globina} drevesa je dolžina najdaljše poti od korena do (poljubnega) lista. Drevo na sliki ima globino $4$ (obstajajo tri različne poti, ki realizirajo to globino). Globina praznega drevesa je 0.  
+	\emph{Obrnjeno drevo} dobimo iz dvojiškega drevesa, če vsakemu vozlišču zamenjamo levega in desnega otroka. 
+	\begin{enumerate}
+		\item Narišite obrnjeno drevo drevesa na sliki.
+		\item Zapišite globino drevesa in obračanje drevesa kot rekurzivni funkciji na dvojiških drevesih.
+		\item Z indukcijo dokažite, da je globina obrnjenega drevesa enaka globini prvotnega drevesa. 
+	\end{enumerate}
 \end{vaja}
 
 
@@ -319,42 +383,6 @@
     \item
       Dokažite, da velja $|\set{0,1}^\NN| = |\RR|$. Navodilo: $|\set{0,1}^\NN| \leq |\RR|$ dokažete tako, da poiščete injektivno funkcijo $\set{0,1}^\NN \to \RR$, ter $|\RR| \leq |\set{0,1}^\NN|$ tako, da poiščete injektivno funkcijo $\RR \to \pow(\QQ)$ in upoštevate $\pow(\QQ) \cong \pow(\NN) \cong \set{0,1}^\NN$.
   \end{enumerate}
-\end{vaja}
-
-\section{Strukturna indukcija}
-\begin{vaja}
-	\emph{Končne nize} elementov iz množice $S$ označimo z $a_0 a_1 \ldots a_n$, kjer je $n \in \NN$ in $a_i \in S$ za $i\in \set{1, 2, \ldots, n}$. \emph{Dolžina} ($l$) končnega niza je število elementov v nizu, tj. $l(a_0 a_1 \ldots a_n) = n + 1$. Prazen niz označimo z $\varepsilon$ in velja $l(\varepsilon) =0$. Končne nize lahko med seboj stikamo tako, da dobimo daljši niz sestavljen iz elementov obeh nizov, torej dobimo najprej elemente prvega niza, nato elemente drugega niza. Stikanje označimo z dvojnim dvopičjem (::). Če sta torej $a_0a_1 \ldots a_n$ in $b_0 b_1 \ldots b_m$ končna niza elementov iz množice $S$, potem je $$(a_0a_1 \ldots a_n) :: (b_0 b_1 \ldots b_m) = a_0a_1 \ldots a_n b_0 b_1 \ldots b_m$$ tudi končen (daljši) niz. 
-	
-	Z indukcijo dokažite, da je dolžina staknjenega niza enaka vsoti dolžin ustreznih podnizov, tj.
-	če sta $a$ in $b$ končna niza velja:
-	$$ l(a :: b) = l(a) + l(b). $$
-\end{vaja}
-
-\begin{vaja}
-	\emph{Dvojiška drevesa} so rekurzivno definirana struktura. Sestavljena so iz vozlišč in povezav med njimi (torej so grafi), za katere velja:
-	\begin{itemize}
-		\item Prazno drevo je dvojiško drevo.
-		\item Vsako vozlišče ima največ dva otroka, ki jima pravimo levi in desni otrok ter nista povezana med seboj.
-		\item Otroci so tudi dvojiška drevesa.
-		\item Vozlišču, ki ne pripada otroku nobenega drugega vozlišča, pravimo \emph{koren}.
-		\item V drevesu obstaja največ en koren.
-		\item Vozlišču brez otrok pravimo \emph{list}. Listov je lahko več.
-	\end{itemize}
-	Primer dvojiškega drevesa je na sliki \ref{fig:drevo}.
-	\begin{figure}[!h]
-		\centering
-		\includegraphics[width = 5cm]{Binary_tree.png}
-		\caption{Primer dvojiškega drevesa.}
-		\label{fig:drevo}
-	\end{figure}
-	
-	\emph{Globina} drevesa je dolžina najdaljše poti od korena do (poljubnega) lista. Drevo na sliki ima globino $4$ (obstajajo tri različne poti, ki realizirajo to globino). Globina praznega drevesa je 0.  
-	\emph{Obrnjeno drevo} dobimo iz dvojiškega drevesa, če vsakemu vozlišču zamenjamo levega in desnega otroka. 
-	\begin{enumerate}
-		\item Narišite obrnjeno drevo od drevesa na sliki.
-		\item Zapišite globino drevesa in obračanje drevesa kot rekurzivni funkciji na dvojiških drevesih.
-		\item Z indukcijo dokažite, da je globina obrnjenega drevesa enaka globini prvotnega drevesa. 
-	\end{enumerate}
 \end{vaja}
 
 \end{document}
