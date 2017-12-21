@@ -20,7 +20,7 @@ Torej sta ^* in _* funkcionala višjega reda.
 
 Naj bo f : A → B preslikava:
 
-* praslike so monotone: če je S ⊆ T ⊆ A, potem je f_*(A) ⊆ f_*(B)
+* praslike so monotone: če je S ⊆ T ⊆ A, potem je f_*(S) ⊆ f_*(T)
 * slike so monotone: če je X ⊆ Y ⊆ B, potej je f^*(X) ⊆ f^*(Y).
 
 **Izrek:** Naj bo f: A → B in S : I → P(B). Tedaj je
@@ -60,7 +60,7 @@ Poleg tega imamo za S ⊆ B
 
 **Izrek:** Naj bosta f : A → B in g : B → C preslikavi.
 
-1. Kompozicija mononorfizmov je monomorfizem.
+1. Kompozicija monomorfizmov je monomorfizem.
 2. Kompozicija epimorfizmom je epimorfizem.
 3. Če je g ∘ f monomorfizem, je f monomorfizem.
 4. Če je g ∘ f epimorfizem, je g epimorfizem.
