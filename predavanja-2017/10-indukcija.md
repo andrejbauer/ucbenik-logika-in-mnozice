@@ -165,6 +165,12 @@ a(n+1) < a(n) za vse n ∈ N, t.j.:
 Spet dokažimo ekvivalentno izjavo ¬(3) ⇒ ¬(2). Denimo, da je a : N → A padajoča veriga.
 Tedaj je slika S = a_*(N) neprazna množica, ki nima ⊏-prvega elementa.
 
-(3) ⇒ (1) Dokaz izpustimo.
+(3) ⇒ (2) Denimo, da ⊏ nima padajoče verige. Dokažimo (2) s protislovjem. Če bi imeli neprazno S ⊆ A brez prvega elementa, bi upoštevajoč linearnost sledilo: ∀ x ∈ S ∃ y ∈ S . y < x. Od tod pa bi lahko z uporabo aksioma izbire dobili padajočo verigo.
 
+(2) ⇒ (1) Denimo, da ima vsak neprazna množica prvi element. Denimo, da S ⊆ N zadošča pogoju
+
+   ∀ y ∈ A . (∀ x ∈ A . x < y ⇒ x ∈ S) ⇒ y ∈ S            (*)
+
+S protislovjem dokažimo S = A. Denimo, da bi imeli x ∈ N \ S. Potem bi obstajal prvi element
+množice N \ S, a ta bi bil zaradi lastnosti element S.
 
