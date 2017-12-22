@@ -90,10 +90,12 @@
 	\end{enumerate}
 \end{vaja}
 
-\begin{vaja}
-	Primer dvojiškega drevesa je na sliki \ref{fig:drevo}.
+\pagebreak
 
-	\begin{figure}
+\begin{vaja}
+	Spomnite se definicije dvojiških dreves s predavanj. Slika~\ref{fig:drevo} podaja primer dvojiškega drevesa.
+
+	\begin{figure}[!ht]
 		\centering
 		\begin{tikzpicture}
 		[level distance=1.5cm,
@@ -117,15 +119,12 @@
 		\label{fig:drevo}
 	\end{figure}
 
-
-	
-	
 	\emph{Globina} drevesa je dolžina najdaljše poti (število vozlišč na poti) od korena do (poljubnega) lista. Drevo na sliki ima globino $4$ (obstajajo tri različne poti, ki realizirajo to globino). Globina praznega drevesa je 0.  
 	\emph{Obrnjeno drevo} dobimo iz dvojiškega drevesa, če vsakemu vozlišču zamenjamo levega in desnega otroka. 
 	\begin{enumerate}
 		\item Narišite obrnjeno drevo drevesa na sliki.
 		\item Zapišite globino drevesa in obračanje drevesa kot rekurzivni funkciji na dvojiških drevesih.
-		\item Z indukcijo dokažite, da ima polno dvojiško drevo z $n$ vozlišči globino največ $\left \lfloor{ \log_2(n + 1)}\right \rfloor $. 
+		\item Z indukcijo dokažite, da ima dvojiško drevo z $n$ vozlišči globino vsaj $\left \lceil{ \log_2(n + 1)}\right \rceil $. 
 		\item Z indukcijo dokažite, da je globina obrnjenega drevesa enaka globini prvotnega drevesa. 
 	\end{enumerate}
 \end{vaja}
