@@ -1,0 +1,119 @@
+\documentclass{article}
+
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{ifthen}
+\usepackage{xparse}
+%\usepackage{tikz}
+%\usetikzlibrary{decorations.fractals}
+\usepackage{graphicx}
+
+\newcommand{\sizedescriptor}[2]
+{
+\ifthenelse{\equal{#1}{0}}{}{
+\ifthenelse{\equal{#1}{1}}{\big}{
+\ifthenelse{\equal{#1}{2}}{\Big}{
+\ifthenelse{\equal{#1}{3}}{\bigg}{
+\ifthenelse{\equal{#1}{4}}{\Bigg}{
+#2}}}}}
+}
+
+\NewDocumentCommand{\set}
+{O{auto} m G{\empty}}
+{\sizedescriptor{#1}{\left}\{ {#2} \ifthenelse{\equal{#3}{}}{}{ \; \sizedescriptor{#1}{\middle}| \; {#3}} \sizedescriptor{#1}{\right}\}}
+
+\newcommand{\pow}{\mathcal{P}}
+
+\newcommand{\all}[1]{\forall #1 .\,}
+\newcommand{\some}[1]{\exists #1 .\,}
+\newcommand{\exactlyone}[1]{\exists{!} #1 .\,}
+\newcommand{\lam}[1]{\lambda #1 .\,}
+\newcommand{\that}[1]{\iota #1 .\,}
+
+\usepackage[slovene]{babel}
+\newcommand{\lthen}{\Rightarrow}
+\newcommand{\two}{\mathbf{2}}
+\newcommand{\true}{\top}
+\newcommand{\false}{\bot}
+
+\newcommand{\NN}{\mathbb{N}}
+\newcommand{\ZZ}{\mathbb{Z}}
+\newcommand{\QQ}{\mathbb{Q}}
+\newcommand{\RR}{\mathbb{R}}
+
+%\input{../macros.tex}
+{
+\theoremstyle{definition}
+\newtheorem{vaja}{Vaja}
+}
+
+
+\begin{document}
+
+\title{Logika in množice -- vaje}
+\date{12.~1.~2018}
+\maketitle
+
+\begin{vaja}
+  \
+  \begin{enumerate}
+    \item
+      Poiščite bijektivno preslikavo $g\colon \RR \to (a,b)$ iz realnih števil na dani odprti interval $(a,b)$.
+    \item
+      Dokažite, da imajo množica $\RR$, odprti interval $(a,b)$ in zaprti interval $[a,b]$ enako moč.
+  \end{enumerate}
+\end{vaja}
+
+\begin{vaja}
+  Podajte bijekcijo med množico $\bigcup_{n = 1}^{\infty} [n^2, n^2 + n]$ in $\mathbb{R}$.
+\end{vaja}
+
+\begin{vaja}
+  Množica $S$ je \emph{števna}, kadar je prazna ali pa obstaja surjektivna preslikava $e\colon \NN \to S$. Za naslednje množice dokažite, da so števne:
+  \begin{enumerate}
+    \item
+      $\NN \times \NN$,
+    \item
+      množica celih števil $\ZZ$,
+    \item
+      množica racionalnih števil $\QQ$,
+    \item
+      števna unija števnih množic,
+    \item
+      množica $\set{A \subseteq \NN}{|A| = n}$, kjer je $n$ dano naravno število,
+    \item
+      množica končnih podmnožic naravnih števil $\set{A \subseteq \NN}{|A| < \aleph_0}$,
+    \item
+      kartezični produkt $\NN^k$, kjer je $k$ dano naravno število,
+    \item
+      množica vseh kočnih zaporedij naravnih števil $\set{(a_1, \ldots, a_k) \in \NN^k}{k \in \NN}$.
+  \end{enumerate}
+\end{vaja}
+
+\begin{vaja}
+  \
+  \begin{enumerate}
+    \item
+      Denimo, da je $S$ neprazna množica z naslednjo lastnostjo: za vsako zaporedje $a\colon \NN \to S$ obstaja $x \in S$, da velja $x \neq a_n$ za vse $n \in \NN$. Dokažite, da $S$ ni števna množica.
+    \item
+      Dokažite, da $\set{0,1}^\NN$ ni števna.
+    \item
+      Dokažite, da za vsako zaporedje realnih števil $(a_n)_{n \in \NN}$ obstaja $x \in \RR$, ki je različen od vseh členov zaporedja. Od tod sledi, da $\RR$ ni števna množica.
+    \item
+      Naj bo $A$ množica, ki ni števna, in $B \subseteq A$ števna podmnožica. Dokažite, da $A \setminus B$ ni števna.
+  \end{enumerate}
+\end{vaja}
+
+\begin{vaja}
+  \
+  \begin{enumerate}
+    \item
+      Dokažite, da velja $|\set{0,1}^\NN| = |\NN^\NN|$.
+    \item
+      Dokažite, da velja $|\set{0,1}^\NN| = |\RR|$. Navodilo: $|\set{0,1}^\NN| \leq |\RR|$ dokažete tako, da poiščete injektivno funkcijo $\set{0,1}^\NN \to \RR$, ter $|\RR| \leq |\set{0,1}^\NN|$ tako, da poiščete injektivno funkcijo $\RR \to \pow(\QQ)$ in upoštevate $\pow(\QQ) \cong \pow(\NN) \cong \set{0,1}^\NN$.
+  \end{enumerate}
+\end{vaja}
+
+\end{document}

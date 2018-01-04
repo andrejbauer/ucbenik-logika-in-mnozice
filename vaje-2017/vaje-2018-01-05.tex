@@ -56,9 +56,6 @@
 \date{5.~1.~2018}
 \maketitle
 
-
-\section{Moč končnih množic}
-
 \begin{vaja}
   Pri reševanju naslednjih nalog poleg samega odgovora ugotovite tudi, za katere vrednosti parametrov $k, m, n \in \NN$ je odgovor veljaven. Pazite na to, ali so dovoljene ničelne vrednosti, ali mora biti eden od parametrov manjši od drugega ipd.
   \begin{enumerate}
@@ -102,12 +99,12 @@
 \begin{vaja}
   V anketi je sodelovalo 32 študentov. Iz njihovih odgovorov izvemo, da jih
   \begin{itemize}
-    \item 11 zanima algebra,
-    \item 19 zanima analiza,
-    \item 17 zanima računalništvo,
-    \item 6 zanima algebra in računalništvo,
-    \item 15 zanima algebra in analiza,
-    \item 6 zanima analiza in računalništvo,
+    \item 18 zanima algebra,
+    \item 20 zanima analiza,
+    \item 22 zanima računalništvo,
+    \item 12 zanima algebra in računalništvo,
+    \item 12 zanima algebra in analiza,
+    \item 19 zanima analiza in računalništvo,
     \item 3 ne zanima nobeden od teh predmetov.
   \end{itemize}
   Določite število dijakov, ki jih zanimajo vsi trije predmeti. Določite število dijakov, ki jih zanima natanko eden od teh treh predmetov.
@@ -217,68 +214,5 @@
 %Preštejte dvojiška drevesa z n vozlišči:
 %- zapišite rekurzivno formulo
 %- morda: dokaz z indukcijo?!
-
-
-\section{Moč neskončnih množic}
-
-\begin{vaja}
-  \
-  \begin{enumerate}
-    \item
-      Poiščite bijektivno preslikavo $g\colon \RR \to (a,b)$ iz realnih števil na dani odprti interval $(a,b)$.
-    \item
-      Dokažite, da imajo množica $\RR$, odprti interval $(a,b)$ in zaprti interval $[a,b]$ enako moč.
-  \end{enumerate}
-\end{vaja}
-
-\begin{vaja}
-  Podajte bijekcijo med množico $\bigcup_{n = 1}^{\infty} [n^2, n^2 + n]$ in $\mathbb{R}$.
-\end{vaja}
-
-\begin{vaja}
-  Množica $S$ je \emph{števna}, kadar je prazna ali pa obstaja surjektivna preslikava $e\colon \NN \to S$. Za naslednje množice dokažite, da so števne:
-  \begin{enumerate}
-    \item
-      $\NN \times \NN$,
-    \item
-      množica celih števil $\ZZ$,
-    \item
-      množica racionalnih števil $\QQ$,
-    \item
-      števna unija števnih množic,
-    \item
-      množica $\set{A \subseteq \NN}{|A| = n}$, kjer je $n$ dano naravno število,
-    \item
-      množica končnih podmnožic naravnih števil $\set{A \subseteq \NN}{|A| < \aleph_0}$,
-    \item
-      kartezični produkt $\NN^k$, kjer je $k$ dano naravno število,
-    \item
-      množica vseh kočnih zaporedij naravnih števil $\set{(a_1, \ldots, a_k) \in \NN^k}{k \in \NN}$.
-  \end{enumerate}
-\end{vaja}
-
-\begin{vaja}
-  \
-  \begin{enumerate}
-    \item
-      Denimo, da je $S$ neprazna množica z naslednjo lastnostjo: za vsako zaporedje $a\colon \NN \to S$ obstaja $x \in S$, da velja $x \neq a_n$ za vse $n \in \NN$. Dokažite, da $S$ ni števna množica.
-    \item
-      Dokažite, da $\set{0,1}^\NN$ ni števna.
-    \item
-      Dokažite, da za vsako zaporedje realnih števil $(a_n)_{n \in \NN}$ obstaja $x \in \RR$, ki je različen od vseh členov zaporedja. Od tod sledi, da $\RR$ ni števna množica.
-    \item
-      Naj bo $A$ množica, ki ni števna, in $B \subseteq A$ števna podmnožica. Dokažite, da $A \setminus B$ ni števna.
-  \end{enumerate}
-\end{vaja}
-
-\begin{vaja}
-  \
-  \begin{enumerate}
-    \item
-      Dokažite, da velja $|\set{0,1}^\NN| = |\NN^\NN|$.
-    \item
-      Dokažite, da velja $|\set{0,1}^\NN| = |\RR|$. Navodilo: $|\set{0,1}^\NN| \leq |\RR|$ dokažete tako, da poiščete injektivno funkcijo $\set{0,1}^\NN \to \RR$, ter $|\RR| \leq |\set{0,1}^\NN|$ tako, da poiščete injektivno funkcijo $\RR \to \pow(\QQ)$ in upoštevate $\pow(\QQ) \cong \pow(\NN) \cong \set{0,1}^\NN$.
-  \end{enumerate}
-\end{vaja}
 
 \end{document}
