@@ -1,99 +1,3 @@
-# Od zadnjič
-
-Faktorizacija preslikave f : A → B na kompozitum f = m ∘ b ∘ e, kjer je
-m mono, b izo in e epi.
-
-Aksiom izbire in obstoj prereza za kvocientno preslikavo.
-
-# Indukcija na naravnih številih.
-
-## Peanovi aksiomi
-
-Naravna števila tvorijo *strukturo* (N, 0, ⁺, +, ×):
-
-* N je množica
-* 0 ∈ N je konstanta
-* ⁺ : N → N je eniška operacija (naslednik)
-* + : N × N → N in × : N × N → N sta dvojiški operaciji
-
-Veljajo naslednji aksiomi:
-
-* Aksiomi za naslednik:
-
-   ∀ n ∈ N . n⁺ ≠ 0                        (1)
-   ∀ n, m ∈ N . n⁺ = m⁺ ⇒ n = m            (2)
-
-* Aksiomi za seštevanje:
-
-   ∀ n ∈ N . n + 0 = n                     (3)
-   ∀ n, m ∈ N . n + m⁺ = (n + m)⁺          (4)
-
-* Aksiomi za množenje:
-
-   ∀ n ∈ N . n × 0 = 0                     (5)
-   ∀ n, m ∈ N . n × m⁺ = n + n × m         (6)
-
-* Princip indukcije: za vsako izjavo φ(n), kjer je n ∈ N, velja
-
-      φ(0) ∧ (∀ k ∈ N . φ(k) ⇒ φ(k⁺)) ⇒ ∀ n ∈ N . φ(n)       (7)
-
-Princip indukcije lahko povemo tudi z množicami:
-
-    ∀ S ∈ P(N) . 0 ∈ N ∧ (∀ k ∈ N . k ∈ S ⇒ k⁺ ∈ N) ⇒ S = N
-
-Kako vemo, da obstaja taka struktura? Dosedanji aksiomi nam tega ne zagotavljajo.
-
-    Aksiom: obstaja struktura (N, 0, ⁺, +, ×), ki zadošča Peanovim aksiomom.
-
-To je prvi aksiom, ki zagotavlja obstoj nesknočne množice.
-
-S Peanovimi aksiomi lahko dokažemo – in moramo dokazati! – vse lastnosti naravnih števil.
-Na primer, komutativnost seštevanja je treba dokazati, prav tako dejstvo, da je 0 + n = n.
-
-Izrek: 0 + n = n za vsak n ∈ N.
-
-Dokaz: dokazujemo z indukcijo za izjavo
-
-   φ(n)  je izjava   0 + n = n.
-
-1. Preverimo 0 + 0 = 0:
-
-   0 + 0 = 0    zaradi (3)
-
-2. Preverimo ∀ k ∈ N . 0 + k = k ⇒ 0 + k⁺ = k⁺.
-
-   Opomba: zaradi higiene smo uporabili vezano spremenljivko v k, ki je različna od
-   spremenljivke n v izreku. V srednji šoli se dela nehigienično in se povsod uporablja n,
-   potem pa so dijaki zmedeni, ko sredi dokaza vidijo, da smo "predpostavili to, kar
-   dokazujemo". Vse študente pedagoške smeri prosim, da naj odslej pazijo na miselno
-   higieno.
-
-   Naj bo k ∈ N. Predpostavimo
-
-        0 + k = k.                 (*)
-
-   Računamo:
-
-        0 + k⁺         po (4)
-        = (0 + k)⁺     po (*)
-        = k⁺.
-QED.
-
-Dokažimo še, da je dva in dva enako štiri:
-
-    2 + 2 =              (defincija števila 2)
-    (0⁺)⁺ + (0⁺)⁺ =      po (4)
-    ((0⁺)⁺ + 0⁺)⁺ =      po (4)
-    (((0⁺)⁺ + 0)⁺)⁺ =    po (3)
-    (((0⁺)⁺)⁺)⁺ =        (definicija števila 4)
-    4
-
-# Indukcija po drugi strukturah
-
-* Indukcija po dvojiških drevesih
-
-* Indukcija po končnih seznamih
-
 # Dobre ureditve
 
 Indukcija na naravnih števil ima več oblik. Osnovna je ta, ki smo jo podali z aksiomov. A
@@ -123,54 +27,123 @@ Relacija < je stroga linearna urejenost:
 
 Stroga urejenost je *linearna*, če je tudi
 
-3. sovisna: ∀ x, y ∈ A . x ≠ y ⇒ x R y ∨ y R x
+3. sovisna: ∀ x, y ∈ A . x ≠ y ⇒ (x R y) ∨ (y R x).
 
 Za stroge urejenosti uporabljamo simbole <, ⊂, ≺, ⊏.
 
 **Definicija:** Relacija R ⊆ A × A je *dobro osnovana*, če velja:
 
-   ∀ S ∈ P(A) . (∀ y ∈ A . (∀ x ∈ A . x R y ⇒ x ∈ S) ⇒ y ∈ S) ⇒ S = N.           (+)
+   ∀ S ∈ P(A) . (∀ y ∈ A . (∀ x ∈ A . x R y ⇒ x ∈ S) ⇒ y ∈ S) ⇒ S = A.           (+)
 
 Relacija je *dobra ureditev*, če je dobro osnovana in stroga linearna ureditev.
 
+Množici S ⊆ A, ki zadošča pogoju
+
+   ∀ y ∈ A . (∀ x ∈ A . x R y ⇒ x ∈ S) ⇒ y ∈ S
+
+pravimo *R-progresivna* množica.
+
 Kaj smo pravzaprav naredili: opazili smo, da ima relacija < na N pomembno lastnost (**).
 Zanima nas, ali imajo tudi druge relacije to lastnost, saj nam bodo take relacije
-omogočile neke vrste posplošen princip indukcije. Z definicijo smo dali relacijam, ki nas zanimajo, ime. Nimamo pa še nobenega primer, razen < na N.
+omogočile neke vrste posplošen princip indukcije. Z definicijo smo dali relacijam, ki nas
+zanimajo, ime. Nimamo pa še nobenega primer, razen < na N.
 
-**Izrek:** Naj bo ⊏ stroga linearna urejenost na A. Tedaj so ekvivalentne naslednje izjave:
+Za dano strogo urejenost < definiramo pripadajočo delno urejenost ≤ s predpisom
+
+  x ≤ y  ⇔  x = y ∨ x ≤ y.
+
+V obratno smer, delna urejenost ⊑ določa strogo urejenost ⊏, definirano s predpisom
+
+  a ⊏ b  ⇔  a ≠ b ∧ a ⊑ b.
+
+Na vajah boste preverili, da res velja
+
+* če je < stroga urejenost, potem je ≤ stroga urejenost
+* če je ⊑ delna urejenost, potem je ⊏ stroga urejenost.
+
+**Lema:** Denimo, da je < stroga urejenost na neprazni množici B. Če B nima ≤-minimalnega
+elementa, potem ima padajočo verigo: to je zaporedje b : N → B, da velja b(i+1) < b(i) za
+vse i ∈ N.
+
+Dokaz.
+
+Denimo, da B nima minimalnega elementa, torej
+
+   ¬ ∃ x ∈ B . ∀ y ∈ B . y ≤ x ⇒ y = x.
+
+To je ekvivalentno
+
+   ∀ x ∈ B . ∃ y ∈ B . y ≤ x ∧ y ≠ x
+
+kar je ekvivalentno
+
+   ∀ x ∈ B . ∃ y ∈ B . y < x.               (†)
+
+Padajočo verigo b : N → B definiramo z zaporedjem izbir: ker je B neprazna, lahko izberemo
+neki element b(0) ∈ B. Denimo, da smo za neki i ∈ N že izbrali elemente b(0), ..., b(i)
+tako, da velja
+
+  b(i) < b(i-1) < ... < b(1) < b(0).
+
+Ker B nima minimalnega elementa, b(i) ni minimalni, torej po (†) obstaja tak y ∈ B, da je
+y < b(i). Torej lahko izberemo b(i+1) ∈ B, da velja b(i+1) < b(i). □
+
+
+**Izrek:** Naj bo ⊏ stroga urejenost na A. Tedaj so ekvivalentne naslednje izjave:
 
 1. ⊏ je dobro osnovana
-2. vsaka *neprazna* množica S v A ima ⊏-prvi element: to je tak x ∈ S, da velja
-   ∀ y ∈ S . x ≠ y ⇒ x ⊏ y.
+2. vsaka *neprazna* S ⊆ A ima ⊑-minimalni element
 3. A nima ⊏-padajoče verige.
 
 *Dokaz.*
 
-(1) ⇒ (2) Dokažimo ekvivalentno izjavo ¬(2) ⇒ ¬(1). Denimo, da bi imeli neprazno S ⊆ A brez prvega elementa. Za vsak y ∈ S torej obstaja tak x ∈ S, da bi veljalo x ≠ y in ¬ (y ⊏ x). Ker je ⊏ sovisna, od tod sledi, da za vsak y ∈ S obstaja x ∈ S, da velja x ⊏ y. Trdimo, da ∅ zadošča pogoju iz dobre osnovanosti:
+(1) ⇒ (2)  Denimo da je ⊏ dobro osnovana in S ⊆ A neprazna množica. Naj bo
 
-  ∀ y ∈ A . (∀ x ∈ A . x ⊏ y ⇒ x ∈ ∅) ⇒ y ∈ ∅
-  ∀ y ∈ A . (∀ x ∈ A . x ⊏ y ⇒ ⊥) ⇒ ⊥
-  ∀ y ∈ A . ¬ (∀ x ∈ A . ¬ (x ⊏ y))
-  ∀ y ∈ A . ∃ x ∈ A . ¬ ¬ (x ⊏ y)
-  ∀ y ∈ A . ∃ x ∈ A . x ⊏ y
+  M := { m ∈ S | m je ⊑-minimalni element S }.
 
-To pa smo dokazali. Če bi bila ⊏ dobro osnovana, bi moralo veljati A = ∅, kar po
-predpostavi ni res.
+Dokazujemo, da je M neprazna množica. V ta namen definiramo
 
-(2) ⇒ (3) Najprej povejmo, kaj je padajoča veriga. To je tako zaporedje a : N → A, da velja
-a(n+1) < a(n) za vse n ∈ N, t.j.:
+  T := { x ∈ A | (∃ y ∈ S . y ⊏ x) ⇒ ∃ m ∈ M . m ⊏ x }.
 
-   ... < a(3) < a(2) < a(1) < a(0)
+Trdimo, da je T progresivna. Denimo, da je v ∈ A in da za vsak u ∈ A velja u ⊏ v ⇒ u ∈ T.
+Dokazati želimo v ∈ T. Denimo torej, da obstaja y ∈ S, za katerega je y ⊏ v.
+Tedaj je y ∈ T. Obravnavamo dva primera:
 
-Spet dokažimo ekvivalentno izjavo ¬(3) ⇒ ¬(2). Denimo, da je a : N → A padajoča veriga.
-Tedaj je slika S = a_*(N) neprazna množica, ki nima ⊏-prvega elementa.
+* če ∃ z ∈ S . z ⊏ y: tedaj obstaja m ∈ M, da je m ⊏ y ⊏ v, torej m ⊏ v.
+* če ¬ ∃ z ∈ S . z ⊏ y: tedaj je y ∈ M, torej vzamemo m := y in imamo m ⊏ v.
 
-(3) ⇒ (2) Denimo, da ⊏ nima padajoče verige. Dokažimo (2) s protislovjem. Če bi imeli neprazno S ⊆ A brez prvega elementa, bi upoštevajoč linearnost sledilo: ∀ x ∈ S ∃ y ∈ S . y < x. Od tod pa bi lahko z uporabo aksioma izbire dobili padajočo verigo.
+Ker je ⊏ dobro osnovana, je T = A. Ker je S neprazna, obstaja t ∈ S. Obravnavamo dva
+primera:
 
-(2) ⇒ (1) Denimo, da ima vsak neprazna množica prvi element. Denimo, da S ⊆ N zadošča pogoju
+* če ∃ z ∈ S. z ⊏ t: ker je t ∈ T, obstaja m ∈ M, da je m ⊏ t. Torej je M neprazna.
+* če ¬ ∃ z ∈ S. z ⊏ t: tedaj je t ∈ M. Torej je M neprazna.
 
-   ∀ y ∈ A . (∀ x ∈ A . x < y ⇒ x ∈ S) ⇒ y ∈ S            (*)
+(2) ⇒ (3) Denimo, da je a : N → A padajoča veriga. Tedaj slika {a(n) | n ∈ N} ne bi imela
+minimalnega elementa, v nasprotju z (2).
 
-S protislovjem dokažimo S = A. Denimo, da bi imeli x ∈ N \ S. Potem bi obstajal prvi element
-množice N \ S, a ta bi bil zaradi lastnosti element S.
+(3) ⇒ (1) Denimo, da je S ⊆ A progresivna.
 
+Trdimo, da množica C := A \ S nima minimalnega elementa. Če bi bil c ∈ C minimalni v C,
+bi to pomenilo
+
+  ∀ x ∈ A . x ⊏ c ⇒ x ∉ C,
+
+kar je ekvivalentno
+
+  ∀ x ∈ A . x ⊏ c ⇒ x ∈ S.
+
+Ker je S progresivna, od tod sledi c ∈ S, kar ni mogoče.
+
+Dokazati moramo, da je C prazna. Če ne bi bila, bi lahko uporabili lemo in dobili padajočo
+verigo v A, kar je v nasprotju s (3).
+
+
+**Izrek:** Naj bo ⊏ stroga urejenost na A. Tedaj so ekvivalentne naslednje izjave:
+
+1. ⊏ je dobro urejena
+2. vsaka *neprazna* množica S v A ima ⊏-prvi element: to je tak x ∈ S, da velja
+   ∀ y ∈ S . x ≠ y ⇒ x ⊏ y.
+3. A nima ⊏-padajoče verige in ⊏ je linearna.
+
+Dokaz je podoben dokazu prejšnjega izreka. Poskusite ga dokazati sami tako, da predelate
+dokaz prejšnjega izreka.
