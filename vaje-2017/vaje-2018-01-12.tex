@@ -34,7 +34,6 @@
 
 \usepackage[slovene]{babel}
 \newcommand{\lthen}{\Rightarrow}
-\newcommand{\two}{\mathbf{2}}
 \newcommand{\true}{\top}
 \newcommand{\false}{\bot}
 
@@ -42,6 +41,9 @@
 \newcommand{\ZZ}{\mathbb{Z}}
 \newcommand{\QQ}{\mathbb{Q}}
 \newcommand{\RR}{\mathbb{R}}
+
+\newcommand{\one}{\mathtt{\mathbf{1}}}
+\newcommand{\two}{\mathtt{\mathbf{2}}}
 
 %\input{../macros.tex}
 {
@@ -57,13 +59,7 @@
 \maketitle
 
 \begin{vaja}
-  \
-  \begin{enumerate}
-    \item
-      Poiščite bijektivno preslikavo $g\colon \RR \to (a,b)$ iz realnih števil na dani odprti interval $(a,b)$.
-    \item
-      Dokažite, da imajo množica $\RR$, odprti interval $(a,b)$ in zaprti interval $[a,b]$ enako moč.
-  \end{enumerate}
+  Naj velja $a, b \in \RR$, $a < b$. Dokažite: množica $\RR$, odprti interval $(a,b)$, zaprti interval $[a,b]$ ter polodprta intervala $[a,b)$ in $(a,b]$ imajo enako moč.
 \end{vaja}
 
 \begin{vaja}
@@ -71,8 +67,12 @@
 \end{vaja}
 
 \begin{vaja}
-  Množica $S$ je \emph{števna}, kadar je prazna ali pa obstaja surjektivna preslikava $e\colon \NN \to S$. Za naslednje množice dokažite, da so števne:
+  Množica $S$ je \emph{števna}, kadar je prazna ali pa obstaja surjektivna preslikava $\NN \to S$. Za naslednje množice dokažite, da so števne:
   \begin{enumerate}
+    \item
+      $\one + \NN$
+    \item
+      $\NN + \NN$
     \item
       $\NN \times \NN$,
     \item
@@ -80,15 +80,21 @@
     \item
       množica racionalnih števil $\QQ$,
     \item
+      slika števne množice,
+    \item
+      podmnožica števne množice,
+    \item
       števna unija števnih množic,
     \item
-      množica $\set{A \subseteq \NN}{|A| = n}$, kjer je $n$ dano naravno število,
+      kartezični produkt $\NN^k$ za katerikoli $k \in \NN$,
+    \item
+      množica $\set{A \subseteq \NN}{|A| = k}$, kjer $k \in \NN$,
+    \item
+      množica vseh končnih zaporedij naravnih števil $\set{(a_1, \ldots, a_k) \in \NN^k}{k \in \NN}$,
     \item
       množica končnih podmnožic naravnih števil $\set{A \subseteq \NN}{|A| < \aleph_0}$,
     \item
-      kartezični produkt $\NN^k$, kjer je $k$ dano naravno število,
-    \item
-      množica vseh kočnih zaporedij naravnih števil $\set{(a_1, \ldots, a_k) \in \NN^k}{k \in \NN}$.
+      množica vseh končnih nizov $A^*$, kjer je abeceda $A$ števna.
   \end{enumerate}
 \end{vaja}
 
@@ -98,7 +104,7 @@
     \item
       Denimo, da je $S$ neprazna množica z naslednjo lastnostjo: za vsako zaporedje $a\colon \NN \to S$ obstaja $x \in S$, da velja $x \neq a_n$ za vse $n \in \NN$. Dokažite, da $S$ ni števna množica.
     \item
-      Dokažite, da $\set{0,1}^\NN$ ni števna.
+      Dokažite, da $\two^\NN$ ni števna (kjer $\two = \set{0,1}$).
     \item
       Dokažite, da za vsako zaporedje realnih števil $(a_n)_{n \in \NN}$ obstaja $x \in \RR$, ki je različen od vseh členov zaporedja. Od tod sledi, da $\RR$ ni števna množica.
     \item
@@ -107,12 +113,19 @@
 \end{vaja}
 
 \begin{vaja}
-  \
+  Dokažite sledeče (ne)enakosti.
   \begin{enumerate}
     \item
-      Dokažite, da velja $|\set{0,1}^\NN| = |\NN^\NN|$.
+      $|\NN| < \big|\two^\NN\big|$
     \item
-      Dokažite, da velja $|\set{0,1}^\NN| = |\RR|$. Navodilo: $|\set{0,1}^\NN| \leq |\RR|$ dokažete tako, da poiščete injektivno funkcijo $\set{0,1}^\NN \to \RR$, ter $|\RR| \leq |\set{0,1}^\NN|$ tako, da poiščete injektivno funkcijo $\RR \to \pow(\QQ)$ in upoštevate $\pow(\QQ) \cong \pow(\NN) \cong \set{0,1}^\NN$.
+      $|\two^\NN| = |\NN^\NN|$
+    \item
+      $|\two^\NN| = |\RR|$
+      
+      \smallskip
+      {\small Namig: $|\two^\NN| \leq |\RR|$ dokažete tako, da poiščete injektivno funkcijo $\two^\NN \to \RR$, ter $|\RR| \leq |\two^\NN|$ tako, da poiščete injektivno funkcijo $\RR \to \pow(\QQ)$ in upoštevate $\pow(\QQ) \cong \two^\QQ \cong \two^\NN$.}
+    \item
+      $|\RR| = \big|\RR^\NN\big|$
   \end{enumerate}
 \end{vaja}
 
