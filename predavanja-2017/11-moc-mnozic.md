@@ -4,7 +4,7 @@
 
 V dokazu o karakterizaciji dobro osnovanih relacij smo uporabili
 
-**Aksiom odvisne izbire:** 
+**Aksiom odvisne izbire:**
 Naj bo A neprazna množica in R ⊆ A celovita relacija, t.j.,
 
   ∀ x ∈ A . ∃ y ∈ A . y R x.
@@ -17,8 +17,7 @@ Aksiom odvisne izbire sledi iz aksioma izbire (tega ne bomo dokazali):
 
 **Aksiom izbire:** Vsaka družina nepraznih množic ima funkcijo izbire.
 
-Povedano z drugimi besedami: 
-
+Povedano z drugimi besedami:
 
 * formulacija AC: družina nepraznih množic ima funkcijo izbire
 * vsaka surjekcija ima prerez ⇔ AC
