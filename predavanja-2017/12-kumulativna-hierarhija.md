@@ -187,19 +187,43 @@ Dokaz:
 
 (1) ⇒ (2) Glej Zornovo lemo.
 
-(2) ⇒ (3) Skica dokaza: naj bo A poljubna množica. Naj bo
+(2) ⇒ (3) Skica dokaza: naj bo A poljubna množica.
 
-   P = { (B, R) | B ⊆ A in R ⊆ B × B in R je dobra ureditev B }.
+Definirajmo *delne* dobre ureditev množice A: to so pari (B,R), kjer je B ⊆ A in R ⊆ B ×
+B dobra ureditev na R. Če sta (B,R) in (C,Q) delni dobri ureditvi, pravimo da je (C,Q)
+*razširitev* (B,R), če velja B ⊆ C, R ⊆ Q in še, da je B začetni segment v C, kar pomeni:
 
-Elementi P so torej dobre ureditve podmnožic množice A. Množico P uredimo z relacijo
+   ∀ x y ∈ C: x Q y ∧ y ∈ B ⇒ x ∈ B.
 
-  (B,R) ≼ (C,Q) ⇔ B ⊆ C ∧ R ⊆ Q.
+Kadar je (C,Q) razširitev (B, R), pišemo (B,R) ≼ (C,Q). Naj bo P množica vseh delnih
+dobrih ureditev množice A,
 
-Tako dobimo delno ureditev. Trdimo, da imajo verige v P zgornje meje: če je V ⊆ P veriga dobro urejenih podmnožic A, je njena zgornja meja kar unija po komponentah
+   P = { (B, R) | B ⊆ A in R ⊆ B × B in R je dobra ureditev B },
 
-  (⋃ {B | (B, R) ∈ V}, ⋃ {R | (B, R) ∈ V})
+urejena z relacijo ≼. Očitno je ≼ delna ureditev. Trdimo, da imajo verige v P zgornje
+meje: če je V ⊆ P veriga dobro urejenih podmnožic A, je njena zgornja meja (D,S) kar unija
+po komponentah:
 
-Seveda je treba preveriti, da je to spet dobra ureditev. Po Zornovi lemi obstaja maksimalni element v P, torej neka B ⊆ A in dobra ureditev R ⊆ B. Trdimo, da je B = A. Če bi imeli x ∈ B \ A, bi lahko razširili (B,R) na večjo dobro ureditev tako, da bi dodali x na konec B:
+  D := ⋃ {B | (B, R) ∈ V}
+  S := ⋃ {R | (B, R) ∈ V}
+
+Preverimo, da velja (D,S) ∈ P. Očitno je (D,S) stroga linearna ureditev (vaja). Denimo, da
+bi v (D,S) imeli neskončno padajočo verigo
+
+   ... S x₃ S x₂ S x₁ S x₀.
+
+Obstaja (B,R) ∈ V, da je x₀ ∈ B. Potem bi bila x₀, x₁, x₂, x₃, ... tudi padajoča veriga v
+(B,R), kar ni možno, saj je (B,R) dobro urejena. Res, ker je xᵢ ∈ V, obstaja (C,Q), da je
+xᵢ ∈ C. Če velja (B,R) ≼ (C,Q), potem xᵢ ∈ B po definicijo ≼. Če velja (C,Q) ≼ (B,R),
+potem xᵢ ∈ B, ker velja C ⊆ B. Torej je (D,S) res delna ureditev P.
+
+Preverimo še, da velja (B,R) ≼ (D,S) za vsak (B,R) ∈ V. Denimo, da je y ∈ D, x ∈ B in y S
+x. Obstaja (C,Q) ∈ V, da je y ∈ C. Če velja (C,Q) ≼ (B,R), potem y ∈ C ⊆ B. Če pa velja
+(B,R) ≼ (C,Q), potem je y ∈ B po definiciji ≼.
+
+Po Zornovi lemi obstaja maksimalni element (B,R) v P. Trdimo, da je B = A. Če bi namreč
+veljalo x ∈ B \ A, bi lahko razširili (B,R) na večjo dobro ureditev tako, da bi dodali x
+na konec B:
 
   (B ∪ {x}, R')
 
