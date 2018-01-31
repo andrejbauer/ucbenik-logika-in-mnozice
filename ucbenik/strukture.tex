@@ -1,6 +1,65 @@
 \chapter{Strukture}
 
-\note{Struktura na množici. Morfizmi, ki to strukturo ohranjajo. Izomorfnost. Definicija strukturirane množice preko njene karakterizacije --- potrebna obstoj in enoličnost (do izomorfizma). Primeri. Posebej primeri struktur urejenosti (izhaja iz razdelka o strukturah urejenosti v poglavju o relacijah) in osnovnih algebrskih struktur (pride prav kasneje pri konstrukciji številskih množic). Urejenostna in algebrska struktura se združita v pojmu mreže. Definicija (polnih) Boolovih mrež/kolobarjev in povezava z logiko. Širša slika strukturiranih množic --- kategorije.}
+
+Informacija, ki jo posamična množica podaja, je zgolj, katere elemente vsebuje. Izkušnje hitro pokažejo, da ta informacija ni najbolje naravnana za matematično delo. Po eni strani je del te informacije pogosto odveč: tipično si lahko z neko množico pomagamo enako, če njene elemente preimenujemo, tj.~če obravnavamo izomorfno množico. Po drugi strani pa je te informacije premalo: ni dovolj, da vemo, katere elemente imamo na voljo, želimo vedeti tudi, kaj lahko s temi elementi počnemo. Podatek o tem imenujemo \df{struktura} te množice.
+
+Vzemimo za primer množico realnih števil~$\RR$. Njene elemente lahko poljubno seštevamo, odštevamo in množimo, tj.~izvajamo določene operacije na njih (seveda imamo še cel kup drugih operacij, vključno z delnimi, kot so deljenje, potenciranje, logaritmiranje\ldots). Strukturo, ki je dana z operacijami, imenujemo \df{algebrska} (ali \df{algebrajska} ali \df{algebraična}).
+
+Množico lahko opremimo tudi z raznimi relacijami, tipično z relacijami urejenosti. Na primer, na $\RR$ imamo relaciji $\leq$ in $<$. To imenujemo \df{struktura urejenosti} (ali \df{urejenostna struktura}).
+
+Realna števila si lahko predstavljamo kot točke na številski premici. Vidimo, da lahko potem računamo razdaljo med njimi. Pravimo, da realna števila tvorijo \df{metrični prostor} oziroma da imajo realna števila \df{metrično strukturo}.
+
+Za realne intervale tudi znamo povedati, kdaj so odprti oz.~zaprti. Kadar imamo pojem odprtosti oz.~zaprtosti, to imenujemo \df{topološka struktura}. Prav tako znamo povedati dolžino intervalov. Kadar imamo pojem velikosti podmnožic, to imenujemo \df{merska struktura}.
+
+Te in še nadaljnje strukture boste podrobneje spoznavali pri raznih matematičnih predmetih, v tej knjigi pa se bomo osredotočili zgolj na nekatere osnovne algebrske in urejenostne strukture.
+
+Tipično velja: več kot imamo strukture na neki množici, bolj uporabna je (še zlasti, kadar se strukture med sabo prepletajo --- na primer, dejstvo, da je seštevanje na $\RR$ monotono, povezuje algebrsko in urejenostno strukturo na $\RR$). Ker imajo realna števila tako bogato strukturo, ni presenetljivo, da jih kar naprej uporabljamo. Za primerjavo: množico vseh permutacij $n$ elementov, ki se imenuje simetrična grupa in označi z $S_n$, uporabljate redkeje (je pa še vedno uporabna, saj premore nekaj operacij --- permutacije lahko sklapljamo in obračamo).
+
+Množico, opremljeno z neko strukturo, imenujemo \df{strukturirana množica}. V tem kontekstu golo množico (brez njene dodatne strukture) imenujemo \df{nosilna množica} (te strukture).
+
+Proučevanje struktur je ena temeljnih matematičnih dejavnosti. Na primer, pri predmetu Algebra spoznavate algebrske strukture, pri Topologiji topološke strukture, pri Analizi metrične in gladke strukture itd.
+
+Za proučevanje strukture pa ne zadostuje opazovati zgolj množic, opremljenih s to strukturo, pač pa tudi preslikave med njimi, ki to strukturo na smiseln način ohranjajo. Tovrstnim preslikavam rečemo \df{homomorfizmi}. Kaj točno to pomeni, bomo spoznali pri konkretnih strukturah v nadaljevanju tega poglavja.
+
+\note{nekje (ne nujno tu) debata, kako strukturirano množico podamo preko njene karakterizacije --- potrebna obstoj in enoličnost do izomorfizma}
+
+
+\section{Algebrske strukture}
+
+Kot rečeno, algebrska struktura je struktura, dana z operacijami. Operacije, na katere ste navajeni, imajo \df{mestnost}, tj.~koliko podatkov (ki jih imenujemo \df{argumenti} ali \df{operandi}) sprejmejo, da vrnejo rezultat. Na primer, seštevanje vzame dva podatka (seštevanca ali sumanda), ki ju zapišemo na levo in desno stran plusa, da dobimo rezultat (vsoto). Seštevanje je torej dvomestna operacija.
+
+Odštevanje je prav tako dvomestna operacija --- od zmanjševanca odštejemo odštevanec in dobimo razliko. To je dvomestni minus, imamo pa tudi enomestni minus, ki vzame število in vrne njegovo nasprotno število. To sta dve različni operaciji in posledično imate zanju tudi dve različni tipki na kalkulatorju. Dvomestni minus je običajno označen kot $-$, enomestni pa kot ${}^+/_-$\;.
+
+Še en primer enomestne operacije je faktoriela: za vsak $n \in \NN$ lahko naračunamo $n!$, kar je spet naravno število. Primer tromestne operacije je mešani produkt vektorjev v trorazsežnem prostoru: za poljubne tri vektorje je njihov mešani produkt število, katerega absolutna vrednost pove prostornino paralelepipeda, ki ga ti vektorji razpenjajo, predznak pa pove orientacijo tega paralelepipeda.
+
+V splošnem je $n$-mestna operacija na množici $A$ dana kot preslikava $A^n \to A$, vsaj ko gre za operacijo, ki tako vzame kot vrne podatke iz množice $A$ --- taki operaciji rečemo \df{notranja}. Če to ne velja, je operacija \df{zunanja}. Vektorji lepo ponazorijo razliko. Seštevanje vektorjev v prostoru je preslikava $\RR^3 \times \RR^3 \to \RR^3$, torej dvomestna notranja operacija. Množenje vektorjev s skalarji $\RR \times \RR^3 \to \RR^3$ je dvomestna zunanja operacija, kjer enega od argumentov vzamemo iz neke druge množice (v tem primeru iz $\RR$). Skalarno množenje $\RR^3 \times \RR^3 \to \RR$ je prav tako dvomestna zunanja operacija, le da je tokrat rezultat iz druge množice. Prej omenjeni mešani produkt je tromestna zunanja operacija $\RR^3 \times \RR^3 \times \RR^3 \to \RR$.
+
+V definiciji $n$-mestne operacije lahko vzamemo tudi $n = 0$. Ničmestna (notranja) operacija je torej preslikava $\one \to A$, se pravi izbira elementa iz $A$.
+
+Obstajajo še splošnejše vrste operacij (npr.~takšne, ki so odvisne od neskončno argumentov), ampak v tej knjigi se ne bomo ukvarjali z njimi.
+
+
+\subsection{Osnovne algebrske strukture}
+
+Operacije, s katerimi imamo najpogosteje opravka, so tipično dvomestne. Če želimo obravnavati takšne operacije na splošno, si definiramo strukturo, ki zajema zgolj eno tako operacijo.
+
+\begin{definicija}
+	\df{Magma} je množica, opremljena z dvomestno notranjo operacijo.
+\end{definicija}
+
+Strukturirano množico običajno zapišemo tako, da znotraj okroglih oklepajev najprej zapišemo simbol za nosilno množico, nato pa naštejemo vse sestavne dele strukture (ločene z vejicami). Če imamo strukturo magme na množici $A$ in dano operacijo označimo z $\oper$, tedaj to magmo zapišemo kot $(A, \oper)$. Če hočemo poudariti, da je $\oper$ dvomestna notranja operacija, lahko še natančneje zapišemo $(A,\ \oper\colon A \times A \to A)$.
+
+\note{polgrupe, monoidi, grupe}
+
+\note{homomorfizmi}
+
+\subsection{Polkolobarji}
+\subsection{Kolobarji}
+\subsection{Obsegi}
+\section{Strukture urejenosti}
+\subsection{Mreže}
+\subsection{Boolove mreže}
+\section{Kategorije}
 
 
 %%% Local Variables:
