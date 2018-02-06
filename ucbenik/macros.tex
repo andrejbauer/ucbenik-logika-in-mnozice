@@ -164,10 +164,12 @@
 
 %%%%%%  Misc.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\newcommand{\divides}{\,|\,}
+\renewcommand{\divides}{\,|\,}
 % Načeloma bi morala biti navpična črta v \divides obdana z \mathrel, ampak to vodi do prevelikih presledkov.
 \newcommand{\df}[1]{\emph{\textbf{#1}}}  % defined notion
-\newcommand{\oper}{{\mathop{\circledast}}}  % symbol for a generic operation
+\newcommand{\oper}{\mathop{\circledast}\nolimits}  % symbol for a generic operation
+\newcommand{\soper}{\mathop{\boxasterisk}\nolimits}  % symbol for a second generic operation
+\newcommand{\tconc}{\mathop{\bullet}\nolimits}  % symbol for binary tree concatenation
 \newcommand{\ism}{\cong}  % isomorphic
 \newcommand{\inv}[1]{#1^{-1}} % inverz preslikave
 \newcommand{\equ}{\sim}  % equivalent

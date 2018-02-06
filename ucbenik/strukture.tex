@@ -49,11 +49,11 @@ Operacije, s katerimi imamo najpogosteje opravka, so tipično dvomestne. Če že
 
 Strukturirano množico običajno zapišemo tako, da znotraj okroglih oklepajev najprej zapišemo simbol za nosilno množico, nato pa naštejemo vse sestavne dele strukture (ločene z vejicami). Če imamo strukturo magme na množici $A$ in dano operacijo označimo z $\oper$, tedaj to magmo zapišemo kot $(A, \oper)$. Če hočemo poudariti, da je $\oper$ dvomestna notranja operacija, lahko še natančneje zapišemo $(A,\ \oper\colon A \times A \to A)$.
 
-Imejmo magmi $(A, \oper_A)$ in $(B, \oper_B)$. Za preslikavo $f\colon A \to B$ rečemo, da je \df{homomorfizem magem}, kadar ohranja magemsko strukturo v naslednjem smislu: za vse $x, y \in A$ mora veljati
-\[f(x \oper_A y) = f(x) \oper_B f(y).\]
+Imejmo magmi $(A, \oper)$ in $(B, \soper)$. Za preslikavo $f\colon A \to B$ rečemo, da je \df{homomorfizem magem}, kadar ohranja magemsko strukturo v naslednjem smislu: za vse $x, y \in A$ mora veljati
+\[f(x \oper y) = f(x) \soper f(y).\]
 Z drugimi besedami, vseeno mora biti, če najprej izvedemo magemsko operacijo in nato izvrednotimo preslikavo ali obratno.
 
-Če imamo magmo $(A, \oper)$, lahko posamične elemente množice $A$ povezujemo z operacijo in na ta način generiramo nove. Na primer, iz $x \in A$ lahko sestavimo izraze $x \oper x$, $(x \oper x) \oper x$, $x \oper (x \oper x)$ itd. Če začnemo z večimi elementi, recimo $x, y, z \in A$, lahko dobimo bolj raznotere izraze, npr.~$(x \oper y) \oper z$, $z \oper ((y \oper x) \oper z)$ in tako naprej. Vsi ti izrazi so med sabo različni, njihove vrednosti pa so lahko bodisi enake bodisi različne. Na primer, v magmi $(\NN, +)$ so $2 + 5$, $5 + 2$, $4 + 3$ in $(1 + 2) + (2 + 2)$ različni izrazi, ki pa imajo iste vrednosti.
+Če imamo magmo $(A, \oper)$, lahko posamične elemente množice $A$ povezujemo z operacijo in na ta način generiramo nove. Na primer, iz $x \in A$ lahko sestavimo računske izraze $x \oper x$, $(x \oper x) \oper x$, $x \oper (x \oper x)$ itd. Če začnemo z večimi elementi, recimo $x, y, z \in A$, lahko dobimo bolj raznotere izraze, npr.~$(x \oper y) \oper z$, $z \oper ((y \oper x) \oper z)$ in tako naprej. Vsi ti izrazi so med sabo različni, njihove vrednosti pa so lahko bodisi enake bodisi različne. Na primer, v magmi $(\NN, +)$ so $2 + 5$, $5 + 2$, $4 + 3$ in $(1 + 2) + (2 + 2)$ različni izrazi, ki pa imajo iste vrednosti.
 
 Magemske izraze smo pisali kot zaporedja znakov, ki so vključevala elemente nosilne množice, simbol za operacijo in oklepaje (slednji so pomembni, saj v splošni magmi operacija ni družilna). Primernejši način podajanja takih izrazov so pa pravzaprav dvojiška drevesa. Vsakemu magemskemu izrazu ustreza neprazno dvojiško drevo, katerega listi so opremljeni z oznakami za elemente nosilne množice.
 
@@ -69,11 +69,15 @@ Namen teh slikic pa ni zgolj ličen način, kako podati računanje neke operacij
 		podajanje algebrske strukture z generatorji in relacijami.
 \end{itemize}
 
-Začnimo s pojmom proste strukture. Če imamo katerokoli množico $A$ (ki jo v tem kontekstu običajno imenujemo \df{baza}), jo lahko razširimo do magme na kanoničen način. Naj $T(A)$ označuje množico vseh magemskih izrazov, ki jih lahko dobimo iz elementov množice $A$, tj.~množico vseh nepraznih dvojiških dreves, katerih listi so opremljeni z elementi množice $A$. Množico $T(A)$ opremimo z naslednjo dvojiško operacijo: če imamo izraza $T_1$ in $T_2$, tvorimo drevo, ki sestoji iz korena, katerega levo poddrevo je $T_1$, desno pa $T_2$.
+Začnimo s pojmom proste strukture. Če imamo katerokoli množico $A$ (ki jo v tem kontekstu običajno imenujemo \df{baza}), jo lahko razširimo do magme na kanoničen način. Naj $T(A)$ označuje množico vseh magemskih izrazov, ki jih lahko dobimo iz elementov množice $A$, tj.~množico vseh nepraznih dvojiških dreves, katerih listi so opremljeni z elementi množice $A$. Množico $T(A)$ opremimo z naslednjo dvojiško operacijo: če imamo izraza $T_1$ in $T_2$, tvorimo drevo, ki sestoji iz korena, katerega levo poddrevo je $T_1$, desno pa $T_2$. Označimo to dobljeno drevo s $T_1 \tconc T_2$.
 
 Vsak element množice $A$ lahko predstavimo z elementom množice $T(A)$: elementu $x \in A$ pripišemo drevo, ki vsebuje zgolj koren, ki je že kar list in je označen z $x$. Po domače povedano: vsaka vrednost je na trivialen način tudi izraz. To preslikavo $\eta_A\colon A \to T(A)$ imenujemo \df{vložitev baze} oz.~\df{vložitev generatorjev}. Izraz `vložitev' je primeren, saj je ta preslikava očitno injektivna --- izvorni element lahko preberemo z edinega lista v njegovi sliki.
 
-Množico $T(A)$ skupaj z dano operacijo imenujemo \df{prosta magma} nad množico $A$ (razlog za to poimenovanje bo postal jasen kasneje, ko si bomo ogledali podajanje algebrske strukture z generatorji in relacijami), kar označimo z $F(A)$. Ker lahko $A$ vložimo v $T(A)$, smo v tem smislu dejansko razširili poljubno množico do magme.
+Množico $T(A)$ skupaj z dano operacijo imenujemo \df{prosta magma} nad množico $A$ (razlog za to poimenovanje bo postal jasen kasneje, ko si bomo ogledali podajanje algebrske strukture z generatorji in relacijami). Označimo jo z $F(A) \dfeq (T(A), \tconc)$. Ker lahko $A$ vložimo v $T(A)$, smo v tem smislu dejansko razširili poljubno množico do magme.
+
+Kaj pa se zgodi, če je množica $A$ že opremljena s kakšno magemsko operacijo $\oper$? Tedaj imamo homomorfizem magem $a\colon T(A) \to A$, ki vsakemu računskemu izrazu priredi njegovo vrednost v $A$. Na primer, v primeru magme $(\NN, +)$ slikamo med drugim $4 + ((3 + 1) + ((5 + 0) + 2)) \mapsto 15$. Premisli, da je $a$ v splošnem res homomorfizem magem!
+
+Preslikava $a$ je pomembna, ker zajema vso informacijo o algebrski strukturi na $A$. Z drugimi besedami, enakovredno je podati strukturo $(A, \oper)$ oziroma preslikavo $a$. Če imamo $A$ in $\oper$, lahko podamo $a$ kot zgoraj. Obratno, če imamo $a$, tedaj je $A$ njena kodomena, magemsko operacijo pa rekonstruiramo kot $x \oper y = a\big(\eta_A(x) \tconc \eta_A(y)\big)$. Poanta je sledeča: $x \oper y$ je prav tako računski izraz, tako da lahko z $a$ dobimo njegovo vrednost.
 
 \subsection{Polgrupe, monoidi, grupe}
 
