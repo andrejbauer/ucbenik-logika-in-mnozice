@@ -79,6 +79,24 @@ Kaj pa se zgodi, če je množica $A$ že opremljena s kakšno magemsko operacijo
 
 Preslikava $a$ je pomembna, ker zajema vso informacijo o algebrski strukturi na $A$. Z drugimi besedami, enakovredno je podati strukturo $(A, \oper)$ oziroma preslikavo $a$. Če imamo $A$ in $\oper$, lahko podamo $a$ kot zgoraj. Obratno, če imamo $a$, tedaj je $A$ njena kodomena, magemsko operacijo pa rekonstruiramo kot $x \oper y = a\big(\eta_A(x) \tconc \eta_A(y)\big)$. Poanta je sledeča: $x \oper y$ je prav tako računski izraz, tako da lahko z $a$ dobimo njegovo vrednost.
 
+Tudi pojem homomorfizma magem lahko opišemo na alternativen način. Premislimo: če sta $(A, \oper)$ in $(B, \soper)$ magmi ter $f\colon A \to B$ preslikava med njima, tedaj je $f$ homomorfizem magem natanko tedaj, ko ohranja \emph{vse} izraze, ne le tiste oblike $x \oper y$.
+
+Intuitivno je to jasno. Vse računske izraze v magmi generiramo s pomočjo magemske operacije in če se ta ohranja v vsakem kosu izraza, se bo ohranjal celoten izraz. Ponazorimo na konkretnem primeru z izrazom $(u \oper v) \oper (w \oper (x \oper y))$:
+\[f\Big((u \oper v) \oper \big(w \oper (x \oper y)\big)\Big) = f(u \oper v) \soper f\big(w \oper (x \oper y)\big) =\]
+\[= \big(f(u) \soper f(v)\big) \soper \big(f(w) \soper f(x \oper y)\big) = \big(f(u) \soper f(v)\big) \soper \Big(f(w) \soper \big(f(x) \soper f(y)\big)\Big).\]
+
+Kako pa to trditev natančno formulirati in dokazati? Sredstvo, ki ga potrebujemo, je \df{strukturna indukcija}, ki si jo pa bomo ogledali šele \note{tam in tam}. Prihranimo torej podrobnosti za kasneje in se zaenkrat zanašajmo na intuitivno razumevanje.
+
+Definirajmo preslikavo na izrazih $T(f)\colon T(A) \to T(B)$ tako, da v izrazu magme $(A, \oper)$ vsako vrednost $x \in A$, ki se v izrazu pojavi, spremenimo v vrednost $f(x)$, strukturo izraza pa sicer pustimo enako. Na ta način dobimo izraz magme $(B, \soper)$. S pomočjo $T(f)$ lahko natančneje povemo, kaj pomeni, da ``$f$ ohranja računske izraze''. Če vzamemo izraz, ga ovrednotimo in rezultat preslikamo z $f$, moramo dobiti isto, kot če bi v izrazu vsako posamično vrednost preslikali z $f$ (tj.~uporabili $T(f)$ na izrazu) in ovrednotili dobljeni izraz. Torej, če sta magemski strukturi na $A$ in $B$ podani z $a\colon T(A) \to A$ in $b\colon T(B) \to B$, tedaj mora veljati $f \circ a = b \circ T(f)$. Z drugimi besedami, sledeči diagram komutira.
+\[\xymatrix@+2em{
+T(A) \ar[d]_a \ar[r]^{T(f)} & T(B) \ar[d]^b \\
+A \ar[r]_{f} & B
+}\]
+
+Ravno tako, kot je magma $(A, \oper)$ v celoti podana s preslikavo $a$, je tudi homomorfizem $f$ v celoti podan s $T(f)$. Opazimo namreč: če izvrednostimo izraz, ki sestoji zgolj iz ene vrednosti, dobimo taisto vrednost, torej $a \circ \eta_A = \id[A]$. Poračunamo lahko $f = f \circ \id[A] = f \circ a \circ \eta_A = b \circ T(f) \circ \eta_A$.
+
+Opazka $a \circ \eta_A = \id[A]$ pa ima še globlje posledice. Iz nje sledi, da je $a$ surjektivna in da je \note{po naravni razčlenitvi preslikave} množica $A$ izomorfna kvocientu množice $T(A)$. Premislimo, da velja še več: \emph{magma} $(A, \oper)$ je izomorfna kvocientu \emph{proste magme} $F(A)$.
+
 \subsection{Polgrupe, monoidi, grupe}
 
 \subsection{Polkolobarji}
