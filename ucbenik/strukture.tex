@@ -53,13 +53,34 @@ Imejmo magmi $(A, \oper)$ in $(B, \soper)$. Za preslikavo $f\colon A \to B$ reč
 \[f(x \oper y) = f(x) \soper f(y).\]
 Z drugimi besedami, vseeno mora biti, če najprej izvedemo magemsko operacijo in nato izvrednotimo preslikavo ali obratno.
 
+Homomorfizmi ohranjajo strukturo v (vsaj) eno smer. Pripravimo si še pojem preslikave, ki ohranja strukturo v obe smeri. Za preslikavo $f$ rečemo, da je \df{izomorfizem magem}, kadar je obrnljiva in sta tako $f$ kot $f^{-1}$ homomorfizma magem.
+
+Obravnavali smo že pojem \emph{izomorfizma množic}, tj.~obrnljive preslikave. Obrnljiva preslikava med množicama nam omogoči, da prehajamo od elementov ene množice do elementov druge --- da so ti elementi v povratno enolični zvezi. Torej, množici ``izgledata enako'', samo elementi so različno poimenovani.
+
+Podobno je z izomorfizmom magem, le da tokrat množici ``izgledata enako'' ne samo v smislu njunih elementov, pač pa tudi, kako se ti elementi računajo z magemsko operacijo. Izomorfni magmi imata torej enako strukturo in če obravnavamo neko magmo, je tipično vseeno, če jo nadomestimo z njej izomorfno magmo (kar včasih želimo narediti, če ima izomorfna magma preprostejši opis ali kaj podobnega).
+
+Seveda vse to ne velja zgolj za magme, pač pa imamo pojem izomorfizma za poljubno strukturo. Primere si bomo ogledali v nadaljnjih podrazdelkih, ampak vselej gre za to, da je izomorfizem obrnljiv homomorfizem, katerega obrat je prav tako homomorfizem (ali po domače, izomorfizem je preslikava, ki zgolj preimenuje elemente, strukturo pa pusti enako).
+
+Imajo pa algebrske strukture, vključno z magmo, posebnost: pri definiciji pojma izomorfizma ne rabimo zahtevati, da se ohranja struktura v obe smeri. Kakor hitro se ohranja algebrska struktura vzdolž preslikave, se ohranja tudi nazaj.
+
+\begin{trditev}
+	Naj bosta $(A, \oper)$ in $(B, \soper)$ magmi in $f\colon A \to B$ preslikava. Velja: $f$ je izomorfizem magem natanko tedaj, ko je bijektiven homomorfizem magem.
+\end{trditev}
+
+\begin{proof}
+	Preslikava je obrnljiva natanko tedaj, ko je bijektivna in vsak izomorfizem je po definiciji homomorfizem. Preveriti moramo zgolj: če je $f$ obrnljiv homomorfizem, tedaj je tudi $f^{-1}$ homomorfizem.
+	
+	Vzemimo $u, v \in B$. Tedaj
+	\[f^{-1}(u \soper v) = f^{-1}\Big(f\big(f^{-1}(u)\big) \soper f\big(f^{-1}(v)\big)\Big) = f^{-1}\Big(f\big(f^{-1}(u) \oper f^{-1}(v)\big)\Big) = f^{-1}(u) \oper f^{-1}(v).\]
+\end{proof}
+
 Če imamo magmo $(A, \oper)$, lahko posamične elemente množice $A$ povezujemo z operacijo in na ta način generiramo nove. Na primer, iz $x \in A$ lahko sestavimo računske izraze $x \oper x$, $(x \oper x) \oper x$, $x \oper (x \oper x)$ itd. Če začnemo z večimi elementi, recimo $x, y, z \in A$, lahko dobimo bolj raznotere izraze, npr.~$(x \oper y) \oper z$, $z \oper ((y \oper x) \oper z)$ in tako naprej. Vsi ti izrazi so med sabo različni, njihove vrednosti pa so lahko bodisi enake bodisi različne. Na primer, v magmi $(\NN, +)$ so $2 + 5$, $5 + 2$, $4 + 3$ in $(1 + 2) + (2 + 2)$ različni izrazi, ki pa imajo iste vrednosti.
 
 Magemske izraze smo pisali kot zaporedja znakov, ki so vključevala elemente nosilne množice, simbol za operacijo in oklepaje (slednji so pomembni, saj v splošni magmi operacija ni družilna). Primernejši način podajanja takih izrazov so pa pravzaprav dvojiška drevesa. Vsakemu magemskemu izrazu ustreza neprazno dvojiško drevo, katerega listi so opremljeni z oznakami za elemente nosilne množice.
 
 \note{nekaj primerov magemskih izrazov, podanih tako z dvojiškim drevesom kot z oklepajnim nizom}
 
-Namen teh slikic pa ni zgolj ličen način, kako podati računanje neke operacije, pač pa se zadaj skrivajo vsaj tri temeljne ideje, ki so zelo pomembne za algebrske strukture in ki si jih bomo za začetek ogledali na preprostem primeru magem. Te tri ideje so:
+Namen teh sličic pa ni zgolj ličen način, kako podati računanje neke operacije, pač pa se zadaj skrivajo vsaj tri temeljne ideje, ki so zelo pomembne za algebrske strukture in ki si jih bomo za začetek ogledali na preprostem primeru magem. Te tri ideje so:
 \begin{itemize}
 	\item
 		prosta struktura,
@@ -96,6 +117,47 @@ A \ar[r]_{f} & B
 Ravno tako, kot je magma $(A, \oper)$ v celoti podana s preslikavo $a$, je tudi homomorfizem $f$ v celoti podan s $T(f)$. Opazimo namreč: če izvrednostimo izraz, ki sestoji zgolj iz ene vrednosti, dobimo taisto vrednost, torej $a \circ \eta_A = \id[A]$. Poračunamo lahko $f = f \circ \id[A] = f \circ a \circ \eta_A = b \circ T(f) \circ \eta_A$.
 
 Opazka $a \circ \eta_A = \id[A]$ pa ima še globlje posledice. Iz nje sledi, da je $a$ surjektivna in da je \note{po naravni razčlenitvi preslikave} množica $A$ izomorfna kvocientu množice $T(A)$. Premislimo, da velja še več: \emph{magma} $(A, \oper)$ je izomorfna kvocientu \emph{proste magme} $F(A)$.
+
+Najprej razčistimo, kaj pravzaprav pomeni `kvocient magme'. Pojmi, ki jih poznamo za množice, tipično obstajajo tudi za strukturirane množice. Omenili smo že: izomorfizem magem je poseben primer izomorfizma množic, kjer množici izgledata enako ne samo, kar se tiče njunih elementov, pač pa tudi po strukturi. Podobno je kvocient magem poseben primer kvocienta množic, kjer pa se še dodatno magemska struktura z originalne množice prenese na kvocient.
+
+Kaj mislimo s tem? Recimo, da imamo magmo $(A, \oper)$ in ekvivalenčno relacijo $\equ$ na $A$. Kvocient $A/_\equ$ sestoji iz ekvivalenčnih razredov. Opremiti ga želimo z operacijo, porojeno z $\oper$, in sicer: operacijo na ekvivalenčnih razredih izvedemo tako, kot izvorno operacijo $\oper$ izvedemo na njihovih elementih (tj.~predstavnikih). Definirajmo torej $\ec{x} \qo{\oper} \ec{y} \dfeq \ec{x \oper y}$. Na primer: kakršnokoli ekvivalenčno relacijo že definiramo na magmi $(\NN, +)$, želimo, da velja $\ec{1} \qo{+} \ec{2} = \ec{3}$.
+
+Označimo s $q\colon A \to A/_\equ$ kvocientno projekcijo, tj.~$q(x) = \ec{x}$. Definicija relacije, porojene na kvocientu, pove $q(x) \qo{\oper} q(y) = q(x \oper y)$. Z drugimi besedami, kar zahtevamo, je to, da je kvocientna projekcija homomorfizem magem. Ta zahteva torej enolično določa porojeno operacijo na kvocientu.
+
+Seveda se pojavi vprašanje, ali je operacija $\qo{\oper}$ dobro definirana. Veljati mora: za vse $x', x'', y', y'' \in A$, če $x' \equ x''$ in $y' \equ y''$, tedaj $x' \oper y' \equ x'' \oper y''$. Za splošno ekvivalenčno relacijo to ni res, torej se je pri obravnavi magem smiselno omejiti samo na ekvivalenčne relacije, za katere to velja. Tako ekvivalenčno relacijo imenujemo \df{kongruenca magem}. Kot bomo videli v nadaljnjih podrazdelkih, se bo pojem kongruence pojavljal tudi pri drugih algebrskih strukturah --- v vsakem primeru pomeni ekvivalenčno relacijo, usklajeno z algebrskimi operacijami tako, da se algebrska struktura prenese na kvocient.
+
+Povzemimo: če imamo magmo $(A, \oper)$ in kongruenco magem $\equ$ na $A$, tedaj obstaja enolično določena operacija $\qo{\oper}$, tako da je $(A/_\equ, \qo{\oper})$ magma in kvocientna projekcija $q\colon A \to A/_\equ$ homomorfizem magem. Strukturirano množico $(A/_\equ, \qo{\oper})$ imenujemo kvocient magme $(A, \oper)$ glede na kongruenco $\equ$.
+
+Vrnimo se zdaj nazaj k trditvi, da je vsaka magma izomorfna kvocientu proste magme. Imejmo magmo $(A, \oper)$ in iz nje izpeljano vrednotenje izrazov $a\colon T(A) \to A$. Na $T(A)$ definirajmo ekvivalenčno relacijo $T_1 \equ T_2 \dfeq a(T_1) = a(T_2)$ (z drugimi besedami, računska izraza proglasimo za ekvivalentna, kadar imata isti vrednosti).
+
+Trdimo, da je $\equ$ kongruenca proste magme $F(A) = (T(A), \tconc)$. Vzemimo izraze $T_1', T_1'', T_2', T_2'' \in T(A)$, za katere velja $T_1' \equ T_1''$ in $T_2' \equ T_2''$. Ker je $a$ homomorfizem magem, dobimo
+\[a(T_1' \tconc T_2') = a(T_1') \oper a(T_2') = a(T_1'') \oper a(T_2'') = a(T_1'' \tconc T_2''),\]
+torej $T_1' \tconc T_2' \equ T_1'' \tconc T_2''$, kot željeno.
+
+\begin{naloga}
+	Spomni se \note{od tam in tam}, da vsaka preslikava $f$ porodi ekvivalenčno relacijo $x \equ y \dfeq f(x) = f(y)$ in obratno, vsaka ekvivalenčna relacija je porojena na ta način z neko preslikavo. Za tem, kar smo pravkar preverili, se skriva naslednje dejstvo: vsak homomorfizem magem $f$ porodi kongruenco magem $x \equ y \dfeq f(x) = f(y)$ in obratno, vsaka kongruenca magem je porojena na ta način z nekim homomorfizmom magem. Premisli podrobnosti.
+\end{naloga}
+
+Definirajmo preslikavo $f\colon T(A)/_\equ \to A$ s predpisom $f(\ec{T}) \dfeq a(T)$. Da je $f$ dobro definirana, sledi iz argumenta, ki smo ga podali že \note{pri naravni razčlenitvi preslikave}. Od tam prav tako sledi, da je $f$ obrnljiva zaradi surjektivnosti $a$. Ker ima $a$ celo desni inverz $\eta_A$, velja kar $f^{-1} = q \circ \eta_A$.
+
+Preverimo, da je $f$ homomorfizem magem. Od tod potem sledi, da je izomorfizem magem. Za $T_1, T_2 \in T(A)$ poračunamo
+\[f\big(\ec{T_1} \qo{\tconc} \ec{T_2}\big) = f\big(\ec{T_1 \tconc T_2}\big) = a(T_1 \tconc T_2) = a(T_1) \oper a(T_2) = f(\ec{T_1}) \oper f(\ec{T_2}).\]
+
+Sklenemo: ne samo, da imamo izomorfizem množic $T(A)/_\equ \ism A$, pač pa imamo tudi izomorfizem magem $F(A)/_\equ \ism (A, \oper)$, torej je res vsako magmo možno predstaviti kot kvocient proste magme.
+
+Vzeti magmo, prosto nad nosilno množico dane magme, je kanoničen način, kako to storiti, ni pa edini. Precej skrajen primer je magma z nosilno množico $\one$, katere operacija je dana na edini možni način $\unit \oper \unit = \unit$. Ta magma je izomorfna kvocientu \emph{sleherne} proste magme $F(A)$, kjer je $A$ neprazna množica (za kongruenco vzamemo polno relacijo).
+
+Tipično uporabljamo dejstvo, da je magma (ali v splošnem katerakoli algebrska struktura) kvocient proste tako, da poskušamo najti prosto magmo nad čim manjšo množico, da to velja. Na ta način dobimo preprost opis strukturirane množice, ki jo želimo obravnavati.
+
+Poglejmo primer. Magmo $(\NN, +)$ seveda lahko predstavimo kot kvocient magme $F(\NN)$, ampak vsa naravna števila lahko sestavimo že z izrazi, ki poleg operacije $+$ vsebujejo zgolj ničle in enice. Torej, $(\NN, +)$ lahko predstavimo že kot kvocient proste magme $F(\set{0, 1})$. 
+
+Kadar imamo podmnožico $S \subseteq A$, tako da lahko z izrazi nad $S$ opišemo celoten $A$, imenujemo elemente $S$ \df{generatorji} magme $(A, \oper)$. Natančneje: naj $i\colon S \to A$ označuje vključitev podmnožice $S$ v množico $A$. Ta preslikava porodi vključitev $T(i)\colon T(S) \to T(A)$ (vsak izraz elementov iz $S$ je tudi izraz elementov iz $A$). Natanko tedaj, ko bo kompozicija
+\[\xymatrix{
+T(S) \ar[r]^{T(i)} & T(A) \ar[r]^a & A
+}\]
+surjektivna, bo porodila izomorfizem množic $T(S)/_\equ \ism A$ in nadalje izomorfizem magem $F(S) \ism (A, \oper)$.
+
+Kot rečeno, za čim preprostejšo predstavitev dane magme želimo čim manjšo množico generatorjev. Kadar obstaja končna množica generatorjev, rečemo, da je magma \df{končno generirana}. Iz zgornjega primera vidimo, da je $(\NN, +)$ končno generirana (čeprav je sama neskončna), saj lahko za množico generatorjev vzamemo $\set{0, 1}$.
 
 \subsection{Polgrupe, monoidi, grupe}
 
