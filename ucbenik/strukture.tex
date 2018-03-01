@@ -155,12 +155,28 @@ Kadar imamo podmnožico $S \subseteq A$, tako da lahko z izrazi nad $S$ opišemo
 \[\xymatrix{
 T(S) \ar[r]^{T(i)} & T(A) \ar[r]^a & A
 }\]
-surjektivna, bo porodila izomorfizem množic $T(S)/_\equ \ism A$ in nadalje izomorfizem magem $F(S) \ism (A, \oper)$.
+surjektivna, bo porodila izomorfizem množic $T(S)/_\equ \ism A$ in nadalje izomorfizem magem $F(S)/_\equ \ism (A, \oper)$.
 
 Kot rečeno, za čim preprostejšo predstavitev dane magme želimo čim manjšo množico generatorjev. Kadar obstaja končna množica generatorjev, rečemo, da je magma \df{končno generirana}. Iz zgornjega primera vidimo, da je $(\NN, +)$ končno generirana (čeprav je sama neskončna), saj lahko za množico generatorjev vzamemo $\set{0, 1}$.
 
-\subsection{Polgrupe, monoidi, grupe}
+Da podamo magmo $(A, \oper)$ (vsaj do izomorfizma natančno, kar nam tipično zadostuje), je torej dovolj podati množico generatorjev $S$ in kongruenco $\equ$ na $T(S)$. Relacija $\equ$ je tipično precej velika (mnogo različnih izrazov ima enake vrednosti) in običajno jo je priročno podati ne celo, pač pa z neko manjšo relacijo, ki jo generira.
 
+Kaj to pomeni? Vemo že, da za vsako relacijo na neki množici obstaja njena ekvivalenčna ogrinjača, tj.~najmanjša ekvivalenčna relacija, ki jo vsebuje. Iz izreka~\ref{izrek:presecna-dednost-iz-logicne-oblike} in trditve~\ref{trditev:obstoj-ogrinjace-iz-presecne-dednosti} pa lahko sklepamo tudi, da za vsako relacijo obstaja njena \df{kongruenčna ogrinjača}, tj.~najmanjša kongruenca, ki jo vsebuje (preveri!). Ideja je, da tudi kongruenco $\equ$ na $T(S)$ podamo s čim manj primeri kongruentnih izrazov, tj.~za $\equ$ vzamemo kongruenčno ogrinjačo nekaj osnovnih izrazov, ki imajo iste vrednosti.
+
+Magmo, ki jo dobimo kot kvocient proste magme nad množico $S$ po kongruenci, ki je ogrinjača relacije $R$, zapišemo na sledeči način: $\pres{S}{R}$. Kadar elemente množice $S$ oz.~$R$ izrecno naštejemo, tipično ne pišemo zavitih oklepajev; na primer, namesto $\pres[1]{\set{0, 1}}{R}$ pišemo kar $\pres[1]{0, 1}{R}$. Relacije $R$ tudi pogosto ne pišemo kot množice parov, pač pa naštejemo konkretne enakovrednosti elementov, ki jih želimo imeti (kar imenujemo \df{vezi}, ki jim morajo izrazi zadoščati), kot je ponazorjeno v sledeči nalogi.
+
+\begin{naloga}
+Preverite, da imamo izomorfizem magem
+\[(\NN, +) \ism \pres[1]{0, 1}{0 + 0 \equ 0,\ 0 + 1 \equ 1,\ 1 + 0 \equ 1,\ (a + b) + c \equ a + (b + c)},\]
+kjer se za $a$, $b$, $c$ razume, da pretečejo vse izraze, tj.
+\[R = \set[1]{(0 + 0, 0), (0 + 1, 1), (1 + 0, 1)} \cup \set{\big((a + b) + c, a + (b + c)\big)}{a, b, c \in T(\set{0, 1})}.\]
+\end{naloga}
+
+Kadar imamo $(A, \oper) \ism \pres{S}{R}$, imenujemo $\pres{S}{R}$ \df{predstavitev} ali \df{prezentacija} magme $(A, \oper)$ \df{z generatorji in relacijami} (strogo vzeto je relacija $R$ samo ena, ampak množinsko poimenovanje se je uveljavilo, ker v zapisih konkretnih primerov naštejemo več primerkov kongruentnih izrazov). Kadar obstajata končna $S$ in $R$, da velja $(A, \oper) \ism \pres{S}{R}$, rečemo, da je magma $(A, \oper)$ \df{končno predstavljiva} ali \df{končno prezentirana}.
+
+Skrajen primer je, ko je $R = \emptyset$; tedaj pišemo kar $\pres{S}$ namesto $\pres{S}{\emptyset}$ ali $\pres{S}{ }$. Tedaj za kongruenčno ogrinjačo $\equ$ dobimo enakost in torej $\pres{S} \ism F(S)$. Od tod izhaja poimenovanje ``prosta magma'' --- predstavimo jo namreč lahko tako, da nima vezi. V tej situaciji množico generatorjev $S$ imenujemo \df{baza} magme. Običajno tudi vsako magmo, ki je izomorfna nekemu $F(S)$, kar imenujemo prosta. Torej, magma je prosta natanko tedaj, ko ima bazo.
+
+\subsection{Polgrupe, monoidi, grupe}
 \subsection{Polkolobarji}
 \subsection{Kolobarji}
 \subsection{Obsegi}

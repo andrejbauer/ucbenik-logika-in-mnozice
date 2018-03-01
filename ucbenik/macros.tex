@@ -203,6 +203,9 @@
 {
 \end{description}
 }
+\NewDocumentCommand{\pres}  % presentation of an algebraic structure with generators and relations
+{O{auto} m G{\empty}}
+{\sizedescriptor{#1}{\left}\langle {#2} \ifthenelse{\equal{#3}{}}{}{ \; \sizedescriptor{#1}{\middle}| \; {#3}} \sizedescriptor{#1}{\right}\rangle}
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
