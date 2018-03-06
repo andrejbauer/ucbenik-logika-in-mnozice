@@ -159,6 +159,10 @@ surjektivna, bo porodila izomorfizem množic $T(S)/_\equ \ism A$ in nadalje izom
 
 Kot rečeno, za čim preprostejšo predstavitev dane magme želimo čim manjšo množico generatorjev. Kadar obstaja končna množica generatorjev, rečemo, da je magma \df{končno generirana}. Iz zgornjega primera vidimo, da je $(\NN, +)$ končno generirana (čeprav je sama neskončna), saj lahko za množico generatorjev vzamemo $\set{0, 1}$.
 
+\begin{naloga}
+Premislite, da magma $(\NN, \cdot)$ \emph{ni} končno generirana, tj.~vsaka množica generatorjev vsebuje neskončno elementov.
+\end{naloga}
+
 Da podamo magmo $(A, \oper)$ (vsaj do izomorfizma natančno, kar nam tipično zadostuje), je torej dovolj podati množico generatorjev $S$ in kongruenco $\equ$ na $T(S)$. Relacija $\equ$ je tipično precej velika (mnogo različnih izrazov ima enake vrednosti) in običajno jo je priročno podati ne celo, pač pa z neko manjšo relacijo, ki jo generira.
 
 Kaj to pomeni? Vemo že, da za vsako relacijo na neki množici obstaja njena ekvivalenčna ogrinjača, tj.~najmanjša ekvivalenčna relacija, ki jo vsebuje. Iz izreka~\ref{izrek:presecna-dednost-iz-logicne-oblike} in trditve~\ref{trditev:obstoj-ogrinjace-iz-presecne-dednosti} pa lahko sklepamo tudi, da za vsako relacijo obstaja njena \df{kongruenčna ogrinjača}, tj.~najmanjša kongruenca, ki jo vsebuje (preveri!). Ideja je, da tudi kongruenco $\equ$ na $T(S)$ podamo s čim manj primeri kongruentnih izrazov, tj.~za $\equ$ vzamemo kongruenčno ogrinjačo nekaj osnovnih izrazov, ki imajo iste vrednosti.
@@ -168,7 +172,7 @@ Magmo, ki jo dobimo kot kvocient proste magme nad množico $S$ po kongruenci, ki
 \begin{naloga}
 Preverite, da imamo izomorfizem magem
 \[(\NN, +) \ism \pres[1]{0, 1}{0 + 0 \equ 0,\ 0 + 1 \equ 1,\ 1 + 0 \equ 1,\ (a + b) + c \equ a + (b + c)},\]
-kjer se za $a$, $b$, $c$ razume, da pretečejo vse izraze, tj.
+kjer se za $a$, $b$, $c$ razume, da pretečejo vse izraze, torej je v našem primeru kongruenca~$\equ$ ogrinjača relacije
 \[R = \set[1]{(0 + 0, 0), (0 + 1, 1), (1 + 0, 1)} \cup \set{\big((a + b) + c, a + (b + c)\big)}{a, b, c \in T(\set{0, 1})}.\]
 \end{naloga}
 
@@ -176,7 +180,21 @@ Kadar imamo $(A, \oper) \ism \pres{S}{R}$, imenujemo $\pres{S}{R}$ \df{predstavi
 
 Skrajen primer je, ko je $R = \emptyset$; tedaj pišemo kar $\pres{S}$ namesto $\pres{S}{\emptyset}$ ali $\pres{S}{ }$. Tedaj za kongruenčno ogrinjačo $\equ$ dobimo enakost in torej $\pres{S} \ism F(S)$. Od tod izhaja poimenovanje ``prosta magma'' --- predstavimo jo namreč lahko tako, da nima vezi. V tej situaciji množico generatorjev $S$ imenujemo \df{baza} magme. Običajno tudi vsako magmo, ki je izomorfna nekemu $F(S)$, kar imenujemo prosta. Torej, magma je prosta natanko tedaj, ko ima bazo.
 
-\subsection{Polgrupe, monoidi, grupe}
+V dosedanji debati smo se že nekaj naučili o magmah, ampak skoraj nič od tega ni specifično za magme. Kot bodo nakazovali nadaljnji primeri, velja za algebrske strukture na splošno, da imajo lastnosti kot obstoj proste strukture, podajanje strukture z vrednotenji izrazov, ohranjanje izrazov s homomorfizmi, bijektiven homomorfizem je izomorfizem, predstavitev z generatorji in relacijami in podobno. Torej, magme so nam zaenkrat služile bolj kot preprost primer algebrske strukture, na katerem raziskujemo algebrsko strukturo na splošno.
+
+Razlog za to je, da je ena sama dvomestna operacija, za katero ne privzamemo nobenih lastnosti, zelo šibka struktura in se posledično da komaj kaj povedati o njej sami. V večini primerov operacije, s katerimi imamo opravka, zadoščajo nadaljnjim lastnostim, na primer komutativnosti in/ali asociativnosti. Tudi ko to ni res, imamo pogosto kakšne nadomestke. Na primer, vektorsko množenje na $\RR^3$ ni komutativno, je pa \df{antikomutativno}: $\vec{a} \times \vec{b} = -\vec{b} \times \vec{a}$. Prav tako ni asociativno, zadošča pa \df{Jacobijevi identiteti}: $\vec{a} \times (\vec{b} \times \vec{c}) + \vec{b} \times (\vec{c} \times \vec{a}) + \vec{c} \times (\vec{a} \times \vec{b}) = 0$. Podobno razlika na realnih številih ni komutativna, je pa antikomutativna: $a - b = -(b - a)$, in ni asociativna, velja pa $(a - b) - c = a - (b + c)$.
+
+Seveda lahko brez težav umetno ustvarimo magmo s poljubno grdo operacijo, ki krši vse običajne računske zakone. Če hočemo imeti primer magme, katere operacija nima posebno lepih lastnosti, pa je vseeno naravna in se pogosto uporablja, lahko vzamemo recimo pozitivna realna števila $\RR_{> 0}$ z operacijo potenciranja $(a, b) \mapsto a^b$.
+
+Čeprav je magma zelo šibka struktura, jo lahko naredimo še šibkejšo: za operacijo ne zahtevamo, da je celovita, pač pa dopuščamo, da je delna. Pomemben primer \df{delne magme} izhaja iz teoretičnega računalništva. Vsak program in vsak podatek lahko podamo kot končen niz znakov, končne nize pa lahko oštevilčimo z naravnimi števili. To nam da delno operacijo $\NN \times \NN \parto \NN$, kjer se $(m, n)$ slika v številko rezultata, ki ga dobimo, ko $m$-ti program poženemo na $n$-tem vnosu. Operacija je delna, ker se lahko program na kakem vnosu sploh ne ustavi in torej ne vrne rezultata. Ta operacija ne zadošča običajnim računskim zakonom, kljub vsemu pa vodi v obširno teorijo. Več si lahko preberete recimo v \note{tej in tej literaturi}.
+
+V tej knjigi pa ubrimo drugo pot in začnimo spoznavati bogatejše strukture. Bogatejšo strukturo lahko dobimo preprosto tako, da že znani strukturi dopišemo dodatne zahteve. Na primer, za magemsko operacijo lahko zahtevamo, da je komutativna; takšno strukturo potem imenujemo \df{komutativna magma}. Podobno za druge lastnosti; na primer, če je magemska operacija idempotentna, dobljeno strukturo imenujemo \df{idempotentna magma}. Seveda lahko lastnosti kombiniramo in dobimo še močnejšo strukturo, na primer \df{komutativna idempotentna magma}. Več kot privzamemo, več trditev lahko tudi izpeljemo in na ta način dobimo tipično bogatejšo in zanimivejšo strukturo --- seveda, če niso privzete lastnosti tako omejujoče, da obstajajo samo trivialni primeri strukture, ali celo medsebojno nasprotujoče in potem ne obstaja sploh noben primer.
+
+V prihajajočih podrazdelkih si bomo ogledali primere bogatejših algebrskih struktur. Začeli bomo z \df{asociativnimi magmami}, ki so zadosti pomembne, da dobijo svoje ime.
+
+\subsection{Polgrupe}
+\note{vključno z monoidi}
+\subsection{Grupe}
 \subsection{Polkolobarji}
 \subsection{Kolobarji}
 \subsection{Obsegi}
