@@ -169,7 +169,7 @@ Kaj to pomeni? Vemo že, da za vsako relacijo na neki množici obstaja njena ekv
 
 Magmo, ki jo dobimo kot kvocient proste magme nad množico $S$ po kongruenci, ki je ogrinjača relacije $R$, zapišemo na sledeči način: $\pres{S}{R}$. Kadar elemente množice $S$ oz.~$R$ izrecno naštejemo, tipično ne pišemo zavitih oklepajev; na primer, namesto $\pres[1]{\set{0, 1}}{R}$ pišemo kar $\pres[1]{0, 1}{R}$. Relacije $R$ tudi pogosto ne pišemo kot množice parov, pač pa naštejemo konkretne enakovrednosti elementov, ki jih želimo imeti (kar imenujemo \df{vezi}, ki jim morajo izrazi zadoščati), kot je ponazorjeno v sledeči nalogi.
 
-\begin{naloga}
+\begin{naloga}\label{naloga:predstavitev-aditivne-magme-N}
 Preverite, da imamo izomorfizem magem
 \[(\NN, +) \ism \pres[1]{0, 1}{0 + 0 \equ 0,\ 0 + 1 \equ 1,\ 1 + 0 \equ 1,\ (a + b) + c \equ a + (b + c)},\]
 kjer se za $a$, $b$, $c$ razume, da pretečejo vse izraze, torej je v našem primeru kongruenca~$\equ$ ogrinjača relacije
@@ -193,7 +193,74 @@ V tej knjigi pa ubrimo drugo pot in začnimo spoznavati bogatejše strukture. Bo
 V prihajajočih podrazdelkih si bomo ogledali primere bogatejših algebrskih struktur. Začeli bomo z \df{asociativnimi magmami}, ki so zadosti pomembne, da dobijo svoje ime.
 
 \subsection{Polgrupe}
-\note{vključno z monoidi}
+
+Asociativnost je verjetno najpogostejša lastnost dvomestnih operacij, vsaj med tistimi operacijami, ki se največ uporabljajo. Komutativnost ni daleč zadaj, ampak je vseeno redkejša. Na primer, ko razširjamo številske množice, je množenje komutativno in asociativno od naravnih števil $\NN$ do kompleksnih števil $\CC$. Naslednja razširitev, tj.~množica kvaternionov~$\HH$, ima množenje, ki je asociativno, ni pa več komutativno. Na naslednji razširitvi --- množici oktonionov~$\OO$ --- množenje ni več niti komutativno niti asociativno. Torej, asociativnost je preživela korak dlje kot komutativnost. Še dva primera pogosto uporabljanih asociativnih nekomutativnih operacij: množenje matrik, sklapljanje preslikav.
+
+Osredotočimo se potem na asociativne operacije.
+
+\begin{definicija}
+\df{Polgrupa} je asociativna magma. Torej, polgrupa je dana kot $(A, \oper)$, kjer je $A$ množica, $\oper\colon A \times A \to A$ pa asociativna dvomestna notranja operacija.
+\end{definicija}
+
+Če sta $(A, \oper)$ in $(B, \soper)$ polgrupi, rečemo, da je preslikava $f\colon A \to B$ \df{homomorfizem polgrup}, kadar $f$ ohranja polgrupno strukturo, tj.~za vse $x, y \in A$ mora veljati $f(x \oper y) = f(x) \soper f(y)$. \df{Izomorfizem polgrup} je obrnljiv homomorfizem polgrup, katerega obrat je ravno tako homomorfizem polgrup. Tako kot pri magmah velja, da je bijektiven homomorfizem že kar izomorfizem.
+
+Asociativnost operacije zadostuje že za precej obsežno teorijo, v katero pa se na tem mestu ne bomo spuščali --- tema te knjige ni algebra, pač pa matematični temelji. Posvetili se bomo raje temu, kako splošne algebrske konstrukcije kot prosta struktura in predstavitev z generatorji in relacijami delujejo pri polgrupah.
+
+Začnimo s prosto strukturo. Če imamo množico~$A$, kako jo razširiti do polgrupe? Ideja je ista, kot pri magmah --- vzamemo množico vseh računskih izrazov. Ker pa so polgrupe po definiciji asociativne, različna postavitev oklepajev ne sme spremeniti polgrupnega izraza. Najpreprosteje to dosežemo, da v izrazih oklepajev sploh ne pišemo. Polgrupni računski izrazi imajo torej obliko $a_1 \oper a_2 \oper \ldots \oper a_n$. Pri tem je še pisanje simbola za operacijo odveč, ker se tako ali tako pojavi natanko med vsakima zaporednima elementoma; z drugimi besedami, izraz lahko zapišemo kar kot $a_1 a_2 \ldots a_n$
+
+Sklenemo: množica polgrupnih izrazov nad množico $A$ je množica vseh nizov elementov množice $A$, katerih dolžina je pozitivno naravno število. Tako kot pri magmah bomo tudi pri polgrupah množico izrazov označevali s $T(A)$ (in prav tako pri nadaljnjih algebrskih strukturah --- bralec naj vsakič iz konteksta razbere, računski izrazi katere strukture so mišljeni). Enako velja za vložitev $\eta_A\colon A \to T(A)$, pri čemer tokrat element slikamo v niz dolžine ena, katerega edini znak je ta element.
+
+Na kak način pa je množica izrazov $T(A)$ polgrupa? Če imamo izraza $a_1 \oper a_2 \oper \ldots \oper a_m$ in $b_1 \oper b_2 \oper \ldots \oper b_n$, bi ju morala polgrupna operacija preoblikovati v
+\[(a_1 \oper a_2 \oper \ldots \oper a_m) \oper (b_1 \oper b_2 \oper \ldots \oper b_n).\]
+Odmislimo oklepaje in znak za operacijo, pa vidimo: željena operacija na $T(A)$ je stikanje nizov, kar smo že označili z $\conc$. Na ta način dobimo prosto polgrupo $F(A) = \big(T(A), \conc\big)$.
+
+\begin{naloga}\label{naloga:prosta-polgrupa-nad-enojcem}
+Preveri, da je $F(\one) \ism (\NN_{> 0}, +)$, torej da je $F(\one)$ \emph{kot polgrupa} izomorfna polgrupi pozitivnih naravnih števil s seštevanjem. Kaj pa je $F(\emptyset)$?
+\end{naloga}
+
+\begin{naloga}
+Prosto polgrupo nad množico z dvema elementoma si seveda lahko predstavljamo z nizi, lahko pa tudi nanjo gledamo kot na neko operacijo na podmnožici naravnih števil. Naj oznaka $\lVert{n}\rVert$ pomeni dolžino dvojiškega zapisa števila $n$. Dokaži, da velja
+\[F\big(\set{0, 1}\big) \ism \Big(\NN_{\geq 2},\ (m, n) \mapsto m + 2^{\lVert{m}\rVert-1} (n-1)\Big).\]
+\end{naloga}
+
+Kakor hitro imamo konstrukcijo proste polgrupe, gre preostanek zgodbe enako kot pri magmah. Vsako polgrupo $(A, \oper)$ lahko predstavimo z vrednotenjem izrazov $T(A) \to A$ in homomorfizmi polgrup so ravno tiste preslikave, ki komutirajo s temi vrednotenji. Če domeno in kodomeno vrednotenja opremimo s polgrupnima operacijama, dobimo surjektiven homomorfizem polgrup $F(A) \to (A, \oper)$, ki porodi izomorfizem polgrup $F(A)/_\equ \ism (A, \oper)$ za ustrezno kongruenco polgrup~$\equ$. Vsako polgrupo je torej možno predstaviti z generatorji in relacijami, tj.~obstajata množica generatorjev $S$ in relacija~$R$, da je $(A, \oper) \ism \pres{S}{R} \dfeq F(S)/_\equ$, kjer je $\equ$ kongruenčna ovojnica relacije~$R$ (spet smo uporabili enake oznake, kot pri magmah, ampak pomen je drug, ker tokrat $F(S)$ označuje prosto \emph{polgrupo}, ne proste \emph{magme}).
+
+Seveda si pri predstavitvi tipično želimo, da sta $S$ in $R$ čim manjša. Če najdemo predstavitev s končnim $S$, rečemo, da je polgrupa končno generirana; če najdemo predstavitev, v kateri sta oba $S$ in $R$ končna, rečemo, da je polgrupa končno predstavljiva (prezentirana).
+
+\begin{naloga}\label{naloga:predstavitev-aditivne-polgrupe-N}
+Iz naloge~\ref{naloga:predstavitev-aditivne-magme-N} sledi, da je \emph{magma} $(\NN, +)$ končno generirana, ne vidi pa se, ali je tudi končno predstavljiva \davorin{mislim, da ni, ampak bi bilo dobro preveriti}. Premisli, da je \emph{polgrupa} $(\NN, +)$ končno predstavljiva.
+\end{naloga}
+
+Po definiciji je polgrupna operacija dvomestna, porodi pa seveda večmestne operacije: za polgrupo $(A, \oper)$ lahko definiramo tromestno operacijo $A^3 \to A$, $(x, y, z) \mapsto x \oper y \oper z$, štirimestno $A^4 \to A$, $(x, y, z, w) \mapsto x \oper y \oper z \oper w$ itd. Nekaj podobnega sicer lahko naredimo za splošne magme, ampak v tem primeru ni enolično določeno, kaj pomeni ``izvesti operacijo na treh (ali štirih ali petih\ldots) elementih''. Za tri elemente imamo dve možnosti: $(x \oper y) \oper z$ in $x \oper (y \oper z)$, za štiri elemente imamo pet možnosti: $((x \oper y) \oper z) \oper w$, $(x \oper y) \oper (z \oper w)$, $(x \oper (y \oper z)) \oper w$, $x \oper ((y \oper z) \oper w)$, $x \oper (y \oper (z \oper w))$, za pet elementov 14~možnosti itd.\footnote{Število možnosti za $n$~elementov je $(n-1)$-to Catalanovo število, pri čemer se $n$-to Catalanovo število izračuna kot $C_n = \frac{1}{n+1} \binom{2n}{n} = \frac{(2n)!}{n! (n+1)!}$.} Asociativnost operacije je torej točno tista lastnost, ki nam dopušča dobro definiranost operacije na poljubnem pozitivnem naravnem številu elementov (lahko torej govorimo o vsoti ali zmnožku sedmih elementov, na primer).
+
+No, vsaj če izvajamo operacijo na vsaj dveh elementih, ampak smiselno je definirati operacijo na enem elementu kot kar tisti element. Na primer, povprečje števil je definirano kot njihova vsota, deljena z njihovim številom. Če imamo samo eno število, bo seveda enako svojemu povprečju, torej moramo tudi za vsoto vzeti kar število samo. Z drugimi besedami, ko definiramo $n$-mestno operacijo na polgrupi $(A, \oper)$ kot $A^n \to A$, $(x_1, \ldots, x_n) \mapsto x_1 \oper \ldots \oper x_n$, posebej dobimo enomestno operacijo $A \to A$, ki je kar identiteta na $A$.
+
+Še vedno pa ta definicija $n$-mestne operacije nekaj pove samo za $n \geq 1$, ravno tako kot prosta polgrupa vsebuje končne nize \emph{pozitivnih} dolžin (med drugim v nalogi~\ref{naloga:prosta-polgrupa-nad-enojcem} za prosto grupo nad enojcem dobimo \emph{pozitivna} naravna števila s seštevanjem). \davorin{Na tem mestu bi se naj začela razprava, kaj pomeni ničkratna izvedba operacije, ampak predvidoma bomo to predebatirali že prej (na primer, na tem mestu že vemo, kaj sta vsota in zmnožek prazne družine množic). Povežemo torej to s prejšnjo debato.}
+
+Če imamo magmo $(A, \oper)$, za element $e \in A$ rečemo, da je \df{enota} za operacijo~$\oper$, kadar velja $e \oper x = x$ in $x \oper e = x$ za vse $x \in A$ (če zahtevamo samo prvo enačbo, imenujemo $e$ \df{leva enota}; če samo drugo, je $e$ \df{desna enota}).
+
+Primer magme z enoto je $(\NN, +)$, kjer je enota element $0$. Magma nima nujno enote (celo če je polgrupa), kot pokaže primer $(\NN_{> 0}, +)$. Če ima enoto, pa je ta samo ena. Recimo, da sta $e', e'' \in A$ enoti magme $(A, \oper)$. Tedaj $e' = e' \oper e'' = e''$.\footnote{Ta argument pove še več: vsaka leva enota je enaka vsaki desni enoti. V splošnem lahko imajo magme (in polgrupe) mnogo levih ali mnogo desnih enot, ampak kakor hitro imajo hkrati vsaj eno levo in vsaj eno desno, imajo samo eno, ki je (obojestranska) enota.}
+
+Obstoj enote je torej ekvivalenten enoličnemu obstoju enote. Enoto si tako lahko predstavljamo kot še eno operacijo na magmi, le da je ta ničmestna. Namreč, $A^0 = \one$ in element $e \in A$ lahko enakovredno predstavimo s preslikavo $e\colon \one \to A$, kjer namesto pogojev $e \oper x = x$ in $x \oper e = x$ za vse $x \in A$ zahtevamo komutativnost sledečega diagrama.
+\[\xymatrix@+2em{
+\one \times A \ar[r]^{e \times \id[A]} \ar[rd]_{\snd} & A \times A \ar[d]^{\oper} & A \times \one \ar[l]_{\id[A] \times e} \ar[ld]^{\fst} \\
+& A &
+}\]
+
+Magme, ki so hkrati asociativne in imajo enoto, so spet dovolj pomembne za lastno ime.
+
+\begin{definicija}
+\df{Monoid} je polgrupa z enoto. Torej, monoid je podan kot $(A, \oper, e)$, kjer je $A$ množica, $\oper\colon A \times A \to A$ asociativna dvomestna notranja operacija, $e \in A$ pa enota za to operacijo (ki si jo po potrebi lahko predstavljamo kot ničmestno operacijo $\one \to A$).
+\end{definicija}
+
+Pri definiciji homomorfizma monoidov moramo biti pazljivi. Homomorfizmi neke strukture morajo ohranjati \emph{vso} strukturo. Če imamo monoida $(A, \oper, e')$ in $(B, \soper, e'')$, tedaj je preslikava $f\colon A \to B$ \df{homomorfizem monoidov}, kadar ohranja operacijo $\oper$, tj.~$f(x \oper y) = f(x) \soper f(y)$ za vse $x, y \in A$, in obenem ohranja še enoto: $f(e') = e''$. Na primer: $(\set{0}, \cdot, 0)$ in $(\NN, \cdot, 1)$ sta monoida in vključitev $\set{0} \hookrightarrow \NN$ je homomorfizem polgrup, ni pa homomorfizem monoidov.
+
+\begin{naloga}
+Dokaži: če je \emph{surjektivna} preslikava med monoidoma homomorfizem polgrup, je tudi homomorfizem monoidov.
+\end{naloga}
+
+Izomorfizme definiramo na pričakovan način: \df{izomorfizem monoidov} je obrnljiv homomorfizem monoidov, katerega obrat je tudi homomorfizem monoidov. Kot smo že navajeni pri algebrskih strukturah, je bijektiven homomorfizem monoidov že kar izomorfizem monoidov. (Premisli!)
+
 \subsection{Grupe}
 \subsection{Polkolobarji}
 \subsection{Kolobarji}
