@@ -1,0 +1,85 @@
+\documentclass{article}
+
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{xparse}
+
+\usepackage[slovene]{babel}
+
+\newcommand{\RR}{\mathbb{R}}
+
+%\input{../macros.tex}
+{
+\theoremstyle{definition}
+\newtheorem{vaja}{Vaja}
+}
+
+
+\begin{document}
+
+\title{Logika in množice -- vaje}
+\date{5.~10.~2018}
+\maketitle
+
+\begin{vaja}
+  Definirajmo preslikavo $\min : \RR \times \RR \to \RR$ s funkcijskim predpisom
+  %
+  \begin{equation*}
+    \min : (x, y) \mapsto
+    \begin{cases}
+      x & \text{če $x \leq y$,} \\
+      y & \text{če $y \leq x$.}
+    \end{cases}
+  \end{equation*}
+  %
+  V funkcijski predpis za~$\min$ vstavite argument $(\pi, \sqrt[3]{31})$ in izračunajte
+  rezultat.
+\end{vaja}
+
+\begin{vaja}
+  Definirajmo preslikavo:
+  %
+  \begin{align*}
+    \RR^\RR &\to \RR \\
+    f &\mapsto \min (f(0), f(1)).
+  \end{align*}
+  %
+  V ta funkcijski predpis vstavite argument
+  %
+  \begin{align*}
+    \RR &\to \RR \\
+    x &\mapsto 3 - 2 \cdot x
+  \end{align*}
+  %
+  in izračunajte rezultat.
+\end{vaja}
+
+
+\begin{vaja}
+  Zapiši kak funkcijski predpis za funkcijo z dano domeno in kodomeno,
+  pri čemer so $A$, $B$ in $C$ poljubne množice:
+  %
+  \begin{enumerate}
+  \item $A \times A \to A \times A \times A$,
+  \item $C^{A+B} \to C^A$,
+  \item zapiši \emph{tri} funkcijske predpise $A^A \to A^A$. Ali določajo različne preslikave?
+  \end{enumerate}
+\end{vaja}
+
+\begin{vaja}
+  Preveri, da velja:
+  %
+  \begin{enumerate}
+  \item $A + B \cong B + A$,
+  \item $A \times (B + C) \cong A \times B + A \times C$,
+  \item $C^{A + B} \cong C^A \times C^B$,
+  \item $(B \times C)^A \cong B^A \times C^A$.
+  \end{enumerate}
+  %
+  Dodatne vaje: $(A + B) + C \cong A + (B + C)$, $A^1 \cong A$.
+\end{vaja}
+
+
+\end{document}
