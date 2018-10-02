@@ -13,8 +13,11 @@
 %\input{../macros.tex}
 {
 \theoremstyle{definition}
-\newtheorem{vaja}{Vaja}
+\newtheorem{vaja}{Vaja}[section]
 }
+
+\addtolength{\topmargin}{-1cm}
+\addtolength{\textheight}{2cm}
 
 
 \begin{document}
@@ -23,19 +26,10 @@
 \date{12.~10.~2018}
 \maketitle
 
+\setcounter{section}{1}
+\section{Simbolni zapis}
 
-\begin{vaja}
-  Preverite, da velja:
-  %
-  \begin{enumerate}
-  \item $A + B \cong B + A$,
-  \item $A \times (B + C) \cong A \times B + A \times C$,
-  \item $C^{A + B} \cong C^A \times C^B$,
-  \item $(B \times C)^A \cong B^A \times C^A$.
-  \end{enumerate}
-  %
-  Dodatne vaje: $(A + B) + C \cong A + (B + C)$, $A^1 \cong A$.
-\end{vaja}
+\bigskip\medskip
 
 \begin{vaja}
 Naslednje izjave zapišite v simbolni obliki z uporabo $+$, $\cdot$, $=$ in potenciranja.
