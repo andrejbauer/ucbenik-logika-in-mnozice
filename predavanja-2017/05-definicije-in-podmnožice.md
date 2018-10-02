@@ -56,6 +56,16 @@ Od tod izhajata računski pravili
 
   (∀ y ∈ {x ∈ A | p(x)} . q(y)) ⇔ (∀ z ∈ A . p(z) ⇒ q(z))
 
+
+## Izpeljane množice
+
+Zapis
+
+  { e(x) | x ∈ A | φ(x) } := { y ∈ B | ∃ x ∈ A . φ(x) ∧ y = e(x) }
+
+in okrajšave zanj.
+
+
 # Potenčna množica
 
 Potenčna množica P(A): elementi potenčne množice P(A) so natanko vse podmnožice A.
