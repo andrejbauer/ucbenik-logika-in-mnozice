@@ -156,14 +156,14 @@ f : C → C, ki razširi verigo, če ni maksimalna, sicer je ne spremeni (tu upo
 izbiro):
 
 * Če je V ∈ C maksimalna veriga v P (glede na ⊆), definiramo f(V) := V.
-* Če V ∈ C ni maksimalna veriga v P, potem obstaja tak x ∈ P \ V, da je C ∪ {x} spet veriga.
+* Če V ∈ C ni maksimalna veriga v P, potem obstaja tak x ∈ P \ V, da je V ∪ {x} spet veriga.
   V tem primeru *izberemo* tak x in definiramo f(V) := V ∪ {x}.
 
 Po izreku Bourbaki-Witt ima f negibno točko V ∈ C. Taka točka je maksimalna veriga V, saj
 bi sicer veljalo, da je V = f(V) = V ∪ {x} za neki x ∉ V, kar ni možno. Naj bo x zgornja
 meja za verigo V. Trdimo, da je x maksimalni element v P: denimo, da je x ≤ y za y ∈ P. Če
 bi veljalo x ≠ y, bi lahko V razširili na večjo verigo V ∪ {y}. Res, V ∪ {y} je spet
-veriga, ker za vsak z ∈ V velja z ≤ x leq y. To pa ni možno, saj je V maksimalna veriga.
+veriga, ker za vsak z ∈ V velja z ≤ x ≤ y. To pa ni možno, saj je V maksimalna veriga.
 Torej je x = y in x je res maksimalni element. □
 
 **Definicija:** Naj bo (P, ≤) delna ureditev. Preslikava f : P → P je **progresivna**, ko

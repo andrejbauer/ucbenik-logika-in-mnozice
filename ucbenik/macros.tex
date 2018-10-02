@@ -91,6 +91,8 @@
 \newcommand{\QQ}{\mathbb{Q}}
 \newcommand{\RR}{\mathbb{R}}
 \newcommand{\CC}{\mathbb{C}}
+\newcommand{\HH}{\mathbb{H}}
+\newcommand{\OO}{\mathbb{O}}
 \newcommand{\intoo}[3][\RR]{{#1}_{(#2, #3)}}
 \newcommand{\intcc}[3][\RR]{{#1}_{[#2, #3]}}
 \newcommand{\intoc}[3][\RR]{{#1}_{(#2, #3]}}
@@ -164,10 +166,14 @@
 
 %%%%%%  Misc.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\newcommand{\divides}{\,|\,}
+\renewcommand{\divides}{\,|\,}
 % Načeloma bi morala biti navpična črta v \divides obdana z \mathrel, ampak to vodi do prevelikih presledkov.
 \newcommand{\df}[1]{\emph{\textbf{#1}}}  % defined notion
-\newcommand{\oper}{\mathop{\circledast}}  % symbol for a generic operation
+\newcommand{\oper}{\mathop{\circledast}\nolimits}  % symbol for a generic operation
+\newcommand{\soper}{\mathop{\boxasterisk}\nolimits}  % symbol for a second generic operation
+\newcommand{\qo}[1]{\;\!\widetilde{#1}\;\!}  % quotient operation
+\newcommand{\tconc}{\mathop{\bullet}\nolimits}  % symbol for binary tree concatenation
+\newcommand{\conc}{\mathop{::}\nolimits}  % symbol for string concatenation
 \newcommand{\ism}{\cong}  % isomorphic
 \newcommand{\inv}[1]{#1^{-1}} % inverz preslikave
 \newcommand{\equ}{\sim}  % equivalent
@@ -200,6 +206,9 @@
 {
 \end{description}
 }
+\NewDocumentCommand{\pres}  % presentation of an algebraic structure with generators and relations
+{O{auto} m G{\empty}}
+{\sizedescriptor{#1}{\left}\langle {#2} \ifthenelse{\equal{#3}{}}{}{ \; \sizedescriptor{#1}{\middle}| \; {#3}} \sizedescriptor{#1}{\right}\rangle}
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%

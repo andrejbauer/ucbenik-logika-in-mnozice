@@ -1,6 +1,274 @@
 \chapter{Strukture}
 
-\note{Struktura na množici. Morfizmi, ki to strukturo ohranjajo. Izomorfnost. Definicija strukturirane množice preko njene karakterizacije --- potrebna obstoj in enoličnost (do izomorfizma). Primeri. Posebej primeri struktur urejenosti (izhaja iz razdelka o strukturah urejenosti v poglavju o relacijah) in osnovnih algebrskih struktur (pride prav kasneje pri konstrukciji številskih množic). Urejenostna in algebrska struktura se združita v pojmu mreže. Definicija (polnih) Boolovih mrež/kolobarjev in povezava z logiko. Širša slika strukturiranih množic --- kategorije.}
+
+Informacija, ki jo posamična množica podaja, je zgolj, katere elemente vsebuje. Izkušnje hitro pokažejo, da ta informacija ni najbolje naravnana za matematično delo. Po eni strani je del te informacije pogosto odveč: tipično si lahko z neko množico pomagamo enako, če njene elemente preimenujemo, tj.~če obravnavamo izomorfno množico. Po drugi strani pa je te informacije premalo: ni dovolj, da vemo, katere elemente imamo na voljo, želimo vedeti tudi, kaj lahko s temi elementi počnemo. Podatek o tem imenujemo \df{struktura} množice.
+
+Vzemimo za primer množico realnih števil~$\RR$. Njene elemente lahko poljubno seštevamo, odštevamo in množimo, tj.~izvajamo določene operacije na njih (seveda imamo še cel kup drugih operacij, vključno z delnimi, kot so deljenje, potenciranje, logaritmiranje\ldots). Strukturo, ki je dana z operacijami, imenujemo \df{algebrska} (ali \df{algebrajska} ali \df{algebraična}).
+
+Množico lahko opremimo tudi z raznimi relacijami, tipično z relacijami urejenosti. Na primer, na $\RR$ imamo relaciji $\leq$ in $<$. To imenujemo \df{struktura urejenosti} (ali \df{urejenostna struktura}).
+
+Realna števila si lahko predstavljamo kot točke na številski premici. Vidimo, da lahko potem računamo razdaljo med njimi. Pravimo, da realna števila tvorijo \df{metrični prostor} oziroma da imajo realna števila \df{metrično strukturo}.
+
+Za realne intervale tudi znamo povedati, kdaj so odprti oz.~zaprti. Kadar imamo pojem odprtosti oz.~zaprtosti, to imenujemo \df{topološka struktura}. Prav tako znamo povedati dolžino intervalov. Kadar imamo pojem velikosti podmnožic, to imenujemo \df{merska struktura}.
+
+Te in še nadaljnje strukture boste podrobneje spoznavali pri raznih matematičnih predmetih, v tej knjigi pa se bomo osredotočili zgolj na nekatere osnovne algebrske in urejenostne strukture.
+
+Tipično velja: več kot imamo strukture na neki množici, bolj uporabna je (še zlasti, kadar se strukture med sabo prepletajo --- na primer, dejstvo, da je seštevanje na $\RR$ monotono, povezuje algebrsko in urejenostno strukturo na $\RR$). Ker imajo realna števila tako bogato strukturo, ni presenetljivo, da jih kar naprej uporabljamo. Za primerjavo: množico vseh permutacij $n$ elementov, ki se imenuje simetrična grupa in označi z $S_n$, uporabljate redkeje (je pa še vedno uporabna, saj premore nekaj operacij --- permutacije lahko sklapljamo in obračamo).
+
+Množico, opremljeno z neko strukturo, imenujemo \df{strukturirana množica}. V tem kontekstu golo množico (brez njene dodatne strukture) imenujemo \df{nosilna množica} (te strukture).
+
+Proučevanje struktur je ena temeljnih matematičnih dejavnosti. Na primer, pri predmetu Algebra spoznavate algebrske strukture, pri Topologiji topološke strukture, pri Analizi metrične in gladke strukture itd.
+
+Za proučevanje strukture pa ne zadostuje opazovati zgolj množic, opremljenih s to strukturo, pač pa tudi preslikave med njimi, ki to strukturo na smiseln način ohranjajo. Tovrstnim preslikavam rečemo \df{homomorfizmi}. Kaj točno to pomeni, bomo spoznali pri konkretnih strukturah v nadaljevanju tega poglavja.
+
+\note{nekje (ne nujno tu) debata, kako strukturirano množico podamo preko njene karakterizacije --- potrebna obstoj in enoličnost do izomorfizma}
+
+
+\section{Algebrske strukture}
+
+Kot rečeno, algebrska struktura je struktura, dana z operacijami. Operacije, na katere ste navajeni, imajo \df{mestnost}, tj.~koliko podatkov (ki jih imenujemo \df{argumenti} ali \df{operandi}) sprejmejo, da vrnejo rezultat. Na primer, seštevanje vzame dva podatka (seštevanca ali sumanda), ki ju zapišemo na levo in desno stran plusa, da dobimo rezultat (vsoto). Seštevanje je torej dvomestna operacija.
+
+Odštevanje je prav tako dvomestna operacija --- od zmanjševanca odštejemo odštevanec in dobimo razliko. To je dvomestni minus, imamo pa tudi enomestni minus, ki vzame število in vrne njegovo nasprotno število. To sta dve različni operaciji in posledično imate zanju tudi dve različni tipki na kalkulatorju. Dvomestni minus je običajno označen kot $-$, enomestni pa kot ${}^+/_-$\;.
+
+Še en primer enomestne operacije je faktoriela: za vsak $n \in \NN$ lahko naračunamo $n!$, kar je spet naravno število. Primer tromestne operacije je mešani produkt vektorjev v trorazsežnem prostoru: za poljubne tri vektorje je njihov mešani produkt število, katerega absolutna vrednost pove prostornino paralelepipeda, ki ga ti vektorji razpenjajo, predznak pa pove orientacijo tega paralelepipeda.
+
+V splošnem je $n$-mestna operacija na množici $A$ dana kot preslikava $A^n \to A$, vsaj ko gre za operacijo, ki tako vzame kot vrne podatke iz množice $A$ --- taki operaciji rečemo \df{notranja}. Če to ne velja, je operacija \df{zunanja}. Vektorji lepo ponazorijo razliko. Seštevanje vektorjev v prostoru je preslikava $\RR^3 \times \RR^3 \to \RR^3$, torej dvomestna notranja operacija. Množenje vektorjev s skalarji $\RR \times \RR^3 \to \RR^3$ je dvomestna zunanja operacija, kjer enega od argumentov vzamemo iz neke druge množice (v tem primeru iz $\RR$). Skalarno množenje $\RR^3 \times \RR^3 \to \RR$ je prav tako dvomestna zunanja operacija, le da je tokrat rezultat iz druge množice. Prej omenjeni mešani produkt je tromestna zunanja operacija $\RR^3 \times \RR^3 \times \RR^3 \to \RR$.
+
+V definiciji $n$-mestne operacije lahko vzamemo tudi $n = 0$. Ničmestna (notranja) operacija je torej preslikava $\one \to A$, se pravi izbira elementa iz $A$.
+
+Obstajajo še splošnejše vrste operacij (npr.~takšne, ki so odvisne od neskončno argumentov), ampak v tej knjigi se ne bomo ukvarjali z njimi.
+
+
+\subsection{Magme}
+
+Operacije, s katerimi imamo najpogosteje opravka, so tipično dvomestne. Če želimo obravnavati takšne operacije na splošno, si definiramo strukturo, ki zajema zgolj eno tako operacijo.
+
+\begin{definicija}
+	\df{Magma} je množica, opremljena z dvomestno notranjo operacijo.
+\end{definicija}
+
+Strukturirano množico običajno zapišemo tako, da znotraj okroglih oklepajev najprej zapišemo simbol za nosilno množico, nato pa naštejemo vse sestavne dele strukture (ločene z vejicami). Če imamo strukturo magme na množici $A$ in dano operacijo označimo z $\oper$, tedaj to magmo zapišemo kot $(A, \oper)$. Če hočemo poudariti, da je $\oper$ dvomestna notranja operacija, lahko še natančneje zapišemo $(A,\ \oper\colon A \times A \to A)$.
+
+Imejmo magmi $(A, \oper)$ in $(B, \soper)$. Za preslikavo $f\colon A \to B$ rečemo, da je \df{homomorfizem magem}, kadar ohranja magemsko strukturo v naslednjem smislu: za vse $x, y \in A$ mora veljati
+\[f(x \oper y) = f(x) \soper f(y).\]
+Z drugimi besedami, vseeno mora biti, če najprej izvedemo magemsko operacijo in nato izvrednotimo preslikavo ali obratno.
+
+Homomorfizmi ohranjajo strukturo v (vsaj) eno smer. Pripravimo si še pojem preslikave, ki ohranja strukturo v obe smeri. Za preslikavo $f$ rečemo, da je \df{izomorfizem magem}, kadar je obrnljiva in sta tako $f$ kot $f^{-1}$ homomorfizma magem.
+
+Obravnavali smo že pojem \emph{izomorfizma množic}, tj.~obrnljive preslikave. Obrnljiva preslikava med množicama nam omogoči, da prehajamo od elementov ene množice do elementov druge --- da so ti elementi v povratno enolični zvezi. Torej, množici ``izgledata enako'', samo elementi so različno poimenovani.
+
+Podobno je z izomorfizmom magem, le da tokrat množici ``izgledata enako'' ne samo v smislu njunih elementov, pač pa tudi, kako se ti elementi računajo z magemsko operacijo. Izomorfni magmi imata torej enako strukturo in če obravnavamo neko magmo, je tipično vseeno, če jo nadomestimo z njej izomorfno magmo (kar včasih želimo narediti, če ima izomorfna magma preprostejši opis ali kaj podobnega).
+
+Seveda vse to ne velja zgolj za magme, pač pa imamo pojem izomorfizma za poljubno strukturo. Primere si bomo ogledali v nadaljnjih podrazdelkih, ampak vselej gre za to, da je izomorfizem obrnljiv homomorfizem, katerega obrat je prav tako homomorfizem (ali po domače, izomorfizem je preslikava, ki zgolj preimenuje elemente, strukturo pa pusti enako).
+
+Imajo pa algebrske strukture, vključno z magmo, posebnost: pri definiciji pojma izomorfizma ne rabimo zahtevati, da se ohranja struktura v obe smeri. Kakor hitro se ohranja algebrska struktura vzdolž preslikave, se ohranja tudi nazaj.
+
+\begin{trditev}
+	Naj bosta $(A, \oper)$ in $(B, \soper)$ magmi in $f\colon A \to B$ preslikava. Velja: $f$ je izomorfizem magem natanko tedaj, ko je bijektiven homomorfizem magem.
+\end{trditev}
+
+\begin{proof}
+	Preslikava je obrnljiva natanko tedaj, ko je bijektivna in vsak izomorfizem je po definiciji homomorfizem. Preveriti moramo zgolj: če je $f$ obrnljiv homomorfizem, tedaj je tudi $f^{-1}$ homomorfizem.
+	
+	Vzemimo $u, v \in B$. Tedaj
+	\[f^{-1}(u \soper v) = f^{-1}\Big(f\big(f^{-1}(u)\big) \soper f\big(f^{-1}(v)\big)\Big) = f^{-1}\Big(f\big(f^{-1}(u) \oper f^{-1}(v)\big)\Big) = f^{-1}(u) \oper f^{-1}(v).\]
+\end{proof}
+
+Če imamo magmo $(A, \oper)$, lahko posamične elemente množice $A$ povezujemo z operacijo in na ta način generiramo nove. Na primer, iz $x \in A$ lahko sestavimo računske izraze $x \oper x$, $(x \oper x) \oper x$, $x \oper (x \oper x)$ itd. Če začnemo z večimi elementi, recimo $x, y, z \in A$, lahko dobimo bolj raznotere izraze, npr.~$(x \oper y) \oper z$, $z \oper ((y \oper x) \oper z)$ in tako naprej. Vsi ti izrazi so med sabo različni, njihove vrednosti pa so lahko bodisi enake bodisi različne. Na primer, v magmi $(\NN, +)$ so $2 + 5$, $5 + 2$, $4 + 3$ in $(1 + 2) + (2 + 2)$ različni izrazi, ki pa imajo iste vrednosti.
+
+Magemske izraze smo pisali kot zaporedja znakov, ki so vključevala elemente nosilne množice, simbol za operacijo in oklepaje (slednji so pomembni, saj v splošni magmi operacija ni družilna). Primernejši način podajanja takih izrazov so pa pravzaprav dvojiška drevesa. Vsakemu magemskemu izrazu ustreza neprazno dvojiško drevo, katerega listi so opremljeni z oznakami za elemente nosilne množice.
+
+\note{nekaj primerov magemskih izrazov, podanih tako z dvojiškim drevesom kot z oklepajnim nizom}
+
+Namen teh sličic pa ni zgolj ličen način, kako podati računanje neke operacije, pač pa se zadaj skrivajo vsaj tri temeljne ideje, ki so zelo pomembne za algebrske strukture in ki si jih bomo za začetek ogledali na preprostem primeru magem. Te tri ideje so:
+\begin{itemize}
+	\item
+		prosta struktura,
+	\item
+		homomorfizem kot preslikava, ki ohranja izraze,
+	\item
+		podajanje algebrske strukture z generatorji in relacijami.
+\end{itemize}
+
+Začnimo s pojmom proste strukture. Če imamo katerokoli množico $A$ (ki jo v tem kontekstu običajno imenujemo \df{baza}), jo lahko razširimo do magme na kanoničen način. Naj $T(A)$ označuje množico vseh magemskih izrazov, ki jih lahko dobimo iz elementov množice $A$, tj.~množico vseh nepraznih dvojiških dreves, katerih listi so opremljeni z elementi množice $A$. Množico $T(A)$ opremimo z naslednjo dvojiško operacijo: če imamo izraza $T_1$ in $T_2$, tvorimo drevo, ki sestoji iz korena, katerega levo poddrevo je $T_1$, desno pa $T_2$. Označimo to dobljeno drevo s $T_1 \tconc T_2$.
+
+Vsak element množice $A$ lahko predstavimo z elementom množice $T(A)$: elementu $x \in A$ pripišemo drevo, ki vsebuje zgolj koren, ki je že kar list in je označen z $x$. Po domače povedano: vsaka vrednost je na trivialen način tudi izraz. To preslikavo $\eta_A\colon A \to T(A)$ imenujemo \df{vložitev baze} oz.~\df{vložitev generatorjev}. Izraz `vložitev' je primeren, saj je ta preslikava očitno injektivna --- izvorni element lahko preberemo z edinega lista v njegovi sliki.
+
+Množico $T(A)$ skupaj z dano operacijo imenujemo \df{prosta magma} nad množico $A$ (razlog za to poimenovanje bo postal jasen kasneje, ko si bomo ogledali podajanje algebrske strukture z generatorji in relacijami). Označimo jo z $F(A) \dfeq (T(A), \tconc)$. Ker lahko $A$ vložimo v $T(A)$, smo v tem smislu dejansko razširili poljubno množico do magme.
+
+Kaj pa se zgodi, če je množica $A$ že opremljena s kakšno magemsko operacijo $\oper$? Tedaj imamo homomorfizem magem $a\colon T(A) \to A$, ki vsakemu računskemu izrazu priredi njegovo vrednost v $A$. Na primer, v primeru magme $(\NN, +)$ slikamo med drugim $4 + ((3 + 1) + ((5 + 0) + 2)) \mapsto 15$. Premisli, da je $a$ v splošnem res homomorfizem magem!
+
+Preslikava $a$ je pomembna, ker zajema vso informacijo o algebrski strukturi na $A$. Z drugimi besedami, enakovredno je podati strukturo $(A, \oper)$ oziroma preslikavo $a$. Če imamo $A$ in $\oper$, lahko podamo $a$ kot zgoraj. Obratno, če imamo $a$, tedaj je $A$ njena kodomena, magemsko operacijo pa rekonstruiramo kot $x \oper y = a\big(\eta_A(x) \tconc \eta_A(y)\big)$. Poanta je sledeča: $x \oper y$ je prav tako računski izraz, tako da lahko z $a$ dobimo njegovo vrednost.
+
+Tudi pojem homomorfizma magem lahko opišemo na alternativen način. Premislimo: če sta $(A, \oper)$ in $(B, \soper)$ magmi ter $f\colon A \to B$ preslikava med njima, tedaj je $f$ homomorfizem magem natanko tedaj, ko ohranja \emph{vse} izraze, ne le tiste oblike $x \oper y$.
+
+Intuitivno je to jasno. Vse računske izraze v magmi generiramo s pomočjo magemske operacije in če se ta ohranja v vsakem kosu izraza, se bo ohranjal celoten izraz. Ponazorimo na konkretnem primeru z izrazom $(u \oper v) \oper (w \oper (x \oper y))$:
+\[f\Big((u \oper v) \oper \big(w \oper (x \oper y)\big)\Big) = f(u \oper v) \soper f\big(w \oper (x \oper y)\big) =\]
+\[= \big(f(u) \soper f(v)\big) \soper \big(f(w) \soper f(x \oper y)\big) = \big(f(u) \soper f(v)\big) \soper \Big(f(w) \soper \big(f(x) \soper f(y)\big)\Big).\]
+
+Kako pa to trditev natančno formulirati in dokazati? Sredstvo, ki ga potrebujemo, je \df{strukturna indukcija}, ki si jo pa bomo ogledali šele \note{tam in tam}. Prihranimo torej podrobnosti za kasneje in se zaenkrat zanašajmo na intuitivno razumevanje.
+
+Definirajmo preslikavo na izrazih $T(f)\colon T(A) \to T(B)$ tako, da v izrazu magme $(A, \oper)$ vsako vrednost $x \in A$, ki se v izrazu pojavi, spremenimo v vrednost $f(x)$, strukturo izraza pa sicer pustimo enako. Na ta način dobimo izraz magme $(B, \soper)$. S pomočjo $T(f)$ lahko natančneje povemo, kaj pomeni, da ``$f$ ohranja računske izraze''. Če vzamemo izraz, ga ovrednotimo in rezultat preslikamo z $f$, moramo dobiti isto, kot če bi v izrazu vsako posamično vrednost preslikali z $f$ (tj.~uporabili $T(f)$ na izrazu) in ovrednotili dobljeni izraz. Torej, če sta magemski strukturi na $A$ in $B$ podani z $a\colon T(A) \to A$ in $b\colon T(B) \to B$, tedaj mora veljati $f \circ a = b \circ T(f)$. Z drugimi besedami, sledeči diagram komutira.
+\[\xymatrix@+2em{
+T(A) \ar[d]_a \ar[r]^{T(f)} & T(B) \ar[d]^b \\
+A \ar[r]_{f} & B
+}\]
+
+Ravno tako, kot je magma $(A, \oper)$ v celoti podana s preslikavo $a$, je tudi homomorfizem $f$ v celoti podan s $T(f)$. Opazimo namreč: če izvrednostimo izraz, ki sestoji zgolj iz ene vrednosti, dobimo taisto vrednost, torej $a \circ \eta_A = \id[A]$. Poračunamo lahko $f = f \circ \id[A] = f \circ a \circ \eta_A = b \circ T(f) \circ \eta_A$.
+
+Opazka $a \circ \eta_A = \id[A]$ pa ima še globlje posledice. Iz nje sledi, da je $a$ surjektivna in da je \note{po naravni razčlenitvi preslikave} množica $A$ izomorfna kvocientu množice $T(A)$. Premislimo, da velja še več: \emph{magma} $(A, \oper)$ je izomorfna kvocientu \emph{proste magme} $F(A)$.
+
+Najprej razčistimo, kaj pravzaprav pomeni `kvocient magme'. Pojmi, ki jih poznamo za množice, tipično obstajajo tudi za strukturirane množice. Omenili smo že: izomorfizem magem je poseben primer izomorfizma množic, kjer množici izgledata enako ne samo, kar se tiče njunih elementov, pač pa tudi po strukturi. Podobno je kvocient magem poseben primer kvocienta množic, kjer pa se še dodatno magemska struktura z originalne množice prenese na kvocient.
+
+Kaj mislimo s tem? Recimo, da imamo magmo $(A, \oper)$ in ekvivalenčno relacijo $\equ$ na $A$. Kvocient $A/_\equ$ sestoji iz ekvivalenčnih razredov. Opremiti ga želimo z operacijo, porojeno z $\oper$, in sicer: operacijo na ekvivalenčnih razredih izvedemo tako, kot izvorno operacijo $\oper$ izvedemo na njihovih elementih (tj.~predstavnikih). Definirajmo torej $\ec{x} \qo{\oper} \ec{y} \dfeq \ec{x \oper y}$. Na primer: kakršnokoli ekvivalenčno relacijo že definiramo na magmi $(\NN, +)$, želimo, da velja $\ec{1} \qo{+} \ec{2} = \ec{3}$.
+
+Označimo s $q\colon A \to A/_\equ$ kvocientno projekcijo, tj.~$q(x) = \ec{x}$. Definicija relacije, porojene na kvocientu, pove $q(x) \qo{\oper} q(y) = q(x \oper y)$. Z drugimi besedami, kar zahtevamo, je to, da je kvocientna projekcija homomorfizem magem. Ta zahteva torej enolično določa porojeno operacijo na kvocientu.
+
+Seveda se pojavi vprašanje, ali je operacija $\qo{\oper}$ dobro definirana. Veljati mora: za vse $x', x'', y', y'' \in A$, če $x' \equ x''$ in $y' \equ y''$, tedaj $x' \oper y' \equ x'' \oper y''$. Za splošno ekvivalenčno relacijo to ni res, torej se je pri obravnavi magem smiselno omejiti samo na ekvivalenčne relacije, za katere to velja. Tako ekvivalenčno relacijo imenujemo \df{kongruenca magem}. Kot bomo videli v nadaljnjih podrazdelkih, se bo pojem kongruence pojavljal tudi pri drugih algebrskih strukturah --- v vsakem primeru pomeni ekvivalenčno relacijo, usklajeno z algebrskimi operacijami tako, da se algebrska struktura prenese na kvocient.
+
+Povzemimo: če imamo magmo $(A, \oper)$ in kongruenco magem $\equ$ na $A$, tedaj obstaja enolično določena operacija $\qo{\oper}$, tako da je $(A/_\equ, \qo{\oper})$ magma in kvocientna projekcija $q\colon A \to A/_\equ$ homomorfizem magem. Strukturirano množico $(A/_\equ, \qo{\oper})$ imenujemo kvocient magme $(A, \oper)$ glede na kongruenco $\equ$.
+
+Vrnimo se zdaj nazaj k trditvi, da je vsaka magma izomorfna kvocientu proste magme. Imejmo magmo $(A, \oper)$ in iz nje izpeljano vrednotenje izrazov $a\colon T(A) \to A$. Na $T(A)$ definirajmo ekvivalenčno relacijo $T_1 \equ T_2 \dfeq a(T_1) = a(T_2)$ (z drugimi besedami, računska izraza proglasimo za ekvivalentna, kadar imata isti vrednosti).
+
+Trdimo, da je $\equ$ kongruenca proste magme $F(A) = (T(A), \tconc)$. Vzemimo izraze $T_1', T_1'', T_2', T_2'' \in T(A)$, za katere velja $T_1' \equ T_1''$ in $T_2' \equ T_2''$. Ker je $a$ homomorfizem magem, dobimo
+\[a(T_1' \tconc T_2') = a(T_1') \oper a(T_2') = a(T_1'') \oper a(T_2'') = a(T_1'' \tconc T_2''),\]
+torej $T_1' \tconc T_2' \equ T_1'' \tconc T_2''$, kot željeno.
+
+\begin{naloga}
+	Spomni se \note{od tam in tam}, da vsaka preslikava $f$ porodi ekvivalenčno relacijo $x \equ y \dfeq f(x) = f(y)$ in obratno, vsaka ekvivalenčna relacija je porojena na ta način z neko preslikavo. Za tem, kar smo pravkar preverili, se skriva naslednje dejstvo: vsak homomorfizem magem $f$ porodi kongruenco magem $x \equ y \dfeq f(x) = f(y)$ in obratno, vsaka kongruenca magem je porojena na ta način z nekim homomorfizmom magem. Premisli podrobnosti.
+\end{naloga}
+
+Definirajmo preslikavo $f\colon T(A)/_\equ \to A$ s predpisom $f(\ec{T}) \dfeq a(T)$. Da je $f$ dobro definirana, sledi iz argumenta, ki smo ga podali že \note{pri naravni razčlenitvi preslikave}. Od tam prav tako sledi, da je $f$ obrnljiva zaradi surjektivnosti $a$. Ker ima $a$ celo desni inverz $\eta_A$, velja kar $f^{-1} = q \circ \eta_A$.
+
+Preverimo, da je $f$ homomorfizem magem. Od tod potem sledi, da je izomorfizem magem. Za $T_1, T_2 \in T(A)$ poračunamo
+\[f\big(\ec{T_1} \qo{\tconc} \ec{T_2}\big) = f\big(\ec{T_1 \tconc T_2}\big) = a(T_1 \tconc T_2) = a(T_1) \oper a(T_2) = f(\ec{T_1}) \oper f(\ec{T_2}).\]
+
+Sklenemo: ne samo, da imamo izomorfizem množic $T(A)/_\equ \ism A$, pač pa imamo tudi izomorfizem magem $F(A)/_\equ \ism (A, \oper)$, torej je res vsako magmo možno predstaviti kot kvocient proste magme.
+
+Vzeti magmo, prosto nad nosilno množico dane magme, je kanoničen način, kako to storiti, ni pa edini. Precej skrajen primer je magma z nosilno množico $\one$, katere operacija je dana na edini možni način $\unit \oper \unit = \unit$. Ta magma je izomorfna kvocientu \emph{sleherne} proste magme $F(A)$, kjer je $A$ neprazna množica (za kongruenco vzamemo polno relacijo).
+
+Tipično uporabljamo dejstvo, da je magma (ali v splošnem katerakoli algebrska struktura) kvocient proste tako, da poskušamo najti prosto magmo nad čim manjšo množico, da to velja. Na ta način dobimo preprost opis strukturirane množice, ki jo želimo obravnavati.
+
+Poglejmo primer. Magmo $(\NN, +)$ seveda lahko predstavimo kot kvocient magme $F(\NN)$, ampak vsa naravna števila lahko sestavimo že z izrazi, ki poleg operacije $+$ vsebujejo zgolj ničle in enice. Torej, $(\NN, +)$ lahko predstavimo že kot kvocient proste magme $F(\set{0, 1})$. 
+
+Kadar imamo podmnožico $S \subseteq A$, tako da lahko z izrazi nad $S$ opišemo celoten $A$, imenujemo elemente $S$ \df{generatorji} magme $(A, \oper)$. Natančneje: naj $i\colon S \to A$ označuje vključitev podmnožice $S$ v množico $A$. Ta preslikava porodi vključitev $T(i)\colon T(S) \to T(A)$ (vsak izraz elementov iz $S$ je tudi izraz elementov iz $A$). Natanko tedaj, ko bo kompozicija
+\[\xymatrix{
+T(S) \ar[r]^{T(i)} & T(A) \ar[r]^a & A
+}\]
+surjektivna, bo porodila izomorfizem množic $T(S)/_\equ \ism A$ in nadalje izomorfizem magem $F(S)/_\equ \ism (A, \oper)$.
+
+Kot rečeno, za čim preprostejšo predstavitev dane magme želimo čim manjšo množico generatorjev. Kadar obstaja končna množica generatorjev, rečemo, da je magma \df{končno generirana}. Iz zgornjega primera vidimo, da je $(\NN, +)$ končno generirana (čeprav je sama neskončna), saj lahko za množico generatorjev vzamemo $\set{0, 1}$.
+
+\begin{naloga}
+Premislite, da magma $(\NN, \cdot)$ \emph{ni} končno generirana, tj.~vsaka množica generatorjev vsebuje neskončno elementov.
+\end{naloga}
+
+Da podamo magmo $(A, \oper)$ (vsaj do izomorfizma natančno, kar nam tipično zadostuje), je torej dovolj podati množico generatorjev $S$ in kongruenco $\equ$ na $T(S)$. Relacija $\equ$ je tipično precej velika (mnogo različnih izrazov ima enake vrednosti) in običajno jo je priročno podati ne celo, pač pa z neko manjšo relacijo, ki jo generira.
+
+Kaj to pomeni? Vemo že, da za vsako relacijo na neki množici obstaja njena ekvivalenčna ogrinjača, tj.~najmanjša ekvivalenčna relacija, ki jo vsebuje. Iz izreka~\ref{izrek:presecna-dednost-iz-logicne-oblike} in trditve~\ref{trditev:obstoj-ogrinjace-iz-presecne-dednosti} pa lahko sklepamo tudi, da za vsako relacijo obstaja njena \df{kongruenčna ogrinjača}, tj.~najmanjša kongruenca, ki jo vsebuje (preveri!). Ideja je, da tudi kongruenco $\equ$ na $T(S)$ podamo s čim manj primeri kongruentnih izrazov, tj.~za $\equ$ vzamemo kongruenčno ogrinjačo nekaj osnovnih izrazov, ki imajo iste vrednosti.
+
+Magmo, ki jo dobimo kot kvocient proste magme nad množico $S$ po kongruenci, ki je ogrinjača relacije $R$, zapišemo na sledeči način: $\pres{S}{R}$. Kadar elemente množice $S$ oz.~$R$ izrecno naštejemo, tipično ne pišemo zavitih oklepajev; na primer, namesto $\pres[1]{\set{0, 1}}{R}$ pišemo kar $\pres[1]{0, 1}{R}$. Relacije $R$ tudi pogosto ne pišemo kot množice parov, pač pa naštejemo konkretne enakovrednosti elementov, ki jih želimo imeti (kar imenujemo \df{vezi}, ki jim morajo izrazi zadoščati), kot je ponazorjeno v sledeči nalogi.
+
+\begin{naloga}\label{naloga:predstavitev-aditivne-magme-N}
+Preverite, da imamo izomorfizem magem
+\[(\NN, +) \ism \pres[1]{0, 1}{0 + 0 \equ 0,\ 0 + 1 \equ 1,\ 1 + 0 \equ 1,\ (a + b) + c \equ a + (b + c)},\]
+kjer se za $a$, $b$, $c$ razume, da pretečejo vse izraze, torej je v našem primeru kongruenca~$\equ$ ogrinjača relacije
+\[R = \set[1]{(0 + 0, 0), (0 + 1, 1), (1 + 0, 1)} \cup \set{\big((a + b) + c, a + (b + c)\big)}{a, b, c \in T(\set{0, 1})}.\]
+\end{naloga}
+
+Kadar imamo $(A, \oper) \ism \pres{S}{R}$, imenujemo $\pres{S}{R}$ \df{predstavitev} ali \df{prezentacija} magme $(A, \oper)$ \df{z generatorji in relacijami} (strogo vzeto je relacija $R$ samo ena, ampak množinsko poimenovanje se je uveljavilo, ker v zapisih konkretnih primerov naštejemo več primerkov kongruentnih izrazov). Kadar obstajata končna $S$ in $R$, da velja $(A, \oper) \ism \pres{S}{R}$, rečemo, da je magma $(A, \oper)$ \df{končno predstavljiva} ali \df{končno prezentirana}.
+
+Skrajen primer je, ko je $R = \emptyset$; tedaj pišemo kar $\pres{S}$ namesto $\pres{S}{\emptyset}$ ali $\pres{S}{ }$. Tedaj za kongruenčno ogrinjačo $\equ$ dobimo enakost in torej $\pres{S} \ism F(S)$. Od tod izhaja poimenovanje ``prosta magma'' --- predstavimo jo namreč lahko tako, da nima vezi. V tej situaciji množico generatorjev $S$ imenujemo \df{baza} magme. Običajno tudi vsako magmo, ki je izomorfna nekemu $F(S)$, kar imenujemo prosta. Torej, magma je prosta natanko tedaj, ko ima bazo.
+
+V dosedanji debati smo se že nekaj naučili o magmah, ampak skoraj nič od tega ni specifično za magme. Kot bodo nakazovali nadaljnji primeri, velja za algebrske strukture na splošno, da imajo lastnosti kot obstoj proste strukture, podajanje strukture z vrednotenji izrazov, ohranjanje izrazov s homomorfizmi, bijektiven homomorfizem je izomorfizem, predstavitev z generatorji in relacijami in podobno. Torej, magme so nam zaenkrat služile bolj kot preprost primer algebrske strukture, na katerem raziskujemo algebrsko strukturo na splošno.
+
+Razlog za to je, da je ena sama dvomestna operacija, za katero ne privzamemo nobenih lastnosti, zelo šibka struktura in se posledično da komaj kaj povedati o njej sami. V večini primerov operacije, s katerimi imamo opravka, zadoščajo nadaljnjim lastnostim, na primer komutativnosti in/ali asociativnosti. Tudi ko to ni res, imamo pogosto kakšne nadomestke. Na primer, vektorsko množenje na $\RR^3$ ni komutativno, je pa \df{antikomutativno}: $\vec{a} \times \vec{b} = -\vec{b} \times \vec{a}$. Prav tako ni asociativno, zadošča pa \df{Jacobijevi identiteti}: $\vec{a} \times (\vec{b} \times \vec{c}) + \vec{b} \times (\vec{c} \times \vec{a}) + \vec{c} \times (\vec{a} \times \vec{b}) = 0$. Podobno razlika na realnih številih ni komutativna, je pa antikomutativna: $a - b = -(b - a)$, in ni asociativna, velja pa $(a - b) - c = a - (b + c)$.
+
+Seveda lahko brez težav umetno ustvarimo magmo s poljubno grdo operacijo, ki krši vse običajne računske zakone. Če hočemo imeti primer magme, katere operacija nima posebno lepih lastnosti, pa je vseeno naravna in se pogosto uporablja, lahko vzamemo recimo pozitivna realna števila $\RR_{> 0}$ z operacijo potenciranja $(a, b) \mapsto a^b$.
+
+Čeprav je magma zelo šibka struktura, jo lahko naredimo še šibkejšo: za operacijo ne zahtevamo, da je celovita, pač pa dopuščamo, da je delna. Pomemben primer \df{delne magme} izhaja iz teoretičnega računalništva. Vsak program in vsak podatek lahko podamo kot končen niz znakov, končne nize pa lahko oštevilčimo z naravnimi števili. To nam da delno operacijo $\NN \times \NN \parto \NN$, kjer se $(m, n)$ slika v številko rezultata, ki ga dobimo, ko $m$-ti program poženemo na $n$-tem vnosu. Operacija je delna, ker se lahko program na kakem vnosu sploh ne ustavi in torej ne vrne rezultata. Ta operacija ne zadošča običajnim računskim zakonom, kljub vsemu pa vodi v obširno teorijo. Več si lahko preberete recimo v \note{tej in tej literaturi}.
+
+V tej knjigi pa ubrimo drugo pot in začnimo spoznavati bogatejše strukture. Bogatejšo strukturo lahko dobimo preprosto tako, da že znani strukturi dopišemo dodatne zahteve. Na primer, za magemsko operacijo lahko zahtevamo, da je komutativna; takšno strukturo potem imenujemo \df{komutativna magma}. Podobno za druge lastnosti; na primer, če je magemska operacija idempotentna, dobljeno strukturo imenujemo \df{idempotentna magma}. Seveda lahko lastnosti kombiniramo in dobimo še močnejšo strukturo, na primer \df{komutativna idempotentna magma}. Več kot privzamemo, več trditev lahko tudi izpeljemo in na ta način dobimo tipično bogatejšo in zanimivejšo strukturo --- seveda, če niso privzete lastnosti tako omejujoče, da obstajajo samo trivialni primeri strukture, ali celo medsebojno nasprotujoče in potem ne obstaja sploh noben primer.
+
+V prihajajočih podrazdelkih si bomo ogledali primere bogatejših algebrskih struktur. Začeli bomo z \df{asociativnimi magmami}, ki so zadosti pomembne, da dobijo svoje ime.
+
+\subsection{Polgrupe}
+
+Asociativnost je verjetno najpogostejša lastnost dvomestnih operacij, vsaj med tistimi operacijami, ki se največ uporabljajo. Komutativnost ni daleč zadaj, ampak je vseeno redkejša. Na primer, ko razširjamo številske množice, je množenje komutativno in asociativno od naravnih števil $\NN$ do kompleksnih števil $\CC$. Naslednja razširitev, tj.~množica kvaternionov~$\HH$, ima množenje, ki je asociativno, ni pa več komutativno. Na naslednji razširitvi --- množici oktonionov~$\OO$ --- množenje ni več niti komutativno niti asociativno. Torej, asociativnost je preživela korak dlje kot komutativnost. Še dva primera pogosto uporabljanih asociativnih nekomutativnih operacij: množenje matrik, sklapljanje preslikav.
+
+Osredotočimo se potem na asociativne operacije.
+
+\begin{definicija}
+\df{Polgrupa} je asociativna magma. Torej, polgrupa je dana kot $(A, \oper)$, kjer je $A$ množica, $\oper\colon A \times A \to A$ pa asociativna dvomestna notranja operacija.
+\end{definicija}
+
+Če sta $(A, \oper)$ in $(B, \soper)$ polgrupi, rečemo, da je preslikava $f\colon A \to B$ \df{homomorfizem polgrup}, kadar $f$ ohranja polgrupno strukturo, tj.~za vse $x, y \in A$ mora veljati $f(x \oper y) = f(x) \soper f(y)$. \df{Izomorfizem polgrup} je obrnljiv homomorfizem polgrup, katerega obrat je ravno tako homomorfizem polgrup. Tako kot pri magmah velja, da je bijektiven homomorfizem že kar izomorfizem.
+
+Asociativnost operacije zadostuje že za precej obsežno teorijo, v katero pa se na tem mestu ne bomo spuščali --- tema te knjige ni algebra, pač pa matematični temelji. Posvetili se bomo raje temu, kako splošne algebrske konstrukcije kot prosta struktura in predstavitev z generatorji in relacijami delujejo pri polgrupah.
+
+Začnimo s prosto strukturo. Če imamo množico~$A$, kako jo razširiti do polgrupe? Ideja je ista, kot pri magmah --- vzamemo množico vseh računskih izrazov. Ker pa so polgrupe po definiciji asociativne, različna postavitev oklepajev ne sme spremeniti polgrupnega izraza. Najpreprosteje to dosežemo, da v izrazih oklepajev sploh ne pišemo. Polgrupni računski izrazi imajo torej obliko $a_1 \oper a_2 \oper \ldots \oper a_n$. Pri tem je še pisanje simbola za operacijo odveč, ker se tako ali tako pojavi natanko med vsakima zaporednima elementoma; z drugimi besedami, izraz lahko zapišemo kar kot $a_1 a_2 \ldots a_n$
+
+Sklenemo: množica polgrupnih izrazov nad množico $A$ je množica vseh nizov elementov množice $A$, katerih dolžina je pozitivno naravno število. Tako kot pri magmah bomo tudi pri polgrupah množico izrazov označevali s $T(A)$ (in prav tako pri nadaljnjih algebrskih strukturah --- bralec naj vsakič iz konteksta razbere, računski izrazi katere strukture so mišljeni). Enako velja za vložitev $\eta_A\colon A \to T(A)$, pri čemer tokrat element slikamo v niz dolžine ena, katerega edini znak je ta element.
+
+Na kak način pa je množica izrazov $T(A)$ polgrupa? Če imamo izraza $a_1 \oper a_2 \oper \ldots \oper a_m$ in $b_1 \oper b_2 \oper \ldots \oper b_n$, bi ju morala polgrupna operacija preoblikovati v
+\[(a_1 \oper a_2 \oper \ldots \oper a_m) \oper (b_1 \oper b_2 \oper \ldots \oper b_n).\]
+Odmislimo oklepaje in znak za operacijo, pa vidimo: željena operacija na $T(A)$ je stikanje nizov, kar smo že označili z $\conc$. Na ta način dobimo prosto polgrupo $F(A) = \big(T(A), \conc\big)$.
+
+\begin{naloga}\label{naloga:prosta-polgrupa-nad-enojcem}
+Preveri, da je $F(\one) \ism (\NN_{> 0}, +)$, torej da je $F(\one)$ \emph{kot polgrupa} izomorfna polgrupi pozitivnih naravnih števil s seštevanjem. Kaj pa je $F(\emptyset)$?
+\end{naloga}
+
+\begin{naloga}
+Prosto polgrupo nad množico z dvema elementoma si seveda lahko predstavljamo z nizi, lahko pa tudi nanjo gledamo kot na neko operacijo na podmnožici naravnih števil. Naj oznaka $\lVert{n}\rVert$ pomeni dolžino dvojiškega zapisa števila $n$. Dokaži, da velja
+\[F\big(\set{0, 1}\big) \ism \Big(\NN_{\geq 2},\ (m, n) \mapsto m + 2^{\lVert{m}\rVert-1} (n-1)\Big).\]
+\end{naloga}
+
+Kakor hitro imamo konstrukcijo proste polgrupe, gre preostanek zgodbe enako kot pri magmah. Vsako polgrupo $(A, \oper)$ lahko predstavimo z vrednotenjem izrazov $T(A) \to A$ in homomorfizmi polgrup so ravno tiste preslikave, ki komutirajo s temi vrednotenji. Če domeno in kodomeno vrednotenja opremimo s polgrupnima operacijama, dobimo surjektiven homomorfizem polgrup $F(A) \to (A, \oper)$, ki porodi izomorfizem polgrup $F(A)/_\equ \ism (A, \oper)$ za ustrezno kongruenco polgrup~$\equ$. Vsako polgrupo je torej možno predstaviti z generatorji in relacijami, tj.~obstajata množica generatorjev $S$ in relacija~$R$, da je $(A, \oper) \ism \pres{S}{R} \dfeq F(S)/_\equ$, kjer je $\equ$ kongruenčna ovojnica relacije~$R$ (spet smo uporabili enake oznake, kot pri magmah, ampak pomen je drug, ker tokrat $F(S)$ označuje prosto \emph{polgrupo}, ne proste \emph{magme}).
+
+Seveda si pri predstavitvi tipično želimo, da sta $S$ in $R$ čim manjša. Če najdemo predstavitev s končnim $S$, rečemo, da je polgrupa končno generirana; če najdemo predstavitev, v kateri sta oba $S$ in $R$ končna, rečemo, da je polgrupa končno predstavljiva (prezentirana).
+
+\begin{naloga}\label{naloga:predstavitev-aditivne-polgrupe-N}
+Iz naloge~\ref{naloga:predstavitev-aditivne-magme-N} sledi, da je \emph{magma} $(\NN, +)$ končno generirana, ne vidi pa se, ali je tudi končno predstavljiva \davorin{mislim, da ni, ampak bi bilo dobro preveriti}. Premisli, da je \emph{polgrupa} $(\NN, +)$ končno predstavljiva.
+\end{naloga}
+
+Po definiciji je polgrupna operacija dvomestna, porodi pa seveda večmestne operacije: za polgrupo $(A, \oper)$ lahko definiramo tromestno operacijo $A^3 \to A$, $(x, y, z) \mapsto x \oper y \oper z$, štirimestno $A^4 \to A$, $(x, y, z, w) \mapsto x \oper y \oper z \oper w$ itd. Nekaj podobnega sicer lahko naredimo za splošne magme, ampak v tem primeru ni enolično določeno, kaj pomeni ``izvesti operacijo na treh (ali štirih ali petih\ldots) elementih''. Za tri elemente imamo dve možnosti: $(x \oper y) \oper z$ in $x \oper (y \oper z)$, za štiri elemente imamo pet možnosti: $((x \oper y) \oper z) \oper w$, $(x \oper y) \oper (z \oper w)$, $(x \oper (y \oper z)) \oper w$, $x \oper ((y \oper z) \oper w)$, $x \oper (y \oper (z \oper w))$, za pet elementov 14~možnosti itd.\footnote{Število možnosti za $n$~elementov je $(n-1)$-to Catalanovo število, pri čemer se $n$-to Catalanovo število izračuna kot $C_n = \frac{1}{n+1} \binom{2n}{n} = \frac{(2n)!}{n! (n+1)!}$.} Asociativnost operacije je torej točno tista lastnost, ki nam dopušča dobro definiranost operacije na poljubnem pozitivnem naravnem številu elementov (lahko torej govorimo o vsoti ali zmnožku sedmih elementov, na primer).
+
+No, vsaj če izvajamo operacijo na vsaj dveh elementih, ampak smiselno je definirati operacijo na enem elementu kot kar tisti element. Na primer, povprečje števil je definirano kot njihova vsota, deljena z njihovim številom. Če imamo samo eno število, bo seveda enako svojemu povprečju, torej moramo tudi za vsoto vzeti kar število samo. Z drugimi besedami, ko definiramo $n$-mestno operacijo na polgrupi $(A, \oper)$ kot $A^n \to A$, $(x_1, \ldots, x_n) \mapsto x_1 \oper \ldots \oper x_n$, posebej dobimo enomestno operacijo $A \to A$, ki je kar identiteta na $A$.
+
+Še vedno pa ta definicija $n$-mestne operacije nekaj pove samo za $n \geq 1$, ravno tako kot prosta polgrupa vsebuje končne nize \emph{pozitivnih} dolžin (med drugim v nalogi~\ref{naloga:prosta-polgrupa-nad-enojcem} za prosto grupo nad enojcem dobimo \emph{pozitivna} naravna števila s seštevanjem). \davorin{Na tem mestu bi se naj začela razprava, kaj pomeni ničkratna izvedba operacije, ampak predvidoma bomo to predebatirali že prej (na primer, na tem mestu že vemo, kaj sta vsota in zmnožek prazne družine množic). Povežemo torej to s prejšnjo debato.}
+
+Če imamo magmo $(A, \oper)$, za element $e \in A$ rečemo, da je \df{enota} za operacijo~$\oper$, kadar velja $e \oper x = x$ in $x \oper e = x$ za vse $x \in A$ (če zahtevamo samo prvo enačbo, imenujemo $e$ \df{leva enota}; če samo drugo, je $e$ \df{desna enota}).
+
+Primer magme z enoto je $(\NN, +)$, kjer je enota element $0$. Magma nima nujno enote (celo če je polgrupa), kot pokaže primer $(\NN_{> 0}, +)$. Če ima enoto, pa je ta samo ena. Recimo, da sta $e', e'' \in A$ enoti magme $(A, \oper)$. Tedaj $e' = e' \oper e'' = e''$.\footnote{Ta argument pove še več: vsaka leva enota je enaka vsaki desni enoti. V splošnem lahko imajo magme (in polgrupe) mnogo levih ali mnogo desnih enot, ampak kakor hitro imajo hkrati vsaj eno levo in vsaj eno desno, imajo samo eno, ki je (obojestranska) enota.}
+
+Obstoj enote je torej ekvivalenten enoličnemu obstoju enote. Enoto si tako lahko predstavljamo kot še eno operacijo na magmi, le da je ta ničmestna. Namreč, $A^0 = \one$ in element $e \in A$ lahko enakovredno predstavimo s preslikavo $e\colon \one \to A$, kjer namesto pogojev $e \oper x = x$ in $x \oper e = x$ za vse $x \in A$ zahtevamo komutativnost sledečega diagrama.
+\[\xymatrix@+2em{
+\one \times A \ar[r]^{e \times \id[A]} \ar[rd]_{\snd} & A \times A \ar[d]^{\oper} & A \times \one \ar[l]_{\id[A] \times e} \ar[ld]^{\fst} \\
+& A &
+}\]
+
+Magme, ki so hkrati asociativne in imajo enoto, so spet dovolj pomembne za lastno ime.
+
+\begin{definicija}
+\df{Monoid} je polgrupa z enoto. Torej, monoid je podan kot $(A, \oper, e)$, kjer je $A$ množica, $\oper\colon A \times A \to A$ asociativna dvomestna notranja operacija, $e \in A$ pa enota za to operacijo (ki si jo po potrebi lahko predstavljamo kot ničmestno operacijo $\one \to A$).
+\end{definicija}
+
+Pri definiciji homomorfizma monoidov moramo biti pazljivi. Homomorfizmi neke strukture morajo ohranjati \emph{vso} strukturo. Če imamo monoida $(A, \oper, e')$ in $(B, \soper, e'')$, tedaj je preslikava $f\colon A \to B$ \df{homomorfizem monoidov}, kadar ohranja operacijo $\oper$, tj.~$f(x \oper y) = f(x) \soper f(y)$ za vse $x, y \in A$, in obenem ohranja še enoto: $f(e') = e''$. Na primer: $(\set{0}, \cdot, 0)$ in $(\NN, \cdot, 1)$ sta monoida in vključitev $\set{0} \hookrightarrow \NN$ je homomorfizem polgrup, ni pa homomorfizem monoidov.
+
+\begin{naloga}
+Dokaži: če je \emph{surjektivna} preslikava med monoidoma homomorfizem polgrup, je tudi homomorfizem monoidov.
+\end{naloga}
+
+Izomorfizme definiramo na pričakovan način: \df{izomorfizem monoidov} je obrnljiv homomorfizem monoidov, katerega obrat je tudi homomorfizem monoidov. Kot smo že navajeni pri algebrskih strukturah, je bijektiven homomorfizem monoidov že kar izomorfizem monoidov. (Premisli!)
+
+\subsection{Grupe}
+\subsection{Polkolobarji}
+\subsection{Kolobarji}
+\subsection{Obsegi}
+\section{Strukture urejenosti}
+\subsection{Mreže}
+\subsection{Boolove mreže}
+\section{Kategorije}
 
 
 %%% Local Variables:
