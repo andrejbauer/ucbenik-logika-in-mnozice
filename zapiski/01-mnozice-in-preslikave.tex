@@ -1,0 +1,391 @@
+\chapter{Množice in preslikave}
+
+Pri predmetu Logika in množice se bomo učili, kako matematiki komuniciramo in razmišljamo. Spoznali bomo osnove logike
+in teorije množic, tako iz povsem praktičnega vidika kot tudi matematičnega. Pri tem predmetu cenimo ne le matematično
+razmišljanje, ampak tudi razmišljanje o matematiki.
+
+Za uvod povejmo nekaj osnovnega o množicah in spoznajmo nekatere osnovne konstrukcije.
+
+\section{Osnovno o množicah}
+
+\subsection{Množice kot skupki elementov, relacija $\in$}
+
+Naivno bi rekli, da je množica kakeršnakoli zbirka ali skupek matematičnih objektov. Le-ti so lahko števila, funkcije,
+množice, množice števil ipd., skratka karkoli.
+%
+Najbolj preprosti primeri množic so končne množice, katerih elemente naštejemo. Zapišemo jih na primer takole:
+%
+\begin{gather*}
+  \{1, 2, 3\}
+  \{\sin, \cos, \tan\}
+  \{\{1\}, \{2\}, \{3\}\}
+\end{gather*}
+%
+Objektom, ki tvorijo množico, pravimo \textbf{elementi}. Na primer, elementi množice $\{1, \{4\}, 7/3\}$ so število $1$, množica $\{4\}$, in število $7/4$.
+
+Kadar je $a$ element množice $M$, to zapišemo $a \in M$ in beremo ">$a$ je element $M$"<.
+
+Ali sta množici $\{1, 4, 10\}$ in $\{4, 10, 1, 10\}$ enaki? Da, saj množice obravnavamo kot \emph{neurejene} skupke, v katerih ni pomembno, kolikokrat se pojavi kak element. Da vrstni red in število pojavitev nista pomembna, sledi iz \textbf{aksioma
+ekstenzionalnosti}. Aksiom je matematična izjava, ki jo vzamemo za osnovno, se pravi, da je ne dokazujemo. Aksiomi opredeljujejo matematično teorijo, ki jo želimo študirati. Tako bom pri tem predmetu spoznali aksiome teorije množic, pri algebri aksiome za vektorski prostor in grupo itd.
+
+\begin{aksiom}[Ekstenzionalnost množic]
+  Množici sta enaki, če imata iste elemente.
+\end{aksiom}
+
+Povedano drugače: če je vsak element množice $A$ tudi element množice $B$ in je vsak element množice $B$ tudi element množice $A$, potem velja $A = B$.
+
+Z uporabo ekstenzionalnosti, lahko \emph{dokažemo}, da sta $\{1, 4, 10\}$ in $\{4, 10, 1, 10\}$ enaki:
+%
+\begin{enumerate}
+\item 
+  Vsak element $\{1, 4, 10\}$ je tudi element $\{4, 10, 1, 10\}$:
+  \begin{enumerate}
+    \item velja $1 \in \{4, 10, 1, 10\}$
+    \item velja $4 \in \{4, 10, 1, 10\}$
+    \item velja $10 \in \{4, 10, 1, 10\}$
+  \end{enumerate}
+\item
+Vsak element $\{4, 10, 1, 10\}$ je tudi element $\{1, 4, 10\}$:
+  \begin{enumerate}
+     \item velja $4 \in \{1, 4, 10\}$
+     \item velja $10 \in \{1, 4, 10\}$
+     \item velja $1 \in \{1, 4, 10\}$
+     \item velja $10 \in \{1, 4, 10\}$
+  \end{enumerate}
+\end{enumerate}
+
+Iz zgornjih dveh preverb z uporabo ekstenzionalnosti sledi, da $\{1, 4, 10\} = \{4, 10, 1, 10\}$.
+
+\begin{naloga}
+  Zapišite podroben dokaz, da sta množici $\{x, y\}$ in $\{y, x\}$ enaki.
+\end{naloga}
+
+\begin{opomba}
+  Poznamo tudi skupke, pri katerih je pomembno, kolikokrat se pojavi vsak element. Imenujejo se \textbf{multimnožice}.
+\end{opomba}
+
+Opozorimo takoj, da v praksi pogosto uporabljamo zapise, ki niso povsem natančni. Takrat se zanašamo, da bodo ostali pravilni uganili, kaj imamo v mislih. Na primer, katere elemente vsebuje množica
+%
+\begin{equation*}
+    \{1, 2, 3, ..., 2021\} \ ?
+\end{equation*}
+%
+Verjetno bi vsi ">uganili"<, da so mišljena vsa naravna števila med $1$ in $2021$, ali ne? Zavedati se je treba, da zgornji zapis tega ne določa! Morda smo imeli v mislih vsa števila med $1$ in $2021$, ki pri deljenju s~$5$ ne dajo ostanka~$4$.
+
+Pri tem predmetu bomo pogosto opozarjali na razne nejasnosti in nenatančne zapise, ki jih uporabljajo matematiki v praksi.
+Ni mišljeno, da bi se pretvarjali, da je kaj narobe s ">človeško matematiko"<. Želimo se predvsem zavedati, kje se nejasnosti v praksi pojavljajo in kako bi jih lahko odpravili (tudi če jih v praksi dejansko ne odpravimo). Ko bo torej asistent pri analizi na tablo napisal
+%
+\begin{equation*}
+    1, 2, 4, 8, \ldots
+\end{equation*}
+%a
+imate tri možnosti:
+%
+\begin{enumerate}
+  \item Ste zmedeni.
+  \item Uganete, da ima v mislih potence števila 2.
+  \item Vprašate, ali je $n$-ti člen število regij, na katerega lahko razdelimo prostor z $(n-1)$ ravninami?
+\end{enumerate}
+%
+Sami se odločite, kakšen odnos želite vzpostaviti z asistentom.
+
+\subsection{Prazna množica $\emptyset$}
+
+Verjetno ni treba izgubljati besed o prazni množici. To je množica, ki nima nobenega elementa. Zapišemo jo $\emptyset$ ali $\{\}$.
+
+\begin{naloga}
+  Ali je kakšna razlika med $\{\}$ in $\{\emptyset\}$?
+\end{naloga}
+
+
+\subsection{Standardni enojec $\one$}
+
+Množici, ki ima natanko en element, pravimo \textbf{enojec}.
+
+Ali znamo pojasniti, kaj pomeni, da ima množica natanko en element, ne da bi pri tem omenili število $1$ ali katerokoli drugo število? Takole: množica $A$ ima natanko en element če velja:
+%
+\begin{enumerate}
+\item obstaja $x \in A$ in
+\item če je $x \in A$ in $y \in A$, potem $x = y$.
+\end{enumerate}
+
+\begin{naloga}
+  Kako bi opredelili ">množica ima natanko dva elementa"< brez uporabe števil?
+\end{naloga}
+
+Pogosto bomo potrebovali kak enojec (že na naslednjih predavanjih). Seveda se ni težko domisliti enojca, na primer $\{42\}$ ali $\{\sin\}$. Da pa ne bomo vedno znova izgubljali časa z izbiro enojca, se dogovorimo da je \textbf{standardni enojec $\one$} množica $\{\unit\}$. To je zelo čudno, ker smo označili množico s številko\footnote{Aali ločite med ">števka"<, ">številka"< in ">število<"?} $1$ in ker je element standardnega enojca $\unit$, česar še nikoli nismo videli.
+
+Glede oznake $\one$ povejmo, da imamo kot matematiki \emph{načelno svobodo} pri izbiri zapisa, a je smiselno in vljudno, da se ne zafrkavamo. Ali se torej predavatelj zafrkava, ko standardni enojec označi s številko $\one$? Ne, saj gresta ">enka"< in ">enojec"< lepo skupaj, poleg tega pa bomo na naslednjih predavanjih spoznali tudi matematične razloge za tak zapis.
+
+Glede oznake $\unit$ se bo kmalu izkazalo, da je zapis smiselen, ker je $()$ pravzaprav ">urejena ničterica"<.
+
+\subsection{Številske in ostale množice}
+
+Seveda si bomo privoščili uporabo raznih množic, ki jih že poznate, kot so na primer številske množice $\NN$, $\ZZ$, $\QQ$, $\RR$ itd. Opozorimo pa na naslednji dilemo:
+v osnovni in srednji šoli z $\NN$ označimo množico celih števil, ki so večja ali enaka $1$, vendar pa pogosto v matematiki, še posebej pa v logiki, tudi število $0$ obravnavamo kot naravno število. V takih primerih $\NN$ iznačuje množico celih števil, ki so večja ali enaka $0$.
+
+Kaj je torej prav $\NN = \{0, 1, 2, \ldots\}$ ali $\NN = \{1, 2, 3, \ldots\}$? To je napačno vprašanje! Lahko vprašamo le ">kako se bomo dogovorili?"<. Pri tem predmetu se
+dogovorimo, da je $0$ naravno število, ker vadimo ">matematično svobodo"<, imamo dobre matematične razloge, da $0$ uvrstimo med naravna števila, in ker je predavatelj tako zapovedal.
+
+\begin{naloga}
+  Zberite pogum in predavatelja vprašate, kakšni so ti dobri matematični razlogi, zaradi katerih je zapovedal, da je $0$ naravno število, bo sledila filozofska razprava, ki vam bo pokvarila odmor.
+\end{naloga}
+
+\section{Konstrukcije množic}
+
+Ena od osnovnih matematičnih aktivnosti so \textbf{konstrukcije}. Poznamo na primer geometrijske konstrukcije z ravnilom in šestilom. Ko računamo rešite enačbe, bi lahko rekli, da konstruiramo število, ki zadošča enačbi. Ko pišemo dokaz, konstruiramo objekt, iz katerega je razvidna resničnost neke izjave. Tudi računalniški programi so le matematični konstrukti.
+
+Spoznajmo nekatere osnovne konstrukcije množic, se pravi, načine, kako iz množic naredimo nove množice.
+
+\subsection{Zmnožek ali kartezični produkt}
+
+\textbf{Urejeni par} $\pair{x,y}$ je matematični objekt, ki da dobimo tako, da združimo dva matematična objekta~$x$ in~$y$. V srednji šoli ste večinoma pisali urejene pare števil (ki ste jih imenovali ">koordinate"<). V urejenem paru je vrstni red \emph{pomemben}: urejena para $(1, 3)$ in $(3, 1)$ \emph{nista} enaka. (Množici $\{1, 3\}$ in $\{3, 1\}$ sta enaki.)
+
+Urejeni par $\pair{x, y}$ ima \textbf{prvo komponento~$x$} in \textbf{drugo komponetno~$y$}. Če imamo neki urejeni par~$u$, njegovi komponenti pišemo tudi $\fst{u}$ in $\snd{u}$. Velja torej:
+%
+\begin{equation*}
+    \fst{x,y} = x
+    \iinn
+    \snd{x,y} = y.  
+\end{equation*}
+%
+Simboloma $\mathsf{pr}_1$ in $\mathsf{pr}_2$ pravimo \textbf{prva} in \textbf{druga projekcija}. Običajne oznake za projekciji so tudi $\pi_1$ in $\pi_2$, v
+programiranju $\mathtt{fst}$ in $\mathtt{snd}$, lahko pa tudi $\pi_0$ in $\pi_1$.
+
+Spoznajmo sedaj \textbf{zmnožek} ali \textbf{kartezični produkt} množic $A$ in $B$. Opis nove konstrukcijo množic mora navesti zapis za konstruirano množico, katere elemente ima, in kdaj sta elementa konstruirane množice enaka:
+%
+\begin{enumerate}
+\item Zmnožek množic $A$ in $B$ zapišemo $A \times B$.
+\item Elementi množice $A \times B$ so urejeni pari $\pair{x, y}$, pri čemer je $x \in A$ in $y \in B$.
+\item Enakost elemantov (princip ekstenzionalnisti za pare): $u \in A \times B$ in $v \in A \times B$ sta enaka, če velja $\fst{u} = \fst{v}$ in $\snd{u} = \snd{v}$.
+\end{enumerate}
+
+\begin{primer}
+Zmnožek množic $\{1,2,3\}$ in $\{\Box, \diamond\}$ je
+%
+\begin{equation*}
+    \{1, 2, 3\} \times {\Box, \diamond} =
+    \{\pair{1, \Box},
+      \pair{2, \Box},
+      \pair{3, \Box},
+      \pair{1, \diamond},
+      \pair{2, \diamond},
+      \pair{3, \diamond}
+     \}.
+\end{equation*}
+%
+Iz principa ekstenzionalnisti za pare sledi, da je vrstni red v urejenem paru pomemben, saj $\pair{1, 3} \neq \pair{3, 1}$, ker $\fst{1,3} = 1 \neq 3 = \fst{3,1}$.
+\end{primer}
+
+
+\subsubsection{Zmnožek večih množic}
+
+Tvorimo lahko tudi zmnožek večih množic. Na primer, zmnožek množic $A$, $B$ in $C$ je množica $A \times B \times C$, katerih elementi so \textbf{urejene trojke} $\pair{x, y, z}$, kjer je $x \in A$, $y \in B$ in $z \in C$. V tem primeru imamo tri projekcije $\mathsf{pr}_1$, $\mathsf{pr}_2$ in $\mathsf{pr}_3$. Podobno lahko tvorimo zmnožek štirih, petih, šestih, \dots množic.
+
+\begin{naloga}
+  Ali lahko tvorimo zmnožek ene množice? Kaj pa zmnožek nič množic?
+\end{naloga}
+
+
+\subsection{Vsota ali koprodukt}
+
+Naslednja osnovna konstrukcija je \textbf{vsota} ali \textbf{koprodukt} množic $A$ in $B$:
+%
+\begin{enumerate}
+\item vsoto množic $A$ in $B$ označimo z $A + B$,
+\item elementi množice $A + B$ so $\inl{x}$ za $x \in A$ in $\inr{y}$ za $y in B$,
+\item elementa $u \in A + B$ in $v \in A + B$ sta enaka, kadar velja
+  %
+  \begin{enumerate}
+    \item bodisi za neki $a \in A$ velja $u = \inl{a} = v$,
+    \item bodisi za neki $b \in B$ velja $u = \inr{b} = v$.
+  \end{enumerate}
+\end{enumerate}
+
+\begin{primer}
+Primeri vsote množic:
+%
+\begin{enumerate}
+
+\item $\{1, 2, 3\} + \{\square, \diamond\} = \{\inl{1}, \inl{2}, \inl{3}, \inr{\Box}, \inr{\diamond}\}$
+
+\item $\{a, b\} + \{b, c\} = \{\inl{a}, \inl{b}, \inr{b}, \inr{c}\}$
+
+\item Vsota \emph{ni} unija! Po eni strani je
+      $\{3, 5\} \cup \{3, 5\} = \{3, 5\}$ in po drugi
+      $\{3, 5\} + \{3, 5\} = \{\inl{3}, \inl{5}, \inr{3}, \inr{5}\}$.
+\end{enumerate}
+\end{primer}
+
+Vsoti pravimo tudi ">disjunktna unija"<, a se bo bomo temu izrazu izogibali, ker obravnavamo vsoto kot osnovno operacije in ne kot poseben primer unije.
+
+Oznakama $\mathsf{in}_1$ in $\mathsf{in}_2$ pravimo \textbf{prva in druga injekcija}. Uporabljajo se tudi iznake $\iota_1$ in $\iota_2$, v funkcijskem
+programiranju $\mathtt{inl}$ in $\mathtt{inr}$, pa tudi $\iota_0$ in $\iota_1$. Pravzaprav ni pomembno, kakšne oznake uporabimo, poskrbeti moralo
+le, da sta to različna simbola, s katerima razločimo elemente prvega in drugega sumanda.
+
+Tvorimo lahko vsoto večih množic, na primer $A + B + C$. V tem primeru imamo tri injekcije $\mathsf{in}_1$, $\mathsf{in}_2$ in $\mathsf{in}_3$.
+
+\section{Preslikave ali funkcije}
+
+Poleg množic so preslikave še en osnovni matematični pojem, ki mu bomo posvetili veliko pozornosti. \textbf{Preslikava} ali \textbf{funkcija} sestoji iz treh sestavin:
+%
+\begin{itemize}
+\item množice, ki ji pravimo \textbf{domena},
+\item množice, ki ji pravimo \textbf{kodomena},
+\item \textbf{prirejanja}, ki vsakemu elementu domene priredi natanko en element kodomene.
+\end{itemize}
+%
+Če je $f$ funkcija z domeno $A$ in kodomeno $B$, to zapišemo
+%
+\begin{equation*}
+  f : A \to B
+\end{equation*}
+%
+ali
+%
+\begin{equation*}
+  \xymatrix{
+    {A} \ar[rr]^{f} & & {B}
+  }
+\end{equation*}
+%
+Rišemo lahko tudi diagrame, ki prikazujejo več funkcij hkrati, na primer
+%
+\begin{equation*}
+  \xymatrix{
+    {A} \ar[r]^{f} &
+    {B} \ar[r]^{g} &
+    {C} \ar[d]^{h} \\
+    & & {D}
+  }
+\end{equation*}
+%
+Ta diagram prikazuje tri preslikave: $f : A \to B$, $g : B \to C$ in $h : C \to D$.
+
+V srednji šoli ste spoznavali posmične zvrsti funkcij, na primer linearne funkcije, trigonometrične funkcije, eksponentno funkcijo itd. Le-te so običajno slikale števila v števila, bile so \emph{številske funkcije}. Mi se bomo ukvarjali s preslikavami na splošno, se pravi s poljubnimi preslikavami med poljubnimi množicami.
+
+\subsubsection{Princip ekstenzionalnosti preslikav}
+
+\textbf{Princip ekstenzionalnost za preslikave}, pove, kdaj sta dve funkciji enaki, namreč takrat, ko prirejata enake vrednosti:  če za preslikavi $f : A \to B$ in $g : C \to D$ velja $A = C$, $B = D$ in $f(x) = g(x)$ za vse $x \in A$, potem velja $f = g$.
+
+Kasneje bomo videli, da princip ekstenzionalnosti za preslikave sledi iz principa ekstenzionalnosti za množice.
+
+\subsection{Prirejanje in funkcijski predpisi}
+
+Dejstvo, da mora mora prirejanje vsakemu elementu domene prirediti ">natanko en"< element kodomene, lahko izrazimo tako, da se izognemo uporabi števila ">ena"< ali kateregakoli števila. Poglejmo kako.
+
+Prirejanje z domeno $A$ in kodomeno $B$ mora biti:
+%
+\begin{enumerate}
+\item \textbf{celovito:} vsakemu $x \in A$ je prirejen vsaj en $y \in B$ (priredimo vsaj en element),
+\item \textbf{enolično:} če sta $x \in A$ prirejena $y \in B$ in $z \in B$, potem velja $y = z$ (priredimo največ en element).
+\end{enumerate}
+%
+Res, celovitost zagotavlja, da vsakemu elementu domene priredimo \emph{vsaj en} element kodomene, enoličnost pa zagotavlja, da priredimo \emph{kvečjemu enega}.
+
+\begin{opomba}
+  Pozor, celovitost \emph{ni} surjektivnost in enoličnost \emph{ni} injektivnost!
+\end{opomba}
+
+Kako pravzaprav podamo prirejanje? Kaj to pravzaprav je? Čez kak mesec bomo znali odgovoriti na to vprašanje natančno, zaenkrat pa le povejmo, da je prirejanje kakeršnakoli metoda, tabela, postopek, prikaz, ali konstrukcija, ki zagotavlja celovitost in enoličnost prirejanja elementov kodomene elementom domene.
+
+Običajni način za podajanje prirejanja je \textbf{funkcijski predpis}, ki ga pišemo
+%
+\begin{equation*}
+  x \mapsto \cdots
+\end{equation*}
+%
+Pri čemer za $\cdots$ na desni postavimo neki smiselen izraz, ki določa enolično vrednost za vsak $x$ iz domene. Spremenljivki~$x$ na levi pravimo \textbf{parameter}, izrazu $\cdots$ na desni pa \textbf{prirejena vrednost}.
+
+\begin{primer}
+  Primeri prirejanj:
+  %
+  \begin{itemize}
+  \item prirejanje ">prištej 7 in kvadriraj"< zapišemo s funkcijskim predpisom  $x \mapsto (x + 7)^2$,
+  \item prirejanje ">kvadriraj in prištej 7"< zapišemo s funkcijskim predpisom  $x \mapsto x^2 + 7$,
+  \item prirejanje ">prištej kvadrat 7"< zapišemo s funkcijskim predpisom  $x \mapsto x + 7^2$.
+  \end{itemize}
+\end{primer}
+
+\begin{opomba}
+  Pozor: če podamo \emph{samo} funkcijski predpis brez domene in kodomene, še nismo podali preslikave! Preslikava sestoji iz \emph{treh} delov: domena, kodomena in prirejanje.
+  Torej zgornji trije primeri \emph{ne} podajajo preslikav, ker nismo podali domen in
+  kodomen.
+\end{opomba}
+
+Domeno, kodomeno in funkcijski predpis lahko zapišemo na različne načine:
+%
+\begin{align*}
+  f &: \ZZ \to \NN \\
+  f &: x \mapsto x^2 + 7
+\end{align*}
+%
+ali
+%
+\begin{align*}
+    f &: \ZZ \to \NN \\
+    f(x) &\defeq x^2 + 7
+\end{align*}
+%
+ali
+%
+\begin{align*}
+    f &: \ZZ \to \NN \\
+    f &= (x \mapsto x^2 + 7)
+\end{align*}
+%
+Simbol $x$ je \textbf{vezana spremenljivka}, če jo preimenujemo, se predpis ne spremeni. Naslednji funkcijski predpisi so \emph{enaki}:
+%
+\begin{align*}
+  x &\mapsto x^2 + 7 \\
+  y &\mapsto y^2 + 7 \\
+  \textit{banana} &\mapsto \textit{banana}^2 + 7
+\end{align*}
+%
+Funkcijski predpis $x \mapsto 5 + x \cdot x + 2$ pa \emph{ni enak} zgornjim trem, čeprav vrača enake vrednosti in torej določa \emph{enako} funkcijo.
+
+\subsubsection{Aplikacija ali uporaba}
+
+Preslikavo $f : A \to B$ \textbf{uporabimo} ali \textbf{apliciramo} na elementu $a \in A$, da dobimo \textbf{vrednost} $f(a) \in B$. V izrazu $f(a)$ se imenuje $a$ \textbf{argument}
+%
+Kadar je $f$ podana s predpisom, izračunamo vrednost $f(a)$ tako, da $a$ vstavimo v predpis (vezano spremenljivo zamenjamo z argumentom~$A$).
+%
+O zamenjavi vezane spremenljivke z argumentom bomo več povedali o razdelku~\ref{sec:substitucija} o substituciji.
+
+\begin{primer}
+  Če je $f : \NN \to \NN$ podana s predpisom $f = (x \mapsto x^3 + 4)$, tedaj je $f(5)$ enako $5^3 + 4$. Lahko bi celo pisali
+  %
+  \begin{equation*}
+    (x \mapsto x^3 + 4)(5) = 5^3 + 4.
+  \end{equation*}
+\end{primer}
+
+
+\subsection{Eksponentna množica}
+
+Tretja konstrukcija množic, ki jo bomo spoznali v uvodnem poglavju, je \textbf{eksponent} ali \textbf{eksponentna množica}:
+%
+\begin{enumerate}
+\item eksponent množic $A$ in $B$ označimo $B^A$, in preberemo ">$B$ na $A$"<,
+\item elementi $B^A$ so preslikave z domeno $A$ in kodomeno $B$,
+\item preslikavi $f : A \to B$ in $g : A \to B$ sta enaki, če imate enake vrednosti: za
+  vse $x \in A$ velja $f(x) = g(x)$, potem je $f = g$.
+\end{enumerate}
+%
+Eksponent $B^A$ pišemo tudi $A \to B$. To pomeni, da bi lahko namesto $f : A \to B$ pisali tudi $f \in B^A$ ali celo $f \in A \to B$, vendar je ta zadnji zapis neobičajen.
+
+\begin{primer}
+Eksponent $\{1, 2\}^{\{a, b\}}$ ima štiri elemente:
+%
+\begin{equation*}
+  \{1, 2\}^{\{a, b\}} =
+  \{
+     (a \mapsto 1, b \mapsto 1),
+     (a \mapsto 1, b \mapsto 2),
+     (a \mapsto 2, b \mapsto 1),
+     (a \mapsto 2, b \mapsto 2)
+  \}.
+\end{equation*}
+\end{primer}
+
+

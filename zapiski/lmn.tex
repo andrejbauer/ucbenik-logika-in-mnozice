@@ -1,0 +1,154 @@
+\documentclass[11pt,a4paper]{book}
+
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[slovene]{babel}
+\usepackage[colorlinks]{hyperref}
+\usepackage{lmodern}
+\usepackage{xcolor}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{bbold}
+\usepackage{fancyhdr}
+\usepackage{theorem}
+\usepackage{mathpartir}
+\usepackage{proof}
+\usepackage{xypic}
+
+%--------------------------------------------------------------------
+%-- Barve hiper povezav
+
+\hypersetup{
+    colorlinks,
+    linkcolor={red!50!black},
+    citecolor={blue!50!black},
+    urlcolor={blue!80!black}
+}
+
+%--------------------------------------------------------------------
+%-- Okolja
+
+{
+  \theorembodyfont{\itshape}
+
+  \newtheorem{izrek}{Izrek}[chapter]
+  \newtheorem{lema}[izrek]{Lema}
+  \newtheorem{izjava}[izrek]{Izjava}
+  \newtheorem{posledica}[izrek]{Posledica}
+  \newtheorem{hipoteza}[izrek]{Hipoteza}
+  \newtheorem{aksiom}[izrek]{Aksiom}
+}
+
+{
+  \theorembodyfont{\rmfamily}
+  \newtheorem{definicija}[izrek]{Definicija}
+  \newtheorem{primer}[izrek]{Primer}
+  \newtheorem{opomba}[izrek]{Opomba}
+  \newtheorem{naloga}[izrek]{Naloga}
+}
+
+\newcommand{\qedsign}{{\vrule width 1ex height 1ex depth 0ex}}
+\newcommand{\qed}{\hfill\qedsign}
+
+\newenvironment{dokaz}{
+  \goodbreak\par
+  \textit{Dokaz.}%
+}{%
+  \nopagebreak
+  \qed
+  \medskip
+  \goodbreak
+}
+
+%--------------------------------------------------------------------
+\input{macros.tex}
+
+%--------------------------------------------------------------------
+%-- Velikost strani
+
+%% A4 stran = 210mm x 297mm
+%% sirino besedila nastavimo na 170mm, visino na 247mm
+
+\setlength{\textwidth}{15cm}
+\setlength{\textheight}{224mm}
+
+\setlength{\topmargin}{0cm}
+\setlength{\evensidemargin}{0cm}
+\setlength{\oddsidemargin}{\paperwidth}
+\addtolength{\oddsidemargin}{-\textwidth}
+\addtolength{\oddsidemargin}{-2in}
+
+%--------------------------------------------------------------------
+%-- Glava in dno
+
+\pagestyle{fancyplain}
+
+%\setlength{\headrulewidth}{0.2pt}
+%\addtolength{\headheight}{2pt}
+
+\renewcommand{\chaptermark}[1]{\markboth{#1}{}}
+\renewcommand{\sectionmark}[1]{\markright{\thesection\ #1}}
+
+\lhead[\fancyplain{}{{\thepage}}]%
+      {\fancyplain{}{{\rightmark}}}
+\rhead[\fancyplain{}{{\leftmark}}]%
+      {\fancyplain{}{\thepage}}
+\cfoot{\footnotesize [verzija \today]}
+\lfoot[]{}
+\rfoot[]{}
+
+%--------------------------------------------------------------------
+% NASLOV
+
+\author{Andrej Bauer}
+\title{Logika in množice \\ ZAPISKI V NASTAJANJU}
+
+\begin{document}
+
+\maketitle
+
+\cleardoublepage
+
+%--------------------------------------------------------------------
+% KAZALO
+\pagestyle{fancyplain}
+
+{
+\renewcommand{\markboth}[2]{}
+\tableofcontents
+}
+
+\cleardoublepage
+
+%--------------------------------------------------------------------
+% VSEBINA
+
+\input{predgovor.tex}
+\input{00-uvod.tex}
+\input{01-mnozice-in-preslikave.tex}
+\input{02-aritmetika-mnozic.tex}
+
+\input{logika.tex}
+% \input{mnozice.tex}
+
+
+%--------------------------------------------------------------------
+% BIBLIOGRAFIJA
+
+%\bibliographystyle{plain}
+%\addcontentsline{toc}{chapter}{\numberline{}Literatura}
+%\markboth{}{Literatura}
+%
+%{
+%\raggedright
+%\renewcommand{\markboth}[2]{}
+%\bibliography{literatura}
+%}
+
+
+\end{document}
+
+%%% Local Variables: 
+%%% mode: latex
+%%% TeX-master: t
+%%% End: 

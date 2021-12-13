@@ -1,0 +1,465 @@
+\chapter{Aritmetika množic}
+
+Nadaljujmo s študijem splošnih preslikav.
+
+\section{Preslikave in prazna množica}
+
+Naj bo $A$ množica. Kaj vemo povedati o preslikavah $\emptyset \to A$?
+
+Čez nekaj tednov bomo spoznali naslednji dejstvi, ki ju zaenkrat vzemimo v zakup:
+
+\begin{itemize}
+\item Vsaka izjava oblike ">za vsak element $\emptyset$ ..."< je resnična.
+\item Vsaka izjava oblike ">obstaja element $\emptyset$ ..."< je neresnična.
+\end{itemize}
+
+Primeri resničnih izjav:
+%
+\begin{enumerate}
+\item ">Vsak element prazne množice je sodo število"<
+\item ">Vsak element prazne množice je liho število"<
+\item ">Vsak element prazne množice je hkrati sodo in liho število"<
+\item ">Vsak element prazne množice \dots"<
+\end{enumerate}
+
+Primeri neresničnih izjav:
+%
+\begin{enumerate}
+\item ">Obstaja element prazne množice, ki je sodo število"<
+\item ">Obstaja element prazne množice, ki je enak sam sebi"<
+\item ">Obstaja element prazne množice, ki \dots"<
+\end{enumerate}
+%
+Denimo, da imamo preslikave $f :\emptyset \to A$ in $g : \emptyset \to A$. Tedaj sta enaki, saj velja: ">za vsak element $x \in \emptyset$ velja $f(x) = g(x)$".
+Torej imamo kvečjemu eno preslikavo $\emptyset \to A$. Ali pa imamo sploh kakšno? Da, pravimo ji \textbf{prazna preslikava}, ker je njeno prirejanje ">prazno"<, oziroma ga sploh ni treba podati (saj ni nobenega elementa domene $\emptyset$, ki bi mu morali prirediti kak element kodomene $A$).
+
+Kaj pa preslikave $A \to \emptyset$?
+%
+Če je $A = \emptyset$, potem imamo natanko eno preslikavo $A \to \emptyset$, namreč prazno preslikavo, $\emptyset^A = \{ \textrm{prazna-preslikava} \}$.
+%
+Če $A$ vsebuje kak element, potem ni nobene preslikave $A \to \emptyset$, se pravi  $\emptyset^A = \emptyset$.
+
+Zakaj ni preslikave $A \to \emptyset$, kadar $A$ vsebuje kak element? Denimo da je $x \in A$. Če bi bila kaka preslikava $f : A \to \emptyset$, bi
+veljalo $f(x) \in \emptyset$, kar pa ni res. Torej take preslikave ni.
+
+\begin{naloga}
+  Koliko je preslikav $1 \to A$ in koliko je preslikav $A \to 1$?
+  Ali je odgovor odvisen od~$A$?
+\end{naloga}
+
+\section{Identiteta in kompozicija}
+
+Spoznajmo nekaj osnovnih preslikav in operacij na preslikavah.
+
+\textbf{Identiteta} na $A$ je preslikava $id[A] : A \to A$, podana s predpisom $x \mapsto x$.
+
+\textbf{Kompozitum} preslikav
+%
+\begin{equation*}
+  \xymatrix{
+    {A} \ar[r]^f & {B} \ar[r]^g & {C}
+  }
+\end{equation*}
+%
+je preslikava $g \circ f : A \to C$, podana s predpisom $x \mapsto g(f(x))$.
+
+\textbf{Kompozitum je asociativen:} za preslikave
+%
+\begin{equation*}
+  \xymatrix{
+    {A} \ar[r]^f & {B} \ar[r]^g & {C} \ar[r]^h & {D}
+  }
+\end{equation*}
+%
+velja $(h \circ g) \circ f = h \circ (g \circ f)$. Res, za vsak $x \in A$ velja
+%
+\begin{align*}
+  ((h \circ g) \circ f)(x)
+  &= (h \circ g) (f x) \\
+  &=  h (g (f (x)) \\
+  &= h ((g \circ f)(x)) \\
+  &= (h \circ (g \circ f))(x),
+\end{align*}
+%
+torej želena\footnote{Piše se ">želen"< in ne ">željen"<, ker je ">želen"< deležnik na
+  ">n"< glagola ">želeti"<. V slovenščini ni glagola ">željeti"<. Hitro boste spoznali, da na profesorji za matematiko radi popravljajo slovnico.} enačba sledi iz principa ekstenzionalnosti za funkcije.
+
+\textbf{Identiteta je nevtralni element za kompozitum:} za vsako preslikavo $f : A \to B$ velja
+%
+\begin{equation*}
+  \id[B] \circ f = f
+  \iinn
+  f \circ id[A] = f.
+\end{equation*}
+%
+To preverimo z uporabo ekstenzionalnosti za funkcije: za vsak $x \in A$ velja
+%
+\begin{equation*}
+    (\id[B] \circ f)(x) = \id[B] (f(x)) = f(x)
+\end{equation*}
+%
+in
+\begin{equation*}
+  (f \circ id[A])(x) = f (id[A](x)) = f(x).
+\end{equation*}
+%
+Kompizicija $\circ$ in identiteta $id$ se torej obnašata podobno kot nekatere operacije v algebri, na primer $+$ in $0$ ter $×$ in $1$.
+
+\begin{naloga}
+  Seštevanje je komutativno, velja $a + b = b + a$. Ali je kompozicija preslikav tudi komutativna?
+\end{naloga}
+
+\section{Funkcijski predpisi na zmnožku in vsoti}
+
+Pogosto želimo definirati preslikavo, katere kodomena je zmnožek množic, denimo $f : A \times B \to C$. V takem primeru lahko
+podamo funkcijski predpis takole:
+%
+\begin{equation*}
+  (x, y) \mapsto \cdots
+\end{equation*}
+%
+pri čemer je $x \in A$ in $y \in B$. To je dovoljeno, ker je vsak element domene $A \times B$ urejeni par $(x, y)$ za natanko določena $x \in A$ in $y \in B$.
+
+\begin{primer}
+
+\textbf{Primer:} Preslikavo
+%
+\begin{align*}
+  \RR \times \RR  &\to  \RR \\
+  u &\mapsto  \fst{u}² + 3 \cdot \snd{u}
+\end{align*}
+%
+lahko bolj čitljivo podamo s predpisom
+%
+\begin{align*}
+  \RR \times \RR  &\to  \RR \\
+  (x, y) &\mapsto  x^2 + 3 \cdot y
+\end{align*}
+\end{primer}
+
+\begin{primer}
+  Seveda lahko podobno podajamo tudi preslikave na zmnožkih večih preslika, denimo
+  %
+  \begin{align*}
+  A \times B \times C &\to A \times A \\
+  (a, b, c) &\mapsto (a, a)
+  \end{align*}
+  in
+  \begin{align*}
+  X \times (Y \times Z) &\to (X \times Y) \times Z \\
+  (x, (y, z)) &\mapsto ((x, y), z).
+  \end{align*}
+\end{primer}
+
+Kako pa zapišemo funkcijski predpis funkcije z domeno $A + B$? V tem primeru je vsak element domene bodisi oblike
+$\inl{x}$ za enolično določeni $x \in A$, bodisi oblike $\inr{y}$ za enolično določeni $y \in B$, zato funkcijski predpis podamo v dveh vrsticah:
+%
+\begin{align*}
+    A + B &\to C \\
+    \inl{x} &\mapsto \cdots \\
+    \inr{y} &\mapsto \cdots
+\end{align*}
+
+\begin{primer}
+  Primer take preslikave je
+  %
+  \begin{align*}
+    \RR + \ZZ &\to \RR \\
+    \inl{x} &\mapsto x \\
+    \inr{y} &\mapsto y + 3
+  \end{align*}
+  %
+  Seveda lahko podobno podajamo tudi preslikave na vsotah večih preslikav:
+  %
+  \begin{align*}
+    A + B + C &\to \{u, v\} \\
+    \inl{x} &\mapsto u \\
+    \inr{y} &\mapsto u \\
+    \mathsf{in}_3(z) &\mapsto v
+  \end{align*}
+  in
+  \begin{align*}
+    A + (B + C) &\to \{u, v\} \\
+    \inl{x} &\mapsto u \\
+    \inr{\inl{y}} &\mapsto u \\
+    \inr{\inr{y}} &\mapsto v
+  \end{align*}
+\end{primer}
+
+Zapisa za zmnožek in vsoto lahko tudi kombiniramo:
+%
+\begin{align*}
+  (A \times B \times C) + (D \times E) &\to \{0, 1, 2\} \\
+  \inl{(a, b, c)} &\mapsto 1 \\
+  \inr{(d, e)} &\mapsto 2
+\end{align*}
+%
+in
+\begin{align*}
+  (A + B) \times C &\to \{0, 1, 2\} \\
+  (\inl{a}, c) &\mapsto 0 \\
+  (\inr{b}, c) &\mapsto 1
+\end{align*}
+%
+Izraz na levi strani $\mapsto$ sestoji iz vezanih spremelnjivk in operacij, s katerimi gradimo elemente množic (urejeni par, kanonična injekcija). Imenuje se tudi \textbf{vzorec}. Predpis je podan pravilno, če so vzorci napisani tako, da vsak element domene ustreza natanko enemu vzorcu.
+%
+S tem zagotovimo, da predpis obravnava vse možne primere (celovitost) in da ne obravnava nobenega primera večkrat (enoličnost).
+
+
+\subsection{Funkcijski predpis, podan po kosih}
+
+Omenimo še en pogost način podajanja funkcij, namreč s predisom po kosih.
+
+\begin{primer}
+  Preslikava ">absolutno"< je definirana po kosih za negativna in nenegativna števila:
+  %
+  \begin{align*}
+    \RR &\to \RR \\
+    x &\mapsto
+    \begin{cases}
+      -x & \text{če $x < 0$,}\\
+       x & \text{če $x \geq 0$.}
+    \end{cases}
+  \end{align*}
+\end{primer}
+
+\begin{primer}
+  Preslikava ">predznak"< je definirana po kosih:
+  %
+  \begin{align*}
+    \RR &\to \RR \\
+    x &\mapsto
+      \begin{cases}
+        -1 & \text{če $x < 0$,}\\
+        0 & \text{če $x = 0$,}\\
+        1 & \text{če $x \geq 0$.}
+      \end{cases}
+  \end{align*}
+\end{primer}
+
+
+Pri takem zapisu moramo paziti, da kosi skupaj pokrivajo domeno (vsi elementi domene so obravnavani) in da se kosi se ne prekrivajo (vsak element domene je obravnavan natanko enkrat). Pravzaprav se smejo kosi prekrivati, a moramo v tem primeru preveriti, da se na skupnih delih skladajo, se pravi, da vsi kosi podajajo enake vrednosti na preseku.
+
+\begin{primer}
+  Preslikavo ">absolutno"< bi lahko podali takole:
+  %
+  \begin{align*}
+    \RR &\to \RR \\
+    x &\mapsto
+    \begin{cases}
+      -x & \text{če $x < 0$,}\\
+       x & \text{če $x \geq 0$.}
+    \end{cases}
+  \end{align*}
+  %
+  Kosa se prekrivata pri $x = 0$, vendar to ni težava, ker je $-0 = 0$.
+\end{primer}
+
+
+\section{Nekatere preslikave na eksponentnih množicah}
+
+Poglejmo si nekaj preslikav, ki slikajo iz in v eksponente množice.
+
+\textbf{Evalvacija} ali \textbf{aplikacija} ali \textbf{uporaba} je preslikava, ki sprejme preslikavo in argument, ter preslikavo uporabi na argumentu:
+%
+\begin{align*}
+  \mathsf{ev} &: B\^A \times A \to B \\
+  \mathsf{ev} &: (f, x) \mapsto f(x)
+\end{align*}
+%
+Pravimo, da je $\mathsf{ev}$ \textbf{preslikava višjega reda}, ker slika preslikave v vrednosti.
+
+\begin{primer}
+  Določeni integral $\int_0^1$ je funkcija višjega reda, ker
+  sprejme funkcijo $[0,1] \to \RR$ in vrne realno število. Je torej preslikava
+  $\RR^{[0,1]} \to \RR$, če se pretvarjamo, da lahko integriramo vsako funkcijo.
+  Bolj pravilno bi bilo reči, da je $\int_0^1$ preslikava iz množice \emph{itegrabilnih funkcij $[0,1] \to \RR$} v realna števila.
+\end{primer}
+
+Kompozitum preslikav je tudi preslikava višjega reda:
+%
+\begin{align*}
+    {\circ} &: C^B \times B^A \to C^A \\
+    {\circ} &: (g, f) \mapsto (x \mapsto g(f(x)))
+\end{align*}
+%
+Tretja splošna preslikava višjega reda je ">currying"< (ali zna kdo to prevesi v slovenščino?):
+%
+\begin{align*}
+  A^(B \times C) &\to (A^B)^C \\
+  f &\mapsto (c \mapsto (b \mapsto f(b, c))).
+\end{align*}
+%
+Pravzaprav je to izomorfizem, katerega inverz je ">uncurrying"<:
+%
+\begin{align*}
+  (A^B)^C &\to A^{B \times C} \\
+  g       &\mapsto ((b, c) \mapsto f(b)(c))
+\end{align*}
+
+
+\section{Izomorfizmi in artimetika množic}
+
+\subsection{Inverz}
+
+\begin{definicija}
+  Preslikava $f : A \to B$ je \textbf{inverz} preslikave $g : B \to A$, če velja $f \circ g = \id[B]$ in $g \circ f = \id[A]$.
+\end{definicija}
+
+\begin{naloga}
+  Utemelji: če je $f$ inverz $g$, potem je $g$ inverz $f$.
+\end{naloga}
+
+\begin{primer}
+  Kub in kubični koren sta inverza
+  %
+  \begin{align*}
+    \RR &\to \RR    &     \RR &\to \RR \\
+    x &\mapsto x^3  &     y &\mapsto \sqrt[3]{y}
+  \end{align*}
+\end{primer}
+
+\begin{naloga}
+  Naj bo~$S$ množica nenegativnih realnih števil, se pravi, $\RR_{\geq 0} = \{x \in \RR \mid x \geq 0\}$. Ali sta kvadriranje in kvadratni koren inverza?
+  %
+  \begin{align*}
+    \RR &\to \RR_{\geq 0}    &     \RR_{\geq 0} &\to \RR \\
+    x &\mapsto x^2           &     y &\mapsto \sqrt[2]{y}
+  \end{align*}
+  %
+\end{naloga}
+
+\begin{izjava}
+  Če sta $f : A \to B$ in $g : A \to B$ oba inverza preslikave $h : B \to A$, potem je $f = g$.
+\end{izjava}
+
+\begin{dokaz}
+  Denimo, da sta $f : A \to B$ in $g : A \to B$ inverza preslikave $h : B \to A$. Tedaj velja
+  %
+  \begin{equation*}
+    f =
+    f \circ \id[A] =
+    f \circ (h \circ g) =
+    (f \circ h) \circ g =
+    \id[B] \circ g =
+    g.
+  \end{equation*}
+\end{dokaz}
+
+Ali znate utemeljiti vsakega od zgornjih korakov?
+
+\begin{definicija}
+  Presikava, ki ima inverz, se imenuje \textbf{izomorfizem}.
+\end{definicija}
+
+Če je $f : A \to B$ izomorfizem, potem ima natanko en inverz $B \to A$, ki ga označimo $\inv{f}$.
+
+\begin{primer}
+  Identiteta $id[A] : A \to A$ je izomorfizem, saj je sama sebi inverz.
+  Torej $\inv{id[A]} = \id[A]$.
+\end{primer}
+
+\begin{primer}
+  Eksponentna preslikava $\exp : \RR \to \RR_{> 0}$, $exp : x \mapsto e^x$ je
+  izomorfizem, njen inverz je naravni logaritem $\ln : \RR_{> 0} \to \RR$, torej $\inv{\exp} = \ln$.
+\end{primer}
+
+\begin{primer}
+  Eksponentna preslikava $\exp : \RR \to \RR$ \emph{ni} izomorfizem.
+\end{primer}
+
+\begin{izjava}
+  Če sta $f : A \to B$ in $g : B \to C$ izomorfizma, potem je tudi $g \circ f : A \to C$ izomorfizem. Velja torej $\inv{(g \circ f)} = \inv{f} \circ \inv{g}$.
+\end{izjava}
+
+\begin{dokaz}
+  Dokazati moramo, da ima $g \circ f$ inverz. Trdimo, da je $\inv{f} \circ \inv{g} : C \to A$ inverz preslikave $g \circ f$. Računajmo:
+  %
+  \begin{align*}
+    (g \circ f) \circ (\inv{f} \circ \inv{g}) \\
+     &= ((g \circ f) \circ \inv{f}) \circ \inv{g} \\
+     &= (g \circ (f \circ \inv{f})) \circ \inv{g} \\
+     &= (g \circ \id[B]) \circ \inv{g} \\
+     &= g \circ \inv{g} \\
+     &= \id[C].
+  \end{align*}
+  %
+  Doma sami preverite, da velja tudi $(\inv{f} \circ \inv{g}) \circ (g \circ f) = \id[A]$.
+\end{dokaz}
+
+\subsection{Izomorfne množice}
+
+
+\begin{definicija}
+  Množici $A$ in $B$ sta \textbf{izomorfni}, če obstaja izomorfizem $f : A \to B$. Kadar sta $A$ in $B$ izomorfni, to zapišemo $A \iso B$.
+\end{definicija}
+
+\begin{izjava}
+  \textbf{Izjava:} Za vse množice $A$, $B$ in $C$ velja:
+  %
+  \begin{enumerate}
+    \item $A \iso A$,
+    \item če $A \iso B$, potem $B \iso A$,
+    \item če $A \iso B$ in $B \iso C$, potem $A \iso C$.
+  \end{enumerate}
+\end{izjava}
+
+\begin{dokaz}
+  %
+  \begin{enumerate}
+     \item $id[A]$ je izomorfizem $A \to A$,
+     \item če je $f : A \to B$ izomorfizem, potem je tudi $\inv{f} : B \to A$ izomorfizem,
+     \item če je $f : A \to B$ izomorfizem in $g : B \to C$ izomorfizem, potem je $g \circ f : A \to C$ izomorfizem.
+  \end{enumerate}
+\end{dokaz}
+
+\begin{primer}
+  $A \times B \iso B \times A$, ker imamo izmorfizem in njegov inverz
+  %
+  \begin{align*}
+    A \times B  &\to  B \times A      &    B \times A  &\to  A \times B \\
+    (x, y) &\mapsto  (y, x)           &    (b, a) &\mapsto  (a, b)
+  \end{align*}
+\end{primer}
+
+\subsection{Aritmetika množic}
+
+Veljajo naslednji izomorfizmi, ki nas seveda spomnijo na zakone aritmetike, ki
+veljajo za števila. Ali gre tu za kako globjo povezavo?
+%
+\begin{enumerate}
+\item Vsota in $\emptyset$:
+  \begin{enumerate}
+    \item $A + \emptyset \iso A$
+    \item $A + B \iso B + A$
+    \item $(A + B) + C \iso A + (B + C)$
+  \end{enumerate}
+
+\item Zmnožek in $\one$:
+  \begin{enumerate}
+    \item $A \times 1 \iso A$
+    \item $A \times B \iso B \times A$
+    \item $(A \times B) \times C \iso A \times (B \times C)$
+  \end{enumerate}
+
+\item Distributivnost:
+  \begin{enumerate}
+    \item $A \times (B + C) \iso (A \times B) + (A \times C)$
+    \item $A \times \emptyset \iso \emptyset$
+  \end{enumerate}
+
+\item Eksponenti:
+  \begin{enumerate}
+    \item $A^1 \iso A$
+    \item $1^A \iso 1$
+    \item $A \emptyset \iso 1$
+    \item $\emptyset^A \iso \emptyset če A \neq \emptyset$
+    \item $A^(B \times C) \iso (A^B)^C$
+    \item $A^(B + C) \iso A^B \times A^C$
+    \item $(A \times B)^C \iso A^C \times B^C$
+  \end{enumerate}
+\end{enumerate}
+
+\begin{naloga}
+  Zapišite vseh 15 izomorfizmov, ki potrjujejo pravilnost zgornjega seznama.
+\end{naloga}

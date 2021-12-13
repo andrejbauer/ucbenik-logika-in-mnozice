@@ -1,0 +1,361 @@
+\chapter{Indukcija in dobra osnovanost}
+
+\section{Dobra osnovanost}
+
+\subsection{Indukcija na naravnih številih}
+
+Poznamo že indukcijo na naravnih številih. Zapišemo jo lahko na več načinov,
+kjer naslednika števila `n` označimo `n⁺`:
+
+1. Kot aksiom o predikatih na naravnih številih:
+
+        φ(0) ∧ (∀ n ∈ N . φ(n) ⇒ φ(n⁺)) ⇒ ∀ m ∈ N . φ(m)
+
+2. Kot lastnost podmnožic naravnih števil:
+
+        ∀ S ∈ P(N) . 0 ∈ S ∧ (∀ k ∈ N . k ∈ S ⇒ k⁺ ∈ S) ⇒ S = N
+
+Uporabljali bomo verzijo s podmnožicami. Najprej jo predelajmo v ekvivalentno obliko:
+
+    ∀ S ∈ P(N) . 0 ∈ S ∧ (∀ k ∈ N . k ∈ S ⇒ k⁺ ∈ S) ⇒ S = N
+    ∀ S ∈ P(N) . 0 ∈ S ∧ (∀ m ∈ N . (∀ k ∈ N . k⁺ = m ⇒ k ∈ S) ⇒ m ∈ S) ⇒ S = N
+    ∀ S ∈ P(N) . (∀ m ∈ N . (∀ k ∈ N . k⁺ = m ⇒ k ∈ S) ⇒ m ∈ S) ⇒ S = N
+
+Kaj smo dosegli? Bazo indukcije in indukcijski korak smo združili v eno samo predpostavko
+
+    ∀ m ∈ N . (∀ k ∈ N . k⁺ = m ⇒ k ∈ S) ⇒ m ∈ S          (1)
+
+Če vstavimo `m := 0`, dobimo:
+
+    (∀ k ∈ N . k⁺ = 0 ⇒ k ∈ S) ⇒ 0 ∈ S
+    (∀ k ∈ N . ⊥ ⇒ k ∈ S) ⇒ 0 ∈ S
+    (∀ k ∈ N . ⊤) ⇒ 0 ∈ S
+    ⊤ ⇒ 0 ∈ S
+    0 ∈ S
+
+Če vstavimo `m := n⁺` dobimo:
+
+    ∀ m ∈ N . (∀ k ∈ N . k⁺ = n⁺ ⇒ k ∈ S) ⇒ n⁺ ∈ S
+    ∀ m ∈ N . (∀ k ∈ N . k = n ⇒ k ∈ S) ⇒ n⁺ ∈ S
+    ∀ m ∈ N . n ∈ S ⇒ n⁺ ∈ S
+
+To pa sta ravno običajna pogoja za indukcijo.
+
+Ali lahko izrazimo indukcijo na naravnih številih tudi brez operacije naslednik?
+Da, s pomočjo relacije `<`:
+
+    ∀ S ∈ P(N) . (∀ m ∈ N . (∀ k ∈ N . k < m ⇒ k ∈ S) ⇒ m ∈ S) ⇒ S = N
+
+Temu principu pravimo tudi *krepka indukcija*, z besedami jo povemo takole:
+Za podmnožico `S ⊆ N` velja `S = N`, če za vse `m ∈ N` velja:
+
+> Če so vsa števila manjša od `m` v `S`, potem je tudi `m` v `S`.
+
+Denimo, da `S` res ima dano lastnost. Ali je `0 ∈ S`? Da, ker za vse predhodnike `0` velja, da
+so `S` (saj jih ni). Ali je `1 ∈ S`? Da, saj za vse predhodnike `1` velja, da so v `S`. Ali je `2 ∈
+S`? Da, saj za vse predhodnike `2` velja, da so v `S`. In tako naprej.
+
+\subsection{Dobra osnovanost}
+
+Princip indukcije na naravnih številih posplošimo.
+
+**Definicija:** Relacija `R ⊆ A × A` je **dobro osnovana**, če velja:
+
+    ∀ S ∈ P(A) . (∀ y ∈ A . (∀ x ∈ A . x R y ⇒ x ∈ S) ⇒ y ∈ S) ⇒ S = A.
+
+Množici `S ⊆ A`, ki zadošča pogoju
+
+    ∀ y ∈ A . (∀ x ∈ A . x R y ⇒ x ∈ S) ⇒ y ∈ S
+
+pravimo **`R`-progresivna** množica.
+
+Kaj smo pravzaprav naredili: opazili smo, da ima relacija "`k` je neposredni predhodnik
+`m`" na `N` pomembno lastnost (1). Zanima nas, ali imajo tudi druge relacije to lastnost,
+saj nam bodo omogočile neke vrste posplošen princip indukcije. Z definicijo smo dali
+relacijam, ki nas zanimajo, ime.
+
+\subsubsection{Primer: dvojiška drevesa}
+
+Naravna števila `N` so *induktivno definirana množica*. To pomeni, da elemente `N`
+opredelimo s pravili, ki povedo, kako se gradi naravna števila:
+
+1. `0 ∈ N`
+2. če je `n ∈ N`, potem je `n⁺ ∈ N`
+
+Množica `N` vsebuje natanko tiste elemente, ki jih lahko zgradimo s pomočjo teh pravil:
+
+    0, 0⁺, 0⁺⁺, 0⁺⁺⁺, 0⁺⁺⁺⁺, …
+
+Tu sta `0` in `⁺` mišljena kot simbolni oznaki, podobno kot `in₁` in `in₂` v definiciji
+vsote množic.
+
+Na tak način lahko definiramo tudi druge množice. Na primer, **dvojiška drevesa** so
+induktivno definirana množica `Tree`, s predpisoma:
+
+1. `empty ∈ Tree`
+2. če je `t₁ ∈ Tree` in `t₂ ∈ Tree`, potem je `tree(t₁, t₂) ∈ Tree`
+
+Z besedami: drevo je bodisi prazno, bodisi je sestavljeno iz dveh *poddreves*. Ali znamo
+našteti vsa drevesa, ali še bolje, jih narisati?
+
+    empty,
+    tree(empty, empty)
+    tree(empty, tree(empty, empty)),
+    tree(tree(empty, empty), empty),
+    tree(tree(empty, empty), tree(empty, empty)),
+    ⋮
+
+Definirajmo relacijo `R ⊆ Tree × Tree` s predpisom:
+
+    t R s ⇔ ∃ u ∈ Tree . s = tree(t, u) ∨ s = tree(u, t)
+
+To je relacija "neposredno poddrevo". Ta relacija je dobro osnovana (česar ne bomo
+dokazali) in nje pa dobimo naslednji princip indukcije za dvojiška drevesa.
+
+**Indukcija za dvojiška drevesa:** Naj bo `S ⊆ Tree` podmnožica dreves, za katero velja:
+
+1. Prazno drevo je v `S`.
+2. Za vsa drevesa `t₁` in `t₂` velja: če je `t₁ ∈ S` in `t₂ ∈ S`, potem je `tree(t₁, t₂) ∈ S`.
+
+Tedaj je `S = Tree`.
+
+Princip povejmo še kot logični princip:
+
+**Indukcija za dvojiška drevesa:** Naj bo `φ` lastnost dvojiških dreves, za katero velja:
+
+1. Baza indukcije: `φ(empty)`
+2. Indukcijski korak: za vsa drevesa `t₁` in `t₂`, če velja `φ(t₁)` in `φ(t₂)`, potem
+   `φ(tree(t₁, t₂))`.
+
+Tedaj `∀ t ∈ Tree, φ(t)`.
+
+Kot vidimo, imamo v indukcijskem koraku *dve* indukcijski predpostavki, ker ima vsako
+sestavljeno drevo dve poddrevesi.
+
+
+\subsubsection{Dobra osnovanost in padajoče verige}
+
+Kako pa bi dobili kak protiprimer, se pravi, relacijo, ki ni dobra osnovanost? Poiskati
+moramo kako lastnost, ki jo imajo vse dobre osnovanosti.
+
+**Definicija:** Naj bo `R ⊆ A × A` relacija na `A`. **Padajoča veriga** (za relacijo `R`)
+je zaporedje `a : N → A`, za katerega velja `∀ i ∈ N . a(i+1) R a(i)`.
+
+Se pravi, da je padajoča veriga zaporedje, za katerega velja
+
+    ⋯ a_4 R a_3 R a_2 R a_1 R a_0
+
+**Cikel** je končna podmnožica `{a_0, …, a_n}` da velja
+
+     a_0 R a_1 R ⋯ R a_n R a_0
+
+Iz takega cikla dobimo padajočo verigo, tako da cikel ponavljamo v nedogled:
+
+     ⋯ R a_0 R ⋯ R a_n R a_0 R a_1 R ⋯ R a_n R a_0
+
+**Lemma:** V dobri osnovanosti ni ciklov in ni padajočih verig.
+
+*Dokaz.* Dovolj je pokazati, da ni padajočih verig, saj iz cikla dobimo padajočo verigo.
+Denimo, da je `a : N → A` padajoča veriga za `R ⊆ A × A`. Dokazali bomo, da `R` ni dobro
+osnovana. Se pravi, da moramo poiskati `R`-progresivno podmnožico `S ⊆ A`, za katero velja
+`S ≠ A`. Vzemimo `S := A \ { a(i) | i ∈ N }`. Očitno velja `S ≠ A`, saj je `a(0) ∈ A` in
+`a(0) ∉ S`. Preverimo, da je `S` progresivna, se pravi, da je
+
+    ∀ y ∈ A . (∀ x ∈ A . x R y ⇒ x ∈ S) ⇒ y ∈ S
+
+Naj bo `y ∈ A` in denimo, da velja
+
+    ∀ x ∈ A . x R y ⇒ x ∈ S                               (2)
+
+Dokazati moramo `y ∈ S`. Obravnavamo dve možnosti:
+
+1. Če `y ∈ S`, potem seveda sledi `y ∈ S`.
+
+2. Če `y ∉ S`, potem obstaja `i ∈ N`, da je `y = a(i)`. Ker je `a(i+1) R a(i)`, iz
+   predpostavke (2) sledi `y = a(i) ∈ S`.
+
+Torej v vsakem primeru velja `y ∈ S`. □
+
+**Protiprimer:** Sedaj lahko zlahka priskrbimo kak protiprimer. Na primer, cela števila
+`Z` z relacijo `R ⊆ Z × Z`
+
+    a R b ⇔ a + 1 = b
+
+niso dobro osnovana, ker imajo padajočo verigo
+
+    ⋯ R (-3) R (-2) R (-1) R 0
+
+Prav tako ni dobro osnovana relacija `<` na intervalu `[0,1]`, ker imamo padajočo verigo
+`a(n) = 2^{-n}`.
+
+
+\section{Dobra urejenost}
+
+Posplošimo sedaj še krepko indukcijo na naravnih številih. Tokrat bomo najprej posplošili
+strogo urejenost `<`.
+
+\subsection{Stroge urejenosti}
+
+**Definicija:** Relacija `R ⊆ A × A` je **stroga urejenost**, če je
+
+1. irefleksivna: `∀ x ∈ A . ¬ (x R x)`
+2. tranzitivna: `∀ x, y, z ∈ A . x R y ∧ y R z ⇒ x R z`
+
+Stroga urejenost je **linearna**, če je še
+
+3. sovisna: `∀ x, y ∈ A . x R y ∨ x = y ∨ y R x.`
+
+Za stroge urejenosti uporabljamo simbole `<`, `⊂`, `≺`, `⊏` ipd.
+
+Relaciji `<` in `≤` na številih sta med seboj povezani, saj denimo za realna števila velja
+
+    x < y ⇔ x < y ∧ x ≠ y
+
+in
+
+    x ≤ y ⇔ x < y ∨ x = y            (3)
+
+To velja v splošnem. Stroa urejenost `<` na množici `A` porodi delno urejenost `≤` na `A`,
+definirano s predpisom:
+
+    x ≤ y  ⇔  x = y ∨ x ≤ y
+
+V obratno smer, delna urejenost `⊑` določa strogo urejenost `⊏`, definirano s predpisom
+
+    a ⊏ b  ⇔  a ≠ b ∧ a ⊑ b         (4)
+
+Seveda je treba preveriti naslednja dejstva:
+
+* če je `<` stroga urejenost, potem je `≤` definirana s (3) delna urejenost
+* če je `⊑` delna urejenost, potem je `⊏` definirana s (4) stroga urejenost.
+
+Tako lahko prehajamo med delno in strogo urejenostjo.
+
+\subsection{Dobra ureditev}
+
+**Definicija:** Relacija je **dobra ureditev**, če je dobro osnovana in stroga linearna ureditev.
+
+**Izrek:** Relacija je dobra ureditev natanko tedaj, ko je dobro osnovana in sovisna.
+
+*Dokaz.* V eno smer je ekvivalenca očitna, zato dokažimo samo obratno smer. Denimo, da je
+`R ⊆ A × A` dobro osnovana in sovisna relacija. Doazujemo, da je dobra ureditev, se pravi,
+da potrebujemo še irefleksivnost in tranzitivnost `R`:
+
+* `R` je irefleksivna: če bi veljalo `x R x` za `x ∈ A`, potem `R` ne bi bila dobro
+  osnovana, ker bi vsebovala padajočo verigo `⋯ x R x R x`.
+
+* `R` je tranzitivna: denimo, da velja `x R y` in `x R z`. Dokazujemo `x R z`. Ker je `R`
+  sovisna, velja `x R z` ali `x = z` ali `z R x`. Pokažimo, da `x = z` in `z R x` nista
+  možna:
+
+      1. če je `x = z`, potem velja `x R y` in `y R x`, torej `x` in `y` tvorita cikel, a
+         `R` je dobro osnovana, zato to ni možno.
+
+      2. če velja `z R x`, potem dobimo cikel `x R y R z R x`, kar spet ni možno. □
+
+
+**Lema:** Denimo, da je `<` stroga urejenost na neprazni množici `B`. Če `B` nima
+`≤`-minimalnega elementa, potem ima padajočo verigo.
+
+*Dokaz.* Denimo, da `B` nima minimalnega elementa, torej
+
+    ¬ ∃ x ∈ B . ∀ y ∈ B . y ≤ x ⇒ y = x.
+
+To je ekvivalentno
+
+    ∀ x ∈ B . ∃ y ∈ B . y ≤ x ∧ y ≠ x
+
+kar je ekvivalentno
+
+    ∀ x ∈ B . ∃ y ∈ B . y < x.               (5)
+
+Padajočo verigo `b : N → B` definiramo z zaporedjem izbir: ker je `B` neprazna, lahko izberemo
+neki element `b(0) ∈ B`. Denimo, da smo za neki `i ∈ N` že izbrali elemente `b(0), ..., b(i)`
+tako, da velja
+
+    b(i) < b(i-1) < ... < b(1) < b(0).
+
+Ker `B` nima minimalnega elementa, `b(i)` ni minimalni, torej po (5) obstaja tak `y ∈ B`, da je
+`y < b(i)`. Torej lahko izberemo `b(i+1) ∈ B`, da velja `b(i+1) < b(i)`. □
+
+Pozor: v zgornjem dokazu smo uporabili *aksiom odvisne izbire*, ki je poseben primer
+aksioma izbire in o katerem bomo še govorili.
+
+**Izrek:** Naj bo `⊏` relacija na `A`. Tedaj so ekvivalentne naslednje izjave:
+
+1. `⊏` je dobro osnovana
+2. vsaka *neprazna* `S ⊆ A` ima `⊑`-minimalni element
+3. A nima `⊏`-padajoče verige.
+
+*Dokaz.*
+
+`(1) ⇒ (2)` Denimo, da je `S ⊆ A` neprazna. Če uporabimo (1) na `A \ S` dobimo
+
+     (∀ y ∈ A . (∀ x ∈ A . x ⊏ y ⇒ x ∈ A \ S) ⇒ y ∈ A \ S) ⇒ A \ S = ∅
+
+Ker je `S` neprazna, dobimo zaporedje ekvivalentnih izjav:
+
+     (∀ y ∈ A . (∀ x ∈ A . x ⊏ y ⇒ x ∈ A \ S) ⇒ y ∈ A \ S) ⇒ ⊥
+
+     ¬ (∀ y ∈ A . (∀ x ∈ A . x ⊏ y ⇒ x ∈ A \ S) ⇒ y ∈ A \ S)
+
+     ∃ y ∈ A . (∀ x ∈ A . x ⊏ y ⇒ x ∈ A \ S) ∧ y ∉ A \ S
+
+     ∃ y ∈ A . (∀ x ∈ A . x ⊏ y ⇒ x ∉ S) ∧ y ∈ S
+
+     ∃ y ∈ S . ∀ x ∈ A . x ⊏ y ⇒ x ∉ S
+
+     ∃ y ∈ S . (∀ x ∈ A . x ⊏ y ⇒ x ∉ S)
+
+Torej obstaja element `y ∈ S` z lastnostjo, da pod njim ni nobenega elementa iz
+`S`, kar pa pomeni, da je `y` iskani minimalni element.
+
+(2) ⇒ (3) Denimo, da je `a : N → A` padajoča veriga. Tedaj slika `{ a(n) | n ∈ N }` ne bi imela
+minimalnega elementa, v nasprotju z (2).
+
+(3) ⇒ (1) Denimo, da je `S ⊆ A` progresivna. Trdimo, da množica `C := A \ S` nima
+minimalnega elementa. Če bi bil `c ∈ C` minimalni v `C`, bi to pomenilo
+
+    ∀ x ∈ A . x ⊏ c ⇒ x ∉ C,
+
+kar je ekvivalentno
+
+    ∀ x ∈ A . x ⊏ c ⇒ x ∈ S.
+
+Ker je `S` progresivna, od tod sledi `c ∈ S`, kar ni mogoče.
+
+Dokazati moramo, da je `C` prazna. Če ne bi bila, bi lahko uporabili lemo in dobili padajočo
+verigo v `A`, kar je v nasprotju s (3). □
+
+**Izrek:** Naj bo `⊏` stroga urejenost na `A`. Tedaj so ekvivalentne naslednje izjave:
+
+1. `⊏` je dobro urejena
+2. vsaka *neprazna* množica `S ⊆ A` ima `⊏`-prvi element: to je tak `x ∈ S`, da velja
+   `∀ y ∈ S . x ≠ y ⇒ x ⊏ y`.
+3. A nima `⊏`-padajoče verige in `⊏` je sovisna
+
+Dokaz je podoben dokazu prejšnjega izreka. Poskusite ga dokazati sami tako, da predelate
+dokaz prejšnjega izreka.
+
+**Primeri:**
+
+1. Naravna števila `N` urejena z relacijo `<`.
+
+2. Končna množica `{0, …, n}` urejena z relacijo `<`.
+
+3. Če sta `(P, ≤_P)` in `(Q, ≤_Q)` dobri urejenosti, potem je dobro urejena tudi
+   `P + Q` z relacijo `⊑`, ki `P` postavi pred `Q`:
+
+        u ⊑ v ⇔
+         (∃ x ∈ P . ∃ y ∈ Q . u = in₁(x) ∧ v = in₂(y)) ∨
+         (∃ x ∈ P . ∃ y ∈ P . u = in₁(x) ∧ v = in₁(y) ∨ x ≤_P y) ∨
+         (∃ x ∈ Q . ∃ y ∈ Q . u = in₂(x) ∧ v = in₂(y) ∨ x ≤_Q y).
+
+4. S prejšnjim primerom lahko seštevamo dobre urejenosti, na primer `N + 3` je dobra
+   urejenost
+
+        0 < 1 < 2 < ⋯ < ω < ω + 1 < ω + 2
+
+    Ali pa ω + ω
+
+        0 < 1 < 2 < ⋯ < ω < ω + 1 < ω + 2 < ⋯
