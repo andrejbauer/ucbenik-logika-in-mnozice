@@ -7,8 +7,6 @@ Struktura repozitorija:
 
 * `zapiski` -- zapiski s predavanj, ki jih postopoma pretapljamo iz Markdown v LaTeX
 * `ucbenik` -- izvorna koda za učbenik, ki se bo nekega dne združil z zapiski
-* `vaje-2017` -- vaje v šolskem letu 2017/18
-* `predavanja-2017` -- oris predavanj v šolskem letu 2017/18
 
 ## Licenca
 
