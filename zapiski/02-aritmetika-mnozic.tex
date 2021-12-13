@@ -82,7 +82,7 @@ velja $(h \circ g) \circ f = h \circ (g \circ f)$. Res, za vsak $x \in A$ velja
 \end{align*}
 %
 torej želena\footnote{Piše se ">želen"< in ne ">željen"<, ker je ">želen"< deležnik na
-  ">n"< glagola ">želeti"<. V slovenščini ni glagola ">željeti"<. Hitro boste spoznali, da na profesorji za matematiko radi popravljajo slovnico.} enačba sledi iz principa ekstenzionalnosti za funkcije.
+  ">n"< glagola ">želeti"<. V slovenščini ni glagola ">željeti"<. Hitro boste spoznali, da na FMF profesorji za matematiko radi popravljajo slovnico.} enačba sledi iz principa ekstenzionalnosti za funkcije.
 
 \textbf{Identiteta je nevtralni element za kompozitum:} za vsako preslikavo $f : A \to B$ velja
 %
@@ -122,7 +122,7 @@ pri čemer je $x \in A$ in $y \in B$. To je dovoljeno, ker je vsak element domen
 
 \begin{primer}
 
-\textbf{Primer:} Preslikavo
+Preslikavo
 %
 \begin{align*}
   \RR \times \RR  &\to  \RR \\
@@ -208,7 +208,7 @@ S tem zagotovimo, da predpis obravnava vse možne primere (celovitost) in da ne 
 
 \subsection{Funkcijski predpis, podan po kosih}
 
-Omenimo še en pogost način podajanja funkcij, namreč s predisom po kosih.
+Omenimo še en pogost način podajanja funkcij, namreč s predpisom po kosih.
 
 \begin{primer}
   Preslikava ">absolutno"< je definirana po kosih za negativna in nenegativna števila:
@@ -238,7 +238,7 @@ Omenimo še en pogost način podajanja funkcij, namreč s predisom po kosih.
 \end{primer}
 
 
-Pri takem zapisu moramo paziti, da kosi skupaj pokrivajo domeno (vsi elementi domene so obravnavani) in da se kosi se ne prekrivajo (vsak element domene je obravnavan natanko enkrat). Pravzaprav se smejo kosi prekrivati, a moramo v tem primeru preveriti, da se na skupnih delih skladajo, se pravi, da vsi kosi podajajo enake vrednosti na preseku.
+Pri takem zapisu moramo paziti, da kosi skupaj pokrivajo domeno (vsi elementi domene so obravnavani) in da se kosi ne prekrivajo (vsak element domene je obravnavan natanko enkrat). Pravzaprav se smejo kosi prekrivati, a moramo v tem primeru preveriti, da se na skupnih delih skladajo, se pravi, da vsi kosi podajajo enake vrednosti na preseku.
 
 \begin{primer}
   Preslikavo ">absolutno"< bi lahko podali takole:
@@ -263,7 +263,7 @@ Poglejmo si nekaj preslikav, ki slikajo iz in v eksponente množice.
 \textbf{Evalvacija} ali \textbf{aplikacija} ali \textbf{uporaba} je preslikava, ki sprejme preslikavo in argument, ter preslikavo uporabi na argumentu:
 %
 \begin{align*}
-  \mathsf{ev} &: B\^A \times A \to B \\
+  \mathsf{ev} &: B^A \times A \to B \\
   \mathsf{ev} &: (f, x) \mapsto f(x)
 \end{align*}
 %
@@ -273,7 +273,7 @@ Pravimo, da je $\mathsf{ev}$ \textbf{preslikava višjega reda}, ker slika presli
   Določeni integral $\int_0^1$ je funkcija višjega reda, ker
   sprejme funkcijo $[0,1] \to \RR$ in vrne realno število. Je torej preslikava
   $\RR^{[0,1]} \to \RR$, če se pretvarjamo, da lahko integriramo vsako funkcijo.
-  Bolj pravilno bi bilo reči, da je $\int_0^1$ preslikava iz množice \emph{itegrabilnih funkcij $[0,1] \to \RR$} v realna števila.
+  Bolj pravilno bi bilo reči, da je $\int_0^1$ preslikava iz množice \emph{integrabilnih funkcij $[0,1] \to \RR$} v realna števila.
 \end{primer}
 
 Kompozitum preslikav je tudi preslikava višjega reda:
@@ -286,7 +286,7 @@ Kompozitum preslikav je tudi preslikava višjega reda:
 Tretja splošna preslikava višjega reda je ">currying"< (ali zna kdo to prevesi v slovenščino?):
 %
 \begin{align*}
-  A^(B \times C) &\to (A^B)^C \\
+  A^{(B \times C)} &\to (A^B)^C \\
   f &\mapsto (c \mapsto (b \mapsto f(b, c))).
 \end{align*}
 %
@@ -349,7 +349,7 @@ Pravzaprav je to izomorfizem, katerega inverz je ">uncurrying"<:
 Ali znate utemeljiti vsakega od zgornjih korakov?
 
 \begin{definicija}
-  Presikava, ki ima inverz, se imenuje \textbf{izomorfizem}.
+  Preslikava, ki ima inverz, se imenuje \textbf{izomorfizem}.
 \end{definicija}
 
 Če je $f : A \to B$ izomorfizem, potem ima natanko en inverz $B \to A$, ki ga označimo $\inv{f}$.
@@ -414,7 +414,7 @@ Ali znate utemeljiti vsakega od zgornjih korakov?
 \end{dokaz}
 
 \begin{primer}
-  $A \times B \iso B \times A$, ker imamo izmorfizem in njegov inverz
+  $A \times B \iso B \times A$, ker imamo izomorfizem in njegov inverz
   %
   \begin{align*}
     A \times B  &\to  B \times A      &    B \times A  &\to  A \times B \\
@@ -452,10 +452,10 @@ veljajo za števila. Ali gre tu za kako globjo povezavo?
   \begin{enumerate}
     \item $A^1 \iso A$
     \item $1^A \iso 1$
-    \item $A \emptyset \iso 1$
-    \item $\emptyset^A \iso \emptyset če A \neq \emptyset$
-    \item $A^(B \times C) \iso (A^B)^C$
-    \item $A^(B + C) \iso A^B \times A^C$
+    \item $A^{\emptyset }\iso 1$
+    \item $\emptyset^A \iso \emptyset , če  A \neq \emptyset$
+    \item $A^{(B \times C)} \iso (A^B)^C$
+    \item $A^{(B + C)} \iso A^B \times A^C$
     \item $(A \times B)^C \iso A^C \times B^C$
   \end{enumerate}
 \end{enumerate}
