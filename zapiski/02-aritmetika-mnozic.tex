@@ -263,7 +263,7 @@ Poglejmo si nekaj preslikav, ki slikajo iz in v eksponente množice.
 \textbf{Evalvacija} ali \textbf{aplikacija} ali \textbf{uporaba} je preslikava, ki sprejme preslikavo in argument, ter preslikavo uporabi na argumentu:
 %
 \begin{align*}
-  \mathsf{ev} &: B\^A \times A \to B \\
+  \mathsf{ev} &: B^A \times A \to B \\
   \mathsf{ev} &: (f, x) \mapsto f(x)
 \end{align*}
 %
@@ -286,7 +286,7 @@ Kompozitum preslikav je tudi preslikava višjega reda:
 Tretja splošna preslikava višjega reda je ">currying"< (ali zna kdo to prevesi v slovenščino?):
 %
 \begin{align*}
-  A^(B \times C) &\to (A^B)^C \\
+  A^{(B \times C)} &\to (A^B)^C \\
   f &\mapsto (c \mapsto (b \mapsto f(b, c))).
 \end{align*}
 %
@@ -452,10 +452,10 @@ veljajo za števila. Ali gre tu za kako globjo povezavo?
   \begin{enumerate}
     \item $A^1 \iso A$
     \item $1^A \iso 1$
-    \item $A \emptyset \iso 1$
-    \item $\emptyset^A \iso \emptyset če A \neq \emptyset$
-    \item $A^(B \times C) \iso (A^B)^C$
-    \item $A^(B + C) \iso A^B \times A^C$
+    \item $A^{\emptyset }\iso 1$
+    \item $\emptyset^A \iso \emptyset , če  A \neq \emptyset$
+    \item $A^{(B \times C)} \iso (A^B)^C$
+    \item $A^{(B + C)} \iso A^B \times A^C$
     \item $(A \times B)^C \iso A^C \times B^C$
   \end{enumerate}
 \end{enumerate}
