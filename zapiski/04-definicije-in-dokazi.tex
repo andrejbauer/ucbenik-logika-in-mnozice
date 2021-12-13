@@ -1,0 +1,251 @@
+\chapter{Enolični obstoj}
+
+\section{Kvantifikator za enolični obstoj `∃!`}
+
+S kvantifikatorjema `∀` in `∃` lahko izrazimo tudi druge kvantifikatorje.
+Na primer, "Obstajata vsaj dva elementa `x` in `y` iz `A`, da velja `ϕ` lahko zapišemo
+
+    ∃ x ∈ A . ∃ y ∈ A . x ≠ y ∧ ϕ
+
+**Naloga:** S pomočjo `∀` in `∃` zapišite izjavo »Obstajata natanko dva elementa `x` in `y` iz `A`, da velja `ϕ`«.
+
+Kako pa izrazimo »obstaja natanko en `x` iz `A`, da velja `ϕ(x)`«? Takole:
+
+    (∃ x ∈ A . φ(x)) ∧ ∀ x y ∈ A . φ(x) ∧ φ(y) ⇒ x = y
+
+ali ekvivalentno
+
+    ∃ x ∈ A . φ(x) ∧ ∀ x ∈ A . φ(y) ⇒ x = y
+
+To okrajšamo `∃! x ∈ A . φ(x)` in beremo »Obstaja natanko en `x` iz `A`, da velja `ϕ(x)`«.
+
+Uporablja se tudi zapis `∃¹ x ∈ A . φ(x)`.
+
+\section{Operator enoličnega opisa}
+
+Če dokažemo, da obstaja natanko en `x ∈ A`, ki zadošča pogoju `ϕ(x)`, potem se lahko nanj smiselno sklicujemo z »tisti
+`x` iz `A`, ki zadošča `ϕ(x)`«.
+
+Primeri:
+
+* »tisto realno število `x`, za katero je `x³ = 2`« (kubični koren 2)
+* »tista množica `S`, ki nima nobenega elementa« (prazna množica)
+
+Proti-primeri:
+
+* »tisto racionalno število `x`, za katero je `x² = 2` (takega števila ni)
+* »tisto realno število `x`, za katero je `x² = 2` (dve taki števili sta)
+* »tista množica `S`, ki ima natanko en element` (takih množic je zelo veliko)
+
+To je lahko zelo koristen način za opredelitev matematičnih objektov, zato uvedemo zanj simbolni zapis.
+Če dokažemo
+
+    ∃! x ∈ A . φ(x)
+
+potem lahko pišemo
+
+    ι x ∈ A . φ(x)
+
+kar preberemo: "tisti `x ∈ A`, za katerega velja `φ(x)`". Torej velja:
+
+    φ(ι x ∈ A . φ(x))
+
+Spremenljivka `x` je *vezana* v `ι x ∈ A . φ(x)`.
+
+
+**Primer:** Denimo, da še ne bi poznali simbola `√` za kvadatne korene. Tedaj bi
+lahko kvadratni koren iz `2` zapisali kot
+
+    ι x ∈ R . (x > 0 ∧ x^2 = 2)
+
+Še več, preslikavo `√ : [0,∞) → [0,∞)` lahko definiramo s pomočjo zapisa `ι`:
+
+    √ : x ↦ (ι y ∈ ℝ . (y ≥ 0 ∧ y² = x))
+
+
+**Naloga:** Zapiši »limita zaporedja `a : ℕ → ℝ`« z operatorjem `ι` (pod predpostavko, da je `a` konvergentno
+zaporedje). Najprej povej z besedami »limita zaporedja `a` je tisti `x ∈ ℝ`, ki ...«, nato pa zapiši še v obliki `ι x ∈ ℝ . ⋯`.
+
+*Pomni:* zapis `ι x ∈ A . ϕ(x)` je dopusten samo v primeru, da velja `∃! x ∈ A . φ(x)`.
+
+
+\chapter{Spremenljivke in definicije}
+
+
+Preden v matematičnem ebsedilu uporabimo simbol ali spremenljivko, ga moramo *vpeljati*. To pomeni, da moramo pojasniti, kakšen je pomen simbola. Poznamo dva osnovna načina za vpeljavo novih simbolov:
+
+* Nov simbol `s` lahko **definiramo** kot okrajšavo za neki drugi izraz (ki je lahko tudi logična formula).
+* Nov simbol `s` je (prosta) **spremenljivka**, ki predstavlja neki (neznano, poljubno, nedoločeno) element dane množice `A`.
+
+V obeh primerih dodamo simbol `s` v kontekst, se pravi v spisek znanih simbolov. Če smo simbol uvedli le začasno (na
+primer v enem poglavju, ali v delu dokaza), ga iz konteksta odstranimo, ko ni več veljaven.
+
+Matematiki zapisujejo definicije in vpeljujejo spremenljivke na razne načine.
+
+\section{Vpeljava spremenljivke}
+
+Če želimo vpeljavi spremljivko `x`, ki predstavlja neki poljuben ali neznani element množice `A`, zapišemo
+
+    Naj bo x ∈ A.
+
+S tem postane `x` veljavna spremenljivka, ki jo lahko uporabljamo. O njen vemo le to, da je element množice `A` – pravimo, da je `x` *prosta* spremenljivka. V matematičnih besedilih boste zasledili tudi naslednje fraze:
+
+* »Naj bo `x ∈ A` poljuben.«
+* »Obravnavajmo poljuben `x ∈ A`.«
+* »Izberimo poljuben `x ∈ A`.«
+* »Denimo, da imamo poljuben `x ∈ A`.«
+
+Pozor, beseda "izberimo" bi komu dala misliti, da si lahko izbere neki konkretni `x`, a to preprečuje beseda "poljuben", ki jo matematik uporabi, kadar želi povedati, da je `x` neznana (poljubna) vrednost.
+
+**Naloga:** Denimo, da učitelj reče »Naj bo `n` (poljubno) naravno število«, nato pa vas vpraša »Ali je `n` sodo število?« Kako boste odgovorili?
+
+
+\section{Definicija simbola}
+
+Definicija je v prvi vrsti **okrajšava** za neki izraz. Z njo uvedemo nov simbol `s` in mu pripišemo neko vrednost.
+Simbol `s` je enak vrednosti, ki smo mu jo pripisali. Simbolni zapis za definicijo je
+
+    s := ⋯
+
+Na primer, v besedilu bi lahko napisali "Naj bo `s := √(log₂ 7 + π/6)`." S tem smo v kontekst dodali simbol `s` in
+predpostavko, da je `s` enak `√(log₂ 7 + π/6)`. V matematičnih besedili boste zasledili tudi naslednje načine za definicijo:
+
+* `s = √(log₂ 7 + π/6)` (namesto `:=` uporabimo `=`)
+* `s ≡ √(log₂ 7 + π/6)` (namesto `:=` uporabimo `≡`)
+* `s =̂ √(log₂ 7 + π/6)` (namesto `:=` uporabimo `=̂`)
+
+Kadar definiramo simbol tako, da mu priredimo funkcijski predpis, recimo
+
+    f := (x ↦ x² + 7)
+
+to raje zapišemo kot
+
+    f(x) := x² + 7
+
+Kadar definiramo simbol s pomočjo enoličnega obstoja, recimo
+
+    r := ι x ∈ ℝ . x³ = 2
+
+to raje zapišemo z besedami:
+
+    Naj bo r tisto realno število, ki zadošča r³ = 2.
+
+Poglejmo še, kako definiramo okrajšave za logične formule. Defnimo, da želimo s `ϕ(x)` označiti izjavo `∃ y ∈ ℝ . y² =
+x + 1`. Glede na zgornji dogovor, zapišemo
+
+    ϕ := (x ↦ (∃ y ∈ ℝ . y² = x + 1))
+
+ali
+
+    ϕ(x) := (∃ y ∈ ℝ . y² = x + 1)
+
+Vendar takega zapisa v praksi ne boste videli. Dosti bolj pogost je zapis
+
+    ϕ(x) :⇔ ∃ y ∈ ℝ . y² = x + 1
+
+ali pa kar `ϕ(x) ⇔ ∃ y ∈ ℝ . y² = x + 1`.
+
+
+\subsection{Definicije novih matematičnih pojmov}
+
+Kaj pa definicije novih pojmov, ki jih srečujete pri predavanjih, denimo pri analizi? Na primer:
+
+**Definicija:** Zaporedje števil `a : ℕ → ℝ` je *neomejeno*, če za vsak `x ∈ ℝ` obstaja `i ∈ ℕ`, da je `aᵢ > x`.
+
+S stališča simbolnega zapisa, je to le uveba novega simbola `neomejeno`:
+
+    neomejeno(a) := (∀ x ∈ ℝ . ∃ i ∈ ℕ . aᵢ > x)
+
+Seveda bistvo take definicije ni le krajši zapis izjave `(∀ x ∈ ℝ . ∃ i ∈ ℕ . aᵢ > x)`, ampak uporabna vrednost pojma
+"neomejeno zaporedje".
+
+
+\chapter{Konstrukcije in dokazi}
+
+Matematiki v sklopu svojih aktivnosti **konstruiramo** matematične objekte:
+
+* v geometriji so znane konstrukcije z ravnilom in šestilom
+* računanje števk števila `π` je konstrukcija približka
+* reševanje enačbe, je konstrukcija števila z želeno lastnostjo
+* konstruiramo lahko elemente množice, pogosto kar tako, da jih zapišemo, na primer `(2, in₁(3)) ∈ ℕ × (ℤ + ℤ)`
+
+Poleg tega **dokazujemo** matematične izjave. Na dokaz lahko gledamo kot na konstrukcijo, saj je to le še ena zvrst
+matematičnega objekta. Ker pa so dokazi skoraj vedno zapisani v naravnem jeziku, jih matematiki pogosto dojemajo ločeno
+od ostalih matematičnih objekotv (števila, preslikave, množice, ploskve, ...).
+
+Kaj pravzaprav je dokaz? V prvi vrsti je dokaz utemeljitev matematične izjave. Zgrajen je po točno določenih *pravilih
+sklepanja*, ki jih lahko podamo formalno in jih tudi implementiramo na računalniku, s čimer se pri tem predmetu ne bomo
+ubadali, a kogar to zanima, si lahko ogleda »[The dawn of formalized mathematics](https://youtu.be/Z500sma3h90)«
+([prosojnice](https://www.icloud.com/keynote/0Gkr1yM7XY-31aQleWf-fiW7A#The_Dawn_of_Formalized_Mathematics)) in se nauči
+uporabljati kak [dokazovalni pomočnik](https://ncatlab.org/nlab/show/proof+assistant) (v zadnjem času hitro napreduje [Lean](https://leanprover.github.io)).
+
+V praksi ljudje ne pišejo vseh podrobnosti v dokazu, ker bi bil tak dokaz nečitljiv in nerazumljiv. Pogosto podajo samo
+glavno idejo, iz katere lahko izkušeni matematik sam rekonstruira dokaz. Iz dobro napisanega dokaza se lahko naučimo
+marsikaj novega, poleg goleda dejstva, da dokaza izjava velja.
+
+Mi bomo vadili podrobno pisanje dokazov. Pri ostalih predmetih boste videli "žive dokaze", ki imajo manj podrobnosti in so zapisani manj formalno. A vsi pravilni matematični dokazi se dajo zapisati na način, kot ga bomo predstavili mi (in celo zapisati povsem formalon z dokazovalnim pomočnikom).
+
+\section{Kako pišemo dokaze}
+
+Pravila sklepanja so kot pravila igre. Ne povedo, kako dobro igrati, samo kaj je dovoljeno. Seveda bomo hkrati s pravili
+sklepanja povedali nekaj namigov in nasvetov, kako dokaz poiščemo. A kot pri vsaki igri velja, da vaja dela mojstra.
+
+Dokaz ima vgnezdeno strukturo: sestoji iz delov in pod-dokazov, ki sestojijo iz nadaljnih pod-dokazov itn., ki se
+zaključijo z osnovnimi dejstvi. Vsi ti kosi so s pomočjo pravil sklepanja zloženi v dokazno "drevo".
+
+Ko pišemo dokaz, moramo v vsakem trenutku poznati
+
+* **cilj**: kaj trenutno dokazujemo in
+* **kontekst**: katere spremenljivke in predpostavke imamo trenutno na voljo.
+
+Ko napravimo korak v dokazu, mora biti utemeljen z enim od pravil sklepanja. Dokaz je
+popoln, ko smo utemeljili vse pod-dokaze, ki ga sestavljajo.
+
+\subsubsection{Primer}
+
+**Izjava:** `(p ∨ q) ∧ r ⇒ (p ∧ r) ∨ (q ∧ r).`
+
+Dokaz:
+
+```
+Dokažimo (p ∨ q) ∧ r ⇒ (p ∧ r) ∨ (q ∧ r)
+  Predpostavimo (p ∨ q) ∧ r.                         (1)
+  Zaradi (1) velja p ∨ q.                            (2)
+  Zaradi (1) velja r.                                (3)
+  Dokažimo (p ∧ r) ∨ (p ∧ r).
+     Zaradi (2) lahko obravnavamo dva primera:
+         1. Če velja p:                              (4)
+             Dokažimo (p ∧ r) ∨ (p ∧ r)
+                Dokažimo p ∧ r:
+                     1.1. p velja zaradi (4)
+                     1.2. r velja zaradi (3)
+         2. Če velja q:                              (5)
+             Dokažimo (p ∧ r) ∨ (q ∧ r)
+                Dokažimo q ∧ r:
+                     1.1. q velja q zaradi (5)
+                     1.2. r velja r zaradi (3)
+Konec dokaza.
+```
+
+Dokaz bi bolj po človeško napisali takole:
+
+> *Dokaz.* Predpostavimo `p ∨ q` in `r`. Če velja `p`, potem sledi `p ∧ r` ter od tod `(p ∧ r) ∨ (p ∧ r)`. Če pa velja `q`, sledi `q ∧ r` ter spet `(p ∧ r) ∨ (p ∧ r)`. □
+
+Ali pa kar takole:
+
+> *Dokaz:* Očitno.
+
+\section{Pravila sklepanja}
+
+Pravila sklepanja delimo na dve vrsti:
+
+* **pravila vpeljave** povedo, kako dokažemo izjavo
+* **pravila uporabe** povedo, kako lahko že znano izjavo uporabimo v dokazu neke druge izjave
+
+Poleg tega poznamo še pravila o zamenjavi:
+
+* **zamenjava enakih izrazov**: izraz lahko vedno zamenjamo z njim enakim
+* **zamenjava ekvivalentnih izjav**: izjavo vedno lahko zamenjamo z njej ekvivalentno
+
+Pravila sklepanja so zapisana v priloženi datoteki.
+

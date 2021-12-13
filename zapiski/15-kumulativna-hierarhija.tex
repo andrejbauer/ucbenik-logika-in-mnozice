@@ -1,0 +1,96 @@
+\section{Kumulativna hierahija}
+
+Če lahko vse matematične objekte kodiramo z množicami, potem lahko na razred
+vseh množic `Set` gledamo kot na celotni matematični svet. Razred `Set` ima
+zanimivo strukturo, ki ji pravimo **kumulativna hierarhija**. Namreč, s pomočjo
+aksiomov, ki jih bomo spoznali kasneje, lahko tvorimo vse množice iz `∅` z
+oparacijama potenčna množica in unija. Postopek je **transfiniten**, kar pomeni,
+da se nikoli ne konča in da po svoje številu presega moč vsake množice.
+
+    V₀ = ∅
+    V₁ = P(V₀) = {∅}
+    V₂ = P(V₁} = {∅, {∅}}
+    V₃ = P(V₂) = {∅, {∅}, {{∅}}, {∅, {∅}}}
+    ...
+    V_ω = ⋃ {Vᵢ | i < ω}
+    V_(ω+1) = P(V_ω)
+    V_(ω+2) = P(V_(ω+1))
+    ...
+    V_(ω + ω) = ⋃ {Vᵢ | i < ω + ω)}
+    ...
+
+Stopnje konstrukcija indeksiramo s t.i. **ordinalnimi števili**, ki jih bomo spoznali.
+
+\section{Ordinalna števila}
+
+**Definicija:** Množica $x$ je **tranzitivna**, če za vsak `y ∈ x` velja `y ⊆ x`.
+
+Izraz *tranzitivna* je smiselen, ker govori o tranzitivnosti relacije `∈`, saj lahko pogoj `y ∈ x ⇒ y ⊆ x` zapišemo kot `z ∈ y ∧ y ∈ x ⇒ z ∈ x`.
+
+Primeri tranzitivnih množic: `∅`, `{∅}`, `{∅, {∅}}`, `{{{∅}}, {∅}, ∅}`
+
+**Definicija:** Množica je **hereditarno tranzitivna**, če so vsi njeni elementi tranzitivne množice.
+
+(V splošnem se izraz "hereditarno" uporablja, kadar se lastnost nanaša na elemente, pomdnožice, ali podstrukture, se pravi na "potomce".)
+
+**Definicija:** **Ordinalno število** je tranzitivna in hereditarno tranzitivna množica. Razred vseh ordinalnih števil označimo z `On`.
+
+Definirajmo relacijo *naslednik* na množicah: `x^+ = x ∪ {x}`.
+
+Preverimo lahko tole:
+
+1. `∅ ∈ On`
+2. če je `α ∈ On`, potem je tudi `α^+ ∈ On`.
+3. `On` je zaprt za unije: če je `S ⊆ On` množica, potem je `U S ∈ On`.
+
+Sedaj lahko gradimo `On` iterativno:
+
+* `0 = ∅`
+* z opreacijo naslednik dobimo naravna števila `n = {0, ..., n-1}`
+* unija vseh naravnih števil je `ω`.
+* z naslednik gradimo `ω`, `ω + 1`, `ω + 2`, ...
+* unija teh je `ω + ω`
+* in tako naprej
+
+\section{Kardinalna števila}
+
+**Definicija:** Ordinalno število `α` je **kardinalno**, če za vsak `β < α`
+velja, da ne obstaja injektivna preslikava `α → β`.
+
+\subsection{Zakon trihotomije}
+
+V tem razadelku podamo še oris dokaza, da je aksiom izbire ekvivalenten zakonu trihotomije.
+
+**Definicija:** Naj bo `(P, <)` dobra urejenost. Podmnožica `I ⊆ P` je **začetni
+segment**, če je doljna množica: iz `x < y` in `y ∈ I` sledi `x ∈ I`.
+
+**Definicija:** Naj bosta `(P, <_P)` in `(Q, <_Q)` dobri urejenosti. Pravimo, da
+je preslikava `e : P → Q` **vložitev**, kadar velja:
+
+1. `e` je strogo monotona in
+2. slika `e_(P)` je začetni segment v `Q`.
+
+Vložitev je injektivna preslikava.
+
+**Lemma 1:** Naj bosta `(P, <_P)` in `(Q, <_Q)` dobri urejenosti. Če obstaja
+injektivna preslikava `P → Q`, potem obstaja tudi vložitev `P → Q`.
+
+Dokaz: opuščen.
+
+**Lemma 2:** Naj bosta `(P, <_P)` in `(Q, <_Q)` dobri urejenosti. Tedaj bodisi
+obstaja vložitev `P → Q` ali vložitev `Q → P`.
+
+Dokaz: opuščen.
+
+**Izrek:** Aksiom izbire je ekvivalenten zakonu trihotomije: za vse množice `X` in `Y` velja
+`|X| ≤ |Y|` ali `|Y| ≤ |X|`.
+
+Dokaz:
+
+Najprej predpostavimo, da velja aksiom izbire. Naj bosta `X` in `Y` množici. Ker
+velja aksiom izbire, lahko `X` in `Y` dobro uredimo, denimo z relacijama `<_X`
+in `<_Y`. Iz zgornje leme sledi, da obstaja vložitev `X → Y` ali `Y → X`.
+Ker so vložitve injektivne, torej velja `|X| ≤ |Y|` ali `|Y| ≤ |X|`.
+
+Predpostavimo zdaj, da za vse množice `X` in `Y` velja `|X| ≤ |Y|` ali `|Y| ≤
+|X|`. Dokazali bomo, da lahko vsako množico dobro uredimo, iz česar sledi aksiom izbire.

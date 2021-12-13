@@ -1,0 +1,333 @@
+\chapter{Množice}
+\label{chap:mnozice}
+
+V drugem delu predmeta bomo spoznali osnove teorije množic. Najprej pa
+se bomo posvetili še naravnim številom in Peanovim aksiomom.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Naravna števila}
+\label{sec:naravna-stevila}
+
+Naravna števila
+%
+\begin{equation*}
+  0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, \ldots
+\end{equation*}
+%
+vsi že dobro poznamo iz osnovne šole.\footnote{V teh zapiskih in v
+  logiki nasploh vzamemo za prvo naravno število $0$. V osnovni šoli
+  in drugje pa ponavadi za prvo naravno število jemljemo~$1$.} V tem
+razdelku pokažimo, kako uvedemo naravna števila kot formalno teorijo v
+logiki. V splošnem \emph{formalna teorija} opisuje neko matematično
+strukturo ali družino struktur in je podana z osnovnimi simboli
+(konstantami in operacijami), aksiomi in pravili sklepanja.
+
+Teorijo naravnih števil, ki jo imenujemo tudi \emph{Peanova
+  aritmetika}, sestoji iz konstante $0$, enočlene operacije
+naslednik~$\suc{n}$ ter dvočlenih operacij seštevanje~$m + n$ in
+množenje~$m \cdot n$. Množenje ia prednost pred seštevanjem, se pravi,
+da je $k + m \cdot n = k + (m \cdot n)$ in ne $(k + m) \cdot n$.
+Aksiomi in pravila sklepanja se glasijo:
+%
+\begin{enumerate}
+  \item Nič ni naslednik:
+  %
+  \begin{equation*}
+    \inferrule{ }{\suc{n} \neq 0}    
+  \end{equation*}
+  %
+  \item Če sta naslednika enaka, sta števili enaki:
+  %
+  \begin{equation*}
+    \inferrule{\suc{m} = \suc{n}}{m = n}
+  \end{equation*}
+  %
+  \item Pravili za seštevanje:
+  %
+  \begin{mathpar}
+    \inferrule{ }{0 + n = n}
+    \and
+    \inferrule{ }{\suc{m} + n = (m + n\suc{)}}    
+  \end{mathpar}
+  %
+  \item Pravili za množenje:
+  %
+  \begin{mathpar}
+    \inferrule{ }{0 \cdot n = 0}
+    \and
+    \inferrule{ }{\suc{m} \cdot n = m \cdot n + n}
+  \end{mathpar}
+  %
+  \item Princip indukcije:
+  %
+  \begin{equation*}        
+    \inferrule{\phi(0) \\ \xall{m}{\NN}{\phi(m) \lthen \phi(\suc{m})}}{\phi(n)}
+  \end{equation*}
+\end{enumerate}
+%
+Pri običajnem računanju z naravnimi števili uporabljamo vse znanje, ki
+smo ga pridobili v šoli. Ko pa obravnavamo naravna števila kot
+formalno teorijo, smemo uporabljati \emph{samo} konstante in simbole,
+ki jih vpeljemo v teoriji, in se sklicevati \emph{samo} na Peanove
+aksiome. Denimo, ker teorija ne vpelje simbolov $1$ in $2$, ju ne
+smemo uporabljati, razen če ju prej definiramo kot okrajšavi za
+$\suc{0}$ in $\suc{(\suc{0})}$. Prav tako ne smemo omenjati odštevanja
+števil, ker to ni ena od operacij $+$ in $\cdot$, ne smemo govoriti o
+parnosti števil, ne da bi prej ta pojem definirali, itn. Tudi osnovne
+lastnosti seštevanja in množenja, kot sta komutativnost in
+asociativnost, ne smemo uporabiti, če ju prej ne dokažemo. Matematiki
+so seveda preverili, da vse običajne lastnosti števil dejansko sledijo
+iz Peanovih aksiomov.
+
+Glavno orodje pri dokazovanju lastnosti naravnih števil je princip
+indukcije. V besedilu ga uporabimo takole:
+%
+\begin{quote}
+  \em
+  %
+  Dokazujemo $\phi(n)$ z indukcijo po~$n$:
+  %
+  \begin{enumerate}
+    \item Baza indukcije: (Dokaz, da velja $\phi(0)$.)
+    \item Indukcijski korak: denimo, da za naravno število $m$ velja
+      $\phi(m)$. (Dokaz, da velja $\phi(\suc{m})$.)
+  \end{enumerate}
+\end{quote}
+%
+Za zgled dokažimo, da je seštevanje komutativno. To naredimo v nekaj
+korakih.
+
+\begin{izjava}
+  \label{izjava:peano-n-plus-0}
+  Za vsako naravno število $m$ velja $m + 0 = m$.
+\end{izjava}
+
+\begin{dokaz}
+  Dokazujemo z indukcijo. Baza indukcije: $0 + 0 = 0$ po enem od
+  Peanovih aksiomov.
+  %
+  Indukcijski korak: denimo, da za naravno število $k$ velja $k + 0 =
+  k$. Tedaj je $\suc{k} + 0 = \suc{(k + 0)} = \suc{k}$, kjer smo v
+  prvem koraku uporabili enega od Peanovih aksiomov in v drugem
+  indukcijsko predpostavko.
+\end{dokaz}
+
+
+\begin{izjava}
+  \label{izjava:peano-m-plus-suc-n}
+  Za vsaki naravni števili $m$ in $n$ velja $m + \suc{n} = \suc{(m + n)}$.
+\end{izjava}
+
+\begin{dokaz}
+  Izjavo dokažemo z indukcijo po $m$.
+  Baza indukcije: $0 + \suc{n} = \suc{n} = \suc{(0 + n)}$.
+  %
+  Indkucijski korak: denimo, da za naravno število $k$ velja $k +
+  \suc{n} = \suc{(k + n)}$. Tedaj je
+  %
+  \begin{equation*}
+    \suc{k} + \suc{n} = 
+    \suc{(k + \suc{n})} =
+    \suc{{\suc{(k + n)}}} =
+    \suc{(\suc{k} + n)}.
+  \end{equation*}
+  %
+\end{dokaz}
+
+\begin{izjava}
+  Za vsaki naravni števili $m$ in $n$ velja $m + n = n + m$.
+\end{izjava}
+
+\begin{dokaz}
+  Izjavo dokažemo z indukcijo po $m$.
+  Baza indukcije: $0 + n = n = n + 0$, kjer smo v prvem koraku uporabili Peanov aksiom in v drugem Izjavo~\ref{izjava:peano-n-plus-0}.
+  %
+  Indukcijski korak: denimo, da za naravno število $k$ velja $k + n = n + k$. Tedaj je
+  %
+  \begin{equation*}
+    \suc{k} + n =
+    \suc{(k + n)} =
+    \suc{(n + k)} =
+    n + \suc{k}.
+  \end{equation*}
+  %
+  V prvem koraku smo uporabili Peanov aksiom, v drugem indukcijsko predpostavko, v tretjem pa Izjavo~\ref{izjava:peano-m-plus-suc-n}.
+\end{dokaz}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Množice}
+\label{sec:naivne-mnozice}
+
+Množice so osnovni gradniki matematičnih objektov in struktur. V tem razdelku obravnavamo množice \emph{naivno}, se pravi s pomočjo neformalnih razlag. Samo formalno teorijo množic in aksiome bomo obravnavali v razdelku~\ref{sec:zfc}.
+
+Množico si predstavljamo kot skupek ali zbirko poljubnih objektov, jim pravimo \emph{elementi} množice. Dejstvo, da je $x$ element množice $A$ zapišemo $x \in A$. Če $x$ ni element $S$, pišemo $x \not\in S$ kot okrajšavo za $\lnot (x \in S)$. Množica ni odvisna od tega, kako jo opišemo ali skonstruiramo, ampak le od tega, kateri elementi so v njej. To dejstvo izraža \emph{aksiomom o ekstenzionalnosti}, ki pravi, da sta množici $A$ in $B$ enaki natanko tedaj, ko vsebujeta iste elemente, kar zapišemo s formulo kot
+%
+\begin{equation*}
+  A = B \liff \uall{x}{x \in A \liff x \in B}.
+\end{equation*}
+%
+Množice gradimo iz osnovnih množic s pomočjo operacij.
+
+\subsection{Osnovne množice}
+\label{sec:osnovne-mnozice}
+
+Najpreprostejša osnovna množica je \emph{prazna množica}, ki jo označimo z $\emptyset$. Dejstvo, da prazna množica ne vsebuje nobenih elementov izrazimo z aksiomom o prazni množici,
+%
+\begin{equation*}
+  \xuall{x}{x \not\in \emptyset}.
+\end{equation*}
+%
+V zvezi s prazno množico omenimo, da za vsako izjavo $\phi$ velja
+%
+\begin{equation*}
+  \xall{x}{\emptyset}{\phi},
+\end{equation*}
+%
+kar dokažemo takole: naj bo $x \in \emptyset$ poljuben. Ker velja $x \not\in \emptyset$, je to protislovje, od koder smemo sklepati $\phi$. Podobno za vsako izjavo $\phi$ velja
+%
+\begin{equation*}
+  \lnot\xsome{x}{\emptyset}{\phi}.
+\end{equation*}
+
+\begin{naloga}
+  Za katere množice $S$ velja $(\xall{x}{S}{\phi(x)}) \lthen   \xsome{x}{S}{\phi(x)}$?
+\end{naloga}
+
+Za osnovno množico vzamemo tudi množico naravnih števil~$\NN$, ki smo jo že spoznali v razdelku~\ref{sec:naravna-stevila}.
+
+\subsection{Konstrukcije množic}
+\label{sec:konstrukcije-mnozic}
+
+Iz osnovnih množic lahko konstruiramo nove s pomočjo naslednjih operacij.
+
+\subsubsection{Končne množice}
+\label{sec:koncne-mnozice}
+
+Naj bodo $a_1, \ldots, a_n$ poljubni objekti. Tedaj lahko tvorimo množico
+%
+\begin{equation*}
+  \set{a_1, a_2, \ldots, a_n}
+\end{equation*}
+%
+ki sestoji iz naštetih elementov, to je
+%
+\begin{equation*}
+  \uall{x}{x \in \set{a_1, \ldots, a_n} \liff
+    x = a_1 \lor \cdots x = a_n}.
+\end{equation*}
+%
+Poseben primer take množice je \emph{enojec} $\set{a}$, za katerega velja
+%
+\begin{equation*}
+  \uall{x}{x \in \set{a} \liff x = a}.
+\end{equation*}
+
+
+\begin{naloga}
+  Ali je $\set{a, b} = \set{b, a}$? Ali je $\set{a, a, b} = \set{a, b}$? Uporabi aksiom o ekstenzionalnosti.
+\end{naloga}
+
+\subsubsection{Unija in presek}
+\label{sec:unija-presek}
+
+Družina množic.
+
+Unije, preseki.
+
+\subsubsection{Podmnožica}
+\label{sec:podmnozica}
+
+Podmnožica (separacija).
+
+\subsubsection{Potenčna množica}
+\label{sec:potencna-mnozica}
+
+Potenčna množica.
+
+\subsubsection{Kartezični produkt}
+\label{sec:kartezicni-produkt}
+
+Kartezični produkt. Produkt s prazno.
+
+\subsubsection{Eksponentna množica}
+\label{sec:eksponentna-mnozica}
+
+Eksponentna množica. Eksponent s prazno.
+
+\subsubsection{Vsota}
+\label{sec:vsota-mnozic}
+
+Disjunktna unija.
+
+\subsubsection{Razlika in komplement}
+\label{sec:vsota-mnozic}
+
+
+\section{Funkcije}
+\label{sec:funkcije}
+
+
+Funkcija, neformalna definicija.
+
+Kompozitum, asociativnost kompozituma. Identiteta.
+
+Inverz funkcije. Inverz je enoličen, če obstaja.
+
+Slika in inverzna slika.
+
+Kdaj obstaja inverz? Surjektivna, injektivna, bijektivna funckija.
+
+Epi in mono.
+
+Sekcija in retrakcija.
+
+Sekcija je mono, retrakcija je epi.
+
+Standardne bijekcije za vsoto, produkt in eksponent.
+
+\section{Relacije}
+\label{sec:relacije}
+
+Definicija relacije.
+
+Nasprotna relacija. Komplement, unija.
+
+\subsection{Funkcijske relacije}
+\label{sub:funkcijske_relacije}
+
+
+\subsection{Ekvivalenčne relacije}
+\label{sub:ekvivalencne_relacije}
+
+
+%Definirali smo pojem ekvivalenčne relacije in kvocienta množice po
+%ekvivalenčni relaciji. Pokazali smo razne primere. Dokazali smo, da
+%smemo definirati $f : A/{\sim} \to B$ na kvocientu tako, da definiramo
+%$g : A \to B$, ki je skladen s~$\sim$.
+
+
+
+
+Defincije. Primeri.
+
+Ekvivalenčna relacija, generirana z relacijo.
+
+Faktorska množica. Kako definiramo preslikavo na faktorski množici.
+
+Kanonični razcep funkcije.
+
+\subsection{Delna ureditev}
+\label{sub:delna_ureditev}
+
+Definicija delne ureditve. Primeri.
+
+Linearna ureditev. Stroga linearna ureditev. Veriga.
+
+Zgornja meja, spodna meja, infimum, supremum, maksimum, minimum, minimalni element, maksimalni element.
+
+
+
+%%% Local Variables: 
+%%% mode: latex
+%%% TeX-master: "lmn"
+%%% End: 

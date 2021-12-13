@@ -1,0 +1,258 @@
+\chapter{Aksiom izbire}
+
+\section{Odvisna izbira}
+
+V dokazu o karakterizaciji dobro osnovanih relacij smo uporabili
+
+**Aksiom odvisne izbire:**
+Naj bo `A` neprazna množica in `R ⊆ A × A` celovita relacija, t.j.,
+
+    ∀ x ∈ A . ∃ y ∈ A . x R y.
+
+Tedaj obstaja zaporedje `a : N → A`, da za vse `n ∈ N` velja `a(n) R a(n+1)`.
+
+\section{Aksiom izbire}
+
+Aksiom odvisne izbire sledi iz aksioma izbire (tega ne bomo dokazali):
+
+**Aksiom izbire (AC):** Vsaka družina nepraznih množic ima funkcijo izbire.
+
+Povedano z drugimi besedami:
+
+* formulacija AC: družina nepraznih množic ima funkcijo izbire
+* vsaka surjekcija ima prerez ⇔ AC
+* propaganda: [The Banach–Tarski Paradox](https://www.youtube.com/watch?v=s86-Z-CbaHA)
+
+
+\chapter{Moč množic}
+
+\section{Končne množice}
+
+**Definicija:** *Standardna* končna množica z `n` elementi je
+
+    [n] = {k ∈ N | k < n}
+
+Torej:
+
+    [0] = {}
+    [1] = {0}
+    [2] = {0, 1}
+    [3] = {0, 1, 2}
+
+**Definicija:** Množica je **končna**, če je izomorfna kaki standardni končni množici.
+
+Velja naslednje (ne bomo dokazali): če je `A ≅ [m]` in `A ≅ [n]`, je `m = n`. Torej za končno
+množico `A` obstaja natanko en `n ∈ N`, da velja `A ≅ [n]`. Temu n pravimo **moč** množice `A`,
+saj nam pove, koliko elementov ima `A`. Moč množice `A` označimo z `|A|`.
+
+Zakoni za moč množic:
+
+    |[n]| = n
+
+    |A × B| = |A| × |B|
+
+    |A + B| = |A| + |B|
+
+    |B^A| = |B|^|A|
+
+Pravilo vključitve/izključitve:
+
+    |A ∪ B| = |A| + |B| - |A ∩ B|
+
+    |A ∪ B ∪ C| = |A| + |B| + |C| - |A ∩ B| - |B ∩ C| - |C ∩ A| + |A ∩ B ∩ C|
+
+In podobno za unijo štirih ali več množic.
+
+
+\section{Neskončne množice in njihova moč}
+
+**Definicija:** Množica je **neskončna**, če ni končna.
+
+**Izrek:** Množica `A` je neskončna natanko tedaj, ko obstaja injektivna preslikava `N → A`.
+
+Dokaz:
+
+(⇒) Denimo da `A` ni končna. Injektivno preslikavo `e : N → A` definiramo s
+pomočjo akisoma odvisne izbire. Ker `A` ni izomorfna `[0]`, ni prazna, torej
+obstaja `e(0) ∈ A`. Denimo, da smo že definirali `e` kot injektivno preslikavo
+`[n]` → A. Tedaj jo lahko razširimo na injektivno preslikavo `e : [n+1] → A`
+takole: ker `e` ni surjektivna (če bi bila, bi veljalo `A ≅ [n]`), obstaja `x ∈
+A`, ki ni v sliki `e`. Torej *izberemo* `e(n) ∈ A`, ki ni v sliki. Tako dobimo
+`e : N → A`, ki je injektivna.
+
+(⇐) Denimo, da obstaja injektivna preslikava `e : N → A`. Če bi veljalo `A ≅
+[n]`, bi imeli izomorfizem `f : A → [n]`. Tedaj bi bil `f ∘ e : N → [n]`
+injektivna preslikava, ta pa ne obstaja (dokaz opustimo). □
+
+\subsection{Moč množic}
+
+Tudi neskončnim množicam želimo prirediti *moč*. Potrebujem taka "števila", da
+lahko vsaki množici `A` priredimo "število" `|A|`, ki pove, koliko elementov
+ima. Za končne množice so to kar naravna števila. Za splošne množice so to
+**kardinalna števila**. Zaenkrat še ne bomo povedali natančno, kaj kardinalna
+števila so. Lahko pa jih primerjamo med sabo, ne da bi zares vedeli, kaj so!
+
+**Definicija:** Naj bosta `A` in `B` poljubni množici. Pravimo:
+
+1. `A` ima enako moč kot `B`, pišemo `|A| = |B|`, ko obstaja bijektivna preslikava `A → B`.
+2. `A` ima moč manjšo ali enako `B`, pišemo `|A| ≤ |B|`, ko obstaja injektivna preslikava `A → B`.
+3. `A` ima moč manjšo kot `B`, pišemo `|A| < |B|`, če velja `|A| ≤ |B|` in `|A| ≠ |B|`.
+
+**Izrek:** `|A| ≤ |B|` natanko tedaj, ko je `A = ∅` ali obstaja surjekcija `B → A`.
+
+*Dokaz.*
+
+(⇒) Denimo, da je `f : A → B` injektivna in `A ≠ ∅`. Torej obstaja neki `x₀ ∈ A`.
+Tedaj definiramo surjektivno preslikavo `g : B → A` takole:
+
+    g(y) = x  ⇔  f(x) = y ali x = x₀.
+
+(⇐) Denimo, da je `A` prazna ali obstaja surjekcija `f : B → A`. Če je `A`
+prazna, je edina preslikava `∅ → B` injektivna. Če je `f : B → A` surjektivna,
+ima prerez, ki je injektivna preslikava. □
+
+\subsection{Cantorjev izrek}
+
+**Izrek (Cantor):** `|A| < |P(A)|`.
+
+*Dokaz:*
+
+Najprej dokažimo `|A| ≤ |P(A)|`. Iščemo injektivno preslikava `f : A → P(A)`.
+Vzemimo `f(x) = {x}`. Zlahka preverimo, da je `f` res injektivna.
+
+Sedaj dokazujemo, da ne obstaja bijekcija `A → P(A)`. Dokazali bomo, da ne obstaja
+surjekcija `A → P(A)`, kar zadostuje. Denimo, da je `g : A → P(A)` poljbuna preslikava.
+Trdimo, da `g` ni surjekcija. Res, podmnožica
+
+    S = {x ∈ A | x ∉ g(x) }
+
+ni v sliki `g`. Če bi bila, bi za neki `y ∈ A` veljalo `g(y) = S`, a to bi
+vodilo v protislovje:
+
+1. velja `y ∉ S`: če `y ∈ S` potem `y ∉ g(y) = S` po definiciji `S`.
+2. velja `¬ (y ∉ S)`: če `y ∉ S` potem `y ∉ g(y) = S`a. □
+
+
+\subsection{Števne in neštevne množice}
+
+Moč množice `N` označimo z `ℵ₀`. (Zaenkrat še vedno ne vemo, kaj točno so
+kardinalna števila, a privzemimo, da imamo kardinalno število `ℵ₀`, ki ustreza
+moči množice `N`.)
+
+**Definicija:** Množica `A` je *števna*, če velja velja `|A| ≤ ℵ₀`.
+
+**Definicija:** Množica `A` je *neštevna*, če ni števna.
+
+**Izrek:** Za vsako množico `A` so ekvivalentne naslednje izjave:
+
+1. `A` je števna
+2. obstaja injektivna preslikava `A → N`
+3. `A` je prazna ali obstaja surjektivna preslikava `N → A`
+4. obstaja surjektivna preslikava `N → 1 + A`
+5. `A` je končna ali izmoforna `N`
+
+Dokaz.
+
+(1 ⇒ 2) če je `A` števna, velja `|A| ≤ ℵ₀ = |N`, torej obstaja injektivna `A →
+N` po definiciji relacije `≤`.
+
+(2 ⇒ 3) To sledi neposredno iz zgornjega izreka
+
+(3 ⇒ 4) Denimo, da je `A` prazna ali obstaja surjektivna preslikava `N → A`:
+
+1. Če je `A = ∅`, potem seveda obstaja surjektivna preslikava `N → 1 + A`, in sicer
+`n ↦ in₁()`.
+
+2. Če obstaja surjektivna preslikava `f : N → A`, potem lahko definiramo surjektivno
+preslikavo `g : N → 1 + A` s predpisom
+
+        g(0) = in₁()
+        g(n) = in₂(f(n-1)) za n > 1
+
+(4 ⇒ 5) Denimo, da obstaja surjektivna preslikava `r : N → 1 + A`. Dokazali
+bomo, da je `A` izomorfna `N`, če ni končna. Predpostavimo torej, da `A` ni
+končna. Preslikva `r` ima prerez `s : 1 + A → N`, ki je seveda injektivna
+preslikava. Preslikva `s ∘ in₂ : A → N` je torej kompozitum injektivnih
+preslikav, zato je injektivna. Ker `A` ni končna, obstaja tudi injektivna
+preslikava `N → A`. Po izreku Cantor-Schröder-Bernstein je torej `A` izomorfna
+`N`.
+
+(5 ⇒ 1) Če je `A` končna, je števna, ker očitno velja `A = |[n]| ≤ |N| = ℵ₀`. Če
+je `A` izomorfna `N`, potem seveda velja `|A| = |N| ≤ |N| = ℵ₀`. □
+
+
+**Izrek:** `N × N ≅ N`.
+
+Pravimo, da je družina `A : I → Set` **števna**, če je števna njena indeksna
+množica `I`.
+
+**Izrek:** Unija števne družine števnih množic je števna.
+
+*Dokaz.*
+
+Najprej obravnavajmo unijo družine `A : N → Set`, kjer je `A_n` števna za vse `n ∈ N`.
+Tu uporabimo aksiom izbire, da dokažemo števnost unije. Za vsak `n ∈ N` obstaja
+surjektivna preslikava `N → A_n + 1`. Po aksiomu izbire obstaja preslikava
+
+    e : ∏_{n ∈ N} { f : N → A_n + 1 | f surjekcija }.
+
+Definiramo `e' : N × N → 1 + ⋃_n A_n`:
+
+    e'(n, k) = e(n)(k).
+
+Trdimo, da je `e'` surjekcija iz `N × N` na `1 + ⋃_n A_n`.
+
+Nato obravnavamo še unijo družine `A : I → Set`, kjer je `I` števna in `A_i`
+števna za vsak `i ∈ I`. □
+
+\subsection{Cantor-Schröder-Bernsteinov izrek in zakon trihotomije}
+
+**Izrek** (Cantor-Schröder-Bernstein): Če obstajata injektivni preslikava `A → B`
+in `B → A`, potem obstaja bijektivna preslikava `A → B`.
+
+*Dokaz.* Dokaz je v priloženi datoteki [csb.pdf](./csb.pdf)
+
+
+**Posledica:** Če `|A| ≤ |B|` in `|B| ≤ |A|`, potem `|A| = |B|`.
+
+*Dokaz.* To sledi neposredno iz izreka CSB in definicije `≤`. □
+
+Brez dokaza omenimo še, da velja **zakon trihotomije**: za vsaki množici `A` in `B`
+velja `|A| < |B|` ali `|A| = |B|` ali `|B| < |A|`, oziroma ekvivalentno
+
+    |A| ≤ |B| ∨ |B| ≤ |A|.
+
+Relacija `≤` potemtakem uredi moči množic linearno.
+
+TODO: podaj referenco na dokaz (verjetno Prijateljeve Strukture 1).
+
+\subsection{Moč kontinuuma in Cantorjeva hipoteza}
+
+Vemo, da ima množica realnih števil `R` enako moč kot `P(N)`, potenčna množica
+naravnih števil (to boste naredili na vajah). Tej moči pravimo **moč
+kontinuuma** (ker je "kontinuum" tudi staro ime za `R`).
+
+Že Goerg Cantor, utemelitelj teorije množic, še je vprašal naslednje vprašanje:
+
+**Cantorjeva hipoteza:** Vsaka neštevna podmnožica realnih števil izomorfna `R`.
+
+Povedano, z drugimi besedami, po moči ni nobene množice strogo med `N` in `R`.
+Cantorjeva hipoteza je ostala odprta dlje časa. Dokončno je Cohen pred dobrega
+pol stoletja dokazal naslednje:
+
+**Izrek (Cohen):** Iz Zermelo-Fraenkelovih aksiomov teorije množic Cantorjeve
+hipoteze ne moremo niti dokazati niti ovreči.
+
+Pravimo, da je Cantorjeva hipoteza **neodvisna** od aksiomov teorije množic.
+
+Poznamo še posplošeno Cantorjevo hipotezo, ki se glasi:
+
+**Posplošena Cantorjeva hipoteza:** Če je `|A| ≤ |B| ≤ |P(A)|`, potem je `|B| =
+|A|` ali `|B| = |P(A)|`.
+
+Tudi posplošena Cantorjeva hipoteza je nedovisna od aksiomov teorije množic.
+Danes vemo zelo veliko o tej hipotezi in poznamo, še mnoge druge izjave o
+množicah, ki so neodvisne od Zermelo-Fraenkelovih aksiomov teorije množic. Ti
+veljajo za nekakšno uradno različičo teorije množic in jih bomo obravnavali na
+naslednjih predavanjih.
+

@@ -1,0 +1,299 @@
+\chapter{Relacije urejenosti}
+
+\subsection{Relacije urejenosti}
+
+**Definicija:** Relacija `R ⊆ A × A` je:
+
+* **šibka urejenost**, ko je refleksivna in tranzitivna
+* **delna urejenost**, ko je refleksiva, tranzitivna in antisimetrična
+* **linearna urejenost**, ko je delna urejenost in je sovisna (`∀ x y ∈ A . x R y ∨ y R x`)
+
+Za relacije urejenosti ponavadi uporabljamo simbole, ki spominjajo na znak `≤`, kot so `≼`, `⊆`, `⊑`, ...
+
+\subsubsection{Primeri urejenosti}
+
+1. Relacija deljivosti na naravnih številih je delna urejenost.
+2. Relacija deljivosti na celih številih je šibka urejenost, ni pa delna urejenost.
+3. Relacija `≤` na realnih številih je linearna urejenost.
+4. Relacija `⊆` na `P(A)` je delna urejenost. Za katere množice `A` je linearna?
+5. Relacija `=` je delna urejenost.
+
+\subsubsection{Hassejev diagram}
+
+Končno delno ureditev `(A, ≤)` lahko predstavimo s **Hassejevim diagramom:** elemente
+množice `A` narišemo tako, da je `x` pod `y`, kadar velja `x ≤ y`. Nato povežemo vozlišči
+`x` in `y`, če je `y` neposredni naslednik `x`, se pravi, da velja `x ≠ y`, `x ≤ y` in iz
+`x ≤ z ≤ y` sledi `x = z ∨ z = y`.
+
+**Primer:** kakšen je Hassejev diagram relacije deljivosti na množici `{0, 1, ..., 10}`?
+
+**Primer:** kakšen je Hassejev diagram relacije `⊆` na množici `P({a,b,c})`?
+
+\subsection{Operacije na urejenostih}
+
+\subsubsection{Obratna urejenost}
+
+Če je `≤` delna urejenost na `P` potem je tudi transponirana relacija `≥`, definirana z
+
+    x ≥ y ⇔ x ≤ y
+
+delna urejenost na `P`. Če je `≤` linearna, je `≥` linearna.
+
+\subsubsection{Produktna in leksikografska urejenost}
+
+Naj bosta `(P, ≤)` in `(Q, ⊑)` delni urejenosti. Na kartezičnem produktu `P × Q`
+lahko definiramo dve urejenosti:
+
+* **produktna** urejenost `≼`: `(x₁,y₁) ≼ (x₂,y₂) ⇔ x₁ ≤ x₂ ∧ y₁ ⊑ y₂`
+* **leksikografska** urejenost `≼_lex`: `(x₁,y₁) ≼_lex (x₂,y₂) ⇔ (x₁ ≠ x₂ ∧ x₁ ≤ x₂) ∨ (x₁ = x₂ ∧ y₁ ⊑ y₂)`
+
+**Primer:** Kako si predstavljamo produktno in leksikografsko ureditev na `[0,1] × [0,1]`, če `[0,1]` uredimo z običajno relacijo `≤`?
+
+**Izjava:** Produktna in leksikografska urejenosti sta delni urejenosti. Leksikografska urejenost linearnih urejenosti je linearna.
+
+*Dokaz.*
+
+Dejstvo, da je produktna urejenost refleksivna, tranzitivna in antisimetrična, pustimo za vajo. Preverimo, da je
+leksikografska urejenost `≼_lex` delna urejenost.
+
+Dokaz, da je `≼_lex` je refleksivna: za vsak `(x, y) ∈ P × Q` velja `x = x ∧ y ⊑ y`, torej velja `(x, y) ⊑ (x, y)`.
+
+Dokazj=, da je `≼_lex` je antisimetrična: naj bosta `(x₁,y₁), (x₂,y₂) ∈ P × Q` in denimo, da velja
+
+    (x₁, y₁) ≼_lex (x₂, y₂) ∧ (x₂, y₂) ≼_lex (x₁, y₁)
+
+To je ekvivalentno
+
+    (x₁ ≠ x₂ ∧ x₁ ≤ x₂ ∧ x₂ ≠ x₁ ∧ x₂ ≤ x₁) ∨
+    (x₁ ≠ x₂ ∧ x₁ ≤ x₂ ∧ x₂ = x₁ ∧ y₂ ⊑ y₁) ∨
+    (x₁ = x₂ ∧ y₁ ⊑ y₂ ∧ x₂ ≠ x₁ ∧ x₂ ≤ x₁) ∨
+    (x₁ = x₂ ∧ y₁ ⊑ y₂ ∧ x₂ = x₁ ∧ y₂ ⊑ y₁)
+
+Če v zgornji formuli upoštevamo, da je `x₁ ≠ x₂ ∧ x₁ = x₂`, vidimo, da sta drugi in tretji disjunkt ekvivalentna `⊥`, zato
+je izjava ekvivalentna:
+
+    (x₁ ≠ x₂ ∧ x₁ ≤ x₂ ∧ x₂ ≠ x₁ ∧ x₂ ≤ x₁) ∨
+    (x₁ = x₂ ∧ y₁ ⊑ y₂ ∧ x₂ = x₁ ∧ y₂ ⊑ y₁)
+
+A tudi prvi disjunkt je ekvivalenten `⊥`, ker iz `x₁ ≤ x₂ ∧ x₂ ≤ x₁` sledi `x₁ = x₂`, saj je `≤` po predpostavki antisimetrična. Torej ostane samo zadnji disjunkt, ki je ekvivalenten
+
+    x₁ = x₂ ∧ y₁ ⊑ y₂ ∧ y₂ ⊑ y₁
+
+Ker je `⊑` antisimetrična, sledi `x₁ = x₂` in `y₁ = y₂`, kar smo želeli dokazati.
+
+Dokaz, da je `≼_lex` tranzitivna: naj bodo `(x₁,y₁), (x₂,y₂), (x₃, y₃) ∈ P × Q` in denimo, da velja
+
+    (x₁, y₁) ≼_lex (x₂, y₂) ∧ (x₂, y₂) ≼_lex (x₃, y₃)
+
+To je ekvivalentno
+
+    (x₁ ≠ x₂ ∧ x₁ ≤ x₂ ∧ x₂ ≠ x₃ ∧ x₂ ≤ x₃) ∨
+    (x₁ ≠ x₂ ∧ x₁ ≤ x₂ ∧ x₂ = x₃ ∧ y₂ ⊑ y₃) ∨
+    (x₁ = x₂ ∧ y₁ ⊑ y₂ ∧ x₂ ≠ x₃ ∧ x₂ ≤ x₃) ∨
+    (x₁ = x₂ ∧ y₁ ⊑ y₂ ∧ x₂ = x₃ ∧ y₂ ⊑ y₃)
+
+Obravnavajmo štiri primere in v vsakem od njih dokažimo `(x₁, y₁) ≼_lex (x₃, y₃)`, se pravi
+`(x₁ ≠ x₃ ∧ x₁ ≤ x₃) ∨ (x₁ = x₃ ∧ y₁ ⊑ y₃)`:
+
+1. Če velja `x₁ ≠ x₂ ∧ x₁ ≤ x₂ ∧ x₂ ≠ x₃ ∧ x₂ ≤ x₃`: ker je `≤` tranzitivna sledi `x₁ ≤ x₃`, poleg tega pv velja `x₁ ≠
+   x₃`: če bi veljalo `x₁ = x₃`, bi iz predpostavk dobili `x₃ ≤ x₂ ∧ x₂ ≤ x₃`, od koder bi sledilo `x₂ = x₃`, kar je v
+   protislovju s predpostavko `x₂ ≠ x₃`.
+
+2. Če velja `x₁ ≠ x₂ ∧ x₁ ≤ x₂ ∧ x₂ = x₃ ∧ y₂ ⊑ y₃`: ker je `x₂ = x₃` iz prvih dveh predpostavk sledi `x₁ ≠ x₃ ∧ x₁ ≤ x₃`.
+
+3. Če velja `x₁ = x₂ ∧ y₁ ⊑ y₂ ∧ x₂ ≠ x₃ ∧ x₂ ≤ x₃`: ker je `x₁ = x₂` iz zadnjih dveh predpostavk sledi `x₁ ≠ x₃ ∧ x₁ ≤ x₃`.
+
+4. Če velja `x₁ = x₂ ∧ y₁ ⊑ y₂ ∧ x₂ = x₃ ∧ y₂ ⊑ y₃`: torej je `x₁ = x₃` ker je `=` tranzitivna in `y₁ ⊑ y₃` ker je `⊑` tranzitivna.
+
+
+Nazadnje preverimo še, da je `≼_lex` linearna, če sta `≤` in `⊑` linearni. Naj bosta `(x₁,y₁), (x₂,y₂) ∈ P × Q`. Dokazati želimo
+
+    (x₁, y₁) ≼ (x₂, y₂) ∨ (x₂, y₂) ≼ (x₁, y₁)
+
+To je ekvivalentno disjunkciji
+
+    (x₁ ≠ x₂ ∧ x₁ ≤ x₂) ∨ (x₁ = x₂ ∧ y₁ ⊑ y₂) ∨ (x₂ ≠ x₁ ∧ x₂ ≤ x₁) ∨ (x₂ = x₁ ∧ y₂ ⊑ y₁)
+
+kar je ekvivalentno
+
+    (x₁ ≠ x₂ ∧ (x₁ ≤ x₂ ∨ x₂ ≤ x₁)) ∨ (x₁ = x₂ ∧ (y₁ ⊑ y₂ ∨ y₂ ⊑ y₁))
+
+Ker sta `≤` in `⊑` linearni, je to ekvivalentno
+
+    (x₁ ≠ x₂ ∧ ⊤) ∨ (x₁ = x₂ ∧ ⊤)
+
+Kar je ekvivalentno
+
+    (x₁ ≠ x₂) ∨ (x₁ = x₂)
+
+To pa drži po zakonu o izključeni tretji možnosti. S tem je linearnost `≼_lex`, dokazana. □
+
+
+\subsubsection{Vsota urejenosti}
+
+Naj bosta `(P, ≤)` in `(Q, ⊑)` delni urejenosti. Na vsoti `P + Q` lahko
+definiramo urejenost `≼` s predpisom:
+
+    u ≼ v ⇔ (∃ x, y ∈ P . u = in₁(x) ∧ v = in₁(y) ∧ x ≤ y) ∨
+            (∃ s, t ∈ Q . u = in₂(s) ∧ v = in₂(t) ∧ s ⊑ t)
+
+\subsubsection{Zaporedna vsota urejenosti}
+
+Naj bosta `(P, ≤)` in `(Q, ⊑)` delni urejenosti. Na vsoti `P + Q` lahko definiramo urejenost `≼` s predpisom:
+
+    u ≼ v ⇔ (∃ x, y ∈ P . u = in₁(x) ∧ v = in₁(y) ∧ x ≤ y) ∨
+            (∃ x ∈ P . ∃ s ∈ Q . u = in₁(x) ∧ v = in₂(s)) ∨
+            (∃ s, t ∈ Q . u = in₂(s) ∧ v = in₂(t) ∧ s ⊑ t)
+
+Torej so vsi elementi `P` pred vsemi elementi `Q`.
+
+Zaporedna vsota linearnih urejenosti je linearna.
+
+
+\subsubsection{Potenca urejenosti}
+
+Naj bo `(P, ≤)` delna urejenost in `A` množica. Na eksponentni množici `Pᴬ` lahko definiramo urejenost `≼` s predpisom:
+
+    f ≼ g ⇔ ∀ x ∈ A . f(x) ≤ g(x)
+
+**Naloga:** ali je `≼` linearna, kadar je `≤` linearna?
+
+
+\subsubsection{Delna urejenost, inducirana s šibko ureditvijo}
+
+Naj bo `(P, ≤)` šibka ureditev. Relacija `∼` na `P`, definirana s predpisom
+
+    x ∼ y ⇔ x ≤ y ∧ y ≤ x
+
+je ekvivalenčna relacija. Na kvocientu `P/∼` lahko definiramo relacijo `≼` s
+predpisom
+
+    [x] ≼ [y] ⇔ x ≤ y
+
+Treba je preveriti, da je relacija dobro definirana, se pravi da velja
+
+    x ∼ x' ∧ y ∼ y' ⇒ (x ≤ y ⇔ x' ≤ y')
+
+Pa preverimo: denimo, da velja `x, y, x', y' ∈ P` in `x ~ x'` in `y ~ y'`.
+Torej velja
+
+    x ≤ x' ∧ x' ≤ x ∧ y ≤ y' ∧ y' ∧ x
+
+Sedaj dokažimo `x ≤ y ⇔ x' ≤ y'`:
+
+1. Denimo, da velja `x ≤ y`. Tedaj dobimo `x' ≤ x ≤ y ≤ y'`.
+2. Denimo, da velja `x' ≤ y'`. Tedaj dobimo `x ≤ x' ≤ y' ≤ y`.
+
+Torej je `≼` dobro definirana.
+
+**Izjava:** Relacija `≼`, ki je inducirana s šibko ureditvijo, je delna ureditev.
+
+*Dokaz.* Refleksivnost in tranzitivnost `≼` sledita iz refleksivnosti in tranzitivnosti `≤`. Preverimo antisimetričnost:
+denimo, da velja `[x] ≤ [y]` in `[y] ≤ [x]`. Tedaj velja `x ≤ y` in `y ≤ x`, torej velja `x ~ y` in `[x] = [y]. □
+
+
+**Primer:** Obravnavajmo cela števila `Z` in deljivost `|`, ki je šibka
+ureditev. Za vse `k, m ∈ Z` velja
+
+    k ∼ m ⇔ k | m ∧ m | k ⇔ |k| = |m|
+
+Torej je `Z/∼ ≅ N`, kjer izomorfizem preslika `[k] ↦ |k|`. Delna ureditev na
+`Z/∼` inducirana z deljivostjo je spet deljivost (ko jo prenesemo iz `Z/∼` na
+`N` s pomočjo izomorfizma).
+
+
+\subsection{Monotone preslikave}
+
+**Definicija:** Preslikava `f : P → Q` med delnima urejenostma `(P, ≼)` in `(Q, ⊑)` je
+**monotona** (ali **naraščajoča**), ko velja `∀ x, y ∈ P . x ≼ y ⇒ f(x) ⊑ f(y)`.
+
+**Definicija:** Preslikava `f : P → Q` med delnima urejenostma `(P, ≼)` in `(Q, ⊑)` je
+**antitona** (ali **padajoča**), ko velja `∀ x, y ∈ P . x ≼ y ⇒ f(y) ⊑ f(x)`.
+
+Opozorilo: v analizi "monotona" pomeni "monotona ali antitona". To ni nič
+čudnega, ker "dan" tudi pomeni "dan in noč".
+
+**Izrek:** Kompozicija monotonih preslikav je monotona. Identita je monotona.
+
+*Dokaz.* Naj bosta `f : P → Q` in `g : Q → R` monotoni preslikavi med delnimi
+urejenostmi `(P, ≤_P)`, `(Q, ≤_Q)` in `(R, ≤_R)`. Če je `x ≤_P y`, potem je
+zaradi monotonisti `f` tudi `f(x) ≤_Q f(y)`, nato pa je zaradi monotonisti `g`
+spet `g(f(x)) ≤_R g(f(y))`. Identiteta je očitno monotona.
+
+**Primeri**
+
+* Konstantna preslikava je monotona.
+* Seštvanje `+ : R × R → R` je monotona operacija glede na produktno ureditev na `R × R`.
+* Množenje `× : R × R → R` ni monotona operacija.
+
+
+\subsection{Meje}
+
+**Definicija:** Naj bo `(P, ≤)` delna urejenost, `S ⊆ P` in `x ∈ P`:
+
+* `x` je **spodnja meja** podmnožice `S`, ko velja `∀ y ∈ S . x ≤ y`
+* `x` je **zgornja meja** podmnožice `S`, ko velja `∀ y ∈ S . y ≤ x`
+* `x` je **infimum** ali **največja spodnja meja** ali **natančna spodnja meja**
+  podmnožice `S`, ko je spodnja meja `S` in velja: za vse `y ∈ P`, če je `y` spodnja meja
+  `S`, potem je `y ≤ x`
+* `x` je **supremum** ali **najmanjša zgornja meja** ali **natančna zgornja meja**
+  podmnožice `S`, ko je zgornja meja `S` in velja: za vse `y ∈ P`, če je `y` zgornja meja
+  `S`, potem je `x ≤ y`
+* `x` je **minimalni element** podmnožice `S`, ko velja `x ∈ S` in `∀ y ∈ S . y ≤ x ⇒ x = y`
+* `x` je **maksimalni element** podmnožice `S`, ko velja `x ∈ S` in `∀ y ∈ S . x ≤ y ⇒ x = y`
+* `x` je **najmanjši** ali **prvi** element ali **minimum** podmnožice `S`, ko velja `x ∈ S` in `∀ y ∈ S . x ≤ y`
+* `x` je **največji** ali **zadnji** element ali **maksimum** podmnožice `S`, ko velja `x ∈ S` in `∀ y ∈ S . y ≤ x`
+
+Opozorilo: minimalni element ni isto kot minimum (in maksimalni element ni isto kot maksimum).
+
+Kadar govorimo o "prvem elementu" ali "maksimalnem elementu" in ne povemo, na
+katero podmnožico se nanaša element, imamo običajno v mislih kar celotno delno
+ureditev.
+
+**Izrek:** Naj bo `(P, ≤)` delna urejenost in `S ⊆ P`. Tedaj ima `S` največ en
+infimum in največ en supremum, ki ju zapišemo `inf S` in `sup S`, kadar obstajata.
+
+*Dokaz.* Denimo, da sta `x` in `y` oba infimum `S`. Ker je `y` spodnja meja za
+`S` in `x` njen infimum, velja `y ≤ x`. Podobno velja `x ≤ y`, torej `x = y`. Za
+supremum je dokaz podoben. □
+
+**Primer:** Supremum končne neprazne množice `S ⊆ N` za relacijo deljivosti `|`
+je namanjši skupni večkratnik elementov iz `S`. Infimum je navečji skupni
+delitelj. Kaj pa, če je `S` prazna ali neskončna?
+
+
+\subsection{Mreže}
+
+**Definicija:** Naj bo `(P, ≤)` delna urejenost:
+
+1. `(P, ≤)` je **mreža**, ko imata vsaka dva elementa `x, y ∈ P` infimum in supremum.
+2. `(P, ≤)` je **omejena mreža**, ko ima vsaka končna podmnožica `P` infimum in supremum.
+3. `(P, ≤)` je **polna mreža**, ko ima vsaka podmnožica `P` infimum in supremum.
+
+Infimum in supremum elementov `x` in `y` pišemo `x ∧ y` in `x ∨ y`.
+
+**Izrek:** Delna urejenost `(P, ≤)` je omejena mreža natanko tedaj, ko ima
+najmanši in največji element, ter imata vsaka sva elementa infimum in supremum.
+
+*Dokaz.*
+
+Denimo, da je `(P, ≤)` omejana mreža. Tedaj `P` ima najmanši element, namreč
+`sup ∅`, in največji element, namreč `inf ∅`. Infimum in supremum `x` in `y` sta
+seveda `inf {x, y}` in `sup {x, y}`.
+
+Denimo, da ima `P` najmanši element `⊥_P` in največji element `⊤_P`, vsaka dva
+elementa pa imata infimum in supremum. Naj bo `S ⊆ P` končna množica:
+
+* če je `S = ∅`, potem je `inf S = ⊤_P` in `sup S = ⊥_P`
+* če je `S = {x_1, … x_n}` za `n > 0`, potem je `inf S = (inf {x_1, …, x_n-1}) ∨ x_n` in
+  `sup S = (sup {x_1, …, x_n-1}) ∨ x_n` □
+
+\subsubsection{Primeri}
+
+* množica `2 = {⊥, ⊤}` je omejena mreža za relacijo `⇒`
+* relacija deljivosti na množici `N` je polna mreža
+* relacija deljivosti na množici pozitivnih naravnih števil je mreža
+* potenčna množica `P(A)`, urejena z `⊆`, je polna mreža
+* zaprti interval `[a,b]`, urejen z `≤`, je polna mreža
+* relna števila `R`, urejena z `≤`, so mreža
+

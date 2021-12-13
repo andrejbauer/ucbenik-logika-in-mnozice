@@ -1,0 +1,358 @@
+\chapter{Relacije}
+
+\section{Predikati}
+
+**Predikat** na množici `A` opredeljuje kako lastnost elementov množice `A`. Če
+je `P` predikat na `A` in `x ∈ A`, potem se je smiselno vprašati, ali `x`
+zadošča predikatu `P`. Odgovor je resničnostna vrednost, ki jo označimo s `P(x)`.
+
+**Primer:** Na množici naravnih števil `N` lahko obravnavamo predikat "je sodo
+število". Tako na primer `4` zadošča predikatu "je sodo število", `7` pa mu zadošča.
+
+Predikat `P` na množici `A` lahko predstavimo na dva načina:
+
+* kot preslikavo `P : A → 2`, ki slika `x ∈ A` v resničnostno vrednost `P(x)`,
+* kot podmnožico `P ⊆ A` tistih `x ∈ A`, za katere velja `P(x)`.
+
+Oba načina predstavitve sta uporabna, spoznali pa smo že izomorfizem med njima,
+saj velja `P(A) ≅ 2ᴬ`.
+
+\section{Relacije}
+
+Relacije s večmestni predikati. Se pravi, relacija `R` opredeljujejo kako
+lastnost urejenih večteric kartezičnega produkta `A₁ × A₂ × ⋯ × A_n`. Pravimo, da
+je `R` **`n`-člena** ali **`n`-mestna relacija** na množicah `A_1, …, A_n`.
+
+**Primer:** Na množici točk v ravnini lahko obravnavamo relacijo kolinearnosti.
+To je trimestna relacija: točke `A`, `B` in `C` so kolinearne, kadar obstaja
+premica, ki vsebuje vse tri točke.
+
+Relacijo `R` na množicah `A_1, …, A_n` lahko predstavimo na dva načina, podobno
+kot predikate:
+
+* kot preslikavo `R : A₁ × A₂ × ⋯ × A_n → 2`
+* kot podmnožico `R ⊆ A₁ × A₂ × ⋯ × A_n`
+
+Bolj običajna je predstavitev s podmnožicami, zato bomo dejstvo, da je `R`
+relacija na množicah `A_1, …, A_n` zapisali kar kot `R ⊆ A₁ × A₂ × ⋯ × A_n`. Za
+elemente `x₁ ∈ A₁, …, x_n ∈ A_n` dejstvo, da so v relaciji `R` zapišemo
+`R(x₁, …, x_n)`, včasih pa tudi `(x₁, …, x_n) ∈ R`.
+
+Na množicah `A_1, …, A_n` lahko vedno definiramo:
+
+* **prazno relacijo `∅`**: nobeni elementi niso v prazni relaciji
+* **univerzalno relacijo `A₁ × A₂ × ⋯ × A_n`**: vsi elementi so v univerzalni relaciji
+
+Univerzalna relacija se imenuje tudi **polna relacija**.
+
+V praksi so najbolj pogoste **dvomestna relacije**, se pravi relacije na dveh
+množicah, `R ⊆ A × B`. V tem primeru pravimo množici `A` **domena** in `B`
+**kodomena** relacije `R`.
+
+Pomembna relacija na množici `A` je **enakost** ali **diagonala** na `A`:
+
+    Δ_A := { (x, y) ∈ A × A | x = y }
+
+Zakaj ji pravimo diagonala?
+
+Izmed dvočelnih relacij so najbolj pogoste relacije, pri katerih se domena in
+kodomena ujemata, torej `R ⊆ A × A`. V tem primeru pravimo, da je `R` **relacija
+na množici `A`**.
+
+Denimo, da je `R ⊆ A × B` relacija, `x ∈ A` in `y ∈ B`. Dejstvo, da sta `x` in
+`y` v relaciji `R` zapišemo na enega od načinov
+
+1. `(x, y) ∈ R`
+2. `R(x, y)`
+3. `x R y`
+
+Prvi zapis se uporablja, kadar je `R` podana kot podmnožica `A × B`, drugi kadar
+podamo `R` z logično formulo. Tretji način je tudi pogost, še posebej kadar je
+relacija označena s simbolom kot je `=`, `≠`, `<`, `>`, `⊑`, `∼` ipd.
+
+Relacijo lahko opišemo na več načinov:
+
+* s formulo
+* z resničnostno tabelo
+* z usmerjenim grafom
+
+Predstavitev relacije `R ⊆ A × A` z usmerjenim grafom: za vozlišča grafa vzamemo
+elemente množice `A`, nato pa narišemo puščico od `x` do `y`, kadar velja `x R y`.
+
+\section{Osnovne lastnosti relacij}
+
+Relacije, ki so pomembne v matematični praksi imajo pogosto lastnosti, ki jih poimenujemo.
+
+Za relacijo `R ⊆ A × A` pravimo da je:
+
+* **refleksivna:** `∀ x ∈ A . x R x`
+* **simetrična:** `∀ x, y ∈ A . x R y ⇒ y R x`
+* **antisimetrična:** `∀ x, y ∈ A . x R y ∧ y R x ⇒ x = y`
+* **tranzitivna:** `∀ x, y, z ∈ A . x R y ∧ y R z ⇒ x R z`
+* **irefleksivna:** `∀ x ∈ A . ¬ (x R x)`
+* **asimetrična:** `∀ x y ∈ A . x R y ⇒ ¬ (y R x)`
+* **sovisna:** `∀ x y ∈ A . x ≠ y ⇒ x R y ∨ y R x`
+* **strogo sovisna:** `∀ x y ∈ A . x R y ∨ y R x`
+
+Vprašanje: kako iz usmerjenga grafa relacije razberemo refleksivnost in
+simetričnost? Kaj pa ostale lastnosti?
+
+\section{Operacije na relacijah}
+
+\subsection{Unija, presek in komplement relacij}
+
+Ker so relacije pravzaprav podmnožice, lahko na njih uporabljamo operacije unija `∩`,
+presek `∪` in komplement `□ᶜ`. Denimo, da sta `R, S ⊆ A × B` relaciji. Tedaj velja:
+
+* `x (R ∪ S) y ⇔ x R y ∨ x S y`
+* `x (R ∩ S) y ⇔ x R y ∧ x S y`
+* `x (Rᶜ) y ⇔ ¬ (x R y)`
+
+**Primeri:**
+
+* komplement relacije enakosti `=` je relacija neenakosti `≠`
+* unija relacij `<` in `>` na realnih številih je relacija `≠`
+* presek relacij `≤` in `≥` na realnih številih je relacija `=`
+
+\subsection{Transponirana relacija}
+
+Dvojiške relacije lahko tudi **transponiramo**. Transponiranka relacije `R ⊆ A × B`
+je relacija `Rᵀ ⊆ B × A`, definirana s predpisom
+
+    y Rᵀ x ⇔ x R y
+
+ali ekvivalentno
+
+    Rᵀ := { (y, x) ∈ B × A | x R y }
+
+Očitno velja `(Rᵀ)ᵀ = R`, torej je transponiranje *involucija*.
+
+**Primera:**
+
+* transpozicija relacije `<` na realnih številih `ℝ` je relacija `>` na `ℝ`,
+* komplement relacije `<` na `ℝ` je relacija `≥` na `ℝ`.
+
+
+\subsection{Kompozitum relacij}
+
+Nadalje definiramo **kompozitum** relacij `R ⊆ A × B` in `S ⊆ B × C` kot relacijo
+`S ∘ R ⊆ A × C`, s predpisom
+
+    x (S ∘ R) z ⇔ ∃ y ∈ B . x R y ∧ y S z
+
+ali ekvivalentno
+
+    S ∘ R := { (x, z) ∈ A × C | ∃ ∈ B . (x,y) ∈ R ∧ (y,z) ∈ S }
+
+Se pravi, da sta `x ∈ A` in `z ∈ C` v relaciji `S ∘ R`, če sta preko `S` in `R`
+povezana s kakim elementom `y ∈ B`.
+
+**Primer:**
+
+* kompozitum relacij "`x` je otrok od `y`" in "`z` je mati od `y`" je relacija
+  "`z` je babica od `x`".
+
+**Izrek:**
+
+1. Kompozitum relacij je asociativen: `T ∘ (S ∘ R) = (T ∘ S) ∘ R`
+2. Diagonala je enota za kompozicijo relacij: `Δ_B ∘ R = R = R ∘ Δ_A`
+
+**Naloga:** Zgornji izrek zapiši bolj natančno, da bo razvidno, kaj so domene in kodomene relacij.
+
+*Dokaz.*
+
+Asociativnost kompozicije: Naj bo `R ⊆ A × B`, `S ⊆ B × C` in `T ⊆ C × D` ter `a ∈ A` in `d ∈ D`. Tedaj velja
+
+    a (T ∘ (S ∘ R)) d                            ⇔
+    ∃ c ∈ C . a (S ∘ R) c ∧ c T d                ⇔
+    ∃ c ∈ C . (∃ b ∈ B . a R b ∧ b R c) ∧ c T d  (1)
+
+in
+
+    a ((T ∘ S) ∘ R) d                            ⇔
+    ∃ b ∈ B . a R b ∧ b (T ∘ S) d                ⇔
+    ∃ b ∈ B . a R b ∧ (∃ c ∈ C . b S c ∧ c T d)  (2)
+
+Torej je treba dokazati ekvivalenco izjav, ki sledi iz *Frobeniuseva pravila*
+(kjer je `p` formula, v kateri `x` ne nastopa kot prosta spremenljivka):
+
+    (∃ x ∈ X . p ∧ q(x)) ⇔ p ∧ ∃ x ∈ X . q(x)
+
+Dokaz ekvivalence prepuščamo za vajo (najlažje je narediti verigo ekvivalenc med obema izjavama).
+
+Diagonala je enota za kompozicijo: naj bo `R ⊆ A × B` ter `x ∈ A` in `y ∈ B`. Tedaj velja
+
+    x (Δ_B ∘ R) y                ⇔
+    ∃ z ∈ B . x R y ∧ y Δ_B z    ⇔
+    ∃ z ∈ B . x R y ∧ y = z      ⇔
+    x R y
+
+V zadnjem koraku smo uporabili ekvivalenco `(∃ u ∈ U . u = v ∧ P(v)) ⇔ P(v)`.
+Podobno dokažemo, da je diagonala desna enota. □
+
+Kompozitum relacij ima torej podobne lastnosti kot kompozitum funkcij.
+
+Za `n ∈ N` definiramo **`n`-to potenco** relacije `R ⊆ A × A` kot relacijo `Rⁿ
+⊆ A × A` takole:
+
+    x Rⁿ y ⇔ ∃ z_0, …, z_n ∈ A . z_0 = x ∧ z_n = y ∧ ∀ i ∈ {0, …, n-1} . z_i R z_{i+1}
+
+To je precej nečitljiva formula. Bolj razumljiva definicija je potenca kot `n`-kratni kompozitum relacije `R` same s
+sabo:
+
+    Rⁿ := R ∘ ⋯ ∘ R
+
+kjer se desni `R` ponovi `n`-krat. Kaj dobimo, ko za `n` vstavimo `0`? Enoto za kompozitum:
+
+    R⁰ = Δ_A
+
+
+\subsection{Funkcijske relacije}
+
+Funkcijo `f : A → B` smo definirali kot *prirejanje* med elementi `A` in `B`. A
+kaj pravzaprav je "prierjanje"? Je to funkcijski predpis, program, kaj drugega?
+Sedaj lahko povemo natančno: prirejanje, s katerim je podana funkcija, je
+*relacija* med elementi domene in kodomene.
+
+**Definicija:** Naj bo `f : A → B` funkcija. **Graf** funkcije `f` je relacija
+`Γ_f ⊆ A × B`, definirana s predpisom
+
+    x Γ_f y ⇔ f(x) = y
+
+ali ekvivalentno
+
+    Γ_f := { (x, y) ∈ A × B | f(x) = y }
+
+Skratka, graf funkcije ni nič drugega kot njeno prirejanje.
+
+Sedaj pa se vprašajmo: kakšnim pogojem mora zadoščati relacija `R ⊆ A × B`, da
+je prirejanje za neko funkcijo? Odgovor poznamo: biti mora enolična in celovita.
+
+**Definicija:** Relacija `R ⊆ A × B` je **funkcijska relacija**, če je
+
+1. **celovita:** `∀ x ∈ A . ∃ y ∈ B . x R y`
+2. **enolična:** `∀ x ∈ A . ∀ y₁, y₂ ∈ B . x R y₁ ∧ x R y₂ ⇒ y₁ = y₂`
+
+Ekvivalentno oba pogoja skupaj zapišemo: `∀ x ∈ A . ∃! y ∈ B . x R y`.
+
+Graf `Γ_f ⊆ A × B` funkcije `f : A → B` je vedno funkcijska relacija.
+
+Funkcijska relacija `R ⊆ A × B` določa preslikavo `φ_R : A → B` definirano s predpisom
+
+    φ_R : x ↦ (ι y ∈ B . x R y)
+
+Če vzamemo funkcijo `f` in tvorimo njen graf `Γ_f` nato pa iz njega funckijo
+`φ_(Γ_f)` dobimo nazaj prvotno funkcijo `f`. Obratno, če je `R` funkcijska
+relacija, tedeaj je `Γ_(φ_R)` enaka `R`. Torej imamo izomorfizem
+
+    Bᴬ ≅ { R ⊆ A × B | ∀ x ∈ A . ∃! y ∈ B . x R y }
+
+**Izjava:** Kompozitum funkcij se ujema s kompozitumom relacij:
+
+    Γ_(g ∘ f) = Γ_g ∘ Γ_f
+
+Dokaz prepustimo za vajo, še prej pa morate izjavo zapisati bolj natančno: od
+kod in kam slikata preslikavi `f` in `g`, kaj pomeni kompozitum na levi in kaj
+na desni?
+
+\section{Ovojnice relacij}
+
+Pogosto imamo opravka z relacijo `R`, ki nima želene lastnosti (na primer ni
+tranzitivna) mi pa želimo relacijo, ki to lastnost ima. Ali lahko `R` kako
+spremenimo, da bo imela želeno lastnost? Če to lahko naredimo na več načinov,
+ali se eden od njih odlikuje?
+
+Naj bo `R ⊆ A × A` relacija. Tedaj pravimo, da je relacija `T ⊆ A × A`
+**tranzitivna ovojnica** relacije `R`, če velja:
+
+1. `T` je tranzitivna
+2. `R ⊆ T`
+3. če je `S ⊆ A × A` tranzitivna in velja `R ⊆ S`, tedaj je `T ⊆ S`.
+
+Povedano drugače: tranzitivna ovojnica relacije `R` je najmanjša tranzitivna
+relacija, ki vsebuje `R`. Zaenkrat ne vemo, ali ima vsaka relacija tranzitivno
+ovojnico.
+
+Izraz "ovojnica" uporabljamo, ker si lahko mislimo, da smo relacijo "ovili"
+tranzitivno relacijo tako, da se ji slednja čim bolj prilega. Namesto "ovojnica"
+rečemo tudi **ogrinjača** ali **zaprtje**.
+
+Poleg tranzitivne ovojnice lahko definiramo tudi druge ovojnice:
+
+* **refleksivna ovojnica** relacije `R ⊆ A × A` je najmanjša refleksivna relacija, ki vsebuje `R`
+* **simetrična ovojnica** relacije `R ⊆ A × A` je najmanjša simetrična relacija, ki vsebuje `R`
+* **refleksivna tranzitivna ovojnica** relacije `R ⊆ A × A` je najmanjša
+  refleksivna in tranzitivna relacija, ki vsebuje `R`
+
+Ali take ovojnice sploh obstajajo? Obravnavajmo le tranzitivne ovojnice, saj so
+ostali dokazi zelo podobni. Ključno pri dokazu obstoja tranzitivne ovojnice je
+naslednje dejstvo.
+
+**Lema:** Naj bo `A` množica in `R : I → P(A × A)` družina relacij na `A`. Če za
+vsak `i ∈ I` velja, da je `Rᵢ` tranzitivna relacija, potem je tudi presek `⋂ R`
+tranzitivna relacija.
+
+*Dokaz.* Iz definicije preseka družine množic (relacije so le posebne množice) sledi
+
+    x (∩ R) y ⇔ ∀ i ∈ I . x Rᵢ y
+
+Dokažimo, da je `∩ R` tranzitivna. Naj bodo `x, y, z ∈ A` in denimo, da velja
+`x (∩ R) y` in `y (∩ R) z`, kar je ekvivalentno
+
+    ∀ i ∈ I . x Rᵢ y            (1)
+
+in
+
+    ∀ j ∈ I . y Rⱼ z            (2)
+
+Dokazati moramo `x (∩ R) z`, kar je ekvivalentno
+
+    ∀ k ∈ I . x R_k z
+
+Naj bo torej `k ∈ I`, dokazujemo `x R_k z`. Uporabimo (1) pri `i = k` in dobimo
+
+    x R_k y
+
+Uporabimo (2) pri `j = k` in dobimo
+
+    y R_k z
+
+Po predpostavki je `R_k` tranzitivna relacija, torej velja `x R_k z`. □
+
+**Izrek:** Vsaka relacija `R ⊆ A × A` ima enolično tranzitivno ovojnico.
+
+*Dokaz.* Najprej premislimo, da ima `R` največ eno tranzitivno ovojnico: če sta
+`S` in `T` obe tranzitvni ovojnici `R`, potem iz definicije tranzitivne ovojnice
+sledi `S ⊆ T` in `T ⊆ S`, torej velja `S = T`.
+
+Sedaj pokažimo, da `R` ima tranzitivno ovojnico. Naj bo `R ⊆ A × A`. Definirajmo
+množico relacij
+
+    D := { S ⊆ A × A | R ⊆ S in S je tranzitivna }
+
+Trdimo, da je `∩ D` tranzitivna ovojnica relacije `R`:
+
+1. Iz prejšnje leme sledi, da je `∩ D` tranzitivna.
+
+2. Ker velja `R ⊆ S` za vsak `S ∈ D`, seveda sledi `R ⊆ ∩ D`.
+
+3. Denimo, da je `R ⊆ T` in `T ⊆ A × A` tranzitivna relacija. Tedaj velja `T ∈
+   D`, torej je `T ⊆ ∩ D`. □
+
+Po istem kopitu pokažemo, da ima vsaka relacija `R ⊆ A × A` tudi ostale
+ovojnice. Je pa zgornji izrek neroden, ker nam dokaz ne poda uporabnega opisa
+tranzitivne ovojnice. Povejmo, kako lahko razne ovojnice opišemo bolj
+eksplicitno:
+
+1. Refleksivna ovojnica relacije `R` je relacija `R ∪ Δ_A`, se pravi, da
+   relaciji `R` dodamo še diagonalo.
+
+2. Simetrična ovojnica relacije `R` je relacija `R ∪ Rᵀ`
+
+3. Tranzitivna ovojnica relacije `R` je relacija `R⁺ := ∪_{n ≥ 1} Rⁿ`, se pravi
+
+        R⁺ := R ∪ (R ∘ R) ∪ (R ∘ R ∘ R) ∪ ⋯
+
+4. Refleksivna tranzitivna ovojnica relacije `R` je relacija `R* := ∪_{n ≥ 0} Rⁿ`, se pravi
+
+        R* := Δ_A ∪ R ∪ (R ∘ R) ∪ (R ∘ R ∘ R) ∪ ⋯

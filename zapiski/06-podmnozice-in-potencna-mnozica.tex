@@ -1,0 +1,137 @@
+\chapter{Podmnožice in potenčne množice}
+
+\subsection{Definicija relacije `⊆`}
+
+Pravimo, da je množica `S` **podmnožica** množice `T`, pišemo `S ⊆ T`, ko velja
+`∀ x ∈ S . x ∈ T`. Pravimo tudi, da je `S` **vsebovana** v `T` in da je `T`
+**nadmnožica** `S`.
+
+Vedno velja `∅ ⊆ S` in `S ⊆ S`.
+
+Princip ekstenzionalnosti za množice pravi:
+
+    S = T ⇔ (∀ x ∈ S . S ∈ T) ∧ (∀ y ∈ T . y ∈ S)
+
+kar lahko zapišemo s podmnožicami:
+
+    S = T ⇔ S ⊆ T ∧ T ⊆ S
+
+Vsaka podmnožica `S ⊆ A` opredeljuje neko lastnost elementov iz `A`: tisti
+elementi, ki imajo opredeljeno lasnost, so v `S`, ostali pa ne.
+
+*Primer:* naj bo `P` množica vseh praštevil, torej je `P ⊆ N`. Podmnožica `P`
+opredeljuje lasnost "je praštevilo".
+
+\subsection{Kako tvorimo podmnožice}
+
+Če je `φ(x)` logična formula, v kateri nastopa spremenljivka `x ∈ A`, lahko tvorimo množico
+
+    { x ∈ A ∣ φ(x) }
+
+Pri tem je `x` vezana spremenljivka. Za to množico velja:
+
+    a ∈ { x ∈ A ∣ φ(x) } ⇔ a ∈ A ∧ φ(a)
+
+Povedano z besedami: elementi množice `{ x ∈ A ∣ φ(x) }` so tisti elementi iz `A`, ki zadoščajo pogoju `φ`.
+
+Velja `{ x ∈ A ∣ φ(x) } ⊆ A`.
+
+Poleg tega velja
+
+    {x ∈ A | φ(x)} ⊆ {x ∈ A | ψ(x)} ⇔ ∀ x ∈ A . φ(x) ⇒ ψ(x)
+
+\subsection{Kanonična inkluzija}
+
+Za podmnožico `S ⊆ T` definiriamo **kanonično inkluzijo** ali **kanonično vključitev**
+`i_S : S → T`, s predpisom `i_S : x ↦ x` (to ni identiteta, razen v primeru `S = T`!).
+Oznaka `i_S` ni standardna, pravzaprav standardne oznake ni.
+
+Če je `f : T → U` in `S ⊆ T`, pravimo kompozitumu `f ∘ i_S` **zožitev* preslikave `f` na
+`S`, pišemo `f|_S`.
+
+\section{Potenčna množica}
+
+\subsection{Definicija potenčne množice}
+
+Za vsako množico `A` tvorimo množico `P(A)`, ki ji pravimo **potenčna množica**.
+Elementi potenčne množice `P(A)` so natanko podmnožice množice `A`:
+
+    S ∈ P(A) ⇔ S ⊆ A
+
+*Primer:* `P(∅) = {∅}`
+
+*Primer:* `P({a,b,c}) = {{}, {a}, {b}, {c}, {a,b}, {a,c}, {b,c}, {a,b,c}}`
+
+\subsection{Karakteristične funkcije}
+
+**Karakteristična funkcija** na množici `A` je fukcija z domeno `A` in kodomeno `2`.
+Tu je `2 = {⊥, ⊤}` množica resničnostnih vrednosti.
+
+Eksponentna množica `2^A` je torej množica vseh karakterističnih funkcij na `A`.
+
+*Opomba:* karakteristične funkcije se uporabljajo tudi v analizi, kjer jih
+običajno razumemo kot preslikave `A → {0,1}` namesto `A → {⊥, ⊤}`. Ker sta
+množici `{⊥,⊤}` in `{0,1}` izomorfni, to ni bistvena razlika.
+
+Karakteristično funkcijo si lahko predstavljamo kot preslikavo, ki opredeljuje
+neko lastnost elementov `A`: tisti elementi, ki imajo opredeljeno lastnost, se
+slikajo v `⊤`, ostali pa v ‵⊥`.
+
+*Primer:* preslikava `p : N → 2`, definirana s predpisom
+
+    p(n) = ⊤, če n je praštevilo
+    p(n) = ⊥, če n ni praštevilo
+
+je karakteristična preslikava lastnosti "je praštevilo".
+
+\subsection{Izomorfizem `P(A) ≅ 2^A`}
+
+Videli smo, da lahko neko lastnost elementov množice `A` predstavimo bodisi s
+podmnožico bodisi s karakteristično preslikavo. To nam da idejo, da med
+podmnožicami `A` in karakterističnimi preslikavami na `A` obstaja neka zveza.
+
+**Izrek:** `P(A) ≅ 2^A`
+
+*Dokaz.* Definirajmo preslikavi
+
+    χ : P(A) → 2^A
+    ξ : 2^A → P(A)
+
+s predpisoma
+
+    χ_S(x) := ⊥ če x ∉ S
+    χ_S(x) := ⊤ če x ∈ S
+
+in
+
+    ξ_f := {x ∈ A | f(x) = ⊤}.
+
+Ta predpisa bi lahko krajše zapisali tudi takole:
+
+    χ_S(x) := (x ∈ S)
+    ξ_f := {x ∈ A | f(x) }
+
+Preslikavi `χ_S` pravimo **karakteristična funkcija podmnožice `S`**.
+
+Trdimo, da sta `χ` in `ξ` inverza:
+
+1. Dokažimo `χ ∘ ξ = id_{2^A}`. Uporabimo princip ekstenzionalnosti za preslikave.
+   Naj bo `f ∈ 2^A`. Dokažimo, da je `χ_{ξ_f} = f`.
+   Uporabimo princip ekstenzionalnosti za preslikave. Naj bo `x ∈ A`:
+
+        χ_{ξ_f}(x) = (x ∈ ξ_f) = f(x).
+
+2. Dokažimo `ξ ∘ χ = id_{P(A)}`. Uporabimo princip ekstenzionalnosti za preslikave.
+   Naj bo `S ∈ P(A)`. Dokažimo, da je `ξ_{χ_S} = S`:
+
+        ξ_{χ_S} = {x ∈ A | χ_S(x)} = {x ∈ A | x ∈ S} = S             □
+
+
+\subsection{Boolova algebra podmnožic}
+
+Podmnožice množice `A` tvorijo Boolovo algebro za operaciji presek `∩` in unija `∪`.
+
+Boolova algebra množic (unija, presek, komplement).
+
+Operacija simetrična razlika `⊕`. Potentčna množica tvori komutativno grupo za
+to opreacijo.

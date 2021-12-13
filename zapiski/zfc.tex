@@ -1,0 +1,120 @@
+\chapter{Aksiomatska teorija množic}
+\label{chap:zfc}
+
+\section{Osnovni aksiomi teorije množic}
+\label{sec:osnovni-aksiomi-mnozic}
+
+
+\section{Aksiom izbire}
+\label{sec:aksiom-izbire}
+
+
+\section{Moč množic in kadrinalna števila}
+\label{sec:kardinalna-stevila}
+
+%Za naravno število $n \in \NN$ naj bo
+%% 
+%\begin{equation*}
+%  [n] = \set{k \in \NN \such k < n} = \set{0, 1, \ldots, n-1}
+%\end{equation*}
+%% 
+%množica prvih $n$ naravnih števil.
+%% 
+%Na predavanjih smo povedali, da je moč množice $A$ enaka $|A| = n$, če
+%velja $A \iso [n]$. Obravnavali smo naslednje enačbe:
+%%
+%\begin{align*}
+%  |\emptyset| &= 0 \\
+%  |\set{\star}| &= 1 \\
+%  |A \times B| &= |A| \cdot |B| \\
+%  |A + B| &= |A| + |B| \\
+%  |B^A| &= |B|^{|A|} \\
+%  |\pow{A}| &= 2^{|A|} \\
+%  |A \cup B| + |A \cap B| &= |A| + |B|
+%\end{align*}
+%%
+%Obravnavali smo tudi pravilo vključitve-izključitve za~$k$ množic
+%%
+%\begin{align*}
+%  |A_1 \cup \cdots A_k| &= |A_1| + \cdots + |A_k| \\
+%  &- (|A_1 \cap A_2| + \cdots + |A_{k-1} \cap A_k|) \\
+%  &+ (|A_1 \cap A_2 \cap A_3| + \cdots + |A_{k-2} \cap A_{k-1} \cap A_k|) \\
+%  & \cdots
+%\end{align*}
+%%
+%Prešteli smo, koliko je injekcij $[m] \to [n]$ in koliko bijekcij $[m]
+%\to [m]$.
+
+%Povedali smo, da ima množica $\set{1, \ldots, n}$ natanko $\ceil{n/k}$
+%večkratnikov števila $k$. S pravilom vključitve-izklučitve smo
+%prešteli, koliko je števil med $1$ in $2009$, ki so večkratniki $5$
+%ali večkratniki $7$ ali večkratniki $11$.
+
+
+
+%Definirali smo pojem kardinalnega števila, neformalno kot ``količina''
+%$|A|$, ki pomeni število elementov množice~$A$. Definirali smo $|A|
+%\leq |B|$ kot ``obstaja injekcija $A \to B$''. Dokazali smo, da
+%obstaja injekcija $A \to B$ natanko tedaj, ko je $A = \emptyset$ ali
+%obstaja surjekcija $B \to A$.
+
+%Povedali smo Cantor-Schröder-Bernsteinov izrek, ki pravi, da obstaja
+%bijekcija $A \to B$, če obstajata injekciji $A \to B$ in $B \to A$.
+%Izreka nismo dokazali.
+
+%Dokazali smo Cantorjev izrek $|A| < |\pow{A}|$ (obstaja injekcija $A
+%\to \pow{A}$ in ne obstaja injekcija $\pow{A} \to A$).
+
+%Definirali smo naslednja kardinalna števila: $\aleph_0$ je moč množice
+%naravnih števil, povedali smo, da je to najmanjše neskončno kardinalno
+%število. Kontinuum $c$ je moč množice $\pow{\NN}$.
+
+%Definirali smo števno množico kot tako množico, katere moč je manj ali
+%enaka $\aleph_0$. Ugotovili smo, da je to ekvivalentno temu, da je
+%množica prazna ali pa obstaja surjekcija iz $\NN$ nanjo.
+
+%Povedali smo, da so kardinalna števila dobro urejena in na tablo
+%narisali zaporedje
+%%
+%\begin{equation*}
+%  0, 1, 2, \ldots, \aleph_0, \aleph_1, \aleph_2, \ldots,
+%  \aleph_\omega, \aleph_{\omega+1}, \ldots
+%\end{equation*}
+%%
+%Vprašali smo se, kateri $\aleph$ je kontinuum $c$. Omenil sem, da to
+%vprašanje nima odgovora.
+
+%Definirali smo poljubno velike kartezične produkte $\prod_{i \in I}
+%A_i = \set{f : I \to \bigcup_i A_i \such \xall{i}{I}{f(i) \in A_i}}$
+%in koprodukt $\coprod_{i \in I} A_i = \sum_{i \in I} A_i = \set{(i,x)
+%  \such i \in I \land x \in A_i}$.
+
+%Definirali smo kardinalno aritmetiko. Če je $\kappa = |A|$ in $\lambda
+%= |B|$, je
+%%
+%\begin{align*}
+%  \kappa + \lambda &= |A + B| \\
+%  \kappa \cdot \lambda &= |A \times B| \\
+%  \kappa^\lambda &= |A^B|
+%\end{align*}
+%%
+%Za družino množic $(A_i)_{i \in I}$, kjer je $\kappa_i = A_i$, smo
+%definirali
+%%
+%\begin{align*}
+%  \prod_{i \in I} \kappa_i &= |\prod_{i \in I} A_i| \\
+%  \sum_{i \in I} \kappa_i &= |\sum_{i \in I} A_i|.
+%\end{align*}
+%%
+%Razpravljali smo o tem, zakaj odštevanje kardinalnih števil ni dobro
+%definirano.
+
+
+\section{Ordinalna števila}
+\label{sec:ordinalna-stevila}
+
+
+%%% Local Variables: 
+%%% mode: latex
+%%% TeX-master: "lmn"
+%%% End: 
