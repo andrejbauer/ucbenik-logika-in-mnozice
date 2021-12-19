@@ -134,16 +134,16 @@ To pa drži po zakonu o izključeni tretji možnosti. S tem je linearnost `≼_l
 Naj bosta `(P, ≤)` in `(Q, ⊑)` delni urejenosti. Na vsoti `P + Q` lahko
 definiramo urejenost `≼` s predpisom:
 
-    u ≼ v ⇔ (∃ x, y ∈ P . u = in₁(x) ∧ v = in₁(y) ∧ x ≤ y) ∨
-            (∃ s, t ∈ Q . u = in₂(s) ∧ v = in₂(t) ∧ s ⊑ t)
+    u ≼ v ⇔ (∃ x, y ∈ P . u = \inl(x) ∧ v = \inl(y) ∧ x ≤ y) ∨
+            (∃ s, t ∈ Q . u = \inr(s) ∧ v = \inr(t) ∧ s ⊑ t)
 
 \subsubsection{Zaporedna vsota urejenosti}
 
 Naj bosta `(P, ≤)` in `(Q, ⊑)` delni urejenosti. Na vsoti `P + Q` lahko definiramo urejenost `≼` s predpisom:
 
-    u ≼ v ⇔ (∃ x, y ∈ P . u = in₁(x) ∧ v = in₁(y) ∧ x ≤ y) ∨
-            (∃ x ∈ P . ∃ s ∈ Q . u = in₁(x) ∧ v = in₂(s)) ∨
-            (∃ s, t ∈ Q . u = in₂(s) ∧ v = in₂(t) ∧ s ⊑ t)
+    u ≼ v ⇔ (∃ x, y ∈ P . u = \inl(x) ∧ v = \inl(y) ∧ x ≤ y) ∨
+            (∃ x ∈ P . ∃ s ∈ Q . u = \inl(x) ∧ v = \inr(s)) ∨
+            (∃ s, t ∈ Q . u = \inr(s) ∧ v = \inr(t) ∧ s ⊑ t)
 
 Torej so vsi elementi `P` pred vsemi elementi `Q`.
 

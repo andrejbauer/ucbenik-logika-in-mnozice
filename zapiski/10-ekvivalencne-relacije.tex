@@ -210,12 +210,12 @@ izbor predstavnikov za `E`.
 surjektivna, zato ima po predpostavki (1) prerez, ki določa izbor predstavnikov.
 
 `(2 ⇒ 3)`: Naj bo `A : I → Set` družina nepraznih množic. Naj bo `∼` ekvivalenčna relacija
-na koproduktu `K := ∐_{i ∈ I} A_i`, porojena s prvo projekcijo `pr₁ : S → I`, t.j.,
+na koproduktu `K := ∐_{i ∈ I} A_i`, porojena s prvo projekcijo `\fst : S → I`, t.j.,
 
     inᵢ(x) ∼ inⱼ(y) ⇔ i = j
 
 Po predpostavki (2) obstaja izbor predstavnikov za `∼`, se pravi taka množica `C ⊆ K`, da
-za vsak `u ∈ K` obstaja natanko en `v ∈ C`, da je `pr₁(u) = pr₁(v)`. Definirajmo `f : I →
+za vsak `u ∈ K` obstaja natanko en `v ∈ C`, da je `\fst(u) = \fst(v)`. Definirajmo `f : I →
 ⋃ A` s predpisom
 
     f(i) := tisti x ∈ A_i, za katerega je inᵢ(x) ∈ C
@@ -224,8 +224,8 @@ Očitno je `f` funkcija izbire za družino `A`, če je le dobro definirana:
 
 * `f` je enolična, saj iz `inᵢ(x) ∈ C` in `inᵢ(y) ∈ C` sledi `inᵢ(x) = inⱼ(y)`.
 * `f` je celovita: ker je `A_i` neprazna, obstaja `z ∈ A_i`, torej obstaja `v ∈ C`, da je
-  `i = pr₁(inᵢ(z)) = pr₁(v)`, in je potemtakem `pr₂(v) ∈ A_i` element, za katerega velja
-  `inᵢ(pr₂(v)) ∈ C`.
+  `i = \fst(inᵢ(z)) = \fst(v)`, in je potemtakem `\snd(v) ∈ A_i` element, za katerega velja
+  `inᵢ(\snd(v)) ∈ C`.
 
 `(3 ⇒ 4)`: Elementi produkta so funkcije izbire, zato je produkt res neprazen, če obstaja
 kaka funkcija izbire.

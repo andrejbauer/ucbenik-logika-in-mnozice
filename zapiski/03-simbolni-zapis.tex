@@ -1,356 +1,455 @@
 \chapter{Simbolni zapis}
 
-V matematiki uporabljamo **simbolni zapis** – matematične objekte, konstrukcije in dokaze opišemo s pomočjo izrazov kot
-so `3 + 4`, `x ↦ x² + 3`, `∀ x ∈ ℝ . x² + x + 1 ≥ 1/4` itd. Matematično besedilo je mešanica naravnega jezika
-(slovenščine) in simbolnega zapisa. Načeloma bi lahko pisali matematiko *samo* s simbolnim zapisom (kar dejansko
-počnemo, kadar matematiko *formaliziramo* z računalnikom, a o tem kdaj drugič), a bi bilo to ljudem preveč nerazumljivo.
+V matematiki uporabljamo \textbf{simbolni zapis} -- matematične objekte, konstrukcije in dokaze opišemo s pomočjo izrazov kot so
+%
+\begin{gather*}
+  3 + 4\\
+  x \mapsto x^2 + 3\\
+  \all{x \in \RR} x^2 + x + 1 \geq 1/4
+\end{gather*}
+%
+Matematično besedilo je mešanica naravnega jezika (slovenščine) in simbolnega zapisa. Načeloma bi lahko pisali matematiko \emph{samo} s simbolnim zapisom (kar dejansko počnemo, kadar matematiko \emph{formaliziramo} z računalnikom, a o tem kdaj drugič), a bi bilo to ljudem preveč nerazumljivo. V starih časih so uporabljali samo naravni jezik (latinščino), kar je bilo tudi zelo nerazumljivo.
 
-Danes bomo spoznali pravila simbolnega zapisa in se učili razumeti, brati in pisati logične formule (matematične izjave,
-izražene s simbolnim zapisom).
+Spoznajmo pravila simbolnega zapisa in se učimo razumeti, brati in pisati logične formule (matematične izjave, izražene s simbolnim zapisom).
+
 
 \section{Izrazi}
 
-**(Simbolni) izraz** je zaporedje znakov, ki predstavlja neki matematični pojem, na primer
-
-    3 + 5
-    S ∩ (T ∪ V)
-    2 x y ≤ x² + y²
-
-Izraz je *pravilno formiran* ali *sintaktično pravilen*, če ustreza pravilom, ki določajo kako postavljamo oklepaje,
-vejice, pike, kako uporabljamo razne posebne simbole (`+`, `∨`, `∫`) itd. Na primer, izraz `3 + ) x · 4` ni sintaktično
+\textbf{(Simbolni) izraz} je zaporedje znakov, ki predstavlja neki matematični pojem, na primer
+%
+\begin{gather*}
+  3 + 5 \\
+  S \cap (T \cup V) \\
+  2 x y \leq x^2 + y^2
+\end{gather*}
+%
+Izraz je \emph{pravilno formiran} ali \emph{sintaktično pravilen}, če ustreza pravilom, ki določajo kako postavljamo oklepaje,
+vejice, pike, kako uporabljamo razne posebne simbole ($+$, $\lor$, $\int$) itd. Na primer, izraz $3 + ) x \cdot 4$ ni sintaktično
 pravilen, ker ima narobe postavljen zaklepaj.
 
 Natančna sintaktična pravila za pisanje matematičnih izrazov so precej zapletena, ker je matematični zapis raznovrsten
-in se je razvijal skozi zgodovino. Na srečo skoraj vsa pravila že poznate ("vsak oklepaj mora imeti ustrezni zaklepaj",
-"piše se `a + b` in ne `a b +`, ...). Tu se ne bomo ukvarjali s podajanjem vseh pravil – to je delo za računalničarje,
+in se je razvijal skozi zgodovino. Na srečo skoraj vsa pravila že poznate (">vsak oklepaj mora imeti ustrezni zaklepaj"<,
+">piše se $a + b$ in ne $a b +$"< ipd). Tu se ne bomo ukvarjali s podajanjem vseh pravil -- to je delo za računalničarje,
 ki želijo taka pravila naprogramirati. Kljub temu pa velja omeniti nekatere pojme.
 
 
 \subsection{Prefiksne, postfiksne in infiksne operacije}
 
-V simbolnem zapisu uporabljamo *operacije*, ki jih pišemo pred, za ali med argumente:
-
-* **prefiksne operacije** so take, ki jih pišemo *pred* argument:
-    * `-x` za nasprotno vrednost `x`
-    * `¬P` za negacijo izjave `P`
-* **infiksne operacije** so take, ki jih pišemo *med* argumenta:
-    * aritmetične operacije `x + y`, `x - y`, `x · y` itn.
-    * logični vezniki `P ∧ Q`, `P ∨ Q`, `P ⇒ Q` itn.
-* **postfiksne operacije** so take, ki jih pišemo *za* argument:
-    * `n!` za faktorielo števila `n`
-
+V simbolnem zapisu uporabljamo \emph{operacije}, ki jih pišemo pred, za ali med argumente:
+%
+\begin{itemize}
+\item \textbf{prefiksne operacije} so take, ki jih pišemo \emph{pred} argument:
+  \begin{itemize}
+  \item  $-x$ za nasprotno vrednost $x$,
+  \item  $\neg P$ za negacijo izjave $P$,
+  \end{itemize}
+\item \textbf{infiksne operacije} so take, ki jih pišemo \emph{med} argumenta:
+  \begin{itemize}
+  \item aritmetične operacije $x + y$, $x - y$, $x \cdot y$ itn.
+  \item logični vezniki $P \land Q$, $P \lor Q$, $P \lthen Q$ itn.
+  \end{itemize}
+\item \textbf{postfiksne operacije} so take, ki jih pišemo \emph{za} argument:
+  \begin{itemize}
+  \item $n!$ za faktorielo števila $n$.
+  \end{itemize}
+\end{itemize}
+%
 Včasih uporabljamo tudi druge oblike zapisa:
-
-* *potenciranje* `Aᴮ`
-* *ulomki* `a/b` (mišljen je ulomek, kjer so `a`, črta in `b` zapisani navpično)
-* integrali in vsote
-* zapis podmnožice `{ x ∈ ℝ | x² + x > 2}`
-
-Operacija je lahko celo "nevidna", oziroma jo pišemo kot presledek med argumentoma:
-
-* `x y` kot zmnožek `x` in `y`
-* `sin x` kot uporabe funkcije `sin` na argumentu `x`
+%
+\begin{itemize}
+\item \emph{potenciranje} $A^B$
+\item \emph{ulomki} $\frac{a}{b}$
+\item integrali $\int f(x) dx$ in vsote $\sum_{i = 0}^n a_i$,
+\item zapis podmnožice $\set{x \in \RR \such x^2 + x > 2}$.
+\end{itemize}
+%
+Operacija je lahko celo ">nevidna"<, oziroma jo pišemo kot presledek med argumentoma:
+%
+\begin{itemize}
+\item $x \, y$ kot zmnožek $x$ in $y$,
+\item $\sin x$ kot uporabe funkcije $\sin$ na argumentu~$x$.
+\end{itemize}
 
 
 \subsection{Oklepaji, prioriteta in asociiranost}
 
 Z oklepaji ponazorimo, katera operacija ima prednost. Na primer, če ne bi imeli dogovora, da ima množenje prednost pred
-seštevanjem, potem bi lahko izraz
-
-    3 + 4 × 5
-
-razumeli kot `3 + (4 × 5)` ali kot `(3 + 4) × 5`. Oklepajev ne smemo opustiti, kadar bi lahko prišlo do take zmede.
-Nikoli pa ne škodi, če zapišemo kak oklepaj več, kot je to potrebno (v mejah normale).
+seštevanjem, potem bi lahko izraz $3 + 4 \times 5$ razumeli kot $3 + (4 \times 5)$ ali kot $(3 + 4) \times 5$. Oklepajev ne smemo opustiti, kadar bi lahko prišlo do take zmede. Nikoli pa ne škodi, če zapišemo kak oklepaj več, kot je to potrebno (v mejah normale).
 
 Da se izognemo pisanju oklepajev, se dogovorimo, da imajo nekatere operacije prednost pred ostalimi, kar so vas učili že
-v osnovni šoli. Pravimo, da imajo operacije **prioriteto**. Operacija z višjo prioriteto ima prednost pred operacijo z
+v osnovni šoli. Pravimo, da imajo operacije \textbf{prioriteto}. Operacija z višjo prioriteto ima prednost pred operacijo z
 nižjo prioriteto.
 
-Primer:
+\begin{primer}
+  Množenje $\times$ ima višjo prioriteto kot seštevanje $+$ (to je \emph{dogovor} in ne matematično dejstvo).
+  Podobno ima konjunkcija $\land$ višjo priroriteto kot disjunkcija $\lor$.
+\end{primer}
 
-* `×` ima višjo prioriteto kot `+` (to je *dogovor* in ne matematično dejstvo)
-* `∧` ima višjo priroriteto kot `∨`
-
-Poleg prioritete imajo nekatere operacije tudi **asociiranost**. Kako naj razumemo izraz `8 - 3 - 2`, kot `(8 - 3) - 2`
-ali kot `8 - (3 - 2)`? V šoli so vas učili, da je
-
-    A - B - C = (A - B) - C
-
-Pravimo, da `-` veže na levo oziroma da ima **levo asociiranost**. Ker beremo z leve na desno, ima večina operacij levo
+Poleg prioritete imajo nekatere operacije tudi \textbf{asociiranost}. Kako naj razumemo izraz $8 - 3 - 2$, kot $(8 - 3) - 2$
+ali kot $8 - (3 - 2)$? V šoli so vas učili, da je
+%
+\begin{equation*}
+  A - B - C = (A - B) - C
+\end{equation*}
+%
+Pravimo, da $-$ veže na levo oziroma da ima \textbf{levo asociiranost}. Ker beremo z leve na desno, ima večina operacij levo
 asociiranost. Velja na primer
-
-    A + B + C = (A + B) + C
-    A × B × C = (A × B) × C
-
-Morda bo kdo pripomnil, da velja `(A + B) + C = A + (B + C)` in da zato ni pomembno, kako razumemo `A + B + C`. To je
-res v preprostih primerih, ko vemo, da smo s `+` označili seštevanje števil. Kaj pa, če s `+` označimo kako drugo
-preslikavo? Ali `(A + B) + C = A + (B + C)` velja tudi v programiskih jezikih, pri katerih lahko pride do prekoračitve
+%
+\begin{align*}
+  A + B + C &= (A + B) + C \\
+  A \times B \times C &= (A \times B) \times C.
+\end{align*}
+%
+Morda bo kdo pripomnil, da itak velja $(A + B) + C = A + (B + C)$ in da zato ni pomembno, kako razumemo $A + B + C$. To je
+res v preprostih primerih, ko vemo, da smo s $+$ označili seštevanje števil. Kaj pa, če s $+$ označimo kako drugo
+preslikavo? Ali $(A + B) + C = A + (B + C)$ velja tudi v programiskih jezikih, pri katerih lahko pride do prekoračitve
 največjega možnega števila?
 
-Primer operacije z desno asociiranostjo je implikacija: `P ⇒ Q ⇒ R` je enako `P ⇒ (Q ⇒ R)`.
+Primer operacije z desno asociiranostjo je implikacija: $P \lthen Q \lthen R$ je enako $P \lthen (Q \lthen R)$.
 
 
 \subsection{Izrazi predstavljajo drevesa}
 
 Izrazi so zaporedja znakov, ki jih pišemo z leve na desno. A kje drugje bi jih morda pisali z desne na levo ali
-navpično. Izrazi so le *predstavitve* tako imenovanih **sintaktičnih dreves**. Na primer `((3 + x) × y)²` predstavlja
-sintaktično drevo (potenciranje predstavimo z znakom `^`)
-
-           ^
-          / \
-         ×   2
-        / \
-       +   y
-      / \
-     3   x
-
+navpično. Izrazi so le \emph{predstavitve} tako imenovanih \textbf{sintaktičnih dreves}. Na primer $((3 + x) \times y)^2$ predstavlja sintaktično drevo, pri čemer potenciranje predstavimo z znakom ${}^{\wedge}$:
+%
+\begin{center}
+  \begin{tikzpicture}[level/.style={sibling distance=5em/#1},,level distance=2em,
+    every node/.style = {align=center}, baseline=(current bounding box.center)
+    ]
+    \node {${}^{\wedge}$}
+    child { node {$\times$}
+      child { node {$+$}
+        child { node {$3$} }
+        child { node {$x$} }
+      }
+      child { node {$y$} }
+    }
+    child { node {$2$} } ;
+  \end{tikzpicture}
+\end{center}
+%
 O sintaktičnih drevesih ne bomo govorili, a jih omenimo, ker so pomembna iz dveh razlogov: sintaktična drevesa so
-*podatkovni tip*, s katerim v programu dejansko obdelujemo izraze; s pomočjo sintaktičnih dreves lahko simbolni zapis
-predstavimo kot posebno vrsto algebre, ki razkriva pomembno matematično strukturo izrazov.
+\emph{podatkovni tip}, s katerim v programu dejansko obdelujemo izraze; s pomočjo sintaktičnih dreves lahko simbolni zapis
+predstavimo kot posebno vrsto algebre, ki omogoča matematično obravnavo izrazov.
 
 
 \subsection{Ostala sintaktična pravila}
 
-Sintaktičnih pravil je še več, od katerih omenimo le tri.
+Sintaktičnih pravil je še več, od katerih omenimo le nekatera.
 
-Argumente operacije ali funkcije včasih zapišemo v **podnapis** ali **nadnapis**. Na primer, če je `a : ℕ → ℝ`
-preslikava, pogosto pišemo `aᵢ` namesto `a(i)`.
+\subsubsection{Podnapisi in nadnapisi}
+\label{sec:podnapisi-nadnapisi}
+
+Argumente operacije ali funkcije včasih zapišemo v \textbf{podnapis} ali \textbf{nadnapis}. Na primer, če je $a : \NN \to \RR$
+preslikava, pogosto pišemo $a_i$ namesto $a(i)$.
+
+\subsubsection{Implicitni argumenti}
+\label{sec:implicitni-argumenti}
 
 Argumente operacije lahko opustimo in od bralca pričakujemo, da bo pravilno uganil, kaj smo mislili. Pravimo, da so to
-**implicitni argumenti**. Primer implicitnih argumetov smo že videli, ko smo zapisali prvo in drugo projekcijo `pr₁` in
-`pr₂`:
-
-    pr₁ : A × B → A
-    pr₂ : A × B → A
-
-Če bi bili zelo natančni, bi morali pri projekcijah zapisati tudi množici `A` in `B`, ki tvorita kartezični produkt, na
-primer nekaj takega kot
-
-    pr₁ᴬ,ᴮ : A × B → A
-
-Ko torej vpeljemo novo zapis, lahko nekatere argumente razglasimo za *implicitne*, kar pomeni, da jih bomo opuščali,
+\textbf{implicitni argumenti}. Primer implicitnih argumetov smo že videli, ko smo zapisali prvo in drugo projekcijo $\fst$ in
+$\snd$:
+\begin{align*}
+  \fst &: A \times B \to A, \\
+  \snd &: A \times B \to A.
+\end{align*}
+%
+Če bi bili zelo natančni, bi morali pri projekcijah zapisati tudi množici $A$ in $B$, ki tvorita kartezični produkt, na
+primer nekaj takega kot $\fst^{A,B} : A \times B \to A$.
+%
+Ko torej vpeljemo novo zapis, lahko nekatere argumente razglasimo za \textbf{implicitne}, kar pomeni, da jih bomo opuščali,
 kadar to ne pripelje do zmede.
 
-**Naloga:** ali ima kompozicija preslikav `∘` implicitne argumente? Katere?
+\begin{naloga}
+  Ali ima kompozicija preslikav $\circ$ implicitne argumente? Katere?
+\end{naloga}
 
-Simbol lahko tudi **preobtežimo**, da ima več pomenov, nato pa od bralca pričakujemo, da bo uganil, katerega smo
-mislili. Na primer, `+` uporabljamo za:
+\subsubsection{Privzete vrednosti}
+\label{sec:privzete-vrednosti}
 
-* seštevanje naravnih števil
-* seštevanje celih števil
-* seštevanje racionalnih števil
-* seštevanje realnih števil
-* seštevanje kompleksnih števil
-* seštevanje vektorjev
-* seštevanje matrik
-* itd.
+Argument operacije ima lahko \textbf{privzeto vrednost}. Na primer logaritem $x$ z osnovo $b$ zapišemo $\log_b x$. Če opustimo~$b$, se razume, da je mišljen desetiški logaritem, $\log x = \log_10 x$. Pravimo, da je privzeta vrednost osnove $b = 10$.
 
-S preobteževanjem ne gre pretiravati, ker lahko pripelje do zmede. Običajno z istim simbolom označimo različne
-operacije, ki imajo kaj skupnega. Na primer, `+` uporabljamo za komutativno, asociativno operacijo z nevtralnim
-elementom.
+\subsubsection{Preobteževanje}
+\label{sec:preobteevanje}
+
+Simbol lahko tudi \textbf{preobtežimo}, da ima več pomenov, nato pa od bralca pričakujemo, da bo uganil, katerega smo
+mislili. Na primer, $+$ uporabljamo za
+%
+seštevanje naravnih števil,
+seštevanje celih števil,
+seštevanje racionalnih števil,
+seštevanje realnih števil,
+seštevanje kompleksnih števil,
+seštevanje vektorjev,
+seštevanje matrik,
+itd.
+%
+S preobteževanjem ne gre pretiravati, ker lahko pripelje do zmede. Običajno z istim simbolom označimo različne operacije, ki imajo kaj skupnega. Na primer, $+$ vedno uporabljamo le za operacijo, ki je komutativna, asociativna in ima nevtralni element.
 
 
 \section{Logične formule}
 
-Izrazi, ki označujejo števila, se imenujejo **aritmetični izrazi**.
+Izrazi, ki označujejo števila, se imenujejo \textbf{aritmetični izrazi}.
 
-Irazi, ki označujejo matematične izjave, se imenujejo **logični izrazi** ali **logične formule**. Razumevanje, branje in pisanje le-teh zahteva kar nekaj treninga, zato se mu bomo posvetili tu in na vajah. Pravzaprav ne bomo vadili le razumevanja zapisa, ampak tudi, kako matematiki razmišljajo in razumejo drug drugega.
+Irazi, ki označujejo matematične izjave, se imenujejo \textbf{logični izrazi} ali \textbf{logične formule}. Razumevanje, branje in pisanje le-teh zahteva kar nekaj treninga, zato se mu bomo posvetili tu in na vajah. Pravzaprav ne bomo vadili le razumevanja zapisa, ampak tudi, kako matematiki razmišljajo in razumejo drug drugega.
 
-Danes o dokazih in pravilih dokazovanja še ne bomo govorili, bomo pa pojasnili intuitivni pomen logičnih operacij.
+Tu o dokazih in pravilih dokazovanja še ne bomo govorili, bomo pa pojasnili intuitivni pomen logičnih operacij.
 
-Logične formule in logika nasploh sestoji iz:
-
-* **izjavni račun** zaobjema logične veznike `¬`, `∧`, `∨`, `⇒`, `⇔`
-* **predikatni račun** zaobjema izjavni račun, ter kvantifikatorja `∀` in `∃`
+Računanje z logičnimi formulami delimo na:
+%
+\begin{itemize}
+\item \textbf{izjavni račun} zaobjema logične veznike $\neg $, $\land$, $\lor$, $\lthen$, $\liff$,
+\item \textbf{predikatni račun} zaobjema izjavni račun, ter kvantifikatorja $\forall$ in $\exists$.
+\end{itemize}
 
 
 \subsection{Izjavni račun}
 
-**Izjavn vezniki** so naslednje operacije:
+\textbf{Izjavni vezniki} so naslednje operacije:
+%
+\begin{itemize}
 
-* **resničnostni konstanti** `⊥` in `⊤`: beremo ju "neresnica" in "resnica"
+\item \textbf{resničnostni konstanti} $\bot$ in $\top$: beremo ju ">neresnica"> in ">resnica"<,
 
-* **negacija** `¬`: izjavo `¬A` beremo "`A` ne velja" ali "ni res, da `A`"
+\item \textbf{negacija} $\neg$: izjavo $\neg A$ beremo ">$A$ ne velja"< ali ">ni res, da $A$"<,
 
-* **konjunkcija** `∧`: izjavo `A ∧ B` beremo "`A` in `B`"
+\item \textbf{konjunkcija} $\land$: izjavo $A \land B$ beremo ">$A$ in $B$"<,
 
-* **disjunkcija** `∨`: izjavo `A ∨ B` beremo "`A` ali `B`"
+\item \textbf{disjunkcija} $\lor$: izjavo $A \lor B$ beremo ">$A$ ali $B$"<,
 
-* **implikacija** `⇒`: izjavo `A ⇒ B` lahko beremo na več načinov:
-
-   * "Iz `A` sledi `B`."
-   * "Če `A`, potem `B`."
-   * "`A` samo če `B`."
-   * "`B` sledi iz `A`."
-   * "`A` je zadosten pogoj za `B`."
-   * "`B` je potreben pogoj za `A`."
-
-* **ekvivalenca** `⇔`: izjavo `A ⇔ B` beremo
-
-   * "`A` je ekvivalentno `B`."
-   * "`A`, če in samo če `B`."
-   * "`A` natanko tedaj, ko `B`."
-   * "`A` je zadosten in potreben pogoj za `B`."
-
+\item \textbf{implikacija} $\lthen$: izjavo $A \lthen B$ lahko beremo na več načinov:
+  %
+  \begin{itemize}
+  \item ">Iz $A$ sledi $B$."<
+  \item ">Če $A$, potem $B$."<
+  \item ">$A$ samo če $B$."<
+  \item ">$B$ sledi iz $A$."<
+  \item ">$A$ je zadosten pogoj za $B$."<
+  \item ">$B$ je potreben pogoj za $A$."<
+  \end{itemize}
+  %
+\item \textbf{ekvivalenca} $\liff$: izjavo $A \liff B$ beremo
+  %
+  \begin{itemize}
+  \item ">$A$ je ekvivalentno $B$."<
+  \item ">$A$, če in samo če $B$."<
+  \item ">$A$ natanko tedaj, ko $B$."<
+  \item ">$A$ je zadosten in potreben pogoj za $B$."<
+  \end{itemize}
+\end{itemize}
+%
 Malo bolj neobičajna je:
-
-* **ekskluzivna disjunkcija** `⊕`: izjava `A ⊕ B` beremo "bodisi `A` bodisi `B`
-
+%
+\begin{itemize}
+\item \textbf{ekskluzivna disjunkcija} $\oplus$: izjava $A \oplus B$ beremo ">bodisi $A$ bodisi $B$"< ali ">$A$ ali $B$, vendar ne oba hkrati"<.
+\end{itemize}
+%
 Prioriteta veznikov, od najvišje do najnižje:
+%
+\begin{itemize}
+\item $\neg$,
+\item $\land$,
+\item $\lor$, $\oplus$,
+\item $\lthen$, $\liff$.
+\end{itemize}
 
-* `¬`
-* `∧`
-* `∨`, `⊕`
-* `⇒`, `⇔`
-
-Primer: `¬ A ∧ B ⇒ C ∨ D` beremo kot `((¬ A) ∧ B) ⇒ (C ∨ D)`.
+\begin{primer}
+  Izraz $\neg A \land B \lthen C \lor D$ beremo kot $((\neg  A) \land B) \lthen (C \lor D)$.
+\end{primer}
 
 Asociranost veznikov:
+%
+\begin{itemize}
+\item leva asociiranost: $\land$, $\lor$, $\oplus$,
+\item desna asociiranost: $\lthen$.
+\end{itemize}
+%
+Ekvivalenca $\liff$ nima asociiranosti, zato je zapis $A \liff B \liff C$ načeloma dvoumen, a v praksi pomeni $(A \liff B) \land (B \liff C)$.
 
-* leva asociiranost: `∧`, `∨`, `⊕`
-* desna asociiranost: `⇒`
+\begin{opomba}
+  Tudi zapis $x = y = z$ pravzaprav ni smiselen, saj sta $(x = y) = z$ in $x = (y = z)$ oba nesmiselna. V praksi $x = y = z$ pomeni $(x = y) \land (y = z)$. Pa še to: koliko enačb je izraženih z $a = b = c = d$? Tri! Toliko kot je enačajev.
+\end{opomba}
 
-Ekvivalenca `⇔` nima asociiranost, zato je zapis `A ⇔ B ⇔ C` načeloma dvoumen, a v praksi pomeni `(A ⇔ B) ∧ (B ⇔ C)`
-
-**Opomba:** Tudi zapis `x = y = z` pravzaprav ni smiselen, saj sta `(x = y) = z` in `x = (y = z)` oba nesmiselna. V
-praksi `x = y = z` pomeni `(x = y) ∧ (y = z)`. Pa še to: koliko enačb je izraženih z `a = b = c = d`? Tri! Toliko kot je
-enačajev.
-
-**Opomba k opombi:** Zapis `x ≠ y ≠ z` je nejasen in se mu je bolje izogibati, saj zlahka pripelje do pomote, ker iz `x
-≠ y` in `y ≠ z` ne sledi nujno `x ≠ z`.
+\begin{opomba}
+  Zapis $x \neq y \neq z$ je nejasen in se mu je bolje izogibati, saj zlahka pripelje do pomote, ker iz $x
+  \neq y$ in $y \neq z$ ne sledi nujno $x \neq z$.
+\end{opomba}
 
 Glede razumevanja veznikov, omenimo:
-
-* disjunkcija je *inkluzivna*, kar pomeni, da je `A ∨ B` resnična izjava, če sta `A` in `B` resnični,
-* v implikaciji `A ⇒ B` se `A` imenuje **antecedent** in `B` **konsekvent**. Implikacija je veljavna, če je antecedent neveljaven,
-* ekvivalenco `A ⇔ B` lahko razumemo kot okrajšavo za `(A ⇒ B) ∧ (B ⇒ A)`.
-
+%
+\begin{itemize}
+\item disjunkcija je \emph{inkluzivna}, kar pomeni, da je $A \lor B$ resnična izjava, če sta $A$ in $B$ resnični,
+\item v implikaciji $A \lthen B$ se $A$ imenuje \textbf{antecedent} in $B$ \textbf{konsekvent}. Implikacija je veljavna, če je antecedent neveljaven,
+\item ekvivalenco $A \liff B$ lahko razumemo kot okrajšavo za $(A \lthen B) \land (B \lthen A)$.
+\end{itemize}
 
 \subsection{Kvantifikatorja}
 
-Matematične izjave vsebujejo fraze, kot so "za vse", "za neki", "obstaja vsaj en", "za natanko enega" ipd. Le-te izrazimo s **kvantifiaktorji**. Osnovna kvantifikatorja sta **univerzalni** in **eksistenčni**.
+Matematične izjave vsebujejo fraze, kot so ">za vse"<, ">za neki"<, ">obstaja vsaj en"<, ">za natanko enega"< ipd. Le-te izrazimo s \textbf{kvantifiaktorji}. Osnovna kvantifikatorja sta \textbf{univerzalni} in \textbf{eksistenčni}.
 
 
-\subsubsection{Univerzalni kvantifikator `∀`}
+\subsubsection{Univerzalni kvantifikator $\forall$}
 
-Formulo
+Formulo $\all {x \in A} \phi$ beremo:
+%
+\begin{itemize}
+\item ">Za vsak $x$ iz $A$ velja $\phi$."<,
+\item ">Vsi $x$ iz $A$ zadoščajo $\phi$."<,
+\item ">$\phi$ za vse $x$ iz $A$."<
+\end{itemize}
+%
+Pika pri tem nima nobenega posebnega pomena, pogosti so tudi zapisi
+%
+\begin{equation*}
+  \forall x \in A \,,\, \phi
+  \qquad\text{ali}\qquad
+  \forall x : A \,,\, \phi
+  \qquad\text{ali}\qquad
+  (\forall x : A) \phi.
+\end{equation*}
+%
+Nekateri matematiki pišejo po principu ">piši kao što govoriš"<
+%
+\begin{equation*}
+  \phi, \forall x \in A
+  \qquad\qquad \text{(">$\phi$ za vse $x$ iz $A$"<)}
+\end{equation*}
+%
+Ta zapis odsvetujemo, ker ne deluje, ko kombiniramo več kvantifikatorjev hkrati.
 
-    ∀ x ∈ A . ϕ
+Omenili smo že, da $\all{x \in \emptyset} \phi$ vedno velja. To bomo utemeljili v poglavju o pravilih sklepanja.
 
-beremo:
+\subsubsection{Eksistenčni kvantifikator $\exists$}
 
-* Za vsak `x` iz `A` velja `ϕ`
-* Vsi `x` iz `A` zadoščajo `ϕ`
-* `ϕ` za vse `x` iz `A`
-
-Pika pri tem nima nobenega posebnega pomena, lahko bi pisali tudi
-
-* `∀ x ∈ A , ϕ`
-* `∀ x : A , ϕ`
-* `(∀ x : A) ϕ`
-
-Nekateri matematiki pišejo tudi `ϕ, ∀ x ∈ A`. Ta zapis odsvetujemo, ker ne deluje, ko kombiniramo več
-kvantifikatorjev hkrati. (Dobro pa je razumeti, da tako pišejo, ker se lepo sliši "`ϕ` za vse `x` iz `A`".)
-
-Omenili smo že, da `∀ x ∈ ∅ . ϕ` vedno velja. To bomo utemeljili naslednjič.
-
-\subsubsection{Eksistenčni kvantifikator `∃`}
-
-Formulo
-
-    ∃ x ∈ A . ϕ
-
-beremo:
-
-* Obstaja `x` iz `A` velja `ϕ`
-* Obstaja vsaj en `x` iz `A` velja `ϕ`
-* Za neki `x` iz `A` velja `ϕ`
-* `ϕ` za neki `x` iz `A`
-
-S tem povemo, da obstaja *eden ali več* takih `x`. Na primer, izjava `∃ x ∈ ℕ . x
-< 3` je veljavna, saj obstajo kar tri naravna števila, ki so manjša od `3`.
+Formulo $\some{x \in A} \phi$ beremo:
+%
+\begin{itemize}
+\item ">Obstaja $x$ iz $A$ velja $\phi$."<
+\item ">Obstaja vsaj en $x$ iz $A$ velja $\phi$."<
+\item ">Za neki $x$ iz $A$ velja $\phi$."<
+\item ">$\phi$ za neki $x$ iz $A$."<
+\end{itemize}
+%
+S tem povemo, da obstaja \emph{eden ali več} takih~$x$. Na primer, izjava $\some{x \in \NN} x
+< 3$ je veljavna, saj je $2$ naravno število, ki je manjša od $3$.
 
 
-\subsubsection{Prioriteta `∀` in `∃`}
+\subsubsection{Prioriteta $\forall$ in $\exists$}
 
-Prioriteta kvantifikatorjev `∀` in `∃` je nižja od prioritete veznkov. Na primer:
-
-* `∀ x ∈ A . ϕ ∧ ψ` je enako `∀ x ∈ A . (ϕ ∧ ψ)`
-* `∀ x ∈ ℝ . x > 0 ⇒ ϕ` je enako ``∀ x ∈ ℝ . (x > 0 ⇒ ϕ)`
-
+Prioriteta kvantifikatorjev $\forall$ in $\exists$ je nižja od prioritete veznkov. Na primer:
+%
+\begin{itemize}
+\item $\all{x \in A} \phi \land \psi$ je enako $\all{x \in A} (\phi \land \psi)$,
+\item $\all{x \in \RR} x > 0 \lthen \phi$ je enako $\all{x \in \RR} (x > 0 \lthen \phi)$.
+\end{itemize}
+% 
 Kvantifikator vedno zaobjame vse, kar zmore:
+%
+\begin{itemize}
+\item $\all{x \in A} \phi \land \exists{y \in B} \psi$ je enako $\all {x \in A} (\phi \land (\exists y \in B . \psi))$ in \emph{ni} enako $(\all{x \in A} \phi) \land (\exists {y \in B} \psi)$,
 
-* `∀ x ∈ A . ϕ ∧ ∃ y ∈ B . ψ` je enako `∀ x ∈ A . (ϕ ∧ (∃ y ∈ B . ψ))` in *ni* enako `(∀ x ∈ A . ϕ) ∧ (∃ y ∈ B . ψ)`
+\item $(P \land \all{x \in A} Q \lthen R) \lthen \some{y \in B} S$ je enako $(P \land \all{x \in A}  (Q \lthen R)) \lthen (\some{y \in B} S)$ in \emph{ni} enako 
+  $(P \land (\all{x \in A} Q) \lthen R) \lthen (\some{y \in B} S)$
+\end{itemize}
 
-* `(P ∧ ∀ x ∈ A . Q ⇒ R) ⇒ ∃ y ∈ B . S` je enako `(P ∧ ∀ x ∈ A . (Q ⇒ R)) ⇒ (∃ y ∈ B . S)` in *ni* enako 
-  `(P ∧ (∀ x ∈ A . Q) ⇒ R) ⇒ (∃ y ∈ B . S)`
+\subsubsection{Kombinacija $\forall$ in $\exists$}
 
-
-\subsubsection{Kombinacija `∀` in `∃`}
-
-Pozor, vrstnega reda kvantifikatorjev ne smemo mešati!
-
-Primer:
-
-* `∀ x ∈ ℝ . ∃ y ∈ ℝ . x < y` pomeni "vsako realno število je manjše od nekega realnega števila" (kar je res),
-* `∃ x ∈ ℝ . ∀ y ∈ ℝ . x < y` pomeni "obstaja najmanjše realno število" (kar ni res).
-
+Pozor, vrstnega reda kvantifikatorjev ne smemo mešati:
+%
+\begin{itemize}
+\item $\all{x \in \RR} \some{y \in \RR} x < y$ pomeni ">vsako realno število je manjše od nekega realnega števila"< (kar je res),
+\item $\some{x \in \RR} \all{y \in \RR} x < y$ pomeni ">obstaja najmanjše realno število"< (kar ni res).
+\end{itemize}
+%
 To dejstvo bomo utrjevali na vajah. Zapomnite se, da morate biti tudi pri ostalih predmetih posebej pozorni na vrstni red
-"za vsak" in "obstaja". Je profesorica pri analizi rekla "za vsak `ε > 0` obstaja tak `δ > 0` da ..." ali je rekla
-"ostaja tak `δ > 0` da za vsak `ε > 0` ...". Če boste zamešali ti dve izjavi na ustnem izpitu iz analize,
-boste imeli pokvarjen dan, ali pa cele počitnice!
+">za vsak"< in ">obstaja"<. Je profesorica pri analizi rekla ">za vsak $\epsilon > 0$ obstaja tak $\delta > 0$ da \dots"< ali je rekla ">obstaja tak $\delta > 0$ da za vsak $\epsilon > 0$ \dots"<? Če boste zamešali ti dve izjavi na ustnem izpitu iz analize, boste imeli pokvarjen dan, ali pa cele počitnice!
 
 
 \subsubsection{Kvantifikator z dodatnim pogojem}
 
-Pogosto kvantifikacijo kombiniramo z dodatnim pogojem, na primer
-
-* "Obstaja liho naravno število, ki ni deljivo s 7."
-* "Vsako sodo naravno število je deljivo s 3."
-
-V prvem primeru je dodatni pogoj izražen z besedico "liho" in v drugem s "sodo". Kako zapiemo take izjave s formulo, kam
-vtaknemo dodatni pogoj? Ijzavi pretvorimo po korakih:
-
-* "Obstaja liho naravno število, ki ni deljivo s 7."
-* "Obstaja naravno število, ki je liho in ki ni deljivo s 7."
-* "Obstaja naravno število, ki je liho in deljivo s 7."
-* "Obstaja `x` iz `ℕ`, da je `x` lih in `x` je deljiva s 7."
-* `∃ x ∈ ℕ . (x je lih) ∧ (x je deljiv s 7)`
-
+Pogosto kvantifikacijo kombiniramo z dodatnim pogojem, na primer:
+%
+\begin{itemize}
+\item ">Obstaja \emph{liho} naravno število, ki ni deljivo s 7."<
+\item ">Vsako \emph{sodo} naravno število je deljivo s 3."<
+\end{itemize}
+%
+V prvem primeru je dodatni pogoj izražen z besedico ">liho"< in v drugem s ">sodo"<. Kako zapišemo take izjave s formulo, kam
+vtaknemo dodatni pogoj? Izjavi pretvorimo po korakih:
+%
+\begin{itemize}
+\item ">Obstaja liho naravno število, ki ni deljivo s 7."<
+\item ">Obstaja naravno število, ki je liho in ki ni deljivo s 7."<
+\item ">Obstaja naravno število, ki je liho in deljivo s 7."<
+\item ">Obstaja $x$ iz $\NN$, da je $x$ lih in $x$ je deljiva s 7."<
+\item $\some{x \in \NN} (\text{$x$ je lih}) \land (\text{$x$ je deljiv s 7})$
+\item $\some{x \in \NN} (\some{y \in \NN} x = 2 y + 1) \land (\some{z \in \NN} y = 7 z)$
+\end{itemize}
+%
 In še druga izjava:
+\begin{itemize}
+\item ">Vsako sodo naravno število je deljivo s 3."<
+\item ">Vsako naravno število, ki je sodo, je deljivo s 3."<
+\item ">Za vsako naravno število velja, da če je sodo, potem je deljivo s 3."<
+\item ">Za vsak $x$ iz $\NN$ velja, če je $x$ sod, potem je $x$ deljiv s $3$."<
+\item $\forall{x \in \NN} \text{$x$ sod} \lthen \text{$x$ deljiv s 3}$
+\item $\forall{x \in \NN} (\some{y \in \NN} x = 2 y) \lthen (\some{z \in \NN} x = 3 z)$
+\end{itemize}
+%
+Zapomnimo si: \textbf{dodatni pogoj pri $\exists$ izrazimo $\land$} in \textbf{dodatni pogoj pri $\forall$ izrazimo $\lthen$}.
 
-* "Vsako sodo naravno število je deljivo s 3."
-* "Vsako naravno število, ki je sodo, je deljivo s 3."
-* "Za vsako naravno število velja, da če je sodo, potem je deljivo s 3."
-* "Za vsak `x` iz `ℕ` velja, če je `x` sod, potem je `x` deljiv s `3`."
-* `∀ x ∈ ℕ . x sod ⇒ x deljiv s 3`
+Poglejmo še en primer, ko imamo več možnosti za zapis s formulo:
+%
+\begin{quote}
+  ">Za vsako pozitivno realno število $x$ obstaja tako naravno število $n$, da je $x < n$."<
+\end{quote}
+%
+Začetni del ">za vsako pozitivno realno število"< lahko zapišemo na več načinov:
+%
+\begin{itemize}
+\item $\all{x \in \RR_{> 0}} \some{n \in \NN} x < n$,
+\item $\all{x \in \set{y \in \RR \such y > 0}} \some{n \in \NN} x < n$,
+\item $\all{x \in \RR} x > 0 \lthen \some{n \in \NN} x < n$,
+\item $\all{x > 0} \some{n \in \NN} x < n$.
+\end{itemize}
+%
+Pri prvem načinu moramo biti v naprej dogovorjeni, da $\RR_{> 0}$ označuje množico pozitivnih realnih števil.
+Pri drugem načinu smo vstavili definicijo $\RR_{> 0}$, zato dogovor ni več potreben, a je zapis bolj nečitljiv.
+Pri tretjem načinu smo predstavili pozitivnost kot dodatni pogoj.
+Četrti način je najbolj čitljiv in se pogosto uporablja, a nam ne pove, ali je $x$ realno, celo, ali racionalno število.
 
-Zapomnimo si: **dodatni pogoj pri `∃` izrazimo `∧`** in **dodatni pogoj pri `∀` izrazimo `⇒`**.
 
 \subsubsection{Vezane in proste spremenljivke}
 
-V nekaterih izrazih nastopajo spremenljivke, ki so **vezane**. To pomeni, da je njihovo območje veljavnosti imejeno,
-oziroma da so neke vrste lokalne spremenljivke. Spremenljivka, ki ni vezana, je **prosta**. Primeri:
+V nekaterih izrazih nastopajo spremenljivke, ki so \textbf{vezane}. To pomeni, da je njihovo območje veljavnosti imejeno,
+oziroma da so neke vrste ">lokalne spremenljivke"<. Spremenljivka, ki ni vezana, je \textbf{prosta}. Primeri:
+%
+\begin{itemize}
+\item V funkcijskem predpisu $x \mapsto x^2 + y$ je $x$ vezan in $y$ prost.
+\item V funkcijskem predpisu $(x,y) \mapsto x^2 + y$ sta $x$ in $y$ vezana.
+\item V integralu $\int (x + a)^2 d x$ je $x$ vezan in $a$ prost.
+\item V vsoti $\sum_{i=0}^n (i^2 + 1)$ je $i$ vezan in $n$ prost.
+\item V formuli $\all{x \in \RR} x^3 + 3 x < 7$ je $x$ vezana spremenljivka.
+\end{itemize}
 
-* V funkcijskem predpisu `x ↦ x² + y` je `x` vezan in `y` prost.
-* V funkcijskem predpisu `(x,y) ↦ x² + y` sta `x` in `y` vezana.
-* V integralu `∫ (x + a)² d x` je `x` vezan in `a` prost.
-* V vsoti `∑_(i = 0)^n (i² + 1)` je `i` vezan in `n` prost.
-* V formuli `∀ x ∈ ℝ . x³ + 3 x < 7` je `x` vezana spremenljivka.
-
-Če vezano spremenljivko preimenujemo, se izraz ne spremeni:
-
-**Pozor:** za novo ime vezane spremenljivke moramo izbrati spremenljivko, ki ni prosta. Na primer, v integralu
-
-    ∫ (a + x)² d t
-
-smemo `x` preimenovati v `t`:
-
-    ∫ (a + t)² d t
-
-Ta dva izraza štejemo za *enaka*. Ne bi pa smeli `x` preimenovati v `a`:
-
-    ∫ (a + a)² d a
-
-Pravimo, da se je prosta spremenljivka `a` *ujela* v integral.
+Če vezano spremenljivko preimenujemo, se izraz ne spremeni. Funkcijska predpisa $x \mapsto a \cdot x^2 + 1$ in $y \mapsto y \cdot y^2 + 1$ sta \emph{enaka}. Vendar pozor, če vezano spremenljivko preimenujemo, za novo ime \emph{ne} smemo izbrati spremnljivke, ki se že pojavlja. Na primer, v integralu
+%
+\begin{equation*}
+  \int_0^1 (a + x)^2 \, d x
+\end{equation*}
+%
+smemo $x$ preimenovati v $t$, zato sta integrala enaka izraza (in imata tudi enako vrednost):
+%
+\begin{equation*}
+  \int_0^1 (a + x)^2 \, d x  = \int_0^1 (a + t)^2 \, d t
+\end{equation*}
+%
+Ne bi pa smeli $x$ preimenovati v $a$, saj bi dobili
+%
+\begin{equation*}
+  \int (a + a)^2 \, d a
+\end{equation*}
+%
+Pravimo, da se je prosta spremenljivka $a$ \emph{ujela} v integral.
 

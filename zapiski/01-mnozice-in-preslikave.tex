@@ -141,12 +141,12 @@ Spoznajmo nekatere osnovne konstrukcije množic, se pravi, načine, kako iz mno�
 
 \textbf{Urejeni par} $\pair{x,y}$ je matematični objekt, ki da dobimo tako, da združimo dva matematična objekta~$x$ in~$y$. V srednji šoli ste večinoma pisali urejene pare števil (ki ste jih imenovali ">koordinate"<). V urejenem paru je vrstni red \emph{pomemben}: urejena para $(1, 3)$ in $(3, 1)$ \emph{nista} enaka. (Množici $\{1, 3\}$ in $\{3, 1\}$ sta enaki.)
 
-Urejeni par $\pair{x, y}$ ima \textbf{prvo komponento~$x$} in \textbf{drugo komponetno~$y$}. Če imamo neki urejeni par~$u$, njegovi komponenti pišemo tudi $\fst{u}$ in $\snd{u}$. Velja torej:
+Urejeni par $\pair{x, y}$ ima \textbf{prvo komponento~$x$} in \textbf{drugo komponetno~$y$}. Če imamo neki urejeni par~$u$, njegovi komponenti pišemo tudi $\fst(u)$ in $\snd(u)$. Velja torej:
 %
 \begin{equation*}
-    \fst{x,y} = x
+    \fst(x,y) = x
     \iinn
-    \snd{x,y} = y.  
+    \snd(x,y) = y.  
 \end{equation*}
 %
 Simboloma $\mathsf{pr}_1$ in $\mathsf{pr}_2$ pravimo \textbf{prva} in \textbf{druga projekcija}. Običajne oznake za projekciji so tudi $\pi_1$ in $\pi_2$, v
@@ -157,7 +157,7 @@ Spoznajmo sedaj \textbf{zmnožek} ali \textbf{kartezični produkt} množic $A$ i
 \begin{enumerate}
 \item Zmnožek množic $A$ in $B$ zapišemo $A \times B$.
 \item Elementi množice $A \times B$ so urejeni pari $\pair{x, y}$, pri čemer je $x \in A$ in $y \in B$.
-\item Enakost elemantov (princip ekstenzionalnisti za pare): $u \in A \times B$ in $v \in A \times B$ sta enaka, če velja $\fst{u} = \fst{v}$ in $\snd{u} = \snd{v}$.
+\item Enakost elemantov (princip ekstenzionalnisti za pare): $u \in A \times B$ in $v \in A \times B$ sta enaka, če velja $\fst(u) = \fst(v)$ in $\snd(u) = \snd(v)$.
 \end{enumerate}
 
 \begin{primer}
@@ -174,7 +174,7 @@ Zmnožek množic $\{1,2,3\}$ in $\{\Box, \diamond\}$ je
      \}.
 \end{equation*}
 %
-Iz principa ekstenzionalnisti za pare sledi, da je vrstni red v urejenem paru pomemben, saj $\pair{1, 3} \neq \pair{3, 1}$, ker $\fst{1,3} = 1 \neq 3 = \fst{3,1}$.
+Iz principa ekstenzionalnisti za pare sledi, da je vrstni red v urejenem paru pomemben, saj $\pair{1, 3} \neq \pair{3, 1}$, ker $\fst(1,3) = 1 \neq 3 = \fst(3,1)$.
 \end{primer}
 
 

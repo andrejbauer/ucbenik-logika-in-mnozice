@@ -86,7 +86,7 @@ Množica `N` vsebuje natanko tiste elemente, ki jih lahko zgradimo s pomočjo te
 
     0, 0⁺, 0⁺⁺, 0⁺⁺⁺, 0⁺⁺⁺⁺, …
 
-Tu sta `0` in `⁺` mišljena kot simbolni oznaki, podobno kot `in₁` in `in₂` v definiciji
+Tu sta `0` in `⁺` mišljena kot simbolni oznaki, podobno kot `\inl` in `\inr` v definiciji
 vsote množic.
 
 Na tak način lahko definiramo tudi druge množice. Na primer, **dvojiška drevesa** so
@@ -347,9 +347,9 @@ dokaz prejšnjega izreka.
    `P + Q` z relacijo `⊑`, ki `P` postavi pred `Q`:
 
         u ⊑ v ⇔
-         (∃ x ∈ P . ∃ y ∈ Q . u = in₁(x) ∧ v = in₂(y)) ∨
-         (∃ x ∈ P . ∃ y ∈ P . u = in₁(x) ∧ v = in₁(y) ∨ x ≤_P y) ∨
-         (∃ x ∈ Q . ∃ y ∈ Q . u = in₂(x) ∧ v = in₂(y) ∨ x ≤_Q y).
+         (∃ x ∈ P . ∃ y ∈ Q . u = \inl(x) ∧ v = \inr(y)) ∨
+         (∃ x ∈ P . ∃ y ∈ P . u = \inl(x) ∧ v = \inl(y) ∨ x ≤_P y) ∨
+         (∃ x ∈ Q . ∃ y ∈ Q . u = \inr(x) ∧ v = \inr(y) ∨ x ≤_Q y).
 
 4. S prejšnjim primerom lahko seštevamo dobre urejenosti, na primer `N + 3` je dobra
    urejenost
