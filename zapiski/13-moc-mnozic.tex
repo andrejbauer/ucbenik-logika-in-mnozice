@@ -165,10 +165,20 @@ Moči množic lahko primerjamo med seboj, čeprav ne vemo, kaj točno naravna š
   Definiramo preslikavo $g : B \to A$ takole:
   %
   \begin{equation*}
-    g(y) = x  \defiff  f(x) = y \lor x = a.
+    g(y) = x  \defiff f(x) = y \lor (y \not\in f_{*}(A) \land x = a).
   \end{equation*}
   %
-  Dokaz, da je $g$ je surjektivna, prepuščamo za vajo.
+  Povedano malo drugače:
+  %
+  \begin{equation*}
+    g(y) =
+    \begin{cases}
+      f^{-1}(y) & \text{če $y \in f_{*}(A),} \\
+      a         & \text{če $y \not\in f_{*}(A).}
+    \end{cases}
+  \end{equation*}
+  %
+  Ker velja $g \circ f = \id_A$, je $g$ retrakcija in zato surjektivna.
 
   Obratno, denimo, da je $A$ prazna ali obstaja surjekcija $f : B \to A$. Če je $A$
   prazna, je edina preslikava $\emptyset \to B$ injektivna. Če je $f : B \to A$ surjektivna,
