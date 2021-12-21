@@ -1,251 +1,567 @@
-\chapter{Enolični obstoj}
+\chapter{Definicije in dokazi}
 
-\section{Kvantifikator za enolični obstoj `∃!`}
+\section{Enolični obstoj}
 
-S kvantifikatorjema `∀` in `∃` lahko izrazimo tudi druge kvantifikatorje.
-Na primer, "Obstajata vsaj dva elementa `x` in `y` iz `A`, da velja `ϕ` lahko zapišemo
+\subsection{Kvantifikator za enolični obstoj $\exists!$}
 
-    ∃ x ∈ A . ∃ y ∈ A . x ≠ y ∧ ϕ
-
-**Naloga:** S pomočjo `∀` in `∃` zapišite izjavo »Obstajata natanko dva elementa `x` in `y` iz `A`, da velja `ϕ`«.
-
-Kako pa izrazimo »obstaja natanko en `x` iz `A`, da velja `ϕ(x)`«? Takole:
-
-    (∃ x ∈ A . φ(x)) ∧ ∀ x y ∈ A . φ(x) ∧ φ(y) ⇒ x = y
-
+S kvantifikatorjema $\forall$ in $\exists$ lahko izrazimo tudi druge kvantifikatorje.
+Na primer, ">obstajata vsaj dva elementa $x$ in $y$ iz $A$, da velja $\phi(x,y)$"< zapišemo
+%
+\begin{equation*}
+    \some{x \in A} \some{y \in A} x \neq y \land \phi(x,y)
+\end{equation*}
+%
+Kako pa izrazimo ">obstaja natanko en $x$ iz $A$, da velja $\phi(x)$"<? Takole:
+%
+\begin{equation*}
+  (\some{x \in A} \phi(x)) \land \all{y z \in A} \phi(y) \land \phi(z) \lthen y = z
+\end{equation*}
+%
 ali ekvivalentno
+%
+\begin{equation*}
+    \some{x \in A} (\phi(x) \land \all{y \in A} \phi(y) \lthen x = y).
+\end{equation*}
+%
+To okrajšamo $\exactlyone{x \in A} \phi(x)$ in beremo ">obstaja natanko en $x$ iz $A$, da velja $\phi(x)$"<.
+%
+Uporablja se tudi zapis $\exists^1 x \in A \,.\, \phi(x)$.
 
-    ∃ x ∈ A . φ(x) ∧ ∀ x ∈ A . φ(y) ⇒ x = y
+\subsection{Operator enoličnega opisa}
 
-To okrajšamo `∃! x ∈ A . φ(x)` in beremo »Obstaja natanko en `x` iz `A`, da velja `ϕ(x)`«.
-
-Uporablja se tudi zapis `∃¹ x ∈ A . φ(x)`.
-
-\section{Operator enoličnega opisa}
-
-Če dokažemo, da obstaja natanko en `x ∈ A`, ki zadošča pogoju `ϕ(x)`, potem se lahko nanj smiselno sklicujemo z »tisti
-`x` iz `A`, ki zadošča `ϕ(x)`«.
-
-Primeri:
-
-* »tisto realno število `x`, za katero je `x³ = 2`« (kubični koren 2)
-* »tista množica `S`, ki nima nobenega elementa« (prazna množica)
-
-Proti-primeri:
-
-* »tisto racionalno število `x`, za katero je `x² = 2` (takega števila ni)
-* »tisto realno število `x`, za katero je `x² = 2` (dve taki števili sta)
-* »tista množica `S`, ki ima natanko en element` (takih množic je zelo veliko)
-
-To je lahko zelo koristen način za opredelitev matematičnih objektov, zato uvedemo zanj simbolni zapis.
-Če dokažemo
-
-    ∃! x ∈ A . φ(x)
-
+Če dokažemo, da obstaja natanko en $x \in A$, ki zadošča pogoju $\phi(x)$, potem se lahko nanj smiselno sklicujemo z ">tisti $x$ iz $A$, ki zadošča $\phi(x)$"<. Primeri:
+%
+\begin{itemize}
+\item ">tisto realno število $x$, za katero je $x³ = 2$"<, namreč kubični koren 2,
+\item ">tista množica $S$, ki nima nobenega elementa"<, namreč prazna množica.
+\end{itemize}
+%
+Protiprimeri:
+%
+\begin{itemize}
+\item ">tisto racionalno število $x$, za katero je $x² = 2$"<, saj takega števila ni,
+\item ">tisto realno število $x$, za katero je $x² = 2$"<, ker sta dve taki števili,
+\item ">tista množica $S$, ki ima natanko en element"<, ker je takih množic je zelo veliko.
+\end{itemize}
+%
+To je lahko zelo koristen način za opredelitev matematičnih objektov, zato uvedemo zanj simbolni zapis. Če dokažemo
+%
+\begin{equation*}
+    \exactlyone{x \in A} \phi(x)
+\end{equation*}
+%
 potem lahko pišemo
+%
+\begin{equation*}
+  \descr{x \in A} \phi(x),
+  \qquad\qquad\text{">tisti $x \in A$, za katerega velja $\phi(x)$"<}
+\end{equation*}
+%
+Torej velja
+%
+\begin{equation*}
+  \phi(\descr{x \in A} \phi(x)).
+\end{equation*}
+%
+Spremenljivka $x$ je \emph{vezana} v $\descr{x \in A} \phi(x)$.
 
-    ι x ∈ A . φ(x)
+\begin{primer}
+  Denimo, da še ne bi poznali simbola $\sqrt{}$ za kvadatne korene. Tedaj bi
+  lahko kvadratni koren iz $2$ zapisali kot
+  %
+  \begin{equation*}
+    \descr{x \in R} (x > 0 \land x^2 = 2)
+  \end{equation*}
+  %
+  Še več, preslikavo $\sqrt{} : \RR_{\geq 0} \to \RR_{\geq 0}$ lahko definiramo takole:
+  %
+  \begin{equation*}
+    \sqrt{} : x \mapsto (\descr{y \in \RR} (y \geq 0 \land y^2 = x)).
+  \end{equation*}
+\end{primer}
 
-kar preberemo: "tisti `x ∈ A`, za katerega velja `φ(x)`". Torej velja:
-
-    φ(ι x ∈ A . φ(x))
-
-Spremenljivka `x` je *vezana* v `ι x ∈ A . φ(x)`.
-
-
-**Primer:** Denimo, da še ne bi poznali simbola `√` za kvadatne korene. Tedaj bi
-lahko kvadratni koren iz `2` zapisali kot
-
-    ι x ∈ R . (x > 0 ∧ x^2 = 2)
-
-Še več, preslikavo `√ : [0,∞) → [0,∞)` lahko definiramo s pomočjo zapisa `ι`:
-
-    √ : x ↦ (ι y ∈ ℝ . (y ≥ 0 ∧ y² = x))
-
-
-**Naloga:** Zapiši »limita zaporedja `a : ℕ → ℝ`« z operatorjem `ι` (pod predpostavko, da je `a` konvergentno
-zaporedje). Najprej povej z besedami »limita zaporedja `a` je tisti `x ∈ ℝ`, ki ...«, nato pa zapiši še v obliki `ι x ∈ ℝ . ⋯`.
-
-*Pomni:* zapis `ι x ∈ A . ϕ(x)` je dopusten samo v primeru, da velja `∃! x ∈ A . φ(x)`.
+\begin{naloga}
+  Zapišite ">limita zaporedja $a : \NN \to \RR$""< z operatorjem $\iota$, pod predpostavko,
+  da je $a$ konvergentno zaporedje. Najprej povejte z besedami ">limita zaporedja $a$ je
+  tisti $x \in \RR$, ki \dots"<, nato pa zapišite še v obliki $\descr{x \in \RR} \dots$.
+\end{naloga}
 
 
-\chapter{Spremenljivke in definicije}
+\begin{opomba}
+  Ne pozabite: zapis $\descr{x \in A} \phi(x)$ je veljaven samo v primeru, da velja
+  $\exactlyone{x \in A} \phi(x)$.
+\end{opomba}
 
 
-Preden v matematičnem ebsedilu uporabimo simbol ali spremenljivko, ga moramo *vpeljati*. To pomeni, da moramo pojasniti, kakšen je pomen simbola. Poznamo dva osnovna načina za vpeljavo novih simbolov:
+\section{Spremenljivke in definicije}
 
-* Nov simbol `s` lahko **definiramo** kot okrajšavo za neki drugi izraz (ki je lahko tudi logična formula).
-* Nov simbol `s` je (prosta) **spremenljivka**, ki predstavlja neki (neznano, poljubno, nedoločeno) element dane množice `A`.
-
-V obeh primerih dodamo simbol `s` v kontekst, se pravi v spisek znanih simbolov. Če smo simbol uvedli le začasno (na
-primer v enem poglavju, ali v delu dokaza), ga iz konteksta odstranimo, ko ni več veljaven.
+Preden v matematičnem ebsedilu uporabimo simbol ali spremenljivko, ga moramo \emph{vpeljati}. To pomeni, da moramo pojasniti, kakšen je pomen simbola. Poznamo dva osnovna načina za vpeljavo novih simbolov:
+%
+\begin{itemize}
+\item \item Nov simbol $s$ lahko \textbf{definiramo} kot okrajšavo za neki drugi izraz ali logično formulo.
+\item Nov simbol $s$ je (vezana ali prosta) \textbf{spremenljivka}, ki predstavlja neki (neznan, poljuben, nedoločen) element dane množice $A$.
+\end{itemize}
+%
+V obeh primerih dodamo simbol~$s$ v \textbf{kontekst}, se pravi v spisek znanih simbolov. Če smo simbol uvedli le začasno (na primer v enem poglavju, ali v delu dokaza), ga iz konteksta odstranimo, ko ni več veljaven.
 
 Matematiki zapisujejo definicije in vpeljujejo spremenljivke na razne načine.
 
-\section{Vpeljava spremenljivke}
+\subsection{Vpeljava spremenljivke}
 
-Če želimo vpeljavi spremljivko `x`, ki predstavlja neki poljuben ali neznani element množice `A`, zapišemo
+Če želimo vpeljati spremljivko $x$, ki predstavlja neki poljuben ali neznani element množice $A$, zapišemo
+%
+\begin{quote}
+  Naj bo $x \in A$.
+\end{quote}
+%
+S tem postane $x$ veljavna spremenljivka, ki jo lahko uporabljamo. O njen vemo le to, da je element množice $A$ -- pravimo, da je $x$ \textbf{prosta spremenljivka}. V matematičnih besedilih boste zasledili tudi naslednje fraze, ki uvedejo prosto spremenljivko:
+%
+\begin{itemize}
+\item ">Naj bo $x \in A$ poljuben.""<
+\item ">Obravnavajmo poljuben $x \in A$.""<
+\item ">Izberimo poljuben $x \in A$.""<
+\item ">Denimo, da imamo poljuben $x \in A$.""<
+\end{itemize}
+%
+Pozor, beseda ">izberimo"< bi komu dala misliti, da si lahko izbere neki konkretni~$x$, a to preprečuje beseda ">poljuben", ki jo matematik uporabi, kadar želi povedati, da je~$x$ neznana ali nedoločena (poljubna) vrednost.
 
-    Naj bo x ∈ A.
+\begin{naloga}
+  Denimo, da učitelj reče ">Naj bo $n$ (poljubno) naravno število""<, nato pa vas vpraša ">Ali je $n$ sodo število?""<, kako boste odgovorili?
+\end{naloga}
 
-S tem postane `x` veljavna spremenljivka, ki jo lahko uporabljamo. O njen vemo le to, da je element množice `A` – pravimo, da je `x` *prosta* spremenljivka. V matematičnih besedilih boste zasledili tudi naslednje fraze:
+\subsection{Definicija simbola}
 
-* »Naj bo `x ∈ A` poljuben.«
-* »Obravnavajmo poljuben `x ∈ A`.«
-* »Izberimo poljuben `x ∈ A`.«
-* »Denimo, da imamo poljuben `x ∈ A`.«
-
-Pozor, beseda "izberimo" bi komu dala misliti, da si lahko izbere neki konkretni `x`, a to preprečuje beseda "poljuben", ki jo matematik uporabi, kadar želi povedati, da je `x` neznana (poljubna) vrednost.
-
-**Naloga:** Denimo, da učitelj reče »Naj bo `n` (poljubno) naravno število«, nato pa vas vpraša »Ali je `n` sodo število?« Kako boste odgovorili?
-
-
-\section{Definicija simbola}
-
-Definicija je v prvi vrsti **okrajšava** za neki izraz. Z njo uvedemo nov simbol `s` in mu pripišemo neko vrednost.
-Simbol `s` je enak vrednosti, ki smo mu jo pripisali. Simbolni zapis za definicijo je
-
-    s := ⋯
-
-Na primer, v besedilu bi lahko napisali "Naj bo `s := √(log₂ 7 + π/6)`." S tem smo v kontekst dodali simbol `s` in
-predpostavko, da je `s` enak `√(log₂ 7 + π/6)`. V matematičnih besedili boste zasledili tudi naslednje načine za definicijo:
-
-* `s = √(log₂ 7 + π/6)` (namesto `:=` uporabimo `=`)
-* `s ≡ √(log₂ 7 + π/6)` (namesto `:=` uporabimo `≡`)
-* `s =̂ √(log₂ 7 + π/6)` (namesto `:=` uporabimo `=̂`)
-
+Definicija je v prvi vrsti \textbf{okrajšava} za neki izraz. Z njo uvedemo nov simbol~$s$ in mu pripišemo neko vrednost. Simbol $s$ je enak vrednosti, ki smo mu jo pripisali. Simbolni zapis za definicijo je
+%
+\begin{equation*}
+  s \defeq \ldots
+\end{equation*}
+%
+Na primer, v besedilu bi lahko napisali ">Naj bo $s := \sqrt{\log_2 7 + \pi/6}$."< S tem smo v kontekst dodali simbol $s$ in predpostavko $s = \sqrt{\log_2 7 + \pi/6}$. V matematičnih besedili boste zasledili tudi naslednje načine za definicijo:
+%
+\begin{itemize}
+\item $s = \sqrt{\log_2 7 + \pi/6}$ (namesto $\defeq$ uporabimo $=$)
+\item $s \cong \sqrt{\log_2 7 + \pi/6}$ (namesto $\defeq$ uporabimo $\cong$)
+\item $s \triangleq \sqrt{\log_2 7 + \pi/6}$ (namesto $\defeq$ uporabimo $\triangleq$)
+\end{itemize}
+%
 Kadar definiramo simbol tako, da mu priredimo funkcijski predpis, recimo
-
-    f := (x ↦ x² + 7)
-
+%
+\begin{equation*}
+  f \defeq (x \mapsto x^2 + 7)
+\end{equation*}
+%
 to raje zapišemo kot
-
-    f(x) := x² + 7
-
+%
+\begin{equation*}
+  f(x) \defeq x^2 + 7.
+\end{equation*}
+%
 Kadar definiramo simbol s pomočjo enoličnega obstoja, recimo
-
-    r := ι x ∈ ℝ . x³ = 2
-
+%
+\begin{equation*}
+  r \defeq \descr{x \in \RR} x^3 = 2
+\end{equation*}
+%
 to raje zapišemo z besedami:
-
-    Naj bo r tisto realno število, ki zadošča r³ = 2.
-
-Poglejmo še, kako definiramo okrajšave za logične formule. Defnimo, da želimo s `ϕ(x)` označiti izjavo `∃ y ∈ ℝ . y² =
-x + 1`. Glede na zgornji dogovor, zapišemo
-
-    ϕ := (x ↦ (∃ y ∈ ℝ . y² = x + 1))
-
+%
+\begin{equation*}
+  \text{Naj bo $r$ tisto realno število, ki zadošča $r^3 = 2$.}
+\end{equation*}
+%
+Poglejmo še, kako definiramo okrajšave za logične formule. Denimo, da želimo s $\phi(x)$ označiti izjavo $\some{y \in \RR} y^2 = x + 1$. Glede na zgornji dogovor, zapišemo
+%
+\begin{equation*}
+  \phi \defeq (x \mapsto (\some{y \in \RR} y^2 = x + 1))
+\end{equation*}
+%
 ali
-
-    ϕ(x) := (∃ y ∈ ℝ . y² = x + 1)
-
+%
+\begin{equation*}
+  \phi(x) \defeq (\some{y \in \RR} y^2 = x + 1).
+\end{equation*}
+%
 Vendar takega zapisa v praksi ne boste videli. Dosti bolj pogost je zapis
-
-    ϕ(x) :⇔ ∃ y ∈ ℝ . y² = x + 1
-
-ali pa kar `ϕ(x) ⇔ ∃ y ∈ ℝ . y² = x + 1`.
-
+%
+\begin{equation*}
+  \phi(x) \defiff \some{y \in \RR} y^2 = x + 1
+\end{equation*}
+%
+ali pa kar $\phi(x) \liff \some{y \in \RR} y^2 = x + 1$.
 
 \subsection{Definicije novih matematičnih pojmov}
 
-Kaj pa definicije novih pojmov, ki jih srečujete pri predavanjih, denimo pri analizi? Na primer:
+Kaj pa definicije novih pojmov, ki jih srečujete pri predavanjih, denimo pri analizi?
 
-**Definicija:** Zaporedje števil `a : ℕ → ℝ` je *neomejeno*, če za vsak `x ∈ ℝ` obstaja `i ∈ ℕ`, da je `aᵢ > x`.
+\begin{definicija}
+  Zaporedje števil $a : \NN \to \RR$ je \textbf{neomejeno}, če za vsak $x \in \RR$ obstaja $i \in \NN$, da je $a_i > x$.
+\end{definicija}
 
-S stališča simbolnega zapisa, je to le uveba novega simbola `neomejeno`:
+\noindent
+S stališča simbolnega zapisa, je to le uveba novega simbola $\mathsf{neomejeno}$:
+%
+\begin{equation*}
+  \mathsf{neomejeno}(a) \defeq (\all{x \in \RR} \some{i \in \NN} a_i > x).
+\end{equation*}
+%
+Seveda bistvo take definicije ni le krajši zapis izjave $\all{x \in \RR} \some{i \in \NN} a_i > x$, ampak uporabna vrednost pojma ">neomejeno zaporedje"<.
 
-    neomejeno(a) := (∀ x ∈ ℝ . ∃ i ∈ ℕ . aᵢ > x)
 
-Seveda bistvo take definicije ni le krajši zapis izjave `(∀ x ∈ ℝ . ∃ i ∈ ℕ . aᵢ > x)`, ampak uporabna vrednost pojma
-"neomejeno zaporedje".
+\section{Konstrukcije in dokazi}
 
+zivedokMatematiki v sklopu svojih aktivnosti \emph{konstruiramo} matematične objekte:
+%
+\begin{itemize}
+\item v geometriji so znane konstrukcije z ravnilom in šestilom,
+\item računanje števk števila $\pi$ je konstrukcija približka,
+\item reševanje enačbe, je konstrukcija števila z želeno lastnostjo,
+\item konstruiramo lahko elemente množice, pogosto kar tako, da jih zapišemo, na primer $(2, \inl(3)) \in \NN \times (\ZZ + \ZZ)$.
+\end{itemize}
 
-\chapter{Konstrukcije in dokazi}
+Poleg tega \emph{dokazujemo} matematične izjave. Na dokaz lahko gledamo kot na konstrukcijo, saj je to le še ena zvrst matematičnega objekta. Ker pa so dokazi skoraj vedno zapisani v naravnem jeziku, jih matematiki pogosto dojemajo ločeno od ostalih matematičnih objekotv (števila, preslikave, množice, ploskve, \dots).
 
-Matematiki v sklopu svojih aktivnosti **konstruiramo** matematične objekte:
+Kaj pravzaprav je dokaz? V prvi vrsti je dokaz utemeljitev matematične izjave. Zgrajen je po točno določenih \emph{pravilih sklepanja}, ki jih lahko podamo formalno in jih tudi implementiramo na računalniku.\footnote{Kogar to zanima, si lahko ogleda ">\href{https://youtu.be/Z500sma3h90}{The dawn of formalized mathematics}"< (\href{https://www.icloud.com/keynote/0Gkr1yM7XY-31aQleWf-fiW7A}{prosojnice}) in se nauči uporabljati kak  \href{https://ncatlab.org/nlab/show/proof+assistant}{dokazovalni pomočnik} (v zadnjem času hitro napreduje \href{https://leanprover.github.io}{Lean}).
+}
 
-* v geometriji so znane konstrukcije z ravnilom in šestilom
-* računanje števk števila `π` je konstrukcija približka
-* reševanje enačbe, je konstrukcija števila z želeno lastnostjo
-* konstruiramo lahko elemente množice, pogosto kar tako, da jih zapišemo, na primer `(2, \inl(3)) ∈ ℕ × (ℤ + ℤ)`
+V praksi ljudje ne pišejo vseh podrobnosti v dokazu, ker bi bil tak dokaz nečitljiv in nerazumljiv. Pogosto podajo samo glavno idejo, iz katere lahko izkušeni matematik sam rekonstruira dokaz. Iz dobro napisanega dokaza se lahko naučimo marsikaj novega, poleg goleda dejstva, da dokaza izjava velja.
 
-Poleg tega **dokazujemo** matematične izjave. Na dokaz lahko gledamo kot na konstrukcijo, saj je to le še ena zvrst
-matematičnega objekta. Ker pa so dokazi skoraj vedno zapisani v naravnem jeziku, jih matematiki pogosto dojemajo ločeno
-od ostalih matematičnih objekotv (števila, preslikave, množice, ploskve, ...).
+Mi bomo vadili podrobno pisanje dokazov. Pri ostalih predmetih boste videli ">žive dokaze"<, ki imajo manj podrobnosti in so zapisani manj formalno. A vsi pravilni matematični dokazi se dajo zapisati na način, kot ga bomo predstavili mi (in celo zapisati povsem formalon z dokazovalnim pomočnikom).
 
-Kaj pravzaprav je dokaz? V prvi vrsti je dokaz utemeljitev matematične izjave. Zgrajen je po točno določenih *pravilih
-sklepanja*, ki jih lahko podamo formalno in jih tudi implementiramo na računalniku, s čimer se pri tem predmetu ne bomo
-ubadali, a kogar to zanima, si lahko ogleda »[The dawn of formalized mathematics](https://youtu.be/Z500sma3h90)«
-([prosojnice](https://www.icloud.com/keynote/0Gkr1yM7XY-31aQleWf-fiW7A#The_Dawn_of_Formalized_Mathematics)) in se nauči
-uporabljati kak [dokazovalni pomočnik](https://ncatlab.org/nlab/show/proof+assistant) (v zadnjem času hitro napreduje [Lean](https://leanprover.github.io)).
+\subsection{Kako pišemo dokaze}
 
-V praksi ljudje ne pišejo vseh podrobnosti v dokazu, ker bi bil tak dokaz nečitljiv in nerazumljiv. Pogosto podajo samo
-glavno idejo, iz katere lahko izkušeni matematik sam rekonstruira dokaz. Iz dobro napisanega dokaza se lahko naučimo
-marsikaj novega, poleg goleda dejstva, da dokaza izjava velja.
+Pravila sklepanja so kot pravila igre. Ne povedo, kako dobro igrati, samo kaj je dovoljeno. Seveda bomo hkrati s pravili sklepanja povedali nekaj namigov in nasvetov, kako dokaz poiščemo. A kot pri vsaki igri velja, da vaja dela mojstra.
 
-Mi bomo vadili podrobno pisanje dokazov. Pri ostalih predmetih boste videli "žive dokaze", ki imajo manj podrobnosti in so zapisani manj formalno. A vsi pravilni matematični dokazi se dajo zapisati na način, kot ga bomo predstavili mi (in celo zapisati povsem formalon z dokazovalnim pomočnikom).
-
-\section{Kako pišemo dokaze}
-
-Pravila sklepanja so kot pravila igre. Ne povedo, kako dobro igrati, samo kaj je dovoljeno. Seveda bomo hkrati s pravili
-sklepanja povedali nekaj namigov in nasvetov, kako dokaz poiščemo. A kot pri vsaki igri velja, da vaja dela mojstra.
-
-Dokaz ima vgnezdeno strukturo: sestoji iz delov in pod-dokazov, ki sestojijo iz nadaljnih pod-dokazov itn., ki se
-zaključijo z osnovnimi dejstvi. Vsi ti kosi so s pomočjo pravil sklepanja zloženi v dokazno "drevo".
+Dokaz ima vgnezdeno strukturo: sestoji iz delov in pod-dokazov, ki sestojijo iz nadaljnih pod-dokazov itn., ki se zaključijo z osnovnimi dejstvi. Vsi ti kosi so s pomočjo pravil sklepanja zloženi v dokazno ">drevo"<.
 
 Ko pišemo dokaz, moramo v vsakem trenutku poznati
-
-* **cilj**: kaj trenutno dokazujemo in
-* **kontekst**: katere spremenljivke in predpostavke imamo trenutno na voljo.
-
+%
+\begin{itemize}
+\item \textbf{cilj}: kaj trenutno dokazujemo in
+\item \textbf{kontekst}: katere spremenljivke in predpostavke imamo trenutno na voljo.
+\end{itemize}
+%
 Ko napravimo korak v dokazu, mora biti utemeljen z enim od pravil sklepanja. Dokaz je
-popoln, ko smo utemeljili vse pod-dokaze, ki ga sestavljajo.
+popoln, ko smo utemeljili vse poddokaze, ki ga sestavljajo. Kot primer si poglejmo zelo podroben dokaz izjave
+%
+$(p \lor q) \land r \lthen (p \land r) \lor (q \land r)$.
 
-\subsubsection{Primer}
-
-**Izjava:** `(p ∨ q) ∧ r ⇒ (p ∧ r) ∨ (q ∧ r).`
-
-Dokaz:
-
-```
-Dokažimo (p ∨ q) ∧ r ⇒ (p ∧ r) ∨ (q ∧ r)
-  Predpostavimo (p ∨ q) ∧ r.                         (1)
-  Zaradi (1) velja p ∨ q.                            (2)
-  Zaradi (1) velja r.                                (3)
-  Dokažimo (p ∧ r) ∨ (p ∧ r).
-     Zaradi (2) lahko obravnavamo dva primera:
-         1. Če velja p:                              (4)
-             Dokažimo (p ∧ r) ∨ (p ∧ r)
-                Dokažimo p ∧ r:
-                     1.1. p velja zaradi (4)
-                     1.2. r velja zaradi (3)
-         2. Če velja q:                              (5)
-             Dokažimo (p ∧ r) ∨ (q ∧ r)
-                Dokažimo q ∧ r:
-                     1.1. q velja q zaradi (5)
-                     1.2. r velja r zaradi (3)
-Konec dokaza.
-```
-
+\begin{center}
+  \fbox{\parbox{0.6\textwidth}{
+    Dokažimo $(p \lor q) \land r \lthen (p \land r) \lor (q \land r)$. \\
+    \hbox{}\quad (1) Predpostavimo $(p \lor q) \land r.$ \\
+    \hbox{}\quad (2) Zaradi (1) velja $p \lor q$. \\
+    \hbox{}\quad (3) Zaradi (1) velja $r$. \\
+    \hbox{}\quad Zaradi (2) lahko obravnavamo dva primera:\\
+    \hbox{}\qquad \fbox{\parbox{0.5\textwidth}{
+      (a) če velja $p$:\\
+          \hbox{}\quad Dokažimo $(p \land r) \lor (p \land r)$.\\
+          \hbox{}\quad Dokažimo levi disjunkt $p \land r$: \\
+          \hbox{}\qquad (i) $p$ velja zaradi (a) \\
+          \hbox{}\qquad (ii) $r$ velja zaradi (3).
+    }} \\
+    \hbox{}\qquad \fbox{\parbox{0.5\textwidth}{
+      (b) če velja $q$:\\
+          \hbox{}\quad Dokažimo $(p \land r) \lor (p \land r)$.\\
+          \hbox{}\quad Dokažimo desni disjunkt $q \land r$: \\
+          \hbox{}\qquad (i) $q$ velja zaradi (b) \\
+          \hbox{}\qquad (ii) $r$ velja zaradi (3).
+    }}
+  }}
+\end{center}
+%
 Dokaz bi bolj po človeško napisali takole:
-
-> *Dokaz.* Predpostavimo `p ∨ q` in `r`. Če velja `p`, potem sledi `p ∧ r` ter od tod `(p ∧ r) ∨ (p ∧ r)`. Če pa velja `q`, sledi `q ∧ r` ter spet `(p ∧ r) ∨ (p ∧ r)`. □
-
+%
+\begin{quote}
+  Predpostavimo $p \lor q$ in $r$. Če velja $p$, potem sledi $p \land r$ ter od tod $(p \land r) \lor (p \land r)$. Če pa velja $q$, sledi $q \land r$ ter spet $(p \land r) \lor (p \land r)$. $\Box$
+\end{quote}
+%
 Ali pa kar takole:
-
-> *Dokaz:* Očitno.
+%
+\begin{quote}
+  Očitno.
+\end{quote}
 
 \section{Pravila sklepanja}
 
-Pravila sklepanja delimo na dve vrsti:
-
-* **pravila vpeljave** povedo, kako dokažemo izjavo
-* **pravila uporabe** povedo, kako lahko že znano izjavo uporabimo v dokazu neke druge izjave
-
+Pravila sklepanja delimo na
+%
+\begin{itemize}
+\item \textbf{pravila vpeljave}, ki povedo, kako dokažemo izjavo, ter
+\item \textbf{pravila uporabe}, ki povedo, kako lahko že znano izjavo uporabimo.
+\end{itemize}
+%
 Poleg tega poznamo še pravila o zamenjavi:
+%
+\begin{itemize}
+\item \textbf{zamenjava enakih izrazov}: izraz lahko vedno zamenjamo z njim enakim,
+\item \textbf{zamenjava ekvivalentnih izjav}: izjavo vedno lahko zamenjamo z njej ekvivalentno.
+\end{itemize}
 
-* **zamenjava enakih izrazov**: izraz lahko vedno zamenjamo z njim enakim
-* **zamenjava ekvivalentnih izjav**: izjavo vedno lahko zamenjamo z njej ekvivalentno
+Dokaz je skupek računskih korakov in sklepov, s katerimi utemeljimo izjavo. V vsakem
+trenutku mora biti jasno, kaj dokazujemo, katere spremenljivke so veljavne in katere
+predpostavke so na voljo.
+%
+Nekateri deli dokaza so samostojni poddokazi pomožnih izjav. Vse spremenljivke in
+predpostavke, ki jih uvedemo v poddokazu, so na voljo izključno v poddokazu samem.
 
-Pravila sklepanja so zapisana v priloženi datoteki.
+\subsection{Pravila vpeljave}
+\label{sec:pravila-vpeljave}
 
+S pravilom za vpeljavo \emph{neposredno} dokažemo izjavo. Za vsak veznik in kvantifikator ponazorimo, kako uporabimo
+pripadajoče pravilo vpeljave.
+
+\subsubsection{Konjunkcija}
+%
+\begin{quote}
+  \sl
+  Dokažimo $\phi \land \psi$.
+  \begin{enumerate}
+  \item Dokažimo $\phi$: \quad \brac{dokaz $\phi$}
+  \item Dokažimo $\psi$: \quad \brac{dokaz $\psi$}
+  \end{enumerate}
+\end{quote}
+
+\subsubsection{Disjunkcija}
+
+Prvi način:
+%
+\begin{quote}
+  \sl
+  Dokažimo $\phi \lor \psi$.
+  %
+  \begin{itemize}
+  \item[] Zadostuje dokazati levi disjunkt $\phi$: \quad \brac{dokaz $\phi$}
+  \end{itemize}
+\end{quote}
+%
+Drugi način:
+%
+\begin{quote}
+  \sl
+  Dokažimo $\phi \lor \psi$.
+  %
+  \begin{itemize}
+  \item[] Zadostuje dokazati desni disjunkt $\psi$: \quad \brac{dokaz $\psi$}
+  \end{itemize}
+\end{quote}
+
+\subsubsection{Implikacija}
+
+\begin{quote}
+  \sl
+  Dokažimo $\phi \lthen \psi$:
+  %
+  \begin{itemize}
+  \item[] Predpostavimo $\phi$. \\
+        Dokažimo $\psi$: \quad \brac{dokaz $\psi$}
+  \end{itemize}
+\end{quote}
+
+\subsubsection{Ekvivalenca}
+
+\begin{quote}
+  \sl
+  Dokažimo $\phi \liff \psi$.
+  \begin{enumerate}
+  \item Dokažimo $\phi \lthen \psi$: \quad \brac{dokaz $\phi \lthen \psi$}
+  \item Dokažimo $\psi \lthen \phi$: \quad \brac{dokaz $\psi \lthen \phi$}
+  \end{enumerate}
+\end{quote}
+
+\subsubsection{Resnica}
+
+Resnice $\top$ ni treba dokazovati, zapišemo ">očitno"<. \footnote{
+V praksi $\top$ nastopi kot izjava, ki jo želimo dokazati, ko neko drugo izjavo poenostavimo. Primer: ko dokazujemo
+$12^2 + 12^2 < 17^2$, najprej izračunamo, da je to ekvivalentno $288 < 289$, kar je ekvivalentno $\top$. S tem je dokaz
+zaključen, saj smo dobili $\top$.}
+
+\subsubsection{Neresnica}
+
+Kadar dokazujemo $\bot$, pravimo, da ``iščemo protislovje''.
+
+\begin{quote}
+  \sl
+  Poiščimo protislovje.
+  \begin{enumerate}
+  \item Dokažimo $\phi$: \quad \brac{dokaz $\phi$}
+  \item Dokažimo $\lnot \phi$: \quad \brac{dokaz $\lnot\phi$}
+  \end{enumerate}
+\end{quote}
+
+\subsubsection{Negacija}
+
+\begin{quote}
+  \sl
+  Dokažimo $\lnot \psi$:
+  %
+  \begin{itemize}
+  \item[] Predpostavimo $\psi$. \\
+          Poiščimo protislovje: \quad \dots
+  \end{itemize}
+\end{quote}
+%
+Opomba: ni nujno, da poiščemo protislovje med $\psi$ in $\lnot\psi$, vsako protislovje je sprejemljivo.
+
+\subsubsection{Univerzalna izjava}
+
+\begin{quote}
+  \sl
+  Dokažimo $\all{x \in A} \phi(x)$.
+  %
+  \begin{enumerate}
+  \item[] Naj bo $x \in A$. \\
+          Dokažemo $\phi(x)$: \quad \brac{dokaz $\phi(x)$}
+  \end{enumerate}
+\end{quote}
+%
+\textbf{Pozor:} spremenljivka $x$ mora biti \emph{sveža}, se pravi, da je ne uporabljamo nikjer drugje. Če jo, najprej izberemo svežo spremenljivko~$y$ in $x$ preimenujemo v~$y$.
+
+\subsubsection{Eksistenčna izjava}
+
+\begin{quote}
+  \sl
+  Dokažimo $\some{x \in A} \phi(x)$:
+  %
+  \begin{itemize}
+  \item[] Podamo $x \mathbin{{:}{=}} \langle\text{izraz}\rangle$. \\
+          Dokažemo $\langle\text{izraz}\rangle \in A$: \quad \dots \\
+          Dokažemo $\phi(\langle\text{izraz}\rangle)$: \quad \dots
+  \end{itemize}
+\end{quote}
+%
+Opomba: $\langle\text{izraz}\rangle$ sme vsebovati vse proste spremenljivke, ki so trenutno na voljo ($x$ \emph{ni} na
+voljo).
+
+\subsection{Pravila uporabe}
+
+Pravila uporabe nam povedo, kako iz predpostavk in že znanih dejstev izpeljemo nova dejstva.
+
+\subsubsection{Konjunkcija} 
+
+\begin{quote}
+  \sl
+  Vemo, da velja $\phi \land \psi$.\\
+  Torej velja $\phi$.\\
+  Torej velja $\psi$.
+\end{quote}
+%
+Opomba: v praksi tega koraka ne delamo, ampak namesto predpostavke $\phi \land \psi$ kar takoj vpeljemo ločeni
+predpostavki $\phi$ in $\psi$.
+
+
+\subsubsection{Disjunkcija}
+%
+\begin{quote}
+  \sl
+  Dokažimo $\rho$.\\
+  Vemo, da velja $\phi \lor \psi$, torej obravnavamo primera:\\
+  %
+  \begin{enumerate}
+  \item Če velja $\phi$: \\
+        Dokažemo $\rho$: \quad \brac{dokaz $\rho$}
+  \item Če velja $\psi$: \\
+        Dokažemo $\rho$: \quad \brac{dokaz $\rho$}
+  \end{enumerate}
+\end{quote}
+
+\subsubsection{Implikacija}
+
+\begin{quote}
+  \sl
+  Vemo, da velja $\phi \lthen \psi$.
+  %
+  \begin{itemize}
+  \item[] Dokažimo $\phi$: \quad \brac{dokaz $\phi$}
+  \end{itemize}
+  %
+  Torej velja tudi $\psi$.
+\end{quote}
+
+\subsubsection{Resnica}
+
+Resnica ni uporabna kot predpostavka in jo lahko zavržemo.
+
+\subsubsection{Neresnica}
+
+\begin{quote}
+  \sl
+  Dokažimo $\rho$:
+  \begin{itemize}
+  \item[]
+    Ugotovimo, da velja $\bot$.\\
+    Ker iz neresnice sledi karkoli, velja $\rho$.
+  \end{itemize}
+\end{quote}
+
+
+\subsubsection{Negacija}
+
+Negacijo $\lnot \phi$ uporabimo tako, da dokažemo $\phi$ in zaključimo dokaz.
+%
+\begin{quote}
+  \sl
+  Dokažimo $\rho$.\\
+  Vemo, da velja $\lnot\phi$.
+  %
+  \begin{itemize}
+  \item Dokažimo $\phi$: \quad \brac{dokaz $\phi$}
+  \end{itemize}
+  %
+  Torej velja $\rho$.
+\end{quote}
+
+\subsubsection{Univerzalna izjava}
+
+\begin{quote}
+  \sl
+  Vemo, da velja $\all{x \in A} \phi(x)$.\\
+  Vemo, da je $\langle\text{izraz}\rangle \in A$.\\
+  Torej velja $\phi(\langle\text{izraz}\rangle)$.
+\end{quote}
+
+\subsubsection{Eksistenčna izjava}
+
+\begin{quote}
+  \sl
+  Dokažimo $\rho$.\\
+  Vemo, da velja $\some{x \in A} \phi(x)$.
+  %
+  \begin{enumerate}
+  \item[] Imamo $x \in A$, za katerega velja $\phi(x)$.\\
+       Dokažemo $\rho$: \quad \brac{dokaz $\rho$}
+  \end{enumerate}
+\end{quote}
+%
+\textbf{Pozor:} spremenljivka $x$ mora biti sveža, se pravi, da se ne pojavlja v $\rho$ ali kjerkoli drugje. Če se~$x$ pojavi kje drugje, ga moramo najprej nadomestiti s svežo spremenljivko~$y$.
+
+\subsubsection{Izključena tretja možnost in dokaz s protislovjem}
+
+\textbf{Pravilo izključene tretje možnosti} pravi, da vedno velja $\phi \lor \lnot\phi$ in ga uporabimo takole:
+%
+\begin{quote}
+  \sl
+  Dokažimo $\rho$.\\
+  Velja $\phi \lor \lnot \phi$:
+  %
+  \begin{enumerate}
+  \item Če velja $\phi$:\\
+        Dokažemo $\rho$: \quad \dots
+  \item Če velja $\lnot\phi$. \\
+        Dokažemo $\rho$: \quad \dots
+  \end{enumerate}
+\end{quote}
+%
+\textbf{Dokaz s protislovjem} poteka takole:
+%
+\begin{quote}
+  \sl
+  Dokažimo $\rho$. Dokazujemo s protislovjem:
+  %
+  \begin{itemize}
+  \item[] Predpostavimo $\lnot\rho$.\\
+        Poiščimo protislovje: \quad \dots
+  \end{itemize}
+\end{quote}
+%
+Opomba: dokaz s protislovjem in pravilo vpeljave za negacijo sta \emph{različni}
+pravili!
