@@ -14,6 +14,7 @@
 \usepackage{proof}
 \usepackage{xypic}
 \usepackage{tikz}
+\usepackage{booktabs}
 
 %--------------------------------------------------------------------
 %-- Barve hiper povezav
@@ -133,9 +134,7 @@
 
 \input{logika.tex}
 
-\chapter{Boolova algebra}
-\textbf{To poglavje še ni predelano v {\LaTeX}.}
-%\input{05-boolova-algebra.tex}
+\input{05-boolova-algebra.tex}
 
 \chapter{Podmnožice in potenčna množica}
 \textbf{To poglavje še ni predelano v {\LaTeX}.}
@@ -182,15 +181,15 @@
 %--------------------------------------------------------------------
 % BIBLIOGRAFIJA
 
-%\bibliographystyle{plain}
-%\addcontentsline{toc}{chapter}{\numberline{}Literatura}
-%\markboth{}{Literatura}
-%
-%{
-%\raggedright
-%\renewcommand{\markboth}[2]{}
-%\bibliography{literatura}
-%}
+\bibliographystyle{alpha}
+\addcontentsline{toc}{chapter}{\numberline{}Literatura}
+\markboth{}{Literatura}
+
+{
+\raggedright
+\renewcommand{\markboth}[2]{}
+\bibliography{literatura}
+}
 
 
 \end{document}

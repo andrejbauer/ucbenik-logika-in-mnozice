@@ -2,218 +2,268 @@
 
 \section{Resničnostne tabele}
 
-Vsaka izjava ima **resničnostno vrednost**. Resničnostni vrednosti sta `⊥`
-(resnica) in `⊤` (neresnica).
+Vsaka izjava ima \textbf{resničnostno vrednost}. Resničnostni vrednosti sta $\bot$
+(resnica) in $\top$ (neresnica). Na primer, izjava $\bot \lor (\top \lthen \top)$ je resnična, njena resničnostna vrednost je $\top$. Izjava $2 + 2 = 5$ je neresnična, njena resničnostna vrednost je~$\bot$.
 
-Primer: `⊥ ∨ (⊤ ⇒ ⊤)` je resnična, njena resničnostna vrednost je `⊤`.
+Kadar izjava vsebuje spremenljivke (pravimo jim tudi \emph{parametri}), je njena
+resničnostna vrednost \emph{odvisna} od parametrov. Na primer, če sta $x, y \in \NN$ spremenljivki, je resničnostna vrednost izjave $x + 2 y < 3$ odvisna
+od $x$ in $y$, kar lahko prikažemo z \textbf{resničnostno tabelo}:
+%
+\begin{center}
+  \begin{tabular}{ccc}
+    \toprule
+    $x$ & $y$ & $x + 2 y < 3$ \\ \midrule
+    $0$ & $0$ & $\top$ \\
+    $0$ & $1$ & $\top$ \\
+    $1$ & $0$ & $\top$ \\
+    $2$ & $0$ & $\top$ \\
+    $1$ & $1$ & $\bot$ \\
+    $0$ & $2$ & $\bot$ \\
+    $\vdots$ & $\vdots$ & $\vdots$ \\
+    \bottomrule
+  \end{tabular}
+\end{center}
+% 
+Kot vidimo, je lahko resničnostna tabela neskončna. Bolj uporabne so končne resničnostne tabele, v katerih parametri zavzemajo vrednosti iz končne množice.
 
-Primer: `2 + 2 = 5` je neresnična, njena resničnostna vrednost je `⊥`.
+V izjavi lahko nastopajo tudi \textbf{izjavne spremenljivke} ali \textbf{izjavni simboli}, to se spremenljivke, ki zavzamejo vrednosti $\bot$ in $\top$.
+Na primer, naj bo $\two = \set{\bot, \top}$ in $p, q \in \two$. Tedaj je $\neg p \lor q$ izjava, katere resničnostna tabela je
+%
+\begin{center}
+  \begin{tabular}{ccc}
+    \toprule
+    $p$ & $q$ & $\neg p \lor q$ \\ \midrule
+    $\bot$ & $\bot$ & $\top$ \\
+    $\bot$ & $\top$ & $\top$ \\
+    $\top$ & $\bot$ & $\bot$ \\
+    $\top$ & $\top$ & $\top$ \\
+    \bottomrule
+  \end{tabular}
+\end{center}
 
-Kadar izjava vsebuje spremenljivke (pravimo jim tudi *parametri*), je njena
-resničnostna vrednost *odvisna* od parametrov.
-
-*Primer:* Naj bosta `x, y ∈ N`. Resničnostna vrednost izjave `x + y < 3` je odvisna
-od `x` in `y`, kar lahko prikažemo z **resničnostno tabelo**:
-
-    x | y | x + 2 * y < 3
-    ---------------------
-    0 | 0 |    ⊤
-    0 | 1 |    ⊤
-    1 | 0 |    ⊤
-    2 | 0 |    ⊤
-    1 | 1 |    ⊥
-    0 | 2 |    ⊥
-    ...
-
-Kot vidimo, je lahko takšna tabela neskončna, kar ni praktično.
-
-V izjavi lahko nastopajo tudi **izjavne spremenljivke** ali **izjavni simboli**,
-to se spremenljivke, ki zavzamejo vrednosti `⊥` in `⊤`.
-
-**Primer:** Naj bosta `p, q ∈ 2`. Tedaj je `¬ p ∨ q` izjava, katere resničnostna tabela je
-
-    p | q | ¬ p ∨ q
-    ---------------
-    ⊥ | ⊥ |    ⊤
-    ⊥ | ⊤ |    ⊤
-    ⊤ | ⊥ |    ⊥
-    ⊤ | ⊤ |    ⊤
-
-Izjava `φ(p_1, …, p_n)`, v kateri nastopajo izjavne spremenljivke `p_1`, ...,
-`p_n` (in nobeni drugi parametri) določa preslikavo
-
-    2 × ⋯ × 2 → 2
-
+Izjava $\phi(p_1, \ldots, p_n)$, v kateri nastopajo izjavne spremenljivke $p_1, \ldots, p_n$ (in nobeni drugi parametri) določa preslikavo
+%
+\begin{equation*}
+  \two \times \cdots \times \two \to \two
+\end{equation*}
+%
 s predpisom
+%
+\begin{equation*}
+    (p_1, \ldots, p_n) \mapsto \phi(p_1, \ldots, p_n)
+\end{equation*}
+%
+Preslikavi, ki slika iz produkta $\two \times \cdots \times \two$ v $\two$ pravimo \textbf{Boolova preslikava}. Prikažemo jo lahko z resničnostno tabelo. Če ima preslikava~$n$ argumentov, ima tabela $2^n$ vrstic.
 
-    (p_1, …, p_n) ↦ φ(p_1, …, p_n)
-
-Preslikavi, ki slika iz produkta `2 × ⋯ × 2` v `2` pravimo **Boolova
-preslikava**. Prikažemo jo lahko z resničnostno tabelo. Če ima preslikava `n`
-argumentov, ima tabela `2^n` vrstic.
 
 \subsection{Tavtologije}
 
-Izjava je **tavtologija**, če je njena resničnostna vrednost `⊤` ne glede na
+Izjava je \textbf{tavtologija}, če je njena resničnostna vrednost $\top$ ne glede na
 vrednosti parametrov. Premisli: kako iz resničnostne tabele razberemo, ali je
 izjava tavtologija?
 
-> **Izrek:** Naj bo `φ` izjava, v kateri nastopajo le izjavni simboli
-> `p_1,…,p_n`. Tedaj velja:
->
-> 1. Če je `φ` tavtologija, potem ima dokaz.
-> 2. Če ima `φ` dokaz, je tavtologija.
+\begin{izrek}
+  Naj bo $\phi$ izjava, v kateri nastopajo le izjavni simboli
+  $p_1,\ldots,p_n$. Tedaj je $\phi$ tavtologija, če in samo če ima dokaz.
+\end{izrek}
 
-*Dokaz.* Dokaz najdete v N. Prijatelj: *Osnove matematične logike* (1. del).
+\begin{dokaz}
+  Dokaz najdete v \cite{prijatelj92:_osnov}.
+\end{dokaz}
 
-Izrek je pomemben, ker nam pove, da lahko dokazovanje izjav v nekaterih primerih
-nadomestimo s preverjanjem resničnostnih tabel.
+\noindent
+%
+Izrek je pomemben, ker nam pove, da lahko dokazovanje izjav nadomestimo s preverjanjem resničnostnih tabel.
 
-*Opomba:** Izrek velja samo za izjave, ki jih sestavimo iz izjavnih simbolov,
-`⊥`, `⊤` in logičnih veznikov `¬`, `∧`, `∨`, `⇒`, `⇔`. Za splošne izjave, ki
-vsebujejo tudi `∀` in `∃` izrek *ne* velja.
+\begin{opomba}
+  Izrek velja samo za izjave, ki jih sestavimo iz izjavnih simbolov, $\bot$, $\top$ in
+  logičnih veznikov $\neg$, $\land$, $\lor$, $\lthen$, $\liff$. Za splošne izjave, ki vsebujejo tudi $\forall$ in $\exists$ izrek \emph{ne} velja. Lahko se namreč zgodi, da ima izjava neskončno resničnostni tabelo, v kateri so vse resničnostne vrednosti~$\top$, a izjava nima dokaza.
+\end{opomba}
 
 \subsection{Polni nabori}
 
 Vsaka formula v izjavnem računu ima resničnostno tabelo. Ali lahko vsako tabelo
 dobimo kot resničnostno tabelo neke formule? Na primer, ali obstaja formula,
 katere resničnostna tabela se glasi
+%
+\begin{center}
+  \begin{tabular}{ccc}
+    \toprule
+    $p$ & $q$ & ? \\ \midrule
+    $\bot$ & $\bot$ & $\bot$ \\
+    $\bot$ & $\top$ & $\top$ \\
+    $\top$ & $\bot$ & $\top$ \\
+    $\bot$ & $\bot$ & $\bot$ \\
+    \bottomrule
+  \end{tabular}
+\end{center}
+%
+Odgovor je pritrdilen. Podajmo dva načina, kako tako izjavo izračunamo iz tabele.
 
-    p | q | ?
-    ----------
-    ⊥ | ⊥ | ⊥
-    ⊥ | ⊤ | ⊤
-    ⊤ | ⊥ | ⊤
-    ⊥ | ⊥ | ⊥
+\subsubsection{Disjunktivna oblika}
+\label{sec:disjunktivna-oblika}
 
-Odgovor je pritrdilen. Na kratko povejmo, kako dobimo tako izjavo. Imamo dve
-množnosti.
-
-**Disjunktivna oblika:** za vsako vrstico v tabeli, ki ima vrednost `⊤` zapišemo
-konjunkcijo simbolov in njihovih negacij, pri čemer negiramo tiste simbole, ki
-imajo v dani vrstici vrednost `⊥`. Na primer, v zgornji tabeli imata druga in
-tretja vrstica vrednost `⊤`, zanju zapišemo konjukciji:
-
-* 2. vrstica: `¬ p ∧ q`
-* 3. vrstica: `p ∧ ¬ q`
-
+Za vsako vrstico v tabeli, ki ima vrednost $\top$ zapišemo konjunkcijo simbolov in
+njihovih negacij, pri čemer negiramo tiste simbole, ki imajo v dani vrstici vrednost
+$\bot$. Na primer, v zgornji tabeli imata druga in tretja vrstica vrednost $\top$, zanju
+zapišemo konjukciji:
+%
+\begin{itemize}
+\item 2.~vrstica: $\neg p \land q$,
+\item 3.~vrstica: $p \land \neg q$.
+\end{itemize}
+%
 Nato tvorimo disjunkcijo tako dobljenih konjukcij:
-
-    (¬ p ∧ q) ∧ (p ∧ ¬ q)
-
+%
+\begin{equation*}
+  (\neg p \land q) \land (p \land \neg q).
+\end{equation*}
+%
 Dobljena formula ima želeno resničnostno tabelo.
 
-**Konjunktivna oblika:** za vsako vrstico v tabeli, ki ima vrednost `⊥` zapišemo
+\subsubsection{Konjuktivna oblika}
+\label{sec:konjuktivna-oblika}
+
+Za vsako vrstico v tabeli, ki ima vrednost $\bot$ zapišemo
 disjunkcijo simbolov in njihovih negacij, pri čemer negiramo tiste simbole, ki
-imajo v dani vrstici vrednost `⊤`. Na primer, v zgornji tabeli imata prva in
-čertrta vrstica vednost `⊥`, zanju zapišemo disjukciji:
-
-* 1. vrstica: `p ∨ q`
-* 4. vrstica: `¬ p ∨ ¬ q`
-
+imajo v dani vrstici vrednost $\top$. Na primer, v zgornji tabeli imata prva in
+čertrta vrstica vednost $\bot$, zanju zapišemo disjukciji:
+%
+\begin{itemize}
+\item 1.~vrstica: $p \lor q$
+\item 4.~vrstica: $\neg p \lor \neg q$
+\end{itemize}
+%
 Nato tvorimo konjunkcijo tako dobljenih disjunkcij:
-
-    (p ∨ q) ∧ (¬p ∨ ¬q)
-
+%
+\begin{equation*}
+  (p \lor q) \land (\neg p \lor \neg q).
+\end{equation*}
+%
 Zgornjo tabelo bi lahko dobili tudi kot resničnostno tabelo formule
+%
+\begin{equation*}
+    p \liff q
+\end{equation*}
 
-    p ⇔ q
+\subsection{Polni nabori}
+\label{sec:polni-nabori}
 
-Vidimo, da lahko vsako resničnostno tabelo dobimo z uporabo veznikov `¬`, `∨` in
-`∧`. **Polni nabor** je tak izbor veznikov, k katerim lahko dobimo vsako
+Vidimo, da lahko vsako resničnostno tabelo dobimo z uporabo veznikov $\neg$, $\lor$ in
+$\land$. \textbf{Polni nabor} je tak izbor veznikov, k katerim lahko dobimo vsako
 resničnostno tabelo.
 
-Torej je `¬`, `∨`, `∧` poln nabor. Lahko bi ga še zmanjšali na `¬`, `∧`, saj lahko
+Torej je $\neg$, $\lor$, $\land$ poln nabor. Lahko bi ga še zmanjšali na $\neg$, $\land$, saj lahko $p \lor q$ izrazimo kot $\neg p \land \neg q$.
 
-    p ∨ q
+Nabor $\land$, $\lor$ pa \emph{ni} poln, saj ne moremo dobiti resničnostne tabele
+%
+\begin{center}
+  \begin{tabular}{cc}
+    \toprule
+    $p$ & ? \\ \midrule
+    $\bot$ & $\top$ \\
+    $\top$ & $\bot$ \\
+    \bottomrule
+  \end{tabular}
+\end{center}
+%
+Res, če iz $p$, $\land$ in $\lor$ sestavimo poljubno formulo $\phi(p)$, na primer $(p \land (p \lor p)) \land p$, bo ta ekvivalentna~$p$ in bo zato veljalo $\phi(\top) = \top$, zgornja tabela pa zahteva $\phi(\top) = \bot$.
 
-izrazimo kot
-
-    ¬p ∧ ¬q.
 
 \section{Boolova algebra}
 
 Ekvivalentni izjavi imata enake resničnostne vrednosti, torej lahko ekvivalenco
-`⇔` obravnavamo kar kot enakost, saj to tudi je, kar se tiče resničnostnih
-vrednosti. Zato lahko namesto `p ⇔ q` pišemo tudi `p = q`, če imamo v mislih le
+$\liff$ obravnavamo kar kot enakost, saj to tudi je, kar se tiče resničnostnih
+vrednosti. Zato lahko namesto $p \liff q$ pišemo tudi $p = q$, če imamo v mislih le
 resničnostne vrednosti.
 
-(*Opomba:* izjavi sta lahko ekvivalentni, a nimata enakega *pomena*. Na primer,
-izjavi `∀ x, y ∈ R . x + y = y + x` in `∀ α ∈ R . sin(2 α) = 2 · cos α · sin α`
-sta ekvivalentni, saj sta obe resnični, a ne moremo reči, da je njun pomen enak.)
+\begin{opomba}
+  Ekvivalentni izjavi imata lahko različen \emph{pomena}. Na primer,
+  $\all{x, y \in R} x + y = y + x$ in
+  $\all{\alpha \in R} \sin(2 \alpha) = 2 \cdot \cos \alpha \cdot \sin \alpha$ sta
+  ekvivalentni, saj sta obe resnični, a ne moremo reči, da je njun pomen enak. (Predstavljate si, da bi bi vas v srednji šoli profesorica matematike vprašala adicijski izrek za $\sin$, vi pa bi odgovorili ">vrstni red seštevanja realnih števil ne vpliva na vrednost vsote"<.)
+\end{opomba}
 
-Za logične veznike veljajo *algebrajska pravila*. Ta pravila lahko uporabljamo
-kot računska pravila, s katerimi lahko izjavo poenostavmi v ekvivalentno obliko.
-Pogosto je tako računanje bolj prikladno kot dokazovanje. Spodaj našteta pravila
-lahko preverimo tako, da zapišemo resničnostne tabele izjav in jih primerjamo.
 
-Pravilom, ki veljajo za logične veznike, pravimo **Boolova algebra**.
+Za logične veznike veljajo \emph{algebrajska pravila}, se pravi enačbe, kakršne poznamo v algebri. Ta pravila lahko uporabljamo kot računska pravila, s katerimi lahko izjavo poenostavmi v ekvivalentno obliko. Pogosto je tako računanje bolj prikladno kot dokazovanje. Spodaj našteta pravila lahko preverimo tako, da zapišemo resničnostne tabele izjav in jih primerjamo.
 
-\subsection{Pravila za `⊤` in `⊥`}
+Pravilom, ki veljajo za logične veznike, pravimo \textbf{Boolova algebra}.
+Razdelimo jih po sklopih.
 
-* `⊤ ∨ p = ⊤` (`⊤` absorbira `∨`)
-* `⊤ ∧ p = p` (`⊤` je nevtralni element za `∧`)
-* `¬ ⊤  = ⊥`
+Pravila za konjukcijo:
+%
+\begin{align}
+  (p \land q) \land r &= p \land (q \land r) \tag{asociativnost $\land$} \\
+  p \land q &= q \land p \tag{komutativnost $\land$} \\
+  p \land p &= p \tag{idempotentnost $\land$} \\
+  \top \land p &= p \tag{$\top$ je nevtralen za $\land$} \\
+  \bot \land p &= \bot \tag{$\bot$ absorbira $\land$}
+\end{align}
+%
+Pravila za disjunkcijo:
+%
+\begin{align}
+  (p \lor q) \lor r &= p \lor (q \lor r) \tag{asociativnost $\lor$} \\
+  p \lor q &= q \lor p \tag{komutativnost $\lor$} \\
+  p \lor p &= p \tag{idempotentnost $\lor$} \\
+  \bot \lor p &= p \tag{$\bot$ je nevtralen za $\lor$} \\
+  \top \lor p &= \top \tag{$\top$ absorbira $\lor$}
+\end{align}
+%
+Pravila za implikacijo:
+%
+\begin{align}
+  (p \lthen q) &= (\neg q \lthen \neg p) \tag{kontrapozitivna oblika $\lthen$}\\
+  (p \lthen q) &= \neg p \lor q \notag \\
+  (\bot \lthen q) &= \top \notag \\
+  (\top \lthen q) &= q \notag \\
+  (p \lthen \bot) &= \neg p \notag \\
+  (p \lthen \top) &= \top \notag
+\end{align}
+%
+Kombinirana pravila:
+%
+\begin{align}
+  \neg(p \land q) &= \neg p \lor \neg q \tag{de Morganovo pravilo za $\land$} \\
+  \neg(p \lor q) &= \neg p \land \neg q \tag{de Morganovo pravilo za $\lor$} \\
+  \neg(p \lthen q) &= \neg p \land q \notag \\
+  p \land (p \lor q) &= p \tag{absorbcijsko pravilo za $\land$}\\
+  p \lor (p \land q) &= p \tag{absorbcijsko pravilo za $\lor$} \\
+  p \land (q \lor r) &= (p \land q) \lor (p \land r) \tag{distributivnost $\land$}\\
+  p \lor (q \land r) &= (p \lor q) \land (p \lor r) \tag{distributivnost $\lor$}
+\end{align}
+%
+Pravila za negacijo:
+%
+\begin{align}
+  \neg \top  &= \bot \notag \\
+  \neg \bot &= \top \notag \\
+  \neg\neg p &= p \tag{negacija je involucija} \\
+  p \lor \neg p &= \top \tag{izključena tretja možnost} \\
+  p \land \neg p &= \bot \notag
+\end{align}
 
-* `⊥ ∧ p = ⊥` (`⊥` absorbira `∧`)
-* `⊥ ∨ p = p` (`⊥` je nevtralni element za `∧`)
-* `¬⊥ = ⊤`
-
-\subsection{Pravila za negacijo `¬`}
-
-* `¬¬p = p` (negacija je involucija)
-* de Morganovi pravili:
-    * `¬(p ∧ q) = ¬p ∨ ¬q`
-    * `¬(p ∨ q) = ¬p ∧ ¬q`
-
-\subsection{Pravila za konjukcijo in disjunkcijo}
-
-* `p ∧ q = q ∧ p` (konjunkcija je komutativna)
-* `p ∧ p = p` (konjunkcija je idempotentna)
-* `(p ∧ q) ∧ r = p ∧ (q ∧ r)` (konjunkcija je asociativna)
-
-* `p ∨ q = q ∨ p` (disjunkcija je komutativna)
-* `p ∨ p = p` (disjunkcija je idempotentna)
-* `(p ∨ q) ∨ r = p ∨ (q ∨ r)` (disjunkcija je asociativna)
-
-Absorbcijski pravili:
-
-* `p ∧ (p ∨ q) = p`
-* `p ∨ (p ∧ q) = p`
-
-Distributivnostni pravili:
-
-* `p ∧ (q ∨ r) = (p ∧ q) ∨ (p ∧ r)`
-* `p ∨ (q ∧ r) = (p ∨ q) ∧ (p ∨ r)`
-
-\subsection{Ostala pravila}
-
-* `p ∨ ¬ p = ⊤` (izključena tretja možnost)
-* `p ∧ ¬ p = ⊥`
-* `(p ⇒ q) = (¬q ⇒ ¬p)`
-* `(p ⇒ q) = ¬p ∨ q`
-
-\subsection{Ekvivalence za kvantifikatorje}
-
-Zapišimo še uporabna logična pravila za kvantifikatorje. Tokrat uporabimo `⇔`
-namesto `=`, ker je to bolj običajno.
-
-* `(∀ x ∈ ∅ . φ(x)) ⇔ ⊤`
-* `(∃ x ∈ ∅ . φ(x)) ⇔ ⊥`
-* `(∀ x ∈ {a} . φ(x)) ⇔ φ(a)`
-* `(∃ x ∈ {a} . φ(x)) ⇔ φ(a)`
-* `(¬ ∀ x ∈ A . φ(x)) ⇔ ∃ x ∈ A . ¬ φ(x)`
-* `(¬ ∃ x ∈ A . φ(x)) ⇔ ∀ x ∈ A . ¬ φ(x)`
-* `(ψ ⇒ ∀ x ∈ A . φ(x)) ⇔ ∀ x ∈ A . ψ ⇒ φ(x)`
-* `(ψ ∨ ∀ x ∈ A . φ(x)) ⇔ ∀ x ∈ A . ψ ∨ φ(x)`
-* `(ψ ∧ ∃ x ∈ A . φ(x)) ⇔ ∃ x ∈ A . ψ ∧ φ(x)`
-* `(∀ u ∈ A × B . φ(u)) ⇔ ∀ x ∈ A . ∀ y ∈ B . φ(x, y)`
-* `(∃ u ∈ A × B . φ(u)) ⇔ ∃ x ∈ A . ∃ y ∈ B . φ(x, y)`
-* `(∀ u ∈ A + B . φ(u)) ⇔ (∀ x ∈ A . φ(\inl(x))) ∧ (∀ y ∈ B . φ(\inr(y)))`
-* `(∀ u ∈ A ∪ B . φ(u)) ⇔ (∀ x ∈ A . φ(x)) ∧ (∀ y ∈ B . φ(y))`
-* `(∃ u ∈ A + B . φ(u)) ⇔ (∃ x ∈ A . φ(\inl(x))) ∨ (∃ y ∈ B . φ(\inr(y)))`
-* `(∃ u ∈ A ∪ B . φ(u)) ⇔ (∃ x ∈ A . φ(x)) ∨ (∃ y ∈ B . φ(y))`
-* `(∀ u ∈ {x ∈ A | ψ(x)} . φ(u)) ⇔ ∀ x ∈ A . ψ(x) ⇒ φ(x)`
-* `(∃ u ∈ {x ∈ A | ψ(x)} . φ(u)) ⇔ ∃ x ∈ A . ψ(x) ∧ φ(x)`
-
+Zapišimo še uporabna logična pravila za kvantifikatorje. Tokrat uporabimo $\liff$
+namesto $=$, ker je to bolj običajno:
+%
+\begin{align*}
+  (\all{x \in \emptyset} \phi(x))   &\iff   \top \\
+  (\some{x \in \emptyset} \phi(x))   &\iff   \bot \\
+  (\all{x \in \set{a}} \phi(x))   &\iff   \phi(a) \\
+  (\some{x \in \set{a}} \phi(x))   &\iff   \phi(a) \\
+  (\neg \all{x \in A} \phi(x))   &\iff   \some{x \in A} \neg \phi(x) \\
+  (\neg \some{x \in A} \phi(x))   &\iff   \all{x \in A} \neg \phi(x) \\
+  (\psi \lthen \all{x \in A} \phi(x))   &\iff   \all{x \in A} \psi \lthen \phi(x) \\
+  (\psi \lor \all{x \in A} \phi(x))   &\iff   \all{x \in A} \psi \lor \phi(x) \\
+  (\psi \land \some{x \in A} \phi(x))   &\iff   \some{x \in A} \psi \land \phi(x) \\
+  (\all{u \in A \times B} \phi(u))   &\iff   \all{x \in A} \all{y \in B} \phi(x, y) \\
+  (\some{u \in A \times B} \phi(u))   &\iff   \some{x \in A} \some{y \in B} \phi(x, y) \\
+  (\all{u \in A + B} \phi(u))   &\iff   (\all{x \in A} \phi(\inl(x))) \land (\all{y \in B} \phi(\inr(y))) \\
+  (\all{u \in A \cup B} \phi(u))   &\iff   (\all{x \in A} \phi(x)) \land (\all{y \in B} \phi(y)) \\
+  (\some{u \in A + B} \phi(u))   &\iff   (\some{x \in A} \phi(\inl(x))) \lor (\some{y \in B} \phi(\inr(y))) \\
+  (\some{u \in A \cup B} \phi(u))   &\iff   (\some{x \in A} \phi(x)) \lor (\some{y \in B} \phi(y)) \\
+  (\all{u \in \set{x \in A \such \psi(x)}} \phi(u))   &\iff   \all{x \in A} \psi(x) \lthen \phi(x) \\
+  (\some{u \in \set{x \in A \such \psi(x)}} \phi(u))   &\iff   \some{x \in A} \psi(x) \land \phi(x)
+\end{align*}
+%
 Te ekvivalence je treba preveriti tako, da jih dokažemo.
