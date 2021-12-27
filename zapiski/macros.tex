@@ -60,11 +60,13 @@
 \newcommand{\iso}{\cong}
 
 \newcommand{\pair}[1]{(#1)}
-\newcommand{\fst}{\mathsf{pr}_1}
-\newcommand{\snd}{\mathsf{pr}_2}
+\newcommand{\pr}[1][]{\mathsf{pr}_#1}
+\newcommand{\fst}{\pr[1]}
+\newcommand{\snd}{\pr[2]}
 
-\newcommand{\inl}{\mathsf{in}_1}
-\newcommand{\inr}{\mathsf{in}_2}
+\newcommand{\inj}[1][]{\mathsf{in}_{#1}}
+\newcommand{\inl}{\inj[1]}
+\newcommand{\inr}{\inj[2]}
 
 %%% Naravna števila
 \newcommand{\suc}[1]{#1^{+}}
@@ -79,11 +81,14 @@
 %% Preslikave
 \newcommand{\id}[1][]{\mathrm{id}_{#1}}
 \newcommand{\inv}[1]{{#1}^{-1}}
+\newcommand{\restrict}[2]{#1{\big|}_{#2}}
 
+\newcommand{\img}[1]{#1_{*}}
+\newcommand{\invimg}[1]{#1^{*}}
 
 %% Kombinatorika
 \newcommand{\ceil}[1]{\lceil #1 \rceil}
 
 %% Relacije
 \newcommand{\transpose}[1]{#1^{*}}
-% \newcommand{\complement}[1]{#1^{\mathsf{C}}}
+%\newcommand{\complement}[1]{#1^{\mathsf{C}}}

@@ -1,221 +1,298 @@
 \chapter{Lastnosti preslikav}
 
-Mnogi ste v srednji šoli že spoznali osnovne lastnosti preslikav, kot so injektivnost, surjektivnost in bijektivnost
-preslikave. V tej lekciji ponovimo te pojme in jih povežemo še s pojmoma monomorfizem in epimorfizem, ki sta pomembna v
-algebri
+Mnogi ste v srednji šoli že spoznali osnovne lastnosti preslikav, kot so injektivnost, surjektivnost in bijektivnost preslikave. V tej lekciji ponovimo te pojme in jih povežemo še s pojmoma monomorfizem in epimorfizem, ki sta pomembna v algebri
 
 \section{Osnovne lastnosti preslikav}
 
 \subsection{Injektivna, surjektivna, bijektivna preslikava}
 
-**Definicija:** Preslikava `f : A → B` je
+\begin{definicija}
+  Preslikava $f : A \to B$ je
+  %
+  \begin{itemize}
+  \item \textbf{injektivna}, ko velja $\all{x y \in A} f(x) = f(y) \lthen x = y$,
+  \item \textbf{surjektivna}, ko velja $\all{y \in B} \some{x \in A} f(x) = y$,
+  \item \textbf{bijektivna}, ko je surjektivna in injektivna.
+  \end{itemize}
+\end{definicija}
 
-* **injektivna**, ko velja `∀ x y ∈ A . f(x) = f(y) ⇒ x = y`
-* **surjektivna**, ko velja `∀ y ∈ B . ∃ x ∈ A . f(x) = y`
-* **bijektivna**, ko je surjektivna in injektivna
+\begin{opomba}
+  Pogosto vidimo definicijo injektivnosti, ki pravi, da $f$ slika različne elemente v različne vrednosti, se pravi $\all{x y \in A} x \neq y \lthen f(x) \neq f(y)$. Ta definicija je ekvivalentna naši, a jo ne priporočamo, ker je manj uporabna.
+  Naša definicija namreč podaja recept, kako preverimo injektivnost: predpostavimo $f(x) = f(y)$ in od tod izpeljemo
+  $x = y$ tako, da predelamo \emph{enačbo} $f(x) = f(y)$ v enačbo $x = y$. To je v splošnem lažje kot predelava \textbf{neenačb}.
+\end{opomba}
 
-*Opomba:* Pogosto vidimo definicijo injektivnosti, ki pravi, da `f` slika različne elemente v različne vrednosti, se
-pravi `∀ x y ∈ A . x ≠ y ⇒ f(x) ≠ f(y)`. Ta definicija je ekvivalentna naši, a jo ne priporočamo, ker je manj uporabna.
-Naša definicija namreč podaja recept, kako preverimo injektivnost: predpostavimo `f(x) = f(y)` in od tod izpeljemo
-`x = y` tako, da predelamo *enačbo* `f(x) = f(y)` v enačbo `x = y`. To je v splošnem lažje kot predelava *neenačb* v
-*neenačbe*.
-
-**Naloga:** primerjaj definicijo injektivnosti z zahtevo, da mora biti prirejanje, ki določa preslikavo, enolično.
-
-**Naloga:** primerjaj definicijo surjektivnost z zahtevo, da mora biti prirejanje, ki določa preslikavo, celovito.
+\begin{naloga}
+  Primerjaj definicijo injektivnosti in surjektivnosti z zahtevo, da mora biti prirejanje, ki določa preslikavo, enolično in celovito.
+\end{naloga}
 
 
 \subsection{Monomorfizmi in epimorfizmi}
 
-**Definicija:** Preslikava `f : A → B` je
+\begin{definicija}
+  Preslikava $f : A \to B$ je
+  %
+  \begin{itemize}
+  \item \textbf{monomorfizem (mono)}, ko jo lahko krajšamo na levi:
+    \begin{equation*}
+      \all{C \in \Set} \all{g, h : C \to A} f \circ g = f \circ h \lthen g = h.
+    \end{equation*}
 
-* **monomorfizem (mono)**, ko jo lahko krajšamo na levi:
-  `∀ C ∈ Set ∀ g, h : C → A . f ∘ g = f ∘ h ⇒ g = h`
+   \item \textbf{epimorfizem (epi)}, ko jo lahko krajšamo na desni:
+     \begin{equation*}
+      \all{C \in \Set} \all{g, h : B \to C} g \circ f = h \circ f \lthen g = h.
+    \end{equation*}
+  \end{itemize}
+\end{definicija}
 
-* **epimorfizem* (epi)**, ko jo lahko krajšamo na desni:
-  `∀ C ∈ Set ∀ g, h : B → C . g ∘ f = h ∘ f ⇒ g = h`
+Pojma monomorfizem in epimorfizem sta uporabna, ker nam omogočata, da \emph{krajšamo} funkcije, ki nastopajo v enačbah. Na vajah boste reševali naloge, kjer to pride prav.
 
-Pojma monomorfizem in epimorfizem sta uporabna, ker nam omogočata, da *krajšamo* funkcije, ki nastopajo v enačbah. Na
-vajah boste reševali naloge, kjer to pride prav.
+\begin{izrek}
+  \label{izr:epi-mono-comp}
+  Naj bosta $f : A \to B$ in $g : B \to C$ preslikavi. Tedaj velja:
+  %
+  \begin{enumerate}
+  \item Kompozicija monomorfizmov je monomorfizem.
+  \item Kompozicija epimorfizmom je epimorfizem.
+  \item Če je $g \circ f$ monomorfizem, je $f$ monomorfizem.
+  \item Če je $g \circ f$ epimorfizem, je $g$ epimorfizem.
+  \end{enumerate}
+\end{izrek}
 
-**Izrek 1:** Naj bosta `f : A → B` in `g : B → C` preslikavi.
+\begin{dokaz}
+  \begin{enumerate}
+  \item Naj bosta $f : A \to B$ in $g : B \to C$ monomorfizma. Dokazujemo, da je
+    $g \circ f$ tudi monomorfizem. Naj bosta $h, k : D \to A$ preslikavi, za kateri velja
+    $(g \circ f) \circ h = (g \circ f) \circ k$. Dokazujemo $h = k$. Ker je kompozicija
+    preslikav asociativna, velja
+    $g \circ (f \circ h) = (g \circ f) \circ h = (g \circ f) \circ k = g \circ (f \circ k)$.
+    Ker je $g$ monomorfizem, ga smemo krajšati na levi, torej dobimo
+    $f \circ h = f \circ k$. Ker je $f$ monomorfizem, ga smemo krajšati in dobimo želeno
+    enakost $h = k$.
 
-1. Kompozicija monomorfizmov je monomorfizem.
-2. Kompozicija epimorfizmom je epimorfizem.
-3. Če je `g ∘ f` monomorfizem, je `f` monomorfizem.
-4. Če je `g ∘ f` epimorfizem, je `g` epimorfizem.
+  \item Dokaz je podoben prejšnjemu, le vloga leve in desne strani se spremeni.
 
-*Dokaz:*
+  \item Dokaz je podoben naslednjemu, le vloga leve in desne strani se spremeni.
 
-1. Naj bosta `f : A → B` in `g : B → C` monomorfizma. Dokazujemo, da je `g ∘ f` tudi monomorfizem.
-   Naj bosta `h, k : D → A` preslikavi, za kateri velja `(g ∘ f) ∘ h  = (g ∘ f) ∘ k`. Dokazujemo `h = k`.
-   Ker je kompozicija preslikav asociativna, velja `g ∘ (f ∘ h) = (g ∘ f) ∘ h  = (g ∘ f) ∘ k g ∘ (f ∘ k)`.
-   Ker je `g` monomorfizem, ga smemo krajšati na levi, torej dobimo `f ∘ h = f ∘ k`. Ker je `f` monomorfizem,
-   ga smemo krajšati in dobimo želeno enakost `h = k`.
+  \item Naj bosta $f : A \to B$ in $g : B \to C$ preslikavi in $g \circ f$ epimorfizem.
+    Dokazujemo, da je $g$ epimorfizem. Naj bosta $h, k : C \to D$ taki preslikavi, da
+    velja $h \circ g = k \circ g$. Dokazujemo, da je $h = k$. Iz $h \circ g = k \circ h$
+    sledi $(h \circ g) \circ f = (k \circ g) \circ f$. Če upoštevamo asociativnost
+    kompozicije, dobimo $h \circ (g \circ f) = k \circ (g \circ f)$. Ker je $g \circ f$
+    epimorfizem, ga smemo krajšati na desni, od koder dobimo želeno enakost $h = k$.
+  \end{enumerate}
+\end{dokaz}
 
-2. Dokaz je podoben 1, le vloga leve in desne strani se spremeni (vaja).
 
-3. Dokaz je podoben 4, le vloga leve in desne strani se spremeni (vaja).
+\begin{izrek}
+  Za preslikavo $f : A \to B$ velja:
+  %
+  \begin{enumerate}
+  \item $f$ je monomorfizem, če in samo če je $f$ injektivna.
+  \item $f$ je epimorfizem, če in samo če je $f$ surjektivna.
+  \item $f$ je izomorfizem, če in samo če je $f$ bijektivna.
+  \end{enumerate}
+\end{izrek}
 
-4. Naj bosta `f : A → B` in `g : B → C` preslikavi in `g ∘ f` epimorfizem. Dokazujemo, da
-   je `g` epimorfizem. Naj bosta `h, k : C → D` taki preslikavi, da velja `h ∘ g = k ∘ g`.
-   Dokazujemo, da je `h = k`. Iz `h ∘ g = k ∘ h` sledi `(h ∘ g) ∘ f = (k ∘ g) ∘ f`. Če
-   upoštevamo asociativnost kompozicije, dobimo `h ∘ (g ∘ f) = k ∘ (g ∘ f)`. Ker je `g ∘
-   f` epimorfizem, ga smemo krajšati na desni, od koder dobimo želeno enakost `h = k`.
-□
 
-**Izrek 2:** Za preslikavo `f : A → B` velja
+\begin{dokaz}
+  \begin{enumerate}
+  \item ($\Rightarrow$) Če je $f$ monomorfizem in $f(x) = f(y)$, tedaj je
+  $(f \circ (u \mapsto x)) \unit = f(x) = f(y) = (f \circ (u \mapsto y)) \unit$, torej
+  $(u \mapsto x) = (u \mapsto y)$ in sledi $x = y$.
 
-1. `f` je monomorfizem ⇔ `f` je injektivna
-2. `f` je epimorfizem ⇔ `f` je surjektivna
-3. `f` je izomorfizem ⇔ `f` je bijektivna
+  ($\Leftarrow$) Če je $f$ injektivna in $f \circ g = f \circ h$, potem je za vsak $x$
+  $f(g(x)) = f(h(x))$, torej $g(x) = h(x)$ za vsak $x$, torej $g = h$.
 
-*Dokaz:*
+  \item
+    ($\Rightarrow$) Če je $f$ epimorfizem: obravnavajmo množico
+    % 
+    \begin{equation*}
+      S = \set{ z \in B \such \some{x \in A} f(x) = z }
+    \end{equation*}
+    % a
+    ter preslikavi $\chi_S : B \to 2$ in $(y \mapsto \top) : B \to \two$. Ker velja
+    $\chi_S \circ f = (y \mapsto \top) \circ f$, sledi $\chi_S = (y \mapsto \top)$, torej $S = B$, kar je surjektivnost.
 
-1. Če je `f` monomorfizem in `f(x) = f(y)`, tedaj je
-   `(f ∘ (u ↦ x)) () = f(x) = f(y) = (f ∘ (u ↦ y)) ()`, torej
-   `(u ↦ x) = (u ↦ y) torej x = y`.
+    ($\Leftarrow$) Če je $f$ surjektivna in $g \circ f = h \circ f$: naj bo $y \in B$. Obstaja $x \in A$, da je $f(x) = y$. Torej je $g(y) = g(f(x)) = h(f(x)) = h(y)$.
+    Torej je $g = h$.
 
-   Če je `f` injektivna in `f ∘ g = f ∘ h`, potem je za vsak `x`
-   `f(g(x)) = f(h(x))`, torej `g(x) = h(x)` za vsak `x`, torej `g = h`.
+  \item ($\Rightarrow$) Če je $f$ izomorfizem, potem:
+    %
+    je $f$ epi, ker je $id[B] = f \circ \inv{f}$ epi;
+    je $f$ mono, ker je $id[A] = \inv{f} \circ f$ mono.
 
-2. Če je `f` epimorfizem: obravnavajmo množico
-
-        S = { z ∈ B | ∃ x ∈ A . f(x) = z }
-
-   ter preslikavi `χ_S : B → 2` in `(y ↦ ⊤) : B → 2`. Ker velja
-   `χ_S ∘ f = (y ↦ ⊤) ∘ f`, sledi `χ_S = (y ↦ ⊤)`, torej `S = B`,
-   kar je surjektivnost.
-
-   Če je `f` surjektivna in `g ∘ f = h ∘ f`: naj bo `y ∈ B`. Obstaja
-   `x ∈ A`, da je `f(x) = y`. Torej je
-
-        g(y) = g(f(x)) = h(f(x)) = h(y).
-
-   Torej je `g = h`.
-
-3. Če je `f` izomorfizem, potem
-
-    * `f` je epi, ker je `id_B = f ∘ f⁻¹` epi
-    * `f` je mono, ker je `id_A = f⁻¹ ∘ f` mono
-
-   Če je `f` bijektivna, potem je njen inverz `f⁻¹` definiran s predpisom
-
-    `f(y) = ι x ∈ A . f(x) = y`      "tisti x, ki ga f slika v y"
-
-   Dokazati je treba `∃! x . f(x) = y:`
-
-   * `∃ x . f(x) = y` je surjektivnost `f`
-   * `∀ x₁ x₂ . f(x₁) = y ∧ f(x₂) = y ⇒ x₁ = x₂` sledi iz injektivnosti `f`
-□
+    ($\Leftarrow$) Če je $f$ bijektivna, potem je njen inverz $\inv{f}$ definiran s predpisom
+    %
+    \begin{equation*}
+      f(y) = \descr{x \in A} f(x) = y \qquad\qquad
+      \text{">tisti $x$, ki ga $f$ slika v $y$"<}
+    \end{equation*}
+    %
+    Dokazati je treba $\exactlyone{x \in A} f(x) = y$.
+    To velja, saj $\some{x \in A} f(x) = y$ sledi iz surjektivnosti $f$ in
+    $\all{x_1, x_2} f(x_1) = y \land f(x_2) = y \lthen x_1 = x_2$ iz injektivnosti~$f$.
+  \end{enumerate}
+\end{dokaz}
 
 \subsection{Retrakcija in prerez}
 
 Spoznajmo še pojem retrakcije in prereza. Na predavanjih bomo s sliko pojasnili, zakaj se tako imenujeta.
 
-**Definicija:** Če sta `f : A → B` in `g : B → A` taki preslikava, da velja `f ∘ g = id_B`, pravimo:
+\begin{definicija}
+  Če sta $f : A \to B$ in $g : B \to A$ taki preslikava, da velja $f \circ g = id[B]$, pravimo:
+  %
+  \begin{itemize}
+  \item $f$ je \textbf{retrakcija} ali \textbf{levi inverz} $g$,
+  \item $g$ je \textbf{prerez} ali \textbf{desni inverz} $f$.
+  \end{itemize}
+\end{definicija}
 
-* `f` je **levi** inverz `g`
-* `g` je **desni** inverz `f`
-* `g` je **prerez** preslikave `f`
-* `f` je **retrakcija** iz `B` na `A`
+\begin{naloga}
+  Podajte primer retrakcije in prereza, ki \emph{nista} izomorfizma.
+\end{naloga}
 
-Opomba: retrakcija in prerez *ni* isto kot izomorfizem!
+\begin{izrek}
+  Retrakcija je epimorfizem, prerez je monomorfizem.
+\end{izrek}
 
-**Izrek 3:** Retrakcija je epimorfizem, prerez je monomorfizem.
-
-*Dokaz:*
-
-Denimo, da velja `f ∘ g = id`, torej je `f` retrakcija in `g` prerez. Ker je `id`
-monomorfizem, je po izreku 1 tudi `g` monomorfizem. In ker je `id` epimorfizem, je po
-istem izreku `f` monomorfizem. □
-
+\begin{dokaz}
+  Denimo, da velja $f \circ g = \id$, torej je $f$ retrakcija in $g$ prerez. Ker je identiteta monomorfizem, je po izreku \ref{izr:epi-mono-comp} tudi $g$ monomorfizem. In ker je identiteta epimorfizem, je po istem izreku $f$ monomorfizem.
+\end{dokaz}
 
 \section{Slike in praslike}
 
 \subsection{Izpeljane množice}
 
-Naj bo `f : A → B` preslikava. Tedaj definiramo **izpeljano množico**
-
-    { f(x) | x ∈ A } := { y ∈ B | ∃ x ∈ A . y = f(x) }
-
-ter **izpeljano množico s pogojem**
-
-    { f(x) | x ∈ A | φ(x) } := { y ∈ B | ∃ x ∈ A . φ(x) ∧ y = f(x) }
-
+Naj bo $f : A \to B$ preslikava. Tedaj definiramo \textbf{izpeljano množico}
+%
+\begin{equation*}
+  \set{ f(x) \such x \in A }
+  \defeq \set{ y \in B \such \some{x \in A} y = f(x) }.
+\end{equation*}
+%
+ter \textbf{izpeljano množico s pogojem}
+%
+\begin{equation*}
+  \set{ f(x) \such x \in A \such \phi(x) }
+  \defeq \set{ y \in B \such \some{x \in A} \phi(x) \land y = f(x) }.
+\end{equation*}
+%
 Običajno se piše izpeljano množico s pogojem kar
+%
+\begin{equation*}
+  \set{ f(x) \such x \in A \land \phi(x) }.
+\end{equation*}
 
-    { f(x) | x ∈ A ∧ φ(x) }
+\begin{primer}
+  Množica vseh kvadratov naravnih števil je izpeljana množica $\set{ n^2 \such n \in \NN }$.
+\end{primer}
 
-*Primer:* Množica vseh kvadratov naravnih števil je izpeljana množica `{ n² | n ∈ N }`.
 
 \subsection{Slike in praslike}
 
-**Definicija:** Naj bo `f : A → B` preslikava:
-
-1. **Praslika** podmnožice `S ⊆ B` je `f^*(S) := { x ∈ A | f(x) ∈ S }`.
-2. **Slika** podmnožice `T ⊆ A` je `f_*(T) := { y ∈ B | ∃ x ∈ A . f(x) = y }`.
+\begin{definicija}
+  Naj bo $f : A \to B$ preslikava:
+  %
+  \begin{itemize}
+  \item \textbf{Praslika} podmnožice $S \subseteq B$ je $\invimg{f}(S) \defeq \set{ x \in A \such f(x) \in S }$.
+  \item \textbf{Slika} podmnožice $T \subseteq A$ je $\img{f}(T) \defeq \set{ y \in B \such \some{x \in A} f(x) = y }$.
+  \end{itemize}
+\end{definicija}
 
 Kot vidimo, lahko sliko zapišemo tudi kot izpeljano množico
+%
+\begin{equation*}
+  \img{f}(T) \defeq \set{ f(x) \such x \in T }.
+\end{equation*}
+%
+Običajni zapis za prasliko $\invimg{f}(S)$ je tudi $\inv{f}(S)$, vendar tega zapisa mi ne bomo uporabljali, ker napačno namiguje, da ima $f$ inverz. Boste pa ta zapis videli marsikje drugje, ker so matematiki konzervativni bitja, ki raje nekaj stoletij uporabljajo slab zapis, kot da bi spemenili svoje navade.
 
-    f_*(T) := { f(x) | x ∈ T }
+Običajni zapis za sliko $\img{f}(S)$ je tudi $f(S)$ ali $f[S]$. Predvsem $f(S)$ se uporablja v praksi, a tudi tega odsvetujemo. Kako naj pri takem zapisu ločimo med $f(x)$ in $\img{f}(\set{x})$?
 
-Običajni zapis za prasliko `f^*(S)` je tudi `f⁻¹(S)`, vendar tega zapisa mi ne bomo uporabljali, ker napačno namiguje, da ima `f` inverz. Boste pa ta zapis videli marsikje drugje, ker so matematiki pravzaprav precej konzervativni in ne marajo sprememb.
+\begin{definicija}
+  \textbf{Zaloga vrednosti} preslikave $f : A \to B$ je slika domene, torej $\img{f}(B)$.
+\end{definicija}
 
-Običajni zapis za sliko `f_*(S)` je tudi `f(S)` ali `f[S]`. Predvsem `f(S)` se uporablja v praksi, a tudi tega odsvetujemo. Kako naj pri takem zapisu ločimo med `f(x)` in `f_*({x})`?
-
-**Zaloga vrednosti** je slika domene, torej `f_*(B)`.
 
 \subsection{Slike in praslike kot preslikave višjega reda}
 
-Naj bo `f : A → B`. Tedaj sta tudi `f^*` in `f_*` preslikavi:
+Naj bo $f : A \to B$. Tedaj sta tudi $\invimg{f}$ in $\img{f}$ preslikavi.
+%
+Res, $\invimg{f} : \pow{B} \to \pow{A}$ je določena s predpisom $S \mapsto \set{ x \in A \such f(x) \in S }$, in
+$\img{f} : \pow{A} \to \pow{B}$ je določena s predpisom $T \mapsto \set{ f(x) \such x \in T }$
 
-* `f^* : P(B) → P(A)` je določena s predpisom `S ↦ { x ∈ A | f(x) ∈ S }`
-* `f_* : P(A) → P(B)` je določena s predpisom `T ↦ { f(x) | x ∈ T }`
+Še več, tudi ">zgornja zvezdica $^{*}$"< in ">spodnja zvezdica $_{*}$"< sta preslikavi
+%
+\begin{equation*}
+  {}^* : B^A \to \pow{A}^{\pow{B}} \qquad
+  {}_* : B^A \to \pow{B}^{\pow{A}}
+\end{equation*}
+%
+Ker slikata preslikave v preslikave, pravimo, da sta to \textbf{preslikavi višjega reda}. Primer preslikave višjega reda je tudi odvod, ki funkciji priredi njen odvod.
 
-Še več, tudi "zgoraj zvezdica `^*`" in "spodaj zvezdica `_*`" sta preslikavi
-
-    ^* : B^A → P(A)^P(B)
-    _* : B^A → P(B)^P(A)
-
-Ker slikata preslikave v preslikave, pravimo, da sta to preslikavi *višjega reda*. Primer preslikave višjega reda je tudi odvod, ki funkciji priredi njen odvod.
 
 \subsection{Lastnosti slike in praslike}
 
-**Izrek 4:** Naj bo `f : A → B` preslikava:
+\begin{izrek}
+  Naj bo $f : A \to B$ preslikava:
+  %
+  \begin{itemize}
+  \item praslike so monotone: če je $S \subseteq T \subseteq A$, potem je $\img{f}(S) \subseteq \img{f}(T)$
+  \item slike so monotone: če je $X \subseteq Y \subseteq B$, potem je $\invimg{f}(X) \subseteq \invimg{f}(Y)$.
+  \end{itemize}
+\end{izrek}
 
-* praslike so monotone: če je `S ⊆ T ⊆ A`, potem je `f_*(S) ⊆ f_*(T)`
-* slike so monotone: če je `X ⊆ Y ⊆ B`, potem je `f^*(X) ⊆ f^*(Y)`.
+\begin{dokaz}
+  Dokaz pustimo za vajo.
+\end{dokaz}
 
-*Dokaz:* Vaja.
+\begin{izrek}
+  Prasike ohranjajo preseke in unije: za vse $f : A \to B$ in $S : I \to \pow{B}$ velja
+  %
+  \begin{equation*}
+    \textstyle
+    \invimg{f} (\bigcup_{i \in I} S_i) = \bigcup_{i \in I} \invimg{f}(S_i)
+    \iinn
+    \invimg{f} (\bigcap_{i \in I} S_i) = \bigcap_{i \in I} \invimg{f}(S_i).
+  \end{equation*}
+\end{izrek}
 
-**Izrek 5:** Prasike ohranjajo preseke in unije: za vse `f : A → B` in `S : I → P(B)` velja
+\begin{dokaz}
+  Dokažimo prvo izjavo, druga je zelo podobna, le da $\exists$ zamenjamo z $\forall$.
+  %
+  Dokazujemo $\invimg{f} (\bigcup_{i \in I} S_i) \subseteq \bigcup_{i \in I} \invimg{f}(S_i)$.
+  Naj bo $x \in \invimg{f} (\bigcup_{i \in I} S_i)$ in dokazujemo $x \in \bigcup_{j \in I} \invimg{f}(S_j)$.
+  Ker je $f(x) \in \bigcup_{i \in I} S_i$ obstaja $k \in I$, da je $f(x) \in S_k$, torej je
+  $x \in \invimg{f}(S_k) \subseteq \bigcup_{i \in I} \invimg{f}(S_i)$.
+\end{dokaz}
 
-* `f^* (⋃_{i ∈ I} S_i) = ⋃_{i ∈ I} f^*(S_i)`
-* `f^* (⋂_{i ∈ I} S_i) = ⋂_{i ∈ I} f^*(S_i)`
+\begin{izrek}
+  Naj bo $f : A \to B$ in $T : I \to \pow{A}$. Tedaj je
+  %
+  \begin{equation*}
+    \textstyle
+     \img{f} (\bigcup_{i \in I} T_i) = \bigcup_{i \in I} \img{f}(T_i)
+     \iinn
+     \img{f} (\bigcap_{i \in I} T_i) \subseteq \bigcap_{i \in I} \img{f}(S_i).
+  \end{equation*}
+  %
+\end{izrek}
 
-*Dokaz:* Dokažimo prvo izjavo, druga je zelo podobna, le da `∃` zamenjamo z `∀`.
+\begin{dokaz}
+  Dokaz prepustimo za vajo.
+\end{dokaz}
 
-Dokazujemo `f^* (⋃_{i ∈ I} S_i) ⊆ ⋃_{i ∈ I} f^*(S_i)`.
-Naj bo `x ∈ f^* (⋃_{i ∈ I} S_i)` in dokazujemo `x ∈ ⋃_{j ∈ I} f^*(S_j)`.
-Ker je `f x ∈ ⋃_{i ∈ I} S_i` obstaja `k ∈ I`, da je `f x ∈ S_k`, torej je
-`x ∈ f^* S_k ⊆ ⋃_{i ∈ I} f^*(S_i)`. □
-
-**Izrek 6:** Naj bo `f : A → B` in `T : I → P(A)`. Tedaj je
-
-* `f_* (⋃_{i ∈ I} T_i = ⋃_{i ∈ I} f_*(T_i)`.
-* `f_* (∩_{i ∈ I} T_i) ⊆ ⋂_{i ∈ I} f_*(S_i)`.
-
-*Dokaz:* Vaja.
-
-**Naloga:** Iz zgornjih dveh izrekov izpeljite naslednja dejstva:
-
-* `f^*(∅) = ∅`
-* `f_*(∅) = ∅`
-* `f^*(B) = A`
-* `f^*(S ∪ T) = f^*(S) ∪ f^*(T)`
-* `f^*(S ∩ T) = f^*(S) ∩ f^*(T)`
-
-Poleg tega imamo za `S ⊆ B`
-
-    f^*(Sᶜ) = (f^*(S))ᶜ.
+\begin{naloga}
+  Iz zgornjih dveh izrekov izpeljite naslednja dejstva:
+  %
+  \begin{align*}
+    \invimg{f}(\emptyset) &= \emptyset, \\
+    \img{f}(\emptyset) &= \emptyset, \\
+    \invimg{f}(B) &= A, \\
+    \invimg{f}(S \cup T) &= \invimg{f}(S) \cup \invimg{f}(T), \\
+    \invimg{f}(S \cap T) &= \invimg{f}(S) \cap \invimg{f}(T).
+  \end{align*}
+  %
+  Poleg tega imamo za $S \subseteq B$ še $\invimg{f}(\complement{S}) = \complement{(\invimg{f}(S))}$.
+\end{naloga}

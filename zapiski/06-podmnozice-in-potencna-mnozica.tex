@@ -1,137 +1,178 @@
 \chapter{Podmnožice in potenčne množice}
 
-\subsection{Definicija relacije `⊆`}
+\subsection{Definicija relacije $\subseteq$}
 
-Pravimo, da je množica `S` **podmnožica** množice `T`, pišemo `S ⊆ T`, ko velja
-`∀ x ∈ S . x ∈ T`. Pravimo tudi, da je `S` **vsebovana** v `T` in da je `T`
-**nadmnožica** `S`.
+Pravimo, da je množica $S$ \textbf{podmnožica} množice $T$, pišemo $S \subseteq T$, ko velja $\all{x \in S} x \in T$. Pravimo tudi, da je $S$ \textbf{vsebovana} v $T$ in da je $T$ \textbf{nadmnožica}~$S$.
 
-Vedno velja `∅ ⊆ S` in `S ⊆ S`.
+Vedno velja $\emptyset \subseteq S$ in $S \subseteq S$.
 
 Princip ekstenzionalnosti za množice pravi:
-
-    S = T ⇔ (∀ x ∈ S . S ∈ T) ∧ (∀ y ∈ T . y ∈ S)
-
+%
+\begin{equation*}
+  S = T \iff (\all{x \in S} S \in T) \land (\all{y \in T} y \in S)
+\end{equation*}
+%
 kar lahko zapišemo s podmnožicami:
+%
+\begin{equation*}
+  S = T \iff S \subseteq T \land T \subseteq S.
+\end{equation*}
+%
+Vsaka podmnožica $S \subseteq A$ opredeljuje neko lastnost elementov iz $A$: tisti
+elementi, ki imajo opredeljeno lasnost, so v $S$, ostali pa ne.
 
-    S = T ⇔ S ⊆ T ∧ T ⊆ S
+\begin{primer}
+  Naj bo $P$ množica vseh praštevil, torej je $P \subseteq N$. Podmnožica $P$
+  opredeljuje lasnost ">je praštevilo"<.
+\end{primer}
 
-Vsaka podmnožica `S ⊆ A` opredeljuje neko lastnost elementov iz `A`: tisti
-elementi, ki imajo opredeljeno lasnost, so v `S`, ostali pa ne.
-
-*Primer:* naj bo `P` množica vseh praštevil, torej je `P ⊆ N`. Podmnožica `P`
-opredeljuje lasnost "je praštevilo".
 
 \subsection{Kako tvorimo podmnožice}
 
-Če je `φ(x)` logična formula, v kateri nastopa spremenljivka `x ∈ A`, lahko tvorimo množico
+Če je $\phi(x)$ logična formula, v kateri nastopa spremenljivka $x \in A$, lahko tvorimo množico
+%
+\begin{equation*}
+    \set{ x \in A \such \phi(x) }.
+\end{equation*}
+%
+Pri tem je $x$ vezana spremenljivka. Za to množico velja:
+%
+\begin{equation*}
+    a \in \set{ x \in A \such \phi(x) } \iff a \in A \land \phi(a).
+\end{equation*}
+%
+Povedano z besedami: elementi množice $\set{ x \in A \such \phi(x) }$ so tisti elementi iz $A$, ki zadoščajo pogoju $\phi$.
+%
+Velja $\set{ x \in A \such \phi(x) } \subseteq A$, prav tako pa
+\begin{equation*}
+  \set{x \in A \mid \phi(x)} \subseteq \set{x \in A \mid \psi(x)} \iff
+  \all{x \in A} \phi(x) \lthen \psi(x).
+\end{equation*}
 
-    { x ∈ A ∣ φ(x) }
-
-Pri tem je `x` vezana spremenljivka. Za to množico velja:
-
-    a ∈ { x ∈ A ∣ φ(x) } ⇔ a ∈ A ∧ φ(a)
-
-Povedano z besedami: elementi množice `{ x ∈ A ∣ φ(x) }` so tisti elementi iz `A`, ki zadoščajo pogoju `φ`.
-
-Velja `{ x ∈ A ∣ φ(x) } ⊆ A`.
-
-Poleg tega velja
-
-    {x ∈ A | φ(x)} ⊆ {x ∈ A | ψ(x)} ⇔ ∀ x ∈ A . φ(x) ⇒ ψ(x)
 
 \subsection{Kanonična inkluzija}
 
-Za podmnožico `S ⊆ T` definiriamo **kanonično inkluzijo** ali **kanonično vključitev**
-`i_S : S → T`, s predpisom `i_S : x ↦ x` (to ni identiteta, razen v primeru `S = T`!).
-Oznaka `i_S` ni standardna, pravzaprav standardne oznake ni.
+Za podmnožico $S \subseteq T$ definiriamo \textbf{kanonično inkluzijo} ali \textbf{kanonično vključitev} $i_S : S \to T$, s predpisom $i_S : x \mapsto x$. Pozor, to ni identiteta, razen v primeru $S = T$!.
+Oznaka $i_S$ ni standardna, pravzaprav standardne oznake ni.
 
-Če je `f : T → U` in `S ⊆ T`, pravimo kompozitumu `f ∘ i_S` **zožitev* preslikave `f` na
-`S`, pišemo `f|_S`.
+Če je $f : T \to U$ in $S \subseteq T$, pravimo kompozitumu $f \circ i_S$ \textbf{zožitev} preslikave $f$ na $S$, pišemo $\restrict{f}{S}$.
+
 
 \section{Potenčna množica}
 
 \subsection{Definicija potenčne množice}
 
-Za vsako množico `A` tvorimo množico `P(A)`, ki ji pravimo **potenčna množica**.
-Elementi potenčne množice `P(A)` so natanko podmnožice množice `A`:
+Za vsako množico $A$ tvorimo množico $\pow{A}$, ki ji pravimo \textbf{potenčna množica}.
+Elementi potenčne množice $\pow{A}$ so natanko podmnožice množice $A$:
+%
+\begin{equation*}
+    S \in \pow{A} \iff S \subseteq A
+\end{equation*}
+%
+Na priemr $\pow{\emptyset} = \set{\emptyset}$ in
+%
+\begin{equation*}
+  P(\set{a,b,c}) = \set{\set{}, \set{a}, \set{b}, \set{c}, \set{a,b}, \set{a,c}, \set{b,c}, \set{a,b,c}}.
+\end{equation*}
 
-    S ∈ P(A) ⇔ S ⊆ A
-
-*Primer:* `P(∅) = {∅}`
-
-*Primer:* `P({a,b,c}) = {{}, {a}, {b}, {c}, {a,b}, {a,c}, {b,c}, {a,b,c}}`
 
 \subsection{Karakteristične funkcije}
 
-**Karakteristična funkcija** na množici `A` je fukcija z domeno `A` in kodomeno `2`.
-Tu je `2 = {⊥, ⊤}` množica resničnostnih vrednosti.
+\textbf{Karakteristična funkcija} na množici $A$ je fukcija z domeno $A$ in kodomeno $\two$. Tu je $\two = \set{\bot, \top}$ množica resničnostnih vrednosti.
 
-Eksponentna množica `2^A` je torej množica vseh karakterističnih funkcij na `A`.
+Eksponentna množica $\two^A$ je torej množica vseh karakterističnih funkcij na $A$.
 
-*Opomba:* karakteristične funkcije se uporabljajo tudi v analizi, kjer jih
-običajno razumemo kot preslikave `A → {0,1}` namesto `A → {⊥, ⊤}`. Ker sta
-množici `{⊥,⊤}` in `{0,1}` izomorfni, to ni bistvena razlika.
+\begin{opomba}
+  Karakteristične funkcije se uporabljajo tudi v analizi, kjer jih
+  običajno razumemo kot preslikave $A \to \set{0,1}$ namesto $A \to \set{\bot, \top}$. Ker sta množici $\set{\bot,\top}$ in $\set{0,1}$ izomorfni, to ni bistvena razlika.
+\end{opomba}
 
 Karakteristično funkcijo si lahko predstavljamo kot preslikavo, ki opredeljuje
-neko lastnost elementov `A`: tisti elementi, ki imajo opredeljeno lastnost, se
-slikajo v `⊤`, ostali pa v ‵⊥`.
+neko lastnost elementov~$A$: tisti elementi, ki imajo opredeljeno lastnost, se
+slikajo v $\top$, ostali pa v $\bot$.
 
-*Primer:* preslikava `p : N → 2`, definirana s predpisom
+\begin{primer}
+  Preslikava $p : \NN \to \two$, definirana s predpisom
+  %
+  \begin{equation*}
+    p(n) = 
+    \begin{cases}
+      \top & \text{če je $n$ praštevilo}, \\
+      \bot & \text{če $n$ ni praštevilo}.
+    \end{cases}
+  \end{equation*}
+  %
+  je karakteristična preslikava lastnosti ">je praštevilo"<. Lahko bi jo zapisali tudi takole:
+  %
+  \begin{equation*}
+    p(n) = (\some{k, m \in \NN} k \geq 2 \land m \leq 2 \land n = k \cdot m).
+  \end{equation*}
+\end{primer}
 
-    p(n) = ⊤, če n je praštevilo
-    p(n) = ⊥, če n ni praštevilo
 
-je karakteristična preslikava lastnosti "je praštevilo".
+\subsection{Izomorfizem $\pow{A} \cong 2^A$}
 
-\subsection{Izomorfizem `P(A) ≅ 2^A`}
-
-Videli smo, da lahko neko lastnost elementov množice `A` predstavimo bodisi s
+Videli smo, da lahko neko lastnost elementov množice $A$ predstavimo bodisi s
 podmnožico bodisi s karakteristično preslikavo. To nam da idejo, da med
-podmnožicami `A` in karakterističnimi preslikavami na `A` obstaja neka zveza.
+podmnožicami $A$ in karakterističnimi preslikavami na $A$ obstaja neka zveza.
 
-**Izrek:** `P(A) ≅ 2^A`
+\begin{izrek}
+  $\pow{A} \cong 2^A$.
+\end{izrek}
 
-*Dokaz.* Definirajmo preslikavi
+\begin{dokaz}
+  Definirajmo preslikavi
+  %
+  \begin{align*}
+    \chi &: \pow{A} \to 2^A &
+    \xi &: 2^A \to \pow{A} \\
+    \chi_S(x) &\defeq
+      \begin{cases}
+        \top & \text{če $x \in S$,} \\
+        \bot & \text{če $x \not\in S$,}
+      \end{cases}
+    &
+    \xi_f &\defeq \set{x \in A \such f(x) = \top}.
+  \end{align*}
+  %
+  Ta predpisa bi lahko krajše zapisali tudi takole:
+  %
+  \begin{align*}
+  \chi_S(x) &\defeq (x \in S), &
+  \xi_f &\defeq \set{x \in A \such f(x) }.
+  \end{align*}
+  %
+  Preslikavi $\chi_S$ pravimo \textbf{karakteristična funkcija podmnožice $S$}.
+  %
+  Trdimo, da sta $\chi$ in $\xi$ inverza:
+  %
+  \begin{enumerate}
+  \item 
+    Dokažimo $\chi \circ \xi = \id[2^A]$. Uporabimo princip ekstenzionalnosti za preslikave.
+    Naj bo $f \in 2^A$. Dokažimo, da je $\chi_{\xi_f} = f$.
+    Uporabimo princip ekstenzionalnosti za preslikave. Naj bo $x \in A$:
+    %
+    \begin{equation*}
+      \chi_{\xi_f}(x) = (x \in \xi_f) = f(x).
+    \end{equation*}
 
-    χ : P(A) → 2^A
-    ξ : 2^A → P(A)
-
-s predpisoma
-
-    χ_S(x) := ⊥ če x ∉ S
-    χ_S(x) := ⊤ če x ∈ S
-
-in
-
-    ξ_f := {x ∈ A | f(x) = ⊤}.
-
-Ta predpisa bi lahko krajše zapisali tudi takole:
-
-    χ_S(x) := (x ∈ S)
-    ξ_f := {x ∈ A | f(x) }
-
-Preslikavi `χ_S` pravimo **karakteristična funkcija podmnožice `S`**.
-
-Trdimo, da sta `χ` in `ξ` inverza:
-
-1. Dokažimo `χ ∘ ξ = id_{2^A}`. Uporabimo princip ekstenzionalnosti za preslikave.
-   Naj bo `f ∈ 2^A`. Dokažimo, da je `χ_{ξ_f} = f`.
-   Uporabimo princip ekstenzionalnosti za preslikave. Naj bo `x ∈ A`:
-
-        χ_{ξ_f}(x) = (x ∈ ξ_f) = f(x).
-
-2. Dokažimo `ξ ∘ χ = id_{P(A)}`. Uporabimo princip ekstenzionalnosti za preslikave.
-   Naj bo `S ∈ P(A)`. Dokažimo, da je `ξ_{χ_S} = S`:
-
-        ξ_{χ_S} = {x ∈ A | χ_S(x)} = {x ∈ A | x ∈ S} = S             □
-
+  \item
+    Dokažimo $\xi \circ \chi = id_{\pow{A}}$. Uporabimo princip ekstenzionalnosti za preslikave. Naj bo $S \in \pow{A}$. Dokažimo, da je $\xi_{\chi_S} = S$:
+    %
+    \begin{equation*}
+      \xi_{\chi_S} = \set{x \in A \such \chi_S(x)} = \set{x \in A \such x \in S} = S.
+    \end{equation*}
+  \end{enumerate}
+\end{dokaz}
 
 \subsection{Boolova algebra podmnožic}
 
-Podmnožice množice `A` tvorijo Boolovo algebro za operaciji presek `∩` in unija `∪`.
+Podmnožice množice $A$ tvorijo Boolovo algebro za operacije presek $\cap$, unija $\cup$ in relativni komplement. Nevtralni element za unijo je $\emptyset$ in nevtralni element za presek je $A$.
 
-Boolova algebra množic (unija, presek, komplement).
-
-Operacija simetrična razlika `⊕`. Potentčna množica tvori komutativno grupo za
-to opreacijo.
+Definirajmo tudi operacijo \textbf{simetrična razlika $\oplus$}, ki podmnožicama $S, T \in A$ priredu podmnožico
+%
+\begin{equation*}
+  S \oplus T \defeq (S \setminus T) \cup (T \setminus S) = (S \cup T) \setminus (S \cap T).
+\end{equation*}
+%
+Potenčna množica $\pow{A}$ je za operacijo $\oplus$ Abelova grupa.
