@@ -4,358 +4,485 @@
 
 \subsection{Indukcija na naravnih številih}
 
-Poznamo že indukcijo na naravnih številih. Zapišemo jo lahko na več načinov,
-kjer naslednika števila `n` označimo `n⁺`:
+Poznamo že indukcijo na naravnih številih. Zapišemo jo lahko na dva načina,
+kjer naslednika števila $n$ označimo $\suc{n}$:
+%
+\begin{enumerate}
+\item Kot aksiom o predikatih na naravnih številih:
+  %
+  \begin{equation*}
+  \phi(0) \land (\all{n \in \NN} \phi(n) \lthen \phi(\suc{n})) \lthen \all{m \in \NN} \phi(m)
+  \end{equation*}
 
-1. Kot aksiom o predikatih na naravnih številih:
-
-        φ(0) ∧ (∀ n ∈ N . φ(n) ⇒ φ(n⁺)) ⇒ ∀ m ∈ N . φ(m)
-
-2. Kot lastnost podmnožic naravnih števil:
-
-        ∀ S ∈ P(N) . 0 ∈ S ∧ (∀ k ∈ N . k ∈ S ⇒ k⁺ ∈ S) ⇒ S = N
-
+\item Kot lastnost podmnožic naravnih števil:
+  %
+  \begin{equation*}
+    \all{S \in \pow{\NN}} 0 \in S \land (\all{k \in \NN} k \in S \lthen \suc{k} \in S) \lthen S = \NN
+  \end{equation*}
+\end{enumerate}
+%
 Uporabljali bomo verzijo s podmnožicami. Najprej jo predelajmo v ekvivalentno obliko:
-
-    ∀ S ∈ P(N) . 0 ∈ S ∧ (∀ k ∈ N . k ∈ S ⇒ k⁺ ∈ S) ⇒ S = N
-    ∀ S ∈ P(N) . 0 ∈ S ∧ (∀ m ∈ N . (∀ k ∈ N . k⁺ = m ⇒ k ∈ S) ⇒ m ∈ S) ⇒ S = N
-    ∀ S ∈ P(N) . (∀ m ∈ N . (∀ k ∈ N . k⁺ = m ⇒ k ∈ S) ⇒ m ∈ S) ⇒ S = N
-
+%
+\begin{align}
+  &\all{S \in \pow{\NN}} 0 \in S \land (\all{k \in \NN} k \in S \lthen \suc{k} \in S) \lthen S = \NN \tag{$\liff$} \\
+  &\all{S \in \pow{\NN}} 0 \in S \land (\all{m \in \NN} (\all{k \in \NN} \suc{k} = m \lthen k \in S) \lthen m \in S) \lthen S = \NN \tag{$\liff$} \\
+  &\all{S \in \pow{\NN}} (\all{m \in \NN} (\all{k \in \NN} \suc{k} = m \lthen k \in S) \lthen m \in S) \lthen S = \NN. \notag
+\end{align}
+%
 Kaj smo dosegli? Bazo indukcije in indukcijski korak smo združili v eno samo predpostavko
-
-    ∀ m ∈ N . (∀ k ∈ N . k⁺ = m ⇒ k ∈ S) ⇒ m ∈ S          (1)
-
-Če vstavimo `m := 0`, dobimo:
-
-    (∀ k ∈ N . k⁺ = 0 ⇒ k ∈ S) ⇒ 0 ∈ S
-    (∀ k ∈ N . ⊥ ⇒ k ∈ S) ⇒ 0 ∈ S
-    (∀ k ∈ N . ⊤) ⇒ 0 ∈ S
-    ⊤ ⇒ 0 ∈ S
-    0 ∈ S
-
-Če vstavimo `m := n⁺` dobimo:
-
-    ∀ m ∈ N . (∀ k ∈ N . k⁺ = n⁺ ⇒ k ∈ S) ⇒ n⁺ ∈ S
-    ∀ m ∈ N . (∀ k ∈ N . k = n ⇒ k ∈ S) ⇒ n⁺ ∈ S
-    ∀ m ∈ N . n ∈ S ⇒ n⁺ ∈ S
-
+%
+\begin{equation}
+  \label{eq:ind-N}
+  \all{m \in \NN} (\all{k \in \NN} \suc{k} = m \lthen k \in S) \lthen m \in S
+\end{equation}
+%
+Če vstavimo $m \defeq 0$, dobimo:
+%
+\begin{align}
+  &(\all{k \in \NN} \suc{k} = 0 \lthen k \in S) \lthen 0 \in S \tag{$\liff$} \\
+  &(\all{k \in \NN} \bot \lthen k \in S) \lthen 0 \in S \tag{$\liff$} \\
+  &(\all{k \in \NN} \top) \lthen 0 \in S \tag{$\liff$} \\
+  &\top \lthen 0 \in S \tag{$\liff$} \\
+  &0 \in S \notag
+\end{align}
+%
+Če vstavimo $m \defeq \suc{n}$ dobimo:
+%
+\begin{align}
+  &\all{m \in \NN} (\all{k \in \NN} \suc{k} = \suc{n} \lthen k \in S) \lthen \suc{n} \in S \tag{$\liff$} \\
+  &\all{m \in \NN} (\all{k \in \NN} k = n \lthen k \in S) \lthen \suc{n} \in S \tag{$\liff$} \\
+  &\all{m \in \NN} n \in S \lthen \suc{n} \in S \notag
+\end{align}
+%
 To pa sta ravno običajna pogoja za indukcijo.
 
 Ali lahko izrazimo indukcijo na naravnih številih tudi brez operacije naslednik?
-Da, s pomočjo relacije `<`:
+Da, s pomočjo relacije $<$:
+%
+\begin{equation*}
+    \all{S \in \pow{\NN}} (\all{m \in \NN} (\all{k \in \NN} k < m \lthen k \in S) \lthen m \in S) \lthen S = \NN
+\end{equation*}
+%
+Temu principu pravimo tudi \textbf{krepka indukcija}, z besedami jo povemo takole: za podmnožico $S \subseteq \NN$ velja
+$S = \NN$, če za vse $m \in \NN$ velja ">če so vsa števila manjša od $m$ v $S$, potem je tudi $m$ v $S$"<.
 
-    ∀ S ∈ P(N) . (∀ m ∈ N . (∀ k ∈ N . k < m ⇒ k ∈ S) ⇒ m ∈ S) ⇒ S = N
+Denimo, da $S$ res ima dano lastnost. Ali je $0 \in S$? Da, ker za vse predhodnike $0$ velja, da
+so $S$ (saj jih ni). Ali je $1 \in S$? Da, saj za vse predhodnike $1$ velja, da so v $S$. Ali je $2 \in
+S$? Da, saj za vse predhodnike $2$ velja, da so v $S$. In tako naprej.
 
-Temu principu pravimo tudi *krepka indukcija*, z besedami jo povemo takole:
-Za podmnožico `S ⊆ N` velja `S = N`, če za vse `m ∈ N` velja:
-
-> Če so vsa števila manjša od `m` v `S`, potem je tudi `m` v `S`.
-
-Denimo, da `S` res ima dano lastnost. Ali je `0 ∈ S`? Da, ker za vse predhodnike `0` velja, da
-so `S` (saj jih ni). Ali je `1 ∈ S`? Da, saj za vse predhodnike `1` velja, da so v `S`. Ali je `2 ∈
-S`? Da, saj za vse predhodnike `2` velja, da so v `S`. In tako naprej.
 
 \subsection{Dobra osnovanost}
 
 Princip indukcije na naravnih številih posplošimo.
 
-**Definicija:** Relacija `R ⊆ A × A` je **dobro osnovana**, če velja:
+\begin{definicija}
+  Relacija $R \subseteq A \times A$ je \textbf{dobro osnovana}, kadar velja
+  %
+  \begin{equation*}
+    \all{S \in P(A)} (\all{y \in A} (\all{x \in A} x R y \lthen x \in S) \lthen y \in S) \lthen S = A.
+  \end{equation*}
+  %
+  Množici $S \subseteq A$, ki zadošča pogoju
+  %
+  \begin{equation*}
+  \all{y \in A} (\all{x \in A} x R y \lthen x \in S) \lthen y \in S
+  \end{equation*}
+  %
+  pravimo \textbf{$R$-progresivna} množica ali, da je $S$ \textbf{progresivna za $R$}.
+\end{definicija}
 
-    ∀ S ∈ P(A) . (∀ y ∈ A . (∀ x ∈ A . x R y ⇒ x ∈ S) ⇒ y ∈ S) ⇒ S = A.
+Kaj smo pravzaprav naredili: opazili smo, da ima relacija ">$k$ je neposredni predhodnik $m$"< na $\NN$ pomembno
+lastnost~\eqref{eq:ind-N}. Zanima nas, katere druge relacije imajo to lastnost, saj nam bodo omogočile neke vrste
+posplošen princip indukcije. Z definicijo smo dali ime relacijam, ki nas zanimajo.
 
-Množici `S ⊆ A`, ki zadošča pogoju
 
-    ∀ y ∈ A . (∀ x ∈ A . x R y ⇒ x ∈ S) ⇒ y ∈ S
+\subsection{Dvojiška drevesa}
 
-pravimo **`R`-progresivna** množica.
-
-Kaj smo pravzaprav naredili: opazili smo, da ima relacija "`k` je neposredni predhodnik
-`m`" na `N` pomembno lastnost (1). Zanima nas, ali imajo tudi druge relacije to lastnost,
-saj nam bodo omogočile neke vrste posplošen princip indukcije. Z definicijo smo dali
-relacijam, ki nas zanimajo, ime.
-
-\subsubsection{Primer: dvojiška drevesa}
-
-Naravna števila `N` so *induktivno definirana množica*. To pomeni, da elemente `N`
+Naravna števila $\NN$ so \textbf{induktivno definirana množica}. To pomeni, da elemente $\NN$
 opredelimo s pravili, ki povedo, kako se gradi naravna števila:
-
-1. `0 ∈ N`
-2. če je `n ∈ N`, potem je `n⁺ ∈ N`
-
-Množica `N` vsebuje natanko tiste elemente, ki jih lahko zgradimo s pomočjo teh pravil:
-
-    0, 0⁺, 0⁺⁺, 0⁺⁺⁺, 0⁺⁺⁺⁺, …
-
-Tu sta `0` in `⁺` mišljena kot simbolni oznaki, podobno kot `\inl` in `\inr` v definiciji
+%
+\begin{itemize}
+\item $0 \in \NN$,
+\item če je $n \in \NN$, potem je $\suc{n} \in \NN$.
+\end{itemize}
+%
+Množica $\NN$ vsebuje natanko tiste elemente, ki jih lahko zgradimo s pomočjo teh pravil:
+%
+\begin{equation*}
+    0, 0^{+}, 0^{++}, 0^{+++}, 0^{++++}, \ldots
+\end{equation*}
+%
+Tu sta $0$ in $\suc{{}}$ mišljena kot simbolni oznaki, podobno kot $\inl$ in $\inr$ v definiciji
 vsote množic.
 
-Na tak način lahko definiramo tudi druge množice. Na primer, **dvojiška drevesa** so
-induktivno definirana množica `Tree`, s predpisoma:
-
-1. `empty ∈ Tree`
-2. če je `t₁ ∈ Tree` in `t₂ ∈ Tree`, potem je `tree(t₁, t₂) ∈ Tree`
-
-Z besedami: drevo je bodisi prazno, bodisi je sestavljeno iz dveh *poddreves*. Ali znamo
+Na tak način lahko definiramo tudi druge množice. Na primer, \textbf{dvojiška drevesa} so
+induktivno definirana množica $\Tree$, s predpisoma:
+%
+\begin{itemize}
+\item $\emptyTree \in \Tree$,
+\item če je $t_1 \in \Tree$ in $t_2 \in \Tree$, potem je $\tree{t_1, t_2} \in \Tree$
+\end{itemize}
+%
+Z besedami: drevo je bodisi prazno, bodisi je sestavljeno iz dveh \textbf{poddreves}. Ali znamo
 našteti vsa drevesa, ali še bolje, jih narisati?
+%
+\begin{align*}
+    & \emptyTree, \\
+    & \tree{\emptyTree, \emptyTree} \\
+    & \tree{\emptyTree, \tree{\emptyTree, \emptyTree}}, \\
+    & \tree{\tree{\emptyTree, \emptyTree}, \emptyTree}, \\
+    & \tree{\tree{\emptyTree, \emptyTree}, \tree{\emptyTree, \emptyTree}}, \\
+    & \vdots
+\end{align*}
+%
+Definirajmo relacijo $R \subseteq \Tree \times \Tree$ s predpisom:
+%
+\begin{equation*}
+  t R s \defiff \some{u \in \Tree} s = \tree{t, u} \lor s = \tree{u, t}.
+\end{equation*}
+%
+To je relacija ">neposredno poddrevo"<. Je dobro osnovana, česar ne bomo dokazali, porodi pa naslednji princip indukcije za dvojiška drevesa.
 
-    empty,
-    tree(empty, empty)
-    tree(empty, tree(empty, empty)),
-    tree(tree(empty, empty), empty),
-    tree(tree(empty, empty), tree(empty, empty)),
-    ⋮
+\begin{definicija}[Indukcija za dvojiška drevesa]
+  Naj bo $S \subseteq \Tree$ podmnožica dreves, za katero velja:
+  %
+  \begin{itemize}
+  \item prazno drevo je v $S$,
+  \item za vsa drevesa $t_1$ in $t_2$ velja: če je $t_1 \in S$ in $t_2 \in S$, potem je $\tree{t_1, t_2} \in S$.
+  \end{itemize}
+  %
+  Tedaj je $S = \Tree$.
+\end{definicija}
 
-Definirajmo relacijo `R ⊆ Tree × Tree` s predpisom:
+Princip povejmo še s pomočjo predikatov.
 
-    t R s ⇔ ∃ u ∈ Tree . s = tree(t, u) ∨ s = tree(u, t)
+\begin{definicija}[Indukcija za dvojiška drevesa]
+  Naj bo $\phi$ predikat na dvojiških drevesih, za katerega velja:
+  %
+  \begin{itemize}
+  \item baza indukcije: $\phi(\emptyTree)$
+  \item indukcijski korak: za vsa drevesa $t_1$ in $t_2$, če velja $\phi(t_1)$ in $\phi(t_2)$, potem
+    $\phi(\tree{t_1, t_2})$.
+  \end{itemize}
+  %
+  Tedaj $\all{t \in \Tree} \phi(t)$.
+\end{definicija}
 
-To je relacija "neposredno poddrevo". Ta relacija je dobro osnovana (česar ne bomo
-dokazali) in nje pa dobimo naslednji princip indukcije za dvojiška drevesa.
-
-**Indukcija za dvojiška drevesa:** Naj bo `S ⊆ Tree` podmnožica dreves, za katero velja:
-
-1. Prazno drevo je v `S`.
-2. Za vsa drevesa `t₁` in `t₂` velja: če je `t₁ ∈ S` in `t₂ ∈ S`, potem je `tree(t₁, t₂) ∈ S`.
-
-Tedaj je `S = Tree`.
-
-Princip povejmo še kot logični princip:
-
-**Indukcija za dvojiška drevesa:** Naj bo `φ` lastnost dvojiških dreves, za katero velja:
-
-1. Baza indukcije: `φ(empty)`
-2. Indukcijski korak: za vsa drevesa `t₁` in `t₂`, če velja `φ(t₁)` in `φ(t₂)`, potem
-   `φ(tree(t₁, t₂))`.
-
-Tedaj `∀ t ∈ Tree, φ(t)`.
-
-Kot vidimo, imamo v indukcijskem koraku *dve* indukcijski predpostavki, ker ima vsako
+Kot vidimo, imamo v indukcijskem koraku \emph{dve} indukcijski predpostavki, ker ima vsako
 sestavljeno drevo dve poddrevesi.
 
 
 \subsubsection{Dobra osnovanost in padajoče verige}
 
 Kako pa bi dobili kak protiprimer, se pravi, relacijo, ki ni dobra osnovanost? Poiskati
-moramo kako lastnost, ki jo imajo vse dobre osnovanosti.
+moramo kako lastnost, ki jo imajo vse dobre osnovanosti, nato pa relacijo, ki te lastnosti nima.
 
-**Definicija:** Naj bo `R ⊆ A × A` relacija na `A`. **Padajoča veriga** (za relacijo `R`)
-je zaporedje `a : N → A`, za katerega velja `∀ i ∈ N . a(i+1) R a(i)`.
+\begin{definicija}
+  Naj bo $R \subseteq A \times A$ relacija na $A$. \textbf{Padajoča veriga} za relacijo $R$
+  je zaporedje $a : \NN \to A$, za katerega velja $\all{i \in \NN} a(i+1) R a(i)$.
+\end{definicija}
 
 Se pravi, da je padajoča veriga zaporedje, za katerega velja
+%
+\begin{equation*}
+  \cdots a_4 \mathrel{R} a_3 \mathrel{R} a_2 \mathrel{R} a_1 \mathrel{R} a_0
+\end{equation*}
+%
+\textbf{Cikel} za relacijo~$R$ je končna podmnožica $\set{a_0, \ldots, a_n} \subseteq A$ da velja
+%
+\begin{equation*}
+  a_0 \mathrel{R} a_1 \mathrel{R} \cdots \mathrel{R} a_n \mathrel{R} a_0.
+\end{equation*}
+%
+Iz cikla dobimo padajočo verigo, tako da cikel ponavljamo v nedogled:
+%
+\begin{equation*}
+  \cdots \mathrel{R} a_0 \mathrel{R} \cdots \mathrel{R} a_n
+         \mathrel{R} a_0 \mathrel{R} \cdots \mathrel{R} a_n \mathrel{R} a_0.
+\end{equation*}
 
-    ⋯ a_4 R a_3 R a_2 R a_1 R a_0
+\begin{lema}
+  V dobri osnovanosti ni ciklov in ni padajočih verig.
+\end{lema}
 
-**Cikel** je končna podmnožica `{a_0, …, a_n}` da velja
+\begin{dokaz}
+  Dovolj je pokazati, da ni padajočih verig, saj iz cikla dobimo padajočo verigo.
+  Denimo, da je $a : \NN \to A$ padajoča veriga za $R \subseteq A \times A$. Dokazali bomo, da $R$ ni dobro
+  osnovana. Se pravi, da moramo poiskati $R$-progresivno podmnožico $S \subseteq A$, za katero velja
+  $S \neq A$. Vzemimo $S \defeq A \set{ a(i) \mid i \in \NN}$. Očitno velja $S \neq A$, saj je $a(0) \in A$ in
+  $a(0) \not\in S$. Preverimo, da je $S$ progresivna, se pravi, da je
+  %
+  \begin{equation*}
+    \all{y \in A} (\all{x \in A} x R y \lthen x \in S) \lthen y \in S.
+  \end{equation*}
+  %
+  Naj bo $y \in A$ in denimo, da velja
+  \begin{equation}
+    \label{eq:verige}
+    \all{x \in A} x R y \lthen x \in S
+  \end{equation}
+  %
+  Dokazati moramo $y \in S$. Obravnavamo dve možnosti:
+  %
+  \begin{itemize}
+  \item če $y \in S$, potem seveda sledi $y \in S$.
+  \item če $y \not\in S$, potem obstaja $i \in \NN$, da je $y = a(i)$. Ker je $a(i+1) R a(i)$, iz
+    predpostavke~\eqref{eq:verige} sledi $y = a(i) \in S$.
+  \end{itemize}
+  Torej v vsakem primeru velja $y \in S$.
+\end{dokaz}
 
-     a_0 R a_1 R ⋯ R a_n R a_0
-
-Iz takega cikla dobimo padajočo verigo, tako da cikel ponavljamo v nedogled:
-
-     ⋯ R a_0 R ⋯ R a_n R a_0 R a_1 R ⋯ R a_n R a_0
-
-**Lemma:** V dobri osnovanosti ni ciklov in ni padajočih verig.
-
-*Dokaz.* Dovolj je pokazati, da ni padajočih verig, saj iz cikla dobimo padajočo verigo.
-Denimo, da je `a : N → A` padajoča veriga za `R ⊆ A × A`. Dokazali bomo, da `R` ni dobro
-osnovana. Se pravi, da moramo poiskati `R`-progresivno podmnožico `S ⊆ A`, za katero velja
-`S ≠ A`. Vzemimo `S := A \ { a(i) | i ∈ N }`. Očitno velja `S ≠ A`, saj je `a(0) ∈ A` in
-`a(0) ∉ S`. Preverimo, da je `S` progresivna, se pravi, da je
-
-    ∀ y ∈ A . (∀ x ∈ A . x R y ⇒ x ∈ S) ⇒ y ∈ S
-
-Naj bo `y ∈ A` in denimo, da velja
-
-    ∀ x ∈ A . x R y ⇒ x ∈ S                               (2)
-
-Dokazati moramo `y ∈ S`. Obravnavamo dve možnosti:
-
-1. Če `y ∈ S`, potem seveda sledi `y ∈ S`.
-
-2. Če `y ∉ S`, potem obstaja `i ∈ N`, da je `y = a(i)`. Ker je `a(i+1) R a(i)`, iz
-   predpostavke (2) sledi `y = a(i) ∈ S`.
-
-Torej v vsakem primeru velja `y ∈ S`. □
-
-**Protiprimer:** Sedaj lahko zlahka priskrbimo kak protiprimer. Na primer, cela števila
-`Z` z relacijo `R ⊆ Z × Z`
-
-    a R b ⇔ a + 1 = b
-
-niso dobro osnovana, ker imajo padajočo verigo
-
-    ⋯ R (-3) R (-2) R (-1) R 0
-
-Prav tako ni dobro osnovana relacija `<` na intervalu `[0,1]`, ker imamo padajočo verigo
-`a(n) = 2^{-n}`.
-
+\begin{primer}
+  Sedaj lahko zlahka priskrbimo kak protiprimer. Na primer, cela števila $\ZZ$ z relacijo $R \subseteq \ZZ \times \ZZ$
+  %
+  \begin{equation*}
+    a R b \defiff a + 1 = b
+  \end{equation*}
+  %
+  niso dobro osnovana, ker imajo padajočo verigo
+  %
+  \begin{equation*}
+    \cdots \mathrel{R} (-3) \mathrel{R} (-2) \mathrel{R} (-1) \mathrel{R} 0
+  \end{equation*}
+  %
+  Prav tako ni dobro osnovana relacija $<$ na intervalu $[0,1]$, ker imamo padajočo verigo
+  $n \mapsto 2^{-n}$.
+\end{primer}
 
 \section{Dobra urejenost}
 
 Posplošimo sedaj še krepko indukcijo na naravnih številih. Tokrat bomo najprej posplošili
-strogo urejenost `<`.
+strogo urejenost $<$.
 
 \subsection{Stroge urejenosti}
 
-**Definicija:** Relacija `R ⊆ A × A` je **stroga urejenost**, če je
+\begin{definicija}
+  Relacija $R \subseteq A \times A$ je \textbf{stroga urejenost}, če je
+  %
+  \begin{itemize}
+  \item irefleksivna: $\all{x \in A} \lnot (x R x)$ in
+  \item tranzitivna: $\all{x, y, z \in A} x R y \land y R z \lthen x R z$.
+  \end{itemize}
+  %
+  Stroga urejenost je \textbf{linearna}, če je še
+  %
+  \begin{itemize}
+  \item sovisna: $\all{x, y \in A} x R y \lor x = y \lor y R x$.
+  \end{itemize}
+  %
+  Za stroge urejenosti uporabljamo simbole $<$, $\subset$, $\prec$, $\sqsubset$ ipd.
+\end{definicija}
 
-1. irefleksivna: `∀ x ∈ A . ¬ (x R x)`
-2. tranzitivna: `∀ x, y, z ∈ A . x R y ∧ y R z ⇒ x R z`
-
-Stroga urejenost je **linearna**, če je še
-
-3. sovisna: `∀ x, y ∈ A . x R y ∨ x = y ∨ y R x.`
-
-Za stroge urejenosti uporabljamo simbole `<`, `⊂`, `≺`, `⊏` ipd.
-
-Relaciji `<` in `≤` na številih sta med seboj povezani, saj denimo za realna števila velja
-
-    x < y ⇔ x < y ∧ x ≠ y
-
+Relaciji $<$ in $\leq$ na številih sta med seboj povezani, saj denimo za realna števila velja
+%
+\begin{equation*}
+  x < y \iff x \leq y \land x \neq y
+\end{equation*}
+%
 in
-
-    x ≤ y ⇔ x < y ∨ x = y            (3)
-
-To velja v splošnem. Stroa urejenost `<` na množici `A` porodi delno urejenost `≤` na `A`,
+%
+\begin{equation}
+  \label{eq:leq-iff-lteq}
+  %
+  x \leq y \iff x < y \lor x = y
+\end{equation}
+%
+To velja v splošnem. Stroga urejenost $<$ na množici $A$ porodi delno urejenost $\leq$ na $A$,
 definirano s predpisom:
-
-    x ≤ y  ⇔  x = y ∨ x ≤ y
-
-V obratno smer, delna urejenost `⊑` določa strogo urejenost `⊏`, definirano s predpisom
-
-    a ⊏ b  ⇔  a ≠ b ∧ a ⊑ b         (4)
-
-Seveda je treba preveriti naslednja dejstva:
-
-* če je `<` stroga urejenost, potem je `≤` definirana s (3) delna urejenost
-* če je `⊑` delna urejenost, potem je `⊏` definirana s (4) stroga urejenost.
-
+%
+\begin{equation*}
+    x \leq y  \defiff x = y \lor x \leq y.
+\end{equation*}
+%
+V obratno smer, delna urejenost $\sqsubseteq$ določa strogo urejenost $\sqsubset$, definirano s predpisom
+%
+\begin{equation}
+  \label{eq:leq-iff-neqlt}
+  a \sqsubset b  \liff  a \neq b \land a \sqsubseteq b.
+\end{equation}
+%
+Seveda je treba preveriti naslednja dejstva, ki jih postimo za vajo:
+%
+\begin{itemize}
+\item če je $<$ stroga urejenost, potem je $\leq$ definirana s \eqref{eq:leq-iff-lteq} delna urejenost
+\item če je $\sqsubseteq$ delna urejenost, potem je $\sqsubset$ definirana s \eqref{eq:leq-iff-neqlt} stroga urejenost.
+\end{itemize}
+%
 Tako lahko prehajamo med delno in strogo urejenostjo.
 
 \subsection{Dobra ureditev}
 
-**Definicija:** Relacija je **dobra ureditev**, če je dobro osnovana in stroga linearna ureditev.
+\begin{definicija}
+  Relacija je \textbf{dobra ureditev}, če je dobro osnovana in stroga linearna ureditev.
+\end{definicija}
 
-**Izrek:** Relacija je dobra ureditev natanko tedaj, ko je dobro osnovana in sovisna.
+\begin{izrek}
+  Relacija je dobra ureditev natanko tedaj, ko je dobro osnovana in sovisna.
+\end{izrek}
 
-*Dokaz.* V eno smer je ekvivalenca očitna, zato dokažimo samo obratno smer. Denimo, da je
-`R ⊆ A × A` dobro osnovana in sovisna relacija. Doazujemo, da je dobra ureditev, se pravi,
-da potrebujemo še irefleksivnost in tranzitivnost `R`:
+\begin{dokaz}
+  V eno smer je ekvivalenca očitna, zato dokažimo samo obratno smer. Denimo, da je
+  $R \subseteq A \times A$ dobro osnovana in sovisna relacija. Doazujemo, da je dobra ureditev, se pravi,
+  da potrebujemo še irefleksivnost in tranzitivnost $R$.
 
-* `R` je irefleksivna: če bi veljalo `x R x` za `x ∈ A`, potem `R` ne bi bila dobro
-  osnovana, ker bi vsebovala padajočo verigo `⋯ x R x R x`.
+  Relacija $R$ je irefleksivna: če bi veljalo $x R x$ za $x \in A$, potem $R$ ne bi bila dobro
+  osnovana, ker bi vsebovala padajočo verigo $\cdots x R x R x$.
 
-* `R` je tranzitivna: denimo, da velja `x R y` in `x R z`. Dokazujemo `x R z`. Ker je `R`
-  sovisna, velja `x R z` ali `x = z` ali `z R x`. Pokažimo, da `x = z` in `z R x` nista
+  Relacija $R$ je tranzitivna: denimo, da velja $x R y$ in $x R z$. Dokazujemo $x R z$. Ker je $R$
+  sovisna, velja $x R z$ ali $x = z$ ali $z R x$. Pokažimo, da $x = z$ in $z R x$ nista
   možna:
+  %
+  \begin{itemize}
+  \item Če je $x = z$, potem velja $x R y$ in $y R x$, torej $x$ in $y$ tvorita cikel, a
+    $R$ je dobro osnovana, zato to ni možno.
+  \item Če velja $z R x$, potem dobimo cikel $x R y R z R x$, kar spet ni možno.
+  \end{itemize}
+\end{dokaz}
 
-      1. če je `x = z`, potem velja `x R y` in `y R x`, torej `x` in `y` tvorita cikel, a
-         `R` je dobro osnovana, zato to ni možno.
+\begin{lema}
+  \label{lem:nepr-min-veriga}%
+  Denimo, da je $<$ stroga urejenost na neprazni množici~$B$. Če $B$ nima
+  $\leq$-minimalnega elementa, potem ima padajočo verigo.
+\end{lema}
 
-      2. če velja `z R x`, potem dobimo cikel `x R y R z R x`, kar spet ni možno. □
+\begin{dokaz}
+  Denimo, da $B$ nima minimalnega elementa, torej
+  %a
+  \begin{equation*}
+    \lnot \some{x \in B} \all{y \in B} y \leq x \lthen y = x.
+  \end{equation*}
+  %
+  To je ekvivalentno
+  %
+  \begin{equation*}
+    \all{x \in B} \some{y \in B} y \leq x \land y \neq x
+  \end{equation*}
+  %
+  kar je ekvivalentno
+  \begin{equation}
+    \label{eq:lema-min-elem}
+    \all{x \in B} \some{y \in B} y < x.
+  \end{equation}
+  %
+  Padajočo verigo $b : \NN \to B$ definiramo z zaporedjem izbir: ker je $B$ neprazna, lahko izberemo
+  neki element $b(0) \in B$. Denimo, da smo za neki $i \in \NN$ že izbrali elemente $b(0), \ldots, b(i)$
+  tako, da velja
+  %
+  \begin{equation*}
+    b(i) < b(i-1) < \ldots < b(1) < b(0).
+  \end{equation*}
+  %
+  Ker $B$ nima minimalnega elementa, $b(i)$ ni minimalni, torej po \eqref{eq:lema-min-elem} obstaja tak $y \in B$, da je $y < b(i)$. Torej lahko izberemo $b(i+1) \in B$, da velja $b(i+1) < b(i)$.
+\end{dokaz}
 
+\begin{opomba}
+  V zgornjem dokazu smo uporabili \emph{aksiom odvisne izbire}, ki je poseben primer
+  aksioma izbire in o katerem bomo še govorili.
+\end{opomba}
 
-**Lema:** Denimo, da je `<` stroga urejenost na neprazni množici `B`. Če `B` nima
-`≤`-minimalnega elementa, potem ima padajočo verigo.
+\begin{izrek}
+  \label{izr:dobr-osn-iff}
+  Naj bo $\sqsubset$ relacija na $A$. Tedaj so ekvivalentne naslednje izjave:
+  %
+  \begin{enumerate}
+  \item \label{it:dobr-osn-1}%
+    $\sqsubset$ je dobro osnovana,
+  \item \label{it:dobr-osn-2}%
+    vsaka \emph{neprazna} $S \subseteq A$ ima $\sqsubseteq$-minimalni element,
+  \item \label{it:dobr-osn-3}%
+    $\sqsubset$ nima $\sqsubset$-padajoče verige.
+  \end{enumerate}
+\end{izrek}
 
-*Dokaz.* Denimo, da `B` nima minimalnega elementa, torej
+\begin{dokaz}
+  ($1 \lthen 2$)
+  %
+  Denimo, da je $S \subseteq A$ neprazna. Če uporabimo \eqref{it:dobr-osn-1} na $A \setminus S$ dobimo
+  %
+  \begin{equation*}
+    (\all{y \in A} (\all{x \in A} x \sqsubset y \lthen x \in A \setminus S) \lthen y \in A \setminus S) \lthen A \setminus S = \emptyset.
+  \end{equation*}
+  %
+  Ker je $S$ neprazna, dobimo zaporedje ekvivalentnih izjav:
+  \begin{align*}
+    &(\all{y \in A} (\all{x \in A} x \sqsubset y \lthen x \in A \setminus S) \lthen y \in A \setminus S) \lthen \bot
+    \tag{$\liff$} \\
+    &\lnot (\all{y \in A} (\all{x \in A} x \sqsubset y \lthen x \in A \setminus S) \lthen y \in A \setminus S)
+    \tag{$\liff$} \\
+    &\some{y \in A} (\all{x \in A} x \sqsubset y \lthen x \in A \setminus S) \land y \not\in A \setminus S
+    \tag{$\liff$} \\
+    &\some{y \in A} (\all{x \in A} x \sqsubset y \lthen x \not\in S) \land y \in S
+    \tag{$\liff$} \\
+    &\some{y \in S} \all{x \in A} x \sqsubset y \lthen x \not\in S
+    \tag{$\liff$} \\
+    &\some{y \in S} (\all{x \in A} x \sqsubset y \lthen x \not\in S) \notag
+  \end{align*}
+  %
+  Torej obstaja element $y \in S$ z lastnostjo, da pod njim ni nobenega elementa iz
+  $S$, kar pa pomeni, da je $y$ iskani minimalni element.
 
-    ¬ ∃ x ∈ B . ∀ y ∈ B . y ≤ x ⇒ y = x.
+  ($2 \lthen 3$) Denimo, da je $a : \NN \to A$ padajoča veriga. Tedaj slika $\set{ a(n) \mid n \in \NN }$ ne bi imela
+  minimalnega elementa, v nasprotju z \eqref{it:dobr-osn-2}.
 
-To je ekvivalentno
+  ($3 \lthen 1$) Denimo, da je $S \subseteq A$ progresivna. Trdimo, da množica $C \defeq A \setminus S$ nima
+  minimalnega elementa. Če bi bil $c \in C$ minimalni v $C$, bi to pomenilo
+  %
+  \begin{equation*}
+    \all{x \in A} x \sqsubset c \lthen x \not\in C,
+  \end{equation*}
+  %
+  kar je ekvivalentno
+  %
+  \begin{equation*}
+    \all{x \in A} x \sqsubset c \lthen x \in S.
+  \end{equation*}
+  %
+  Ker je $S$ progresivna, od tod sledi $c \in S$, kar ni mogoče.
+  %
+  Dokazati moramo, da je $C$ prazna. Če ne bi bila, bi lahko uporabili lemo~\ref{lem:nepr-min-veriga} in dobili padajočo verigo v $A$, kar je v nasprotju s \eqref{it:dobr-osn-3}.
+\end{dokaz}
 
-    ∀ x ∈ B . ∃ y ∈ B . y ≤ x ∧ y ≠ x
+\begin{izrek}
+  Naj bo $\sqsubset$ stroga urejenost na $A$. Tedaj so ekvivalentne naslednje izjave:
+  %
+  \begin{enumerate}
+  \item[(1)] $\sqsubset$ je dobro urejena,
+  \item[(2)] vsaka \emph{neprazna} množica $S \subseteq A$ ima $\sqsubset$-prvi element: to je tak $x \in S$, da velja
+    $\all{y \in S} x \neq y \lthen x \sqsubset y$.
+  \item[(3)] $A$ nima $\sqsubset$-padajoče verige in $\sqsubset$ je sovisna.
+  \end{enumerate}
+\end{izrek}
 
-kar je ekvivalentno
+\begin{dokaz}
+  Za naologo predelajte dokaz prejšnjega izreka v dokaz tega izreka.
+\end{dokaz}
 
-    ∀ x ∈ B . ∃ y ∈ B . y < x.               (5)
+\begin{primer}
+  Primeri dobro urejenih množic:
+  %
+  \begin{enumerate}
+  \item Končna množica $\set{0, \ldots, n}$ urejena z relacijo $<$.
 
-Padajočo verigo `b : N → B` definiramo z zaporedjem izbir: ker je `B` neprazna, lahko izberemo
-neki element `b(0) ∈ B`. Denimo, da smo za neki `i ∈ N` že izbrali elemente `b(0), ..., b(i)`
-tako, da velja
+  \item Naravna števila $\NN$ urejena z relacijo $<$.
 
-    b(i) < b(i-1) < ... < b(1) < b(0).
+  \item Če sta $(P, \leq_P)$ in $(Q, \leq_Q)$ dobri urejenosti, potem je dobro urejena tudi $P + Q$ z relacijo
+    $\sqsubseteq$, ki~$P$ postavi pred~$Q$:
+    %
+    \begin{equation*}
+      u \sqsubseteq v \defiff
+      \begin{aligned}[t]
+        &(\some{x \in P} \some{y \in Q} u = \inl(x) \land v = \inr(y)) \lor {}\\
+        &(\some{x \in P} \some{y \in P} u = \inl(x) \land v = \inl(y) \lor x \leq_P y) \lor {}\\
+        &(\some{x \in Q} \some{y \in Q} u = \inr(x) \land v = \inr(y) \lor x \leq_Q y).
+      \end{aligned}
+    \end{equation*}
 
-Ker `B` nima minimalnega elementa, `b(i)` ni minimalni, torej po (5) obstaja tak `y ∈ B`, da je
-`y < b(i)`. Torej lahko izberemo `b(i+1) ∈ B`, da velja `b(i+1) < b(i)`. □
-
-Pozor: v zgornjem dokazu smo uporabili *aksiom odvisne izbire*, ki je poseben primer
-aksioma izbire in o katerem bomo še govorili.
-
-**Izrek:** Naj bo `⊏` relacija na `A`. Tedaj so ekvivalentne naslednje izjave:
-
-1. `⊏` je dobro osnovana
-2. vsaka *neprazna* `S ⊆ A` ima `⊑`-minimalni element
-3. A nima `⊏`-padajoče verige.
-
-*Dokaz.*
-
-`(1) ⇒ (2)` Denimo, da je `S ⊆ A` neprazna. Če uporabimo (1) na `A \ S` dobimo
-
-     (∀ y ∈ A . (∀ x ∈ A . x ⊏ y ⇒ x ∈ A \ S) ⇒ y ∈ A \ S) ⇒ A \ S = ∅
-
-Ker je `S` neprazna, dobimo zaporedje ekvivalentnih izjav:
-
-     (∀ y ∈ A . (∀ x ∈ A . x ⊏ y ⇒ x ∈ A \ S) ⇒ y ∈ A \ S) ⇒ ⊥
-
-     ¬ (∀ y ∈ A . (∀ x ∈ A . x ⊏ y ⇒ x ∈ A \ S) ⇒ y ∈ A \ S)
-
-     ∃ y ∈ A . (∀ x ∈ A . x ⊏ y ⇒ x ∈ A \ S) ∧ y ∉ A \ S
-
-     ∃ y ∈ A . (∀ x ∈ A . x ⊏ y ⇒ x ∉ S) ∧ y ∈ S
-
-     ∃ y ∈ S . ∀ x ∈ A . x ⊏ y ⇒ x ∉ S
-
-     ∃ y ∈ S . (∀ x ∈ A . x ⊏ y ⇒ x ∉ S)
-
-Torej obstaja element `y ∈ S` z lastnostjo, da pod njim ni nobenega elementa iz
-`S`, kar pa pomeni, da je `y` iskani minimalni element.
-
-(2) ⇒ (3) Denimo, da je `a : N → A` padajoča veriga. Tedaj slika `{ a(n) | n ∈ N }` ne bi imela
-minimalnega elementa, v nasprotju z (2).
-
-(3) ⇒ (1) Denimo, da je `S ⊆ A` progresivna. Trdimo, da množica `C := A \ S` nima
-minimalnega elementa. Če bi bil `c ∈ C` minimalni v `C`, bi to pomenilo
-
-    ∀ x ∈ A . x ⊏ c ⇒ x ∉ C,
-
-kar je ekvivalentno
-
-    ∀ x ∈ A . x ⊏ c ⇒ x ∈ S.
-
-Ker je `S` progresivna, od tod sledi `c ∈ S`, kar ni mogoče.
-
-Dokazati moramo, da je `C` prazna. Če ne bi bila, bi lahko uporabili lemo in dobili padajočo
-verigo v `A`, kar je v nasprotju s (3). □
-
-**Izrek:** Naj bo `⊏` stroga urejenost na `A`. Tedaj so ekvivalentne naslednje izjave:
-
-1. `⊏` je dobro urejena
-2. vsaka *neprazna* množica `S ⊆ A` ima `⊏`-prvi element: to je tak `x ∈ S`, da velja
-   `∀ y ∈ S . x ≠ y ⇒ x ⊏ y`.
-3. A nima `⊏`-padajoče verige in `⊏` je sovisna
-
-Dokaz je podoben dokazu prejšnjega izreka. Poskusite ga dokazati sami tako, da predelate
-dokaz prejšnjega izreka.
-
-**Primeri:**
-
-1. Naravna števila `N` urejena z relacijo `<`.
-
-2. Končna množica `{0, …, n}` urejena z relacijo `<`.
-
-3. Če sta `(P, ≤_P)` in `(Q, ≤_Q)` dobri urejenosti, potem je dobro urejena tudi
-   `P + Q` z relacijo `⊑`, ki `P` postavi pred `Q`:
-
-        u ⊑ v ⇔
-         (∃ x ∈ P . ∃ y ∈ Q . u = \inl(x) ∧ v = \inr(y)) ∨
-         (∃ x ∈ P . ∃ y ∈ P . u = \inl(x) ∧ v = \inl(y) ∨ x ≤_P y) ∨
-         (∃ x ∈ Q . ∃ y ∈ Q . u = \inr(x) ∧ v = \inr(y) ∨ x ≤_Q y).
-
-4. S prejšnjim primerom lahko seštevamo dobre urejenosti, na primer `N + 3` je dobra
-   urejenost
-
-        0 < 1 < 2 < ⋯ < ω < ω + 1 < ω + 2
-
-    Ali pa ω + ω
-
-        0 < 1 < 2 < ⋯ < ω < ω + 1 < ω + 2 < ⋯
+  \item
+    S prejšnjim primerom lahko seštevamo dobre urejenosti, na primer $\NN + 3$ je dobra
+    urejenost
+    %
+    \begin{equation*}
+      \inl{0} < \inl{1} < \inl{2} < \cdots < \inr{0} < \inr{1} < \inr{2}.
+    \end{equation*}
+  \end{enumerate}
+\end{primer}
