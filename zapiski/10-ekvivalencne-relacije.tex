@@ -1,139 +1,180 @@
-\chapter{Ekvivalenčne relacije in kvocientne množice}
+\chapter{Ekvivalenčne relacije}
 
 \section{Ekvivalenčne relacije}
 
-> **Definicija:** Relacija `R ⊆ A × A` je **ekvivalenčna relacija**, če je refleksivna,
-> tranzitivna in simetrična. Kadar velja `x R y`, pravimo, da sta `x` in `y` **ekvivalentna** (glede na `R`).
+\begin{definicija}
+  Relacija $R \subseteq A \times A$ je \textbf{ekvivalenčna relacija}, če je refleksivna, tranzitivna in simetrična. Kadar velja $x R y$, pravimo, da sta $x$ in $y$ \textbf{ekvivalentna} glede na~$R$.
+\end{definicija}
 
-*Opomba:* Kdor reče "ekvivalentna relacija", je noob. Kdor reče, da sta "`x` in `y`
-ekvivalenčna", je rookie.
+\begin{opomba}
+  Kdor reče ">ekvivalentna relacija"<, je noob. Kdor reče, da sta ">$x$ in $y$
+  ekvivalenčna"<, je rookie.
+\end{opomba}
 
 Ekvivalenčne relacije se običajno označuje s simboli, ki so podobni znaku za enakost:
-`≡`, `∼`, `≃`, `≅`.
+$\equiv$, $\sim$, $\simeq$, $\cong$.
 
-**Primeri:**
-
-1. Relacija “vzporednost” med premicami v ravnini.
-2. Relacija “skladnost" med trikotniki v ravnini.
-3. Relacija “podobnost" med trikotniki v ravnini.
-4. Relacija “isti ostanek pri deljenju s 7” na množici `ℕ`.
-4. Prazna relacija `∅ ⊆ A × A` je ekvivalenčna le v primeru, da je `A = ∅`.
-5. Polna relacija `A × A` je ekvivalenčna.
-6. Diagonala (oz. enakost) je ekvivalenčna relacija.
-
+\begin{primer}
+  Primeri ekvivalenčnih relacij:
+  \begin{enumerate}
+    \item Relacija ">vzporednost"< med premicami v ravnini.
+    \item Relacija ">skladnost"< med trikotniki v ravnini.
+    \item Relacija ">podobnost"< med trikotniki v ravnini.
+    \item Relacija ">isti ostanek pri deljenju s 7"< na množici $\NN$.
+    \item Prazna relacija $\emptyset \subseteq A \times A$ je ekvivalenčna le v primeru, da je $A = \emptyset$.
+    \item Polna relacija $A \times A$ je ekvivalenčna.
+    \item Diagonala (enakost) je ekvivalenčna relacija.
+  \end{enumerate}
+\end{primer}
 
 \subsection{Ekvivalenčna relacija porojena s preslikavo}
 
-Posebej pomemben je primer ekvivalenčne relacije **porojene (ali inducirane) s preslikavo**:
-naj bo `f : A → B` preslikava in definirajmo relacijo `∼_f ⊆ A × A` s predpisom
-
-    x ∼_f y ⇔ f(x) = f(y)
-
-Tedaj je `∼_f` ekvivalenčna relacija:
-
-* refleksivnost: `x ~_f x` velja, ker velja `f(x) = f(x)`,
-* tranzitivnost: če je `x ~_f y` in `y ~_f z`, potem je `f(x) = f(y)` in `f(y) = f(z)`, torej `f(x) = f(z)` in `x ~_f z`,
-* simetričnost: če je `x ~_f y`, potem je `f(x) = f(y)`, torej `f(y) = f(x)` in `y ~_f x`.
-
+Posebej pomemben je primer ekvivalenčne relacije \textbf{porojene (ali inducirane) s preslikavo}:
+naj bo $f : A \to B$ preslikava in definirajmo relacijo $\sim_f$ na $A$ s predpisom
+%
+\begin{equation*}
+  x \sim_f y \liff f(x) = f(y)
+\end{equation*}
+%
+Tedaj je $\sim_f$ ekvivalenčna relacija:
+%
+\begin{itemize}
+\item refleksivnost: $x ~_f x$ velja, ker velja $f(x) = f(x)$,
+\item tranzitivnost: če je $x ~_f y$ in $y ~_f z$, potem je $f(x) = f(y)$ in $f(y) = f(z)$, torej $f(x) = f(z)$ in $x ~_f z$,
+\item simetričnost: če je $x ~_f y$, potem je $f(x) = f(y)$, torej $f(y) = f(x)$ in $y ~_f x$.
+\end{itemize}
+%
 Ali je vsaka ekvivalenčna relacija porojena z neko preslikavo?
 
-**Primer:** premici sta vzporedni natanko tedaj, ko imata enaka smerna vektorja. Če je
-torej `P` množica vseh premic, `R²` množica vektorjev v ravnini, in `s : P → R²`
-preslikava, ki premici `P` priredi njen enotski smerni vektor, ki leži v zgornji polravnini ali
-na pozitivnem delu osi `x`, tedaj velja
-
-    p ∥ q ⇔ s(p) = s(q)
-
-Torej je vzporednost porojena s preslikavo `s`.
-
+\begin{primer}
+  Premici sta vzporedni natanko tedaj, ko imata enaka smerna vektorja. Če je
+  torej $P$ množica vseh premic, $\RR^2$ množica vektorjev v ravnini, in $s : P \to \RR^2$
+  preslikava, ki premici $P$ priredi njen enotski smerni vektor, ki leži v zgornji polravnini ali
+  na pozitivnem delu osi $x$, tedaj velja
+  \begin{equation*}
+    p \parallel q \liff s(p) = s(q).
+  \end{equation*}
+  %
+  Torej je vzporednost porojena s preslikavo $s$.
+\end{primer}
 
 \section{Ekvivalenčni razredi in kvocientne množice}
 
-**Definicija:** Naj bo `E ⊆ A × A` ekvivalenčna relacija. **Ekvivalenčni razred** elementa
-`x ∈ A` je množica `[x]_A := { y ∈ A ∣ x E y }`. Z besedami: ekvivalenčni razred `x` je
-množica vseh elementov, ki so mu ekvivalentni.
+\begin{definicija}
+  Naj bo $E \subseteq A \times A$ ekvivalenčna relacija. \textbf{Ekvivalenčni razred} elementa $x \in A$ je množica
+  $[x]_A \defeq \set{ y \in A \such x E y }$. Z besedami: ekvivalenčni razred~$x$ je množica vseh elementov, ki so mu
+  ekvivalentni.
+\end{definicija}
 
-Opomba: Kdor reče “ekvivalentni razred”, je newbie.
+\begin{opomba}
+  Kdor reče ">ekvivalentni razred"<, je newbie.
+  Če pustimo šalo ob strani: ekvivalenčni razredi se tako imenujejo zaradi zgodovinskih razlogov. Beseda ">razred"< nakazuje dejstvo, da so imajo elementi ekvivalenčnega razredi vsi nekaj skupnega (">delavski razred"<, ">Tina Maze je razred zase"<) in ne, da niso množice (saj očitno so).
+\end{opomba}
 
-**Definicija:** Naj bo `E ⊆ A × A` ekvivalenčna relacija. **Kvocientna množica** ali
-**kvocient** `A/E` je množica vseh ekvivalenčnih razredov:
+\begin{definicija}
+  Naj bo $E \subseteq A \times A$ ekvivalenčna relacija. \textbf{Kvocientna ali faktorska množica} ali \textbf{kvocient} $A/E$ je množica vseh ekvivalenčnih razredov:
+  %
+  \begin{equation*}
+    A/E \defeq \set{ \xi \in \pow{A} \such \some{x \in A} \xi = [x]_A }.
+  \end{equation*}
+  %
+  Z izpeljanimi množicami lahko to zapišemo bolj razumljivo
+  % 
+  \begin{equation*}
+    A/E = \set{ [x]_E \such x \in A }.
+  \end{equation*}
+  %
+  \textbf{Kanonična kvocientna preslikava} $q_E : A \to A/E$ je preslikava, ki vsakemu elementu
+  priredi njegov ekvivalenčni razred: $q_E(x) \defeq [x]_A$.
+\end{definicija}
 
-    A/E := { ξ ⊆ P(A) | ∃ x ∈ A . ξ = [x]_A }.
+\begin{izrek}
+  Vsaka ekvivalenčna relacija je porojena z neko preslikavo.
+\end{izrek}
 
-Z izpeljanimi množicami lahko to zapišemo bolj razumljivo:
+\begin{dokaz}
+  Dokažimo, da je ekvivalenčna relacija porojena s svojo kvocientno preslikavo.
 
-    A/E = { [x]_E | x ∈ A }.
+  Naj bo $E$ ekvivalenčna relacija na $A$. Najprej ugotovimo naslednje: za vse $x,
+  y \in A$ velja
+  %
+  \begin{equation*}
+    x E y \liff [x]_E = [y]_E.
+  \end{equation*}
 
+  ($\lthen$) Če je $x E y$ potem je $[x]_E \subseteq [y]_E$, ker iz $z E x$ in $x E y$ sledi $z E y$.
+  Podobno dokažemo $[y]_E \subseteq [x]_E$.
 
-**Kanonična kvocientna preslikava** `q_E : A → A/E` je preslikava, ki vsakemu elementu
-priredi njegov ekvivalenčni razred: `q_E(x) := [x]_A`.
+  ($\Leftarrow$) Če je $[x]_E = [y]_E$ potem je $y \in [y]_E = [x]_E$, torej po definiciji $[x]_E$
+  dobimo $x E y$.
 
-Kvocientni množici včasih pravimo tudi *faktorska množica*.
-
-
-**Izrek:** Vsaka ekvivalenčna relacija je porojena z neko preslikavo.
-
-*Dokaz.* Naj bo `E` ekvivalenčna relacija na `A`. Najprej ugotovimo naslednje: za vse `x,
-y ∈ A` velja
-
-    x E y ⇔ [x]_E = [y]_E
-
-Dokaz `⇒`: če je `x E y` potem je `[x]_E ⊆ [y]_E`, ker iz `z E x` in `x E y` sledi `z E y`.
-Podobno dokažemo `[y]_E ⊆ [x]_E`.
-
-Dokaz `⇐`: če je `[x]_E = [y]_E` potem je `y ∈ [y]_E = [x]_E`, torej po definiciji `[x]_E`
-dobimo `x E y`.
-
-Sedaj izrek sledi zlahka: `q_E(x) = q_E(y) ⇔ [x]_E = [y]_E ⇔ x E y` □
+  Sedaj izrek sledi zlahka: $q_E(x) = q_E(y) \liff [x]_E = [y]_E \liff x E y$.
+\end{dokaz}
 
 
 \subsection{Razdelitev množice}
 
-**Definicija:** **Razdelitev** ali **particija** množice `A` je množica nepraznih, paroma
-disjunktnih množic, ki tvorijo pokritje `A` (kar pomeni, da je `A` enaka njihovi uniji). Se
-pravi, to je množica `S ⊆ P(A)`, za katero velja:
+\begin{definicija}
+  \textbf{Razdelitev} ali \textbf{particija} množice $A$ je množica nepraznih, paroma
+  disjunktnih množic, ki tvorijo pokritje $A$ (kar pomeni, da je $A$ enaka njihovi uniji). Se
+  pravi, to je množica $S \subseteq \pow{A}$, za katero velja:
+  %
+  \begin{enumerate}
+  \item Elementi razdelitve so neprazni: $\all{B \in S} B \neq \emptyset$.
+  \item Vsaka dva elementa razdelitve sta bodisi enaka bodisi disjunktna:
+    %
+    \begin{equation*}
+      \all{B, C \in S} B = C \lor B \cap C = \emptyset.
+    \end{equation*}
+  \item Elementi razdelitve tvorijo pokritje $A$, se pravi $A = \bigcup S$.
+  \end{enumerate}
+\end{definicija}
 
-1. Elementi razdelitve so neprazni: `∀ B ∈ S . B ≠ ∅`
-2. Vsaka dva elementa razdelitve sta bodisi enaka bodisi disjunktna: `∀ B, C ∈ S . B = C ∨ B ∩ C = ∅`
-3. Elementi razdelitve tvorijo pokritje `A`: `A = ⋃ S`.
+\begin{primer}
+  Primeri razdelitev:
+  %
+  \begin{enumerate}
+  \item Navpične premice tvorijo razdelitev ravnine.
+  \item Množici sodih in lihih števil tvorita razdelitev naravnih števil.
+  \item Množica $\set{\set{1,2}, \set{3,5}, \set{4,6,7}}$ tvori razdelitev $\set{1,2,3,4,5,6,7}$.
+  \item Množica $\set{\set{1,2,3,4,5,6,7}}$ tvori razdelitev $\set{1,2,3,4,5,6,7}$.
+  \end{enumerate}
+\end{primer}
 
-**Primer:**
+\begin{izrek}
+  Naj bo $E \subseteq A \times A$ ekvivalenčna relacija. Njeni ekvivalenčni razredi tvorijo
+  razdelitev množice $A$.
+\end{izrek}
 
-* Navpične premice tvorijo razdelitev ravnine.
-* Množici sodih in lihih števil tvorita razdelitev naravnih števil.
-* Množica `{{1,2}, {3,5}, {4,6,7}}` tvori razdelitev `{1,2,3,4,5,6,7}`.
-* Množica `{{1,2,3,4,5,6,7}}` tvori razdelitev `{1,2,3,4,5,6,7}`.
+\begin{dokaz}
+  Dokažimo, da so ekvivalenčni razredi neprazni, paroma disjunktni in da tvorijo poktritje.
 
-**Izrek:** Naj bo `E ⊆ A × A` ekvivalenčna relacija. Njeni ekvivalenčni razredi tvorijo
-razdelitev množice `A`.
+  Naj bo $\xi \in \pow{A}$ ekvivalenčni razred za $E$. Tedaj obstaja $x \in A$, da je $\xi = [x]_E$,
+  torej je $x \in \xi$ in zato $\xi \neq \emptyset$.
 
-*Dokaz.*
+  Naj bosta $\zeta, \xi \in \pow{A}$. Dokazali bomo $\zeta \cap \xi \neq \emptyset \lthen \zeta = \xi$. Če je $x \in \zeta \cap \xi$, potem velja $\zeta \subseteq \xi$ ker: naj bo $y \in \zeta$, tedaj je $y E x$ in ker je $x \in \xi$ velja $y \in \xi$. Simetrično dokažemo $\xi \subseteq \zeta$.
 
-1. Naj bo `ξ ∈ P(A)` ekvivalenčni razred za `E`. Tedaj obstaja `x ∈ A`, da je `ξ = [x]_A`,
-   torej je `x ∈ ξ` in zato `ξ ≠ ∅`.
+  Očitno je unija vseh ekvivalenčnih razredov podmnožica $A$, saj je vsak ekvivalenčni razred podmnožica $A$. Zagotovo
+  pa je vsak $x \in A$ v kakem ekvivalenčnem razredu, namreč $x \in [x]_E$.
+\end{dokaz}
 
-2. Naj bosta `ζ, ξ ∈ P(A)`. Dokazali bomo `ζ ∩ ξ ≠ ∅ ⇒ ζ = ξ`. Če je `x ∈ ζ ∩ ξ`, potem
-   velja `ζ ⊆ ξ` ker: naj bo `y ∈ ζ`, tedaj je `y E x` in ker je `x ∈ ξ` velja `y ∈ ξ`.
-   Simetrično dokažemo `ξ ⊆ ζ.
-
-3. Očitno je unija vseh ekvivalenčnih razredov podmnožica `A`, saj je vsak ekvivalenčni
-   razred podmnožica `A`. Zagotovo pa je vsak `x ∈ A` v kakem ekvivalenčnem razredu,
-   namreč `x ∈ [x]_A`. □
-
-Torej vsaka ekvivalenčna relacija na `A` določa razdelitev mnnožice `A`, namreč na
-ekvivalenčne razrede. Velja pa tudi obrat: vsaka razdelitev `S ⊆ P(A)` določa ekvivalenčno
-relacijo na `A`, namreč `≃_S` definiran s predpisom
-
-    x ≃_S y ⇔ ∃ B ∈ S . x ∈ B ∧ y ∈ B
-
-Z besedami: `x` in `y` sta ekvivalentna, kadar sta v istem elementu razdelitve. Prazvzaprav
-smo ugotovili, da imamo izomorfizem množic:
-
-    { E ⊆ A × A | E je ekvivalenčna relacija } ≅ { S ⊆ P(A) | S je razdelitev A }
-
-V eno smer izomorfizem ekvivalenčni relaciji `E` priredi njeno razdelitev, v drugo pa
-razdelitvi priredimo ekvivalenčno relacijo, kakor smo to opisali zgoraj. (Premislite, da sta
-ti preslikavi inverza.)
+Torej vsaka ekvivalenčna relacija na $A$ določa razdelitev mnnožice $A$, namreč na
+ekvivalenčne razrede. Velja pa tudi obrat: vsaka razdelitev $S \subseteq \pow{A}$ določa ekvivalenčno
+relacijo na $A$, namreč $\simeq_S$ definiran s predpisom
+\begin{equation*}
+    x \simeq_S y \defiff \some{B \in S} x \in B \land y \in B.
+\end{equation*}
+%
+Z besedami: $x$ in $y$ sta ekvivalentna, kadar sta v istem elementu razdelitve. Prazvzaprav
+smo ugotovili, da imamo izomorfizem množic
+%
+\begin{equation*}
+  \set{ E \subseteq A \times A \such \text{$E$ je ekvivalenčna relacija na $A$} } \iso
+  \set{ S \subseteq \pow{A} \such \text{$S$ je razdelitev $A$} }.
+\end{equation*}
+%
+V eno smer izomorfizem ekvivalenčni relaciji $E$ priredi njeno razdelitev, v drugo pa razdelitvi priredimo ekvivalenčno
+relacijo, kakor smo to opisali zgoraj. (Premislite, da sta ti preslikavi inverza.)
 
 
 \subsection{Prerezi kvocientne preslikave in aksiom izbire}
@@ -141,170 +182,223 @@ ti preslikavi inverza.)
 Ekvivalenčni razred je natanko določen že z enim od svojih elementov, zato pogosto želimo
 namesto ekvivalenčnih razredov navesti le njihove predstavnike.
 
-**Definicija:** Naj bo `E` ekvivalenčna relacija na `A`. Množico `C ⊆ A`, ki vsak
-ekvivalenčni razred relacije `E` seka natanko enkrat, imenujemo **izbor predstavnikov
-(ekvivalenčnih razredov) za relacijo `E`**.
+\begin{definicija}
+  Naj bo $E$ ekvivalenčna relacija na $A$. Množico $C \subseteq A$, ki vsak
+  ekvivalenčni razred relacije $E$ seka natanko enkrat, imenujemo \textbf{izbor predstavnikov}
+  (ekvivalenčnih razredov) za relacijo $E$.
+\end{definicija}
 
-Izbor predstavnikov `C ⊆ A` za `E` določa preslikavo `c : A/E → A`, ki priredi
-ekvivalenčnemu razredu `ξ` tisti `x ∈ ξ`, ki je element `C`:
+Izbor predstavnikov $C \subseteq A$ za $E$ določa preslikavo $c : A/E \to A$, ki priredi
+ekvivalenčnemu razredu $\xi$ tisti $x \in \xi$, ki je element $C$:
+%
+\begin{align*}
+  c &: A/E \to A \\
+  c &: \xi \mapsto \descr{x \in \xi} x \in C
+\end{align*}
+%
+Preslikava $c : A/E \to A$ je \emph{prerez} kvocientne preslikave $q_E : A \to A/E$.
 
-    c : A/E → A
-    c : ξ ↦ (ι x ∈ ξ . x ∈ C)
+\begin{izjava}
+  Če je $s : A/E \to A$ prerez kvocientne preslikave $q_E : A \to A/E$, potem je
+  njegova slika $\img{s}(A/E) = \set{ c(\xi) \such \xi \in A/E }$ izbor predstavnikov za $E$.
+\end{izjava}
 
-Preslikava `c : A/E → A` je *prerez* kvocientne preslikave `q_E : A → A/E`.
-
-**Trditev:** Če je `s : A/E → A` prerez kvocientne preslikave `q_E : A → A/E`, potem je
-njegova slika `s_*(A/E) = { c(ξ) | ξ ∈ A/E }` izbor predstavnikov za `E`.
-
-Dokaz: Vaja. □
+\begin{dokaz}
+  Vaja.
+\end{dokaz}
 
 Ker izbor predstavnikov in prerez kvocientne preslikave določata drug drugega, včasih tudi
-prerez imenujemo “izbor predstavnikov”.
+prerez imenujemo ">izbor predstavnikov"<.
 
-
-**Primer:** Definirajmo `∼` na množici celih števil `Z` s predpisom
-
-    a ∼ b ⇔ 7 | a - b
-
-Torej sta števili `a` in `b` ekvivalentni, če dasta enak ostanek pri deljenju s 7,
-na primer `13 ~ 20` in `¬ (13 ~ 15)`.
-
-Ekvivalenčni razred števila `a` dobimo tako, da `a` prištejemo vse večkratnike števila `7`:
-
-    [a]_∼ = { a + 7 · k | k ∈ ℤ }
-
-Na primer,
-
-    [13]_~ = { 7 · k + 13 | k ∈ ℤ }
-           = { ..., -22, -15, -8, -1, 6, 13, 20, 27, 34, 41, ...}
-
-Koliko pa je ekvivalenčnih razredov? Toliko, kot je ostankov pri deljenju s 7, torej 7.
-Izbor predstavnikov za `~` je torej množica `{0, 1, 2, 3, 4, 5, 6}`, saj je vsako celo
-število ekvivalentno natanko enemu od teh števil mo modulu `7`.
-
-Ni pa to edini izbor! Tudi `{0, 1, 2, 3, 4, 5, 6, 13}` je izbor, prav tako pa `{-7, -6, -5, -4, -3, -2, -1}`.
-
-(Konec primera.)
+\begin{primer}
+  Definirajmo $\sim$ na množici celih števil $Z$ s predpisom
+  %
+  \begin{equation*}
+    a \sim b \defiff 7 \mathrel{|} a - b.
+  \end{equation*}
+  %
+  Torej sta števili $a$ in $b$ ekvivalentni, če dasta enak ostanek pri deljenju s~$7$,
+  na primer $13 \sim 20$ in $\lnot (13 \sim 15)$.
+  %
+  Ekvivalenčni razred števila $a$ dobimo tako, da $a$ prištejemo vse večkratnike števila $7$:
+  %
+  \begin{equation*}
+    [a]_{\sim} = \set{ a + 7 \cdot k \such k \in \ZZ }.
+  \end{equation*}
+  %
+  Na primer,
+  \begin{equation*}
+    [13]_\sim = \set{ 7 \cdot k + 13 \such k \in \ZZ }
+           = \set{ \ldots, -22, -15, -8, -1, 6, 13, 20, 27, 34, 41, \ldots}.
+  \end{equation*}
+  %
+  Koliko pa je ekvivalenčnih razredov? Toliko, kot je ostankov pri deljenju s~$7$, torej sedem. Množica
+  $\set{0, 1, 2, 3, 4, 5, 6}$ je izbor predstavnikov za $\sim$, saj je vsako celo število ekvivalentno natanko enemu od
+  teh števil mo modulu $7$.
+  %
+  Ni pa to edini izbor! Tudi $\set{0, 1, 2, 3, 4, 5, 6, 13}$ je izbor in prav tako $\set{-7, -6, -5, -4, -3, -2, -1}$.
+\end{primer}
 
 Ali ima vsaka ekvivalenčna relacija izbor predstavnikov? Da to vprašanje ni tako
 enostavno, kot se zdi na prvi pogled, doma premislite o nalslednji nalogi.
 
-**Naloga:** Na množici realnih števil `ℝ` definiramo relacijo `E` s predpisom
+\begin{naloga}
+  Na množici realnih števil $\RR$ definiramo relacijo $E$ s predpisom
+  %
+  \begin{equation*}
+    x E y  \defiff  x - y \in \QQ.
+  \end{equation*}
+  %
+  Se pravi, da sta števili ekvivalentni, če je njuna razlika racionalno število. Podajte kak
+  izbor predstavnikov za $E$.
+\end{naloga}
 
-    x E y  ⇔  x - y ∈ ℚ
+\begin{izrek}
+  Naslednje izjave so ekvivalentne:
+  %
+  \begin{enumerate}
+  \item Vsaka surjektivna preslikava ima desni inverz (prerez).
+  \item Vsaka ekvivalenčna relacija ima izbor predstavnikov.
+  \item Vsaka družina nepraznih množic ima funkcijo izbire.
+  \item Produkt družine nepraznih množic je neprazen.
+  \end{enumerate}
+\end{izrek}
 
-Se pravi, da sta števili ekvivalentni, če je njuna razlika racionalno število. Podajte kak
-izbor predstavnikov za `E`.
+\begin{dokaz}
+  ($1 \lthen 2$):
+  %
+  Naj bo $E \subseteq A \times A$ ekvivalenčna relacija na $A$. Tedaj je $q_E : A \to A/E$
+  surjektivna, zato ima po predpostavki (1) prerez, ki določa izbor predstavnikov.
 
+  ($2 \lthen 3$):
+  %
+  Naj bo $A : I \to \Set$ družina nepraznih množic. Naj bo $\sim$ ekvivalenčna relacija
+  na koproduktu $K \defeq \sum_{i \in I} A_i$, porojena s prvo projekcijo $\fst : S \to I$, t.j.,
+  %
+  \begin{equation*}
+    \inj[i](x) \sim \inj[j](y) \liff i = j.
+  \end{equation*}
+  %
+  Po predpostavki (2) obstaja izbor predstavnikov za $\sim$, se pravi taka množica $C \subseteq K$, da
+  za vsak $u \in K$ obstaja natanko en $v \in C$, da je $\fst(u) = \fst(v)$. Definirajmo $f : I \to
+  \bigcup A$ s predpisom
+  %
+  \begin{equation*}
+    f(i) \defeq \descr{x \in A_i} \inj[i](x) \in C
+  \end{equation*}
+  %
+  Očitno je $f$ funkcija izbire za družino $A$, če je izraz na desni veljaven:
+  %
+  \begin{itemize}
+  \item Enoličnost: iz $\inj[i](x) \in C$ in $\inj[i](y) \in C$ sledi $\inj[i](x) = \inj[j](y)$.
+  \item Celovitost: ker je $A_i$ neprazna, obstaja $z \in A_i$, torej obstaja $v \in C$, da je
+    $i = \fst(\inj[i](z)) = \fst(v)$, in je potemtakem $\snd(v) \in A_i$ element, za katerega velja
+    $\inj[i](\snd(v)) \in C$.
+  \end{itemize}
 
-**Izrek:** Naslednje izjave so ekvivalentne:
+  ($3 \lthen 4$):
+  %
+  Elementi produkta so funkcije izbire, zato je produkt res neprazen, če obstaja
+  kaka funkcija izbire.
 
-1. Vsaka surjektivna preslikava ima desni inverz (prerez).
-2. Vsaka ekvivalenčna relacija ima izbor predstavnikov.
-3. Vsaka družina nepraznih množic ima funkcijo izbire.
-4. Produkt družine nepraznih množic je neprazen.
-
-*Dokaz.*
-
-`(1 ⇒ 2)`: Naj bo `E ⊆ A × A` ekvivalenčna relacija na `A`. Tedaj je `q_E : A → A/E`
-surjektivna, zato ima po predpostavki (1) prerez, ki določa izbor predstavnikov.
-
-`(2 ⇒ 3)`: Naj bo `A : I → Set` družina nepraznih množic. Naj bo `∼` ekvivalenčna relacija
-na koproduktu `K := ∐_{i ∈ I} A_i`, porojena s prvo projekcijo `\fst : S → I`, t.j.,
-
-    inᵢ(x) ∼ inⱼ(y) ⇔ i = j
-
-Po predpostavki (2) obstaja izbor predstavnikov za `∼`, se pravi taka množica `C ⊆ K`, da
-za vsak `u ∈ K` obstaja natanko en `v ∈ C`, da je `\fst(u) = \fst(v)`. Definirajmo `f : I →
-⋃ A` s predpisom
-
-    f(i) := tisti x ∈ A_i, za katerega je inᵢ(x) ∈ C
-
-Očitno je `f` funkcija izbire za družino `A`, če je le dobro definirana:
-
-* `f` je enolična, saj iz `inᵢ(x) ∈ C` in `inᵢ(y) ∈ C` sledi `inᵢ(x) = inⱼ(y)`.
-* `f` je celovita: ker je `A_i` neprazna, obstaja `z ∈ A_i`, torej obstaja `v ∈ C`, da je
-  `i = \fst(inᵢ(z)) = \fst(v)`, in je potemtakem `\snd(v) ∈ A_i` element, za katerega velja
-  `inᵢ(\snd(v)) ∈ C`.
-
-`(3 ⇒ 4)`: Elementi produkta so funkcije izbire, zato je produkt res neprazen, če obstaja
-kaka funkcija izbire.
-
-`(4 ⇒ 1)`: Naj bo `f : X → Y` surjektivna. Definirajmo družino `A : Y → Set` s
-predpisom `A_y = f^*({y})`. Ker je `f` surjektivna, je `A` družina nepraznih
-množic. Po predpostavki (4) je produkt te družine neprazen, torej vsebuje neko
-funkcijo izbire `c : Y → ⋃ A_y`, se pravi, da je `f(c(y)) = y` za vsak `y ∈ Y`.
-Opazimo še, da je `⋃ A = Y`, torej je `c` prerez `f`. □
+  ($4 \lthen 1$):
+  %
+  Naj bo $f : X \to Y$ surjektivna. Definirajmo družino $A : Y \to \Set$ s
+  predpisom $A_y = \invimg{f}(\set{y})$. Ker je $f$ surjektivna, je $A$ družina nepraznih
+  množic. Po predpostavki (4) je produkt te družine neprazen, torej vsebuje neko
+  funkcijo izbire $c : Y \to \bigcup A$, se pravi, da je $f(c(y)) = y$ za vsak $y \in Y$.
+  Opazimo še, da je $\bigcup A = Y$, torej je $c$ prerez $f$.
+\end{dokaz}
 
 Izbor prestavnikov je torej ekvivalenten še nekaterim drugim trditvam. Pa te veljajo? Za
 to potrebujemo aksiom.
 
-> **Aksiom izbire:** Vsaka družina nepraznih množic ima funkcijo izbire.
+\begin{aksiom}[Aksiom izbire]
+  Vsaka družina nepraznih množic ima funkcijo izbire.
+\end{aksiom}
 
-Se pravi, če je `A : I → Set` taka družina množica, da za vsak `i ∈ I` velja `A_i ≠ ∅`,
-tedaj obstaja `f : I → ⋃ A`, za katerega je `f(i) ∈ A_i` za vse `i ∈ I`.
-
+Se pravi, če je $A : I \to \Set$ taka družina množica, da za vsak $i \in I$ velja $A_i \neq \emptyset$,
+tedaj obstaja $f : I \to \bigcup A$, za katerega je $f(i) \in A_i$ za vse $i \in I$.
+%
 O aksiomu izbire bomo še govorili.
+
 
 \subsection{Univerzalna lastnost kvocientne množice}
 
-Naj bo `E` ekvivalenčna relacija na `A` in `B` množica. Pogosto želimo definirati
+Naj bo $E$ ekvivalenčna relacija na $A$ in $B$ množica. Pogosto želimo definirati
 preslikavo
+%
+\begin{equation*}
+    f : A/E \to B
+\end{equation*}
+%
+s pomočjo preslikave $A \to B$. Kdaj lahko to naredimo?
 
-    f : A/E → B
+\begin{izrek}
+  Naj bo $E$ ekvivalenčna relacija na $A$ in $g : A \to B$ preslikava, ki je \emph{skladna} z $E$, kar pomeni da $g$
+  slika ekvivalentne elemente v enake: $\all{x, y \in A} x E y \lthen g(x) = g(y)$. Tedaj obstaja natanko ena
+  preslikava $f : A/E \to B$, da je $f([x]_E) = g(x)$ za vse $x \in A$, ali drugače povedano, $f \circ q_E = g$.
+\end{izrek}
 
-s pomočjo preslikave `A → B`. Kdaj lahko to naredimo?
+\begin{dokaz}
+  Dokažimo najprej, da imamo največ eno tako preslikavo. Denimo da za $f_1 : A/E \to B$ in
+  $f_2 : A/E \to B$ velja $f_1 \circ q_E = f_2 \circ q_E$. Ker je $q_E$ surjektivna, je epi in jo smemo
+  krajšati na desni, od koder res sledi $f_1 = f_2$.
 
-**Izrek:** Naj bo `E` ekvivalenčna relacija na `A` in `g : A → B` preslikava, ki je
-*skladna* z `E`, kar pomeni da `g` slika ekvivalentne elemente v enake, se pravi `∀ x, y ∈
-A . x E y ⇒ g(x) = g(y)`. Tedaj obstaja natanko ena preslikava `f : A/E → B`, da je
-`f([x]_E) = g(x)` za vse `x ∈ A`, ali drugače povedano, `f ∘ q_E = g`.
+  Sedaj dokažimo, da $f$ obstaja. V ta namen naj bo $\phi \subseteq A/E \times B$ relacija
+  %
+  \begin{equation*}
+    \phi(\xi, y) \defiff \some{x \in A} x \in \xi \land g(x) = y.
+  \end{equation*}
+  %
+  Trdimo, da je $\phi$ funkcijska relacija:
+  %
+  \begin{itemize}
+  \item
+    Enoličnost: če je $\phi(\xi, y_1)$ in $\phi(\xi, y_2)$, potem obstajata $x_1, x_2 \in \xi$, da je $g(x_1) = y_1$
+    in $g(x_2) = y_2$. Ker pa velja $x_1 E x_2$ in je $g$ skladna z $E$, sledi $y_1 = g(x1) = g(x_2) = y_2$.
 
-*Dokaz.*
+  \item  Celovitost: naj bo $\xi \in A/E$. Tedaj obstaja $x \in \xi$. Očitno velja $g(\xi, g(x))$.
+  \end{itemize}
+  %
+  Naj bo $f : A/E \to B$ preslikava, ki je določena s funkcijsko relacijo $\phi$. Za $x \in A$
+  velja $\phi([x]_E, f([x]_E))$, od tod pa iz definicije $\phi$ sledi tudi $g(x) = f([x]_E)$.
+\end{dokaz}
 
-Dokažimo najprej, da imamo največ eno tako preslikavo. Denimo da za `f₁ : A/E → B` in
-`f₂ : A/E → B` velja `f₁ ∘ q_E = f₂ ∘ q_E`. Ker je `q_E` surjektivna, je epi in jo smemo
-krajšati na desni, od koder res sledi `f₁ = f₂`.
-
-Sedaj dokažimo, da `f` obstaja. V ta namen naj bo `φ ⊆ A/E × B` relacija
-
-    φ(ξ, y) ⇔ ∃ x ∈ A . x ∈ ξ ∧ g(x) = y
-
-Trdimo, da je `φ` funkcijska relacija:
-
-* enoličnost: če je `φ(ξ, y₁)` in `φ(ξ, y₂)`, potem obstajata `x₁, x₂ ∈ ξ`, da je `g(x₁) =
-  y₁` in `g(x₂) = y₂`. Ker pa velja `x₁ E x₂` in je `g` skladna z `E`, sledi `y₁ = g(x1) =
-  g(x₂) = y₂`.
-
-* celovitost: naj bo `ξ ∈ A/E`. Tedaj obstaja `x ∈ ξ`. Očitno velja `g(ξ, g(x))`.
-
-Naj bo `f : A/E → B` preslikava, ki je določena s funkcijsko relacijo `φ`. Za `x ∈ A`
-velja `φ([x]_E, f([x]_E))`, od tod pa iz definicije `φ` sledi tudi `g(x) = f([x]_E)`. □
+\begin{opomba}
+  Profesorja prosite, da pojasni ali sem zapiše, zakaj se reče ">univerzalna lastnost"< kvocientne množice.
+\end{opomba}
 
 
 \section{Kanonična razčlenitev preslikave}
 
-Naj bo `f : A → B` preslikava. Naj bo `∼_f` ekvivalenčna relacija na `A`, ki jo porodi
-`f`, in `q_f : A → A/E` kanonična kvocientna preslikava (morali bi jo pisati `q_{∼_f}`,
-kar je nečitljivo). Naj bo `i : f_*(A) → B` kanonična inkluzija slike `f` v kodomeno.
-Preslikava `f : A → f_*(A)` je skladna s `∼_f`, zato obstaja (natanko ena) preslikava
-`b_f : A/f → f_*(A)`, da velja `b_f([x]_∼) = f(x)`. Trdimo:
-
-1. `f = i_f ∘ b_f ∘ q_f`
-2. `q_f` je surjektivna, `b_f` je bijektivna in `i_f` je injektivna.
-
-Računajmo: `f(x) = b_f([x]_~) = i_f(b_f([x]_~)) = i_f(b_f(q_f(x)))`, za vse `x ∈ A`, od
+Naj bo $f : A \to B$ preslikava. Naj bo $\sim_f$ ekvivalenčna relacija na $A$, ki jo porodi
+$f$, in $q_f : A \to A/E$ kanonična kvocientna preslikava (morali bi jo pisati $q_{\sim_f}$,
+kar je nečitljivo). Naj bo $i : \img{f}(A) \to B$ kanonična inkluzija slike $f$ v kodomeno.
+Preslikava $f : A \to \img{f}(A)$ je skladna s $\sim_f$, zato obstaja (natanko ena) preslikava
+$b_f : A/f \to \img{f}(A)$, da velja $b_f([x]_\sim) = f(x)$. Trdimo:
+%
+\begin{enumerate}
+\item $f = i_f \circ b_f \circ q_f$ in
+\item $q_f$ je surjektivna, $b_f$ je bijektivna in $i_f$ je injektivna.
+\end{enumerate}
+%
+Računajmo: $f(x) = b_f([x]_\sim) = i_f(b_f([x]_\sim)) = i_f(b_f(q_f(x)))$, za vse $x \in A$, od
 koder sledi prva trditev.
 
 Vemo že, da je kanonična kvocientna preslikava surjektivna in kanonična inkluzija
-injektivna. Ostane nam še bijektivnost preslikave `b_f`:
+injektivna. Ostane nam še bijektivnost preslikave $b_f$:
+%
+\begin{itemize}
+\item $b_f$ je injektivna: naj bosta $\xi, \zeta \in A/(\sim_f)$ in denimo, da velja $b_f(\xi) = b_f(\zeta)$.
+  Obstajata $x, y \in A$, da je $\xi = [x]_\sim$ in $\zeta = [y]_\sim$. Velja
+  %
+  \begin{equation*}
+    f(x) = i_f(b_f(q_f(x))) = i_f(b_f(\xi)) = i_f(b_f(\zeta)) = i_f(b_f(q_f(y))) = f(y),
+  \end{equation*}
+  %
+  torej je $x \sim_f y$ in zato $\xi = [x]_\sim = [y]_\sim = \zeta$.
 
-* `b_f` je injektivna: naj bosta `ξ, ζ ∈ A/(∼_f)` in denimo, da velja `b_f(ξ) = b_f(ζ)`.
-  Obstajata `x, y ∈ A`, da je `ξ = [x]_∼` in `ζ = [y]_∼`. Velja
-
-        f(x) = i_f(b_f(q_f(x))) = i_f(b_f(ξ)) = i_f(b_f(ζ)) = i_f(b_f(q_f(y))) = f(y)
-
-  torej je `x ∼_f y` in zato `ξ = [x]_∼ = [y]_∼ = ζ`.
-
-* `b_f` je surjektivna: naj bo `u ∈ f_*(A)`. Tedaj obstaja `x ∈ A`, da je `u = f(x)`.
-  Vzemimo `ξ = [x]_E` in preverimo: `b_f(ξ) = b_f([x]_~) =f(x) = u`. □
+  \item $b_f$ je surjektivna: naj bo $u \in \img{f}(A)$. Tedaj obstaja $x \in A$, da je $u = f(x)$.
+  Vzemimo $\xi = [x]_E$ in preverimo: $b_f(\xi) = b_f([x]_\sim) =f(x) = u$.
+\end{itemize}
