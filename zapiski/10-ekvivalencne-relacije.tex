@@ -3,7 +3,7 @@
 \section{Ekvivalenčne relacije}
 
 \begin{definicija}
-  Relacija $R \subseteq A \times A$ je \textbf{ekvivalenčna relacija}, če je refleksivna, tranzitivna in simetrična. Kadar velja $x R y$, pravimo, da sta $x$ in $y$ \textbf{ekvivalentna} glede na~$R$.
+  Relacija $R \subseteq A \times A$ je \textbf{ekvivalenčna relacija}, če je refleksivna, tranzitivna in simetrična. Kadar velja $x \rel{R} y$, pravimo, da sta $x$ in $y$ \textbf{ekvivalentna} glede na~$R$.
 \end{definicija}
 
 \begin{opomba}
@@ -62,7 +62,7 @@ Ali je vsaka ekvivalenčna relacija porojena z neko preslikavo?
 
 \begin{definicija}
   Naj bo $E \subseteq A \times A$ ekvivalenčna relacija. \textbf{Ekvivalenčni razred} elementa $x \in A$ je množica
-  $[x]_A \defeq \set{ y \in A \such x E y }$. Z besedami: ekvivalenčni razred~$x$ je množica vseh elementov, ki so mu
+  $[x]_A \defeq \set{ y \in A \such x \rel{E} y }$. Z besedami: ekvivalenčni razred~$x$ je množica vseh elementov, ki so mu
   ekvivalentni.
 \end{definicija}
 
@@ -99,16 +99,16 @@ Ali je vsaka ekvivalenčna relacija porojena z neko preslikavo?
   y \in A$ velja
   %
   \begin{equation*}
-    x E y \liff [x]_E = [y]_E.
+    x \rel{E} y \liff [x]_E = [y]_E.
   \end{equation*}
 
-  ($\lthen$) Če je $x E y$ potem je $[x]_E \subseteq [y]_E$, ker iz $z E x$ in $x E y$ sledi $z E y$.
+  ($\lthen$) Če je $x \rel{E} y$ potem je $[x]_E \subseteq [y]_E$, ker iz $z \rel{E} x$ in $x \rel{E} y$ sledi $z \rel{E} y$.
   Podobno dokažemo $[y]_E \subseteq [x]_E$.
 
   ($\Leftarrow$) Če je $[x]_E = [y]_E$ potem je $y \in [y]_E = [x]_E$, torej po definiciji $[x]_E$
-  dobimo $x E y$.
+  dobimo $x \rel{E} y$.
 
-  Sedaj izrek sledi zlahka: $q_E(x) = q_E(y) \liff [x]_E = [y]_E \liff x E y$.
+  Sedaj izrek sledi zlahka: $q_E(x) = q_E(y) \liff [x]_E = [y]_E \liff x \rel{E} y$.
 \end{dokaz}
 
 
@@ -152,7 +152,7 @@ Ali je vsaka ekvivalenčna relacija porojena z neko preslikavo?
   Naj bo $\xi \in \pow{A}$ ekvivalenčni razred za $E$. Tedaj obstaja $x \in A$, da je $\xi = [x]_E$,
   torej je $x \in \xi$ in zato $\xi \neq \emptyset$.
 
-  Naj bosta $\zeta, \xi \in \pow{A}$. Dokazali bomo $\zeta \cap \xi \neq \emptyset \lthen \zeta = \xi$. Če je $x \in \zeta \cap \xi$, potem velja $\zeta \subseteq \xi$ ker: naj bo $y \in \zeta$, tedaj je $y E x$ in ker je $x \in \xi$ velja $y \in \xi$. Simetrično dokažemo $\xi \subseteq \zeta$.
+  Naj bosta $\zeta, \xi \in \pow{A}$. Dokazali bomo $\zeta \cap \xi \neq \emptyset \lthen \zeta = \xi$. Če je $x \in \zeta \cap \xi$, potem velja $\zeta \subseteq \xi$ ker: naj bo $y \in \zeta$, tedaj je $y \rel{E} x$ in ker je $x \in \xi$ velja $y \in \xi$. Simetrično dokažemo $\xi \subseteq \zeta$.
 
   Očitno je unija vseh ekvivalenčnih razredov podmnožica $A$, saj je vsak ekvivalenčni razred podmnožica $A$. Zagotovo
   pa je vsak $x \in A$ v kakem ekvivalenčnem razredu, namreč $x \in [x]_E$.
@@ -246,7 +246,7 @@ enostavno, kot se zdi na prvi pogled, doma premislite o nalslednji nalogi.
   Na množici realnih števil $\RR$ definiramo relacijo $E$ s predpisom
   %
   \begin{equation*}
-    x E y  \defiff  x - y \in \QQ.
+    x \rel{E} y  \defiff  x - y \in \QQ.
   \end{equation*}
   %
   Se pravi, da sta števili ekvivalentni, če je njuna razlika racionalno število. Podajte kak
@@ -336,7 +336,7 @@ s pomočjo preslikave $A \to B$. Kdaj lahko to naredimo?
 
 \begin{izrek}
   Naj bo $E$ ekvivalenčna relacija na $A$ in $g : A \to B$ preslikava, ki je \emph{skladna} z $E$, kar pomeni da $g$
-  slika ekvivalentne elemente v enake: $\all{x, y \in A} x E y \lthen g(x) = g(y)$. Tedaj obstaja natanko ena
+  slika ekvivalentne elemente v enake: $\all{x, y \in A} x \rel{E} y \lthen g(x) = g(y)$. Tedaj obstaja natanko ena
   preslikava $f : A/E \to B$, da je $f([x]_E) = g(x)$ za vse $x \in A$, ali drugače povedano, $f \circ q_E = g$.
 \end{izrek}
 
@@ -356,7 +356,7 @@ s pomočjo preslikave $A \to B$. Kdaj lahko to naredimo?
   \begin{itemize}
   \item
     Enoličnost: če je $\phi(\xi, y_1)$ in $\phi(\xi, y_2)$, potem obstajata $x_1, x_2 \in \xi$, da je $g(x_1) = y_1$
-    in $g(x_2) = y_2$. Ker pa velja $x_1 E x_2$ in je $g$ skladna z $E$, sledi $y_1 = g(x1) = g(x_2) = y_2$.
+    in $g(x_2) = y_2$. Ker pa velja $x_1 \rel{E} x_2$ in je $g$ skladna z $E$, sledi $y_1 = g(x1) = g(x_2) = y_2$.
 
   \item  Celovitost: naj bo $\xi \in A/E$. Tedaj obstaja $x \in \xi$. Očitno velja $g(\xi, g(x))$.
   \end{itemize}

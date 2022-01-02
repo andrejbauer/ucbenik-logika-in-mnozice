@@ -75,7 +75,7 @@ Denimo, da je $R \subseteq A \times B$ relacija, $x \in A$ in $y \in B$. Dejstvo
   \qquad
   R(x, y)
   \qquad
-  x R y
+  x \rel{R} y
 \end{equation*}
 %
 Prvi zapis se uporablja, kadar je $R$ podana kot podmnožica $A \times B$, drugi kadar
@@ -85,7 +85,7 @@ relacija označena s simbolom kot je $=$, $\neq$, $<$, $>$, $\sqsubseteq$, $\sim
 Relacijo lahko predstavimo na več načinov, na primer z logično formulo, z resničnostno tabelo, ali z usmerjenim grafom.
 %
 Z grafom predstavimo $R \subseteq A \times A$ tako, da za vozlišča grafa vzamemo
-elemente množice $A$, nato pa narišemo puščico od $x$ do $y$, kadar velja $x R y$.
+elemente množice $A$, nato pa narišemo puščico od $x$ do $y$, kadar velja $x \rel{R} y$.
 
 
 \section{Osnovne lastnosti relacij}
@@ -93,14 +93,14 @@ elemente množice $A$, nato pa narišemo puščico od $x$ do $y$, kadar velja $x
 Relacije, ki so pomembne v matematični praksi imajo pogosto lastnosti, ki jih poimenujemo. Za relacijo $R \subseteq A \times A$ pravimo da je:
 %
 \begin{itemize}
-  \item \textbf{refleksivna:} $\all{x \in A} x R x$,
-  \item \textbf{simetrična:} $\all{x, y \in A} x R y \lthen y R x$,
-  \item \textbf{antisimetrična:} $\all{x, y \in A} x R y \land y R x \lthen x = y$,
-  \item \textbf{tranzitivna:} $\all{x, y, z \in A} x R y \land y R z \lthen x R z$,
-  \item \textbf{irefleksivna:} $\all{x \in A} \lnot (x R x)$,
-  \item \textbf{asimetrična:} $\all{x, y \in A} x R y \lthen \lnot (y R x)$,
-  \item \textbf{sovisna:} $\all{x, y \in A} x \neq y \lthen x R y \lor y R x$,
-  \item \textbf{strogo sovisna:} $\all{x, y \in A} x R y \lor y R x$.
+  \item \textbf{refleksivna:} $\all{x \in A} x \rel{R} x$,
+  \item \textbf{simetrična:} $\all{x, y \in A} x \rel{R} y \lthen y \rel{R} x$,
+  \item \textbf{antisimetrična:} $\all{x, y \in A} x \rel{R} y \land y \rel{R} x \lthen x = y$,
+  \item \textbf{tranzitivna:} $\all{x, y, z \in A} x \rel{R} y \land y \rel{R} z \lthen x \rel{R} z$,
+  \item \textbf{irefleksivna:} $\all{x \in A} \lnot (x \rel{R} x)$,
+  \item \textbf{asimetrična:} $\all{x, y \in A} x \rel{R} y \lthen \lnot (y \rel{R} x)$,
+  \item \textbf{sovisna:} $\all{x, y \in A} x \neq y \lthen x \rel{R} y \lor y \rel{R} x$,
+  \item \textbf{strogo sovisna:} $\all{x, y \in A} x \rel{R} y \lor y \rel{R} x$.
 \end{itemize}
 %
 
@@ -116,9 +116,9 @@ Ker so relacije pravzaprav podmnožice, lahko na njih uporabljamo operacije unij
 presek $\cap$ in komplement $\compl{\Box}$. Denimo, da sta $R, S \subseteq A \times B$ relaciji. Tedaj velja:
 %
 \begin{align*}
-  x (R \cup S) y &\iff x R y \lor x S y, \\
-  x (R \cap S) y &\iff x R y \land x S y, \\
-  x \compl{R} y &\iff \lnot (x R y).
+  x (R \cup S) y &\iff x \rel{R} y \lor x S y, \\
+  x (R \cap S) y &\iff x \rel{R} y \land x S y, \\
+  x \compl{R} y &\iff \lnot (x \rel{R} y).
 \end{align*}
 
 \begin{primer}
@@ -137,13 +137,13 @@ presek $\cap$ in komplement $\compl{\Box}$. Denimo, da sta $R, S \subseteq A \ti
 Dvojiške relacije lahko tudi \textbf{transponiramo}. Transponiranka relacije $R \subseteq A \times B$ je relacija $\transpose{R} \subseteq B \times A$, definirana s predpisom
 %
 \begin{equation*}
-    y \transpose{R} x \defiff x R y
+    y \transpose{R} x \defiff x \rel{R} y
 \end{equation*}
 %
 ali ekvivalentno
 %
 \begin{equation*}
-  \transpose{R} \defeq \set{ (y, x) \in B \times A \such x R y }.
+  \transpose{R} \defeq \set{ (y, x) \in B \times A \such x \rel{R} y }.
 \end{equation*}
 %
 Očitno velja $\transpose{(\transpose{R})} = R$, torej je transponiranje \emph{involucija}.
@@ -158,7 +158,7 @@ Očitno velja $\transpose{(\transpose{R})} = R$, torej je transponiranje \emph{i
 Nadalje definiramo \textbf{kompozitum} relacij $R \subseteq A \times B$ in $S \subseteq B \times C$ kot relacijo $S \circ R \subseteq A \times C$, s predpisom
 %
 \begin{equation*}
-    x (S \circ R) z \defiff \some{y \in B} x R y \land y S z
+    x (S \circ R) z \defiff \some{y \in B} x \rel{R} y \land y S z
 \end{equation*}
 %a
 ali ekvivalentno
@@ -192,15 +192,15 @@ povezana s kakim elementom $y \in B$.
   \begin{align}
     a (T \circ (S \circ R)) d &\iff  \notag \\
     \some{c \in C} a (S \circ R) c \land c T d &\iff \notag \\
-    \some{c \in C} (\some{b \in B} a R b \land b R c) \land c T d \label{eq:comp-1}
+    \some{c \in C} (\some{b \in B} a \rel{R} b \land b \rel{R} c) \land c T d \label{eq:comp-1}
   \end{align}
   %
   in
   %
   \begin{align}
     a ((T \circ S) \circ R) d &\iff \notag \\
-    \some{b \in B} a R b \land b (T \circ S) d &\iff \notag \\
-    \some{b \in B} a R b \land (\some{c \in C} b S c \land c T d) \label{eq:comp-2}
+    \some{b \in B} a \rel{R} b \land b (T \circ S) d &\iff \notag \\
+    \some{b \in B} a \rel{R} b \land (\some{c \in C} b S c \land c T d) \label{eq:comp-2}
   \end{align}
   %
   Torej je treba dokazati ekvivalenco izjav~\eqref{eq:comp-1} in~\eqref{eq:comp-2}, kar prepuščamo za vajo. Naj namignemo, da je treba pri dokazovanju ekvivalence uporabiti \emph{Frobeniuseva pravilo}
@@ -215,9 +215,9 @@ povezana s kakim elementom $y \in B$.
   %
   \begin{align*}
     x (\diag[B] \circ R) y &\iff \\
-    \some{z \in B} x R y \land y \diag[B] z  &\iff \\
-    \some{z \in B} x R y \land y = z &\iff \\
-    x R y
+    \some{z \in B} x \rel{R} y \land y \diag[B] z  &\iff \\
+    \some{z \in B} x \rel{R} y \land y = z &\iff \\
+    x \rel{R} y
   \end{align*}
   %
   V zadnjem koraku smo uporabili ekvivalenco $(\some{u \in U} u = v \land P(v)) \liff P(v)$. Podobno dokažemo, da je diagonala desna enota.
@@ -232,7 +232,7 @@ Za $n \in \NN$ definiramo \textbf{$n$-to potenco} relacije $R \subseteq A \times
 \begin{equation*}
     x R^n y \defiff
     \some{z_0, \ldots, z_n \in A}
-    z_0 = x \land z_n = y \land \all{i \in {0, \ldots, n-1}} z_i R z_{i+1}.
+    z_0 = x \land z_n = y \land \all{i \in {0, \ldots, n-1}} z_i \rel{R} z_{i+1}.
 \end{equation*}
 %
 To je precej nečitljiva formula. Bolj razumljiva definicija je potenca kot $n$-kratni kompozitum relacije $R$ same s sabo:
@@ -277,11 +277,11 @@ Sedaj pa se vprašajmo: kakšnim pogojem mora zadoščati relacija $R \subseteq 
   Relacija $R \subseteq A \times B$ je \textbf{funkcijska relacija}, če je
   %
   \begin{itemize}
-  \item \textbf{celovita:} $\all{x \in A} \some{y \in B} x R y$ in
-  \item \textbf{enolična:} $\all{x \in A} \all{y_1, y_2 \in B} x R y_1 \land x R y_2 \lthen y_1 = y_2$.
+  \item \textbf{celovita:} $\all{x \in A} \some{y \in B} x \rel{R} y$ in
+  \item \textbf{enolična:} $\all{x \in A} \all{y_1, y_2 \in B} x \rel{R} y_1 \land x \rel{R} y_2 \lthen y_1 = y_2$.
   \end{itemize}
   %
-  Ekvivalentno oba pogoja skupaj zapišemo: $\all{x \in A} \exactlyone{y \in B} x R y$.
+  Ekvivalentno oba pogoja skupaj zapišemo: $\all{x \in A} \exactlyone{y \in B} x \rel{R} y$.
 \end{definicija}
 
 Graf $\Gamma_{\!f} \subseteq A \times B$ funkcije $f : A \to B$ je vedno funkcijska relacija.
@@ -289,14 +289,14 @@ Graf $\Gamma_{\!f} \subseteq A \times B$ funkcije $f : A \to B$ je vedno funkcij
 Funkcijska relacija $R \subseteq A \times B$ določa preslikavo $\phi_R : A \to B$ definirano s predpisom
 %
 \begin{equation*}
-  \phi_R : x \mapsto \descr{y \in B} x R y.
+  \phi_R : x \mapsto \descr{y \in B} x \rel{R} y.
 \end{equation*}
 %
 Če iz funkcije $f : A \to B$ tvorimo njen graf $\Gamma_{\!f}$, nato pa iz njega funckijo
 $\phi_{\Gamma_{\!f}} : A \to B$ dobimo nazaj prvotno funkcijo $f$. Obratno, če je $R$ funkcijska relacija, tedaj je $\Gamma_{\phi_R}$ enaka $R$. Torej imamo izomorfizem
 %
 \begin{equation*}
-  B^A \iso \set{ R \in \pow{A \times B} \such \all{x \in A} \exactlyone{y \in B} x R y }.
+  B^A \iso \set{ R \in \pow{A \times B} \such \all{x \in A} \exactlyone{y \in B} x \rel{R} y }.
 \end{equation*}
 %
 

@@ -73,28 +73,55 @@ S$? Da, saj za vse predhodnike $2$ velja, da so v $S$. In tako naprej.
 
 \subsection{Dobra osnovanost}
 
-Princip indukcije na naravnih številih posplošimo.
+Princip indukcije na naravnih številih posplošimo, pri čemer izhajamo iz principa indukcije, izraženega s pomočjo lastnosti~\eqref{eq:ind-N}, v kateri relacijo ">neposredni predhodnik"< nadomestimo s splošno relacijo.
 
 \begin{definicija}
   Relacija $R \subseteq A \times A$ je \textbf{dobro osnovana}, kadar velja
   %
-  \begin{equation*}
-    \all{S \in P(A)} (\all{y \in A} (\all{x \in A} x R y \lthen x \in S) \lthen y \in S) \lthen S = A.
-  \end{equation*}
+  \begin{equation}
+    \label{eq:ind-wf}%
+    \all{S \in P(A)} (\all{y \in A} (\all{x \in A} x \rel{R} y \lthen x \in S) \lthen y \in S) \lthen S = A.
+  \end{equation}
   %
   Množici $S \subseteq A$, ki zadošča pogoju
   %
   \begin{equation*}
-  \all{y \in A} (\all{x \in A} x R y \lthen x \in S) \lthen y \in S
+  \all{y \in A} (\all{x \in A} x \rel{R} y \lthen x \in S) \lthen y \in S
   \end{equation*}
   %
   pravimo \textbf{$R$-progresivna} množica ali, da je $S$ \textbf{progresivna za $R$}.
 \end{definicija}
 
-Kaj smo pravzaprav naredili: opazili smo, da ima relacija ">$k$ je neposredni predhodnik $m$"< na $\NN$ pomembno
-lastnost~\eqref{eq:ind-N}. Zanima nas, katere druge relacije imajo to lastnost, saj nam bodo omogočile neke vrste
-posplošen princip indukcije. Z definicijo smo dali ime relacijam, ki nas zanimajo.
+Pogoj \eqref{eq:ind-wf} je \emph{indukcijski predpis} za dobro osnovano relacijo~$R$. Nekatere relacije temu predpisu zadoščajo in druge ne. Na primer, relacija ">neposredni predhodnik"< na $\NN$ mu zadošča, saj v tem primeru dobimo običajno indukcijo na~$\NN$.
 
+\begin{primer}
+  Preverimo, da je relacija ">neposredni predhodnik"< $P$ na množici $A = \set{0, 1, \ldots, 42}$ dobro osnovana.
+  Natančneje, govorimo o relaciji
+  %
+  \begin{equation*}
+    m \rel{P} n \defiff m + 1 = n.
+  \end{equation*}
+  %
+  Naj bo $S \subseteq A$ progresivna množica, torej zadošča
+  %
+  \begin{equation*}
+    \all{y \in A} (\all{x \in A} x + 1 = y \lthen x \in S) \lthen y \in S.
+  \end{equation*}
+  %
+  Če vstavimo $y = 0$, dobimo
+  %
+  \begin{equation*}
+    (\all{x \in A} x + 1 = 0 \lthen x \in S) \lthen 0 \in S,
+  \end{equation*}
+  %
+  kar je ekvivalentno $0 \in S$. Torej je $0 \in S$. Nato vstavimo $y = 1$ in dobimo
+  %
+  \begin{equation*}
+    (\all{x \in A} x + 1 = 1 \lthen x \in S) \lthen 1 \in S,
+  \end{equation*}
+  %
+  kar se poenostavi v $0 \in S \lthen 1 \in S$. Ker smo že dokazali $0 \in S$, sledi tudi $1 \in S$. V naslednjem koraku vstavimo $y = 2$, poenostavimo in dobimo $1 \in S \lthen 2 \in S$, torej $2 \in S$. Tako nadaljujemo do $y = 42$ in ugotovimo, da res velja $S = A$. S tem smo pokazali, da je $P$ dobro osnovana. Seveda ni bistveno, da smo uporabili $42$.
+\end{primer}
 
 \subsection{Dvojiška drevesa}
 
@@ -112,11 +139,13 @@ Množica $\NN$ vsebuje natanko tiste elemente, ki jih lahko zgradimo s pomočjo 
     0, 0^{+}, 0^{++}, 0^{+++}, 0^{++++}, \ldots
 \end{equation*}
 %
-Tu sta $0$ in $\suc{{}}$ mišljena kot simbolni oznaki, podobno kot $\inl$ in $\inr$ v definiciji
-vsote množic.
+Tu sta $0$ in $\suc{{}}$ mišljena kot simbolni oznaki, podobno kot $\inl$ in $\inr$ v definiciji vsote množic. Dejstvo,
+da $\NN$ vsebuje natanko tiste elemente, ki jih lahko zgradimo s pomočjo $0$ in $\suc{{}}$ ni nič drugega kot indukcija
+na~$\NN$.
 
-Na tak način lahko definiramo tudi druge množice. Na primer, \textbf{dvojiška drevesa} so
-induktivno definirana množica $\Tree$, s predpisoma:
+Podobno lahko definiramo tudi druge induktivne množice, ki tudi zadoščajo principu indukcije.
+%
+Na primer, \textbf{dvojiška drevesa} so induktivno definirana množica $\Tree$ s predpisoma:
 %
 \begin{itemize}
 \item $\emptyTree \in \Tree$,
@@ -138,12 +167,12 @@ našteti vsa drevesa, ali še bolje, jih narisati?
 Definirajmo relacijo $R \subseteq \Tree \times \Tree$ s predpisom:
 %
 \begin{equation*}
-  t R s \defiff \some{u \in \Tree} s = \tree{t, u} \lor s = \tree{u, t}.
+  t \rel{R} s \defiff \some{u \in \Tree} s = \tree{t, u} \lor s = \tree{u, t}.
 \end{equation*}
 %
 To je relacija ">neposredno poddrevo"<. Je dobro osnovana, česar ne bomo dokazali, porodi pa naslednji princip indukcije za dvojiška drevesa.
 
-\begin{definicija}[Indukcija za dvojiška drevesa]
+\begin{izjava}[Indukcija za dvojiška drevesa]
   Naj bo $S \subseteq \Tree$ podmnožica dreves, za katero velja:
   %
   \begin{itemize}
@@ -152,11 +181,11 @@ To je relacija ">neposredno poddrevo"<. Je dobro osnovana, česar ne bomo dokaza
   \end{itemize}
   %
   Tedaj je $S = \Tree$.
-\end{definicija}
+\end{izjava}
 
 Princip povejmo še s pomočjo predikatov.
 
-\begin{definicija}[Indukcija za dvojiška drevesa]
+\begin{izjava}[Indukcija za dvojiška drevesa]
   Naj bo $\phi$ predikat na dvojiških drevesih, za katerega velja:
   %
   \begin{itemize}
@@ -166,7 +195,7 @@ Princip povejmo še s pomočjo predikatov.
   \end{itemize}
   %
   Tedaj $\all{t \in \Tree} \phi(t)$.
-\end{definicija}
+\end{izjava}
 
 Kot vidimo, imamo v indukcijskem koraku \emph{dve} indukcijski predpostavki, ker ima vsako
 sestavljeno drevo dve poddrevesi.
@@ -179,26 +208,26 @@ moramo kako lastnost, ki jo imajo vse dobre osnovanosti, nato pa relacijo, ki te
 
 \begin{definicija}
   Naj bo $R \subseteq A \times A$ relacija na $A$. \textbf{Padajoča veriga} za relacijo $R$
-  je zaporedje $a : \NN \to A$, za katerega velja $\all{i \in \NN} a(i+1) R a(i)$.
+  je zaporedje $a : \NN \to A$, za katerega velja $\all{i \in \NN} a(i+1) \rel{R} a(i)$.
 \end{definicija}
 
 Se pravi, da je padajoča veriga zaporedje, za katerega velja
 %
 \begin{equation*}
-  \cdots a_4 \mathrel{R} a_3 \mathrel{R} a_2 \mathrel{R} a_1 \mathrel{R} a_0
+  \cdots a_4 \rel{R} a_3 \rel{R} a_2 \rel{R} a_1 \rel{R} a_0
 \end{equation*}
 %
 \textbf{Cikel} za relacijo~$R$ je končna podmnožica $\set{a_0, \ldots, a_n} \subseteq A$ da velja
 %
 \begin{equation*}
-  a_0 \mathrel{R} a_1 \mathrel{R} \cdots \mathrel{R} a_n \mathrel{R} a_0.
+  a_0 \rel{R} a_1 \rel{R} \cdots \rel{R} a_n \rel{R} a_0.
 \end{equation*}
 %
 Iz cikla dobimo padajočo verigo, tako da cikel ponavljamo v nedogled:
 %
 \begin{equation*}
-  \cdots \mathrel{R} a_0 \mathrel{R} \cdots \mathrel{R} a_n
-         \mathrel{R} a_0 \mathrel{R} \cdots \mathrel{R} a_n \mathrel{R} a_0.
+  \cdots \rel{R} a_0 \rel{R} \cdots \rel{R} a_n
+         \rel{R} a_0 \rel{R} \cdots \rel{R} a_n \rel{R} a_0.
 \end{equation*}
 
 \begin{lema}
@@ -209,24 +238,24 @@ Iz cikla dobimo padajočo verigo, tako da cikel ponavljamo v nedogled:
   Dovolj je pokazati, da ni padajočih verig, saj iz cikla dobimo padajočo verigo.
   Denimo, da je $a : \NN \to A$ padajoča veriga za $R \subseteq A \times A$. Dokazali bomo, da $R$ ni dobro
   osnovana. Se pravi, da moramo poiskati $R$-progresivno podmnožico $S \subseteq A$, za katero velja
-  $S \neq A$. Vzemimo $S \defeq A \set{ a(i) \mid i \in \NN}$. Očitno velja $S \neq A$, saj je $a(0) \in A$ in
+  $S \neq A$. Vzemimo $S \defeq A \setminus \set{ a(i) \mid i \in \NN}$. Očitno velja $S \neq A$, saj 
   $a(0) \not\in S$. Preverimo, da je $S$ progresivna, se pravi, da je
   %
   \begin{equation*}
-    \all{y \in A} (\all{x \in A} x R y \lthen x \in S) \lthen y \in S.
+    \all{y \in A} (\all{x \in A} x \rel{R} y \lthen x \in S) \lthen y \in S.
   \end{equation*}
   %
   Naj bo $y \in A$ in denimo, da velja
   \begin{equation}
     \label{eq:verige}
-    \all{x \in A} x R y \lthen x \in S
+    \all{x \in A} x \rel{R} y \lthen x \in S
   \end{equation}
   %
   Dokazati moramo $y \in S$. Obravnavamo dve možnosti:
   %
   \begin{itemize}
   \item če $y \in S$, potem seveda sledi $y \in S$.
-  \item če $y \not\in S$, potem obstaja $i \in \NN$, da je $y = a(i)$. Ker je $a(i+1) R a(i)$, iz
+  \item če $y \not\in S$, potem obstaja $i \in \NN$, da je $y = a(i)$. Ker je $a(i+1) \rel{R} a(i)$, iz
     predpostavke~\eqref{eq:verige} sledi $y = a(i) \in S$.
   \end{itemize}
   Torej v vsakem primeru velja $y \in S$.
@@ -236,13 +265,13 @@ Iz cikla dobimo padajočo verigo, tako da cikel ponavljamo v nedogled:
   Sedaj lahko zlahka priskrbimo kak protiprimer. Na primer, cela števila $\ZZ$ z relacijo $R \subseteq \ZZ \times \ZZ$
   %
   \begin{equation*}
-    a R b \defiff a + 1 = b
+    a \rel{R} b \defiff a + 1 = b
   \end{equation*}
   %
   niso dobro osnovana, ker imajo padajočo verigo
   %
   \begin{equation*}
-    \cdots \mathrel{R} (-3) \mathrel{R} (-2) \mathrel{R} (-1) \mathrel{R} 0
+    \cdots \rel{R} (-3) \rel{R} (-2) \rel{R} (-1) \rel{R} 0
   \end{equation*}
   %
   Prav tako ni dobro osnovana relacija $<$ na intervalu $[0,1]$, ker imamo padajočo verigo
@@ -260,14 +289,14 @@ strogo urejenost $<$.
   Relacija $R \subseteq A \times A$ je \textbf{stroga urejenost}, če je
   %
   \begin{itemize}
-  \item irefleksivna: $\all{x \in A} \lnot (x R x)$ in
-  \item tranzitivna: $\all{x, y, z \in A} x R y \land y R z \lthen x R z$.
+  \item irefleksivna: $\all{x \in A} \lnot (x \rel{R} x)$ in
+  \item tranzitivna: $\all{x, y, z \in A} x \rel{R} y \land y \rel{R} z \lthen x \rel{R} z$.
   \end{itemize}
   %
   Stroga urejenost je \textbf{linearna}, če je še
   %
   \begin{itemize}
-  \item sovisna: $\all{x, y \in A} x R y \lor x = y \lor y R x$.
+  \item sovisna: $\all{x, y \in A} x \rel{R} y \lor x = y \lor y \rel{R} x$.
   \end{itemize}
   %
   Za stroge urejenosti uporabljamo simbole $<$, $\subset$, $\prec$, $\sqsubset$ ipd.
@@ -298,7 +327,7 @@ V obratno smer, delna urejenost $\sqsubseteq$ določa strogo urejenost $\sqsubse
 %
 \begin{equation}
   \label{eq:leq-iff-neqlt}
-  a \sqsubset b  \liff  a \neq b \land a \sqsubseteq b.
+  a \sqsubset b  \defiff  a \neq b \land a \sqsubseteq b.
 \end{equation}
 %
 Seveda je treba preveriti naslednja dejstva, ki jih postimo za vajo:
@@ -325,17 +354,17 @@ Tako lahko prehajamo med delno in strogo urejenostjo.
   $R \subseteq A \times A$ dobro osnovana in sovisna relacija. Doazujemo, da je dobra ureditev, se pravi,
   da potrebujemo še irefleksivnost in tranzitivnost $R$.
 
-  Relacija $R$ je irefleksivna: če bi veljalo $x R x$ za $x \in A$, potem $R$ ne bi bila dobro
-  osnovana, ker bi vsebovala padajočo verigo $\cdots x R x R x$.
+  Relacija $R$ je irefleksivna: če bi veljalo $x \rel{R} x$ za $x \in A$, potem $R$ ne bi bila dobro
+  osnovana, ker bi vsebovala padajočo verigo $\cdots x \rel{R} x \rel{R} x$.
 
-  Relacija $R$ je tranzitivna: denimo, da velja $x R y$ in $x R z$. Dokazujemo $x R z$. Ker je $R$
-  sovisna, velja $x R z$ ali $x = z$ ali $z R x$. Pokažimo, da $x = z$ in $z R x$ nista
+  Relacija $R$ je tranzitivna: denimo, da velja $x \rel{R} y$ in $y \rel{R} z$. Dokazujemo $x \rel{R} z$. Ker je $R$
+  sovisna, velja $x \rel{R} z$ ali $x = z$ ali $z \rel{R} x$. Pokažimo, da $x = z$ in $z \rel{R} x$ nista
   možna:
   %
   \begin{itemize}
-  \item Če je $x = z$, potem velja $x R y$ in $y R x$, torej $x$ in $y$ tvorita cikel, a
+  \item Če je $x = z$, potem velja $x \rel{R} y$ in $y \rel{R} x$, torej $x$ in $y$ tvorita cikel, a
     $R$ je dobro osnovana, zato to ni možno.
-  \item Če velja $z R x$, potem dobimo cikel $x R y R z R x$, kar spet ni možno.
+  \item Če velja $z \rel{R} x$, potem dobimo cikel $x \rel{R} y \rel{R} z \rel{R} x$, kar spet ni možno.
   \end{itemize}
 \end{dokaz}
 
@@ -443,6 +472,7 @@ Tako lahko prehajamo med delno in strogo urejenostjo.
 \end{dokaz}
 
 \begin{izrek}
+  \label{izr:dobra-urejenost-karakterizacija}
   Naj bo $\sqsubset$ stroga urejenost na $A$. Tedaj so ekvivalentne naslednje izjave:
   %
   \begin{enumerate}
@@ -478,7 +508,7 @@ Tako lahko prehajamo med delno in strogo urejenostjo.
     \end{equation*}
 
   \item
-    S prejšnjim primerom lahko seštevamo dobre urejenosti, na primer $\NN + 3$ je dobra
+    S prejšnjim primerom lahko seštevamo dobre urejenosti, na primer $\NN + \set{0, 1, 2}$ je dobra
     urejenost
     %
     \begin{equation*}
@@ -486,3 +516,82 @@ Tako lahko prehajamo med delno in strogo urejenostjo.
     \end{equation*}
   \end{enumerate}
 \end{primer}
+
+\section{Ordinalna števila}
+\label{sec:ordinalna-tevila}
+
+Dobra urejenost na množici~$A$ postavi njene elemente v vrsto (strogo linearno urejenost), ki nima padajočih verig.
+Končno množico lahko dobro uredimo na več načinov, na primer elemente $\set{0, 1, 2, \ldots, n-1}$ lahko postavimo v vrsto na $n!$ načinov. Množico vseh naravnih števil lahko postavimo v vrsto brez padajočih verig vsaj na trie načine,
+%
+\begin{equation*}
+  0, 1, 2, 3, 4, 5, \ldots, n, n + 1, \ldots
+\end{equation*}
+%
+in
+%
+\begin{equation*}
+  1, 0, 3, 2, 5, 4, \ldots, 2 n + 1, 2 n, \ldots
+\end{equation*}
+%
+in
+%
+\begin{equation*}
+  0, 2, 4, 6, 8, \ldots, 1, 3, 4, 5, \ldots
+\end{equation*}
+%
+Zdi se, da sta prvi in drugi način ">isti tip"< urejenosti da se razlikujeta od tretja. Res, v tretji vrsti stoji  element, namreč $1$, ki ima neskončno predhodnikov. Takega elementa v prvi in drugi vrsti ni. Govorimo o naslednjem pojmu.
+
+\begin{definicija}
+  Dobri ureditvi $(P, {\leq_P})$ in $(Q, {\leq_Q})$ \textbf{izomorfni}, če obstajata monotoni preslikavi $f : P \to Q$ in $Q \to P$, da velja $f \circ g = \id[Q]$ in $g \circ f = \id[P]$.
+\end{definicija}
+
+Seveda je izomorfnost ekvivalenčna relacija, ki je definirana na pravem razredu vseh dobrih urejenosti. 
+Koristno bi bilo imeti kak izbor predstavnikov zanjo, saj bi lahko z njimi merili ">dolžino"< dobre urejenosti. Takim predstavnikom pravimo \textbf{ordinalna števila}. A kako bi jih dobili? Pri 19.~letih je \href{https://en.wikipedia.org/wiki/John_von_Neumann}{John von Neumann} predlagal:
+%
+\begin{quote}
+  \emph{">Ordinalno število je množica svojih predhodnikov, urejeno z relacijo $\in$."<}
+\end{quote}
+%
+Poglejmo, kako deluje njegova ideja:
+%
+\begin{itemize}
+
+\item Končna ordinalna števila sovpadajo z naravnimi števili:
+  %
+  \begin{align*}
+    0 &\defeq \emptyset \\
+    1 &\defeq \set{0} = \set{\emptyset} \\
+    2 &\defeq \set{0, 1} = \set{\emptyset, \set{\emptyset}} \\
+    3 &\defeq \set{0, 1, 2} = \set{\emptyset, \set{\emptyset}, \set{\emptyset, \set{\emptyset}}} \\
+      &\vdots
+  \end{align*}
+
+\item Množica vseh končnih ordinalnih števil je prvo neskončno ordinalno število
+  %
+  \begin{equation*}
+    \omega = \set{0, 1, 2, 3, \ldots}.
+  \end{equation*}
+
+\item Številu $\omega$ sledijo
+  %
+  \begin{align*}
+    \omega + 1 &\defeq \set{0, 1, 2, \ldots, \omega} \\
+    \omega + 2 &\defeq \set{0, 1, 2, \ldots, \omega, \omega + 1} \\
+    \omega + 3 &\defeq \set{0, 1, 2, \ldots, \omega, \omega + 1, \omega + 2} \\
+               &\vdots \\
+    \omega + \omega &\defeq \set{0, 1, 2, \ldots, \omega, \omega + 1, \omega + 2, \ldots} \\
+    \omega + \omega + 1 &\defeq \set{0, 1, 2, \ldots, \omega, \omega + 1, \omega + 2, \ldots, \omega + \omega} \\
+               &\vdots
+  \end{align*}
+\end{itemize}
+
+\begin{naloga}
+  Kako bi si predstavljali naslednje ordinale: $\omega + \omega + \omega$, $\omega \cdot \omega$, $\omega^3$, $\omega^\omega$?
+\end{naloga}
+
+
+Brez dokaza navedimo, da von Neumannovi ordinali res so izbor predstavnikov za dobre urejenosti.
+
+\begin{izrek}
+  Vsaka dobra ureditev je izomorfna natanko enemu von Neumannovemu ordinalu.
+\end{izrek}
