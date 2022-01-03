@@ -3,8 +3,8 @@ open import Relation.Binary.PropositionalEquality
 module Nat where
 
   data N : Set where
-    Z : N
-    S : N → N
+    Z : N      -- nič
+    S : N → N  -- naslednik (S = successor)
 
   infixl 5 _+_
 
