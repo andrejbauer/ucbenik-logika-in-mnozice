@@ -1,303 +1,428 @@
 \chapter{Relacije urejenosti}
 
-\subsection{Relacije urejenosti}
+\section{Relacije urejenosti}
+\begin{definicija}
+  Relacija $R \subseteq A \times A$ je:
+  %
+  \begin{enumerate}
+  \item \textbf{šibka urejenost}, ko je refleksivna in tranzitivna,
+  \item \textbf{delna urejenost}, ko je refleksiva, tranzitivna in antisimetrična,
+  \item \textbf{linearna urejenost}, ko je delna urejenost in je sovisna ($\all{x, y \in A} x \rel{R} y \lor y \rel{R} x$).
+  \end{enumerate}
+\end{definicija}
 
-**Definicija:** Relacija `R ⊆ A × A` je:
+Za relacije urejenosti ponavadi uporabljamo simbole, ki spominjajo na znak $\leq$, kot so $\preceq$, $\subseteq$, $\sqsubseteq$ ipd.
 
-* **šibka urejenost**, ko je refleksivna in tranzitivna
-* **delna urejenost**, ko je refleksiva, tranzitivna in antisimetrična
-* **linearna urejenost**, ko je delna urejenost in je sovisna (`∀ x y ∈ A . x R y ∨ y R x`)
+\begin{primer}
+  Primeri urejenosti:
+  \begin{enumerate}
+    \item Relacija deljivosti na naravnih številih je delna urejenost.
+    \item Relacija deljivosti na celih številih je šibka urejenost, ni pa delna urejenost.
+    \item Relacija $\leq$ na realnih številih je linearna urejenost.
+    \item Relacija $\subseteq$ na $\pow{A}$ je delna urejenost. Za katere množice $A$ je linearna?
+    \item Relacija $=$ je delna urejenost. Imenuje se tudi \textbf{diskretna urejenost}.
+  \end{enumerate}
+\end{primer}
 
-Za relacije urejenosti ponavadi uporabljamo simbole, ki spominjajo na znak `≤`, kot so `≼`, `⊆`, `⊑`, ...
 
-\subsubsection{Primeri urejenosti}
+\begin{definicija}
+  V delni ureditvi $(P, {\leq})$ je \textbf{veriga} taka podmnožica $V \subseteq P$, ki je linearno urejena z relacijo~$\leq$, se pravi $\all{x, y \in V} x \leq y \lor y \leq x$. \textbf{Antiveriga} je taka podmnožica $A \subseteq P$, ki je diskretno urejena z relacijo~$\leq$, se pravi $\all{x, y \in A} x \leq y \lthen x = y$.
+\end{definicija}
 
-1. Relacija deljivosti na naravnih številih je delna urejenost.
-2. Relacija deljivosti na celih številih je šibka urejenost, ni pa delna urejenost.
-3. Relacija `≤` na realnih številih je linearna urejenost.
-4. Relacija `⊆` na `P(A)` je delna urejenost. Za katere množice `A` je linearna?
-5. Relacija `=` je delna urejenost.
+\begin{primer}
+  Potence števila $2$ tvorijo verigo v $\NN$ glede na relacijo deljivosti.
+  Praštevila tvorijo antiverigo.
+\end{primer}
 
-PUDARITI: = SE IMENUJE DISKRETNA UREJENOST
 
-\subsubsection{Hassejev diagram}
+\subsection{Hassejev diagram}
 
-Končno delno ureditev `(A, ≤)` lahko predstavimo s **Hassejevim diagramom:** elemente
-množice `A` narišemo tako, da je `x` pod `y`, kadar velja `x ≤ y`. Nato povežemo vozlišči
-`x` in `y`, če je `y` neposredni naslednik `x`, se pravi, da velja `x ≠ y`, `x ≤ y` in iz
-`x ≤ z ≤ y` sledi `x = z ∨ z = y`.
+Končno delno ureditev $(A, \leq)$ lahko predstavimo s \textbf{Hassejevim diagramom}: elemente
+množice $A$ narišemo tako, da je $x$ pod $y$, kadar velja $x \leq y$. Nato povežemo vozlišči $x$ in $y$, če je $y$ neposredni naslednik $x$, se pravi, da velja $x \neq y$, $x \leq y$ in iz $x \leq z \leq y$ sledi $x = z \lor z = y$.
 
-**Primer:** kakšen je Hassejev diagram relacije deljivosti na množici `{0, 1, ..., 10}`?
+\begin{naloga}
+  Narišite Hassejev diagram relacije deljivosti na množici $\set{0, 1, \dots, 10}$ ter
+  Hassejev diagram relacije $\subseteq$ na množici $\pow(\{a,b,c\})$.
+\end{naloga}
 
-**Primer:** kakšen je Hassejev diagram relacije `⊆` na množici `P({a,b,c})`?
+\begin{naloga}
+  Kako v Hassejevem diagramu prepoznamo verigo? In kako prepoznamo antiverigo?
+\end{naloga}
 
-DODATI: VERIGA IN ANTIVERIGA
 
 \subsection{Operacije na urejenostih}
 
 \subsubsection{Obratna urejenost}
 
-Če je `≤` delna urejenost na `P` potem je tudi transponirana relacija `≥`, definirana z
-
-    x ≥ y ⇔ x ≤ y
-
-delna urejenost na `P`. Če je `≤` linearna, je `≥` linearna.
+Če je $\leq$ delna urejenost na $P$ potem je tudi transponirana relacija $\geq$, definirana z
+%
+\begin{equation*}
+    x \geq y \liff x \leq y,
+\end{equation*}
+%
+delna urejenost na $P$. Če je $\leq$ linearna, je $\geq$ linearna.
 
 \subsubsection{Produktna in leksikografska urejenost}
 
-Naj bosta `(P, ≤)` in `(Q, ⊑)` delni urejenosti. Na kartezičnem produktu `P × Q`
-lahko definiramo dve urejenosti:
+Naj bosta $(P, {\leq_P})$ in $(Q, {\leq_Q})$ delni urejenosti. Na kartezičnem produktu $P \times Q$ lahko definiramo dve urejenosti.
 
-* **produktna** urejenost `≼`: `(x₁,y₁) ≼ (x₂,y₂) ⇔ x₁ ≤ x₂ ∧ y₁ ⊑ y₂`
-* **leksikografska** urejenost `≼_lex`: `(x₁,y₁) ≼_lex (x₂,y₂) ⇔ (x₁ ≠ x₂ ∧ x₁ ≤ x₂) ∨ (x₁ = x₂ ∧ y₁ ⊑ y₂)`
-
-**Primer:** Kako si predstavljamo produktno in leksikografsko ureditev na `[0,1] × [0,1]`, če `[0,1]` uredimo z običajno relacijo `≤`?
-
-**Izjava:** Produktna in leksikografska urejenosti sta delni urejenosti. Leksikografska urejenost linearnih urejenosti je linearna.
-
-*Dokaz.*
-
-Dejstvo, da je produktna urejenost refleksivna, tranzitivna in antisimetrična, pustimo za vajo. Preverimo, da je
-leksikografska urejenost `≼_lex` delna urejenost.
-
-Dokaz, da je `≼_lex` je refleksivna: za vsak `(x, y) ∈ P × Q` velja `x = x ∧ y ⊑ y`, torej velja `(x, y) ⊑ (x, y)`.
-
-Dokazj=, da je `≼_lex` je antisimetrična: naj bosta `(x₁,y₁), (x₂,y₂) ∈ P × Q` in denimo, da velja
-
-    (x₁, y₁) ≼_lex (x₂, y₂) ∧ (x₂, y₂) ≼_lex (x₁, y₁)
-
-To je ekvivalentno
-
-    (x₁ ≠ x₂ ∧ x₁ ≤ x₂ ∧ x₂ ≠ x₁ ∧ x₂ ≤ x₁) ∨
-    (x₁ ≠ x₂ ∧ x₁ ≤ x₂ ∧ x₂ = x₁ ∧ y₂ ⊑ y₁) ∨
-    (x₁ = x₂ ∧ y₁ ⊑ y₂ ∧ x₂ ≠ x₁ ∧ x₂ ≤ x₁) ∨
-    (x₁ = x₂ ∧ y₁ ⊑ y₂ ∧ x₂ = x₁ ∧ y₂ ⊑ y₁)
-
-Če v zgornji formuli upoštevamo, da je `x₁ ≠ x₂ ∧ x₁ = x₂`, vidimo, da sta drugi in tretji disjunkt ekvivalentna `⊥`, zato
-je izjava ekvivalentna:
-
-    (x₁ ≠ x₂ ∧ x₁ ≤ x₂ ∧ x₂ ≠ x₁ ∧ x₂ ≤ x₁) ∨
-    (x₁ = x₂ ∧ y₁ ⊑ y₂ ∧ x₂ = x₁ ∧ y₂ ⊑ y₁)
-
-A tudi prvi disjunkt je ekvivalenten `⊥`, ker iz `x₁ ≤ x₂ ∧ x₂ ≤ x₁` sledi `x₁ = x₂`, saj je `≤` po predpostavki antisimetrična. Torej ostane samo zadnji disjunkt, ki je ekvivalenten
-
-    x₁ = x₂ ∧ y₁ ⊑ y₂ ∧ y₂ ⊑ y₁
-
-Ker je `⊑` antisimetrična, sledi `x₁ = x₂` in `y₁ = y₂`, kar smo želeli dokazati.
-
-Dokaz, da je `≼_lex` tranzitivna: naj bodo `(x₁,y₁), (x₂,y₂), (x₃, y₃) ∈ P × Q` in denimo, da velja
-
-    (x₁, y₁) ≼_lex (x₂, y₂) ∧ (x₂, y₂) ≼_lex (x₃, y₃)
-
-To je ekvivalentno
-
-    (x₁ ≠ x₂ ∧ x₁ ≤ x₂ ∧ x₂ ≠ x₃ ∧ x₂ ≤ x₃) ∨
-    (x₁ ≠ x₂ ∧ x₁ ≤ x₂ ∧ x₂ = x₃ ∧ y₂ ⊑ y₃) ∨
-    (x₁ = x₂ ∧ y₁ ⊑ y₂ ∧ x₂ ≠ x₃ ∧ x₂ ≤ x₃) ∨
-    (x₁ = x₂ ∧ y₁ ⊑ y₂ ∧ x₂ = x₃ ∧ y₂ ⊑ y₃)
-
-Obravnavajmo štiri primere in v vsakem od njih dokažimo `(x₁, y₁) ≼_lex (x₃, y₃)`, se pravi
-`(x₁ ≠ x₃ ∧ x₁ ≤ x₃) ∨ (x₁ = x₃ ∧ y₁ ⊑ y₃)`:
-
-1. Če velja `x₁ ≠ x₂ ∧ x₁ ≤ x₂ ∧ x₂ ≠ x₃ ∧ x₂ ≤ x₃`: ker je `≤` tranzitivna sledi `x₁ ≤ x₃`, poleg tega pv velja `x₁ ≠
-   x₃`: če bi veljalo `x₁ = x₃`, bi iz predpostavk dobili `x₃ ≤ x₂ ∧ x₂ ≤ x₃`, od koder bi sledilo `x₂ = x₃`, kar je v
-   protislovju s predpostavko `x₂ ≠ x₃`.
-
-2. Če velja `x₁ ≠ x₂ ∧ x₁ ≤ x₂ ∧ x₂ = x₃ ∧ y₂ ⊑ y₃`: ker je `x₂ = x₃` iz prvih dveh predpostavk sledi `x₁ ≠ x₃ ∧ x₁ ≤ x₃`.
-
-3. Če velja `x₁ = x₂ ∧ y₁ ⊑ y₂ ∧ x₂ ≠ x₃ ∧ x₂ ≤ x₃`: ker je `x₁ = x₂` iz zadnjih dveh predpostavk sledi `x₁ ≠ x₃ ∧ x₁ ≤ x₃`.
-
-4. Če velja `x₁ = x₂ ∧ y₁ ⊑ y₂ ∧ x₂ = x₃ ∧ y₂ ⊑ y₃`: torej je `x₁ = x₃` ker je `=` tranzitivna in `y₁ ⊑ y₃` ker je `⊑` tranzitivna.
+Prva je \textbf{produktna} urejenost
+%
+\begin{equation*}
+  (x_1,y_1) \leq_{\times} (x_2,y_2) \defiff x_1 \leq_P x_2 \land y_1 \leq_Q y_2
+\end{equation*}
+%
+in druga \textbf{leksikografska} urejenost
+%
+\begin{equation*}
+  (x_1,y_1) \preceq_\mathrm{lex} (x_2,y_2)
+  \defiff (x_1 \neq x_2 \land x_1 \leq_P x_2) \lor (x_1 = x_2 \land y_1 \leq_Q y_2).
+\end{equation*}
 
 
-Nazadnje preverimo še, da je `≼_lex` linearna, če sta `≤` in `⊑` linearni. Naj bosta `(x₁,y₁), (x₂,y₂) ∈ P × Q`. Dokazati želimo
+\begin{naloga}
+  Kako si predstavljamo produktno in leksikografsko ureditev na $[0,1] \times [0,1]$, če $[0,1]$ uredimo z običajno relacijo $\leq$? Na sliki označite območji
+  %
+  \begin{equation*}
+    \set{(x,y) \in [0,1] \times [0, 1] \such (1/2,1/3) \leq_\times (x,y)}
+  \end{equation*}
+  %
+  in
+  %
+  \begin{equation*}
+    \set{(x,y) \in [0,1] \times [0, 1] \such (1/2,1/3) \leq_\mathrm{lex} (x,y)}.
+  \end{equation*}
+\end{naloga}
 
-    (x₁, y₁) ≼ (x₂, y₂) ∨ (x₂, y₂) ≼ (x₁, y₁)
+\begin{izjava}
+  Produktna in leksikografska urejenosti sta delni urejenosti. Leksikografska urejenost linearnih urejenosti je linearna.
+\end{izjava}
 
-To je ekvivalentno disjunkciji
+\begin{dokaz}
+  Dejstvo, da je produktna urejenost refleksivna, tranzitivna in antisimetrična, pustimo za vajo. Preverimo, da je leksikografska urejenost $\leq_\mathrm{lex}$ delna urejenost.
 
-    (x₁ ≠ x₂ ∧ x₁ ≤ x₂) ∨ (x₁ = x₂ ∧ y₁ ⊑ y₂) ∨ (x₂ ≠ x₁ ∧ x₂ ≤ x₁) ∨ (x₂ = x₁ ∧ y₂ ⊑ y₁)
+  Dokaz, da je $\leq_\mathrm{lex}$ je refleksivna: za vsak $(x, y) \in P \times Q$ velja $x = x \land y \sqsubseteq y$, torej velja $(x, y) \sqsubseteq (x, y)$.
 
-kar je ekvivalentno
+  Dokaz, da je $\leq_\mathrm{lex}$ je antisimetrična: naj bosta $(x_1,y_1), (x_2,y_2) \in P \times Q$ in denimo, da velja
+  %
+  \begin{equation*}
+    (x_1, y_1) \leq_\mathrm{lex} (x_2, y_2) \land (x_2, y_2) \leq_\mathrm{lex} (x_1, y_1)
+  \end{equation*}
+  %
+  To je ekvivalentno
+  %
+  \begin{align*}
+  & (x_1 \neq x_2 \land x_1 \leq_P x_2 \land x_2 \neq x_1 \land x_2 \leq_P x_1) \lor {}\\
+  & (x_1 \neq x_2 \land x_1 \leq_P x_2 \land x_2 = x_1 \land y_2 \leq_Q y_1) \lor {}\\
+  & (x_1 = x_2 \land y_1 \leq_Q y_2 \land x_2 \neq x_1 \land x_2 \leq_P x_1) \lor {}\\
+  & (x_1 = x_2 \land y_1 \leq_Q y_2 \land x_2 = x_1 \land y_2 \leq_Q y_1).
+  \end{align*}
+  %
+  Če v zgornji formuli upoštevamo, da je $x_1 \neq x_2 \land x_1 = x_2$, vidimo, da sta drugi in tretji disjunkt ekvivalentna $\bot$, zato
+  je izjava ekvivalentna:
+  \begin{align*}
+  &(x_1 \neq x_2 \land x_1 \leq_P x_2 \land x_2 \neq x_1 \land x_2 \leq_P x_1) \lor {}\\
+  &(x_1 = x_2 \land y_1 \leq_Q y_2 \land x_2 = x_1 \land y_2 \leq_Q y_1).
+  \end{align*}
+  %
+  A tudi prvi disjunkt je ekvivalenten $\bot$, ker iz $x_1 \leq_P x_2 \land x_2 \leq_P x_1$ sledi $x_1 = x_2$, saj je $\leq_P$ po predpostavki antisimetrična. Torej ostane samo zadnji disjunkt, ki je ekvivalenten
+  \begin{equation*}
+    x_1 = x_2 \land y_1 \leq_Q y_2 \land y_2 \leq_Q y_1.
+  \end{equation*}
+  %
+  Ker je $\leq_Q$ antisimetrična, sledi $x_1 = x_2$ in $y_1 = y_2$, kar smo želeli dokazati.
 
-    (x₁ ≠ x₂ ∧ (x₁ ≤ x₂ ∨ x₂ ≤ x₁)) ∨ (x₁ = x₂ ∧ (y₁ ⊑ y₂ ∨ y₂ ⊑ y₁))
+  Dokaz, da je $\leq_\mathrm{lex}$ tranzitivna: naj bodo $(x_1,y_1), (x_2,y_2), (x_3, y_3) \in P \times Q$ in denimo, da velja
+  %
+  \begin{equation*}
+    (x_1, y_1) \leq_\mathrm{lex} (x_2, y_2) \land (x_2, y_2) \leq_\mathrm{lex} (x_3, y_3).
+  \end{equation*}
+  %
+  To je ekvivalentno
+  %
+  \begin{align*}
+  & (x_1 \neq x_2 \land x_1 \leq_P x_2 \land x_2 \neq x_3 \land x_2 \leq_P x_3) \lor  {} \\
+  & (x_1 \neq x_2 \land x_1 \leq_P x_2 \land x_2 = x_3 \land y_2 \leq_Q y_3) \lor {} \\
+  & (x_1 = x_2 \land y_1 \leq_Q y_2 \land x_2 \neq x_3 \land x_2 \leq_P x_3) \lor {} \\
+  & (x_1 = x_2 \land y_1 \leq_Q y_2 \land x_2 = x_3 \land y_2 \leq_Q y_3)
+  \end{align*}
+  %
+  Obravnavajmo štiri primere in v vsakem od njih dokažimo $(x_1, y_1) \leq_\mathrm{lex} (x_3, y_3)$, se pravi
+  $(x_1 \neq x_3 \land x_1 \leq_P x_3) \lor (x_1 = x_3 \land y_1 \leq_Q y_3)$:
+  %
+  \begin{enumerate}
+  \item Če velja $x_1 \neq x_2 \land x_1 \leq_P x_2 \land x_2 \neq x_3 \land x_2 \leq_P x_3$: ker je $\leq$ tranzitivna sledi $x_1 \leq_P x_3$, poleg tega pv velja $x_1 \neq
+    x_3$: če bi veljalo $x_1 = x_3$, bi iz predpostavk dobili $x_3 \leq_P x_2 \land x_2 \leq_P x_3$, od koder bi sledilo $x_2 = x_3$, kar je v
+    protislovju s predpostavko $x_2 \neq x_3$.
 
-Ker sta `≤` in `⊑` linearni, je to ekvivalentno
+  \item Če velja $x_1 \neq x_2 \land x_1 \leq_P x_2 \land x_2 = x_3 \land y_2 \leq_Q y_3$: ker je $x_2 = x_3$ iz prvih dveh predpostavk sledi $x_1 \neq x_3 \land x_1 \leq_P x_3$.
 
-    (x₁ ≠ x₂ ∧ ⊤) ∨ (x₁ = x₂ ∧ ⊤)
+  \item Če velja $x_1 = x_2 \land y_1 \leq_Q y_2 \land x_2 \neq x_3 \land x_2 \leq_P x_3$: ker je $x_1 = x_2$ iz zadnjih dveh predpostavk sledi $x_1 \neq x_3 \land x_1 \leq_P x_3$.
 
-Kar je ekvivalentno
-
-    (x₁ ≠ x₂) ∨ (x₁ = x₂)
-
-To pa drži po zakonu o izključeni tretji možnosti. S tem je linearnost `≼_lex`, dokazana. □
-
+  \item Če velja $x_1 = x_2 \land y_1 \leq_Q y_2 \land x_2 = x_3 \land y_2 \leq_Q y_3$: torej je $x_1 = x_3$ ker je $=$ tranzitivna in $y_1 \leq_Q y_3$ ker je $\leq_Q$ tranzitivna.
+  \end{enumerate}
+  %
+  Nazadnje preverimo še, da je $\leq_\mathrm{lex}$ linearna, če sta $\leq$ in $\leq_Q$ linearni. Naj bosta $(x_1,y_1), (x_2,y_2) \in P \times Q$. Dokazati želimo
+  %
+  \begin{equation*}
+    (x_1, y_1) \preceq (x_2, y_2) \lor (x_2, y_2) \preceq (x_1, y_1).
+  \end{equation*}
+  %
+  To je ekvivalentno disjunkciji
+  % 
+  \begin{align*}
+    & (x_1 \neq x_2 \land x_1 \leq_P x_2) \lor {} \\
+    & (x_1 = x_2 \land y_1 \leq_Q y_2) \lor {} \\
+    & (x_2 \neq x_1 \land x_2 \leq_P x_1) \lor {} \\
+    & (x_2 = x_1 \land y_2 \leq_Q y_1),
+  \end{align*}
+  %
+  kar je ekvivalentno
+  %
+  \begin{align*}
+    & (x_1 \neq x_2 \land (x_1 \leq_P x_2 \lor x_2 \leq_P x_1)) \lor {} \\
+    &(x_1 = x_2 \land (y_1 \leq_Q y_2 \lor y_2 \leq_Q y_1)).
+  \end{align*}
+  %
+  Ker sta $\leq_P$ in $\leq_Q$ linearni, je to ekvivalentno
+  %
+  \begin{equation*}
+    (x_1 \neq x_2 \land \top) \lor (x_1 = x_2 \land \top),
+  \end{equation*}
+  %
+  kar je ekvivalentno
+  \begin{equation*}
+    (x_1 \neq x_2) \lor (x_1 = x_2).
+  \end{equation*}
+  %
+  To pa drži po zakonu o izključeni tretji možnosti. S tem je linearnost $\leq_\mathrm{lex}$, dokazana.
+\end{dokaz}
 
 \subsubsection{Vsota urejenosti}
 
-Naj bosta `(P, ≤)` in `(Q, ⊑)` delni urejenosti. Na vsoti `P + Q` lahko
-definiramo urejenost `≼` s predpisom:
-
-    u ≼ v ⇔ (∃ x, y ∈ P . u = \inl(x) ∧ v = \inl(y) ∧ x ≤ y) ∨
-            (∃ s, t ∈ Q . u = \inr(s) ∧ v = \inr(t) ∧ s ⊑ t)
+Naj bosta $(P, \leq_P)$ in $(Q, \leq_Q)$ delni urejenosti. Na vsoti $P + Q$ lahko
+definiramo urejenost $\leq_{+}$ s predpisom:
+%
+\begin{equation*}
+  u \leq_{+} v \defiff
+  \begin{aligned}[t]
+    & (\some{x, y \in P} u = \inl(x) \land v = \inl(y) \land x \leq_P y) \lor {} \\
+    & (\some{s, t \in Q} u = \inr(s) \land v = \inr(t) \land s \leq_Q t).
+  \end{aligned}
+\end{equation*}
 
 \subsubsection{Zaporedna vsota urejenosti}
 
-Naj bosta `(P, ≤)` in `(Q, ⊑)` delni urejenosti. Na vsoti `P + Q` lahko definiramo urejenost `≼` s predpisom:
-
-    u ≼ v ⇔ (∃ x, y ∈ P . u = \inl(x) ∧ v = \inl(y) ∧ x ≤ y) ∨
-            (∃ x ∈ P . ∃ s ∈ Q . u = \inl(x) ∧ v = \inr(s)) ∨
-            (∃ s, t ∈ Q . u = \inr(s) ∧ v = \inr(t) ∧ s ⊑ t)
-
-Torej so vsi elementi `P` pred vsemi elementi `Q`.
-
-Zaporedna vsota linearnih urejenosti je linearna.
+Naj bosta $(P, \leq_P)$ in $(Q, \leq_Q)$ delni urejenosti. Na vsoti $P + Q$ lahko definiramo urejenost $\leq_{\to}$ s predpisom:
+%
+\begin{equation*}
+  u \leq_{\to} v \defiff
+  \begin{aligned}[t]
+    &(\some{x, y \in P} u = \inl(x) \land v = \inl(y) \land x \leq_P y) \lor {} \\
+    &(\some{x \in P} \some{s \in Q} u = \inl(x) \land v = \inr(s)) \lor {} \\
+    &(\some{s, t \in Q} u = \inr(s) \land v = \inr(t) \land s \leq_Q t).
+  \end{aligned}
+\end{equation*}
+%
+Torej so vsi elementi $P$ pred vsemi elementi $Q$. Zaporedna vsota linearnih urejenosti je linearna.
 
 
 \subsubsection{Potenca urejenosti}
 
-Naj bo `(P, ≤)` delna urejenost in `A` množica. Na eksponentni množici `Pᴬ` lahko definiramo urejenost `≼` s predpisom:
+Naj bo $(P, \leq)$ delna urejenost in $A$ množica. Na eksponentni množici $P^A$ lahko definiramo urejenost $\preceq$ s predpisom:
+%
+\begin{equation*}
+  f \preceq g \defiff \all{x \in A} f(x) \leq g(x).
+\end{equation*}
 
-    f ≼ g ⇔ ∀ x ∈ A . f(x) ≤ g(x)
-
-**Naloga:** ali je `≼` linearna, kadar je `≤` linearna?
+\begin{naloga}
+  Ali je $\preceq$ linearna, kadar je $\leq$ linearna?
+\end{naloga}
 
 
 \subsubsection{Delna urejenost, inducirana s šibko ureditvijo}
 
-Naj bo `(P, ≤)` šibka ureditev. Relacija `∼` na `P`, definirana s predpisom
-
-    x ∼ y ⇔ x ≤ y ∧ y ≤ x
-
-je ekvivalenčna relacija. Na kvocientu `P/∼` lahko definiramo relacijo `≼` s
+Naj bo $(P, \leq)$ šibka ureditev. Relacija $\sim$ na $P$, definirana s predpisom
+%
+\begin{equation*}
+  x \sim y \defiff x \leq y \land y \leq x,
+\end{equation*}
+%
+je ekvivalenčna relacija. Na kvocientu $P/{\sim}$ lahko definiramo relacijo $\preceq$ s
 predpisom
-
-    [x] ≼ [y] ⇔ x ≤ y
-
-Treba je preveriti, da je relacija dobro definirana, se pravi da velja
-
-    x ∼ x' ∧ y ∼ y' ⇒ (x ≤ y ⇔ x' ≤ y')
-
-Pa preverimo: denimo, da velja `x, y, x', y' ∈ P` in `x ~ x'` in `y ~ y'`.
+%
+\begin{equation*}
+  [x] \preceq [y] \defiff x \leq y.
+\end{equation*}
+%
+Treba je preveriti, da je relacija dobro definirana, saj smo uporabili predstavnike ekvivalenčnih razredov. Se pravi, ali velja
+\begin{equation*}
+  x \sim x' \land y \sim y' \lthen (x \leq y \liff x' \leq y') ?
+\end{equation*}
+%
+Pa preverimo. Denimo, da velja $x, y, x', y' \in P$ in $x \sim x'$ in $y \sim y'$.
 Torej velja
+\begin{equation*}
+  x \leq x' \land x' \leq x \land y \leq y' \land y' \land x.
+\end{equation*}
+%
+Sedaj dokažimo $x \leq y \liff x' \leq y'$:
+%
+\begin{enumerate}
+\item Če velja $x \leq y$ potem $x' \leq x \leq y \leq y'$.
+\item Če velja $x' \leq y'$, potem $x \leq x' \leq y' \leq y$.
+\end{enumerate}
+%
+Torej je $\preceq$ dobro definirana.
 
-    x ≤ x' ∧ x' ≤ x ∧ y ≤ y' ∧ y' ∧ x
+\begin{izjava}
+  Relacija, ki je inducirana s šibko ureditvijo, je delna ureditev.
+\end{izjava}
 
-Sedaj dokažimo `x ≤ y ⇔ x' ≤ y'`:
+\begin{dokaz}
+  Refleksivnost in tranzitivnost $\preceq$ sledita iz refleksivnosti in tranzitivnosti~$\leq$. Preverimo antisimetričnost: denimo, da velja $[x] \leq [y]$ in $[y] \leq [x]$. Tedaj velja $x \leq y$ in $y \leq x$, torej velja $x \sim y$ in $[x] = [y]$.
+\end{dokaz}
 
-1. Denimo, da velja `x ≤ y`. Tedaj dobimo `x' ≤ x ≤ y ≤ y'`.
-2. Denimo, da velja `x' ≤ y'`. Tedaj dobimo `x ≤ x' ≤ y' ≤ y`.
-
-Torej je `≼` dobro definirana.
-
-**Izjava:** Relacija `≼`, ki je inducirana s šibko ureditvijo, je delna ureditev.
-
-*Dokaz.* Refleksivnost in tranzitivnost `≼` sledita iz refleksivnosti in tranzitivnosti `≤`. Preverimo antisimetričnost:
-denimo, da velja `[x] ≤ [y]` in `[y] ≤ [x]`. Tedaj velja `x ≤ y` in `y ≤ x`, torej velja `x ~ y` in `[x] = [y]. □
-
-
-**Primer:** Obravnavajmo cela števila `Z` in deljivost `|`, ki je šibka
-ureditev. Za vse `k, m ∈ Z` velja
-
-    k ∼ m ⇔ k | m ∧ m | k ⇔ |k| = |m|
-
-Torej je `Z/∼ ≅ N`, kjer izomorfizem preslika `[k] ↦ |k|`. Delna ureditev na
-`Z/∼` inducirana z deljivostjo je spet deljivost (ko jo prenesemo iz `Z/∼` na
-`N` s pomočjo izomorfizma).
+\begin{primer}
+  Obravnavajmo cela števila $\ZZ$ in deljivost $\mid$, ki je šibka
+  ureditev. Za vse $k, m \in \ZZ$ velja
+  \begin{equation*}
+    k \sim m \liff k \mid m \land m \mid k \liff |k| = |m|.
+  \end{equation*}
+  %
+  Torej je $\ZZ/{\sim} \cong \NN$, kjer izomorfizem preslika $[k] \mapsto |k|$. Delna ureditev na $\ZZ/{\sim}$ inducirana z deljivostjo je spet deljivost (ko jo prenesemo iz $\ZZ/{\sim}$ na $\NN$ s pomočjo izomorfizma).
+\end{primer}
 
 
 \subsection{Monotone preslikave}
 
-**Definicija:** Preslikava `f : P → Q` med delnima urejenostma `(P, ≼)` in `(Q, ⊑)` je
-**monotona** (ali **naraščajoča**), ko velja `∀ x, y ∈ P . x ≼ y ⇒ f(x) ⊑ f(y)`.
+\begin{definicija}
+  Preslikava $f : P \to Q$ med delnima urejenostma $(P, {\leq_P})$ in $(Q, {\leq_Q})$ je
+  \textbf{monotona} (ali \textbf{naraščajoča}), ko velja $\all{x, y \in P} x \leq_P y \lthen f(x) \leq_Q f(y)$.
+\end{definicija}
 
-**Definicija:** Preslikava `f : P → Q` med delnima urejenostma `(P, ≼)` in `(Q, ⊑)` je
-**antitona** (ali **padajoča**), ko velja `∀ x, y ∈ P . x ≼ y ⇒ f(y) ⊑ f(x)`.
+\begin{definicija}
+  Preslikava $f : P \to Q$ med delnima urejenostma $(P, \leq_P)$ in $(Q, \leq_Q)$ je
+  \textbf{antitona} (ali \textbf{padajoča}), ko velja $\all{x, y \in P} x \leq_P y \lthen f(y) \leq_Q f(x)$.
+\end{definicija}
 
-Opozorilo: v analizi "monotona" pomeni "monotona ali antitona". To ni nič
-čudnega, ker "dan" tudi pomeni "dan in noč".
+\begin{opomba}
+  V analizi ">monotona"< pomeni ">monotona ali antitona". To ni nič
+  čudnega, ker ">dan"< tudi pomeni ">dan in noč">.
+\end{opomba}
 
-**Izrek:** Kompozicija monotonih preslikav je monotona. Identita je monotona.
+\begin{izrek}
+  Kompozicija monotonih preslikav je monotona. Identita je monotona.
+\end{izrek}
 
-*Dokaz.* Naj bosta `f : P → Q` in `g : Q → R` monotoni preslikavi med delnimi
-urejenostmi `(P, ≤_P)`, `(Q, ≤_Q)` in `(R, ≤_R)`. Če je `x ≤_P y`, potem je
-zaradi monotonisti `f` tudi `f(x) ≤_Q f(y)`, nato pa je zaradi monotonisti `g`
-spet `g(f(x)) ≤_R g(f(y))`. Identiteta je očitno monotona.
+\begin{dokaz}
+  Naj bosta $f : P \to Q$ in $g : Q \to R$ monotoni preslikavi med delnimi
+  urejenostmi $(P, {\leq_P})$, $(Q, {\leq_Q})$ in $(R, {\leq_R})$. Če je $x \leq_P y$, potem je zaradi monotonisti $f$ tudi $f(x) \leq_Q f(y)$, nato pa je zaradi monotonisti $g$ spet $g(f(x)) \leq_R g(f(y))$. Identiteta je očitno monotona.
+\end{dokaz}
 
-**Primeri**
-
-* Konstantna preslikava je monotona.
-* Seštvanje `+ : R × R → R` je monotona operacija glede na produktno ureditev na `R × R`.
-* Množenje `× : R × R → R` ni monotona operacija.
+\begin{primer}
+  Primeri monotonih preslikav:
+  \begin{enumerate}
+    \item Konstantna preslikava je monotona.
+    \item Seštvanje ${+} : \RR \times \RR \to \RR$ je monotona operacija glede na produktno ureditev na $\RR \times \RR$.
+    \item Množenje ${\times} : \RR \times \RR \to \RR$ ni monotona operacija.
+  \end{enumerate}
+\end{primer}
 
 
 \subsection{Meje}
 
-**Definicija:** Naj bo `(P, ≤)` delna urejenost, `S ⊆ P` in `x ∈ P`:
+\begin{definicija}
+  Naj bo $(P, {\leq})$ delna urejenost, $S \subseteq P$ in $x \in P$:
+  \begin{itemize}
 
-* `x` je **spodnja meja** podmnožice `S`, ko velja `∀ y ∈ S . x ≤ y`
-* `x` je **zgornja meja** podmnožice `S`, ko velja `∀ y ∈ S . y ≤ x`
-* `x` je **infimum** ali **največja spodnja meja** ali **natančna spodnja meja**
-  podmnožice `S`, ko je spodnja meja `S` in velja: za vse `y ∈ P`, če je `y` spodnja meja
-  `S`, potem je `y ≤ x`
-* `x` je **supremum** ali **najmanjša zgornja meja** ali **natančna zgornja meja**
-  podmnožice `S`, ko je zgornja meja `S` in velja: za vse `y ∈ P`, če je `y` zgornja meja
-  `S`, potem je `x ≤ y`
-* `x` je **minimalni element** podmnožice `S`, ko velja `x ∈ S` in `∀ y ∈ S . y ≤ x ⇒ x = y`
-* `x` je **maksimalni element** podmnožice `S`, ko velja `x ∈ S` in `∀ y ∈ S . x ≤ y ⇒ x = y`
-* `x` je **najmanjši** ali **prvi** element ali **minimum** podmnožice `S`, ko velja `x ∈ S` in `∀ y ∈ S . x ≤ y`
-* `x` je **največji** ali **zadnji** element ali **maksimum** podmnožice `S`, ko velja `x ∈ S` in `∀ y ∈ S . y ≤ x`
+  \item $x$ je \textbf{spodnja meja} podmnožice $S$, ko velja $\all{y \in S} x \leq y$,
 
-Opozorilo: minimalni element ni isto kot minimum (in maksimalni element ni isto kot maksimum).
+  \item $x$ je \textbf{zgornja meja} podmnožice $S$, ko velja $\all{y \in S} y \leq x$,
 
-Kadar govorimo o "prvem elementu" ali "maksimalnem elementu" in ne povemo, na
+  \item $x$ je \textbf{infimum} ali \textbf{največja spodnja meja} ali \textbf{natančna spodnja meja} podmnožice $S$, ko je spodnja meja $S$ in velja: za vse $y \in P$, če je $y$ spodnja meja
+    $S$, potem je $y \leq x$,
+
+  \item $x$ je \textbf{supremum} ali \textbf{najmanjša zgornja meja} ali \textbf{natančna zgornja meja} podmnožice $S$, ko je zgornja meja $S$ in velja: za vse $y \in P$, če je $y$ zgornja meja $S$, potem je $x \leq y$,
+
+  \item $x$ je \textbf{minimalni element} podmnožice $S$, ko velja $x \in S$ in $\all{y \in S} y \leq x \lthen x = y$,
+
+  \item $x$ je \textbf{maksimalni element} podmnožice $S$, ko velja $x \in s$ in
+      $\all{x \in S} x \leq y \lthen x = y$,
+
+  \item $x$ je \textbf{najmnanjši} ali \textbf{prvi} element ali \textbf{minimum} podmnožice $S$, ko velja $x \in S$ in $\all{y \in S} x \leq y$,
+
+  \item $x$ je \textbf{največji} ali \textbf{zadnji} element ali \textbf{maksimum} podmnožice $S$, ko velja $x \in S$ in $\all{y \in S} y \leq x$.
+\end{itemize}
+\end{definicija}
+
+\begin{opomba}
+  Minimalni element ni isto kot minimum (in maksimalni element ni isto kot maksimum).
+\end{opomba}
+
+Kadar govorimo o ">prvem elementu"< ali ">maksimalnem elementu"< in ne povemo, na
 katero podmnožico se nanaša element, imamo običajno v mislih kar celotno delno
 ureditev.
 
-**Izrek:** Naj bo `(P, ≤)` delna urejenost in `S ⊆ P`. Tedaj ima `S` največ en
-infimum in največ en supremum, ki ju zapišemo `inf S` in `sup S`, kadar obstajata.
+\begin{izrek}
+  Naj bo $(P, {\leq})$ delna urejenost in $S \subseteq P$. Tedaj ima $S$ največ en
+  infimum in največ en supremum, ki ju zapišemo $\inf S$ ter $\sup S$, kadar obstajata.
+\end{izrek}
 
-*Dokaz.* Denimo, da sta `x` in `y` oba infimum `S`. Ker je `y` spodnja meja za
-`S` in `x` njen infimum, velja `y ≤ x`. Podobno velja `x ≤ y`, torej `x = y`. Za
-supremum je dokaz podoben. □
+\begin{dokaz}
+  Denimo, da sta $x$ in $y$ oba infimum $S$. Ker je $y$ spodnja meja za
+  $S$ in $x$ njen infimum, velja $y \leq x$. Podobno velja $x \leq y$, torej $x = y$. Za
+  supremum je dokaz podoben.
+\end{dokaz}
 
-**Primer:** Supremum končne neprazne množice `S ⊆ N` za relacijo deljivosti `|`
-je namanjši skupni večkratnik elementov iz `S`. Infimum je navečji skupni
-delitelj. Kaj pa, če je `S` prazna ali neskončna?
-
+\begin{primer}
+  Supremum končne neprazne množice $S \subseteq \NN$ za relacijo deljivosti $\mid$
+  je namanjši skupni večkratnik elementov iz $S$. Infimum je navečji skupni
+  delitelj. Kaj pa, če je $S$ prazna ali neskončna?
+\end{primer}
 
 \subsection{Mreže}
 
-**Definicija:** Naj bo `(P, ≤)` delna urejenost:
+\begin{definicija}
+  Naj bo $(P, {\leq})$ delna urejenost:
+  %
+  \begin{enumerate}
+  \item $(P, \leq)$ je \textbf{mreža}, ko imata vsaka dva elementa $x, y \in P$ infimum in supremum.
 
-1. `(P, ≤)` je **mreža**, ko imata vsaka dva elementa `x, y ∈ P` infimum in supremum.
-2. `(P, ≤)` je **omejena mreža**, ko ima vsaka končna podmnožica `P` infimum in supremum.
-3. `(P, ≤)` je **polna mreža**, ko ima vsaka podmnožica `P` infimum in supremum.
+  \item $(P, \leq)$ je \textbf{omejena mreža}, ko ima vsaka končna podmnožica $P$ infimum in supremum.
 
-Infimum in supremum elementov `x` in `y` pišemo `x ∧ y` in `x ∨ y`.
+  \item $(P, \leq)$ je \textbf{polna mreža}, ko ima vsaka podmnožica $P$ infimum in supremum.
+  \end{enumerate}
+  %
+  Infimum in supremum elementov $x$ in $y$ pišemo $x \land y$ in $x \lor y$.
+\end{definicija}
 
-**Izrek:** Delna urejenost `(P, ≤)` je omejena mreža natanko tedaj, ko ima
-najmanši in največji element, ter imata vsaka sva elementa infimum in supremum.
+\begin{izrek}
+  Delna urejenost $(P, {\leq})$ je omejena mreža natanko tedaj, ko ima
+  najmanši element in največji element, ter imata vsaka sva elementa infimum in supremum.
+\end{izrek}
 
-*Dokaz.*
+\begin{dokaz}
+  Denimo, da je $(P, \leq)$ omejana mreža. Tedaj $P$ ima najmanši element, namreč
+  $\sup \emptyset$, in največji element, namreč $\inf \emptyset$. Infimum in supremum $x$ in $y$ sta seveda $\inf \set{x, y}$ in $\sup \set{x, y}$.
 
-Denimo, da je `(P, ≤)` omejana mreža. Tedaj `P` ima najmanši element, namreč
-`sup ∅`, in največji element, namreč `inf ∅`. Infimum in supremum `x` in `y` sta
-seveda `inf {x, y}` in `sup {x, y}`.
+  Denimo, da ima $P$ najmanši element $\bot_P$ in največji element $\top_P$, vsaka dva
+  elementa pa imata infimum in supremum. Naj bo $S \subseteq P$ končna množica:
+  %
+  \begin{enumerate}
+  \item če je $S = \emptyset$, potem je $\inf S = \top_P$ in $\sup S = \bot_P$,
+  \item če je $S = \set{x_1, \ldots, x_n}$ za $n > 0$, potem je $\inf S = \inf \set{x_1, \ldots, x_{n-1}} \lor x_n$ in $\sup S = \sup \set{x_1, \ldots, x_{n-1}} \lor x_n$.
+  \end{enumerate}
+\end{dokaz}
 
-Denimo, da ima `P` najmanši element `⊥_P` in največji element `⊤_P`, vsaka dva
-elementa pa imata infimum in supremum. Naj bo `S ⊆ P` končna množica:
-
-* če je `S = ∅`, potem je `inf S = ⊤_P` in `sup S = ⊥_P`
-* če je `S = {x_1, … x_n}` za `n > 0`, potem je `inf S = (inf {x_1, …, x_n-1}) ∨ x_n` in
-  `sup S = (sup {x_1, …, x_n-1}) ∨ x_n` □
-
-\subsubsection{Primeri}
-
-* množica `2 = {⊥, ⊤}` je omejena mreža za relacijo `⇒`
-* relacija deljivosti na množici `N` je polna mreža
-* relacija deljivosti na množici pozitivnih naravnih števil je mreža
-* potenčna množica `P(A)`, urejena z `⊆`, je polna mreža
-* zaprti interval `[a,b]`, urejen z `≤`, je polna mreža
-* relna števila `R`, urejena z `≤`, so mreža
-
+\begin{primer}
+  Primeri mrež:
+  %
+  \begin{enumerate}
+  \item Množica $\two = \set{\bot, \top}$ je omejena mreža za relacijo $\lthen$.
+  \item Relacija deljivosti na množici pozitivnih naravnih števil je omejena mreža.
+  \item Potenčna množica $\pow{A}$, urejena z $\subseteq$, je polna mreža.
+  \item Zaprti interval $[a,b]$, urejen z $\leq$, je polna mreža.
+  \item Relna števila $R$, urejena z $\leq$, so mreža.
+  \end{enumerate}
+\end{primer}
