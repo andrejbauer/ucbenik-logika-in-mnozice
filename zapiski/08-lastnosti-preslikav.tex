@@ -53,7 +53,7 @@ Pojma monomorfizem in epimorfizem sta uporabna, ker nam omogočata, da \emph{kra
   %
   \begin{enumerate}
   \item Kompozicija monomorfizmov je monomorfizem.
-  \item Kompozicija epimorfizmom je epimorfizem.
+  \item Kompozicija epimorfizmov je epimorfizem.
   \item Če je $g \circ f$ monomorfizem, je $f$ monomorfizem.
   \item Če je $g \circ f$ epimorfizem, je $g$ epimorfizem.
   \end{enumerate}
@@ -119,8 +119,8 @@ Pojma monomorfizem in epimorfizem sta uporabna, ker nam omogočata, da \emph{kra
 
   \item ($\Rightarrow$) Če je $f$ izomorfizem, potem:
     %
-    je $f$ epi, ker je $id[B] = f \circ \inv{f}$ epi;
-    je $f$ mono, ker je $id[A] = \inv{f} \circ f$ mono.
+    je $f$ epi, ker je $\id[B] = f \circ \inv{f}$ epi;
+    je $f$ mono, ker je $\id[A] = \inv{f} \circ f$ mono.
 
     ($\Leftarrow$) Če je $f$ bijektivna, potem je njen inverz $\inv{f}$ definiran s predpisom
     %
@@ -140,7 +140,7 @@ Pojma monomorfizem in epimorfizem sta uporabna, ker nam omogočata, da \emph{kra
 Spoznajmo še pojem retrakcije in prereza. Na predavanjih bomo s sliko pojasnili, zakaj se tako imenujeta.
 
 \begin{definicija}
-  Če sta $f : A \to B$ in $g : B \to A$ taki preslikava, da velja $f \circ g = id[B]$, pravimo:
+  Če sta $f : A \to B$ in $g : B \to A$ taki preslikava, da velja $f \circ g = \id[B]$, pravimo:
   %
   \begin{itemize}
   \item $f$ je \textbf{retrakcija} ali \textbf{levi inverz} $g$,
@@ -206,7 +206,7 @@ Kot vidimo, lahko sliko zapišemo tudi kot izpeljano množico
   \img{f}(T) \defeq \set{ f(x) \such x \in T }.
 \end{equation*}
 %
-Običajni zapis za prasliko $\invimg{f}(S)$ je tudi $\inv{f}(S)$, vendar tega zapisa mi ne bomo uporabljali, ker napačno namiguje, da ima $f$ inverz. Boste pa ta zapis videli marsikje drugje, ker so matematiki konzervativni bitja, ki raje nekaj stoletij uporabljajo slab zapis, kot da bi spemenili svoje navade.
+Običajni zapis za prasliko $\invimg{f}(S)$ je tudi $\inv{f}(S)$, vendar tega zapisa mi ne bomo uporabljali, ker napačno namiguje, da ima $f$ inverz. Boste pa ta zapis videli marsikje drugje, ker so matematiki konzervativni bitja, ki raje nekaj stoletij uporabljajo slab zapis, kot da bi spremenili svoje navade.
 
 Običajni zapis za sliko $\img{f}(S)$ je tudi $f(S)$ ali $f[S]$. Predvsem $f(S)$ se uporablja v praksi, a tudi tega odsvetujemo. Kako naj pri takem zapisu ločimo med $f(x)$ in $\img{f}(\set{x})$?
 
@@ -248,7 +248,7 @@ Ker slikata preslikave v preslikave, pravimo, da sta to \textbf{preslikavi višj
 \end{dokaz}
 
 \begin{izrek}
-  Prasike ohranjajo preseke in unije: za vse $f : A \to B$ in $S : I \to \pow{B}$ velja
+  Praslike ohranjajo preseke in unije: za vse $f : A \to B$ in $S : I \to \pow{B}$ velja
   %
   \begin{equation*}
     \textstyle

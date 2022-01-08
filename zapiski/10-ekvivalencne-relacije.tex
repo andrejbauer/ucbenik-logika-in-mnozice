@@ -147,7 +147,7 @@ Ali je vsaka ekvivalenčna relacija porojena z neko preslikavo?
 \end{izrek}
 
 \begin{dokaz}
-  Dokažimo, da so ekvivalenčni razredi neprazni, paroma disjunktni in da tvorijo poktritje.
+  Dokažimo, da so ekvivalenčni razredi neprazni, paroma disjunktni in da tvorijo pokritje.
 
   Naj bo $\xi \in \pow{A}$ ekvivalenčni razred za $E$. Tedaj obstaja $x \in A$, da je $\xi = [x]_E$,
   torej je $x \in \xi$ in zato $\xi \neq \emptyset$.
@@ -158,14 +158,14 @@ Ali je vsaka ekvivalenčna relacija porojena z neko preslikavo?
   pa je vsak $x \in A$ v kakem ekvivalenčnem razredu, namreč $x \in [x]_E$.
 \end{dokaz}
 
-Torej vsaka ekvivalenčna relacija na $A$ določa razdelitev mnnožice $A$, namreč na
+Torej vsaka ekvivalenčna relacija na $A$ določa razdelitev množice $A$, namreč na
 ekvivalenčne razrede. Velja pa tudi obrat: vsaka razdelitev $S \subseteq \pow{A}$ določa ekvivalenčno
 relacijo na $A$, namreč $\simeq_S$ definiran s predpisom
 \begin{equation*}
     x \simeq_S y \defiff \some{B \in S} x \in B \land y \in B.
 \end{equation*}
 %
-Z besedami: $x$ in $y$ sta ekvivalentna, kadar sta v istem elementu razdelitve. Prazvzaprav
+Z besedami: $x$ in $y$ sta ekvivalentna, kadar sta v istem elementu razdelitve. Pravzaprav
 smo ugotovili, da imamo izomorfizem množic
 %
 \begin{equation*}
@@ -234,13 +234,13 @@ prerez imenujemo ">izbor predstavnikov"<.
   %
   Koliko pa je ekvivalenčnih razredov? Toliko, kot je ostankov pri deljenju s~$7$, torej sedem. Množica
   $\set{0, 1, 2, 3, 4, 5, 6}$ je izbor predstavnikov za $\sim$, saj je vsako celo število ekvivalentno natanko enemu od
-  teh števil mo modulu $7$.
+  teh števil po modulu $7$.
   %
   Ni pa to edini izbor! Tudi $\set{0, 1, 2, 3, 4, 5, 6, 13}$ je izbor in prav tako $\set{-7, -6, -5, -4, -3, -2, -1}$.
 \end{primer}
 
 Ali ima vsaka ekvivalenčna relacija izbor predstavnikov? Da to vprašanje ni tako
-enostavno, kot se zdi na prvi pogled, doma premislite o nalslednji nalogi.
+enostavno, kot se zdi na prvi pogled, doma premislite o naslednji nalogi.
 
 \begin{naloga}
   Na množici realnih števil $\RR$ definiramo relacijo $E$ s predpisom
@@ -310,7 +310,7 @@ enostavno, kot se zdi na prvi pogled, doma premislite o nalslednji nalogi.
   Opazimo še, da je $\bigcup A = Y$, torej je $c$ prerez $f$.
 \end{dokaz}
 
-Izbor prestavnikov je torej ekvivalenten še nekaterim drugim trditvam. Pa te veljajo? Za
+Izbor predstavnikov je torej ekvivalenten še nekaterim drugim trditvam. Pa te veljajo? Za
 to potrebujemo aksiom.
 
 \begin{aksiom}[Aksiom izbire]

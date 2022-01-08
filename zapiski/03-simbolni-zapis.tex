@@ -82,7 +82,7 @@ nižjo prioriteto.
 
 \begin{primer}
   Množenje $\times$ ima višjo prioriteto kot seštevanje $+$ (to je \emph{dogovor} in ne matematično dejstvo).
-  Podobno ima konjunkcija $\land$ višjo priroriteto kot disjunkcija $\lor$.
+  Podobno ima konjunkcija $\land$ višjo prioriteto kot disjunkcija $\lor$.
 \end{primer}
 
 Poleg prioritete imajo nekatere operacije tudi \textbf{asociiranost}. Kako naj razumemo izraz $8 - 3 - 2$, kot $(8 - 3) - 2$
@@ -102,7 +102,7 @@ asociiranost. Velja na primer
 %
 Morda bo kdo pripomnil, da itak velja $(A + B) + C = A + (B + C)$ in da zato ni pomembno, kako razumemo $A + B + C$. To je
 res v preprostih primerih, ko vemo, da smo s $+$ označili seštevanje števil. Kaj pa, če s $+$ označimo kako drugo
-preslikavo? Ali $(A + B) + C = A + (B + C)$ velja tudi v programiskih jezikih, pri katerih lahko pride do prekoračitve
+preslikavo? Ali $(A + B) + C = A + (B + C)$ velja tudi v programskih jezikih, pri katerih lahko pride do prekoračitve
 največjega možnega števila?
 
 Primer operacije z desno asociiranostjo je implikacija: $P \lthen Q \lthen R$ je enako $P \lthen (Q \lthen R)$.
@@ -148,7 +148,7 @@ preslikava, pogosto pišemo $a_i$ namesto $a(i)$.
 \label{sec:implicitni-argumenti}
 
 Argumente operacije lahko opustimo in od bralca pričakujemo, da bo pravilno uganil, kaj smo mislili. Pravimo, da so to
-\textbf{implicitni argumenti}. Primer implicitnih argumetov smo že videli, ko smo zapisali prvo in drugo projekcijo $\fst$ in
+\textbf{implicitni argumenti}. Primer implicitnih argumentov smo že videli, ko smo zapisali prvo in drugo projekcijo $\fst$ in
 $\snd$:
 \begin{align*}
   \fst &: A \times B \to A, \\
@@ -192,7 +192,7 @@ S preobteževanjem ne gre pretiravati, ker lahko pripelje do zmede. Običajno z 
 
 Izrazi, ki označujejo števila, se imenujejo \textbf{aritmetični izrazi}.
 
-Irazi, ki označujejo matematične izjave, se imenujejo \textbf{logični izrazi} ali \textbf{logične formule}. Razumevanje, branje in pisanje le-teh zahteva kar nekaj treninga, zato se mu bomo posvetili tu in na vajah. Pravzaprav ne bomo vadili le razumevanja zapisa, ampak tudi, kako matematiki razmišljajo in razumejo drug drugega.
+Izrazi, ki označujejo matematične izjave, se imenujejo \textbf{logični izrazi} ali \textbf{logične formule}. Razumevanje, branje in pisanje le-teh zahteva kar nekaj treninga, zato se mu bomo posvetili tu in na vajah. Pravzaprav ne bomo vadili le razumevanja zapisa, ampak tudi, kako matematiki razmišljajo in razumejo drug drugega.
 
 Tu o dokazih in pravilih dokazovanja še ne bomo govorili, bomo pa pojasnili intuitivni pomen logičnih operacij.
 
@@ -258,7 +258,7 @@ Prioriteta veznikov, od najvišje do najnižje:
   Izraz $\neg A \land B \lthen C \lor D$ beremo kot $((\neg  A) \land B) \lthen (C \lor D)$.
 \end{primer}
 
-Asociranost veznikov:
+Asociiranost veznikov:
 %
 \begin{itemize}
 \item leva asociiranost: $\land$, $\lor$, $\oplus$,
@@ -268,7 +268,7 @@ Asociranost veznikov:
 Ekvivalenca $\liff$ nima asociiranosti, zato je zapis $A \liff B \liff C$ načeloma dvoumen, a v praksi pomeni $(A \liff B) \land (B \liff C)$.
 
 \begin{opomba}
-  Tudi zapis $x = y = z$ pravzaprav ni smiselen, saj sta $(x = y) = z$ in $x = (y = z)$ oba nesmiselna. V praksi $x = y = z$ pomeni $(x = y) \land (y = z)$. Pa še to: koliko enačb je izraženih z $a = b = c = d$? Tri! Toliko kot je enačajev.
+  Tudi zapis $x = y = z$ pravzaprav ni smiseln, saj sta $(x = y) = z$ in $x = (y = z)$ oba nesmiselna. V praksi $x = y = z$ pomeni $(x = y) \land (y = z)$. Pa še to: koliko enačb je izraženih z $a = b = c = d$? Tri! Toliko kot je enačajev.
 \end{opomba}
 
 \begin{opomba}
@@ -286,7 +286,7 @@ Glede razumevanja veznikov, omenimo:
 
 \subsection{Kvantifikatorja}
 
-Matematične izjave vsebujejo fraze, kot so ">za vse"<, ">za neki"<, ">obstaja vsaj en"<, ">za natanko enega"< ipd. Le-te izrazimo s \textbf{kvantifiaktorji}. Osnovna kvantifikatorja sta \textbf{univerzalni} in \textbf{eksistenčni}.
+Matematične izjave vsebujejo fraze, kot so ">za vse"<, ">za neki"<, ">obstaja vsaj en"<, ">za natanko enega"< ipd. Le-te izrazimo s \textbf{kvantifikatorji}. Osnovna kvantifikatorja sta \textbf{univerzalni} in \textbf{eksistenčni}.
 
 
 \subsubsection{Univerzalni kvantifikator $\forall$}
@@ -337,7 +337,7 @@ S tem povemo, da obstaja \emph{eden ali več} takih~$x$. Na primer, izjava $\som
 
 \subsubsection{Prioriteta $\forall$ in $\exists$}
 
-Prioriteta kvantifikatorjev $\forall$ in $\exists$ je nižja od prioritete veznkov. Na primer:
+Prioriteta kvantifikatorjev $\forall$ in $\exists$ je nižja od prioritete veznikov. Na primer:
 %
 \begin{itemize}
 \item $\all{x \in A} \phi \land \psi$ je enako $\all{x \in A} (\phi \land \psi)$,
@@ -422,7 +422,7 @@ Pri tretjem načinu smo predstavili pozitivnost kot dodatni pogoj.
 
 \subsubsection{Vezane in proste spremenljivke}
 
-V nekaterih izrazih nastopajo spremenljivke, ki so \textbf{vezane}. To pomeni, da je njihovo območje veljavnosti imejeno,
+V nekaterih izrazih nastopajo spremenljivke, ki so \textbf{vezane}. To pomeni, da je njihovo območje veljavnosti omejeno,
 oziroma da so neke vrste ">lokalne spremenljivke"<. Spremenljivka, ki ni vezana, je \textbf{prosta}. Primeri:
 %
 \begin{itemize}
@@ -433,7 +433,7 @@ oziroma da so neke vrste ">lokalne spremenljivke"<. Spremenljivka, ki ni vezana,
 \item V formuli $\all{x \in \RR} x^3 + 3 x < 7$ je $x$ vezana spremenljivka.
 \end{itemize}
 
-Če vezano spremenljivko preimenujemo, se izraz ne spremeni. Funkcijska predpisa $x \mapsto a \cdot x^2 + 1$ in $y \mapsto y \cdot y^2 + 1$ sta \emph{enaka}. Vendar pozor, če vezano spremenljivko preimenujemo, za novo ime \emph{ne} smemo izbrati spremnljivke, ki se že pojavlja. Na primer, v integralu
+Če vezano spremenljivko preimenujemo, se izraz ne spremeni. Funkcijska predpisa $x \mapsto a \cdot x^2 + 1$ in $y \mapsto y \cdot y^2 + 1$ sta \emph{enaka}. Vendar pozor, če vezano spremenljivko preimenujemo, za novo ime \emph{ne} smemo izbrati spremenljivke, ki se že pojavlja. Na primer, v integralu
 %
 \begin{equation*}
   \int_0^1 (a + x)^2 \, d x

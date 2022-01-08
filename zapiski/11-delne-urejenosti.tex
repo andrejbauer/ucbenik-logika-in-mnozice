@@ -6,7 +6,7 @@
   %
   \begin{enumerate}
   \item \textbf{šibka urejenost}, ko je refleksivna in tranzitivna,
-  \item \textbf{delna urejenost}, ko je refleksiva, tranzitivna in antisimetrična,
+  \item \textbf{delna urejenost}, ko je refleksivna, tranzitivna in antisimetrična,
   \item \textbf{linearna urejenost}, ko je delna urejenost in je sovisna ($\all{x, y \in A} x \rel{R} y \lor y \rel{R} x$).
   \end{enumerate}
 \end{definicija}
@@ -151,7 +151,7 @@ in druga \textbf{leksikografska} urejenost
   $(x_1 \neq x_3 \land x_1 \leq_P x_3) \lor (x_1 = x_3 \land y_1 \leq_Q y_3)$:
   %
   \begin{enumerate}
-  \item Če velja $x_1 \neq x_2 \land x_1 \leq_P x_2 \land x_2 \neq x_3 \land x_2 \leq_P x_3$: ker je $\leq$ tranzitivna sledi $x_1 \leq_P x_3$, poleg tega pv velja $x_1 \neq
+  \item Če velja $x_1 \neq x_2 \land x_1 \leq_P x_2 \land x_2 \neq x_3 \land x_2 \leq_P x_3$: ker je $\leq$ tranzitivna sledi $x_1 \leq_P x_3$, poleg tega pa velja $x_1 \neq
     x_3$: če bi veljalo $x_1 = x_3$, bi iz predpostavk dobili $x_3 \leq_P x_2 \land x_2 \leq_P x_3$, od koder bi sledilo $x_2 = x_3$, kar je v
     protislovju s predpostavko $x_2 \neq x_3$.
 
@@ -312,19 +312,19 @@ Torej je $\preceq$ dobro definirana.
 \end{opomba}
 
 \begin{izrek}
-  Kompozicija monotonih preslikav je monotona. Identita je monotona.
+  Kompozicija monotonih preslikav je monotona. Identiteta je monotona.
 \end{izrek}
 
 \begin{dokaz}
   Naj bosta $f : P \to Q$ in $g : Q \to R$ monotoni preslikavi med delnimi
-  urejenostmi $(P, {\leq_P})$, $(Q, {\leq_Q})$ in $(R, {\leq_R})$. Če je $x \leq_P y$, potem je zaradi monotonisti $f$ tudi $f(x) \leq_Q f(y)$, nato pa je zaradi monotonisti $g$ spet $g(f(x)) \leq_R g(f(y))$. Identiteta je očitno monotona.
+  urejenostmi $(P, {\leq_P})$, $(Q, {\leq_Q})$ in $(R, {\leq_R})$. Če je $x \leq_P y$, potem je zaradi monotonosti $f$ tudi $f(x) \leq_Q f(y)$, nato pa je zaradi monotonosti $g$ spet $g(f(x)) \leq_R g(f(y))$. Identiteta je očitno monotona.
 \end{dokaz}
 
 \begin{primer}
   Primeri monotonih preslikav:
   \begin{enumerate}
     \item Konstantna preslikava je monotona.
-    \item Seštvanje ${+} : \RR \times \RR \to \RR$ je monotona operacija glede na produktno ureditev na $\RR \times \RR$.
+    \item Seštevanje ${+} : \RR \times \RR \to \RR$ je monotona operacija glede na produktno ureditev na $\RR \times \RR$.
     \item Množenje ${\times} : \RR \times \RR \to \RR$ ni monotona operacija.
   \end{enumerate}
 \end{primer}
@@ -350,7 +350,7 @@ Torej je $\preceq$ dobro definirana.
   \item $x$ je \textbf{maksimalni element} podmnožice $S$, ko velja $x \in s$ in
       $\all{x \in S} x \leq y \lthen x = y$,
 
-  \item $x$ je \textbf{najmnanjši} ali \textbf{prvi} element ali \textbf{minimum} podmnožice $S$, ko velja $x \in S$ in $\all{y \in S} x \leq y$,
+  \item $x$ je \textbf{najmanjši} ali \textbf{prvi} element ali \textbf{minimum} podmnožice $S$, ko velja $x \in S$ in $\all{y \in S} x \leq y$,
 
   \item $x$ je \textbf{največji} ali \textbf{zadnji} element ali \textbf{maksimum} podmnožice $S$, ko velja $x \in S$ in $\all{y \in S} y \leq x$.
 \end{itemize}
@@ -377,7 +377,7 @@ ureditev.
 
 \begin{primer}
   Supremum končne neprazne množice $S \subseteq \NN$ za relacijo deljivosti $\mid$
-  je namanjši skupni večkratnik elementov iz $S$. Infimum je navečji skupni
+  je najmanjši skupni večkratnik elementov iz $S$. Infimum je največji skupni
   delitelj. Kaj pa, če je $S$ prazna ali neskončna?
 \end{primer}
 
@@ -399,14 +399,14 @@ ureditev.
 
 \begin{izrek}
   Delna urejenost $(P, {\leq})$ je omejena mreža natanko tedaj, ko ima
-  najmanši element in največji element, ter imata vsaka sva elementa infimum in supremum.
+  najmanjši element in največji element, ter imata vsaka sva elementa infimum in supremum.
 \end{izrek}
 
 \begin{dokaz}
-  Denimo, da je $(P, \leq)$ omejana mreža. Tedaj $P$ ima najmanši element, namreč
+  Denimo, da je $(P, \leq)$ omejena mreža. Tedaj $P$ ima najmanjši element, namreč
   $\sup \emptyset$, in največji element, namreč $\inf \emptyset$. Infimum in supremum $x$ in $y$ sta seveda $\inf \set{x, y}$ in $\sup \set{x, y}$.
 
-  Denimo, da ima $P$ najmanši element $\bot_P$ in največji element $\top_P$, vsaka dva
+  Denimo, da ima $P$ najmanjši element $\bot_P$ in največji element $\top_P$, vsaka dva
   elementa pa imata infimum in supremum. Naj bo $S \subseteq P$ končna množica:
   %
   \begin{enumerate}
@@ -423,6 +423,6 @@ ureditev.
   \item Relacija deljivosti na množici pozitivnih naravnih števil je omejena mreža.
   \item Potenčna množica $\pow{A}$, urejena z $\subseteq$, je polna mreža.
   \item Zaprti interval $[a,b]$, urejen z $\leq$, je polna mreža.
-  \item Relna števila $R$, urejena z $\leq$, so mreža.
+  \item Realna števila $R$, urejena z $\leq$, so mreža.
   \end{enumerate}
 \end{primer}

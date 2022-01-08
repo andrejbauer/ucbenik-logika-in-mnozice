@@ -2,9 +2,9 @@
 
 \section{Enolični obstoj}
 
-\subsection{Kvantifikator za enolični obstoj $\exists!$}
+\subsection{Kvantifikatorje za enolični obstoj $\exists!$}
 
-S kvantifikatorjema $\forall$ in $\exists$ lahko izrazimo tudi druge kvantifikatorje.
+S kvantifikatorje $\forall$ in $\exists$ lahko izrazimo tudi druge kvantifikatorje.
 Na primer, ">obstajata vsaj dva elementa $x$ in $y$ iz $A$, da velja $\phi(x,y)$"< zapišemo
 %
 \begin{equation*}
@@ -36,7 +36,7 @@ Uporablja se tudi zapis $\exists^1 x \in A \,.\, \phi(x)$.
 \item ">tista množica $S$, ki nima nobenega elementa"<, namreč prazna množica.
 \end{itemize}
 %
-Protiprimeri:
+Proti-primeri:
 %
 \begin{itemize}
 \item ">tisto racionalno število $x$, za katero je $x² = 2$"<, saj takega števila ni,
@@ -66,7 +66,7 @@ Torej velja
 Spremenljivka $x$ je \emph{vezana} v $\descr{x \in A} \phi(x)$.
 
 \begin{primer}
-  Denimo, da še ne bi poznali simbola $\sqrt{}$ za kvadatne korene. Tedaj bi
+  Denimo, da še ne bi poznali simbola $\sqrt{}$ za kvadratne korene. Tedaj bi
   lahko kvadratni koren iz $2$ zapisali kot
   %
   \begin{equation*}
@@ -95,7 +95,7 @@ Spremenljivka $x$ je \emph{vezana} v $\descr{x \in A} \phi(x)$.
 
 \section{Spremenljivke in definicije}
 
-Preden v matematičnem ebsedilu uporabimo simbol ali spremenljivko, ga moramo \emph{vpeljati}. To pomeni, da moramo pojasniti, kakšen je pomen simbola. Poznamo dva osnovna načina za vpeljavo novih simbolov:
+Preden v matematičnem besedilu uporabimo simbol ali spremenljivko, ga moramo \emph{vpeljati}. To pomeni, da moramo pojasniti, kakšen je pomen simbola. Poznamo dva osnovna načina za vpeljavo novih simbolov:
 %
 \begin{itemize}
 \item \item Nov simbol $s$ lahko \textbf{definiramo} kot okrajšavo za neki drugi izraz ali logično formulo.
@@ -108,7 +108,7 @@ Matematiki zapisujejo definicije in vpeljujejo spremenljivke na razne načine.
 
 \subsection{Vpeljava spremenljivke}
 
-Če želimo vpeljati spremljivko $x$, ki predstavlja neki poljuben ali neznani element množice $A$, zapišemo
+Če želimo vpeljati spremenljivko $x$, ki predstavlja neki poljuben ali neznani element množice $A$, zapišemo
 %
 \begin{quote}
   Naj bo $x \in A$.
@@ -198,7 +198,7 @@ Kaj pa definicije novih pojmov, ki jih srečujete pri predavanjih, denimo pri an
 \end{definicija}
 
 \noindent
-S stališča simbolnega zapisa, je to le uveba novega simbola $\mathsf{neomejeno}$:
+S stališča simbolnega zapisa, je to le uvedba novega simbola $\mathsf{neomejeno}$:
 %
 \begin{equation*}
   \mathsf{neomejeno}(a) \defeq (\all{x \in \RR} \some{i \in \NN} a_i > x).
@@ -209,7 +209,7 @@ Seveda bistvo take definicije ni le krajši zapis izjave $\all{x \in \RR} \some{
 
 \section{Konstrukcije in dokazi}
 
-zivedokMatematiki v sklopu svojih aktivnosti \emph{konstruiramo} matematične objekte:
+Matematiki v sklopu svojih aktivnosti \emph{konstruiramo} matematične objekte:
 %
 \begin{itemize}
 \item v geometriji so znane konstrukcije z ravnilom in šestilom,
@@ -218,20 +218,20 @@ zivedokMatematiki v sklopu svojih aktivnosti \emph{konstruiramo} matematične ob
 \item konstruiramo lahko elemente množice, pogosto kar tako, da jih zapišemo, na primer $(2, \inl(3)) \in \NN \times (\ZZ + \ZZ)$.
 \end{itemize}
 
-Poleg tega \emph{dokazujemo} matematične izjave. Na dokaz lahko gledamo kot na konstrukcijo, saj je to le še ena zvrst matematičnega objekta. Ker pa so dokazi skoraj vedno zapisani v naravnem jeziku, jih matematiki pogosto dojemajo ločeno od ostalih matematičnih objekotv (števila, preslikave, množice, ploskve, \dots).
+Poleg tega \emph{dokazujemo} matematične izjave. Na dokaz lahko gledamo kot na konstrukcijo, saj je to le še ena zvrst matematičnega objekta. Ker pa so dokazi skoraj vedno zapisani v naravnem jeziku, jih matematiki pogosto dojemajo ločeno od ostalih matematičnih objektov (števila, preslikave, množice, ploskve, \dots).
 
 Kaj pravzaprav je dokaz? V prvi vrsti je dokaz utemeljitev matematične izjave. Zgrajen je po točno določenih \emph{pravilih sklepanja}, ki jih lahko podamo formalno in jih tudi implementiramo na računalniku.\footnote{Kogar to zanima, si lahko ogleda ">\href{https://youtu.be/Z500sma3h90}{The dawn of formalized mathematics}"< (\href{https://www.icloud.com/keynote/0Gkr1yM7XY-31aQleWf-fiW7A}{prosojnice}) in se nauči uporabljati kak  \href{https://ncatlab.org/nlab/show/proof+assistant}{dokazovalni pomočnik} (v zadnjem času hitro napreduje \href{https://leanprover.github.io}{Lean}).
 }
 
-V praksi ljudje ne pišejo vseh podrobnosti v dokazu, ker bi bil tak dokaz nečitljiv in nerazumljiv. Pogosto podajo samo glavno idejo, iz katere lahko izkušeni matematik sam rekonstruira dokaz. Iz dobro napisanega dokaza se lahko naučimo marsikaj novega, poleg goleda dejstva, da dokaza izjava velja.
+V praksi ljudje ne pišejo vseh podrobnosti v dokazu, ker bi bil tak dokaz nečitljiv in nerazumljiv. Pogosto podajo samo glavno idejo, iz katere lahko izkušeni matematik sam rekonstruira dokaz. Iz dobro napisanega dokaza se lahko naučimo marsikaj novega, poleg golega dejstva, da dokaza izjava velja.
 
-Mi bomo vadili podrobno pisanje dokazov. Pri ostalih predmetih boste videli ">žive dokaze"<, ki imajo manj podrobnosti in so zapisani manj formalno. A vsi pravilni matematični dokazi se dajo zapisati na način, kot ga bomo predstavili mi (in celo zapisati povsem formalon z dokazovalnim pomočnikom).
+Mi bomo vadili podrobno pisanje dokazov. Pri ostalih predmetih boste videli ">žive dokaze"<, ki imajo manj podrobnosti in so zapisani manj formalno. A vsi pravilni matematični dokazi se dajo zapisati na način, kot ga bomo predstavili mi (in celo zapisati povsem formalno z dokazovalnim pomočnikom).
 
 \subsection{Kako pišemo dokaze}
 
 Pravila sklepanja so kot pravila igre. Ne povedo, kako dobro igrati, samo kaj je dovoljeno. Seveda bomo hkrati s pravili sklepanja povedali nekaj namigov in nasvetov, kako dokaz poiščemo. A kot pri vsaki igri velja, da vaja dela mojstra.
 
-Dokaz ima vgnezdeno strukturo: sestoji iz delov in pod-dokazov, ki sestojijo iz nadaljnih pod-dokazov itn., ki se zaključijo z osnovnimi dejstvi. Vsi ti kosi so s pomočjo pravil sklepanja zloženi v dokazno ">drevo"<.
+Dokaz ima ugnezdeno strukturo: sestoji iz delov in pod-dokazov, ki sestoje iz nadaljnjih pod-dokazov itn., ki se zaključijo z osnovnimi dejstvi. Vsi ti kosi so s pomočjo pravil sklepanja zloženi v dokazno ">drevo"<.
 
 Ko pišemo dokaz, moramo v vsakem trenutku poznati
 %
@@ -241,7 +241,7 @@ Ko pišemo dokaz, moramo v vsakem trenutku poznati
 \end{itemize}
 %
 Ko napravimo korak v dokazu, mora biti utemeljen z enim od pravil sklepanja. Dokaz je
-popoln, ko smo utemeljili vse poddokaze, ki ga sestavljajo. Kot primer si poglejmo zelo podroben dokaz izjave
+popoln, ko smo utemeljili vse pod-dokaze, ki ga sestavljajo. Kot primer si poglejmo zelo podroben dokaz izjave
 %
 $(p \lor q) \land r \lthen (p \land r) \lor (q \land r)$.
 
@@ -299,8 +299,8 @@ Dokaz je skupek računskih korakov in sklepov, s katerimi utemeljimo izjavo. V v
 trenutku mora biti jasno, kaj dokazujemo, katere spremenljivke so veljavne in katere
 predpostavke so na voljo.
 %
-Nekateri deli dokaza so samostojni poddokazi pomožnih izjav. Vse spremenljivke in
-predpostavke, ki jih uvedemo v poddokazu, so na voljo izključno v poddokazu samem.
+Nekateri deli dokaza so samostojni pod-dokazi pomožnih izjav. Vse spremenljivke in
+predpostavke, ki jih uvedemo v pod-dokazu, so na voljo izključno v pod-dokazu samem.
 
 \subsection{Pravila vpeljave}
 \label{sec:pravila-vpeljave}

@@ -51,7 +51,7 @@ veljalo $f(x) \in \emptyset$, kar pa ni res. Torej take preslikave ni.
 
 Spoznajmo nekaj osnovnih preslikav in operacij na preslikavah.
 
-\textbf{Identiteta} na $A$ je preslikava $id[A] : A \to A$, podana s predpisom $x \mapsto x$.
+\textbf{Identiteta} na $A$ je preslikava $\id[A] : A \to A$, podana s predpisom $x \mapsto x$.
 
 \textbf{Kompozitum} preslikav
 %
@@ -89,7 +89,7 @@ torej želena\footnote{Piše se ">želen"< in ne ">željen"<, ker je ">želen"< 
 \begin{equation*}
   \id[B] \circ f = f
   \iinn
-  f \circ id[A] = f.
+  f \circ \id[A] = f.
 \end{equation*}
 %
 To preverimo z uporabo ekstenzionalnosti za funkcije: za vsak $x \in A$ velja
@@ -100,10 +100,10 @@ To preverimo z uporabo ekstenzionalnosti za funkcije: za vsak $x \in A$ velja
 %
 in
 \begin{equation*}
-  (f \circ id[A])(x) = f (id[A](x)) = f(x).
+  (f \circ \id[A])(x) = f (\id[A](x)) = f(x).
 \end{equation*}
 %
-Kompizicija $\circ$ in identiteta $id$ se torej obnašata podobno kot nekatere operacije v algebri, na primer $+$ in $0$ ter $×$ in $1$.
+Kompozicija $\circ$ in identiteta $\id$ se torej obnašata podobno kot nekatere operacije v algebri, na primer $+$ in $0$ ter $×$ in $1$.
 
 \begin{naloga}
   Seštevanje je komutativno, velja $a + b = b + a$. Ali je kompozicija preslikav tudi komutativna?
@@ -138,7 +138,7 @@ lahko bolj čitljivo podamo s predpisom
 \end{primer}
 
 \begin{primer}
-  Seveda lahko podobno podajamo tudi preslikave na zmnožkih večih množic, denimo
+  Seveda lahko podobno podajamo tudi preslikave na zmnožkih več množic, denimo
   %
   \begin{align*}
   A \times B \times C &\to A \times A \\
@@ -169,7 +169,7 @@ $\inl{x}$ za enolično določeni $x \in A$, bodisi oblike $\inr{y}$ za enolično
     \inr{y} &\mapsto y + 3
   \end{align*}
   %
-  Seveda lahko podobno podajamo tudi preslikave na vsotah večih preslikav:
+  Seveda lahko podobno podajamo tudi preslikave na vsotah več preslikav:
   %
   \begin{align*}
     A + B + C &\to \{u, v\} \\
@@ -201,7 +201,7 @@ in
   (\inr{b}, c) &\mapsto 1
 \end{align*}
 %
-Izraz na levi strani $\mapsto$ sestoji iz vezanih spremelnjivk in operacij, s katerimi gradimo elemente množic (urejeni par, kanonična injekcija). Imenuje se tudi \textbf{vzorec}. Predpis je podan pravilno, če so vzorci napisani tako, da vsak element domene ustreza natanko enemu vzorcu.
+Izraz na levi strani $\mapsto$ sestoji iz vezanih spremenljivk in operacij, s katerimi gradimo elemente množic (urejeni par, kanonična injekcija). Imenuje se tudi \textbf{vzorec}. Predpis je podan pravilno, če so vzorci napisani tako, da vsak element domene ustreza natanko enemu vzorcu.
 %
 S tem zagotovimo, da predpis obravnava vse možne primere (celovitost) in da ne obravnava nobenega primera večkrat (enoličnost).
 
@@ -298,7 +298,7 @@ Pravzaprav je to izomorfizem, katerega inverz je ">uncurrying"<:
 \end{align*}
 
 
-\section{Izomorfizmi in artimetika množic}
+\section{Izomorfizmi in aritmetika množic}
 
 \subsection{Inverz}
 
@@ -355,12 +355,12 @@ Ali znate utemeljiti vsakega od zgornjih korakov?
 Če je $f : A \to B$ izomorfizem, potem ima natanko en inverz $B \to A$, ki ga označimo $\inv{f}$.
 
 \begin{primer}
-  Identiteta $id[A] : A \to A$ je izomorfizem, saj je sama sebi inverz.
-  Torej $\inv{id[A]} = \id[A]$.
+  Identiteta $\id[A] : A \to A$ je izomorfizem, saj je sama sebi inverz.
+  Torej $\inv{\id[A]} = \id[A]$.
 \end{primer}
 
 \begin{primer}
-  Eksponentna preslikava $\exp : \RR \to \RR_{> 0}$, $exp : x \mapsto e^x$ je
+  Eksponentna preslikava $\exp : \RR \to \RR_{> 0}$, $\exp : x \mapsto e^x$ je
   izomorfizem, njen inverz je naravni logaritem $\ln : \RR_{> 0} \to \RR$, torej $\inv{\exp} = \ln$.
 \end{primer}
 
@@ -407,7 +407,7 @@ Ali znate utemeljiti vsakega od zgornjih korakov?
 \begin{dokaz}
   %
   \begin{enumerate}
-     \item $id[A]$ je izomorfizem $A \to A$,
+     \item $\id[A]$ je izomorfizem $A \to A$,
      \item če je $f : A \to B$ izomorfizem, potem je tudi $\inv{f} : B \to A$ izomorfizem,
      \item če je $f : A \to B$ izomorfizem in $g : B \to C$ izomorfizem, potem je $g \circ f : A \to C$ izomorfizem.
   \end{enumerate}
@@ -425,7 +425,7 @@ Ali znate utemeljiti vsakega od zgornjih korakov?
 \subsection{Aritmetika množic}
 
 Veljajo naslednji izomorfizmi, ki nas seveda spomnijo na zakone aritmetike, ki
-veljajo za števila. Ali gre tu za kako globjo povezavo?
+veljajo za števila. Ali gre tu za kako globljo povezavo?
 %
 \begin{enumerate}
 \item Vsota in $\emptyset$:

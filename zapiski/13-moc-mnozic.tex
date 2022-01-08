@@ -79,7 +79,7 @@ Pravilo vključitve in izključitve za tri množice se glasi
 \end{equation*}
 
 \begin{naloga}
-  Zapišite pravilo vključitve in izključitv za unijo $A_1 \cup A_2 \cup \cdots \cup A_n$.
+  Zapišite pravilo vključitve in izključitve za unijo $A_1 \cup A_2 \cup \cdots \cup A_n$.
 \end{naloga}
 
 
@@ -98,7 +98,7 @@ Pravilo vključitve in izključitve za tri množice se glasi
 ($\lthen$)
 %
 Denimo, da $A$ ni končna.
-Injektivno preslikavo $e : \NN \to A$ definiramo s pomočjo akisoma odvisne izbire.
+Injektivno preslikavo $e : \NN \to A$ definiramo s pomočjo aksioma odvisne izbire.
 Ker $A$ ni izomorfna $[0]$, ni prazna, torej obstaja $e(0) \in A$.
 Denimo, da smo že definirali $e$ kot injektivno preslikavo $[n] \to A$.
 Tedaj jo lahko razširimo na injektivno preslikavo $e : [n+1] \to A$ takole: ker $e$ ni surjektivna (če bi bila, bi veljalo $A \iso [n]$ in $A$ bi bila končna), obstaja $x \in A$, ki ni v sliki $e$.
@@ -195,7 +195,7 @@ Moči množic lahko primerjamo med seboj, čeprav ne vemo, kaj točno naravna š
 \begin{dokaz}
   Najprej dokažimo $|A| \leq |\pow{A}|$. Iščemo injektivno preslikava $f : A \to \pow{A}$. Vzemimo $f(x) = \{x\}$. Zlahka preverimo, da je $f$ res injektivna.
 
-  Sedaj dokazujemo, da ne obstaja bijekcija $A \to \pow{A}$. Dokazali bomo, da ne obstaja surjekcija $A \to \pow{A}$, kar zadostuje. Denimo, da je $g : A \to \pow{A}$ poljbuna preslikava. Trdimo, da $g$ ni surjekcija. Res, podmnožica
+  Sedaj dokazujemo, da ne obstaja bijekcija $A \to \pow{A}$. Dokazali bomo, da ne obstaja surjekcija $A \to \pow{A}$, kar zadostuje. Denimo, da je $g : A \to \pow{A}$ poljubna preslikava. Trdimo, da $g$ ni surjekcija. Res, podmnožica
   %
   \begin{equation*}
     S = \set{x \in A \mid x \not\in g(x) }
@@ -230,7 +230,7 @@ Moč množice $\NN$ označimo z $\aleph_0$.
   \item obstaja injektivna preslikava $A \to \NN$,
   \item $A$ je prazna ali obstaja surjektivna preslikava $\NN \to A$,
   \item obstaja surjektivna preslikava $\NN \to \one + A$,
-  \item $A$ je končna ali izmoforna $\NN$.
+  \item $A$ je končna ali izomorfna $\NN$.
   \end{enumerate}
 \end{izrek}
 
@@ -270,8 +270,8 @@ $(4 \lthen 5)$
 Denimo, da obstaja surjektivna preslikava $r : \NN \to \one + A$.
 Dokazali bomo, da je $A$ izomorfna $\NN$, če ni končna.
 Predpostavimo torej, da $A$ ni končna.
-Preslikva $r$ ima prerez $s : \one + A \to \NN$, ki je seveda injektivna preslikava.
-Preslikva $s \circ \inr : A \to \NN$ je kompozitum injektivnih preslikav, zato je injektivna.
+Preslikava $r$ ima prerez $s : \one + A \to \NN$, ki je seveda injektivna preslikava.
+Preslikav $s \circ \inr : A \to \NN$ je kompozitum injektivnih preslikav, zato je injektivna.
 Ker $A$ ni končna, obstaja tudi injektivna preslikava $\NN \to A$.
 Po izreku Cantor-Schröder-Bernstein, ki ga bomo dokazali spodaj, je torej $A$ izomorfna $\NN$.
 
@@ -364,7 +364,7 @@ $(5 \lthen 1)$
     $y = g(f(x)) \in C_{n+1} \subseteq D$, kar je v protislovju z
     $y \in A \setminus D$. Torej se ta primer sploh ne more zgoditi.
   \item Če je $x \in A \setminus D$ in $y \in D$, je razmislek kot v prejšnjem
-    primru, le da zamenjamo vlogi~$x$ in~$y$.
+    primeru, le da zamenjamo vlogi~$x$ in~$y$.
   \end{enumerate}
 
   Preveriti moramo še, da je $h$ surjektivna preslikava. Naj bo $z \in B$.
@@ -409,7 +409,7 @@ Relacija $\leq$ torej uredi moči množic linearno.
 
 \subsection{Moč kontinuuma in Cantorjeva hipoteza}
 
-Na vajah boste spoznali, da ima množica realnih števil $\RR$ enako moč kot potenčna množica $\pow(\NN)$. Moči $\RR$ in $\pow{\NN}$ pravimo \textbf{moč kontinuuma} (ker je ">kontinuum"< tudi staro ime za $\RR$). Že Georg Cantor, utemelitelj teorije množic, je postavil naslednji domnevo:
+Na vajah boste spoznali, da ima množica realnih števil $\RR$ enako moč kot potenčna množica $\pow(\NN)$. Moči $\RR$ in $\pow{\NN}$ pravimo \textbf{moč kontinuuma} (ker je ">kontinuum"< tudi staro ime za $\RR$). Že Georg Cantor, utemeljitelj teorije množic, je postavil naslednji domnevo:
 %
 \begin{quote}
   \emph{\textbf{Cantorjeva hipoteza} Vsaka neštevna podmnožica realnih števil je izomorfna $\RR$.}
@@ -429,7 +429,7 @@ Pravimo, da je Cantorjeva hipoteza \emph{neodvisna} od aksiomov teorije množic.
   Če je $|A| \leq |B| \leq |\pow{A}|$, potem je $|B| = |A|$ ali $|B| = |\pow{A}|$.
 \end{quote}
 %
-Tudi posplošena Cantorjeva hipoteza je nedovisna od aksiomov teorije množic.
+Tudi posplošena Cantorjeva hipoteza je neodvisna od aksiomov teorije množic.
 Danes vemo zelo veliko o tej hipotezi in poznamo še mnoge druge izjave o množicah, ki so neodvisne od Zermelo-Fraenkelovih aksiomov teorije množic.
-Ti veljajo za nekakšno uradno različičo teorije množic in jih bomo obravnavali na naslednjih predavanjih.
+Ti veljajo za nekakšno uradno različico teorije množic in jih bomo obravnavali na naslednjih predavanjih.
 
