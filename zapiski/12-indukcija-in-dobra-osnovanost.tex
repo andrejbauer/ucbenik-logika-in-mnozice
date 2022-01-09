@@ -521,7 +521,7 @@ Tako lahko prehajamo med delno in strogo urejenostjo.
 \label{sec:ordinalna-tevila}
 
 Dobra urejenost na množici~$A$ postavi njene elemente v vrsto (strogo linearno urejenost), ki nima padajočih verig.
-Končno množico lahko dobro uredimo na več načinov, na primer elemente $\set{0, 1, 2, \ldots, n-1}$ lahko postavimo v vrsto na $n!$ načinov. Množico vseh naravnih števil lahko postavimo v vrsto brez padajočih verig vsaj na trie načine,
+Končno množico lahko dobro uredimo na več načinov, na primer elemente $\set{0, 1, 2, \ldots, n-1}$ lahko postavimo v vrsto na $n!$ načinov. Množico vseh naravnih števil lahko postavimo v vrsto brez padajočih verig vsaj na tri načine,
 %
 \begin{equation*}
   0, 1, 2, 3, 4, 5, \ldots, n, n + 1, \ldots
@@ -539,7 +539,7 @@ in
   0, 2, 4, 6, 8, \ldots, 1, 3, 4, 5, \ldots
 \end{equation*}
 %
-Zdi se, da sta prvi in drugi način ">isti tip"< urejenosti da se razlikujeta od tretja. Res, v tretji vrsti stoji  element, namreč $1$, ki ima neskončno predhodnikov. Takega elementa v prvi in drugi vrsti ni. Govorimo o naslednjem pojmu.
+Zdi se, da sta prvi in drugi način ">isti tip"< urejenosti in se razlikujeta od tretjega. Res, v tretji vrsti ima $1$ neskončno predhodnikov, v prvi in drugi pa takega elementa ni. Govorimo o naslednjem pojmu.
 
 \begin{definicija}
   Dobri ureditvi $(P, {\leq_P})$ in $(Q, {\leq_Q})$ \textbf{izomorfni}, če obstajata monotoni preslikavi $f : P \to Q$ in $Q \to P$, da velja $f \circ g = \id[Q]$ in $g \circ f = \id[P]$.
@@ -589,9 +589,62 @@ Poglejmo, kako deluje njegova ideja:
   Kako bi si predstavljali naslednje ordinale: $\omega + \omega + \omega$, $\omega \cdot \omega$, $\omega^3$, $\omega^\omega$?
 \end{naloga}
 
+Von Neumann je imel pravo idejo, a pušča kanček dvoma, ker je definicija ordinalnega števila \emph{rekurzivna} (se nanaša sama nase). Če se malce potrudimo, da lahko von Neumannove ordinale opredelimo neposredno.
 
-Brez dokaza navedimo, da von Neumannovi ordinali res so izbor predstavnikov za dobre urejenosti.
+\begin{definicija}
+  Množica $z$ je \textbf{tranzitivna}, če iz $x \in y$ in $y \in z$ sledi $x \in z$.
+\end{definicija}
+
+\noindent
+%
+Poimenovanje je smiselno, saj je pogoj v definiciji ravno tranzitivnost relacije~$\in$.
+Ekvivalentno lahko pogoj izrazimo takole: množica $z$ je tranzitivna, če iz $y \in z$ sledi $y \subseteq z$.
+
+\begin{primer}
+  Množica $\set{\emptyset, \set{\emptyset}, \set{\set{\emptyset}}}$ je tranzitivna, niso pa vsi njeni elementi tranzitivne množice, saj $\set{\set{\emptyset}}$ ni tranzitivna, ker $\emptyset \in \set{\emptyset} \in \set{\set{\emptyset}}$ vendar $\emptyset \not\in \set{\set{\emptyset}}$.
+\end{primer}
+
+\begin{naloga}
+  Dokažite, da so ekvivalentni pogoji:
+  %
+  \begin{enumerate}
+  \item $A$ je tranzitivna množica,
+  \item $\bigcup A \subseteq A$,
+  \item $A \subseteq \pow{A}$.
+  \end{enumerate}
+\end{naloga}
+
+Sedaj lahko zapišemo definicijo von Neumannovih ordinalov, ki ni rekurzivna.
+
+\begin{definicija}
+  \label{def:von-neuman-ordinal}
+  \textbf{(Von Neumannov) ordinal} je tranzitivna množica, ki je z relacijo $\in$ dobro urejena.
+\end{definicija}
+
+Razred vseh von Neumannovih ordinalov označimo z $\On$ (v angleščini ">ordinal number"<). To je pravi razred, česar ne bomo dokazali. Kogar zanima dokaz, naj poišče ">Burali-Fortijev paradoks"<, ki je celo starejši od Russellovega paradoksa.
+
+\begin{naloga}
+  Poiščite množico, ki \emph{ni} tranzitivna in je dobro urejena z relacijo $\in$.
+\end{naloga}
+
+Ali definicija~\ref{def:von-neuman-ordinal} res sovpada z idejo, da je ordinal množica svojih prednikov? To potrjuje naslednja izjava.
+
+\begin{izjava}
+  Če je $\alpha$ ordinal in $\beta \in \alpha$, potem je $\beta$ ordinal.
+\end{izjava}
+
+\begin{dokaz}
+  Ker je $\alpha$ tranzitivna množica, je $\beta \subseteq \alpha$, zato je $\beta$ z relacijo~$\in$ dobro urejen. Dokazati moramo še, da je $\beta$ tranzitivna množica. Denimo, da je $\gamma \in \beta$.
+  Tedaj je $\gamma \in \alpha$ in ker je $\alpha$ z $\in$ linearno urejen, velja bodisi $\gamma \in \beta$ bodisi $\gamma = \beta$ bodisi $\beta \in \gamma$. A ker druga in tretja možnost ne prideta v poštev, saj bi dobili cikel $\gamma \in \beta \in \gamma$, velja prva, kar smo želeli dokazati.
+\end{dokaz}
+
+\begin{naloga}
+  V zgornjem dokazu smo uporabili naslednje dejstvo: če je $(P, {<})$ dobra ureditev in $Q \subseteq P$, tedaj je $Q$ z relacijo $<$ zoženo na~$Q$ tudi dobra ureditev. Zapišite dokaz.
+\end{naloga}
+
+Brez dokaza navedimo, da so von Neumannovi ordinali izbor predstavnikov za dobre urejenosti.
 
 \begin{izrek}
   Vsaka dobra ureditev je izomorfna natanko enemu von Neumannovemu ordinalu.
 \end{izrek}
+

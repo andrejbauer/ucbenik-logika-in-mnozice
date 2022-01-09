@@ -139,7 +139,27 @@ Pravzaprav smo ta trik že uporabili, ko smo govorili o moči končnih množic, 
 
 Kako bi torej izbrali predstavnike razredov za ekvipolentnost za vse množice?
 Če bi nam to uspelo, bi take predstavnike lahko uporabili kot števila, imenujejo se \textbf{kardinalna števila}, s katerimi bi merili moč množic.
-Na to vprašanje bomo odgovorili v poglavju o kumulativnih hierarhiji, tu bomo le uporabili dejstvo, da je to možno narediti.
+
+\begin{definicija}
+  \textbf{Kardinalno število} je tako ordinalno število $\kappa$, za katerega velja $|\alpha| < |\kappa|$ za vse $\alpha \in \kappa$.
+\end{definicija}
+
+\begin{primer}
+  Tu ne bomo dokazali, da je vsaka množica ekvipolentna natanko enemu kardinalnemu številu. Raje si poskušajmo predstavljati kardinalna števila:
+  % 
+  \begin{itemize}
+  \item Končni ordinali, ki so seveda kar naravna števila, so kardinalna števila, saj je naravno število strogo večje od
+    svojih predhodnikov.
+  \item Ordinal $\omega = \NN = \set{0, 1, 2, \ldots}$, ki vsebuje vse končne ordinale, je kardinalno število. Označujemo ga tudi z $\aleph_0$.
+  \item Ordinal $\omega + 1 = \set{0, 1, 2, \ldots, \omega}$ \emph{ni} kardinalno število, saj je ekvipolenten~$\omega$. Prav tako so ordinali
+    % 
+    \begin{equation*}
+      \omega + 2, \omega + 3, \ldots, \omega + \omega, \ldots, \omega + \omega + \omega, \ldots, \omega^2, \omega^3
+    \end{equation*}
+    % 
+    vsi ekvipolentni $\omega$, zato niso kardinali. Pravzaprav si je precej težko predstavljati ordinal, katerega moč je strogo večja od $\omega$.
+  \end{itemize}
+\end{primer}
 
 Vsaki množici $A$ torej priredimo nekega predstavnika razreda $[A]_{\iso}$, ki ga označimo $|A|$ in ga imenujemo \textbf{moč} množice~$A$. Za končne množice so to kar naravna števila, za splošne množice pa so to kardinalna števila.
 
@@ -212,7 +232,7 @@ Moči množic lahko primerjamo med seboj, čeprav ne vemo, kaj točno naravna š
 
 \subsection{Števne in neštevne množice}
 
-Moč množice $\NN$ označimo z $\aleph_0$.
+Kot smo že povedali, moč množice $\NN$ označimo z $\aleph_0$.
 
 \begin{definicija}
   Množica $A$ je \textbf{števna}, če velja velja $|A| \leq \aleph_0$.

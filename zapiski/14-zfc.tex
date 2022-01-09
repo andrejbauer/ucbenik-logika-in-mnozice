@@ -1,71 +1,99 @@
-\chapter{Kodiranje matematičnih objektov z množicami}
+\chapter{Aksiomatska teorija množic}
+
+\section{Kodiranje matematičnih objektov z množicami}
 
 Z množicami smo izrazili številne matematične objekte, na primer:
-
-* preslikavo `f : A → B` lahko izrazimo kot funkcijsko relacijo med `A` in `B`, torej kot
-  podmnožico `A × B`,
-
-* kvocientna množica `A/R` je množica ekvivalenčnih razredov, ekvivalenčni razredi so spet
+%
+\begin{itemize}
+\item ordinalna števila smo predstavili kot množice svojih predhodnikov,
+\item preslikavo $f : A → B$ lahko izrazimo kot funkcijsko relacijo med $A$ in $B$, torej kot
+  podmnožico $A \times B$,
+\item kvocientna množica $A/R$ je množica ekvivalenčnih razredov, ekvivalenčni razredi so spet
   množice,
-
+\end{itemize}
+%
 Ali je možno vse matematične objekte predstaviti z množicami? Da!
 
-\subsubsection{Urejeni pari}
+\subsection{Urejeni pari}
 
-Par `(x, y)` lahko predstavimo z množico `{{x}, {x,y}}`. Tako dobimo
+Par $(x, y)$ lahko predstavimo z množico $\set{\set{x}, \set{x,y}}$. Tako dobimo
+%
+\begin{equation*}
+  A \times B \defeq \set{ \set{\set{x}, \set{x,y}} \mid x \in A \land y \in B }.
+\end{equation*}
 
-    A × B := { {{x}, {x,y}} | x ∈ A, y ∈ B }
 
-\subsubsection{Vsota}
+\subsection{Vsota}
 
-Elemente vsote `A + B` kodiramo takole:
+Elemente vsote $A + B$ kodiramo takole:
+%
+\begin{align*}
+  \inl(x) &\defeq (x, 0) = \set{\set{x}, \set{x, \emptyset}}, \\
+  \inr(x) &\defeq (x, 1) = \set{\set{x}, \set{x, \set{\emptyset}}}.
+\end{align*}
 
-     \inl(x) = (x, 0) = {{x}, {x,∅}}
-     \inr(x) = (x, 1) = {{x}, {x,{∅}}}
 
-\subsubsection{Naravna števila}
+\subsection{Naravna števila}
 
-Na množicah definiramo operacijo naslednik:
+Kot smo že videli, lahko ordinalna števila kodiramo kot množice svojih predhodnikov, poseben primer pa so naravna števila, ki so končni ordinali.
 
-    x⁺ := x ∪ {x}
+Kako pa kodiramo operacijo naslednik? Definirajmo preslikavo \textbf{naslednik} ${}^{+} : \Set \to Set$,
+%
+\begin{equation*}
+  \suc{x} \defeq x \cup \set{x}.
+\end{equation*}
+%
+Če si predstavljamo, da je $x$ število, tedaj je $\suc{x}$ vsebuje predhodnike~$x$ in $x$, kar je ravno naslednik~$x$.
+Naravna števila res dobimo tako, da na $\emptyset$ uporabljamo naslednik $suc{{}}$:
+%
+\begin{align*}
+    0 &= \emptyset \\
+    1 &= \suc{0} = \set{ 0 } = \set{\emptyset} \\
+    2 &= \suc{1} = \set{0, 1} = \set{\emptyset, \set{\emptyset}} \\
+    3 &= \suc{2} = \set{0, 1, 2} = \set{\emptyset, \set{\emptyset}, \set{\emptyset, \set{\emptyset}}} \\
+    4 &= \suc{3} = \set{0, 1, 2, 3} =
+       \set{\emptyset, \set{\emptyset}, \set{\emptyset, \set{\emptyset}},
+            \set{\emptyset, \set{\emptyset}, \set{\emptyset, \set{\emptyset}}}} \\
+      &\vdots
+\end{align*}
 
-Naravna števila nato kodiramo tako, da za ničlo vzamemo `∅` in uporabljamo
-operacijo naslednik:
+\subsection{Cela števila}
 
-    0 = ∅
-    1 = ∅⁺ = {0} = {∅}
-    2 = 1⁺ = {0, 1} = {∅, {∅}}
-    3 = 2⁺ = {0, 1, 2} = {∅, {∅}, {∅, {∅}}}
-    4 = 3⁺ = {0, 1, 2, 3} = {∅, {∅}, {∅, {∅}}, {∅, {∅}, {∅, {∅}}}}
-    ...
-
-Vidimo, da je vsako naravno število kar množica svojih predhodnikov.
-
-\subsubsection{Cela števila}
-
-Cela števila so kvocient `N × N`:
-
-    Z = (N × N)/∼
-
+Cela števila so kvocient $\NN \times \NN$:
+%
+\begin{equation*}
+    \ZZ \defeq (\NN \times \NN)/{\sim},
+\end{equation*}
+%
 kjer je
+%
+\begin{equation*}
+  (a,b) \sim (c,d) \defiff a + d = c + b.
+\end{equation*}
+%
+Urejeni par $(a, b)$ predstavlja razliko števil $a$ in $b$.
 
-    (a,b) ∼ (c,d) ⇔ a + d = c + b.
 
-Urejeni par `(a, b)` predstavlja razliko števil `a` in `b`.
-
-\subsubsection{Racionalna števila}
+\subsection{Racionalna števila}
 
 Racionalna števila so kvocient:
-
-    Q = (Z × {n ∈ N | n > 0})/≈
-
+%
+\begin{equation*}
+  \QQ = (\ZZ \times \set{n \in \NN \such n > 0})/{\approx},
+\end{equation*}
+%
 kjer je
+%
+\begin{equation*}
+    (a,m) \approx (b,n) \defiff a n = b m.
+\end{equation*}
+%
+Urejeni par $(a, n)$ predstavlja kvocient števil $a$ in $n$.
 
-    (a,m) ≈ (b,n) ⇔ a n = b m.
+\subsection{Realna števila}
 
-\subsubsection{Realna števila}
-
-Realno število je Dedekindov rez, torej podmnožica `Q`.
+Realno število je Dedekindov rez, torej podmnožica $\QQ$. Reze ste obravnavali pri Analizi, tako da jih na tem mestu ne
+bomo obnavljali.
 
 In tako naprej. Ne pravimo, da je kodiranje vseh matematičnih objektov z množicami vedno
 dobra ideja, vendar pa je dejstvo, da je to možno, pomembno spoznanje osnov matematike. Iz
@@ -73,172 +101,307 @@ njega na primer sledi tole: če je teorija množic neprotislovna, potem je nepro
 tudi vsa matematika, ki jo lahko kodiramo z množicami (torej več ali manj vsa običajna
 matematika).
 
-\section{Aksiomi teorije množic}
 
-Zermelo-Fraenkelovi aksiomi teorije množic:
 
-1. **Ekstenzionalnost:** množici `A` in `B`, ki imata iste elemente, sta enaki.
+\section{Zermelo-Fraenkelovi aksiomi}
 
-2. **Neurejeni par**: za vsak `x` in `y` je `{x, y}` množica, ki vsebuje natanko `x` in `y`:
+Aksiomi opredeljujejo množice brez urelementov (">\emph{Vse} je množica"<). Za aksiomatizacijo razredov bi morali zapisati drugačne aksiome, kot so na primer von Neumann-Bernays-Gödelovi aksiomi.
 
-        ∀ x y z . z ∈ {x, y} ⇔ z = x ∨ z = y
+\begin{description}
 
-   Okrajšava: `{x} = {x, x}`.
+\item[Ekstenzionalnost:] množici $A$ in $B$, ki imata iste elemente, sta enaki.
 
-3. **Unija:** za vsako množico `A` je `⋃ A` množica, ki vsebuje natanko vse
-   elemente množic iz `A`
+\item[Neurejeni par]: za vsak $x$ in $y$ je $\set{x, y}$ množica, ki vsebuje natanko $x$ in $y$:
+  %
+  \begin{equation*}
+    \all{x y z} z \in \set{x, y} \liff z = x \lor z = y
+  \end{equation*}
+  %
+  Okrajšava: $\set{x} = \set{x, x}$.
 
-        ∀ A x . x ∈ ⋃ A ⇔ ∃ B ∈ A . x ∈ B
+\item[Unija:] za vsako množico $A$ je $\bigcup A$ množica, ki vsebuje natanko vse
+  elemente množic iz $A$:
+  %
+  \begin{equation*}
+    \all{A x} x \in \bigcup A \liff \some{B \in A} x \in B.
+  \end{equation*}
 
-4. **Prazna množica:** množica `∅` nima elementa:
+\item[Prazna množica:] množica $\emptyset$ nima elementa:
+  %
+  \begin{equation*}
+  \all{x} x \not\in \emptyset.
+  \end{equation*}
 
-        ∀ x . x ∉ ∅
+\item[Neskončna množica] obstaja množica, ki vsebuje $\emptyset$ in je zaprta za operacijo naslednik
+  ($\suc{x} = x \cup \set{x}$):
+  %
+  \begin{equation*}
+    \some{A} \emptyset \in A \land \all{x \in A} \suc{x} \in A.
+  \end{equation*}
 
-5. **Neskončna množica:** obstaja množica, ki vsebuje `∅` in je zaprta za operacijo naslednik
-   (`x⁺ = x ∪ {x}`).
+\item[Podmnožica:] za vsako množico $A$ in formulo $\phi$ je $\set{x \in A \mid| \phi(x)}$
+  množica, ki vsebuje natanko vse element iz $A$, ki zadoščajo $\phi$:
+  %
+  \begin{equation*}
+    \all{y} y \in \{x \in A | \phi(x)\} \liff \phi(y).
+  \end{equation*}
 
-        ∃ A . ∅ ∈ A ∧ ∀ x ∈ A . x⁺ ∈ A
+\item[Potenčna množica:] za vsako množico $A$ je $\pow{A}$ množica, ki vsebuje
+  natanko vse njene podmnožice:
+  %
+  \begin{equation*}
+    \all{S} S \in \pow{A} \liff S \subseteq A.
+  \end{equation*}
 
-6. **Podmnožica:** za vsako množico `A` in formulo `φ` je `{x ∈ A | φ(x)}`
-   množica, ki vsebuje natanko vse element iz `A`, ki zadoščajo `φ`:
+\item[Zamenjava] če je $A$ množica in $f : A \to \Set$ preslikava, je
+  %
+  $
+    \img{f}(A) = \set{ y \mid \some{x \in A} y = f(x) }
+  $
+  %
+  množica.
 
-        ∀ y . y ∈ {x ∈ A | φ(x)} ⇔ φ(y)
+\item[Dobra osnovanost:] relacija ${\in} \subseteq \Set \times \Set$ je dobro osnovana.
 
-7. **Potenčna množica:** za vsako množico `A` je `P(A)` množica, ki vsebuje
-   natanko vse njene podmnožice:
+\item[Aksiom izbire:] vsaka družina nepraznih množic ima funkcijo izbire.
+\end{description}
 
-        ∀ S . S ∈ P(A) ⇔ S ⊆ A
 
-8. Zamenjava: če je `A` množica in `f : A → Set` preslikava, je razred
+\section{Kumulativna hierahija}
 
-        { y ∈ V | ∃ x ∈ A . y = f(x) }
+Če lahko vse matematične objekte kodiramo z množicami, potem lahko na razred
+vseh množic $\Set$ gledamo kot na celotni matematični svet. Razred $\Set$ ima
+zanimivo strukturo, ki ji pravimo \textbf{kumulativna hierarhija}. Namreč, s pomočjo
+Zermelo-Fraenkelovih aksiomov lahko tvorimo vse množice iz $\emptyset$ z
+oparacijama potenčna množica in unija. Postopek je \textbf{transfiniten} (neskončen), ima pa toliko korakov, kot je ordinalnih števil:
+%
+\begin{align*}
+  V_0 &= \emptyset \\
+  V_1 &= \pow{V_0} = \set{\emptyset} \\
+  V_2 &= \pow{V_1} = \set{\emptyset, \set{\emptyset}} \\
+  V_3 &= \pow{V_2} = \set{\emptyset, \set{\emptyset}, \set{\set{\emptyset}}, \set{\emptyset, \set{\emptyset}}} \\
+      &\vdots \\
+  V_\omega &= \textstyle\bigcup_{k < \omega} V_k \\
+  V_{\omega+1} &= \pow{V_\omega} \\
+  V_{\omega+2} = &\pow{V_{\omega+1}} \\
+  &\vdots \\
+  V_{\omega + \omega} &= \textstyle\bigcup_{\alpha < \omega + \omega} V_\alpha \\
+  &\vdots
+\end{align*}
+%
+Splošna formula se glasi $V_\alpha = \textstyle\bigcup_{\beta < \alpha} \pow{V_\beta}$.
 
-   množica.
 
-9. **Dobra osnovanost:** relacija `∈` je dobro osnovana.
+\begin{naloga}
+  Koliko elementov ima $V_5$?
+\end{naloga}
 
-10. **Aksiom izbire:** vsaka družina nepraznih množic ima funkcijo izbire
+Bistvo kumulativne hierarhije je, da zaobjame vse množice.
 
+\begin{izrek}[Kumulativna hierarhija]
+  $\Set = \bigcup_{\alpha \in \On} V_\alpha$.
+\end{izrek}
+
+\begin{dokaz}
+  Dokaz opustimo, povejmo le, da je za izrek bistven aksiom o dobro osnovanosti. Le ta nam zagotavlja, da se vsaka padajoča $\in$-veriga konča z~$\emptyset$.
+\end{dokaz}
+
+
+% \subsection{Zakon trihotomije}
+
+% V tem razadelku podamo še oris dokaza, da je aksiom izbire ekvivalenten zakonu trihotomije.
+
+% \textbf{Definicija:} Naj bo $(P, <)$ dobra urejenost. Podmnožica $I ⊆ P$ je **začetni
+% segment**, če je doljna množica: iz $x < y$ in $y ∈ I$ sledi $x ∈ I$.
+
+% \textbf{Definicija:} Naj bosta $(P, <_P)$ in $(Q, <_Q)$ dobri urejenosti. Pravimo, da
+% je preslikava $e : P \to Q$ **vložitev**, kadar velja:
+
+% 1. $e$ je strogo monotona in
+% 2. slika $e_{P}$ je začetni segment v $Q$.
+
+% Vložitev je injektivna preslikava.
+
+% **Lemma 1:** Naj bosta $(P, <_P)$ in $(Q, <_Q)$ dobri urejenosti. Če obstaja
+% injektivna preslikava $P \to Q$, potem obstaja tudi vložitev $P \to Q$.
+
+% Dokaz: opuščen.
+
+% **Lemma 2:** Naj bosta $(P, <_P)$ in $(Q, <_Q)$ dobri urejenosti. Tedaj bodisi
+% obstaja vložitev $P \to Q$ ali vložitev $Q \to P$.
+
+% Dokaz: opuščen.
+
+% \textbf{Izrek:} Aksiom izbire je ekvivalenten zakonu trihotomije: za vse množice $X$ in $Y$ velja
+% $|X| ≤ |Y|$ ali $|Y| ≤ |X|$.
+
+% Dokaz:
+
+% Najprej predpostavimo, da velja aksiom izbire. Naj bosta $X$ in $Y$ množici. Ker
+% velja aksiom izbire, lahko $X$ in $Y$ dobro uredimo, denimo z relacijama $<_X$
+% in $<_Y$. Iz zgornje leme sledi, da obstaja vložitev $X \to Y$ ali $Y \to X$.
+% Ker so vložitve injektivne, torej velja $|X| ≤ |Y|$ ali $|Y| ≤ |X|$.
+
+% Predpostavimo zdaj, da za vse množice $X$ in $Y$ velja $|X| ≤ |Y|$ ali $|Y| ≤
+% |X|$. Dokazali bomo, da lahko vsako množico dobro uredimo, iz česar sledi aksiom izbire.
 
 \section{Aksiom izbire}
 
-**Definicija:** **Veriga** v delni urejenosti `(P, ≤)` je taka podmnožica `V ⊆
-P`, ki je z `≤` linearno urejena, kar pomeni `∀ x y ∈ V . x ≤ y ∨ y ≤ x`.
+Za konec povejmo še nekaj več o aksiomu izbire in Zornovi lemi, ki mu je ekvivalentna. Le-ta se uporablja v algebri.
 
-Primeri:
+\begin{definicija}
+  \textbf{Veriga} v delni urejenosti $(P, {\leq})$ je taka podmnožica $V \subseteq
+  P$, ki je z $\leq$ linearno urejena, kar pomeni $\all{x y \in V} x \leq y \leq y \leq x$.
+\end{definicija}
 
-* Če je `(P, ≤)` linearno urejena, je vsaka podmnožica veriga
+\begin{primer}
+  Primeri verig:
+  %
+  \begin{itemize}
+  \item Če je $(P, {\leq})$ linearno urejena, je vsaka njena podmnožica veriga.
+  \item V $(\pow{\QQ}, {\subseteq})$ imamo neštevno verigo
+    %
+    $V = \set{S \in P(Q) \mid \text{$S$ je doljna množica}}$.
+    %
+    Množica $S \subseteq \QQ$ je \textbf{doljna}, če velja
+    $\all{x y \in \QQ} x \leq y \land y \in \QQ \lthen x \in \QQ$.
+  \end{itemize}
+\end{primer}
 
-* V `(P(Q), ⊆)` imamo neštevno verigo
+\begin{lema}[Zornova lema]
+  Če ima v delni urejenosti $(P, {\leq})$ vsaka veriga zgornjo mejo,
+  potem ima $P$ maksimalni element.
+\end{lema}
 
-        V = {S ∈ P(Q) | S je doljna množica}
+\begin{dokaz}
+  Dokaz se naslanja na aksiom izbire in Bourbaki-Wittov izrek o negibnih točkah (glej
+  spodaj). Naj bo $C$ množica vseh verig v $P$. Uredimo jo z $\subseteq$. Na njej definiramo preslikavo
+  $f : C \to C$, ki razširi verigo, če ni maksimalna, sicer je ne spremeni (tu uporabimo
+  izbiro):
+  %
+  \begin{itemize}
+  \item Če je $V \in C$ maksimalna veriga v $P$ (glede na $\subseteq$), definiramo $f(V) \defeq V$.
+  \item Če $V \in C$ ni maksimalna veriga v $P$, potem obstaja tak $x \in P \setminus V$, da je $V
+    \cup \set{x}$ spet veriga. V tem primeru \emph{izberemo} tak $x$ in definiramo $f(V) \defeq V
+    \cup \set{x}$.
+  \end{itemize}
+  %
+  Po izreku Bourbaki-Witt ima $f$ negibno vrednost $V \in C$. Ta $V$ je maksimalna
+  veriga $V$, saj bi sicer veljalo, da je $V = f(V) = V \cup \set{x}$ za neki $x \not\in V$,
+  kar ni možno. Naj bo $m$ zgornja meja za verigo $V$. Trdimo, da je $m$
+  maksimalni element v $P$: denimo, da velja $m \leq y$ za $m \in P$. Ker je $V \cup \set{y}$
+  veriga, ki vsebuje maksimalno verigo $V$, sledi $V = V \cup \set{y}$, od tod pa $y \in V$
+  ter $y \leq m$. Torej je $m = y$ in $m$ je res maksimalni element.
+\end{dokaz}
 
-  Množica `S ⊆ Q` je *doljna*, če velja `∀ x y ∈ Q . x ≤ y ∧ y ∈ Q ⇒ x ∈ Q`.
+\begin{definicija}
+  Naj bo $(P, \leq)$ delna ureditev. Preslikava $f : P \to P$ je \textbf{progresivna}, ko
+  velja $x \leq f(x)$ za vsak $x \in P$.
+\end{definicija}
 
-**Zornova lemma:** Če ima v delni urejenosti `(P, ≤)` vsaka veriga zgornjo mejo,
-potem ima `P` maksimalni element.
+\begin{opomba}
+  Progresivna preslikav ni nujno monotona. (Poiščite proti-primer!)
+\end{opomba}
 
-Dokaz: dokaz se naslanja na aksiom izbire in Bourbaki-Wittov izrek o negibnih točkah (glej
-spodaj). Naj bo `C` množica vseh verig v `P`. Uredimo jo z `⊆`. Na njej definiramo preslikavo
-`f : C → C`, ki razširi verigo, če ni maksimalna, sicer je ne spremeni (tu uporabimo
-izbiro):
+\begin{izrek}[Bourbaki-Witt]
+  Naj bo $(P, {\leq})$ neprazna delna ureditev, v kateri ima vsaka veriga zgornjo mejo in $f : P \to P$ progresivna
+  preslikava. Tedaj ima $f$ negibno točko: to je tak $x \in P$, da velja $f(x) = x$.
+\end{izrek}
 
-* Če je `V ∈ C` maksimalna veriga v `P` (glede na `⊆`), definiramo `f(V) := V`.
-* Če `V ∈ C` ni maksimalna veriga v `P`, potem obstaja tak `x ∈ P \ V`, da je `V
-  ∪ {x}` spet veriga. V tem primeru *izberemo* tak `x` in definiramo `f(V) := V
-  ∪ {x}`.
+\begin{dokaz}
+  Dokaz opustimo.
+\end{dokaz}
 
-Po izreku Bourbaki-Witt ima `f` negibno vrednost `V ∈ C`. Ta `V` je maksimalna
-veriga `V`, saj bi sicer veljalo, da je `V = f(V) = V ∪ {x}` za neki `x ∉ V`,
-kar ni možno. Naj bo `m` zgornja meja za verigo `V`. Trdimo, da je `m`
-maksimalni element v `P`: denimo, da velja `m ≤ y` za `m ∈ P`. Ker je `V ∪ {y}`
-veriga, ki vsebuje maksimalno verigo `V`, sledi `V = V ∪ {y}`, od tod pa `y ∈ V`
-ter `y ≤ m`. Torej je `m = y` in `m` je res maksimalni element. □
+\begin{izrek}
+  V teoriji množic \emph{brez} aksioma izbire so naslednje izjave ekvivalentne:
+  %
+  \begin{enumerate}
+  \item Aksiom izbire
+  \item Zornova lema
+  \item Princip dobre urejenosti: vsaka množica ima dobro ureditev.
+  \end{enumerate}
+\end{izrek}
 
-**Definicija:** Naj bo `(P, ≤)` delna ureditev. Preslikava `f : P → P` je **progresivna**, ko
-velja `x ≤ f(x)` za vsak `x ∈ P`.
+\begin{dokaz}
+  ($1 \lthen 2$) Glej Zornovo lemo.
 
-*Opomba:* progresivna preslikav ni nujno monotona (poiščite protiprimer!).
+  ($2 \lthen 3$) Skica dokaza: naj bo $A$ poljubna množica, ki jo želimo dobro urediti.
+  %
+  Definirajmo \emph{delne} dobre ureditev množice $A$: to so pari $(B,R)$, kjer je $B \subseteq A$
+  in $R \subseteq B \times B$ dobra ureditev na $B$. Za delni dobri ureditvi $(B,R)$ in
+  $(C,Q)$ pravimo, da je $(C,Q)$ \emph{razširitev} $(B,R)$, kadar velja $B \subseteq C$, $R \subseteq Q$ in
+  še, da je $B$ začetni segment v $C$, kar pomeni
+  %
+  \begin{equation*}
+    \all{x y \in C} x \rel{Q} y \land y \in B \lthen x \in B.
+  \end{equation*}
+  %
+  Kadar je $(C,Q)$ razširitev $(B,R)$, pišemo $(B,R) \preceq (C,Q)$. Naj bo $P$ množica vseh delnih
+  dobrih ureditev množice $A$,
+  %
+  \begin{equation*}
+    P \defeq \set{ (B, R) \mid \text{$B \subseteq A$ in $R \subseteq B \times B$ in $R$ je dobra ureditev $B$}},
+  \end{equation*}
+  %
+  urejena z relacijo $\preceq$. Očitno je $\preceq$ delna ureditev. Trdimo, da imajo verige v
+  $P$ zgornje meje glede na $\preceq$: če je $V \subseteq P$ veriga dobro urejenih podmnožic
+  $A$, je njena zgornja meja $(D,S)$ kar unija po komponentah:
+  %
+  \begin{align*}
+    D &\defeq \bigcup \set{B \mid (B, R) \in V} \\
+    S &= \bigcup \set{R \mid (B, R) \in V}.
+  \end{align*}
+  %
+  Preverimo, da velja $(D,S) \in P$. Očitno je $(D,S)$ stroga linearna ureditev
+  (vaja). Denimo, da bi v $(D,S)$ imeli neskončno padajočo verigo
+  %
+  \begin{equation*}
+    \cdots \rel{S} x_3 \rel{S} x_2 \rel{S} x_1 \rel{S} x_0.
+  \end{equation*}
+  %
+  Obstaja $(B,R) \in V$, da je $x_0 \in B$. Potem bi bila $x_0, x_1, x_2, x_3, \ldots$
+  padajoča veriga v $(B,R)$, kar ni možno, saj je $(B,R)$ dobro urejena. Res, ker
+  je $x_i \in V$, obstaja $(C,Q)$, da je $x_i \in C$. Če velja $(B,R) \preceq (C,Q)$, potem
+  $x_i \in B$ po definicijo $\preceq$. Če velja $(C,Q) \preceq (B,R)$, potem $x_i \in B$, ker velja
+  $C \subseteq B$. Torej je $(D,S)$ res delna ureditev $P$.
 
-**Izrek (Bourbaki-Witt):** Naj bo `(P, ≤)` neprazna delna ureditev, v kateri ima
-vsaka veriga zgornjo mejo in `f : P → P` progresivna preslikava. Tedaj ima `f`
-negibno točko: to je tak `x ∈ P`, da velja `f(x) = x`.
+  Preverimo še, da velja $(B,R) \preceq (D,S)$ za vsak $(B,R) \in V$. Denimo, da je $y \in D$,
+  $x \in B$ in $y \rel{S} x$. Obstaja $(C,Q) \in V$, da je $y \in C$. Če velja $(C,Q) \preceq (B,R)$,
+  potem $y \in C \subseteq B$. Če pa velja $(B,R) \preceq (C,Q)$, potem je $y \in B$ po definiciji $\preceq$.
 
-Dokaz: opuščen.
+  Po Zornovi lemi obstaja maksimalni element $(B,R)$ v $P$. Trdimo, da je $B = A$. Če bi namreč
+  obstajal $x \in B \setminus A$, bi lahko razširili $(B,R)$ na večjo dobro ureditev tako, da bi dodali $x$
+  na konec $B$:
+  %
+  \begin{align*}
+    & (B \cup \set{x}, R') \\
+    & y \rel{R'} z \defiff z = x \land y \rel{R} z.
+  \end{align*}
+  %
+  To ni možno, ker je $(B,R)$ maksimalna delna ureditev. Torej je res $A = B$ in
+  našli so dobro ureditev $A$.
 
-**Izrek:** V teoriji množic *brez* aksioma izbire so naslednje izjave ekvivalentne:
+  $(3 \lthen 1)$ Naj bo $A : I \to Set$ družina nepraznih množic. Naj bo $\prec$ dobra ureditev
+  na uniji $\bigcup A$. Ker so vse množice $A_i$ neprazne, ima vsaka od njih prvi element
+  glede na $\prec$. Torej lahko definiramo funkcijo izbire $f$ s predpisom
+  $f(i) \defeq \text{">prvi element $A_i$"<}$.
+\end{dokaz}
 
-1. Aksiom izbire
-2. Zornova lema
-3. Princip dobre urejenosti: vsaka množica ima dobro ureditev
+\begin{izrek}
+  Vsak vektorski prostor ima bazo.
+\end{izrek}
 
-Dokaz:
-
-(1 ⇒ 2) Glej Zornovo lemo.
-
-(2 ⇒ 3) Skica dokaza: naj bo `A` poljubna množica, ki jo želimo dobro urediti.
-
-Definirajmo *delne* dobre ureditev množice `A`: to so pari `(B,R)`, kjer je `B ⊆ A`
-in `R ⊆ B × B` dobra ureditev na `B`. Za delni dobri ureditvi `(B,R)` in
-`(C,Q)` pravimo, da je `(C,Q)` *razširitev* `(B,R)`, kadar velja `B ⊆ C`, `R ⊆ Q` in
-še, da je `B` začetni segment v `C`, kar pomeni:
-
-     ∀ x y ∈ C: x Q y ∧ y ∈ B ⇒ x ∈ B.
-
-Kadar je `(C,Q)` razširitev `(B,R)`, pišemo `(B,R) ≼ (C,Q)`. Naj bo `P` množica vseh delnih
-dobrih ureditev množice `A`,
-
-    P = { (B, R) | B ⊆ A in R ⊆ B × B in R je dobra ureditev B },
-
-urejena z relacijo `≼`. Očitno je `≼` delna ureditev. Trdimo, da imajo verige v
-`P` zgornje meje glede na `≼`: če je `V ⊆ P` veriga dobro urejenih podmnožic
-`A`, je njena zgornja meja `(D,S)` kar unija po komponentah:
-
-     D := ⋃ {B | (B, R) ∈ V}
-     S := ⋃ {R | (B, R) ∈ V}
-
-Preverimo, da velja `(D,S) ∈ P`. Očitno je `(D,S)` stroga linearna ureditev
-(vaja). Denimo, da bi v `(D,S)` imeli neskončno padajočo verigo
-
-     ... S x₃ S x₂ S x₁ S x₀.
-
-Obstaja `(B,R) ∈ V`, da je `x₀ ∈ B`. Potem bi bila `x₀, x₁, x₂, x₃, ...`
-padajoča veriga v `(B,R)`, kar ni možno, saj je `(B,R)` dobro urejena. Res, ker
-je `xᵢ ∈ V`, obstaja `(C,Q)`, da je `xᵢ ∈ C`. Če velja `(B,R) ≼ (C,Q)`, potem
-`xᵢ ∈ B` po definicijo `≼`. Če velja `(C,Q) ≼ (B,R)`, potem `xᵢ ∈ B`, ker velja
-`C ⊆ B`. Torej je `(D,S)` res delna ureditev `P`.
-
-Preverimo še, da velja `(B,R) ≼ (D,S)` za vsak `(B,R) ∈ V`. Denimo, da je `y ∈ D`,
-`x ∈ B` in `y S x`. Obstaja `(C,Q) ∈ V`, da je `y ∈ C`. Če velja `(C,Q) ≼ (B,R)`,
-potem `y ∈ C ⊆ B`. Če pa velja `(B,R) ≼ (C,Q)`, potem je `y ∈ B` po definiciji `≼`.
-
-Po Zornovi lemi obstaja maksimalni element `(B,R)` v `P`. Trdimo, da je `B = A`. Če bi namreč
-obatajal `x ∈ B \ A`, bi lahko razširili `(B,R)` na večjo dobro ureditev tako, da bi dodali `x`
-na konec `B`:
-
-    (B ∪ {x}, R')
-
-    y R' z ⇔ z = x ∧ (y,z) ∈ R
-
-To ni možno, ker je `(B,R)` maksimalna delna ureditev. Torej je res `A = B` in
-našli so dobro ureditev `A`.
-
-(3 ⇒ 1) Naj bo `A : I → Set` družina nepraznih množic. Naj bo `≺` dobra ureditev
-na uniji `⋃ A`. Ker so vse množice `Aᵢ` neprazne, ima vsaka od njih prvi element
-glede na `≺`. Torej lahko definiramo funkcijo izbire `f` s predpisom
-
-    f(i) = prvi element Aᵢ. □
-
-**Izrek:** Vsak vektorski prostor ima vektorsko bazo.
-
-Dokaz: Naj bo `L` vektorski prostor. Definiramo množico
-
-    P = { B ⊆ L | B je linearno neodvisna }.
-
-Množico `P` delno uredimo z relacijo `⊆`. Trdimo, da imajo verige v `P` zgornje
-meje: zgornja meja verige `V ⊆ P`, je kar njena unija `⋃_(B ∈ V) B`. Seveda je
-treba preveriti, da je unija verige linearno neodvisnih množic spet linearno
-neodvisna (vaja). Po Zornovi lemi obstaja maksimalni element v `P`, torej
-maksimalna linearno neodvisna množica `B` v `L`. To pa je seveda vektorksa baza
-za `L`. □
-
+\begin{dokaz}
+  Dokaz: Naj bo $L$ vektorski prostor. Definiramo množico
+  %
+  \begin{equation*}
+    P \defeq \set{ B \subseteq L \mid \text{$B$ je linearno neodvisna} }.
+  \end{equation*}
+  %
+  Množico $P$ delno uredimo z relacijo $\subseteq$. Trdimo, da imajo verige v $P$ zgornje
+  meje: zgornja meja verige $V \subseteq P$, je kar njena unija $\bigcup_{B \in V} B$. Seveda je
+  treba preveriti, da je unija verige linearno neodvisnih množic spet linearno
+  neodvisna (vaja). Po Zornovi lemi obstaja maksimalni element v $P$, torej
+  maksimalna linearno neodvisna množica $B$ v $L$. To pa je seveda vektorska baza
+  za $L$.
+\end{dokaz}
