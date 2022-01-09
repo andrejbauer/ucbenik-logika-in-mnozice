@@ -1,4 +1,4 @@
-\chapter{Aritmetika množic}
+<\chapter{Aritmetika množic}
 
 Nadaljujmo s študijem splošnih preslikav.
 
@@ -152,12 +152,12 @@ lahko bolj čitljivo podamo s predpisom
 \end{primer}
 
 Kako pa zapišemo funkcijski predpis funkcije z domeno $A + B$? V tem primeru je vsak element domene bodisi oblike
-$\inl{x}$ za enolično določeni $x \in A$, bodisi oblike $\inr{y}$ za enolično določeni $y \in B$, zato funkcijski predpis podamo v dveh vrsticah:
+$\inl(x)$ za enolično določeni $x \in A$, bodisi oblike $\inr(y)$ za enolično določeni $y \in B$, zato funkcijski predpis podamo v dveh vrsticah:
 %
 \begin{align*}
     A + B &\to C \\
-    \inl{x} &\mapsto \cdots \\
-    \inr{y} &\mapsto \cdots
+    \inl(x) &\mapsto \cdots \\
+    \inr(y) &\mapsto \cdots
 \end{align*}
 
 \begin{primer}
@@ -165,24 +165,24 @@ $\inl{x}$ za enolično določeni $x \in A$, bodisi oblike $\inr{y}$ za enolično
   %
   \begin{align*}
     \RR + \ZZ &\to \RR \\
-    \inl{x} &\mapsto x \\
-    \inr{y} &\mapsto y + 3
+    \inl(x) &\mapsto x \\
+    \inr(y) &\mapsto y + 3
   \end{align*}
   %
   Seveda lahko podobno podajamo tudi preslikave na vsotah več preslikav:
   %
   \begin{align*}
     A + B + C &\to \{u, v\} \\
-    \inl{x} &\mapsto u \\
-    \inr{y} &\mapsto u \\
-    \mathsf{in}_3(z) &\mapsto v
+    \inl(x) &\mapsto u \\
+    \inr(y) &\mapsto u \\
+    \inj[3](z) &\mapsto v
   \end{align*}
   in
   \begin{align*}
     A + (B + C) &\to \{u, v\} \\
-    \inl{x} &\mapsto u \\
-    \inr{\inl{y}} &\mapsto u \\
-    \inr{\inr{y}} &\mapsto v
+    \inl(x) &\mapsto u \\
+    \inr(\inl(y)) &\mapsto u \\
+    \inr(\inr(y)) &\mapsto v
   \end{align*}
 \end{primer}
 
@@ -190,15 +190,15 @@ Zapisa za zmnožek in vsoto lahko tudi kombiniramo:
 %
 \begin{align*}
   (A \times B \times C) + (D \times E) &\to \{0, 1, 2\} \\
-  \inl{(a, b, c)} &\mapsto 1 \\
-  \inr{(d, e)} &\mapsto 2
+  \inl((a, b, c)) &\mapsto 1 \\
+  \inr((d, e)) &\mapsto 2
 \end{align*}
 %
 in
 \begin{align*}
   (A + B) \times C &\to \{0, 1, 2\} \\
-  (\inl{a}, c) &\mapsto 0 \\
-  (\inr{b}, c) &\mapsto 1
+  (\inl(a), c) &\mapsto 0 \\
+  (\inr(b), c) &\mapsto 1
 \end{align*}
 %
 Izraz na levi strani $\mapsto$ sestoji iz vezanih spremenljivk in operacij, s katerimi gradimo elemente množic (urejeni par, kanonična injekcija). Imenuje se tudi \textbf{vzorec}. Predpis je podan pravilno, če so vzorci napisani tako, da vsak element domene ustreza natanko enemu vzorcu.
