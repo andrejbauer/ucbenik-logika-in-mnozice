@@ -116,8 +116,8 @@ Ker so relacije pravzaprav podmnožice, lahko na njih uporabljamo operacije unij
 presek $\cap$ in komplement $\compl{\Box}$. Denimo, da sta $R, S \subseteq A \times B$ relaciji. Tedaj velja:
 %
 \begin{align*}
-  x (R \cup S) y &\iff x \rel{R} y \lor x S y, \\
-  x (R \cap S) y &\iff x \rel{R} y \land x S y, \\
+  x \rel{(R \cup S)} y &\iff x \rel{R} y \lor x \rel{S} y, \\
+  x \rel{(R \cap S)} y &\iff x \rel{R} y \land x \rel{S} y, \\
   x \compl{R} y &\iff \lnot (x \rel{R} y).
 \end{align*}
 
@@ -158,7 +158,7 @@ Očitno velja $\transpose{(\transpose{R})} = R$, torej je transponiranje \emph{i
 Nadalje definiramo \textbf{kompozitum} relacij $R \subseteq A \times B$ in $S \subseteq B \times C$ kot relacijo $S \circ R \subseteq A \times C$, s predpisom
 %
 \begin{equation*}
-    x (S \circ R) z \defiff \some{y \in B} x \rel{R} y \land y S z
+    x \rel{(S \circ R)} z \defiff \some{y \in B} x \rel{R} y \land y \rel{S} z
 \end{equation*}
 %a
 ali ekvivalentno
@@ -190,17 +190,17 @@ povezana s kakim elementom $y \in B$.
   Naj bo $R \subseteq A \times B$, $S \subseteq B \times C$ in $T \subseteq C \times D$ ter $a \in A$ in $d \in D$. Tedaj velja
   %
   \begin{align}
-    a (T \circ (S \circ R)) d &\iff  \notag \\
-    \some{c \in C} a (S \circ R) c \land c T d &\iff \notag \\
-    \some{c \in C} (\some{b \in B} a \rel{R} b \land b \rel{R} c) \land c T d \label{eq:comp-1}
+    a \rel{(T \circ (S \circ R))} d &\iff  \notag \\
+    \some{c \in C} a \rel{(S \circ R)} c \land c \rel{T} d &\iff \notag \\
+    \some{c \in C} (\some{b \in B} a \rel{R} b \land b \rel{S} c) \land c \rel{T} d \label{eq:comp-1}
   \end{align}
   %
   in
   %
   \begin{align}
-    a ((T \circ S) \circ R) d &\iff \notag \\
-    \some{b \in B} a \rel{R} b \land b (T \circ S) d &\iff \notag \\
-    \some{b \in B} a \rel{R} b \land (\some{c \in C} b S c \land c T d) \label{eq:comp-2}
+    a \rel{((T \circ S) \circ R)} d &\iff \notag \\
+    \some{b \in B} a \rel{R} b \land b \rel{(T \circ S)} d &\iff \notag \\
+    \some{b \in B} a \rel{R} b \land (\some{c \in C} b \rel{S} c \land c \rel{T} d) \label{eq:comp-2}
   \end{align}
   %
   Torej je treba dokazati ekvivalenco izjav~\eqref{eq:comp-1} in~\eqref{eq:comp-2}, kar prepuščamo za vajo. Naj namignemo, da je treba pri dokazovanju ekvivalence uporabiti \emph{Frobeniuseva pravilo}
