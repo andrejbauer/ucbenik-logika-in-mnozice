@@ -39,9 +39,9 @@ naj bo $f : A \to B$ preslikava in definirajmo relacijo $\sim_f$ na $A$ s predpi
 Tedaj je $\sim_f$ ekvivalenčna relacija:
 %
 \begin{itemize}
-\item refleksivnost: $x ~_f x$ velja, ker velja $f(x) = f(x)$,
-\item tranzitivnost: če je $x ~_f y$ in $y ~_f z$, potem je $f(x) = f(y)$ in $f(y) = f(z)$, torej $f(x) = f(z)$ in $x ~_f z$,
-\item simetričnost: če je $x ~_f y$, potem je $f(x) = f(y)$, torej $f(y) = f(x)$ in $y ~_f x$.
+\item refleksivnost: $x \sim_f x$ velja, ker velja $f(x) = f(x)$,
+\item tranzitivnost: če je $x \sim_f y$ in $y \sim_f z$, potem je $f(x) = f(y)$ in $f(y) = f(z)$, torej $f(x) = f(z)$ in $x \sim_f z$,
+\item simetričnost: če je $x \sim_f y$, potem je $f(x) = f(y)$, torej $f(y) = f(x)$ in $y \sim_f x$.
 \end{itemize}
 %
 Ali je vsaka ekvivalenčna relacija porojena z neko preslikavo?
@@ -62,7 +62,7 @@ Ali je vsaka ekvivalenčna relacija porojena z neko preslikavo?
 
 \begin{definicija}
   Naj bo $E \subseteq A \times A$ ekvivalenčna relacija. \textbf{Ekvivalenčni razred} elementa $x \in A$ je množica
-  $[x]_A \defeq \set{ y \in A \such x \rel{E} y }$. Z besedami: ekvivalenčni razred~$x$ je množica vseh elementov, ki so mu
+  $[x]_E \defeq \set{ y \in A \such x \rel{E} y }$. Z besedami: ekvivalenčni razred~$x$ je množica vseh elementov, ki so mu
   ekvivalentni.
 \end{definicija}
 
@@ -75,7 +75,7 @@ Ali je vsaka ekvivalenčna relacija porojena z neko preslikavo?
   Naj bo $E \subseteq A \times A$ ekvivalenčna relacija. \textbf{Kvocientna ali faktorska množica} ali \textbf{kvocient} $A/E$ je množica vseh ekvivalenčnih razredov:
   %
   \begin{equation*}
-    A/E \defeq \set{ \xi \in \pow{A} \such \some{x \in A} \xi = [x]_A }.
+    A/E \defeq \set{ \xi \in \pow{A} \such \some{x \in A} \xi = [x]_E }.
   \end{equation*}
   %
   Z izpeljanimi množicami lahko to zapišemo bolj razumljivo
@@ -85,7 +85,7 @@ Ali je vsaka ekvivalenčna relacija porojena z neko preslikavo?
   \end{equation*}
   %
   \textbf{Kanonična kvocientna preslikava} $q_E : A \to A/E$ je preslikava, ki vsakemu elementu
-  priredi njegov ekvivalenčni razred: $q_E(x) \defeq [x]_A$.
+  priredi njegov ekvivalenčni razred: $q_E(x) \defeq [x]_E$.
 \end{definicija}
 
 \begin{izrek}
@@ -236,7 +236,7 @@ prerez imenujemo ">izbor predstavnikov"<.
   $\set{0, 1, 2, 3, 4, 5, 6}$ je izbor predstavnikov za $\sim$, saj je vsako celo število ekvivalentno natanko enemu od
   teh števil po modulu $7$.
   %
-  Ni pa to edini izbor! Tudi $\set{0, 1, 2, 3, 4, 5, 6, 13}$ je izbor in prav tako $\set{-7, -6, -5, -4, -3, -2, -1}$.
+  Ni pa to edini izbor! Tudi $\set{0, 1, 2, 3, 4, 5, 13}$ je izbor in prav tako $\set{-7, -6, -5, -4, -3, -2, -1}$.
 \end{primer}
 
 Ali ima vsaka ekvivalenčna relacija izbor predstavnikov? Da to vprašanje ni tako
