@@ -8,7 +8,7 @@ zadošča predikatu $P$. Odgovor je resničnostna vrednost, ki jo označimo s $P
 
 \begin{primer}
   Na množici naravnih števil $\NN$ lahko obravnavamo predikat ">je sodo
-  število"<. Tako na primer $4$ zadošča predikatu ">je sodo število"<, $7$ pa mu zadošča.
+  število"<. Tako na primer $4$ zadošča predikatu ">je sodo število"<, $7$ pa mu ne zadošča.
 \end{primer}
 
 Predikat $P$ na množici $A$ lahko predstavimo na dva načina:
@@ -52,9 +52,9 @@ Na množicah $A_1, \ldots, A_n$ lahko vedno definiramo:
 \end{itemize}
 %
 Univerzalna relacija se imenuje tudi \textbf{polna relacija}.
-%
+
 V praksi so najbolj pogoste \textbf{dvomestna relacije}, se pravi relacije na dveh
-množicah, $R \subseteq A \times B$.
+množicah, $R \subseteq A \times B$ -- rečemo tudi, da je $R$ relacije med~$A$ in~$B$.
 V tem primeru pravimo množici $A$ \textbf{domena} in $B$ \textbf{kodomena} relacije $R$.
 
 Pomembna relacija na množici $A$ je \textbf{enakost} ali \textbf{diagonala} na $A$:
@@ -214,10 +214,10 @@ povezana s kakim elementom $y \in B$.
   Dokažimo še, da je diagonala enota za kompozicijo: naj bo $R \subseteq A \times B$ ter $x \in A$ in $y \in B$. Tedaj velja
   %
   \begin{align*}
-    x (\diag[B] \circ R) y &\iff \\
-    \some{z \in B} x \rel{R} y \land y \diag[B] z  &\iff \\
-    \some{z \in B} x \rel{R} y \land y = z &\iff \\
-    x \rel{R} y
+    x (\diag[B] \circ R) z &\iff \\
+    \some{y \in B} x \rel{R} y \land y \diag[B] z  &\iff \\
+    \some{y \in B} x \rel{R} y \land y = z &\iff \\
+    x \rel{R} z
   \end{align*}
   %
   V zadnjem koraku smo uporabili ekvivalenco $(\some{u \in U} u = v \land P(v)) \liff P(v)$. Podobno dokažemo, da je diagonala desna enota.

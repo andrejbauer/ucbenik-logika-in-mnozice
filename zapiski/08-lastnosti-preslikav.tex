@@ -157,7 +157,7 @@ Spoznajmo še pojem retrakcije in prereza. Na predavanjih bomo s sliko pojasnili
 \end{izrek}
 
 \begin{dokaz}
-  Denimo, da velja $f \circ g = \id$, torej je $f$ retrakcija in $g$ prerez. Ker je identiteta monomorfizem, je po izreku \ref{izr:epi-mono-comp} tudi $g$ monomorfizem. In ker je identiteta epimorfizem, je po istem izreku $f$ monomorfizem.
+  Denimo, da velja $f \circ g = \id$, torej je $f$ retrakcija in $g$ prerez. Ker je identiteta monomorfizem, je po izreku \ref{izr:epi-mono-comp} tudi $g$ monomorfizem. In ker je identiteta epimorfizem, je po istem izreku $f$ epimorfizem.
 \end{dokaz}
 
 \section{Slike in praslike}
@@ -211,7 +211,7 @@ Običajni zapis za prasliko $\invimg{f}(S)$ je tudi $\inv{f}(S)$, vendar tega za
 Običajni zapis za sliko $\img{f}(S)$ je tudi $f(S)$ ali $f[S]$. Predvsem $f(S)$ se uporablja v praksi, a tudi tega odsvetujemo. Kako naj pri takem zapisu ločimo med $f(x)$ in $\img{f}(\set{x})$?
 
 \begin{definicija}
-  \textbf{Zaloga vrednosti} preslikave $f : A \to B$ je slika domene, torej $\img{f}(B)$.
+  \textbf{Zaloga vrednosti} preslikave $f : A \to B$ je slika domene, torej $\img{f}(A)$.
 \end{definicija}
 
 
@@ -238,8 +238,8 @@ Ker slikata preslikave v preslikave, pravimo, da sta to \textbf{preslikavi višj
   Naj bo $f : A \to B$ preslikava:
   %
   \begin{itemize}
-  \item praslike so monotone: če je $S \subseteq T \subseteq A$, potem je $\img{f}(S) \subseteq \img{f}(T)$
-  \item slike so monotone: če je $X \subseteq Y \subseteq B$, potem je $\invimg{f}(X) \subseteq \invimg{f}(Y)$.
+  \item praslike so monotone: če je $S \subseteq T \subseteq A$, potem je $\invimg{f}(S) \subseteq \invimg{f}(T)$
+  \item slike so monotone: če je $X \subseteq Y \subseteq B$, potem je $\img{f}(X) \subseteq \img{f}(Y)$.
   \end{itemize}
 \end{izrek}
 
