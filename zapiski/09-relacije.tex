@@ -54,8 +54,8 @@ Na množicah $A_1, \ldots, A_n$ lahko vedno definiramo:
 Univerzalna relacija se imenuje tudi \textbf{polna relacija}.
 
 V praksi so najbolj pogoste \textbf{dvomestna relacije}, se pravi relacije na dveh
-množicah, $R \subseteq A \times B$ -- rečemo tudi, da je $R$ relacije med~$A$ in~$B$.
-V tem primeru pravimo množici $A$ \textbf{domena} in $B$ \textbf{kodomena} relacije $R$.
+množicah, $R \subseteq A \times B$.
+V tem primeru pravimo množici $A$ \textbf{domena} in $B$ \textbf{kodomena} relacije $R$, relaciji $R$ pa relacija med $A$ in $B$.
 
 Pomembna relacija na množici $A$ je \textbf{enakost} ali \textbf{diagonala} na $A$:
 %
@@ -214,10 +214,10 @@ povezana s kakim elementom $y \in B$.
   Dokažimo še, da je diagonala enota za kompozicijo: naj bo $R \subseteq A \times B$ ter $x \in A$ in $y \in B$. Tedaj velja
   %
   \begin{align*}
-    x (\diag[B] \circ R) z &\iff \\
-    \some{y \in B} x \rel{R} y \land y \diag[B] z  &\iff \\
-    \some{y \in B} x \rel{R} y \land y = z &\iff \\
-    x \rel{R} z
+    x (\diag[B] \circ R) y &\iff \\
+    \some{z \in B} x \rel{R} z \land z \diag[B] y  &\iff \\
+    \some{z \in B} x \rel{R} z \land z = y &\iff \\
+    x \rel{R} y
   \end{align*}
   %
   V zadnjem koraku smo uporabili ekvivalenco $(\some{u \in U} u = v \land P(v)) \liff P(v)$. Podobno dokažemo, da je diagonala desna enota.
