@@ -30,9 +30,25 @@ Za relacije urejenosti ponavadi uporabljamo simbole, ki spominjajo na znak $\leq
 \end{definicija}
 
 \begin{primer}
-  Potence števila $2$ tvorijo verigo v $\NN$ glede na relacijo deljivosti.
-  Praštevila tvorijo antiverigo.
 \end{primer}
+
+\begin{primer}
+  Primeri verig in antiverig:
+  %
+  \begin{itemize}
+  \item Če je $(P, {\leq})$ linearno urejena, je vsaka njena podmnožica veriga. Na primer, vsaka podmnožica $\NN$ je veriga glede na~$\leq$.
+  \item Potence števila $2$ tvorijo verigo v $\NN$ glede na relacijo deljivosti.
+  \item Praštevila tvorijo antiverigo v $\NN$ glede na relacijo deljivosti.
+  \item V $(\pow{\QQ}, {\subseteq})$ imamo neštevno verigo
+    %
+    $V = \set{S \in \pow(\QQ) \mid \text{$S$ je doljna množica}}$.
+    %
+    Množica $S \subseteq \QQ$ je \textbf{doljna}, če velja
+    $\all{x y \in \QQ} x \leq y \land y \in \QQ \lthen x \in \QQ$.
+    Res, vsak Dedekindov rez je doljna množica, le-teh pa je neštevno mnogo.
+  \end{itemize}
+\end{primer}
+
 
 
 \subsection{Hassejev diagram}
@@ -423,6 +439,6 @@ ureditev.
   \item Relacija deljivosti na množici pozitivnih naravnih števil je omejena mreža.
   \item Potenčna množica $\pow{A}$, urejena z $\subseteq$, je polna mreža.
   \item Zaprti interval $[a,b]$, urejen z $\leq$, je polna mreža.
-  \item Realna števila $R$, urejena z $\leq$, so mreža.
+  \item Realna števila $R$, urejena z $\leq$,
   \end{enumerate}
 \end{primer}
