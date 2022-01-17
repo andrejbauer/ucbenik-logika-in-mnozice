@@ -6,7 +6,7 @@ Z množicami smo izrazili številne matematične objekte, na primer:
 %
 \begin{itemize}
 \item ordinalna števila smo predstavili kot množice svojih predhodnikov,
-\item preslikavo $f : A → B$ lahko izrazimo kot funkcijsko relacijo med $A$ in $B$, torej kot
+\item preslikavo $f : A \to B$ lahko izrazimo kot funkcijsko relacijo med $A$ in $B$, torej kot
   podmnožico $A \times B$,
 \item kvocientna množica $A/R$ je množica ekvivalenčnih razredov, ekvivalenčni razredi so spet
   množice,
@@ -37,14 +37,14 @@ Elemente vsote $A + B$ kodiramo takole:
 
 Kot smo že videli, lahko ordinalna števila kodiramo kot množice svojih predhodnikov, poseben primer pa so naravna števila, ki so končni ordinali.
 
-Kako pa kodiramo operacijo naslednik? Definirajmo preslikavo \textbf{naslednik} ${}^{+} : \Set \to Set$,
+Kako pa kodiramo operacijo naslednik? Definirajmo preslikavo \textbf{naslednik} ${}^{+} : \Set \to \Set$,
 %
 \begin{equation*}
   \suc{x} \defeq x \cup \set{x}.
 \end{equation*}
 %
-Če si predstavljamo, da je $x$ število, tedaj je $\suc{x}$ vsebuje predhodnike~$x$ in $x$, kar je ravno naslednik~$x$.
-Naravna števila res dobimo tako, da na $\emptyset$ uporabljamo naslednik $suc{{}}$:
+Če si predstavljamo, da je $x$ število, tedaj so elementi $\suc{x}$ predhodniki~$x$ in še $x$, kar je ravno naslednik~$x$.
+Naravna števila res dobimo tako, da na $\emptyset$ uporabljamo naslednik $\suc{{}}$:
 %
 \begin{align*}
     0 &= \emptyset \\
@@ -249,25 +249,6 @@ Bistvo kumulativne hierarhije je, da zaobjame vse množice.
 
 Za konec povejmo še nekaj več o aksiomu izbire in Zornovi lemi, ki mu je ekvivalentna. Le-ta se uporablja v algebri.
 
-\begin{definicija}
-  \textbf{Veriga} v delni urejenosti $(P, {\leq})$ je taka podmnožica $V \subseteq
-  P$, ki je z $\leq$ linearno urejena, kar pomeni $\all{x y \in V} x \leq y \leq y \leq x$.
-\end{definicija}
-
-\begin{primer}
-  Primeri verig:
-  %
-  \begin{itemize}
-  \item Če je $(P, {\leq})$ linearno urejena, je vsaka njena podmnožica veriga.
-  \item V $(\pow{\QQ}, {\subseteq})$ imamo neštevno verigo
-    %
-    $V = \set{S \in P(Q) \mid \text{$S$ je doljna množica}}$.
-    %
-    Množica $S \subseteq \QQ$ je \textbf{doljna}, če velja
-    $\all{x y \in \QQ} x \leq y \land y \in \QQ \lthen x \in \QQ$.
-  \end{itemize}
-\end{primer}
-
 \begin{lema}[Zornova lema]
   Če ima v delni urejenosti $(P, {\leq})$ vsaka veriga zgornjo mejo,
   potem ima $P$ maksimalni element.
@@ -381,7 +362,7 @@ Za konec povejmo še nekaj več o aksiomu izbire in Zornovi lemi, ki mu je ekviv
   To ni možno, ker je $(B,R)$ maksimalna delna ureditev. Torej je res $A = B$ in
   našli so dobro ureditev $A$.
 
-  $(3 \lthen 1)$ Naj bo $A : I \to Set$ družina nepraznih množic. Naj bo $\prec$ dobra ureditev
+  $(3 \lthen 1)$ Naj bo $A : I \to \Set$ družina nepraznih množic. Naj bo $\prec$ dobra ureditev
   na uniji $\bigcup A$. Ker so vse množice $A_i$ neprazne, ima vsaka od njih prvi element
   glede na $\prec$. Torej lahko definiramo funkcijo izbire $f$ s predpisom
   $f(i) \defeq \text{">prvi element $A_i$"<}$.
