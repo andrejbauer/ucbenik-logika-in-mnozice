@@ -117,7 +117,7 @@ in druga \textbf{leksikografska} urejenost
 \begin{dokaz}
   Dejstvo, da je produktna urejenost refleksivna, tranzitivna in antisimetrična, pustimo za vajo. Preverimo, da je leksikografska urejenost $\leq_\mathrm{lex}$ delna urejenost.
 
-  Dokaz, da je $\leq_\mathrm{lex}$ je refleksivna: za vsak $(x, y) \in P \times Q$ velja $x = x \land y \sqsubseteq y$, torej velja $(x, y) \sqsubseteq (x, y)$.
+  Dokaz, da je $\leq_\mathrm{lex}$ je refleksivna: za vsak $(x, y) \in P \times Q$ velja $x = x \land y \leq_Q y$, torej velja $(x, y) \sqsubseteq (x, y)$.
 
   Dokaz, da je $\leq_\mathrm{lex}$ je antisimetrična: naj bosta $(x_1,y_1), (x_2,y_2) \in P \times Q$ in denimo, da velja
   %
@@ -415,7 +415,7 @@ ureditev.
 
 \begin{izrek}
   Delna urejenost $(P, {\leq})$ je omejena mreža natanko tedaj, ko ima
-  najmanjši element in največji element, ter imata vsaka sva elementa infimum in supremum.
+  najmanjši element in največji element, ter imata vsaka dva elementa infimum in supremum.
 \end{izrek}
 
 \begin{dokaz}
