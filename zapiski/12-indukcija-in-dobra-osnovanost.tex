@@ -208,7 +208,7 @@ moramo kako lastnost, ki jo imajo vse dobre osnovanosti, nato pa relacijo, ki te
 
 \begin{definicija}
   Naj bo $R \subseteq A \times A$ relacija na $A$. \textbf{Padajoča veriga} za relacijo $R$
-  je zaporedje $a : \NN \to A$, za katerega velja $\all{i \in \NN} a(i+1) \rel{R} a(i)$.
+	je zaporedje $a : \NN \to A$, za katerega velja $\all{i \in \NN} a_{i+1} \rel{R} a_i$.
 \end{definicija}
 
 Se pravi, da je padajoča veriga zaporedje, za katerega velja
@@ -238,8 +238,8 @@ Iz cikla dobimo padajočo verigo, tako da cikel ponavljamo v nedogled:
   Dovolj je pokazati, da ni padajočih verig, saj iz cikla dobimo padajočo verigo.
   Denimo, da je $a : \NN \to A$ padajoča veriga za $R \subseteq A \times A$. Dokazali bomo, da $R$ ni dobro
   osnovana. Se pravi, da moramo poiskati $R$-progresivno podmnožico $S \subseteq A$, za katero velja
-  $S \neq A$. Vzemimo $S \defeq A \setminus \set{ a(i) \mid i \in \NN}$. Očitno velja $S \neq A$, saj 
-  $a(0) \not\in S$. Preverimo, da je $S$ progresivna, se pravi, da je
+  $S \neq A$. Vzemimo $S \defeq A \setminus \set{ a_i \mid i \in \NN}$. Očitno velja $S \neq A$, saj 
+  $a_0 \not\in S$. Preverimo, da je $S$ progresivna, se pravi, da je
   %
   \begin{equation*}
     \all{y \in A} (\all{x \in A} x \rel{R} y \lthen x \in S) \lthen y \in S.
@@ -255,8 +255,8 @@ Iz cikla dobimo padajočo verigo, tako da cikel ponavljamo v nedogled:
   %
   \begin{itemize}
   \item če $y \in S$, potem seveda sledi $y \in S$.
-  \item če $y \not\in S$, potem obstaja $i \in \NN$, da je $y = a(i)$. Ker je $a(i+1) \rel{R} a(i)$, iz
-    predpostavke~\eqref{eq:verige} sledi $y = a(i) \in S$.
+	\item če $y \not\in S$, potem obstaja $i \in \NN$, da je $y = a_i$. Ker je $a_{i+1} \rel{R} a_i$, iz
+    predpostavke~\eqref{eq:verige} sledi $y = a_i \in S$.
   \end{itemize}
   Torej v vsakem primeru velja $y \in S$.
 \end{dokaz}
@@ -542,7 +542,7 @@ in
 Zdi se, da sta prvi in drugi način ">isti tip"< urejenosti in se razlikujeta od tretjega. Res, v tretji vrsti ima $1$ neskončno predhodnikov, v prvi in drugi pa takega elementa ni. Govorimo o naslednjem pojmu.
 
 \begin{definicija}
-  Dobri ureditvi $(P, {\leq_P})$ in $(Q, {\leq_Q})$ \textbf{izomorfni}, če obstajata monotoni preslikavi $f : P \to Q$ in $Q \to P$, da velja $f \circ g = \id[Q]$ in $g \circ f = \id[P]$.
+  Dobri ureditvi $(P, {\leq_P})$ in $(Q, {\leq_Q})$ \textbf{izomorfni}, če obstajata monotoni preslikavi $f : P \to Q$ in $g: Q \to P$, da velja $f \circ g = \id[Q]$ in $g \circ f = \id[P]$.
 \end{definicija}
 
 Seveda je izomorfnost ekvivalenčna relacija, ki je definirana na pravem razredu vseh dobrih urejenosti. 
@@ -589,7 +589,7 @@ Poglejmo, kako deluje njegova ideja:
   Kako bi si predstavljali naslednje ordinale: $\omega + \omega + \omega$, $\omega \cdot \omega$, $\omega^3$, $\omega^\omega$?
 \end{naloga}
 
-Von Neumann je imel pravo idejo, a pušča kanček dvoma, ker je definicija ordinalnega števila \emph{rekurzivna} (se nanaša sama nase). Če se malce potrudimo, da lahko von Neumannove ordinale opredelimo neposredno.
+Von Neumann je imel pravo idejo, a pušča kanček dvoma, ker je definicija ordinalnega števila \emph{rekurzivna} (se nanaša sama nase). Če se malce potrudimo, pa lahko von Neumannove ordinale opredelimo neposredno.
 
 \begin{definicija}
   Množica $z$ je \textbf{tranzitivna}, če iz $x \in y$ in $y \in z$ sledi $x \in z$.
