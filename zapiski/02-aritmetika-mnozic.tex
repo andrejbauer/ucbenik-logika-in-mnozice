@@ -30,7 +30,7 @@ Primeri neresničnih izjav:
 \item ">Obstaja element prazne množice, ki \dots"<
 \end{enumerate}
 %
-Denimo, da imamo preslikave $f :\emptyset \to A$ in $g : \emptyset \to A$. Tedaj sta enaki, saj velja: ">za vsak element $x \in \emptyset$ velja $f(x) = g(x)$".
+Denimo, da imamo preslikave $f :\emptyset \to A$ in $g : \emptyset \to A$. Tedaj sta enaki, saj velja: ">za vsak element $x \in \emptyset$ velja $f(x) = g(x)$"<.
 Torej imamo kvečjemu eno preslikavo $\emptyset \to A$. Ali pa imamo sploh kakšno? Da, pravimo ji \textbf{prazna preslikava}, ker je njeno prirejanje ">prazno"<, oziroma ga sploh ni treba podati (saj ni nobenega elementa domene $\emptyset$, ki bi mu morali prirediti kak element kodomene $A$).
 
 Kaj pa preslikave $A \to \emptyset$?
@@ -232,7 +232,7 @@ Omenimo še en pogost način podajanja funkcij, namreč s predpisom po kosih.
       \begin{cases}
         -1 & \text{če $x < 0$,}\\
         0 & \text{če $x = 0$,}\\
-        1 & \text{če $x \geq 0$.}
+        1 & \text{če $x > 0$.}
       \end{cases}
   \end{align*}
 \end{primer}
@@ -276,6 +276,7 @@ Pravimo, da je $\mathsf{ev}$ \textbf{preslikava višjega reda}, ker slika presli
   Bolj pravilno bi bilo reči, da je $\int_0^1$ preslikava iz množice \emph{integrabilnih funkcij $[0,1] \to \RR$} v realna števila.
 \end{primer}
 
+\noindent
 Kompozitum preslikav je tudi preslikava višjega reda:
 %
 \begin{align*}
@@ -437,7 +438,7 @@ veljajo za števila. Ali gre tu za kako globljo povezavo?
 
 \item Zmnožek in $\one$:
   \begin{enumerate}
-    \item $A \times 1 \iso A$
+    \item $A \times \one \iso A$
     \item $A \times B \iso B \times A$
     \item $(A \times B) \times C \iso A \times (B \times C)$
   \end{enumerate}
@@ -450,9 +451,9 @@ veljajo za števila. Ali gre tu za kako globljo povezavo?
 
 \item Eksponenti:
   \begin{enumerate}
-    \item $A^1 \iso A$
-    \item $1^A \iso 1$
-    \item $A^{\emptyset }\iso 1$
+    \item $A^\one \iso A$
+    \item $\one^A \iso \one$
+    \item $A^{\emptyset }\iso \one$
     \item $\emptyset^A \iso \emptyset , če  A \neq \emptyset$
     \item $A^{(B \times C)} \iso (A^B)^C$
     \item $A^{(B + C)} \iso A^B \times A^C$
