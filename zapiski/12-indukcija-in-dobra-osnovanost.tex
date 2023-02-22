@@ -256,7 +256,7 @@ Iz cikla dobimo padajočo verigo, tako da cikel ponavljamo v nedogled:
   \begin{itemize}
   \item če $y \in S$, potem seveda sledi $y \in S$.
   \item če $y \not\in S$, potem obstaja $i \in \NN$, da je $y = a(i)$. Ker je $a(i+1) \rel{R} a(i)$, iz
-    predpostavke~\eqref{eq:verige} sledi $y = a(i) \in S$.
+    predpostavke~\eqref{eq:verige} sledi $a(i+1) \in S$, kar je protislovje, iz česar sledi karkoli, torej $y \in S$.
   \end{itemize}
   Torej v vsakem primeru velja $y \in S$.
 \end{dokaz}
@@ -310,18 +310,17 @@ Relaciji $<$ in $\leq$ na številih sta med seboj povezani, saj denimo za realna
 %
 in
 %
-\begin{equation}
-  \label{eq:leq-iff-lteq}
-  %
+\begin{equation*}
   x \leq y \iff x < y \lor x = y
-\end{equation}
+\end{equation*}
 %
 To velja v splošnem. Stroga urejenost $<$ na množici $A$ porodi delno urejenost $\leq$ na $A$,
 definirano s predpisom:
 %
-\begin{equation*}
-    x \leq y  \defiff x = y \lor x \leq y.
-\end{equation*}
+\begin{equation}
+  \label{eq:leq-iff-lteq}
+  x \leq y  \defiff x = y \lor x < y.
+\end{equation}
 %
 V obratno smer, delna urejenost $\sqsubseteq$ določa strogo urejenost $\sqsubset$, definirano s predpisom
 %
@@ -330,7 +329,7 @@ V obratno smer, delna urejenost $\sqsubseteq$ določa strogo urejenost $\sqsubse
   a \sqsubset b  \defiff  a \neq b \land a \sqsubseteq b.
 \end{equation}
 %
-Seveda je treba preveriti naslednja dejstva, ki jih postimo za vajo:
+Seveda je treba preveriti naslednja dejstva, ki jih pustimo za vajo:
 %
 \begin{itemize}
 \item če je $<$ stroga urejenost, potem je $\leq$ definirana s \eqref{eq:leq-iff-lteq} delna urejenost
@@ -512,7 +511,7 @@ Tako lahko prehajamo med delno in strogo urejenostjo.
     urejenost
     %
     \begin{equation*}
-      \inl{0} < \inl{1} < \inl{2} < \cdots < \inr{0} < \inr{1} < \inr{2}.
+      \inl(0) < \inl(1) < \inl(2) < \cdots < \inr(0) < \inr(1) < \inr(2).
     \end{equation*}
   \end{enumerate}
 \end{primer}
@@ -536,13 +535,13 @@ in
 in
 %
 \begin{equation*}
-  0, 2, 4, 6, 8, \ldots, 1, 3, 4, 5, \ldots
+  0, 2, 4, 6, 8, \ldots, 1, 3, 5, 7, \ldots
 \end{equation*}
 %
 Zdi se, da sta prvi in drugi način ">isti tip"< urejenosti in se razlikujeta od tretjega. Res, v tretji vrsti ima $1$ neskončno predhodnikov, v prvi in drugi pa takega elementa ni. Govorimo o naslednjem pojmu.
 
 \begin{definicija}
-  Dobri ureditvi $(P, {\leq_P})$ in $(Q, {\leq_Q})$ \textbf{izomorfni}, če obstajata monotoni preslikavi $f : P \to Q$ in $Q \to P$, da velja $f \circ g = \id[Q]$ in $g \circ f = \id[P]$.
+  Dobri ureditvi $(P, {\leq_P})$ in $(Q, {\leq_Q})$ \textbf{izomorfni}, če obstajata monotoni preslikavi $f : P \to Q$ in $g : Q \to P$, da velja $f \circ g = \id[Q]$ in $g \circ f = \id[P]$.
 \end{definicija}
 
 Seveda je izomorfnost ekvivalenčna relacija, ki je definirana na pravem razredu vseh dobrih urejenosti. 
@@ -589,7 +588,7 @@ Poglejmo, kako deluje njegova ideja:
   Kako bi si predstavljali naslednje ordinale: $\omega + \omega + \omega$, $\omega \cdot \omega$, $\omega^3$, $\omega^\omega$?
 \end{naloga}
 
-Von Neumann je imel pravo idejo, a pušča kanček dvoma, ker je definicija ordinalnega števila \emph{rekurzivna} (se nanaša sama nase). Če se malce potrudimo, da lahko von Neumannove ordinale opredelimo neposredno.
+Von Neumann je imel pravo idejo, a pušča kanček dvoma, ker je definicija ordinalnega števila \emph{rekurzivna} (se nanaša sama nase). Če se malce potrudimo, pa lahko von Neumannove ordinale opredelimo neposredno.
 
 \begin{definicija}
   Množica $z$ je \textbf{tranzitivna}, če iz $x \in y$ in $y \in z$ sledi $x \in z$.
@@ -634,8 +633,9 @@ Ali definicija~\ref{def:von-neuman-ordinal} res sovpada z idejo, da je ordinal m
 \end{izjava}
 
 \begin{dokaz}
-  Ker je $\alpha$ tranzitivna množica, je $\beta \subseteq \alpha$, zato je $\beta$ z relacijo~$\in$ dobro urejen. Dokazati moramo še, da je $\beta$ tranzitivna množica. Denimo, da je $\gamma \in \beta$.
-  Tedaj je $\gamma \in \alpha$ in ker je $\alpha$ z $\in$ linearno urejen, velja bodisi $\gamma \in \beta$ bodisi $\gamma = \beta$ bodisi $\beta \in \gamma$. A ker druga in tretja možnost ne prideta v poštev, saj bi dobili cikel $\gamma \in \beta \in \gamma$, velja prva, kar smo želeli dokazati.
+  Ker je $\alpha$ tranzitivna množica, je $\beta \subseteq \alpha$, zato je $\beta$ z relacijo~$\in$ dobro urejen.
+  Dokazati moramo še, da je $\beta$ tranzitivna množica. Denimo, da je $\delta \in \gamma \in \beta$, in pokažimo, da velja $\delta \in \beta$. Ker je $\alpha$ tranzitivna in velja $\gamma \in \alpha$, velja tudi $\delta \in \alpha$.
+  Ker je $\alpha$ linearno urejena, velja bodisi $\delta \in \beta$ bodisi $\delta = \beta$ bodisi $\beta \in \delta$. Druga in tretja možnost bi nam dali cikel v $\alpha$, kar ni mogoče, torej velja prva možnost.
 \end{dokaz}
 
 \begin{naloga}

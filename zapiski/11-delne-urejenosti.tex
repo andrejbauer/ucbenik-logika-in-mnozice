@@ -41,10 +41,10 @@ Za relacije urejenosti ponavadi uporabljamo simbole, ki spominjajo na znak $\leq
   \item Praštevila tvorijo antiverigo v $\NN$ glede na relacijo deljivosti.
   \item V $(\pow{\QQ}, {\subseteq})$ imamo neštevno verigo
     %
-    $V = \set{S \in \pow(\QQ) \mid \text{$S$ je doljna množica}}$.
+    $V = \set{S \in \pow{\QQ} \mid \text{$S$ je doljna množica}}$.
     %
     Množica $S \subseteq \QQ$ je \textbf{doljna}, če velja
-    $\all{x y \in \QQ} x \leq y \land y \in \QQ \lthen x \in \QQ$.
+    $\all{x y \in \QQ} x \leq y \land y \in S \lthen x \in S$.
     Res, vsak Dedekindov rez je doljna množica, le-teh pa je neštevno mnogo.
   \end{itemize}
 \end{primer}
@@ -58,7 +58,7 @@ množice $A$ narišemo tako, da je $x$ pod $y$, kadar velja $x \leq y$. Nato pov
 
 \begin{naloga}
   Narišite Hassejev diagram relacije deljivosti na množici $\set{0, 1, \dots, 10}$ ter
-  Hassejev diagram relacije $\subseteq$ na množici $\pow(\{a,b,c\})$.
+  Hassejev diagram relacije $\subseteq$ na množici $\pow{\{a,b,c\}}$.
 \end{naloga}
 
 \begin{naloga}
@@ -73,7 +73,7 @@ množice $A$ narišemo tako, da je $x$ pod $y$, kadar velja $x \leq y$. Nato pov
 Če je $\leq$ delna urejenost na $P$ potem je tudi transponirana relacija $\geq$, definirana z
 %
 \begin{equation*}
-    x \geq y \liff x \leq y,
+    x \geq y \liff y \leq x,
 \end{equation*}
 %
 delna urejenost na $P$. Če je $\leq$ linearna, je $\geq$ linearna.
@@ -111,15 +111,15 @@ in druga \textbf{leksikografska} urejenost
 \end{naloga}
 
 \begin{izjava}
-  Produktna in leksikografska urejenosti sta delni urejenosti. Leksikografska urejenost linearnih urejenosti je linearna.
+  Produktna in leksikografska urejenost sta delni urejenosti. Leksikografska urejenost linearnih urejenosti je linearna.
 \end{izjava}
 
 \begin{dokaz}
   Dejstvo, da je produktna urejenost refleksivna, tranzitivna in antisimetrična, pustimo za vajo. Preverimo, da je leksikografska urejenost $\leq_\mathrm{lex}$ delna urejenost.
 
-  Dokaz, da je $\leq_\mathrm{lex}$ je refleksivna: za vsak $(x, y) \in P \times Q$ velja $x = x \land y \sqsubseteq y$, torej velja $(x, y) \sqsubseteq (x, y)$.
+  Dokaz, da je $\leq_\mathrm{lex}$ refleksivna: za vsak $(x, y) \in P \times Q$ velja $x = x \land y \leq_Q y$, torej velja $(x, y) \leq_\mathrm{lex} (x, y)$.
 
-  Dokaz, da je $\leq_\mathrm{lex}$ je antisimetrična: naj bosta $(x_1,y_1), (x_2,y_2) \in P \times Q$ in denimo, da velja
+  Dokaz, da je $\leq_\mathrm{lex}$ antisimetrična: naj bosta $(x_1,y_1), (x_2,y_2) \in P \times Q$ in denimo, da velja
   %
   \begin{equation*}
     (x_1, y_1) \leq_\mathrm{lex} (x_2, y_2) \land (x_2, y_2) \leq_\mathrm{lex} (x_1, y_1)
@@ -134,7 +134,7 @@ in druga \textbf{leksikografska} urejenost
   & (x_1 = x_2 \land y_1 \leq_Q y_2 \land x_2 = x_1 \land y_2 \leq_Q y_1).
   \end{align*}
   %
-  Če v zgornji formuli upoštevamo, da je $x_1 \neq x_2 \land x_1 = x_2$, vidimo, da sta drugi in tretji disjunkt ekvivalentna $\bot$, zato
+  Če v zgornji formuli upoštevamo, da je $x_1 \neq x_2 \land x_1 = x_2$ neresnična, vidimo, da sta drugi in tretji disjunkt ekvivalentna $\bot$, zato
   je izjava ekvivalentna:
   \begin{align*}
   &(x_1 \neq x_2 \land x_1 \leq_P x_2 \land x_2 \neq x_1 \land x_2 \leq_P x_1) \lor {}\\
@@ -167,7 +167,7 @@ in druga \textbf{leksikografska} urejenost
   $(x_1 \neq x_3 \land x_1 \leq_P x_3) \lor (x_1 = x_3 \land y_1 \leq_Q y_3)$:
   %
   \begin{enumerate}
-  \item Če velja $x_1 \neq x_2 \land x_1 \leq_P x_2 \land x_2 \neq x_3 \land x_2 \leq_P x_3$: ker je $\leq$ tranzitivna sledi $x_1 \leq_P x_3$, poleg tega pa velja $x_1 \neq
+  \item Če velja $x_1 \neq x_2 \land x_1 \leq_P x_2 \land x_2 \neq x_3 \land x_2 \leq_P x_3$: ker je $\leq_P$ tranzitivna sledi $x_1 \leq_P x_3$, poleg tega pa velja $x_1 \neq
     x_3$: če bi veljalo $x_1 = x_3$, bi iz predpostavk dobili $x_3 \leq_P x_2 \land x_2 \leq_P x_3$, od koder bi sledilo $x_2 = x_3$, kar je v
     protislovju s predpostavko $x_2 \neq x_3$.
 
@@ -178,10 +178,10 @@ in druga \textbf{leksikografska} urejenost
   \item Če velja $x_1 = x_2 \land y_1 \leq_Q y_2 \land x_2 = x_3 \land y_2 \leq_Q y_3$: torej je $x_1 = x_3$ ker je $=$ tranzitivna in $y_1 \leq_Q y_3$ ker je $\leq_Q$ tranzitivna.
   \end{enumerate}
   %
-  Nazadnje preverimo še, da je $\leq_\mathrm{lex}$ linearna, če sta $\leq$ in $\leq_Q$ linearni. Naj bosta $(x_1,y_1), (x_2,y_2) \in P \times Q$. Dokazati želimo
+  Nazadnje preverimo še, da je $\leq_\mathrm{lex}$ linearna, če sta $\leq_P$ in $\leq_Q$ linearni. Naj bosta $(x_1,y_1), (x_2,y_2) \in P \times Q$. Dokazati želimo
   %
   \begin{equation*}
-    (x_1, y_1) \preceq (x_2, y_2) \lor (x_2, y_2) \preceq (x_1, y_1).
+    (x_1, y_1) \leq_\mathrm{lex} (x_2, y_2) \lor (x_2, y_2) \leq_\mathrm{lex} (x_1, y_1).
   \end{equation*}
   %
   To je ekvivalentno disjunkciji
@@ -279,7 +279,7 @@ Treba je preveriti, da je relacija dobro definirana, saj smo uporabili predstavn
 Pa preverimo. Denimo, da velja $x, y, x', y' \in P$ in $x \sim x'$ in $y \sim y'$.
 Torej velja
 \begin{equation*}
-  x \leq x' \land x' \leq x \land y \leq y' \land y' \land x.
+  x \leq x' \land x' \leq x \land y \leq y' \land y' \leq y.
 \end{equation*}
 %
 Sedaj dokažimo $x \leq y \liff x' \leq y'$:
@@ -296,7 +296,7 @@ Torej je $\preceq$ dobro definirana.
 \end{izjava}
 
 \begin{dokaz}
-  Refleksivnost in tranzitivnost $\preceq$ sledita iz refleksivnosti in tranzitivnosti~$\leq$. Preverimo antisimetričnost: denimo, da velja $[x] \leq [y]$ in $[y] \leq [x]$. Tedaj velja $x \leq y$ in $y \leq x$, torej velja $x \sim y$ in $[x] = [y]$.
+  Refleksivnost in tranzitivnost $\preceq$ sledita iz refleksivnosti in tranzitivnosti~$\leq$. Preverimo antisimetričnost: denimo, da velja $[x] \preceq [y]$ in $[y] \preceq [x]$. Tedaj velja $x \leq y$ in $y \leq x$, torej velja $x \sim y$ in $[x] = [y]$.
 \end{dokaz}
 
 \begin{primer}
@@ -363,8 +363,8 @@ Torej je $\preceq$ dobro definirana.
 
   \item $x$ je \textbf{minimalni element} podmnožice $S$, ko velja $x \in S$ in $\all{y \in S} y \leq x \lthen x = y$,
 
-  \item $x$ je \textbf{maksimalni element} podmnožice $S$, ko velja $x \in s$ in
-      $\all{x \in S} x \leq y \lthen x = y$,
+  \item $x$ je \textbf{maksimalni element} podmnožice $S$, ko velja $x \in S$ in
+      $\all{y \in S} x \leq y \lthen x = y$,
 
   \item $x$ je \textbf{najmanjši} ali \textbf{prvi} element ali \textbf{minimum} podmnožice $S$, ko velja $x \in S$ in $\all{y \in S} x \leq y$,
 
@@ -415,7 +415,7 @@ ureditev.
 
 \begin{izrek}
   Delna urejenost $(P, {\leq})$ je omejena mreža natanko tedaj, ko ima
-  najmanjši element in največji element, ter imata vsaka sva elementa infimum in supremum.
+  najmanjši element in največji element, ter imata vsaka dva elementa infimum in supremum.
 \end{izrek}
 
 \begin{dokaz}
@@ -427,7 +427,7 @@ ureditev.
   %
   \begin{enumerate}
   \item če je $S = \emptyset$, potem je $\inf S = \top_P$ in $\sup S = \bot_P$,
-  \item če je $S = \set{x_1, \ldots, x_n}$ za $n > 0$, potem je $\inf S = \inf \set{x_1, \ldots, x_{n-1}} \lor x_n$ in $\sup S = \sup \set{x_1, \ldots, x_{n-1}} \lor x_n$.
+  \item če je $S = \set{x_1, \ldots, x_n}$ za $n > 0$, potem je $\inf S = \inf \set{x_1, \ldots, x_{n-1}} \land x_n$ in $\sup S = \sup \set{x_1, \ldots, x_{n-1}} \lor x_n$.
   \end{enumerate}
 \end{dokaz}
 
@@ -439,6 +439,6 @@ ureditev.
   \item Relacija deljivosti na množici pozitivnih naravnih števil je omejena mreža.
   \item Potenčna množica $\pow{A}$, urejena z $\subseteq$, je polna mreža.
   \item Zaprti interval $[a,b]$, urejen z $\leq$, je polna mreža.
-  \item Realna števila $R$, urejena z $\leq$,
+  \item Množica realnih števil $\RR$, urejena z $\leq$, je mreža.
   \end{enumerate}
 \end{primer}

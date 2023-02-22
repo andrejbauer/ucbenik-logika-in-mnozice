@@ -3,7 +3,7 @@
 \section{Resničnostne tabele}
 
 Vsaka izjava ima \textbf{resničnostno vrednost}. Resničnostni vrednosti sta $\bot$
-(resnica) in $\top$ (neresnica). Na primer, izjava $\bot \lor (\top \lthen \top)$ je resnična, njena resničnostna vrednost je $\top$. Izjava $2 + 2 = 5$ je neresnična, njena resničnostna vrednost je~$\bot$.
+(neresnica) in $\top$ (resnica). Na primer, izjava $\bot \lor (\top \lthen \top)$ je resnična, njena resničnostna vrednost je $\top$. Izjava $2 + 2 = 5$ je neresnična, njena resničnostna vrednost je~$\bot$.
 
 Kadar izjava vsebuje spremenljivke (pravimo jim tudi \emph{parametri}), je njena
 resničnostna vrednost \emph{odvisna} od parametrov. Na primer, če sta $x, y \in \NN$ spremenljivki, je resničnostna vrednost izjave $x + 2 y < 3$ odvisna
@@ -93,7 +93,7 @@ katere resničnostna tabela se glasi
     $\bot$ & $\bot$ & $\bot$ \\
     $\bot$ & $\top$ & $\top$ \\
     $\top$ & $\bot$ & $\top$ \\
-    $\bot$ & $\bot$ & $\bot$ \\
+    $\top$ & $\top$ & $\bot$ \\
     \bottomrule
   \end{tabular}
 \end{center}
@@ -116,7 +116,7 @@ zapišemo konjunkciji:
 Nato tvorimo disjunkcijo tako dobljenih konjunkcij:
 %
 \begin{equation*}
-  (\neg p \land q) \land (p \land \neg q).
+  (\neg p \land q) \lor (p \land \neg q).
 \end{equation*}
 %
 Dobljena formula ima želeno resničnostno tabelo.
@@ -127,7 +127,7 @@ Dobljena formula ima želeno resničnostno tabelo.
 Za vsako vrstico v tabeli, ki ima vrednost $\bot$ zapišemo
 disjunkcijo simbolov in njihovih negacij, pri čemer negiramo tiste simbole, ki
 imajo v dani vrstici vrednost $\top$. Na primer, v zgornji tabeli imata prva in
-četrta vrstica vednost $\bot$, zanju zapišemo disjunkciji:
+četrta vrstica vrednost $\bot$, zanju zapišemo disjunkciji:
 %
 \begin{itemize}
 \item 1.~vrstica: $p \lor q$
@@ -143,7 +143,7 @@ Nato tvorimo konjunkcijo tako dobljenih disjunkcij:
 Zgornjo tabelo bi lahko dobili tudi kot resničnostno tabelo formule
 %
 \begin{equation*}
-    p \liff q
+    p \oplus q
 \end{equation*}
 
 \subsection{Polni nabori}
@@ -153,7 +153,7 @@ Vidimo, da lahko vsako resničnostno tabelo dobimo z uporabo veznikov $\neg$, $\
 $\land$. \textbf{Polni nabor} je tak izbor veznikov, s katerim lahko dobimo vsako
 resničnostno tabelo.
 
-Torej je $\neg$, $\lor$, $\land$ poln nabor. Lahko bi ga še zmanjšali na $\neg$, $\land$, saj lahko $p \lor q$ izrazimo kot $\neg p \land \neg q$.
+Torej je $\neg$, $\lor$, $\land$ poln nabor. Lahko bi ga še zmanjšali na $\neg$, $\land$, saj lahko $p \lor q$ izrazimo kot $\neg (\neg p \land \neg q)$.
 
 Nabor $\land$, $\lor$ pa \emph{ni} poln, saj ne moremo dobiti resničnostne tabele
 %
@@ -226,7 +226,7 @@ Kombinirana pravila:
 \begin{align}
   \neg(p \land q) &= \neg p \lor \neg q \tag{de Morganovo pravilo za $\land$} \\
   \neg(p \lor q) &= \neg p \land \neg q \tag{de Morganovo pravilo za $\lor$} \\
-  \neg(p \lthen q) &= \neg p \land q \notag \\
+  \neg(p \lthen q) &= p \land \neg q \notag \\
   p \land (p \lor q) &= p \tag{absorbcijsko pravilo za $\land$}\\
   p \lor (p \land q) &= p \tag{absorbcijsko pravilo za $\lor$} \\
   p \land (q \lor r) &= (p \land q) \lor (p \land r) \tag{distributivnost $\land$}\\

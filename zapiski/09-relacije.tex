@@ -19,12 +19,12 @@ Predikat $P$ na množici $A$ lahko predstavimo na dva načina:
 \end{itemize}
 %
 Oba načina predstavitve sta uporabna, spoznali pa smo že izomorfizem med njima,
-saj velja $P(A) \iso \two^A$.
+saj velja $\pow{A} \iso \two^A$.
 
 \section{Relacije}
 
-Relacije s večmestni predikati. Se pravi, relacija $R$ opredeljujejo kako
-lastnost urejenih večteric kartezičnega produkta $A_1 \times A_2 \times \cdots \times A_n$. Pravimo, da je $R$ \textbf{$n$-člena} ali \textbf{$n$-mestna relacija} na množicah $A_1, …, A_n$.
+Relacije z večmestnimi predikati. Se pravi, relacija $R$ opredeljujejo kako
+lastnost urejenih večteric kartezičnega produkta $A_1 \times A_2 \times \cdots \times A_n$. Pravimo, da je $R$ \textbf{$n$-člena} ali \textbf{$n$-mestna relacija} na množicah $A_1, \ldots, A_n$.
 
 \begin{primer}
   Na množici točk v ravnini lahko obravnavamo relacijo kolinearnosti.
@@ -53,7 +53,7 @@ Na množicah $A_1, \ldots, A_n$ lahko vedno definiramo:
 %
 Univerzalna relacija se imenuje tudi \textbf{polna relacija}.
 
-V praksi so najbolj pogoste \textbf{dvomestna relacije}, se pravi relacije na dveh
+V praksi so najbolj pogoste \textbf{dvomestne relacije}, se pravi relacije na dveh
 množicah, $R \subseteq A \times B$.
 V tem primeru pravimo množici $A$ \textbf{domena} in $B$ \textbf{kodomena} relacije $R$, relaciji $R$ pa relacija med $A$ in $B$.
 
@@ -203,7 +203,7 @@ povezana s kakim elementom $y \in B$.
     \some{b \in B} a \rel{R} b \land (\some{c \in C} b \rel{S} c \land c \rel{T} d) \label{eq:comp-2}
   \end{align}
   %
-  Torej je treba dokazati ekvivalenco izjav~\eqref{eq:comp-1} in~\eqref{eq:comp-2}, kar prepuščamo za vajo. Naj namignemo, da je treba pri dokazovanju ekvivalence uporabiti \emph{Frobeniuseva pravilo}
+  Torej je treba dokazati ekvivalenco izjav~\eqref{eq:comp-1} in~\eqref{eq:comp-2}, kar prepuščamo za vajo. Naj namignemo, da je treba pri dokazovanju ekvivalence uporabiti \emph{Frobeniusevo pravilo}
   %
   \begin{equation*}
     (\some{x \in X} p \land q(x)) \liff p \land \some{x \in X} q(x).
@@ -232,7 +232,7 @@ Za $n \in \NN$ definiramo \textbf{$n$-to potenco} relacije $R \subseteq A \times
 \begin{equation*}
     x R^n y \defiff
     \some{z_0, \ldots, z_n \in A}
-    z_0 = x \land z_n = y \land \all{i \in {0, \ldots, n-1}} z_i \rel{R} z_{i+1}.
+    z_0 = x \land z_n = y \land \all{i \in \{0, \ldots, n-1\}} z_i \rel{R} z_{i+1}.
 \end{equation*}
 %
 To je precej nečitljiva formula. Bolj razumljiva definicija je potenca kot $n$-kratni kompozitum relacije $R$ same s sabo:
@@ -350,7 +350,7 @@ ostali dokazi zelo podobni. Ključno pri dokazu obstoja tranzitivne ovojnice je
 naslednje dejstvo.
 
 \begin{lema}
-  Naj bo $A$ množica in $R : I \to P(A \times A)$ družina relacij na $A$. Če za
+  Naj bo $A$ množica in $R : I \to \pow{A \times A}$ družina relacij na $A$. Če za
   vsak $i \in I$ velja, da je $R_i$ tranzitivna relacija, potem je tudi presek $\bigcap R$ tranzitivna relacija.
 \end{lema}
 

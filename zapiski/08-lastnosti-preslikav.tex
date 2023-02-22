@@ -76,7 +76,7 @@ Pojma monomorfizem in epimorfizem sta uporabna, ker nam omogočata, da \emph{kra
 
   \item Naj bosta $f : A \to B$ in $g : B \to C$ preslikavi in $g \circ f$ epimorfizem.
     Dokazujemo, da je $g$ epimorfizem. Naj bosta $h, k : C \to D$ taki preslikavi, da
-    velja $h \circ g = k \circ g$. Dokazujemo, da je $h = k$. Iz $h \circ g = k \circ h$
+    velja $h \circ g = k \circ g$. Dokazujemo, da je $h = k$. Iz $h \circ g = k \circ g$
     sledi $(h \circ g) \circ f = (k \circ g) \circ f$. Če upoštevamo asociativnost
     kompozicije, dobimo $h \circ (g \circ f) = k \circ (g \circ f)$. Ker je $g \circ f$
     epimorfizem, ga smemo krajšati na desni, od koder dobimo želeno enakost $h = k$.
@@ -111,7 +111,7 @@ Pojma monomorfizem in epimorfizem sta uporabna, ker nam omogočata, da \emph{kra
       S = \set{ z \in B \such \some{x \in A} f(x) = z }
     \end{equation*}
     % a
-    ter preslikavi $\chi_S : B \to 2$ in $(y \mapsto \top) : B \to \two$. Ker velja
+    ter preslikavi $\chi_S : B \to \two$ in $(y \mapsto \top) : B \to \two$. Ker velja
     $\chi_S \circ f = (y \mapsto \top) \circ f$, sledi $\chi_S = (y \mapsto \top)$, torej $S = B$, kar je surjektivnost.
 
     ($\Leftarrow$) Če je $f$ surjektivna in $g \circ f = h \circ f$: naj bo $y \in B$. Obstaja $x \in A$, da je $f(x) = y$. Torej je $g(y) = g(f(x)) = h(f(x)) = h(y)$.
@@ -208,7 +208,7 @@ Kot vidimo, lahko sliko zapišemo tudi kot izpeljano množico
   \img{f}(T) \defeq \set{ f(x) \such x \in T }.
 \end{equation*}
 %
-Običajni zapis za prasliko $\invimg{f}(S)$ je tudi $\inv{f}(S)$, vendar tega zapisa mi ne bomo uporabljali, ker napačno namiguje, da ima $f$ inverz. Boste pa ta zapis videli marsikje drugje, ker so matematiki konzervativni bitja, ki raje nekaj stoletij uporabljajo slab zapis, kot da bi spremenili svoje navade.
+Običajni zapis za prasliko $\invimg{f}(S)$ je tudi $\inv{f}(S)$, vendar tega zapisa mi ne bomo uporabljali, ker napačno namiguje, da ima $f$ inverz. Boste pa ta zapis videli marsikje drugje, ker so matematiki konzervativna bitja, ki raje nekaj stoletij uporabljajo slab zapis, kot da bi spremenili svoje navade.
 
 Običajni zapis za sliko $\img{f}(S)$ je tudi $f(S)$ ali $f[S]$. Predvsem $f(S)$ se uporablja v praksi, a tudi tega odsvetujemo. Kako naj pri takem zapisu ločimo med $f(x)$ in $\img{f}(\set{x})$?
 
@@ -240,8 +240,8 @@ Ker slikata preslikave v preslikave, pravimo, da sta to \textbf{preslikavi višj
   Naj bo $f : A \to B$ preslikava:
   %
   \begin{itemize}
-  \item praslike so monotone: če je $S \subseteq T \subseteq A$, potem je $\invimg{f}(S) \subseteq \invimg{f}(T)$
-  \item slike so monotone: če je $X \subseteq Y \subseteq B$, potem je $\img{f}(X) \subseteq \img{f}(Y)$.
+  \item praslike so monotone: če je $S \subseteq T \subseteq B$, potem je $\invimg{f}(S) \subseteq \invimg{f}(T)$
+  \item slike so monotone: če je $X \subseteq Y \subseteq A$, potem je $\img{f}(X) \subseteq \img{f}(Y)$.
   \end{itemize}
 \end{izrek}
 
@@ -276,7 +276,7 @@ Ker slikata preslikave v preslikave, pravimo, da sta to \textbf{preslikavi višj
     \textstyle
      \img{f} (\bigcup_{i \in I} T_i) = \bigcup_{i \in I} \img{f}(T_i)
      \iinn
-     \img{f} (\bigcap_{i \in I} T_i) \subseteq \bigcap_{i \in I} \img{f}(S_i).
+     \img{f} (\bigcap_{i \in I} T_i) \subseteq \bigcap_{i \in I} \img{f}(T_i).
   \end{equation*}
   %
 \end{izrek}

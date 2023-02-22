@@ -273,7 +273,7 @@ enostavno, kot se zdi na prvi pogled, doma premislite o naslednji nalogi.
   ($2 \lthen 3$):
   %
   Naj bo $A : I \to \Set$ družina nepraznih množic. Naj bo $\sim$ ekvivalenčna relacija
-  na koproduktu $K \defeq \sum_{i \in I} A_i$, porojena s prvo projekcijo $\fst : S \to I$, t.j.,
+  na koproduktu $K \defeq \sum_{i \in I} A_i$, porojena s prvo projekcijo $\fst : K \to I$, t.j.,
   %
   \begin{equation*}
     \inj[i](x) \sim \inj[j](y) \liff i = j.
@@ -290,7 +290,7 @@ enostavno, kot se zdi na prvi pogled, doma premislite o naslednji nalogi.
   Očitno je $f$ funkcija izbire za družino $A$, če je izraz na desni veljaven:
   %
   \begin{itemize}
-  \item Enoličnost: iz $\inj[i](x) \in C$ in $\inj[i](y) \in C$ sledi $\inj[i](x) = \inj[j](y)$.
+  \item Enoličnost: iz $\inj[i](x) \in C$ in $\inj[i](y) \in C$ sledi $\inj[i](x) = \inj[i](y)$.
   \item Celovitost: ker je $A_i$ neprazna, obstaja $z \in A_i$, torej obstaja $v \in C$, da je
     $i = \fst(\inj[i](z)) = \fst(v)$, in je potemtakem $\snd(v) \in A_i$ element, za katerega velja
     $\inj[i](\snd(v)) \in C$.
@@ -307,7 +307,7 @@ enostavno, kot se zdi na prvi pogled, doma premislite o naslednji nalogi.
   predpisom $A_y = \invimg{f}(\set{y})$. Ker je $f$ surjektivna, je $A$ družina nepraznih
   množic. Po predpostavki (4) je produkt te družine neprazen, torej vsebuje neko
   funkcijo izbire $c : Y \to \bigcup A$, se pravi, da je $f(c(y)) = y$ za vsak $y \in Y$.
-  Opazimo še, da je $\bigcup A = Y$, torej je $c$ prerez $f$.
+  Opazimo še, da je $\bigcup A = X$, torej je $c$ prerez $f$.
 \end{dokaz}
 
 Izbor predstavnikov je torej ekvivalenten še nekaterim drugim trditvam. Pa te veljajo? Za
@@ -356,9 +356,9 @@ s pomočjo preslikave $A \to B$. Kdaj lahko to naredimo?
   \begin{itemize}
   \item
     Enoličnost: če je $\phi(\xi, y_1)$ in $\phi(\xi, y_2)$, potem obstajata $x_1, x_2 \in \xi$, da je $g(x_1) = y_1$
-    in $g(x_2) = y_2$. Ker pa velja $x_1 \rel{E} x_2$ in je $g$ skladna z $E$, sledi $y_1 = g(x1) = g(x_2) = y_2$.
+    in $g(x_2) = y_2$. Ker pa velja $x_1 \rel{E} x_2$ in je $g$ skladna z $E$, sledi $y_1 = g(x_1) = g(x_2) = y_2$.
 
-  \item  Celovitost: naj bo $\xi \in A/E$. Tedaj obstaja $x \in \xi$. Očitno velja $g(\xi, g(x))$.
+  \item  Celovitost: naj bo $\xi \in A/E$. Tedaj obstaja $x \in \xi$. Očitno velja $\phi(\xi, g(x))$.
   \end{itemize}
   %
   Naj bo $f : A/E \to B$ preslikava, ki je določena s funkcijsko relacijo $\phi$. Za $x \in A$
@@ -373,10 +373,10 @@ s pomočjo preslikave $A \to B$. Kdaj lahko to naredimo?
 \section{Kanonična razčlenitev preslikave}
 
 Naj bo $f : A \to B$ preslikava. Naj bo $\sim_f$ ekvivalenčna relacija na $A$, ki jo porodi
-$f$, in $q_f : A \to A/E$ kanonična kvocientna preslikava (morali bi jo pisati $q_{\sim_f}$,
-kar je nečitljivo). Naj bo $i : \img{f}(A) \to B$ kanonična inkluzija slike $f$ v kodomeno.
+$f$, in $q_f : A \to A/{\sim_f}$ kanonična kvocientna preslikava (morali bi jo pisati $q_{\sim_f}$,
+kar je nečitljivo). Naj bo $i_f : \img{f}(A) \to B$ kanonična inkluzija slike $f$ v kodomeno.
 Preslikava $f : A \to \img{f}(A)$ je skladna s $\sim_f$, zato obstaja (natanko ena) preslikava
-$b_f : A/f \to \img{f}(A)$, da velja $b_f([x]_\sim) = f(x)$. Trdimo:
+$b_f : A/{\sim_f} \to \img{f}(A)$, da velja $b_f([x]_\sim) = f(x)$. Trdimo:
 %
 \begin{enumerate}
 \item $f = i_f \circ b_f \circ q_f$ in
@@ -390,7 +390,7 @@ Vemo že, da je kanonična kvocientna preslikava surjektivna in kanonična inklu
 injektivna. Ostane nam še bijektivnost preslikave $b_f$:
 %
 \begin{itemize}
-\item $b_f$ je injektivna: naj bosta $\xi, \zeta \in A/(\sim_f)$ in denimo, da velja $b_f(\xi) = b_f(\zeta)$.
+\item $b_f$ je injektivna: naj bosta $\xi, \zeta \in A/{\sim_f}$ in denimo, da velja $b_f(\xi) = b_f(\zeta)$.
   Obstajata $x, y \in A$, da je $\xi = [x]_\sim$ in $\zeta = [y]_\sim$. Velja
   %
   \begin{equation*}
@@ -400,5 +400,5 @@ injektivna. Ostane nam še bijektivnost preslikave $b_f$:
   torej je $x \sim_f y$ in zato $\xi = [x]_\sim = [y]_\sim = \zeta$.
 
   \item $b_f$ je surjektivna: naj bo $u \in \img{f}(A)$. Tedaj obstaja $x \in A$, da je $u = f(x)$.
-  Vzemimo $\xi = [x]_E$ in preverimo: $b_f(\xi) = b_f([x]_\sim) =f(x) = u$.
+  Vzemimo $\xi = [x]_\sim$ in preverimo: $b_f(\xi) = b_f([x]_\sim) =f(x) = u$.
 \end{itemize}

@@ -2,9 +2,9 @@
 
 \section{Enolični obstoj}
 
-\subsection{Kvantifikatorje za enolični obstoj $\exists!$}
+\subsection{Kvantifikator enoličnega obstoja $\exists!$}
 
-S kvantifikatorje $\forall$ in $\exists$ lahko izrazimo tudi druge kvantifikatorje.
+S kvantifikatorjema $\forall$ in $\exists$ lahko izrazimo tudi druge kvantifikatorje.
 Na primer, ">obstajata vsaj dva elementa $x$ in $y$ iz $A$, da velja $\phi(x,y)$"< zapišemo
 %
 \begin{equation*}
@@ -14,7 +14,7 @@ Na primer, ">obstajata vsaj dva elementa $x$ in $y$ iz $A$, da velja $\phi(x,y)$
 Kako pa izrazimo ">obstaja natanko en $x$ iz $A$, da velja $\phi(x)$"<? Takole:
 %
 \begin{equation*}
-  (\some{x \in A} \phi(x)) \land \all{y z \in A} \phi(y) \land \phi(z) \lthen y = z
+  (\some{x \in A} \phi(x)) \land \all{y, z \in A} \phi(y) \land \phi(z) \lthen y = z
 \end{equation*}
 %
 ali ekvivalentno
@@ -32,16 +32,16 @@ Uporablja se tudi zapis $\exists^1 x \in A \,.\, \phi(x)$.
 Če dokažemo, da obstaja natanko en $x \in A$, ki zadošča pogoju $\phi(x)$, potem se lahko nanj smiselno sklicujemo z ">tisti $x$ iz $A$, ki zadošča $\phi(x)$"<. Primeri:
 %
 \begin{itemize}
-\item ">tisto realno število $x$, za katero je $x³ = 2$"<, namreč kubični koren 2,
+\item ">tisto realno število $x$, za katero je $x^3 = 2$"<, namreč kubični koren 2,
 \item ">tista množica $S$, ki nima nobenega elementa"<, namreč prazna množica.
 \end{itemize}
 %
 Proti-primeri:
 %
 \begin{itemize}
-\item ">tisto racionalno število $x$, za katero je $x² = 2$"<, saj takega števila ni,
-\item ">tisto realno število $x$, za katero je $x² = 2$"<, ker sta dve taki števili,
-\item ">tista množica $S$, ki ima natanko en element"<, ker je takih množic je zelo veliko.
+\item ">tisto racionalno število $x$, za katero je $x^2 = 2$"<, saj takega števila ni,
+\item ">tisto realno število $x$, za katero je $x^2 = 2$"<, ker sta dve taki števili,
+\item ">tista množica $S$, ki ima natanko en element"<, ker je takih množic zelo veliko.
 \end{itemize}
 %
 To je lahko zelo koristen način za opredelitev matematičnih objektov, zato uvedemo zanj simbolni zapis. Če dokažemo
@@ -95,10 +95,10 @@ Spremenljivka $x$ je \emph{vezana} v $\descr{x \in A} \phi(x)$.
 
 \section{Spremenljivke in definicije}
 
-Preden v matematičnem besedilu uporabimo simbol ali spremenljivko, ga moramo \emph{vpeljati}. To pomeni, da moramo pojasniti, kakšen je pomen simbola. Poznamo dva osnovna načina za vpeljavo novih simbolov:
+Preden v matematičnem besedilu uporabimo simbol ali spremenljivko, ga moramo \emph{vpeljati}. To pomeni, da moramo pojasniti, kakšen je pomen simbola. Poznamo dva osnovna načina vpeljave simbolov:
 %
 \begin{itemize}
-\item \item Nov simbol $s$ lahko \textbf{definiramo} kot okrajšavo za neki drugi izraz ali logično formulo.
+\item Nov simbol $s$ lahko \textbf{definiramo} kot okrajšavo za neki drugi izraz ali logično formulo.
 \item Nov simbol $s$ je (vezana ali prosta) \textbf{spremenljivka}, ki predstavlja neki (neznan, poljuben, nedoločen) element dane množice $A$.
 \end{itemize}
 %
@@ -114,7 +114,7 @@ Matematiki zapisujejo definicije in vpeljujejo spremenljivke na razne načine.
   Naj bo $x \in A$.
 \end{quote}
 %
-S tem postane $x$ veljavna spremenljivka, ki jo lahko uporabljamo. O njen vemo le to, da je element množice $A$ -- pravimo, da je $x$ \textbf{prosta spremenljivka}. V matematičnih besedilih boste zasledili tudi naslednje fraze, ki uvedejo prosto spremenljivko:
+S tem postane $x$ veljavna spremenljivka, ki jo lahko uporabljamo. O njej vemo le to, da je element množice $A$ -- pravimo, da je $x$ \textbf{prosta spremenljivka}. V matematičnih besedilih boste zasledili tudi naslednje fraze, ki uvedejo prosto spremenljivko:
 %
 \begin{itemize}
 \item ">Naj bo $x \in A$ poljuben."<
@@ -223,7 +223,7 @@ Poleg tega \emph{dokazujemo} matematične izjave. Na dokaz lahko gledamo kot na 
 Kaj pravzaprav je dokaz? V prvi vrsti je dokaz utemeljitev matematične izjave. Zgrajen je po točno določenih \emph{pravilih sklepanja}, ki jih lahko podamo formalno in jih tudi implementiramo na računalniku.\footnote{Kogar to zanima, si lahko ogleda ">\href{https://youtu.be/Z500sma3h90}{The dawn of formalized mathematics}"< (\href{https://www.icloud.com/keynote/0Gkr1yM7XY-31aQleWf-fiW7A}{prosojnice}) in se nauči uporabljati kak  \href{https://ncatlab.org/nlab/show/proof+assistant}{dokazovalni pomočnik} (v zadnjem času hitro napreduje \href{https://leanprover.github.io}{Lean}).
 }
 
-V praksi ljudje ne pišejo vseh podrobnosti v dokazu, ker bi bil tak dokaz nečitljiv in nerazumljiv. Pogosto podajo samo glavno idejo, iz katere lahko izkušeni matematik sam rekonstruira dokaz. Iz dobro napisanega dokaza se lahko naučimo marsikaj novega, poleg golega dejstva, da dokaza izjava velja.
+V praksi ljudje ne pišejo vseh podrobnosti v dokazu, ker bi bil tak dokaz nečitljiv in nerazumljiv. Pogosto podajo samo glavno idejo, iz katere lahko izkušeni matematik sam rekonstruira dokaz. Iz dobro napisanega dokaza se lahko naučimo marsikaj novega, poleg gole veljavnosti izjave.
 
 Mi bomo vadili podrobno pisanje dokazov. Pri ostalih predmetih boste videli ">žive dokaze"<, ki imajo manj podrobnosti in so zapisani manj formalno. A vsi pravilni matematični dokazi se dajo zapisati na način, kot ga bomo predstavili mi (in celo zapisati povsem formalno z dokazovalnim pomočnikom).
 
@@ -254,14 +254,14 @@ $(p \lor q) \land r \lthen (p \land r) \lor (q \land r)$.
     \hbox{}\quad Zaradi (2) lahko obravnavamo dva primera:\\
     \hbox{}\qquad \fbox{\parbox{0.5\textwidth}{
       (a) če velja $p$:\\
-          \hbox{}\quad Dokažimo $(p \land r) \lor (p \land r)$.\\
+          \hbox{}\quad Dokažimo $(p \land r) \lor (q \land r)$.\\
           \hbox{}\quad Dokažimo levi disjunkt $p \land r$: \\
           \hbox{}\qquad (i) $p$ velja zaradi (a) \\
           \hbox{}\qquad (ii) $r$ velja zaradi (3).
     }} \\
     \hbox{}\qquad \fbox{\parbox{0.5\textwidth}{
       (b) če velja $q$:\\
-          \hbox{}\quad Dokažimo $(p \land r) \lor (p \land r)$.\\
+          \hbox{}\quad Dokažimo $(p \land r) \lor (q \land r)$.\\
           \hbox{}\quad Dokažimo desni disjunkt $q \land r$: \\
           \hbox{}\qquad (i) $q$ velja zaradi (b) \\
           \hbox{}\qquad (ii) $r$ velja zaradi (3).
@@ -272,7 +272,7 @@ $(p \lor q) \land r \lthen (p \land r) \lor (q \land r)$.
 Dokaz bi bolj po človeško napisali takole:
 %
 \begin{quote}
-  Predpostavimo $p \lor q$ in $r$. Če velja $p$, potem sledi $p \land r$ ter od tod $(p \land r) \lor (p \land r)$. Če pa velja $q$, sledi $q \land r$ ter spet $(p \land r) \lor (p \land r)$. $\Box$
+  Predpostavimo $p \lor q$ in $r$. Če velja $p$, potem sledi $p \land r$ ter od tod $(p \land r) \lor (q \land r)$. Če pa velja $q$, sledi $q \land r$ ter spet $(p \land r) \lor (q \land r)$. $\Box$
 \end{quote}
 %
 Ali pa kar takole:
@@ -375,7 +375,7 @@ zaključen, saj smo dobili $\top$.}
 
 \subsubsection{Neresnica}
 
-Kadar dokazujemo $\bot$, pravimo, da ">iščemo protislovje"<.
+Kadar dokazujemo $\bot$, pravimo, da ``iščemo protislovje''.
 
 \begin{quote}
   \sl

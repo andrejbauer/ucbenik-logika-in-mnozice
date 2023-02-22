@@ -1,5 +1,9 @@
 \chapter{Podmnožice in potenčne množice}
 
+\section{Podmnožice}
+
+Pojem podmnožice že poznamo, a ga kljub temu ponovimo.
+
 \subsection{Definicija relacije $\subseteq$}
 
 Pravimo, da je množica $S$ \textbf{podmnožica} množice $T$, pišemo $S \subseteq T$, ko velja $\all{x \in S} x \in T$. Pravimo tudi, da je $S$ \textbf{vsebovana} v $T$ in da je $T$ \textbf{nadmnožica}~$S$.
@@ -9,7 +13,7 @@ Vedno velja $\emptyset \subseteq S$ in $S \subseteq S$.
 Princip ekstenzionalnosti za množice pravi:
 %
 \begin{equation*}
-  S = T \iff (\all{x \in S} S \in T) \land (\all{y \in T} y \in S)
+  S = T \iff (\all{x \in S} x \in T) \land (\all{y \in T} y \in S)
 \end{equation*}
 %
 kar lahko zapišemo s podmnožicami:
@@ -22,7 +26,7 @@ Vsaka podmnožica $S \subseteq A$ opredeljuje neko lastnost elementov iz $A$: ti
 elementi, ki imajo opredeljeno lastnost, so v $S$, ostali pa ne.
 
 \begin{primer}
-  Naj bo $P$ množica vseh praštevil, torej je $P \subseteq N$. Podmnožica $P$
+  Naj bo $P$ množica vseh praštevil, torej je $P \subseteq \NN$. Podmnožica $P$
   opredeljuje lastnost ">je praštevilo"<.
 \end{primer}
 
@@ -52,7 +56,7 @@ Velja $\set{ x \in A \such \phi(x) } \subseteq A$, prav tako pa
 
 \subsection{Kanonična inkluzija}
 
-Za podmnožico $S \subseteq T$ definiramo \textbf{kanonično inkluzijo} ali \textbf{kanonično vključitev} $i_S : S \to T$, s predpisom $i_S : x \mapsto x$. Pozor, to ni identiteta, razen v primeru $S = T$!.
+Za podmnožico $S \subseteq T$ definiramo \textbf{kanonično inkluzijo} ali \textbf{kanonično vključitev} $i_S : S \to T$, s predpisom $i_S : x \mapsto x$. Pozor, to ni identiteta, razen v primeru $S = T$.
 Oznaka $i_S$ ni standardna, pravzaprav standardne oznake ni.
 
 Če je $f : T \to U$ in $S \subseteq T$, pravimo kompozitumu $f \circ i_S$ \textbf{zožitev} preslikave $f$ na $S$, pišemo $\restrict{f}{S}$.
@@ -72,7 +76,7 @@ Elementi potenčne množice $\pow{A}$ so natanko podmnožice množice $A$:
 Na primer $\pow{\emptyset} = \set{\emptyset}$ in
 %
 \begin{equation*}
-  P(\set{a,b,c}) = \set{\set{}, \set{a}, \set{b}, \set{c}, \set{a,b}, \set{a,c}, \set{b,c}, \set{a,b,c}}.
+  \pow{\set{a,b,c}} = \set{\set{}, \set{a}, \set{b}, \set{c}, \set{a,b}, \set{a,c}, \set{b,c}, \set{a,b,c}}.
 \end{equation*}
 
 
@@ -110,22 +114,22 @@ slikajo v $\top$, ostali pa v $\bot$.
 \end{primer}
 
 
-\subsection{Izomorfizem $\pow{A} \cong 2^A$}
+\subsection{Izomorfizem $\pow{A} \cong \two^A$}
 
 Videli smo, da lahko neko lastnost elementov množice $A$ predstavimo bodisi s
 podmnožico bodisi s karakteristično preslikavo. To nam da idejo, da med
 podmnožicami $A$ in karakterističnimi preslikavami na $A$ obstaja neka zveza.
 
 \begin{izrek}
-  $\pow{A} \cong 2^A$.
+  $\pow{A} \cong \two^A$.
 \end{izrek}
 
 \begin{dokaz}
   Definirajmo preslikavi
   %
   \begin{align*}
-    \chi &: \pow{A} \to 2^A &
-    \xi &: 2^A \to \pow{A} \\
+    \chi &: \pow{A} \to \two^A &
+    \xi &: \two^A \to \pow{A} \\
     \chi_S(x) &\defeq
       \begin{cases}
         \top & \text{če $x \in S$,} \\
@@ -148,8 +152,8 @@ podmnožicami $A$ in karakterističnimi preslikavami na $A$ obstaja neka zveza.
   %
   \begin{enumerate}
   \item 
-    Dokažimo $\chi \circ \xi = \id[2^A]$. Uporabimo princip ekstenzionalnosti za preslikave.
-    Naj bo $f \in 2^A$. Dokažimo, da je $\chi_{\xi_f} = f$.
+    Dokažimo $\chi \circ \xi = \id[\two^A]$. Uporabimo princip ekstenzionalnosti za preslikave.
+    Naj bo $f \in \two^A$. Dokažimo, da je $\chi_{\xi_f} = f$.
     Uporabimo princip ekstenzionalnosti za preslikave. Naj bo $x \in A$:
     %
     \begin{equation*}
