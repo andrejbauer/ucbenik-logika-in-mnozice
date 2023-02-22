@@ -152,13 +152,13 @@ Argumente operacije lahko opustimo in od bralca pričakujemo, da bo pravilno uga
 $\snd$:
 \begin{align*}
   \fst &: A \times B \to A, \\
-  \snd &: A \times B \to A.
+  \snd &: A \times B \to B.
 \end{align*}
 %
 Če bi bili zelo natančni, bi morali pri projekcijah zapisati tudi množici $A$ in $B$, ki tvorita kartezični produkt, na
 primer nekaj takega kot $\fst^{A,B} : A \times B \to A$.
 %
-Ko torej vpeljemo novo zapis, lahko nekatere argumente razglasimo za \textbf{implicitne}, kar pomeni, da jih bomo opuščali,
+Ko torej vpeljemo nov zapis, lahko nekatere argumente razglasimo za \textbf{implicitne}, kar pomeni, da jih bomo opuščali,
 kadar to ne pripelje do zmede.
 
 \begin{naloga}
@@ -168,7 +168,7 @@ kadar to ne pripelje do zmede.
 \subsubsection{Privzete vrednosti}
 \label{sec:privzete-vrednosti}
 
-Argument operacije ima lahko \textbf{privzeto vrednost}. Na primer logaritem $x$ z osnovo $b$ zapišemo $\log_b x$. Če opustimo~$b$, se razume, da je mišljen desetiški logaritem, $\log x = \log_10 x$. Pravimo, da je privzeta vrednost osnove $b = 10$.
+Argument operacije ima lahko \textbf{privzeto vrednost}. Na primer logaritem $x$ z osnovo $b$ zapišemo $\log_b x$. Če opustimo~$b$, se razume, da je mišljen desetiški logaritem, $\log x = \log_{10} x$. Pravimo, da je privzeta vrednost osnove $b = 10$.
 
 \subsubsection{Preobteževanje}
 \label{sec:preobteevanje}
@@ -200,7 +200,7 @@ Računanje z logičnimi formulami delimo na:
 %
 \begin{itemize}
 \item \textbf{izjavni račun} zaobjema logične veznike $\neg $, $\land$, $\lor$, $\lthen$, $\liff$,
-\item \textbf{predikatni račun} zaobjema izjavni račun, ter kvantifikatorja $\forall$ in $\exists$.
+\item \textbf{predikatni račun} zaobjema izjavni račun ter kvantifikatorja $\forall$ in $\exists$.
 \end{itemize}
 
 
@@ -242,7 +242,7 @@ Računanje z logičnimi formulami delimo na:
 Malo bolj neobičajna je:
 %
 \begin{itemize}
-\item \textbf{ekskluzivna disjunkcija} $\oplus$: izjava $A \oplus B$ beremo ">bodisi $A$ bodisi $B$"< ali ">$A$ ali $B$, vendar ne oba hkrati"<.
+\item \textbf{ekskluzivna disjunkcija} $\oplus$: izjavo $A \oplus B$ beremo ">bodisi $A$ bodisi $B$"< ali ">$A$ ali $B$, vendar ne oba hkrati"<.
 \end{itemize}
 %
 Prioriteta veznikov, od najvišje do najnižje:
@@ -332,7 +332,7 @@ Formulo $\some{x \in A} \phi$ beremo:
 \end{itemize}
 %
 S tem povemo, da obstaja \emph{eden ali več} takih~$x$. Na primer, izjava $\some{x \in \NN} x
-< 3$ je veljavna, saj je $2$ naravno število, ki je manjša od $3$.
+< 3$ je veljavna, saj je $2$ naravno število, ki je manjše od $3$.
 
 
 \subsubsection{Prioriteta $\forall$ in $\exists$}
@@ -347,7 +347,7 @@ Prioriteta kvantifikatorjev $\forall$ in $\exists$ je nižja od prioritete vezni
 Kvantifikator vedno zaobjame vse, kar zmore:
 %
 \begin{itemize}
-\item $\all{x \in A} \phi \land \exists{y \in B} \psi$ je enako $\all {x \in A} (\phi \land (\exists y \in B . \psi))$ in \emph{ni} enako $(\all{x \in A} \phi) \land (\exists {y \in B} \psi)$,
+\item $\all{x \in A} \phi \land \some{y \in B} \psi$ je enako $\all {x \in A} (\phi \land (\some{y \in B} \psi))$ in \emph{ni} enako $(\all{x \in A} \phi) \land (\some {y \in B} \psi)$,
 
 \item $(P \land \all{x \in A} Q \lthen R) \lthen \some{y \in B} S$ je enako $(P \land \all{x \in A}  (Q \lthen R)) \lthen (\some{y \in B} S)$ in \emph{ni} enako 
   $(P \land (\all{x \in A} Q) \lthen R) \lthen (\some{y \in B} S)$
@@ -380,11 +380,11 @@ vtaknemo dodatni pogoj? Izjavi pretvorimo po korakih:
 %
 \begin{itemize}
 \item ">Obstaja liho naravno število, ki ni deljivo s 7."<
+\item ">Obstaja naravno število, ki je liho, ki ni deljivo s 7."<
 \item ">Obstaja naravno število, ki je liho in ki ni deljivo s 7."<
-\item ">Obstaja naravno število, ki je liho in deljivo s 7."<
-\item ">Obstaja $x$ iz $\NN$, da je $x$ lih in $x$ je deljiva s 7."<
-\item $\some{x \in \NN} (\text{$x$ je lih}) \land (\text{$x$ je deljiv s 7})$
-\item $\some{x \in \NN} (\some{y \in \NN} x = 2 y + 1) \land (\some{z \in \NN} y = 7 z)$
+\item ">Obstaja $x$ iz $\NN$, da je $x$ lih in $x$ ni deljiv s 7."<
+\item $\some{x \in \NN} (\text{$x$ je lih}) \land (\text{$x$ ni deljiv s 7})$
+\item $\some{x \in \NN} (\some{y \in \NN} x = 2 y + 1) \land (\neg \some{z \in \NN} x = 7 z)$
 \end{itemize}
 %
 In še druga izjava:
@@ -393,8 +393,8 @@ In še druga izjava:
 \item ">Vsako naravno število, ki je sodo, je deljivo s 3."<
 \item ">Za vsako naravno število velja, da če je sodo, potem je deljivo s 3."<
 \item ">Za vsak $x$ iz $\NN$ velja, če je $x$ sod, potem je $x$ deljiv s $3$."<
-\item $\forall{x \in \NN} \text{$x$ sod} \lthen \text{$x$ deljiv s 3}$
-\item $\forall{x \in \NN} (\some{y \in \NN} x = 2 y) \lthen (\some{z \in \NN} x = 3 z)$
+\item $\all{x \in \NN} (\text{$x$ je sod}) \lthen (\text{$x$ je deljiv s 3})$
+\item $\all{x \in \NN} (\some{y \in \NN} x = 2 y) \lthen (\some{z \in \NN} x = 3 z)$
 \end{itemize}
 %
 Zapomnimo si: \textbf{dodatni pogoj pri $\exists$ izrazimo $\land$} in \textbf{dodatni pogoj pri $\forall$ izrazimo $\lthen$}.
@@ -433,7 +433,7 @@ oziroma da so neke vrste ">lokalne spremenljivke"<. Spremenljivka, ki ni vezana,
 \item V formuli $\all{x \in \RR} x^3 + 3 x < 7$ je $x$ vezana spremenljivka.
 \end{itemize}
 
-Če vezano spremenljivko preimenujemo, se izraz ne spremeni. Funkcijska predpisa $x \mapsto a \cdot x^2 + 1$ in $y \mapsto y \cdot y^2 + 1$ sta \emph{enaka}. Vendar pozor, če vezano spremenljivko preimenujemo, za novo ime \emph{ne} smemo izbrati spremenljivke, ki se že pojavlja. Na primer, v integralu
+Če vezano spremenljivko preimenujemo, se izraz ne spremeni. Funkcijska predpisa $x \mapsto a \cdot x^2 + 1$ in $y \mapsto a \cdot y^2 + 1$ sta \emph{enaka}. Vendar pozor, če vezano spremenljivko preimenujemo, za novo ime \emph{ne} smemo izbrati spremenljivke, ki se že pojavlja. Na primer, v integralu
 %
 \begin{equation*}
   \int_0^1 (a + x)^2 \, d x
