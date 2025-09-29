@@ -50,7 +50,7 @@ Torej velja
 
 
 Velja naslednje (ne bomo dokazali): če je $A \iso [m]$ in $A \iso [n]$, potem je $m = n$. Torej za končno
-množico~$A$ obstaja natanko en $n \in N$, da velja $A \iso [n]$. Temu $n$ pravimo \textbf{moč} množice $A$,
+množico~$A$ obstaja natanko en $n \in \NN$, da velja $A \iso [n]$. Temu $n$ pravimo \textbf{moč} množice $A$,
 saj nam pove, koliko elementov ima $A$. Moč končne množice $A$ označimo z $|A|$.
 
 Za moči končnih množic velja
@@ -246,25 +246,27 @@ Kot smo že povedali, moč množice $\NN$ označimo z $\aleph_0$.
   Za vsako množico $A$ so ekvivalentne naslednje izjave:
   %
   \begin{enumerate}
-  \item $A$ je števna,
-  \item obstaja injektivna preslikava $A \to \NN$,
-  \item $A$ je prazna ali obstaja surjektivna preslikava $\NN \to A$,
-  \item obstaja surjektivna preslikava $\NN \to \one + A$,
+  \item $A$ je števna.
+  \item Obstaja injektivna preslikava $A \to \NN$.
+  \item $A$ je prazna ali obstaja surjektivna preslikava $\NN \to A$.
+  \item Obstaja surjektivna preslikava $\NN \to \one + A$.
   \item $A$ je končna ali izomorfna $\NN$.
   \end{enumerate}
 \end{izrek}
 
 \begin{dokaz}
-$(1 \lthen 2)$
+%
+\begin{itemize}
+\item[$(1 \lthen 2)$]
 %
 Če je $A$ števna, velja $|A| \leq \aleph_0 = |\NN|$, torej obstaja injektivna $A \to
 \NN$ po definiciji relacije $\leq$.
 
-$(2 \lthen 3)$
+\item[$(2 \lthen 3)$]
 %
 To sledi neposredno iz Izreka~\ref{izr:leq-iff-empty-or-onto}.
 
-$(3 \lthen 4)$
+\item[$(3 \lthen 4)$]
 %
 Denimo, da je $A$ prazna ali obstaja surjektivna preslikava $\NN \to A$:
 %
@@ -285,7 +287,7 @@ Denimo, da je $A$ prazna ali obstaja surjektivna preslikava $\NN \to A$:
   \end{equation*}
 \end{enumerate}
 
-$(4 \lthen 5)$
+\item[$(4 \lthen 5)$]
 %
 Denimo, da obstaja surjektivna preslikava $r : \NN \to \one + A$.
 Dokazali bomo, da je $A$ izomorfna $\NN$, če ni končna.
@@ -295,10 +297,11 @@ Preslikav $s \circ \inr : A \to \NN$ je kompozitum injektivnih preslikav, zato j
 Ker $A$ ni končna, obstaja tudi injektivna preslikava $\NN \to A$.
 Po izreku Cantor-Schröder-Bernstein, ki ga bomo dokazali spodaj, je torej $A$ izomorfna $\NN$.
 
-$(5 \lthen 1)$
+\item[$(5 \lthen 1)$]
 %
 Če je $A$ končna, je števna, ker očitno velja $A = |[n]| \leq |\NN| = \aleph_0$.
 Če je $A$ izomorfna $\NN$, potem velja $|A| = |\NN| \leq |\NN| = \aleph_0$.
+\end{itemize}
 \end{dokaz}
 
 \begin{izrek}
@@ -309,7 +312,9 @@ $(5 \lthen 1)$
   Za vajo, poiščite dokaz v zapiskih iz analize ali na internetu.
 \end{dokaz}
 
-\textbf{Števna družina} je družina $A : I \to \Set$, katere indeksna množica~$I$ je števna.
+\begin{definicija}
+  \textbf{Števna družina} je družina $A : I \to \Set$, katere indeksna množica~$I$ je števna.
+\end{definicija}
 
 \begin{izrek}
   Unija števne družine števnih množic je števna.
@@ -429,10 +434,10 @@ Relacija $\leq$ torej uredi moči množic linearno.
 
 \subsection{Moč kontinuuma in Cantorjeva hipoteza}
 
-Na vajah boste spoznali, da ima množica realnih števil $\RR$ enako moč kot potenčna množica $\pow(\NN)$. Moči $\RR$ in $\pow{\NN}$ pravimo \textbf{moč kontinuuma} (ker je ">kontinuum"< tudi staro ime za $\RR$). Že Georg Cantor, utemeljitelj teorije množic, je postavil naslednji domnevo:
+Na vajah boste spoznali, da ima množica realnih števil $\RR$ enako moč kot potenčna množica $\pow{\NN}$. Moči $\RR$ in $\pow{\NN}$ pravimo \textbf{moč kontinuuma} (ker je ">kontinuum"< tudi staro ime za $\RR$). Že Georg Cantor, utemeljitelj teorije množic, je postavil naslednji domnevo:
 %
 \begin{quote}
-  \emph{\textbf{Cantorjeva hipoteza} Vsaka neštevna podmnožica realnih števil je izomorfna $\RR$.}
+  \emph{\textbf{Cantorjeva hipoteza:} Vsaka neštevna podmnožica realnih števil je izomorfna~$\RR$.}
 \end{quote}
 %
 Povedano, z drugimi besedami, po moči ni nobene množice strogo med $\NN$ in $\RR$. Cantorjeva hipoteza je ostala odprta dlje časa. Dokončno je Cohen pred dobrega pol stoletja dokazal naslednje:
@@ -453,3 +458,8 @@ Tudi posplošena Cantorjeva hipoteza je neodvisna od aksiomov teorije množic.
 Danes vemo zelo veliko o tej hipotezi in poznamo še mnoge druge izjave o množicah, ki so neodvisne od Zermelo-Fraenkelovih aksiomov teorije množic.
 Ti veljajo za nekakšno uradno različico teorije množic in jih bomo obravnavali na naslednjih predavanjih.
 
+
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-master: "lmn"
+%%% End:
