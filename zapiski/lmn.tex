@@ -1,23 +1,52 @@
-\documentclass[11pt,a4paper]{book}
+\documentclass[11pt,a4paper,twoside]{book}
+
+%--------------------------------------------------------------------
+%-- Velikost strani
+
+%% A4 stran = 210mm x 297mm
+
+\usepackage[a4paper,
+            top=3cm,
+            bottom=4cm,
+            inner=4cm,
+            outer=4cm
+           ]{geometry}
 
 \usepackage[T1]{fontenc}
 \usepackage[utf8]{inputenc}
 \usepackage[slovene]{babel}
 \usepackage[colorlinks]{hyperref}
-\usepackage{lmodern}
+
 \usepackage{xcolor}
 \usepackage{amsfonts,amssymb,amsmath}
+
+\usepackage[scaled=.95]{newpxtext}
+\usepackage[vvarbb,smallerops]{newpxmath} % Matching math
+\usepackage[scaled=.85]{beramono} % Monospace
+
 \usepackage{bbold}
 \usepackage{fancyhdr}
-\usepackage{theorem}
 \usepackage{mathpartir}
 \usepackage{proof}
 \usepackage{xypic}
 \usepackage{tikz}
 \usepackage{booktabs}
-\usepackage{enumitem}
 
+\usepackage{enumitem}
 \setlist{nosep}
+
+%--------------------------------------------------------------------
+% Stil poglavij
+\usepackage[explicit]{titlesec}
+
+\titleformat{\chapter}[hang]
+  {\normalfont\huge\bfseries\raggedright} % format
+  {\thechapter}                % label (number only)
+  {1em}                        % space between number and title
+  {#1}                         % title
+
+% Adjust spacing before/after chapter titles
+\titlespacing*{\chapter}{0pt}{50pt}{30pt}
 
 %--------------------------------------------------------------------
 %-- Barve hiper povezav
@@ -32,6 +61,7 @@
 %--------------------------------------------------------------------
 %-- Okolja
 
+\usepackage{theorem}
 {
   \theorembodyfont{\itshape}
 
@@ -51,6 +81,8 @@
   \newtheorem{naloga}[izrek]{Naloga}
 }
 
+
+
 \newcommand{\qedsign}{{\vrule width 1ex height 1ex depth 0ex}}
 \newcommand{\qed}{\hfill\qedsign}
 
@@ -67,20 +99,6 @@
 %--------------------------------------------------------------------
 \input{macros.tex}
 
-%--------------------------------------------------------------------
-%-- Velikost strani
-
-%% A4 stran = 210mm x 297mm
-%% sirino besedila nastavimo na 170mm, visino na 247mm
-
-\setlength{\textwidth}{15cm}
-\setlength{\textheight}{224mm}
-
-\setlength{\topmargin}{0cm}
-\setlength{\evensidemargin}{0cm}
-\setlength{\oddsidemargin}{\paperwidth}
-\addtolength{\oddsidemargin}{-\textwidth}
-\addtolength{\oddsidemargin}{-2in}
 
 %--------------------------------------------------------------------
 %-- Glava in dno
@@ -88,7 +106,7 @@
 \pagestyle{fancyplain}
 
 %\setlength{\headrulewidth}{0.2pt}
-%\addtolength{\headheight}{2pt}
+\addtolength{\headheight}{2pt}
 
 \renewcommand{\chaptermark}[1]{\markboth{#1}{}}
 \renewcommand{\sectionmark}[1]{\markright{\thesection\ #1}}
