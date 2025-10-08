@@ -1,3 +1,41 @@
 \begin{Resitev}{2.1}
 Množica~$A$ ima kvečjemu en element, tj.~množica~$A$ je bodisi prazna bodisi enojec. Tudi: množica~$A$ je podmnožica kakega enojca oz.~edina preslikava $A \to \one$ je injektivna.
 \end{Resitev}
+\begin{Resitev}{3.8}
+Imamo dve stikali, imenujmo ju $p$ in $q$. Opazujemo, kdaj luč sveti. Na začetku sta obe stikali ugasnjeni in luč ne sveti. Če prižgemo eno stikalo, mora luč zasvetiti. Če prižgemo nato še drugo stikalo mora luč ugasniti. Ugotovimo, da je luč prižgana, ko je prižgano natanko eno stikalo. To ponazorimo v naslednji tabeli:
+
+\begin{center}
+                        \begin{tabular}{cc|c}
+                                $p$ & $q$ & \text{ luč sveti } \\
+                                \hline
+                                $\true$ & $\true$& $\false$ \\
+                                $\true$ & $\false$  & $\true$ \\
+                                $\false$ & $\true$ & $\true$ \\
+                                $\false$ & $\false$  & $\false$
+                        \end{tabular}
+\end{center}
+Opazimo, da ima to enako tabelo, kot izjava $p  \xor q$. Torej moramo to izjavo izraziti z izjavnimi vezniki $\land, \lor$ in $\neg$. En način, kako to naredimo je, da zapišemo $p \xor q \equiv (p \lor q) \land \neg (p \land q)$, in tako konstruiramo vezja z vrati ``in'', ``ali'' in negacijo takole:
+\begin{center}
+\begin{circuitikz} \draw
+(2,0) node[anchor=north] (q) {}
+(2,8) node[anchor=south] (p) {}
+(4 ,2) node[or port] (myor1) {}
+(4,6) node[and port] (myand1) {}
+(6,6) node[not port](mynot1){}
+(8,4) node[and port](myand2){}
+(0,0) to[switch, l^=$q$, -*] (2,0)
+(0,8) to[switch,  l^=$p$, -*] (2,8)
+(p) -- (myor1.in 1)
+(q) -- (myor1.in 2)
+(p) -- (myand1.in 1)
+(q) -- (myand1.in 2)
+(myand1.out) -- (mynot1.in)
+(mynot1.out) -- (myand2.in 1)
+(myor1.out) -- (myand2.in 2)
+(myand2.out) to [lamp] (10,4);
+%(myand1.out) -- (myxnor.in 1)
+%(myand2.out) -- (myxnor.in 2);
+\end{circuitikz}
+\end{center}
+Le z veznikoma $\land$ in $\lor$ tega ne moremo storiti, saj veznika ne predstavljata polnega nabora. Z uporabo zgolj Łukasiewiczevega veznika pa je to mogoče, saj predstavlja poln nabor.
+\end{Resitev}
