@@ -13,7 +13,7 @@
 
 Za relacije urejenosti ponavadi uporabljamo simbole, ki spominjajo na znak $\leq$, kot so $\preceq$, $\subseteq$, $\sqsubseteq$ ipd.
 
-\begin{primer}
+\begin{zgled}
   Primeri urejenosti:
   \begin{enumerate}
     \item Relacija deljivosti na naravnih številih je delna urejenost.
@@ -22,17 +22,17 @@ Za relacije urejenosti ponavadi uporabljamo simbole, ki spominjajo na znak $\leq
     \item Relacija $\subseteq$ na $\pow{A}$ je delna urejenost. Za katere množice $A$ je linearna?
     \item Relacija $=$ je delna urejenost. Imenuje se tudi \textbf{diskretna urejenost}.
   \end{enumerate}
-\end{primer}
+\end{zgled}
 
 
 \begin{definicija}
   V delni ureditvi $(P, {\leq})$ je \textbf{veriga} taka podmnožica $V \subseteq P$, ki je linearno urejena z relacijo~$\leq$, se pravi $\all{x, y \in V} x \leq y \lor y \leq x$. \textbf{Antiveriga} je taka podmnožica $A \subseteq P$, ki je diskretno urejena z relacijo~$\leq$, se pravi $\all{x, y \in A} x \leq y \lthen x = y$.
 \end{definicija}
 
-\begin{primer}
-\end{primer}
+\begin{zgled}
+\end{zgled}
 
-\begin{primer}
+\begin{zgled}
   Primeri verig in antiverig:
   %
   \begin{itemize}
@@ -47,7 +47,7 @@ Za relacije urejenosti ponavadi uporabljamo simbole, ki spominjajo na znak $\leq
     $\all{x y \in \QQ} x \leq y \land y \in \QQ \lthen x \in \QQ$.
     Res, vsak Dedekindov rez je doljna množica, le-teh pa je neštevno mnogo.
   \end{itemize}
-\end{primer}
+\end{zgled}
 
 
 
@@ -56,14 +56,14 @@ Za relacije urejenosti ponavadi uporabljamo simbole, ki spominjajo na znak $\leq
 Končno delno ureditev $(A, \leq)$ lahko predstavimo s \textbf{Hassejevim diagramom}: elemente
 množice $A$ narišemo tako, da je $x$ pod $y$, kadar velja $x \leq y$. Nato povežemo vozlišči $x$ in $y$, če je $y$ neposredni naslednik $x$, se pravi, da velja $x \neq y$, $x \leq y$ in iz $x \leq z \leq y$ sledi $x = z \lor z = y$.
 
-\begin{naloga}
+\begin{vaja}
   Narišite Hassejev diagram relacije deljivosti na množici $\set{0, 1, \dots, 10}$ ter
   Hassejev diagram relacije $\subseteq$ na množici $\pow(\{a,b,c\})$.
-\end{naloga}
+\end{vaja}
 
-\begin{naloga}
+\begin{vaja}
   Kako v Hassejevem diagramu prepoznamo verigo? In kako prepoznamo antiverigo?
-\end{naloga}
+\end{vaja}
 
 
 \subsection{Operacije na urejenostih}
@@ -96,7 +96,7 @@ in druga \textbf{leksikografska} urejenost
 \end{equation*}
 
 
-\begin{naloga}
+\begin{vaja}
   Kako si predstavljamo produktno in leksikografsko ureditev na $[0,1] \times [0,1]$, če $[0,1]$ uredimo z običajno relacijo $\leq$? Na sliki označite območji
   %
   \begin{equation*}
@@ -108,7 +108,7 @@ in druga \textbf{leksikografska} urejenost
   \begin{equation*}
     \set{(x,y) \in [0,1] \times [0, 1] \such (1/2,1/3) \leq_\mathrm{lex} (x,y)}.
   \end{equation*}
-\end{naloga}
+\end{vaja}
 
 \begin{izjava}
   Produktna in leksikografska urejenosti sta delni urejenosti. Leksikografska urejenost linearnih urejenosti je linearna.
@@ -251,9 +251,9 @@ Naj bo $(P, \leq)$ delna urejenost in $A$ množica. Na eksponentni množici $P^A
   f \preceq g \defiff \all{x \in A} f(x) \leq g(x).
 \end{equation*}
 
-\begin{naloga}
+\begin{vaja}
   Ali je $\preceq$ linearna, kadar je $\leq$ linearna?
-\end{naloga}
+\end{vaja}
 
 
 \subsubsection{Delna urejenost, inducirana s šibko ureditvijo}
@@ -299,7 +299,7 @@ Torej je $\preceq$ dobro definirana.
   Refleksivnost in tranzitivnost $\preceq$ sledita iz refleksivnosti in tranzitivnosti~$\leq$. Preverimo antisimetričnost: denimo, da velja $[x] \leq [y]$ in $[y] \leq [x]$. Tedaj velja $x \leq y$ in $y \leq x$, torej velja $x \sim y$ in $[x] = [y]$.
 \end{dokaz}
 
-\begin{primer}
+\begin{zgled}
   Obravnavajmo cela števila $\ZZ$ in deljivost $\mid$, ki je šibka
   ureditev. Za vse $k, m \in \ZZ$ velja
   \begin{equation*}
@@ -307,7 +307,7 @@ Torej je $\preceq$ dobro definirana.
   \end{equation*}
   %
   Torej je $\ZZ/{\sim} \cong \NN$, kjer izomorfizem preslika $[k] \mapsto |k|$. Delna ureditev na $\ZZ/{\sim}$ inducirana z deljivostjo je spet deljivost (ko jo prenesemo iz $\ZZ/{\sim}$ na $\NN$ s pomočjo izomorfizma).
-\end{primer}
+\end{zgled}
 
 
 \subsection{Monotone preslikave}
@@ -336,14 +336,14 @@ Torej je $\preceq$ dobro definirana.
   urejenostmi $(P, {\leq_P})$, $(Q, {\leq_Q})$ in $(R, {\leq_R})$. Če je $x \leq_P y$, potem je zaradi monotonosti $f$ tudi $f(x) \leq_Q f(y)$, nato pa je zaradi monotonosti $g$ spet $g(f(x)) \leq_R g(f(y))$. Identiteta je očitno monotona.
 \end{dokaz}
 
-\begin{primer}
+\begin{zgled}
   Primeri monotonih preslikav:
   \begin{enumerate}
     \item Konstantna preslikava je monotona.
     \item Seštevanje ${+} : \RR \times \RR \to \RR$ je monotona operacija glede na produktno ureditev na $\RR \times \RR$.
     \item Množenje ${\times} : \RR \times \RR \to \RR$ ni monotona operacija.
   \end{enumerate}
-\end{primer}
+\end{zgled}
 
 
 \subsection{Meje}
@@ -391,11 +391,11 @@ ureditev.
   supremum je dokaz podoben.
 \end{dokaz}
 
-\begin{primer}
+\begin{zgled}
   Supremum končne neprazne množice $S \subseteq \NN$ za relacijo deljivosti $\mid$
   je najmanjši skupni večkratnik elementov iz $S$. Infimum je največji skupni
   delitelj. Kaj pa, če je $S$ prazna ali neskončna?
-\end{primer}
+\end{zgled}
 
 \subsection{Mreže}
 
@@ -431,7 +431,7 @@ ureditev.
   \end{enumerate}
 \end{dokaz}
 
-\begin{primer}
+\begin{zgled}
   Primeri mrež:
   %
   \begin{enumerate}
@@ -441,4 +441,4 @@ ureditev.
   \item Zaprti interval $[a,b]$, urejen z $\leq$, je polna mreža.
   \item Realna števila $R$, urejena z $\leq$,
   \end{enumerate}
-\end{primer}
+\end{zgled}

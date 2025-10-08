@@ -6,10 +6,10 @@
 je $P$ predikat na $A$ in $x \in A$, potem se je smiselno vprašati, ali $x$
 zadošča predikatu $P$. Odgovor je resničnostna vrednost, ki jo označimo s $P(x)$.
 
-\begin{primer}
+\begin{zgled}
   Na množici naravnih števil $\NN$ lahko obravnavamo predikat ">je sodo
   število"<. Tako na primer $4$ zadošča predikatu ">je sodo število"<, $7$ pa mu ne zadošča.
-\end{primer}
+\end{zgled}
 
 Predikat $P$ na množici $A$ lahko predstavimo na dva načina:
 %
@@ -26,11 +26,11 @@ saj velja $P(A) \iso \two^A$.
 Relacije s večmestni predikati. Se pravi, relacija $R$ opredeljujejo kako
 lastnost urejenih večteric kartezičnega produkta $A_1 \times A_2 \times \cdots \times A_n$. Pravimo, da je $R$ \textbf{$n$-člena} ali \textbf{$n$-mestna relacija} na množicah $A_1, …, A_n$.
 
-\begin{primer}
+\begin{zgled}
   Na množici točk v ravnini lahko obravnavamo relacijo kolinearnosti.
   To je trimestna relacija: točke $A$, $B$ in $C$ so kolinearne, kadar obstaja
   premica, ki vsebuje vse tri točke.
-\end{primer}
+\end{zgled}
 
 Relacijo $R$ na množicah $A_1, \ldots, A_n$ lahko predstavimo na dva načina, podobno
 kot predikate:
@@ -104,9 +104,9 @@ Relacije, ki so pomembne v matematični praksi imajo pogosto lastnosti, ki jih p
 \end{itemize}
 %
 
-\begin{naloga}
+\begin{vaja}
   Kako iz usmerjenega grafa relacije razberemo refleksivnost in simetričnost? Kaj pa ostale lastnosti?
-\end{naloga}
+\end{vaja}
 
 \section{Operacije na relacijah}
 
@@ -121,7 +121,7 @@ presek $\cap$ in komplement $\compl{\Box}$. Denimo, da sta $R, S \subseteq A \ti
   x \compl{R} y &\iff \lnot (x \rel{R} y).
 \end{align*}
 
-\begin{primer}
+\begin{zgled}
   Za relacije enakosti in urejenost na realnih številih velja:
   %
   \begin{itemize}
@@ -129,7 +129,7 @@ presek $\cap$ in komplement $\compl{\Box}$. Denimo, da sta $R, S \subseteq A \ti
   \item Unija relacij $<$ in $>$ na realnih številih je relacija $\neq$.
   \item Presek relacij $\leq$ in $\geq$ na realnih številih je relacija $=$.
   \end{itemize}
-\end{primer}
+\end{zgled}
 
 
 \subsection{Transponirana relacija}
@@ -148,10 +148,10 @@ ali ekvivalentno
 %
 Očitno velja $\transpose{(\transpose{R})} = R$, torej je transponiranje \emph{involucija}.
 
-\begin{primer}
+\begin{zgled}
   Transpozicija relacije $<$ na realnih številih $\RR$ je relacija $>$ na $\RR$.
   Komplement relacije $<$ na $\RR$ je relacija $\geq$ na $\RR$.
-\end{primer}
+\end{zgled}
 
 \subsection{Kompozitum relacij}
 
@@ -171,18 +171,18 @@ ali ekvivalentno
 Se pravi, da sta $x \in A$ in $z \in C$ v relaciji $S \circ R$, če sta preko $S$ in $R$
 povezana s kakim elementom $y \in B$.
 
-\begin{primer}
+\begin{zgled}
   Kompozitum relacij ">$x$ je otrok od $y$"< in ">$z$ je mati od $y$"< je relacija
   ">$z$ je babica od $x$"<.
-\end{primer}
+\end{zgled}
 
 \begin{izrek}
   Komponiranje relacij je asociativno in diagonala je enota.
 \end{izrek}
 
-\begin{naloga}
+\begin{vaja}
   Zgornji izrek zapiši bolj natančno, da bo razvidno, kaj so domene in kodomene relacij.
-\end{naloga}
+\end{vaja}
 
 \begin{dokaz}
   Najprej dokažimo asociativnost kompozicije.

@@ -18,11 +18,19 @@
 \usepackage[colorlinks]{hyperref}
 
 \usepackage{xcolor}
-\usepackage{amsfonts,amssymb,amsmath}
+\usepackage{amsfonts,amssymb,amsmath,amsthm}
 
 \usepackage[scaled=.95]{newpxtext}
 \usepackage[vvarbb,smallerops]{newpxmath} % Matching math
 \usepackage[scaled=.85]{beramono} % Monospace
+
+\usepackage{textgreek} % Za grške črke v besedilu
+\usepackage{phonetic} % Fonetični zapis
+
+\usepackage{answers} % rešitve vaj
+
+\usepackage{datetime2}
+\usepackage{tablefootnote}
 
 \usepackage{bbold}
 \usepackage{fancyhdr}
@@ -61,30 +69,33 @@
 %--------------------------------------------------------------------
 %-- Okolja
 
-\usepackage{theorem}
 {
-  \theorembodyfont{\itshape}
+  \theoremstyle{plain}
 
   \newtheorem{izrek}{Izrek}[chapter]
   \newtheorem{lema}[izrek]{Lema}
   \newtheorem{izjava}[izrek]{Izjava}
+  \newtheorem{trditev}[izrek]{Trditev}
   \newtheorem{posledica}[izrek]{Posledica}
   \newtheorem{hipoteza}[izrek]{Hipoteza}
   \newtheorem{aksiom}[izrek]{Aksiom}
+  \newtheorem{pravilo}[izrek]{Pravilo}
 }
 
 {
-  \theorembodyfont{\rmfamily}
+  \theoremstyle{definition}
   \newtheorem{definicija}[izrek]{Definicija}
-  \newtheorem{primer}[izrek]{Primer}
+  \newtheorem{zgled}[izrek]{Zgled}
   \newtheorem{opomba}[izrek]{Opomba}
-  \newtheorem{naloga}[izrek]{Naloga}
+  \newtheorem{vaja}[izrek]{Vaja}
 }
 
+\Newassociation{resitev}{Resitev}{resitve}
+\renewcommand{\Resitevlabel}[1]{\emph{Re\v{s}itev~#1}}
 
 
-\newcommand{\qedsign}{{\vrule width 1ex height 1ex depth 0ex}}
-\newcommand{\qed}{\hfill\qedsign}
+%\newcommand{\qedsign}{{\vrule width 1ex height 1ex depth 0ex}}
+%\newcommand{\qed}{\hfill\qedsign}
 
 \newenvironment{dokaz}{
   \goodbreak\par
@@ -122,7 +133,7 @@
 %--------------------------------------------------------------------
 % NASLOV
 
-\author{Andrej Bauer}
+\author{Andrej Bauer \and Davorin Lešnik}
 \title{Logika in množice \\ ZAPISKI V NASTAJANJU}
 
 \begin{document}
@@ -146,7 +157,7 @@
 % VSEBINA
 
 \input{predgovor.tex}
-\input{00-uvod.tex}
+\input{00-matematicno-izrazanje.tex}
 \input{01-mnozice-in-preslikave.tex}
 \input{02-aritmetika-mnozic.tex}
 \input{03-simbolni-zapis.tex}
