@@ -42,10 +42,10 @@ Kaj pa preslikave $A \to \emptyset$?
 Zakaj ni preslikave $A \to \emptyset$, kadar $A$ vsebuje kak element? Denimo da je $x \in A$. Če bi bila kaka preslikava $f : A \to \emptyset$, bi
 veljalo $f(x) \in \emptyset$, kar pa ni res. Torej take preslikave ni.
 
-\begin{naloga}
+\begin{vaja}
   Koliko je preslikav $1 \to A$ in koliko je preslikav $A \to 1$?
   Ali je odgovor odvisen od~$A$?
-\end{naloga}
+\end{vaja}
 
 \section{Identiteta in kompozicija}
 
@@ -105,9 +105,9 @@ in
 %
 Kompozicija $\circ$ in identiteta $\id$ se torej obnašata podobno kot nekatere operacije v algebri, na primer $+$ in $0$ ter $×$ in $1$.
 
-\begin{naloga}
+\begin{vaja}
   Seštevanje je komutativno, velja $a + b = b + a$. Ali je kompozicija preslikav tudi komutativna?
-\end{naloga}
+\end{vaja}
 
 \section{Funkcijski predpisi na zmnožku in vsoti}
 
@@ -120,7 +120,7 @@ podamo funkcijski predpis takole:
 %
 pri čemer je $x \in A$ in $y \in B$. To je dovoljeno, ker je vsak element domene $A \times B$ urejeni par $(x, y)$ za natanko določena $x \in A$ in $y \in B$.
 
-\begin{primer}
+\begin{zgled}
 
 Preslikavo
 %
@@ -135,9 +135,9 @@ lahko bolj čitljivo podamo s predpisom
   \RR \times \RR  &\to  \RR \\
   (x, y) &\mapsto  x^2 + 3 \cdot y
 \end{align*}
-\end{primer}
+\end{zgled}
 
-\begin{primer}
+\begin{zgled}
   Seveda lahko podobno podajamo tudi preslikave na zmnožkih več množic, denimo
   %
   \begin{align*}
@@ -149,7 +149,7 @@ lahko bolj čitljivo podamo s predpisom
   X \times (Y \times Z) &\to (X \times Y) \times Z \\
   (x, (y, z)) &\mapsto ((x, y), z).
   \end{align*}
-\end{primer}
+\end{zgled}
 
 Kako pa zapišemo funkcijski predpis funkcije z domeno $A + B$? V tem primeru je vsak element domene bodisi oblike
 $\inl(x)$ za enolično določeni $x \in A$, bodisi oblike $\inr(y)$ za enolično določeni $y \in B$, zato funkcijski predpis podamo v dveh vrsticah:
@@ -160,7 +160,7 @@ $\inl(x)$ za enolično določeni $x \in A$, bodisi oblike $\inr(y)$ za enolično
     \inr(y) &\mapsto \cdots
 \end{align*}
 
-\begin{primer}
+\begin{zgled}
   Primer take preslikave je
   %
   \begin{align*}
@@ -184,7 +184,7 @@ $\inl(x)$ za enolično določeni $x \in A$, bodisi oblike $\inr(y)$ za enolično
     \inr(\inl(y)) &\mapsto u \\
     \inr(\inr(y)) &\mapsto v
   \end{align*}
-\end{primer}
+\end{zgled}
 
 Zapisa za zmnožek in vsoto lahko tudi kombiniramo:
 %
@@ -206,11 +206,11 @@ Izraz na levi strani $\mapsto$ sestoji iz vezanih spremenljivk in operacij, s ka
 S tem zagotovimo, da predpis obravnava vse možne primere (celovitost) in da ne obravnava nobenega primera večkrat (enoličnost).
 
 
-\subsection{Funkcijski predpis, podan po kosih}
+\section{Funkcijski predpis, podan po kosih}
 
 Omenimo še en pogost način podajanja funkcij, namreč s predpisom po kosih.
 
-\begin{primer}
+\begin{zgled}
   Preslikava ">absolutno"< je definirana po kosih za negativna in nenegativna števila:
   %
   \begin{align*}
@@ -221,9 +221,9 @@ Omenimo še en pogost način podajanja funkcij, namreč s predpisom po kosih.
        x & \text{če $x \geq 0$.}
     \end{cases}
   \end{align*}
-\end{primer}
+\end{zgled}
 
-\begin{primer}
+\begin{zgled}
   Preslikava ">predznak"< je definirana po kosih:
   %
   \begin{align*}
@@ -235,12 +235,12 @@ Omenimo še en pogost način podajanja funkcij, namreč s predpisom po kosih.
         1 & \text{če $x > 0$.}
       \end{cases}
   \end{align*}
-\end{primer}
+\end{zgled}
 
 
 Pri takem zapisu moramo paziti, da kosi skupaj pokrivajo domeno (vsi elementi domene so obravnavani) in da se kosi ne prekrivajo (vsak element domene je obravnavan natanko enkrat). Pravzaprav se smejo kosi prekrivati, a moramo v tem primeru preveriti, da se na skupnih delih skladajo, se pravi, da vsi kosi podajajo enake vrednosti na preseku.
 
-\begin{primer}
+\begin{zgled}
   Preslikavo ">absolutno"< bi lahko podali takole:
   %
   \begin{align*}
@@ -253,7 +253,7 @@ Pri takem zapisu moramo paziti, da kosi skupaj pokrivajo domeno (vsi elementi do
   \end{align*}
   %
   Kosa se prekrivata pri $x = 0$, vendar to ni težava, ker je $-0 = 0$.
-\end{primer}
+\end{zgled}
 
 
 \section{Nekatere preslikave na eksponentnih množicah}
@@ -269,12 +269,12 @@ Poglejmo si nekaj preslikav, ki slikajo iz in v eksponente množice.
 %
 Pravimo, da je $\mathsf{ev}$ \textbf{preslikava višjega reda}, ker slika preslikave v vrednosti.
 
-\begin{primer}
+\begin{zgled}
   Določeni integral $\int_0^1$ je funkcija višjega reda, ker
   sprejme funkcijo $[0,1] \to \RR$ in vrne realno število. Je torej preslikava
   $\RR^{[0,1]} \to \RR$, če se pretvarjamo, da lahko integriramo vsako funkcijo.
   Bolj pravilno bi bilo reči, da je $\int_0^1$ preslikava iz množice \emph{integrabilnih funkcij $[0,1] \to \RR$} v realna števila.
-\end{primer}
+\end{zgled}
 
 \noindent
 Kompozitum preslikav je tudi preslikava višjega reda:
@@ -307,20 +307,20 @@ Pravzaprav je to izomorfizem, katerega inverz je ">uncurrying"<:
   Preslikava $f : A \to B$ je \textbf{inverz} preslikave $g : B \to A$, če velja $f \circ g = \id[B]$ in $g \circ f = \id[A]$.
 \end{definicija}
 
-\begin{naloga}
+\begin{vaja}
   Utemelji: če je $f$ inverz $g$, potem je $g$ inverz $f$.
-\end{naloga}
+\end{vaja}
 
-\begin{primer}
+\begin{zgled}
   Kub in kubični koren sta inverza
   %
   \begin{align*}
     \RR &\to \RR    &     \RR &\to \RR \\
     x &\mapsto x^3  &     y &\mapsto \sqrt[3]{y}
   \end{align*}
-\end{primer}
+\end{zgled}
 
-\begin{naloga}
+\begin{vaja}
   Naj bo~$S$ množica nenegativnih realnih števil, se pravi, $\RR_{\geq 0} = \{x \in \RR \mid x \geq 0\}$. Ali sta kvadriranje in kvadratni koren inverza?
   %
   \begin{align*}
@@ -328,7 +328,7 @@ Pravzaprav je to izomorfizem, katerega inverz je ">uncurrying"<:
     x &\mapsto x^2           &     y &\mapsto \sqrt[2]{y}
   \end{align*}
   %
-\end{naloga}
+\end{vaja}
 
 \begin{izjava}
   Če sta $f : A \to B$ in $g : A \to B$ oba inverza preslikave $h : B \to A$, potem je $f = g$.
@@ -355,19 +355,19 @@ Ali znate utemeljiti vsakega od zgornjih korakov?
 
 Če je $f : A \to B$ izomorfizem, potem ima natanko en inverz $B \to A$, ki ga označimo $\inv{f}$.
 
-\begin{primer}
+\begin{zgled}
   Identiteta $\id[A] : A \to A$ je izomorfizem, saj je sama sebi inverz.
   Torej $\inv{\id[A]} = \id[A]$.
-\end{primer}
+\end{zgled}
 
-\begin{primer}
+\begin{zgled}
   Eksponentna preslikava $\exp : \RR \to \RR_{> 0}$, $\exp : x \mapsto e^x$ je
   izomorfizem, njen inverz je naravni logaritem $\ln : \RR_{> 0} \to \RR$, torej $\inv{\exp} = \ln$.
-\end{primer}
+\end{zgled}
 
-\begin{primer}
+\begin{zgled}
   Eksponentna preslikava $\exp : \RR \to \RR$ \emph{ni} izomorfizem.
-\end{primer}
+\end{zgled}
 
 \begin{izjava}
   Če sta $f : A \to B$ in $g : B \to C$ izomorfizma, potem je tudi $g \circ f : A \to C$ izomorfizem. Velja torej $\inv{(g \circ f)} = \inv{f} \circ \inv{g}$.
@@ -414,14 +414,14 @@ Ali znate utemeljiti vsakega od zgornjih korakov?
   \end{enumerate}
 \end{dokaz}
 
-\begin{primer}
+\begin{zgled}
   $A \times B \iso B \times A$, ker imamo izomorfizem in njegov inverz
   %
   \begin{align*}
     A \times B  &\to  B \times A      &    B \times A  &\to  A \times B \\
     (x, y) &\mapsto  (y, x)           &    (b, a) &\mapsto  (a, b)
   \end{align*}
-\end{primer}
+\end{zgled}
 
 \subsection{Aritmetika množic}
 
@@ -461,6 +461,6 @@ veljajo za števila. Ali gre tu za kako globljo povezavo?
   \end{enumerate}
 \end{enumerate}
 
-\begin{naloga}
+\begin{vaja}
   Zapišite vseh 15 izomorfizmov, ki potrjujejo pravilnost zgornjega seznama.
-\end{naloga}
+\end{vaja}

@@ -94,7 +94,7 @@ Princip indukcije na naravnih številih posplošimo, pri čemer izhajamo iz prin
 
 Pogoj \eqref{eq:ind-wf} je \emph{indukcijski predpis} za dobro osnovano relacijo~$R$. Nekatere relacije temu predpisu zadoščajo in druge ne. Na primer, relacija ">neposredni predhodnik"< na $\NN$ mu zadošča, saj v tem primeru dobimo običajno indukcijo na~$\NN$.
 
-\begin{primer}
+\begin{zgled}
   Preverimo, da je relacija ">neposredni predhodnik"< $P$ na množici $A = \set{0, 1, \ldots, 42}$ dobro osnovana.
   Natančneje, govorimo o relaciji
   %
@@ -121,7 +121,7 @@ Pogoj \eqref{eq:ind-wf} je \emph{indukcijski predpis} za dobro osnovano relacijo
   \end{equation*}
   %
   kar se poenostavi v $0 \in S \lthen 1 \in S$. Ker smo že dokazali $0 \in S$, sledi tudi $1 \in S$. V naslednjem koraku vstavimo $y = 2$, poenostavimo in dobimo $1 \in S \lthen 2 \in S$, torej $2 \in S$. Tako nadaljujemo do $y = 42$ in ugotovimo, da res velja $S = A$. S tem smo pokazali, da je $P$ dobro osnovana. Seveda ni bistveno, da smo uporabili $42$.
-\end{primer}
+\end{zgled}
 
 \subsection{Dvojiška drevesa}
 
@@ -261,7 +261,7 @@ Iz cikla dobimo padajočo verigo, tako da cikel ponavljamo v nedogled:
   Torej v vsakem primeru velja $y \in S$.
 \end{dokaz}
 
-\begin{primer}
+\begin{zgled}
   Sedaj lahko zlahka priskrbimo kak proti-primer. Na primer, cela števila $\ZZ$ z relacijo $R \subseteq \ZZ \times \ZZ$
   %
   \begin{equation*}
@@ -276,7 +276,7 @@ Iz cikla dobimo padajočo verigo, tako da cikel ponavljamo v nedogled:
   %
   Prav tako ni dobro osnovana relacija $<$ na intervalu $[0,1]$, ker imamo padajočo verigo
   $n \mapsto 2^{-n}$.
-\end{primer}
+\end{zgled}
 
 \section{Dobra urejenost}
 
@@ -487,7 +487,7 @@ Tako lahko prehajamo med delno in strogo urejenostjo.
   Za nalogo predelajte dokaz prejšnjega izreka v dokaz tega izreka.
 \end{dokaz}
 
-\begin{primer}
+\begin{zgled}
   Primeri dobro urejenih množic:
   %
   \begin{enumerate}
@@ -515,7 +515,7 @@ Tako lahko prehajamo med delno in strogo urejenostjo.
       \inl{0} < \inl{1} < \inl{2} < \cdots < \inr{0} < \inr{1} < \inr{2}.
     \end{equation*}
   \end{enumerate}
-\end{primer}
+\end{zgled}
 
 \section{Ordinalna števila}
 \label{sec:ordinalna-tevila}
@@ -585,9 +585,9 @@ Poglejmo, kako deluje njegova ideja:
   \end{align*}
 \end{itemize}
 
-\begin{naloga}
+\begin{vaja}
   Kako bi si predstavljali naslednje ordinale: $\omega + \omega + \omega$, $\omega \cdot \omega$, $\omega^3$, $\omega^\omega$?
-\end{naloga}
+\end{vaja}
 
 Von Neumann je imel pravo idejo, a pušča kanček dvoma, ker je definicija ordinalnega števila \emph{rekurzivna} (se nanaša sama nase). Če se malce potrudimo, da lahko von Neumannove ordinale opredelimo neposredno.
 
@@ -600,11 +600,11 @@ Von Neumann je imel pravo idejo, a pušča kanček dvoma, ker je definicija ordi
 Poimenovanje je smiselno, saj je pogoj v definiciji ravno tranzitivnost relacije~$\in$.
 Ekvivalentno lahko pogoj izrazimo takole: množica $z$ je tranzitivna, če iz $y \in z$ sledi $y \subseteq z$.
 
-\begin{primer}
+\begin{zgled}
   Množica $\set{\emptyset, \set{\emptyset}, \set{\set{\emptyset}}}$ je tranzitivna, niso pa vsi njeni elementi tranzitivne množice, saj $\set{\set{\emptyset}}$ ni tranzitivna, ker $\emptyset \in \set{\emptyset} \in \set{\set{\emptyset}}$ vendar $\emptyset \not\in \set{\set{\emptyset}}$.
-\end{primer}
+\end{zgled}
 
-\begin{naloga}
+\begin{vaja}
   Dokažite, da so ekvivalentni pogoji:
   %
   \begin{enumerate}
@@ -612,7 +612,7 @@ Ekvivalentno lahko pogoj izrazimo takole: množica $z$ je tranzitivna, če iz $y
   \item $\bigcup A \subseteq A$,
   \item $A \subseteq \pow{A}$.
   \end{enumerate}
-\end{naloga}
+\end{vaja}
 
 Sedaj lahko zapišemo definicijo von Neumannovih ordinalov, ki ni rekurzivna.
 
@@ -623,9 +623,9 @@ Sedaj lahko zapišemo definicijo von Neumannovih ordinalov, ki ni rekurzivna.
 
 Razred vseh von Neumannovih ordinalov označimo z $\On$ (v angleščini ">ordinal number"<). To je pravi razred, česar ne bomo dokazali. Kogar zanima dokaz, naj poišče ">Burali-Fortijev paradoks"<, ki je celo starejši od Russellovega paradoksa.
 
-\begin{naloga}
+\begin{vaja}
   Poiščite množico, ki \emph{ni} tranzitivna in je dobro urejena z relacijo $\in$.
-\end{naloga}
+\end{vaja}
 
 Ali definicija~\ref{def:von-neuman-ordinal} res sovpada z idejo, da je ordinal množica svojih prednikov? To potrjuje naslednja izjava.
 
@@ -638,9 +638,9 @@ Ali definicija~\ref{def:von-neuman-ordinal} res sovpada z idejo, da je ordinal m
   Tedaj je $\gamma \in \alpha$ in ker je $\alpha$ z $\in$ linearno urejen, velja bodisi $\gamma \in \beta$ bodisi $\gamma = \beta$ bodisi $\beta \in \gamma$. A ker druga in tretja možnost ne prideta v poštev, saj bi dobili cikel $\gamma \in \beta \in \gamma$, velja prva, kar smo želeli dokazati.
 \end{dokaz}
 
-\begin{naloga}
+\begin{vaja}
   V zgornjem dokazu smo uporabili naslednje dejstvo: če je $(P, {<})$ dobra ureditev in $Q \subseteq P$, tedaj je $Q$ z relacijo $<$ zoženo na~$Q$ tudi dobra ureditev. Zapišite dokaz.
-\end{naloga}
+\end{vaja}
 
 Brez dokaza navedimo, da so von Neumannovi ordinali izbor predstavnikov za dobre urejenosti.
 

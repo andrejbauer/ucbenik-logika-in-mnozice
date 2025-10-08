@@ -1,391 +1,1917 @@
 \chapter{Množice in preslikave}
+\label{cha:mnozice-in-preslikave}
 
-Pri predmetu Logika in množice se bomo učili, kako matematiki komuniciramo in razmišljamo. Spoznali bomo osnove logike
-in teorije množic, tako iz povsem praktičnega vidika kot tudi matematičnega. Pri tem predmetu cenimo ne le matematično
-razmišljanje, ampak tudi razmišljanje o matematiki.
 
-Za uvod povejmo nekaj osnovnega o množicah in spoznajmo nekatere osnovne konstrukcije.
-
-\section{Osnovno o množicah}
-
-\subsection{Množice kot skupki elementov, relacija $\in$}
-
-Naivno bi rekli, da je množica kakršnakoli zbirka ali skupek matematičnih objektov. Le-ti so lahko števila, funkcije,
-množice, množice števil ipd., skratka karkoli.
+Temeljni gradniki sodobne matematike so \df{množice}, ki so skupki ali zbirke matematičnih
+objektov, lahko spet množic. Vsaka množica sestoji iz \df{elementov} in je z njimi
+natančno določena.
 %
-Najbolj preprosti primeri množic so končne množice, katerih elemente naštejemo. Zapišemo jih na primer takole:
+Kadar je $a$ element množice $M$, to zapišemo $a \in M$ in beremo ``$a$ je element~$M$'' ali ``$a$ pripada~$M$''.`
+Slišali boste tudi. Odsvetujemo ``$a$ je vsebovan v~$M$'', ker že $A \subseteq M$ beremo ``$A$ je vsebovan v $M$''.
+
+Ideja množice kot poljubne zbirke elementov je zavajajoče preprosta, kar so na lastni koži
+izkusili matematiki na prelomu iz 19.~v 20.~stoletje. Takrat so že vedeli, da so množice zelo
+uporabne in da lahko iz njih tvorimo razne vrste matematičnih objektov. A znameniti
+matematik in filozof Bertrand Russell je odkril paradoks, ki se imenuje po njem, in gre
+takole. Naj bo~$R$ množica vseh množic, ki niso element same sebe. Ali $R$ je element~$R$?
+Če je $R$ element $R$, potem iz definicije $R$ sledi, da $R$ ni element $R$. In če $R$ ni
+element $R$, spet iz definicije $R$ sledi, da $R$ je element $R$. Torej $R$ hkrati je in
+ni svoj element, kar je protislovje! Russellov paradoks ste morda že spoznali v
+priljubljeni različici, ki govori o vaškem brivcu, ki brije vse vaščane, ki ne brijejo
+samih sebe.
+
+Russellov paradoks je povzročil pravo krizo v temeljih matematike. Ker so bile množice
+nepogrešljivo orodje, jih niso hoteli kar zavreči, po drugi strani pa je bilo treba
+preprečiti Russellov in druge paradokse, ki so jih še odkrili. Bertrand Russell je
+predlagal rešitev, ki jo je poimenoval \df{teorija tipov}. Russellova teorija tipov je
+pomembno vplivala na nadaljni razvoj temeljev matematike, sodobna teorija tipov pa je
+pomembno orodje v računalništvu. Tako kot množice so bili tipi skupki elementov, a so
+tvorili neskončno hierarhijo, v kateri so bili elementi tipa vedno iz nižjega nivoja
+hierarhije kot tip, ki so mu pripadali. Za potrebe večine matematike zadostuje že
+preprostejša dvoslojna hierarhija množic in \df{razredov}. Množice smejo biti elementi
+množic in razredov, razredi pa ne. Russellov paradoks izgine, ker je $R$ razred vseh
+tistih množic, ki niso same svoj element. Vprašanje, ali je $R$ element samega sebe, tako
+postane nesmiselno, saj $R$ ni množica. A zaenkrat odložimo podrobnejšo obravnavo razredov
+in se raje posvetimo osnovnima pojmoma, množica in preslikava.
+
+V splošni razpravi o množicah, ki bi presegala meje matematične vede, bi se opirali na
+zgodovinski in družbeni kontekst, jezikovni izvor in rabo besed `množica', `skupek' in
+`zbirka', kognitivno analizo, eksperimente, filozofijo itn. Vsi ti vidiki so za matematike
+izjemo koristni, saj iz takih ``pred-matematičnih'' obravnav črpamo sveže zamisli in
+matematiko naredimo zares uporabno. Ko pa delujemo znotraj matematike, zunanje vplive
+odmislimo in se zanašamo le še na pravila logičnega sklepanja in matematične zakone, da ne
+prihaja do nejasnosti in dvomljivih sklepov.
+
+Kot matematiki lahko ustvarimo takšen ali drugačen pojem množice in pri tem imamo popolno
+svobodo. Se množica lahko spreminja ali vedno vsebuje iste elemente? Je pomemben vrsti red
+elementov v množici? Sme množica biti element same sebe? Ali morajo biti elementi množice
+izračunljivi? To so vprašanja, ki nimajo enoznačnega odgovora. In res je znanih več med
+seboj nezdružljivih zvrsti teorije množic, ki matematično opredeljujejo različne vidike
+običajnega razumevanja besede `množica'. Mi bomo spoznali ``standardno'' teorijo množic,
+ki jo uporablja velika večina matematikov.
+
+
+\section{Pravilo ekstenzionalnosti}
+\label{sec:nacelo-ekstenzionalnosti}
+
+Zamisel, da je množica natančno določena s svojimi elementi, izrazimo z matematičnim
+zakonom, ki mu pravimo \df{pravilo ekstenzionalnosti}:
+
+\begin{pravilo}[Ekstenzionalnost množic]
+  Množici sta enaki, če vsebujeta iste elemente.
+\end{pravilo}
+
+Kaj pravzaprav pomeni, da je to ``pravilo'', ``matematični zakon'' ali ``načelo''? So ga
+razglasili v parlementu, je to zakon narave, ali morda dogma, ki jo je razglasil profesor
+na predavanjih? Bodo tisti, ki pravila ekstenzionalnosti ne spoštujejo, deležni Lešnikove
+masti? Ne. Matematični zakoni so \emph{dogovori}, nekakšna pravila matematične igre. V
+zgodovinskem razvoju matematike so se uveljavili tisti dogovori, ki so bili uporabni v
+naravoslovju in tehniki, ali pa so v njih matematiki videli notranjo lepoto in lastno
+uporabno vrednost.
+
+Pravkar smo se dogovorili, da bomo obravnavali matematične objekte množice, ki vsebujejo
+elemente in da zanje velja pravilo ekstenzionalnosti. Namesto besed `množica' in `element'
+bi lahko izbrali tudi kaki drugi besedi, denimo `zbor' in `član', ali celo `morje' in
+`riba', s čimer se matematična vsebina pojmov ne bi čisto nič spremenila, čeprav ne gre
+preveč izzivati svojih stanovskih kolegic in kolegov. Strukturo, lastnosti in povezave med
+matematičnimi objekti namreč določajo dogovorjeni matematični zakoni in ne besede, s
+katerimi jih poimenujemo.
+
+Še enkrat poudarimo, da ima vsakdo, še posebej pa mladi um, popolno svobodo matematičnega
+ustvarjanja. Želite razmišljati o drugačnih množicah, ki ne zadoščajo pravilu
+ekstenzionalnsti? Ali pa o številih, ki zadoščajo zakonu $x + x = 0$? O geometriji, v
+kateri skozi točko lahko potegnemo dve vzporednici k dani premici? Kar dajte! Pri tem vas
+le prosimo, celo zahtevamo, da razmišljate temeljito, vztrajno in globoko, da ste iskreni
+do sebe in ostalih ter da svoje zamisli in spoznanja predstavite na matematikom razumljiv
+način.
+
+Vrnimo se k našim množicam. Pravilo ekstenzionalnosti nam pove, da lahko množico podamo
+tako, da natančno opredelimo njene elemente. A to ne pomeni, da množica obstaja, brž ko jo
+lahko natančno opredelimo! To je pot, ki vodi naravnost do Russelovega paradoksa, saj so
+elementi paradoksalne množice~$R$ natančno opredeljeni. Potrebujemo dodatna pravila, ki
+določajo dopustne \df{konstrukcije množic}. Izbrati jih moramo previdno, da se izognemo
+težavam.
+
+\section{Končne množice}
+\label{sec:koncne-mnozice}
+
+Posebej preprosta konstrukcija množic združi končen nabor matematičnih objektov v množico.
+Na primer, če so $a$, $b$ in $c$ matematični objekti, potem lahko tvorimo množico
 %
-\begin{gather*}
-  \set{1, 2, 3} \\
-  \set{\sin, \cos, \tan} \\
-  \set{\{1\}, \{2\}, \{3\}}.
-\end{gather*}
+\begin{equation*}
+  \set{a, b, c}
+\end{equation*}
 %
-Objektom, ki tvorijo množico, pravimo \textbf{elementi}. Na primer, elementi množice $\{1, \{4\}, 7/3\}$ so število $1$, množica $\{4\}$, in število $7/4$.
-
-Kadar je $a$ element množice $M$, to zapišemo $a \in M$ in beremo ">$a$ je element $M$"<.
-
-Ali sta množici $\{1, 4, 10\}$ in $\{4, 10, 1, 10\}$ enaki? Da, saj množice obravnavamo kot \emph{neurejene} skupke, v katerih ni pomembno, kolikokrat se pojavi kak element. Da vrstni red in število pojavitev nista pomembna, sledi iz \textbf{aksioma
-ekstenzionalnosti}. Aksiom je matematična izjava, ki jo vzamemo za osnovno, se pravi, da je ne dokazujemo. Aksiomi opredeljujejo matematično teorijo, ki jo želimo študirati. Tako bom pri tem predmetu spoznali aksiome teorije množic, pri algebri aksiome za vektorski prostor in grupo itd.
-
-\begin{aksiom}[Ekstenzionalnost množic]
-  Množici sta enaki, če imata iste elemente.
-\end{aksiom}
-
-Povedano drugače: če je vsak element množice $A$ tudi element množice $B$ in je vsak element množice $B$ tudi element množice $A$, potem velja $A = B$.
-
-Z uporabo ekstenzionalnosti, lahko \emph{dokažemo}, da sta $\{1, 4, 10\}$ in $\{4, 10, 1, 10\}$ enaki:
+katere objekti so natanko $a$, $b$ in $c$. To pomeni, da za vsak matematični objekt~$x$
+velja
+%
+\begin{equation*}
+  \text{$x \in \set{a, b, c}$, če in samo če $x = a$ ali $x = b$ ali $x = c$.}
+\end{equation*}
+%
+Fraza ``če in samo če'' tu pomeni, da velja dvoje:
 %
 \begin{enumerate}
-\item 
-  Vsak element $\{1, 4, 10\}$ je tudi element $\{4, 10, 1, 10\}$:
-  \begin{enumerate}
-    \item velja $1 \in \{4, 10, 1, 10\}$
-    \item velja $4 \in \{4, 10, 1, 10\}$
-    \item velja $10 \in \{4, 10, 1, 10\}$
-  \end{enumerate}
-\item
-Vsak element $\{4, 10, 1, 10\}$ je tudi element $\{1, 4, 10\}$:
-  \begin{enumerate}
-     \item velja $4 \in \{1, 4, 10\}$
-     \item velja $10 \in \{1, 4, 10\}$
-     \item velja $1 \in \{1, 4, 10\}$
-     \item velja $10 \in \{1, 4, 10\}$
-  \end{enumerate}
+\item Če $x = a$ ali $x = b$ ali $x = c$, potem $x \in \set{a, b, c}$.
+\item Če $x \in \set{a, b, c}$, potem $x = a$ ali $x = b$ ali $x = c$.
 \end{enumerate}
+%
+Tako nam na primer prva trditev zagotavlja $1+1 \in \set{1, 2, 3}$, ker velja
+vsaj ena od možnosti: $1 + 1 = 1$ ali $1 + 1 = 2$ ali $1 + 1 = 3$. Iz druge trditve sledi, da
+$5 \in \set{1, 2, 3}$ ne velja, ker ne velja nobena od možnosti: $5 = 1$ ali $5 = 2$ ali
+$5 = 3$.
 
-Iz zgornjih dveh preverjanj z uporabo ekstenzionalnosti sledi, da $\{1, 4, 10\} = \{4, 10, 1, 10\}$.
+Splošna konstrukcija končnih množic poteka takole.
 
-\begin{naloga}
-  Zapišite podroben dokaz, da sta množici $\{x, y\}$ in $\{y, x\}$ enaki.
-\end{naloga}
+\begin{pravilo}
+  \label{pravilo:koncna-mnozica}
+  Za vse objekte $a$, $b$, \dots, $z$ je $\set{a, b, \ldots, z}$ množica, katere elementi
+  so natanko objekti $a$, $b$, \dots, $z$.
+\end{pravilo}
 
-\begin{opomba}
-  Poznamo tudi skupke, pri katerih je pomembno, kolikokrat se pojavi vsak element. Imenujejo se \textbf{multimnožice}.
-\end{opomba}
-
-Opozorimo takoj, da v praksi pogosto uporabljamo zapise, ki niso povsem natančni. Takrat se zanašamo, da bodo ostali pravilni uganili, kaj imamo v mislih. Na primer, katere elemente vsebuje množica
+Za trenutek ustavimo tok misli in opozorimo, da zapis s tropičjem `$\ldots$' ni dovolj
+natančen, saj dopušča dvoumnosti. Denimo, so elementi množice
 %
 \begin{equation*}
-    \{1, 2, 3, ..., 2021\} \ ?
+  \set{3, 5, 7, \ldots, 31},
 \end{equation*}
 %
-Verjetno bi vsi ">uganili"<, da so mišljena vsa naravna števila med $1$ in $2021$, ali ne? Zavedati se je treba, da zgornji zapis tega ne določa! Morda smo imeli v mislih vsa števila med $1$ in $2021$, ki pri deljenju s~$5$ ne dajo ostanka~$4$.
+liha števila med $3$ in $31$, ali samo praštevila? Zapis res ni dovolj natančen. Kljub
+temu tak zapis v praksi uporabljamo, ker v praksi bralec večinoma pravilno ugane, kaj je
+bilo mišljeno, saj imamo ljudje zelo podobne sposobnosti prepoznavanja vzorcev. Z
+matematičnega vidika pa to ni dopustno, saj lahko tropičje \emph{vedno} razumemo na več
+načinov. (Ne verjamete? Naslednji člen v zaporedju $1, 2, 3, \ldots$ je seveda~$5$, ker je
+naslednji člen vsota prejšnjih dveh, kot v Fibonaccijevem zaporedju.)
 
-Pri tem predmetu bomo pogosto opozarjali na razne nejasnosti in nenatančne zapise, ki jih uporabljajo matematiki v praksi.
-Ni mišljeno, da bi se pretvarjali, da je kaj narobe s ">človeško matematiko"<. Želimo se predvsem zavedati, kje se nejasnosti v praksi pojavljajo in kako bi jih lahko odpravili (tudi če jih v praksi dejansko ne odpravimo). Ko bo torej asistent pri analizi na tablo napisal
-%
-\begin{equation*}
-    1, 2, 4, 8, \ldots
-\end{equation*}
-%a
-imate tri možnosti:
+Kot smo že omenili, želimo pojem množice, pri kateri vrstni red elementov ni pomemben.
+Pričakujemo, da lahko dokažemo enakost množic $\set{1, 2}$ in $\set{2, 1}$. Pa je to res? Velja ena
+od treh možnosti:
 %
 \begin{enumerate}
-  \item Ste zmedeni.
-  \item Uganete, da ima v mislih potence števila 2.
-  \item Vprašate, ali je $n$-ti člen število regij, na katerega lahko razdelimo prostor z $(n-1)$ ravninami?
+\item Iz pravila ekstenzionalnosti in konstrukcije množic $\set{1, 2}$ in $\set{2, 1}$ sledi, da sta enaki.
+\item Iz pravila ekstenzionalnosti in konstrukcije množic $\set{1, 2}$ in $\set{2, 1}$ sledi, da nista enaki.
+\item Pravilo ekstenzionalnosti in konstrukcije množic $\set{1, 2}$ in $\set{2, 1}$ ne določajo, ali sta enaki.
 \end{enumerate}
 %
-Sami se odločite, kakšen odnos želite vzpostaviti z asistentom.
+V prvem primeru želimo videti dokaza. V drugem primeru bi bili v zagati, saj 
+bi izbrana matematična pravila imela neželene posledice. V tretjem primeru bi morali
+dodati še kakšne nove zakone o množicah. Na srečo obvelja prva možnost.
 
-\subsection{Prazna množica $\emptyset$}
+\begin{trditev}
+  Množici $\set{1, 2}$ in $\set{2, 1}$ sta enaki.
+\end{trditev}
 
-Verjetno ni treba izgubljati besed o prazni množici. To je množica, ki nima nobenega elementa. Zapišemo jo $\emptyset$ ali $\{\}$.
+\begin{dokaz}
+  Dokaz, ki ga bomo zapisali je izjemno podroben in ga v praksi matematik ne bi zapisal,
+  saj je z njegovim branjem več dela, kot če bi ga poustvarili sami. Ker pa želimo pokazati, da
+  tudi najbolj trivialna dejstva lahko dokažemo, ga zapišimo.
 
-\begin{naloga}
-  Ali je kakšna razlika med $\{\}$ in $\{\emptyset\}$?
-\end{naloga}
-
-
-\subsection{Standardni enojec $\one$}
-
-Množici, ki ima natanko en element, pravimo \textbf{enojec}.
-
-Ali znamo pojasniti, kaj pomeni, da ima množica natanko en element, ne da bi pri tem omenili število $1$ ali katerokoli drugo število? Takole: množica $A$ ima natanko en element, če velja:
-%
-\begin{enumerate}
-\item obstaja $x \in A$ in
-\item če je $x \in A$ in $y \in A$, potem $x = y$.
-\end{enumerate}
-
-\begin{naloga}
-  Kako bi opredelili ">množica ima natanko dva elementa"< brez uporabe števil?
-\end{naloga}
-
-Pogosto bomo potrebovali kak enojec (že na naslednjih predavanjih). Seveda se ni težko domisliti enojca, na primer $\{42\}$ ali $\{\sin\}$. Da pa ne bomo vedno znova izgubljali časa z izbiro enojca, se dogovorimo, da je \textbf{standardni enojec $\one$} množica $\{\unit\}$. To je zelo čudno, ker smo označili množico s številko\footnote{Ali ločite med ">števka"<, ">številka"< in ">število"<?} $1$ in ker je element standardnega enojca $\unit$, česar še nikoli nismo videli.
-
-Glede oznake $\one$ povejmo, da imamo kot matematiki \emph{načelno svobodo} pri izbiri zapisa, a je smiselno in vljudno, da se ne zafrkavamo. Ali se torej predavatelj zafrkava, ko standardni enojec označi s številko $\one$? Ne, saj gresta ">ena"< in ">enojec"< lepo skupaj, poleg tega pa bomo na naslednjih predavanjih spoznali tudi matematične razloge za tak zapis.
-
-Glede oznake $\unit$ se bo kmalu izkazalo, da je zapis smiseln, ker je $()$ pravzaprav ">urejena ničterica"<.
-
-\subsection{Številske in ostale množice}
-
-Seveda si bomo privoščili uporabo raznih množic, ki jih že poznate, kot so na primer številske množice $\NN$, $\ZZ$, $\QQ$, $\RR$ itd. Opozorimo pa na naslednji dilemo:
-v osnovni in srednji šoli z $\NN$ označimo množico celih števil, ki so večja ali enaka $1$, vendar pa pogosto v matematiki, še posebej pa v logiki, tudi število $0$ obravnavamo kot naravno število. V takih primerih $\NN$ izenačuje množico celih števil, ki so večja ali enaka $0$.
-
-Kaj je torej prav $\NN = \{0, 1, 2, \ldots\}$ ali $\NN = \{1, 2, 3, \ldots\}$? To je napačno vprašanje! Lahko vprašamo le ">kako se bomo dogovorili?"<. Pri tem predmetu se
-dogovorimo, da je $0$ naravno število, ker vadimo ">matematično svobodo"<, imamo dobre matematične razloge, da $0$ uvrstimo med naravna števila, in ker je predavatelj tako zapovedal.
-
-\begin{naloga}
-  Zberite pogum in predavatelja vprašate, kakšni so ti dobri matematični razlogi, zaradi katerih je zapovedal, da je $0$ naravno število. Sledila bo filozofska razprava, ki vam bo pokvarila odmor.
-\end{naloga}
-
-\section{Konstrukcije množic}
-
-Ena od osnovnih matematičnih aktivnosti so \textbf{konstrukcije}. Poznamo na primer geometrijske konstrukcije z ravnilom in šestilom. Ko računamo rešite enačbe, bi lahko rekli, da konstruiramo število, ki zadošča enačbi. Ko pišemo dokaz, konstruiramo objekt, iz katerega je razvidna resničnost neke izjave. Tudi računalniški programi so le matematični konstrukti.
-
-Spoznajmo nekatere osnovne konstrukcije množic, se pravi, načine, kako iz množic naredimo nove množice.
-
-\subsection{Zmnožek ali kartezični produkt}
-
-\textbf{Urejeni par} $\pair{x,y}$ je matematični objekt, ki da dobimo tako, da združimo dva matematična objekta~$x$ in~$y$. V srednji šoli ste večinoma pisali urejene pare števil (ki ste jih imenovali ">koordinate"<). V urejenem paru je vrstni red \emph{pomemben}: urejena para $(1, 3)$ in $(3, 1)$ \emph{nista} enaka. (Množici $\{1, 3\}$ in $\{3, 1\}$ sta enaki.)
-
-Urejeni par $\pair{x, y}$ ima \textbf{prvo komponento~$x$} in \textbf{drugo komponento~$y$}. Če imamo neki urejeni par~$u$, njegovi komponenti pišemo tudi $\fst(u)$ in $\snd(u)$. Velja torej:
-%
-\begin{equation*}
-    \fst(x,y) = x
-    \iinn
-    \snd(x,y) = y.  
-\end{equation*}
-%
-Simboloma $\mathsf{pr}_1$ in $\mathsf{pr}_2$ pravimo \textbf{prva} in \textbf{druga projekcija}. Običajne oznake za projekciji so tudi $\pi_1$ in $\pi_2$, v
-programiranju $\mathtt{fst}$ in $\mathtt{snd}$, lahko pa tudi $\pi_0$ in $\pi_1$.
-
-Spoznajmo sedaj \textbf{zmnožek} ali \textbf{kartezični produkt} množic $A$ in $B$. Opis nove konstrukcijo množic mora navesti zapis za konstruirano množico, katere elemente ima in kdaj sta elementa konstruirane množice enaka:
-%
-\begin{enumerate}
-\item Zmnožek množic $A$ in $B$ zapišemo $A \times B$.
-\item Elementi množice $A \times B$ so urejeni pari $\pair{x, y}$, pri čemer je $x \in A$ in $y \in B$.
-\item Enakost elementov (princip ekstenzionalnosti za pare): $u \in A \times B$ in $v \in A \times B$ sta enaka, če velja $\fst(u) = \fst(v)$ in $\snd(u) = \snd(v)$.
-\end{enumerate}
-
-\begin{primer}
-Zmnožek množic $\{1,2,3\}$ in $\{\Box, \diamond\}$ je
-%
-\begin{equation*}
-    \{1, 2, 3\} \times {\Box, \diamond} =
-    \{\pair{1, \Box},
-      \pair{2, \Box},
-      \pair{3, \Box},
-      \pair{1, \diamond},
-      \pair{2, \diamond},
-      \pair{3, \diamond}
-     \}.
-\end{equation*}
-%
-Iz principa ekstenzionalnosti za pare sledi, da je vrstni red v urejenem paru pomemben, saj $\pair{1, 3} \neq \pair{3, 1}$, ker $\fst(1,3) = 1 \neq 3 = \fst(3,1)$.
-\end{primer}
-
-
-\subsubsection{Zmnožek več množic}
-
-Tvorimo lahko tudi zmnožek več množic. Na primer, zmnožek množic $A$, $B$ in $C$ je množica $A \times B \times C$, katerih elementi so \textbf{urejene trojke} $\pair{x, y, z}$, kjer je $x \in A$, $y \in B$ in $z \in C$. V tem primeru imamo tri projekcije $\mathsf{pr}_1$, $\mathsf{pr}_2$ in $\mathsf{pr}_3$. Podobno lahko tvorimo zmnožek štirih, petih, šestih, \dots množic.
-
-\begin{naloga}
-  Ali lahko tvorimo zmnožek ene množice? Kaj pa zmnožek nič množic?
-\end{naloga}
-
-
-\subsection{Vsota ali koprodukt}
-
-Naslednja osnovna konstrukcija je \textbf{vsota} ali \textbf{koprodukt} množic $A$ in $B$:
-%
-\begin{enumerate}
-\item vsoto množic $A$ in $B$ označimo z $A + B$,
-\item elementi množice $A + B$ so $\inl{x}$ za $x \in A$ in $\inr{y}$ za $y in B$,
-\item elementa $u \in A + B$ in $v \in A + B$ sta enaka, kadar velja
-  %
-  \begin{enumerate}
-    \item bodisi za neki $a \in A$ velja $u = \inl{a} = v$,
-    \item bodisi za neki $b \in B$ velja $u = \inr{b} = v$.
-  \end{enumerate}
-\end{enumerate}
-
-\begin{primer}
-Primeri vsote množic:
-%
-\begin{enumerate}
-
-\item $\{1, 2, 3\} + \{\square, \diamond\} = \{\inl{1}, \inl{2}, \inl{3}, \inr{\Box}, \inr{\diamond}\}$
-
-\item $\{a, b\} + \{b, c\} = \{\inl{a}, \inl{b}, \inr{b}, \inr{c}\}$
-
-\item Vsota \emph{ni} unija! Po eni strani je
-      $\{3, 5\} \cup \{3, 5\} = \{3, 5\}$ in po drugi
-      $\{3, 5\} + \{3, 5\} = \{\inl{3}, \inl{5}, \inr{3}, \inr{5}\}$.
-\end{enumerate}
-\end{primer}
-
-Vsoti pravimo tudi ">disjunktna unija"<, a se bomo temu izrazu izogibali, ker obravnavamo vsoto kot osnovno operacijo in ne kot poseben primer unije.
-
-Oznakama $\mathsf{in}_1$ in $\mathsf{in}_2$ pravimo \textbf{prva in druga injekcija}. Uporabljajo se tudi oznake $\iota_1$ in $\iota_2$, v funkcijskem
-programiranju $\mathtt{inl}$ in $\mathtt{inr}$, pa tudi $\iota_0$ in $\iota_1$. Pravzaprav ni pomembno, kakšne oznake uporabimo, poskrbeti moralo
-le, da sta to različna simbola, s katerima razločimo elemente prvega in drugega sumanda.
-
-Tvorimo lahko vsoto več množic, na primer $A + B + C$. V tem primeru imamo tri injekcije $\mathsf{in}_1$, $\mathsf{in}_2$ in $\mathsf{in}_3$.
-
-\section{Preslikave ali funkcije}
-
-Poleg množic so preslikave še en osnovni matematični pojem, ki mu bomo posvetili veliko pozornosti. \textbf{Preslikava} ali \textbf{funkcija} sestoji iz treh sestavin:
-%
-\begin{itemize}
-\item množice, ki ji pravimo \textbf{domena},
-\item množice, ki ji pravimo \textbf{kodomena},
-\item \textbf{prirejanja}, ki vsakemu elementu domene priredi natanko en element kodomene.
-\end{itemize}
-%
-Če je $f$ funkcija z domeno $A$ in kodomeno $B$, to zapišemo
-%
-\begin{equation*}
-  f : A \to B
-\end{equation*}
-%
-ali
-%
-\begin{equation*}
-  \xymatrix{
-    {A} \ar[rr]^{f} & & {B}
-  }
-\end{equation*}
-%
-Rišemo lahko tudi diagrame, ki prikazujejo več funkcij hkrati, na primer
-%
-\begin{equation*}
-  \xymatrix{
-    {A} \ar[r]^{f} &
-    {B} \ar[r]^{g} &
-    {C} \ar[d]^{h} \\
-    & & {D}
-  }
-\end{equation*}
-%
-Ta diagram prikazuje tri preslikave: $f : A \to B$, $g : B \to C$ in $h : C \to D$.
-
-V srednji šoli ste spoznavali posamične zvrsti funkcij, na primer linearne funkcije, trigonometrične funkcije, eksponentno funkcijo itd. Le-te so običajno slikale števila v števila, bile so \emph{številske funkcije}. Mi se bomo ukvarjali s preslikavami na splošno, se pravi s poljubnimi preslikavami med poljubnimi množicami.
-
-\subsubsection{Princip ekstenzionalnosti preslikav}
-
-\textbf{Princip ekstenzionalnosti za preslikave} pove, kdaj sta dve funkciji enaki, namreč takrat, ko prirejata enake vrednosti:  če za preslikavi $f : A \to B$ in $g : C \to D$ velja $A = C$, $B = D$ in $f(x) = g(x)$ za vse $x \in A$, potem velja $f = g$.
-
-Kasneje bomo videli, da princip ekstenzionalnosti za preslikave sledi iz principa ekstenzionalnosti za množice.
-
-\subsection{Prirejanje in funkcijski predpisi}
-
-Dejstvo, da mora prirejanje vsakemu elementu domene prirediti ">natanko en"< element kodomene, lahko izrazimo tako, da se izognemo uporabi števila ">ena"< ali kateregakoli števila. Poglejmo kako.
-
-Prirejanje z domeno $A$ in kodomeno $B$ mora biti:
-%
-\begin{enumerate}
-\item \textbf{celovito:} vsakemu $x \in A$ je prirejen vsaj en $y \in B$ (priredimo vsaj en element),
-\item \textbf{enolično:} če sta $x \in A$ prirejena $y \in B$ in $z \in B$, potem velja $y = z$ (priredimo največ en element).
-\end{enumerate}
-%
-Res, celovitost zagotavlja, da vsakemu elementu domene priredimo \emph{vsaj en} element kodomene, enoličnost pa zagotavlja, da priredimo \emph{kvečjemu enega}.
-
-\begin{opomba}
-  Pozor, celovitost \emph{ni} surjektivnost in enoličnost \emph{ni} injektivnost!
-\end{opomba}
-
-Kako pravzaprav podamo prirejanje? Kaj to pravzaprav je? Čez kak mesec bomo znali odgovoriti na to vprašanje natančno, zaenkrat pa le povejmo, da je prirejanje kakršnakoli metoda, tabela, postopek, prikaz, ali konstrukcija, ki zagotavlja celovitost in enoličnost prirejanja elementov kodomene elementom domene.
-
-Običajni način za podajanje prirejanja je \textbf{funkcijski predpis}, ki ga pišemo
-%
-\begin{equation*}
-  x \mapsto \cdots
-\end{equation*}
-%
-Pri čemer za $\cdots$ na desni postavimo neki smiseln izraz, ki določa enolično vrednost za vsak $x$ iz domene. Spremenljivki~$x$ na levi pravimo \textbf{parameter}, izrazu $\cdots$ na desni pa \textbf{prirejena vrednost}.
-
-\begin{primer}
-  Primeri prirejanj:
+  Izhajati smemo izključno iz naslednji dejstev:
   %
   \begin{itemize}
-  \item prirejanje ">prištej 7 in kvadriraj"< zapišemo s funkcijskim predpisom  $x \mapsto (x + 7)^2$,
-  \item prirejanje ">kvadriraj in prištej 7"< zapišemo s funkcijskim predpisom  $x \mapsto x^2 + 7$,
-  \item prirejanje ">prištej kvadrat 7"< zapišemo s funkcijskim predpisom  $x \mapsto x + 7^2$.
+  \item pravilo ekstenzionalnosti,
+  \item $x \in \set{1, 2}$, če in samo če $x = 1$ ali $x = 2$,
+  \item $x \in \set{2, 1}$, če in samo če $x = 2$ ali $x = 1$.
   \end{itemize}
-\end{primer}
-
-\begin{opomba}
-  Pozor: če podamo \emph{samo} funkcijski predpis brez domene in kodomene, še nismo podali preslikave! Preslikava sestoji iz \emph{treh} delov: domena, kodomena in prirejanje.
-  Torej zgornji trije primeri \emph{ne} podajajo preslikav, ker nismo podali domen in
-  kodomen.
-\end{opomba}
-
-Domeno, kodomeno in funkcijski predpis lahko zapišemo na različne načine:
-%
-\begin{align*}
-  f &: \ZZ \to \NN \\
-  f &: x \mapsto x^2 + 7
-\end{align*}
-%
-ali
-%
-\begin{align*}
-    f &: \ZZ \to \NN \\
-    f(x) &\defeq x^2 + 7
-\end{align*}
-%
-ali
-%
-\begin{align*}
-    f &: \ZZ \to \NN \\
-    f &= (x \mapsto x^2 + 7)
-\end{align*}
-%
-Simbol $x$ je \textbf{vezana spremenljivka}, če jo preimenujemo, se predpis ne spremeni. Naslednji funkcijski predpisi so \emph{enaki}:
-%
-\begin{align*}
-  x &\mapsto x^2 + 7 \\
-  y &\mapsto y^2 + 7 \\
-  \textit{banana} &\mapsto \textit{banana}^2 + 7
-\end{align*}
-%
-Funkcijski predpis $x \mapsto 5 + x \cdot x + 2$ pa \emph{ni enak} zgornjim trem, čeprav vrača enake vrednosti in torej določa \emph{enako} funkcijo.
-
-\subsubsection{Aplikacija ali uporaba}
-
-Preslikavo $f : A \to B$ \textbf{uporabimo} ali \textbf{apliciramo} na elementu $a \in A$, da dobimo \textbf{vrednost} $f(a) \in B$. V izrazu $f(a)$ se imenuje $a$ \textbf{argument}
-%
-Kadar je $f$ podana s predpisom, izračunamo vrednost $f(a)$ tako, da $a$ vstavimo v predpis (vezano spremenljivo zamenjamo z argumentom~$A$).
-%
-O zamenjavi vezane spremenljivke z argumentom bomo več povedali v razdelku~\ref{sec:substitucija} o substituciji.
-
-\begin{primer}
-  Če je $f : \NN \to \NN$ podana s predpisom $f = (x \mapsto x^3 + 4)$, tedaj je $f(5)$ enako $5^3 + 4$. Lahko bi celo pisali
   %
-  \begin{equation*}
-    (x \mapsto x^3 + 4)(5) = 5^3 + 4.
-  \end{equation*}
-\end{primer}
+  Najprej uporabimo pravilo ekstenzionalnosti, ki zagotavlja, da sta $\set{1, 2}$ in
+  $\set{2, 1}$ enaki, če imata iste elemente. Dokažimo torej, da imata iste elemente. To
+  naredimo v dveh korakih:
+  %
+  \begin{enumerate}
+  \item Za vsak element $\set{1, 2}$ dokažemo, da je element $\set{2, 1}$.
+    Naj bo $x \in \set{1, 2}$. Iz definicije množice $\set{1, 2}$
+    sledi, da je $x = 1$ ali $x = 2$. Obravnavamo dva podprimera:
+    %
+    \begin{enumerate}
+    \item Primer $x = 1$: iz $x = 1$ sledi, da je $x = 2$ ali $x = 1$, zato je $x \in \set{2, 1}$.
+    \item Primer $x = 2$: iz $x = 2$ sledi, da je $x = 2$ ali $x = 1$, zato je $x \in \set{2, 1}$.
+    \end{enumerate}
+    %
+  \item Za vsak element $\set{2, 1}$ dokažemo, da je element $\set{1, 2}$.
 
+    Ta korak je povsem podoben prvemu, le da je treba povsod zamenjati~$1$ in~$2$.
+    Matematik bi zato na tem mestu zapisal, da je drugi korak podoben prevemu in dokaz
+    zaključil. A tega tokrat ne bomo storili in bomo zapisali popoln dokaz.
 
-\subsection{Eksponentna množica}
+    Naj bo $x \in \set{2, 1}$. Iz definicije množice $\set{2, 1}$ sledi, da je $x = 2$ ali
+    $x = 1$. Obravnavamo dva primera:
+    %
+    \begin{enumerate}
+    \item Primer $x = 2$: iz $x = 2$ sledi, da je $x = 1$ ali $x = 2$, zato je $x \in \set{1, 2}$.
+    \item Primer $x = 1$: iz $x = 1$ sledi, da je $x = 1$ ali $x = 2$, zato je $x \in \set{1, 2}$. \qedhere
+    \end{enumerate}
+    %
+  \end{enumerate}
+\end{dokaz}
 
-Tretja konstrukcija množic, ki jo bomo spoznali v uvodnem poglavju, je \textbf{eksponent} ali \textbf{eksponentna množica}:
-%
-\begin{enumerate}
-\item eksponent množic $A$ in $B$ označimo $B^A$, in preberemo ">$B$ na $A$"<,
-\item elementi $B^A$ so preslikave z domeno $A$ in kodomeno $B$,
-\item preslikavi $f : A \to B$ in $g : A \to B$ sta enaki, če imate enake vrednosti: za
-  vse $x \in A$ velja $f(x) = g(x)$, potem je $f = g$.
-\end{enumerate}
-%
-Eksponent $B^A$ pišemo tudi $A \to B$. To pomeni, da bi lahko namesto $f : A \to B$ pisali tudi $f \in B^A$ ali celo $f \in A \to B$, vendar je ta zadnji zapis neobičajen.
+Mimogrede, kvadratek označuje konec dokaza. Imenuje se tudi ``Halmos'' po matematiku
+Paulu Halmosu, ki ga je prvi uporabljal. S podobnim razmislekom, ki ga prepuščamo za vajo,
+lahko dokažemo, da ni pomembno, ali se element pojavi enkrat ali večkrat.
 
-\begin{primer}
-Eksponent $\{1, 2\}^{\{a, b\}}$ ima štiri elemente:
+\begin{vaja}
+  Podrobno dokažite, da sta množici $\set{1, 1, 2}$ in $\set{1, 2}$ enaki.
+\end{vaja}
+
+V prejšnji nalogi smo zapisali $\set{1, 1, 2}$. Pa je to sploh dovoljeno?
+Pravilo~\ref{pravilo:koncna-mnozica} pravi, da lahko iz objektov $a, b, c, \ldots, z$
+tvorimo končno množico $\set{a, b, \ldots, z}$. Nikjer ne piše, da smeta biti $a$ in $b$
+enaka, zato je upravičeno vprašanje, ali je dovoljeno za $a$ in $b$ vzeti~$1$. V
+matematiki vse razumemo dobesedno. V pravilu~\ref{pravilo:koncna-mnozica} piše ``Za vse
+objekte'', torej imamo povsem proste roke. Povedano z drugimi besedami, množico
+$\set{1, 1, 2}$ smemo tvoriti, ker nikjer ne piše, da morajo biti elementi različni.
+
+V zvezi s pravilom~\ref{pravilo:koncna-mnozica} se pojavljajo še drugi dvomi. Ali smemo
+tvoriti množico, ki ima več elementov, kot je črk abecede? Ali bi bilo pravilo še vedno
+isto, če bi namesto ``$a, b, \ldots, z$'' zapisali ``$a, b, \ldots, j$''? Ali smemo
+tvoriti množico z nič elementi? Če namreč vstavimo nič elementov, se pravilo glasi ``Za
+vse objekte je $\set{\,}$ množica, katere elementi so natanko objekti,'' kar je vsaj
+nenavadno. Iz nesrečnega tropičja se res ne vidi, kaj je in kaj ni dovoljeno. Če poškilite
+v razdelek~\ref{sec:aksiomi-teorije-mnozic}, kjer so našteti ``uradni'' aksiomih teorije
+množic, tam pravila o končnih množicah ne boste našli, saj sledi iz treh bolj osnovnih
+pravil.
+
+\begin{pravilo}
+  \label{pravilo:prazna-mnozica}
+  \df{Prazna množica} $\emptyset$ je množica, ki nima elementov.
+\end{pravilo}
+
+\begin{pravilo}
+  \label{pravilo:neurejeni-dvojec}
+  Za vsak $x$ in $y$ je \df{(neurejeni) par} ali \df{dvojec} $\set{x, y}$ množica, katere
+  elementa sta natanko $x$ in $y$.
+\end{pravilo}
+
+\begin{pravilo}
+  \label{pravilo:unija}
+  Za vsaki množici $A$ in $B$ je \df{unija $A \cup B$} množica, ki ima za elemente
+  natanko vse objekte, ki so element $A$ ali element $B$.
+\end{pravilo}
+
+V pravilu~\ref{pravilo:neurejeni-dvojec} smo besedo ``neurejeni'' zapisali v oklepaju, kar
+pomeni, da beseda pravzaprav ni pombembna in bi jo lahko tudi izpustili. Se pravi, da
+``neurejeni dvojec'' in ``dvojec'' pomenita isto. V primeru nejasnosti raje uporabimo
+daljšo obliko.
+
+Tri nova pravila skupaj nadomestijo pravilo~\ref{pravilo:koncna-mnozica} in odstranijo
+marsikateri dvom o uporabi. Prvo pravilo pojasni, da lahko tvorimo množico brez elementov.
+Poleg oznake $\emptyset$ je za prazno množico smiselno uporabiti tudi zapis $\set{\,}$.
+
+Drugo pravilo pove, kako lahko tvorimo množico z dvema elementoma, pa tudi z enim.
+Spomnimo se, pravila je treba brati dobesedno: za $x$ in $y$ bi lahko vzeli dvakrat isti
+objekt~$z$ in tvorili množico $\set{z, z}$, ki ima natanko elementa $z$ in $z$. To je
+pravzaprav množica z enim samim elementom $z$, zato ji pravimo tudi \df{enojec} in jo
+zapišemo~$\set{z}$.
+
+Tretje pravilo nam omogoča, da tvorimo večje množice. Denimo, množico z elementi $a$, $b$,
+$c$ lahko tvorimo kot unijo
 %
 \begin{equation*}
-  \{1, 2\}^{\{a, b\}} =
-  \{
-     (a \mapsto 1, b \mapsto 1),
-     (a \mapsto 1, b \mapsto 2),
-     (a \mapsto 2, b \mapsto 1),
-     (a \mapsto 2, b \mapsto 2)
-  \}.
+  \set{a, b} \cup \set{c}.
 \end{equation*}
-\end{primer}
+%
+To ni edini način, enako množico lahko dobimo na več načinov:
+%
+\begin{equation*}
+  (\set{a} \cup \set{b}) \cup \set{c}
+  \quad\text{ali}\quad
+  \set{b} \cup \set{c, a}
+  \quad\text{ali}\quad
+  \set{a,c,a} \cup \set{b,c}
+  \quad\text{itn.}
+\end{equation*}
+%
+Seveda bi morali dokazati, da so vse te množice enake, a tega ne bomo storili.
+
+Pogosto nam bo prišlo prav, da bomo imeli pri roki množico z enim elementom, pri čemer nam
+bo vseeno, kaj ta element je. V ta namen postavimo pravilo, ki zagotavlja obstoj množice z
+enim elementom.
+
+\begin{pravilo}
+  \label{pravilo:enojec}
+  \df{Standardni enojec} je množica~$\one$, katere edini element je~$\unit$.
+\end{pravilo}
+
+Morda se zdi nenavadno, da množico označimo s številom, a ta občutek bo hitro izginil, ko
+bomo računali z množicami. Pravaprav bi lahko prazno množico označili z nič $\mathbf{0}$,
+in nekateri matematiki to dejansko počnejo.
+
+Edini element množice $\one$ smo označili z nenavadnim zapisom $\unit$. Na tem mestu ne
+bomo pojasnili, zakaj pišemo tako, radovedneži pa lahko pogledajo v
+razdelek~\ref{sec:algebra-mnozic}. Mimogrede, seveda velja $\one = \set{\unit}$.
+
+Pravilo~\ref{pravilo:enojec} ni nujno potrebno, saj lahko tvorimo veliko različnih enojcev
+kar sami $\set{\emptyset}$, $\set{42}$, $\set{\set{\emptyset}}$ itn. Ali je kateri od njih
+``prvi med enakimi'' in bi ga lahko uporabljali kot ``standardni'' enojec? Ker je odgovor
+v veliki meri stvar osebnega mnenja, je bolje, da razglasimo pravilo, ki ustoliči
+standardni enojec. S prazno množico nimamo podobnih težav, saj je ena sama.
+
+% \subsection{Druge množice}
+
+% \andrej{To ne paše sem, ker bi bilo tu dosti bolj naravno nadaljevati s preslikavami.
+%  To bomo prestavili na mesto, kjer bo dejansko prišlo prav.}
+
+% Množice, s katerimi v matematiki delamo, tipično vsebujejo števila, ali pa so vsaj na tak ali drugačen način izpeljane iz številskih množic. Spomnimo se standardnih oznak najpogosteje uporabljanih številskih množic.
+% \begin{center}
+% \begin{tabular}{|cc|}
+% \hline
+% \textbf{Množica} & \textbf{Oznaka} \\
+% \hline
+% množica naravnih števil & $\NN$ \\
+% množica celih števil & $\ZZ$ \\
+% množica racionalnih števil & $\QQ$ \\
+% množica realnih števil & $\RR$ \\
+% množica kompleksnih števil & $\CC$ \\
+% \hline
+% \end{tabular}
+% \end{center}
+
+% Nekateri $0$ vzamejo za naravno število, nekateri ne. To je v celoti stvar dogovora, kaj pomeni pojem ``naravno število''. Za nas bo prišlo bolj prav, če ničlo štejemo kot element množice naravnih števil, torej $\NN = \set{0, 1, 2, 3, \ldots}$.
+
+\section{Preslikave}
+
+Temelj matematike ne tvorijo le množice, ampak tudi drugi matematični pojmi. Prvi izmed
+njih je \df{preslikava}, oziroma s tujko \df{funkcija}.\footnote{Nekateri uporabljajo
+  izraz ``funkcija'' samo za tiste preslikave, ki slikajo v realna ali kompleksna števila,
+  vendar to navado izpodriva računalništvo, saj funkcije v programskih jezikih nimajo
+  omejitev. Dandanes večina matematikov besedo ``funkcija'' obravnava kot sopomenko besede
+  ``preslikava'' in tako jo bomo uporabljali tudi mi.} V srednji šoli ste že spoznali
+nekatere preslikave, kot so na primer linearne preslikave, trigonometrijske funkcije,
+logaritem itd. Nas pa ne bodo zanimale posamezne preslikave, ali posebne lastnosti
+preslikav, ampak preslikave na splošno.
+
+Vsaka preslikava ima tri sestavne dele: \df{domeno} ali \df{začetno množico},
+\df{kodomeno} ali \df{ciljno množico} in \df{predpis}. Domeni se pogosto reče tudi
+\df{definicijsko območje}. Če govorimo o preslikavi, ki ima domeno~$X$ in kodomeno~$Y$, to
+ponazorimo s puščico med $X$ in $Y$, takole
+%
+\begin{equation*}
+  \xymatrix{
+    {X} \ar[r] &
+    {Y}
+  }
+\end{equation*}
+%
+Če želimo preslikavo poimenovati, na primer $f$, zapišemo
+%
+\begin{equation*}
+  \xymatrix{
+   {f : X} \ar[r] &
+    {Y}
+  }
+  \qquad\text{ali}\qquad
+  \xymatrix{
+   {X} \ar[r]^{f} &
+   {Y}
+  }
+\end{equation*}
+%
+Pravimo, da je \df{$f$ preslikava iz $X$ v $Y$}. Zapis nad puščico je prikladen, kadar
+imamo opravka z večimi preslikavami, ki jih predstavimo z diagramom. Na primer,
+%
+\begin{equation*}
+  \xymatrix{
+    {X} \ar[r] &
+    {Y} \ar[r]^{f} &
+    {Z}  &
+    {W} \ar[l]_{g}
+  }
+\end{equation*}
+%
+nam pove, da imamo opravka z (neimenovano) preslikavo iz $X$ v $Y$, s preslikavo $f$ iz
+$Y$ v $Z$ in s preslikavo $g$ is $W$ v $Z$. Diagrami so lahko še precej bolj zapleteni.
+
+Tretji del preslikave je predpis, ki določa, kako elemente domene preslikamo v elemente
+kodomene. Kaj pravzaprav to pomeni? Možnih je več odgovorov. V srednji šoli predpis
+enačimo z matematično formulo, ki spremenljivko preslika v vrednost, na primer $x$ slika v
+$2 \sin(x + \pi/4)$. S simboli to zapišemo
+%
+\begin{equation*}
+  x \mapsto 2 \sin(x + \pi/4).
+\end{equation*}
+%
+in preberemo ``$x$ se slika v dvakrat sinus od $x$ plus pi četrtin.''
+%
+Matematiki smo natančni, zato ne mešamo uporabe puščic $\to$ in $\mapsto$. Navadna puščica
+se uporablja pri oznaki domene in kodomene, repata pa v predpisu. V računalništvu besedo
+`predpis' razumemo kot `programska koda' in o preslikavah razmišljajo kar kot o
+algoritmih --- tudi to je eden od možnih pogledov na preslikave.
+
+V teoriji množic razumemo besedo `predpis' kot kakršnokoli prirejanje med elementi množic
+domene~$X$ in kodomene~$Y$, mora pa veljati:
+%
+\begin{itemize}
+\item \df{celovitost}: vsakemu elementu iz $X$ je prirejen vsaj en element iz $Y$,
+\item \df{enoličnost}: če sta elementu $x$ prirejena $y \in Y$ in $z \in Y$, potem $y = z$.
+\end{itemize}
+
+Za vsako množico~$A$ je \df{identiteta} na~$A$ preslikava
+%
+\begin{equation*}
+  \id[A] : A \to A
+\end{equation*}
+%
+ki poljubnemu elementu $x \in A$ priredi~$x$. To je celovito prirejanje, saj vsak
+$x \in A$ ima prirejeni element, namreč kar $x$, je pa tudi enolično: če sta $y_1$ in
+$y_2$ prirejena $x \in A$, potem sta oba enaka~$x$ in zato enaka drug drugemu.
+
+Za vsaki množici $A$ in $B$ ter $b \in B$ \df{konstantna preslikava}
+%
+\begin{equation*}
+  \konst{b} : A \to B
+\end{equation*}
+%
+priredi vsakemu elementu iz~$A$ element~$b$. Sami premislite, da je tako prirejanje
+celovito in enolično.
+
+\subsection{Funkcijski predpisi}
+\label{sec:funkcijski-predpisi}
+
+Predpise lahko podamo na različne načine, najbolj pogost pa je \df{funkcijski predpis}, ki
+se mu še posebej posvetimo in se ob njem naučimo nekaj natančnosti. Funkcijski predpis ima
+obliko
+%
+\begin{equation*}
+  x \mapsto \cdots,
+\end{equation*}
+%
+ki smo jo že videli maloprej. Na desni, lahko namesto $\cdots$ zapišemo izraz, v katerem
+se sme pojaviti simbol~$x$, denimo
+%
+\begin{equation*}
+  x \mapsto 1 + x^2.
+\end{equation*}
+%
+S funkcijskim predpisom zapišemo identiteto in konstantno preslikavo takole:
+%
+\begin{align*}
+  \id[A] &: A \to A
+  &
+  \konst{b} &: A \to B
+  \\
+  \id[A] &: x \mapsto x
+  &
+  \konst{b} &: x \mapsto b.
+\end{align*}
+
+Ni nujno, da se~$x$ pojavi, denimo $x \mapsto 42$ vsakemu elementu iz domene priredi
+število $42$. V funkcijskem predpisu se smejo pojaviti tudi drugi simboli, ki jim
+pravimo \df{parametri}. Tako je
+%
+\begin{equation*}
+  x \mapsto a \cdot x + b
+\end{equation*}
+%
+funkcijski predpis s parametroma $a$ in $b$, ki elementu $x$ priredi element $a \cdot x + b$.
+
+Spremenljivka $x$ nima v naprej določene vrednosti, pač pa kaže, kam lahko vstavimo
+elemente domene. Pravimo, da je $x$ \df{vezana spremenljivka}, kar pomeni, da je veljavna
+le v funkcijskem predpisu, nanj je vezana, in da ni pomembno, s katerim simbolom jo
+označimo. Tako sta funkcijska predpisa
+%
+\begin{equation*}
+  x \mapsto 1 + x^2
+  \qquad\text{in}\qquad
+  a \mapsto 1 + a^2
+\end{equation*}
+%
+enaka in lahko bi celo pisali $\Box \mapsto 1 + \Box^2$ ali
+$\heartsuit \mapsto 1 + \heartsuit^2$.
+
+V funkcijskem predpisu mora na levi stati en sam simbol, ki na desni kaže, kam je treba
+vstaviti element iz domene. Tako
+%
+\begin{equation*}
+  \sin(x) \mapsto \cos(2 x),
+  \qquad
+  3 + 2 \mapsto 5
+  \qquad\text{in}\qquad
+  \sin(x) \mapsto 2 \cdot \sin(x)
+\end{equation*}
+%
+\emph{niso} veljavni funkcijski predpisi.
+
+Seveda dopuščamo možnost, da se vezana spremenljivka pojavi enkrat, večkrat ali sploh ne.
+Funkcijska predpisa
+%
+%
+\begin{equation*}
+  x \mapsto 42
+  \qquad\text{in}\qquad
+  x \mapsto x \cdot \sin(x)
+\end{equation*}
+%
+sta torej veljavna.
+
+Če želimo preslikavo z danim funkcijskim predpisom poimenovati, na primer $f$, zapišemo
+%
+\begin{equation*}
+  f : x \mapsto 1 + x^2.
+\end{equation*}
+%
+To preberemo ``$f$ slika $x$ v ena plus $x$ na kvadrat.'' Običajna sta tudi zapisa
+%
+\begin{equation*}
+  f(x) = 1 + x^2
+  \qquad\text{in}\qquad
+  f(x) \dfeq 1 + x^2.
+\end{equation*}
+%
+Funkcijske predpise je podrobno prvi preučeval Alonzo Church,\footnote{Alonzo Church
+  (1903--1995) je bil ameriški matematik in logik, ki je pomembno prispeval k razvoju
+  logike in teoretičnega računalništva. Njegov študent, Dana Stewarta Scott, je imel
+  študenta Marka Petkovška in Andreja Bauerja, slednji pa je imel študenta Davorina
+  Lešnika.} ki je uporabljal zapis
+%
+\begin{equation*}
+  \lambda x \,.\, 1 + x^2
+\end{equation*}
+%
+in teorijo funkcijskih predpisov poimenoval \df{$\lambda$-račun}. V logiki se je njegov
+zapis obdržal in se uveljavil tudi v programski jezikih:
+%
+\begin{itemize}
+\item v Pythonu pišemo \verb|lambda x: 1 + x ** 2|,
+\item v Haskellu pišemo \verb|\x -> 1 + x ** 2| in
+\item v OCamlu pišemo \verb|fun x => 1 + x * x|.
+\end{itemize}
+%
+Predvsem v programiranju funkcijskim predpisom pravijo tudi \df{anonimne} ali \df{brezimne
+  preslikave}.
+
+Nekateri starejši zapisi funkcijskih predpisov so slabi, a jih ljudje vztrajno
+uporabljajo. Opozorimo le na en slab zapis, ki povzroča precej preglavic, ne da bi se
+matematiki tega zares zavedali. Funkcijski predpis mora določati vezano spremenljivko,
+sicer ne vemo, kako vstaviti vrednosti. Na žalost jo matematiki pogosto izpustijo skupaj
+z $\mapsto$ in pišejo $1 + x^2$ namesto $x \mapsto 1 + x^2$.
+%
+Težava je v tem, da se lahko v funkcijskem predpisu pojavi več kot en simbol. Če vam na primer nekdo poe, da ima v mislih funkcijski predpis
+%
+\begin{equation*}
+  a \cdot x + b
+\end{equation*}
+%
+boste zaradi ustaljenih navad v šolskem sistemu vsi mislili, da je mišljeno $x \mapsto a \cdot x + b$.
+%
+A pravzprav bi lahko bilo tudi $a \mapsto a \cdot x + b$ ali $b \mapsto a \cdot x + b$ ali celo
+$t \mapsto a \cdot x + b$! Namreč, nič ni narobe s funkcijskim predpisom, v katerem se
+pojavijo dodatni simboli.
+
+Morda pa lahko vezano spremenljivko in $\mapsto$ brez škode izpustimo, če v izrazu nastopa
+samo en simbol, denimo $1 + x^2?$
+%
+A spet bi zabredli v težave. Je $42$ število ali funkcijski predpis $x \mapsto 42$? Je
+$1 + x^2$ funkcijski predpis $x \mapsto 1 + x^2$ ali $a \mapsto 1 + x^2$?
+
+Velikokrat površno rečemo, da funkcijski predpis podaja preslikavo. To ni res, saj smo že
+prej povedali, da ima vsaka preslikava tri sestavne dele: domeno, kodomeno in prirejanje.
+Res, če ne poznamo domene, ne moremo preveriti, ali je funkcijski predpis celovit. Denimo,
+funkcijski predpis
+%
+\begin{equation*}
+  x \mapsto \frac{x}{x^2 - 2}
+\end{equation*}
+%
+ni celovit, če je domena množica realnih števil, in je celovit, če je domena množica
+racionalnih števil. Tudi kodomeno moramo poznati, sicer ne moremo določiti nekaterih
+lastnosti preslikave, kot je na primer surjektivnost, glej
+razdelek~\ref{razdelek:injektivnost-in-surjektivnost}.
 
 
+
+\subsection{Ostali načini podajanja preslikav}
+\label{sec:ostali-predpisi}
+
+Funkcijski predpisi niso edini način za podajanje prirejanja, zato omenimo še nekatere
+druge.
+
+Preslikavo s končno domeno lahko podamo s tabelo, na primer:
+%
+\begin{center}
+  $f : \set{1, 2, 3, 5} \to \set{10, 20, 30}$
+
+  \medskip
+
+  \begin{tabular}{|c|c|} \hline
+    1 & 10 \\ \hline
+    2 & 10 \\ \hline
+    3 & 20 \\ \hline
+    5 & 10 \\ \hline
+  \end{tabular}
+\end{center}
+%
+To seveda pomeni, da $f$ elementu $1$ priredi $10$, $2$ priredi $10$, $3$ priredi $20$ in $5$
+priredi $10$. Tabelo lahko predstavimo na različne načine, lahko kar naštejemo vsa prirejanja:
+%
+\begin{align*}
+  f(1) &\dfeq 10 \\
+  f(2) &\dfeq 10 \\
+  f(3) &\dfeq 20 \\
+  f(5) &\dfeq 10.
+\end{align*}
+%
+Tudi
+%
+\begin{align*}
+  1 &\mapsto 10 \\
+  2 &\mapsto 10 \\
+  3 &\mapsto 20 \\
+  5 &\mapsto 10.
+\end{align*}
+%
+je še vedno le tabela, ki prikazuje prirejanje. Ne sme nas motiti dejstvo, da smo
+$\mapsto$ uporabili za naštevanje prirejanj, namesto za funkcijski predpis.
+
+Preslikava je lahko določena tudi z opisom računskega postopka, pravimo mu \df{algoritem},
+s pomočjo katerega izračunamo vrednost preslikave pri danem argumentu. Paziti moramo, da je
+opis postopka res natančen in nedvoumen, lahko ga kar zapišemo kot program. Teoretični
+računalničar bi pripomnil, da je treba pri tem izbrati programski jezik, ki ima ustrezno
+matematično definicijo.
+
+Preslikave lahko podamo tudi tako, da opišemo pogoje, pri katerih je element kodomene
+prirejen elementu domene. Na primer, lahko bi definirali preslikavo $g : \NN \to \ZZ$ z
+zahtevo, da naravnemu številu $n \in \NN$ priredi celo število $k \in \ZZ$, kadar velja
+%
+\begin{equation*}
+  k^2 \leq n < (k+1)^2.
+\end{equation*}
+%
+To prirejanje je veljavno, če je celovito in enolično, česar ne bomo preverjali, lahko pa
+poskusite sami. Nekaj prirejanj $g$ prikazuje naslednja razpredelnica:
+%
+\begin{align*}
+0 &\mapsto 0   &   4 &\mapsto 2   &    8  &\mapsto 2   &   12 &\mapsto 3 \\
+1 &\mapsto 1   &   5 &\mapsto 2   &    9  &\mapsto 3   &   13 &\mapsto 3 \\
+2 &\mapsto 1   &   6 &\mapsto 2   &    10 &\mapsto 3   &   14 &\mapsto 3 \\
+3 &\mapsto 1   &   7 &\mapsto 2   &    11 &\mapsto 3   &   15 &\mapsto 3
+\end{align*}
+%
+Ali znate z besedami opisati preslikavo~$g$?
+
+Osnovne načine podajanja preslikav bomo spoznali skupaj s
+konstrukcijami množic.
+%
+V splošnem je lahko preslikava podana s precej zapleteno konstrukcijo, ki zahteva veliko
+preverjanja in dokazovanja.
+
+\subsection{Aplikacija in substitucija}
+\label{sec:aplikacija-in-subsitucija}
+
+Do sedaj smo se ukvarjali s tem, kako preslikavo podamo, zdaj pa se vprašajmo, kako lahko
+preslikavo uporabimo. Če je $f : X \to Y$ preslikava iz $X$ v $Y$ in je $x \in X$, potem
+lahko \df{$f$ uporabimo na $x$} in dobimo \df{vrednost} preslikave~$f$ pri
+\df{argumentu}~$x$, to je tisti edini element $Y$, ki ga~$f$ priredi~$x$. Vrednost $f$
+pri~$x$ zapišemo
+%
+\begin{equation*}
+  f(x)
+  \qquad\text{ali}\qquad
+  f\,x
+\end{equation*}
+%
+in preberemo ``$f$ od $x$'' ali ``$f$ pri $x$''. Izraz $f(x)$, oziroma $f\,x$, se imenuje
+\df{aplikacija}. Večinoma se uporablja zapis z oklepaji, a ne vedno: navajeni smo pisati
+$\ln 2$ in $\sin \alpha$ namesto $\ln(2)$ in $\sin(\alpha)$. Oklepaje izpuščamo tudi v
+nekaterih programskih jezikih in občasno v algebri.
+
+V analizi je uveljavljen še en zapis za aplikacijo, ki se uporablja za zaporedja. Namreč,
+zaporedje ni nič drugega kot preslikava $a : \NN \to \RR$ iz naravnih v realna števila.
+Aplikacijo $a(n)$, ki označuje $n$-ti člen zaporedja, ponavadi pišemo~$a_n$, torej
+argument podpišemo.
+
+Preslikavo lahko uporabimo na argumentu tudi, če je nismo poimenovali. Na primer,
+preslikavo $\RR \to \RR$, podano s funkcijskim predpisom
+%
+\begin{equation*}
+  x \mapsto 1 + x^2
+\end{equation*}
+%
+uporabimo na argumentu~$3$:
+%
+\begin{equation*}
+  (x \mapsto 1 + x^2)(3).
+\end{equation*}
+%
+Se vam zdi tak zapis nenavaden? Verjetno, a pomislite, zakaj: ker so vas vzgojili, da
+je treba vse preslikave vedno poimenovali in se nanje skliceval z njihovim imenom.\footnote{Če bi veljalo enako tudi yza števila, vam v srednji šoli ne bi pustili pisati kar $3 + 5$, nujno bi bilo poimenovanje $a \dfeq 3 + 5$. Tudi trikotnika ne bi smeli narisati, ne da bi mu dali simbolno ime.}
+%
+Navkljub dobri vzgoji, bomo s preslikavami delali enako kot s števili, vektorji in
+ostalimi matematičnimi objekti. Računalničarji radi rečejo, da
+je treba tudi preslikave obravnavati kot ``enakopravne državljane''.
+
+Kako pravzaprav določimo vrednost funkcije pri danem argumentu? To je odvisno od tega,
+kako je podano prirejanje. Če imamo tabelarični prikaz, poiščemo argument v levem stolpcu
+in pogledamo v pripadajoči desni stolpec. Če je preslikava podana s funkcijskim predpisom, argument
+vstavimo v predpis. Na primer, če je $f : \RR \to \RR$ podana s funkcijskim predpisom
+%
+\begin{equation*}
+  f(x) = 1 + x^2,
+\end{equation*}
+%
+potem je vrednost $f(3)$ enaka $1 + 3^2$, kar je seveda enako~$10$, a to zahteva dodaten
+račun, ki nas v tem trenutku ne zanima. Pravimo, da smo simbol~$x$ \df{zamenjali} ali
+\df{substituirali} s~$3$, oziroma da smo~$3$ \df{vstavili} v~$f$ namesto~$x$. Seveda lahko
+vstavimo argument neposredno v funkcijski predpis, zato je aplikacija
+%
+\begin{equation*}
+  (x \mapsto 1 + x^2)(3)
+\end{equation*}
+%
+spet enaka $1 + 3^2$.
+
+Preslikavo smemo uporabiti na poljubnem elementu domene, ki je lahko zapisan na bolj ali
+manj zapleten način, pri čemer gre še vedno samo za zamenjavo. Na primer, v zgornjo
+preslikavo~$f$ lahko vstavimo $3 + 4$ in dobimo $1 + (3 + 4)^2$ ali pa za neki $u \in \RR$
+vstavimo $u + 2$ in dobimo $1 + (u + 2)^2$. V razdelku~\ref{sec:eksponent} bomo spoznali
+še dodatna pravila za vstavljanje izrazov, ki se vrtijo okoli vezanih spremenljivk.
+
+
+\subsection{Pravilo ekstenzionalnosti preslikav}
+
+Podobno kot za množice tudi za preslikave velja pravilo ekstenzionalnosti, ki pravi, da sta preslikavi enaki, če imata enako domeno in kodomeno ter prirejata argumentom enake vrednosti.
+
+
+\begin{pravilo}[Ekstenzionalnost preslikav]
+  Preslikavi sta enaki, če imata enaki domeni in kodomeni ter imata za vse argumente
+  enaki vrednosti.
+\end{pravilo}
+
+Natančneje, če sta $f : A \to B$ in $g : C \to D$ preslikavi in velja $A = C$, $B = D$ ter
+za vsak $x \in A$ velja $f(x) = g(x)$, tedaj velja $f = g$.
+
+Takoj opozorimo na razliko med
+%
+\begin{equation*}
+  f(x) = g(x)
+  \qquad\text{in}\qquad
+  f = g
+\end{equation*}
+%
+saj bi marsikdo trdil, da med njima ni razlike. Levi izraz pravi, da sta $f(x)$ in $g(x)$
+enaka elementa množice $C$, desni pa da sta $f$ in~$g$ enaki preslikavi iz $A$ v $B$. Na
+sploh je treba razlikovati med $f$ in $f(x)$, saj to nikakor nista enaka objekta: prvi je
+preslikava, drugi pa vrednost te preslikave pri~$x$. Verjetno nihče ne bi trdil, da je
+preslikava $\cos$ isto kot $\cos \frac{\pi}{4}$, ali ne? Isti razmislek veleva, da
+$\cos x$ ni isto kot $\cos$, če tudi si mislimo, da je $x$ poljuben. Zmeda izhaja iz
+neprimernega zapisa preslikav. Če bi že od malih nog pravilno uporabljali funkcijske
+predpise, bi seveda vedeli, da pravilo ekstenzionalnosti za preslikave zagotavlja enakost
+~$\cos$ in $x \mapsto \cos x$, oba pa sta različna od $\cos x$, ki sploh ni preslikava,
+ampak neko realno število. Čeprav je število $\cos x$ odvisno od parametra~$x$, je še
+vedno le število.
+
+V bran tradicionalnemu zapisu pa moramo vseeno povedati, da se lahko \emph{dogovorimo} za
+nekoliko napačen zapis, če to ne povzroča zmede. S tem se izognemu preveč birokratskemu
+pisanju nebistvenih podrobnosti in lahko bistveno izboljšamo komunikacijo in razumevanje
+med izkušenimi matematiki. A začetnikom priporočamo, da v dobrobit boljšega razumevanja
+snovi vsaj na začetku študija raje vztrajajo pri doslednem zapisu.
+
+Vrnimo se še k pravilu ekstenzionalnosti preslikav. Ali ni pravzaprav očitno, da sta
+preslikavi enaki, če imata enaki domeni, kodomeni in vrednosti? Morda res, a to ni razlog,
+da tega ne bi eksplicitno zapisali. Vsak matematik vam ve povedati kako zgodbo o tem,
+kako se je v dokazu skrivala napako ravno tam, kjer je bilo nekaj ``očitno''. Poleg tega
+pa si lahko predstavljamo razmere, v katerih je smiselno razlikovati med dvema
+preslikavama, ki imata vedno enake vrednosti, denimo v programiranju, kjer je učinkovitost
+zelo pomembna.
+
+%% STAR MATERIAL OD DAVORINA. Preveriti, kaj od tega je treba dati v besedilo, in kam.
+
+% Množice ne obstajajo ločene ena od druge pač pa so med sabo povezane s
+% \df{preslikavami} oziroma s tujko \df{funkcijami}.  Posamična preslikava slika elemente ene
+% množice po določenem predpisu v elemente druge množice.
+
+% Če je $f$ preslikava, ki slika iz množice $X$ v množico $Y$, to zapišemo
+% %
+% \begin{equation*}
+%   f : X \to Y.
+% \end{equation*}
+% %
+% Rečemo, da je množica~$X$ \df{začetna množica} ali \df{domena} preslikave~$f$, množica~$Y$
+% pa je \df{ciljna množica} ali \df{kodomena} preslikave $f$.
+
+
+% Običaj je, da predpis preslikave podamo s pomočjo spremenljivke, tipično z oznako $x$. Na primer, če je $f$ preslikava kvadriranja, njen predpis zapišemo kot
+% \[f(x) = x^2.\]
+% Na tem mestu je potrebno poudariti več reči.
+% \begin{itemize}
+% \item
+% Velikokrat površno rečemo, da zgornji predpis podaja preslikavo. To ni povsem res --- to je zgolj predpis preslikave. Za to, da preslikavo v celoti podamo, je potrebno navesti tri stvari: poleg predpisa še domeno in kodomeno. Vse to je del informacije o preslikavi.
+
+% To se jasno pokaže, če začnemo razmišljati o lastnostih preslikav. Se še spomnite iz srednje šole, kaj pomeni, da je preslikava surjektivna? (Bomo ponovili v razdelku~\ref{razdelek:injektivnost-in-surjektivnost}.) Če vzamemo, da preslikava $f$ zadošča zgornjemu predpisu in jo obravnavamo kot preslikavo $f\colon \RR \to \RR$, ni surjektivna, če jo obravnavamo recimo kot preslikavo $f\colon \RR_{\geq 0} \to \RR_{\geq 0}$, pa je.
+% \item
+% Za spremenljivko $x$ velja isto, kot smo razpravljali že v prejšnjem razdelku pri lastnostih elementov množic: spremenljivka $x$ nima vnaprej določene vrednosti, pač pa predstavlja mesto, kamor lahko vstavimo poljubno vrednost. Seveda je potem vseeno, če vzamemo kakšno drugo črko ali čisto drug simbol: $f(y) = y^2$ določa isti predpis kot $f(x) = x^2$; prav tako $f(\heartsuit) = \heartsuit^2$. Se pravi, tudi v tem primeru gre za nemo spremenljivko. Če si torej izberemo neko vrednost, jo lahko vstavimo na mesto spremenljivke in izračunamo vrednost dobljenega izraza, npr.~$f(3) = 3^2 = 9$ oziroma $f(2\pi) = (2\pi)^2 = 4\pi^2$. Predstavljajte si, da je spremenljivka pravzaprav škatlica, kamor lahko vstavite vrednost, torej
+% \[f(\argbox) = \argbox^2.\]
+% \item
+% Alternativen način zapisa $f(x) = x^2$ je
+% \[f\colon x \mapsto x^2.\]
+% Pazimo: navadna puščica $\to$ podaja domeno in kodomeno, kot razloženo zgoraj. Repata puščica $\mapsto$ pa za posamičen element domene pove, v kateri element kodomene se preslika.
+
+% Zapis z repato puščico je še posebej uporaben, kadar želimo podati preslikavo, ne da bi nam bilo potrebno izbrati ime zanjo. Na primer, realno funkcijo kvadriranja lahko v celoti podamo takole:
+% \begin{align*}
+% \RR &\to \RR \\
+% x &\mapsto x^2
+% \end{align*}
+% (prva vrstica pove domeno in kodomeno, druga pa predpis). Tako podanim preslikavam potem rečemo \df{brezimne preslikave} (s tujko \df{anonimne funkcije}). Kasneje (v razdelku~\ref{razdelek:brezimne-preslikave}) bomo spoznali bolj strnjen zapis takih preslikav, ki je še posebej primeren za izvajanje operacij med preslikavami; takrat bomo takšno funkcijo zapisali kot $\lam{x \in \RR} x^2$.
+% \end{itemize}
+
+% \note{Sklop (kompozicija, kompozitum) preslikav. Identiteta kot enota za sklapljanje. Razčlenitev (dekompozicija, faktorizacija) preslikav.}
+
+% \davorin{Definirati moramo tudi oznako $\set{f(x)}{x \in X}$, kar je druge vrste oznaka kot prej definirana $\set{x \in X}{\phi(x)}$. Se gremo primerjavo s Pythonom (razlika med \texttt{\{f(x) for x in X\}} in \texttt{\{x if phi(x)\}})? Smo matematični hipsterji in uvedemo oznako $\{f(x) \,|\, x \in X \,|\, \phi(x)\}$, ki ustreza \texttt{\{f(x) for x in X if phi(x)\}}, kar bi tudi prišlo prav?}
+
+% Zaenkrat smo imeli primere, ko je bil prepis preslikave dan z eno samo spremenljivko, npr.~$f(x) = x^2$. Zelo pogoste so pa tudi \df{preslikave več spremenljivk}, npr.~$f(x, y) = x^2 + y^2$. Že osnovne računske operacije so take --- na primer, pri seštevanju vzamemo \emph{dva} podatka in vrnemo rezultat (vsoto).
+
+% V takem primeru je smiselno reči: domena preslikave sestoji iz \df{dvojic} ali \df{parov} števil. Pri seštevanju je to, katero število je prvo, katero pa drugo, sicer nepomembno, pri kakšni drugi operaciji (npr.~že odštevanju), pa je, zato posebej zahtevajmo: gre za \df{urejene dvojice} (\df{pare}). Urejeno dvojico elementov $a$ in $b$ (v tem vrstem redu) po dogovoru zapišemo kot $(a, b)$. Vrednosti $a$ in $b$ imenujemo \df{komponenti} tega para; natančneje, $a$ je \df{prva komponenta}, $b$ pa \df{druga komponenta}.
+
+% Če imamo dve množici $A$ in $B$, tedaj množico vseh urejenih dvojic, katerih prva komponenta je element iz $A$, druga komponenta pa element iz $B$, označimo $A \times B$ in imenujemo \df{zmnožek} ali \df{produkt} množic $A$ in $B$. Glede na to, da obstaja mnogo operacij, ki se imenujejo ``produkt'' (poznate že vsaj produkt števil, produkt števila z vektorjem, skalarni produkt vektorjev in vektorski produkt vektorjev, obstaja pa jih še precej več), je koristno produkt množic posebej poimenovati, da ga ločimo od drugih: zanj se je uveljavil izraz \df{kartezični produkt} (izhaja iz imena Cartesius, tj.~latinske različice priimka Renéja Descarta\footnote{René Descartes (1596 -- 1650) je bil francoski filozof, matematik in znanstvenik.}).
+
+% Seštevanje potemtakem lahko razumemo kot preslikavo $+\colon \RR \times \RR \to \RR$. V tem smislu še vedno gre za preslikavo, ki dan vhodni podatek preslika v neki rezultat, le da je vhodni podatek dvojica števil, ne pa zgolj eno število. Kadar imamo produkt več enakih faktorjev, ga lahko (kot običajno) zapišemo v obliki potence; pisali bi lahko tudi $+\colon \RR^2 \to \RR$.
+
+% Seveda nismo omejeni na preslikave samo ene ali dveh spremenljivk. Nič nam ne preprečuje definirati recimo $f(x, y, z) = 2x + y - 3z$. Smiselna domena te preslikave setoji iz \df{urejenih trojic} števil. V splošnem, če jemljemo elemente iz množic $A$, $B$, $C$, tedaj se množica vseh takih trojic označi z $A \times B \times C$. Prejšnji predpis določa potem preslikavo $f\colon \RR \times \RR \times \RR \to \RR$ (oziroma krajše $f\colon \RR^3 \to \RR$).
+
+% Spremenljivk je lahko še več; poleg dvojic in trojic tako dobimo še četverice, peterice, šesterice\ldots V splošnem takšna končna zaporedja elementov imenujemo \df{urejene večterice}. Tudi število spremenljivk je lahko označeno s črko; na primer, preslikava, ki računa povprečje $n$ števil (kjer $n \in \NN_{\geq 1}$), je dana kot
+% \begin{align*}
+% \RR^n &\to \RR \\
+% (x_1, x_2, \ldots, x_n) &\mapsto \frac{x_1 + x_2 + \ldots + x_n}{n}
+% \end{align*}
+% (če hočemo poudariti, da imajo naše večterice natanko $n$ komponent, jih imenujemo $n$-terice). Nadlega pri tem je sicer spet dvoumnost tropičja. Deloma jo je možno odpraviti tako, da celotno večterico označimo z eno spremenljivko. Pogosta izbira zapisa je $f(\mathbf{x})$ ali $f(\vec{x})$ (razlog za to je, da lahko večterico vidimo kot vektor).
+
+% Marsikdaj želimo delati ne samo z eno preslikavo, pač pa s celo množico preslikav naenkrat. Zato uvedemo: množica vseh preslikav, ki slikajo iz $X$ v $Y$, se označi kot $Y^X$; temu se reče \df{eksponent} množic $X$ in $Y$ (\note{na primernem mestu kasneje} bomo razložili, od kod ta oznaka).
+
+% \begin{zgled}
+% Množico vseh preslikav, ki realna števila slikajo nazaj v realna števila, označimo z $\RR^\RR$. Če nas zanimajo realne preslikave, ki so definirana samo na intervalu $\intoo{-1}{1}$, opazujemo množico $\RR^{\intoo{-1}{1}}$. Definiramo lahko preslikavo
+% \begin{align*}
+% \RR^{\intoo{-1}{1}} &\to \RR \\
+% f &\mapsto f(0),
+% \end{align*}
+% ki preslikavam priredi njihovo vrednost v točki $0$. Ta preslikava torej ima za argumente (tj.~vnose) celotne preslikave in ne števila! Sama po sebi je element množice $\RR^{\RR^{\intoo{-1}{1}}}$.
+% \end{zgled}
+
+% \begin{zgled}
+% Za poljubne množice $A$, $B$, $C$ lahko definiramo sledečo preslikavo, katere argumenti so pari preslikav.
+% \begin{align*}
+% B^A \times C^B &\to C^A \\
+% (f, g) &\mapsto g \circ f
+% \end{align*}
+% \end{zgled}
+
+
+% \davorin{Glede na to, da gre za slovenski učbenik, dajem izrazu `preslikava' prednost pred izrazom `funkcija'. Seveda pa sem pojasnil tudi slednji izraz (v prvem poglavju).}
+
+% \note{Uvod. Definicijsko območje in zaloga vrednosti \davorin{morda dodamo kot možno ime za zalogo vrednosti še prevod angleške besede `range', se pravi `razpon'?}. Zožitve (tako domene kot kodomene); oznake za to so $\rstr{f}_A$, $\rstr{f}^B$, $\rstr{f}_A^B$. Izvrednotenje (evalvacija) preslikave (če ne bomo tega pojasnili že pri eksponentih množic).}
+
+\section{Osnovne konstrukcije množic}
+
+Množice lahko \df{tvorimo} ali \df{konstruiramo} iz drugih množic na različne načine. V
+tem poglavju bomo spoznali tri osnovne konstrukcije, ostale pa kasneje, ko bomo že nekaj
+vedeli o logiki.
+
+Takoj se zastavi vprašanje, kako sploh opisati novo konstrukcijo množic. Pravilo
+ekstenzionalnosti pove, da je množica opredeljena s svojimi elementi. Torej moramo
+pojasniti, kaj so elementi nove množice, se pravi, kako jih vpeljemo, kaj lahko z njimi
+počnemo in kakšne so njihove zakonitosti. Natančneje, novo konstrukcijo množic
+določajo naslednja pravila:
+%
+\begin{enumerate}
+\item pravilo \df{tvorbe}, ki vpelje novo množico,
+\item pravila \df{vpeljave} elementov, ki podajo operacije, s katerimi gradimo elemente,
+\item pravila \df{uporabe}, ki podajo opreacije, s katerimi razgradimo ali uporabimo elemente,
+\item \df{enačbe}, ki opredeljujejo zakonitosti, ki veljajo za operacije vpeljave in uporabe.
+\end{enumerate}
+%
+Najbolje je, da si postopek ogledamo na primeru.
+
+\subsection{Zmnožek}
+\label{sec:zmnozek}
+
+Najprej obravnavajmo zmnožek ali kartezični produkt.
+
+\begin{pravilo}[Tvorba zmnožka]
+  \label{pravilo:zmnozek-tvorba}
+  Za vsaki množici $A$ in $B$ je $A \times B$ množica, ki se imenuje \df{zmnožek} ali
+  \df{kartezični produkt} $A$ in $B$.
+\end{pravilo}
+
+\noindent
+%
+Pravilo tvorbe pove, da lahko tvorimo novo množico $A \times B$, ne pove pa, kakšne
+elemente ima. To je vsebina naslednjih dveh pravil, ki povesta, kako sestavimo in
+razstavimo elemente zmnožka.
+
+\begin{pravilo}[Vpeljava urejenih parov]
+  \label{pravilo:zmnozek-vpeljava}
+  %
+  Za vse $a \in A$ in $b \in B$ je $(a, b) \in A \times B$. Element $(a, b)$ imenujemo
+  \df{urejeni par}.
+\end{pravilo}
+
+\begin{pravilo}[Uporaba urejenih parov]
+  \label{pravilo:zmnozek-uporaba}
+    %
+  Za vsak $p \in A \times B$ je $\fst(p) \in A$ \df{prva projekcija} in $\snd(p) \in B$
+  \df{druga projekcija} elementa~$p$.
+\end{pravilo}
+
+Nazadnje podamo še enačbe.
+
+\begin{pravilo}[Računsko pravilo za urejene pare]
+  \label{pravilo:zmnozek-racunanje}
+  Za vse $a \in A$, $b \in B$ velja $\fst(a, b) = a$ in $\snd(a, b) = b$.
+\end{pravilo}
+
+\begin{pravilo}[Ekstenzionalnost urejenih parov]
+  \label{pravilo:zmnozek-ekstenzionalnost}
+  Za vse $p, q \in A \times B$ velja: če $\fst(p) = \fst(q)$ in $\snd(p) = \snd(q)$,
+  potem $p = q$.
+\end{pravilo}
+
+\noindent
+%
+Računsko pravilo se tako imenuje, ker lahko z njim poenostavljamo izraze, drugo pa je
+pravilo ekstenzionalnosti, ker pravi, da je urejeni par določen s prvo in drugo projekcijo.
+
+Kadar imamo opravka z večimi zmnožki, na primer $A \times B$ in $C \times D$, bi lahko
+prišlo do zmede glede projekcij. Takrat jih opremimo še z dodatnimi oznakami množic, da
+razločimo projekciji $\fst[A][B] : A \times B \to A$ in $\fst[C][D] : C \times D \to C$,
+in podobno za~$\snd$.
+
+Malo bolj naivna konstrukcija zmnožka bi se glasila takole: kartezični produkt
+$A \times B$ je množica vseh urejenih parov $(a, b)$, kjer je $a \in A$ in $b \in B$. A
+taka konstrukcija ni popolna, saj ne pove, kaj lahko z urejenim parom počnemo. Kako naj
+vemo, da iz $(a, b)$ lahko izluščimo $a$ in $b$, in kako preverimo, ali sta dva urejena
+para enaka? Če takih zadev ne določimo, bi lahko kdo mislil, da je urejeni par kaka druga
+operacija, denimo seštevanje, unija, ali kdovekaj.
+
+Dejstvo, da je vsak element zmnožka množic urejen par, in to celo na en sam način, lahko
+dokažemo.
+
+\begin{trditev}
+  Naj bosta $A$ in $B$ množici. Za vsak element $p \in A \times B$ obstaja natanko en
+  $a \in A$ in natanko en $b \in B$, da velja $p = (a, b)$.
+\end{trditev}
+
+\begin{dokaz}
+  Naj bosta $A$ in $B$ množici in $p \in A \times B$. Najprej pokažimo, da $p$ res je enak
+  nekemu urejenemu paru, namreč
+  %
+  \begin{equation*}
+    p = (\fst(p), \snd(p)).
+  \end{equation*}
+  %
+  Uporabimo pravilo ekstenzionalnosti za pare, ki nam zagotavlja to enačbo, če dokažemo
+  %
+  \begin{equation*}
+    \fst(p) = \fst(\fst(p), \snd(p))
+    \qquad\text{in}\qquad
+    \snd(p) = \snd(\fst(p), \snd(p)).
+  \end{equation*}
+  %
+  Ti dve enačbi pa veljata, ker sta primerka računskih pravil za pare.
+
+  Preveriti moramo še, da je $(\fst(p), \snd(p))$ edini urejeni par, ki je enak~$p$.
+  Povedano z drugimi besedami, dokazati moramo: če je $p = (a, b)$ za neki $a \in A$ in
+  $b \in B$, potem velja $a = \fst(p)$ in $b = \snd(p)$. Pa denimo, da bi za neki
+  $a \in A$ in $B \in B$ veljalo $p = (a,b)$. Tedaj bi lahko uporabili računska pravila za
+  pare in dobili
+  %
+  \begin{equation*}
+    \fst(p) = \fst(a, b) = a
+    \qquad\text{in}\qquad
+    \snd(p) = \snd(a, b) = b,
+  \end{equation*}
+  %
+  kar smo želeli dokazati.
+\end{dokaz}
+
+Trditev je prikladna, ko želimo podati funkcijsko pravilo za preslikavo, katere domena je
+zmnožek množic. Primer take preslikave je
+%
+\begin{gather*}
+  \RR \times \RR \to \RR \\
+  p \mapsto \fst(p) + \snd(p)^2 \cdot \fst(p).
+\end{gather*}
+%
+Ta zapis je precej nepregleden, a sledili smo navodilu, da mora stati na levi strani
+funkcijskega predpisa simbol. Prejšnja trditev nam zagotavlja, da lahko vsak element
+$\RR \times \RR$ na en sam način izrazimo kot urejeni par $(x, y)$, in zato ne bo nič
+narobe, če zapišemo ta isti funkcijski predpis bolj pregledno tako, da upoštevamo, da
+je $p$ enak $(x, y)$ za enolično določena $x$ in $y$:
+%
+\begin{gather*}
+  \RR \times \RR \to \RR \\
+  (x, y) \mapsto x + y^2 \cdot x.
+\end{gather*}
+%
+Če bi funkcijo poimenovali, denimo $f$, bi dobili običajni zapis:
+%
+\begin{gather*}
+  f : \RR \times \RR \to \RR \\
+  f(x, y) \dfeq x + y^2 \cdot x.
+\end{gather*}
+%
+Za tako preslikavo pravimo, da je ``funkcija dveh spremenljivk'', ker si mislimo, da smo
+podali argumenta $x$ in $y$ ločeno drug od drugega. A lahko rekli tudi, da je to funkcija
+ene spremenljivke, ki jo uporabimo na urejenem paru:
+%
+\begin{gather*}
+  f : \RR \times \RR \to \RR \\
+  f(p) \dfeq \fst(p) + \snd(p)^2 \cdot \fst(p).
+\end{gather*}
+
+
+Poleg zmnožka dveh množic bi lahko tvorili tudi zmnožek treh ali več množic. Pravila bodo
+podobna kot za zmnožek dveh množic, le da bi namesto urejenih parov tvorili \df{urejene
+  večterice} in da bi imeli več projekcij. Za vsako projekcijo bi zapisali eno računsko
+pravilo, princip ekstenzionalnosti pa bi bil tudi podoben tistemu za urejene pare.
+Podorobnosti prepustimo za vajo.
+
+
+\subsection{Vsota}
+\label{sec:vsota}
+
+Spoznali smo že unijo $A \cup B$ množic $A$ in $B$, ki vsebuje tiste elemente, ki so v $A$
+ali v $B$. Če imata $A$ in $B$ skupne elemente, bodo ti v uniji seveda nastopili samo
+enkrat. V skranjem primeru dobimo $A \cup A = A$. Včasih pa želimo združiti množici tako,
+da ne pride do prekrivanja. Taka konstrukcija je \df{vsota} $A + B$ množic $A$ in $B$.
+Prekrivanje preprečimo tako, da elemente, ki jih je prispevala~$A$ označimo z eno oznako,
+tiste, ki jih je prispevala~$B$, pa z drugo.
+
+\begin{pravilo}[Vsota]
+  \label{vsota:tvorba}
+  Za vsaki množici $A$ in $B$ je $A + B$ množica, ki se imenuje \df{vsota} ali
+  \df{koprodukt} množic $A$ in $B$.
+\end{pravilo}
+
+\begin{pravilo}[Vpeljava elementov vsote]
+  \label{vsota:vpeljava}
+  Za vsaki množici $A$ in $B$ velja:
+  %
+  \begin{enumerate}
+  \item za vsak $a \in A$ je $\inl(a) \in A + B$,
+  \item za vsak $b \in B$ je $\inr(b) \in A + B$.
+  \end{enumerate}
+\end{pravilo}
+
+S pravilom vpeljave smo pojasnili, da uporabljamo oznaki $\inl$ in $\inr$, prvo za
+elemente iz~$A$ in drugo za elemente iz~$B$. Oznakama pravimo tudi
+\df{injekciji}\footnote{Ni pomembno, kako poimenujemo oznaki, da sta le
+  različni. V funkcijskem programiranju, kjer poznamo vsote podatkovnih tipov, programer
+  sam določi, kakšne oznake bo uporabljal za injekcije.} in sta preslikavi
+%
+\begin{equation*}
+  \iota_1 : A \to A + B
+  \qquad\text{and}\qquad
+  \iota_2 : B \to A + B.
+\end{equation*}
+%
+Kadar imamo opravka z večimi vsotami, na primer $A + B$ in $C + D$, bi lahko prišlo do
+zmede glede oznak. Takrat injekcije opremimo še z dodatnimi oznakami množic, da razločimo
+injekciji $\inl[A][B] : A \to A + B$ in $\inl[C][D] : C \to C + D$, in podobno za~$\inr$.
+
+Potrebujemo še pravili za uporabo in enakost elementov vsote, ki ju združimo v eno samo
+pravilo.
+
+\begin{pravilo}
+  \label{vsota:uporaba}
+  Za vsaki množici $A$ in $B$ in za vsak $u \in A + B$, bodisi obstaja natanko en
+  $a \in A$, da je $u = \inl(a)$, bodisi obstaja natanko en $b \in B$, da je
+  $u = \inr(b)$.
+\end{pravilo}
+
+V zgornjem pravilu fraza ``bodisi \dots bodisi \dots'' pomeni, da velja prva ali druga možnost, a ne obe hkrati.
+%
+S tem smo v $A + B$ res ločili elemente $A$ od elementov $B$, saj velja $\inl(a) \neq \inr(b)$, tudi ko je $A = B$ in $a = b$. 
+%
+Fraza ``natanko en $a \in A$'' pove, da iz $u = \inl(a_1)$ in $u = \inl(a_2)$ sledi $a_1 = a_2$.
+Povedano drugače, če velja $\inl(a_1) = \inl(a_2)$, potem je $a_1 = a_2$. Podobno iz
+$\inr(b_1) = \inr(b_2)$ sledi $b_1 = b_2$.
+%
+Podajmo prepost primer, ki verjetno marsikaj pojasni:
+%
+\begin{equation*}
+  \set{a, b, c} + \set{a, d, e} =
+  \set{\inl(a), \inl(b), \inl(c), \inr(a), \inr(d), \inr(e)}.
+\end{equation*}
+
+Kako definiramo preslikavo $A + B \to C$? Ker je vsak element domene $A + B$ bodisi
+$\inl(a)$ za neki $a \in A$ bodisi $\inr(b)$ za neki $b \in B$, \emph{obravnavamo oba
+  primera}. Tako funkcijski zapis za preslikavo $A + B \to C$ zapišemo kot
+%
+\begin{equation*}
+  u \mapsto
+  \begin{cases}
+    \cdots a \cdots & \text{če $u = \inl(a)$,}\\
+    \cdots b \cdots & \text{če $u = \inr(b)$,}
+  \end{cases}
+\end{equation*}
+%
+kjer smemo v $\cdots a \cdots$ zapisati izraz, ki vsebuje simbol~$a$, in v
+$\cdots b \cdots$ izraz, ki vsebuje simbol~$b$. Ker je tak zapis nekoliko neroden, se
+dogovorimo, da ga lahko zapišemo tudi s \emph{večdelnim} funkcijskim predpisom:
+%
+\begin{align*}
+  \inl(a) &\mapsto \cdots a \cdots, \\
+  \inr(b) &\mapsto \cdots b \cdots.
+\end{align*}
+%
+Če želimo preslikavo poimenovati, zapišemo
+%
+\begin{align*}
+  f &: A + B \to C, \\
+  f(\inl(a)) &\dfeq \cdots a \cdots \\
+  f(\inr(b)) &\dfeq \cdots b \cdots.
+\end{align*}
+%
+Vsi ti zapisi res določajo celovito in enolično prirejanje, saj nam pravila za vsoto
+zagotavljajo, da vedno obvelja natanko en primer. Na sploh lahko podamo funkcijski zapis z
+večimi primeri, če le pazimo, da obravnavamo vse možnosti, in da se le-te ne prekrivajo.
+Na primer, predpis
+%
+\begin{align*}
+  (A + B) \times C &\to B + A \\
+  (\inl[A][B](a), c) &\mapsto \inr[B][A](a) \\
+  (\inr[A][B](b), c) &\mapsto \inl[B][A](b)
+\end{align*}
+%
+je celovit in enoličen, medtem ko predpis
+%
+\begin{align*}
+  (A \times A) + B &\to A \\
+  \inl(a_1, a_2) &\mapsto a_2
+\end{align*}
+%
+ni veljaven, ker ni celovit, saj manjka primer $\inr(b) \mapsto \cdots$.
+
+Poleg vsote dveh množic bi lahko tvorili vsoto treh ali več množic. Pravila bi bila
+podobna, le da bi imeli več injekcij in več primerov.
+
+\subsection{Eksponent}
+\label{sec:eksponent}
+
+Denimo, da sta $A$ in $B$ množici. Tedaj lahko obravnavamo preslikave
+%
+\begin{equation*}
+  A \to B
+\end{equation*}
+%
+z domeno $A$ in kodomeno $B$. Ali vse take preslikave tvorijo množico? Russellov paradoks
+nas je izučil, da moramo pazljivo postaviti pravila za konstrukcije množic, nato pa jih
+strogo držati. Pravila, ki smo jih podali do sedaj, ne zagotavljajo knostrukcije množic
+vseh preslikav iz $A$ v $B$. Potrebujemo novo pravilo.
+
+\begin{pravilo}[Eksponent]
+  Za vsaki množici $A$ in $B$ ima \df{eksponent} ali \df{eksponentna množica $B^A$} za
+  elemente natanko vse preslikave iz~$A$ v~$B$.
+\end{pravilo}
+
+Potemtakem je zapis $f : A \to B$ enakovreden zapisu $f \in B^A$.
+
+Pravila, ki opredeljujejo elemente množice $B^A$ smo že spoznali. Pravilo vpeljave pravi,
+da je preslikava podana z domeno, kodomeno ter celovitim in enoličnim prirejanjem med
+njima. Pravilo uporabe je kar aplikacija: če je $f \in B^A$ in $a \in A$, lahko tvorimo
+$f(a) \in B$. Tudi računsko pravilo za preslikave smo že spoznali, saj je to kar pravilo
+zamenjave: funkcijski predpis uporabimo na argumentu tako, da vezano spremenljivko v
+predpisu zamenjamo z argumentom. In ekstenzionalnost preslikav pove, kdaj sta dve
+preslikavi enaki.
+
+Preslikavi, ki sprejme kot argument preslikavo, pravimo \df{funkcional} ali \df{preslikava
+  višjega reda}. Primer take preslikave je \df{kompozicija}:
+%
+\begin{align*}
+  {\circ} &: C^B \times B^A \to C^A \\
+  {\circ} &: (g, f) \mapsto (x \mapsto g(f(x))).
+\end{align*}
+%
+Pišemo jo kot operacijo, torej $g \circ f$ namesto ${\circ}(g, f)$. V zgornjem zapisu smo
+uporabili eksponente, a v tem primeru je bolj pregleden diagram:
+%
+\begin{equation*}
+  \xymatrix{
+    {A}
+    \ar[r]^{f}
+    \ar@/_2ex/[rr]_{g \circ f}
+    &
+    {B}
+    \ar[r]^{g}
+    &
+    {C}
+  }
+\end{equation*}
+%
+Zakaj smo $\circ$ definirali tako, da kompozicijo $f$ in $g$ pišemo $g \circ f$ namesto
+$f \circ g$? Ker si je mnogo lažje zapomniti računsko pravilo
+%
+\begin{equation*}
+  (g \circ f)(x) = g(f(x)),
+\end{equation*}
+%
+ki velja z našo definicijo, kot pa $(f \circ g)(x) = g(f(x))$, kar bi veljalo, če bi
+zamenjali vlogi~$f$ in~$g$.
+
+\begin{trditev}
+  \parbox{0pt}{}
+  %
+  \begin{enumerate}
+  \item Identiteta je nevtralna za kompozicijo: $\id[B] \circ f = f = f \circ \id[A]$.
+  \item Kompozicija je asociativna: $(h \circ g) \circ f = h \circ (g \circ f)$.
+  \end{enumerate}
+\end{trditev}
+
+\begin{dokaz}
+  Trditev je zapisana pomanjkljivo, saj ne piše, kaj so $A$, $B$,$ f$ in~$g$. Avtorja
+  trditve bi lahko vprašali, kaj je hotel povedati, a je bolje, da poskusimo to razvozlati
+  sami, ker je to odlična vaja iz razumevanja matematičnih besedil.
+
+  Takoj vidimo, da je $A$ množica, sicer zapis $\id[A]$ ne bi bil smiselen, in podobno je
+  tudi $B$ množica. Simboli $f$, $g$ in $h$ zagotovo označujejo preslikave, saj nastopajo
+  v kompoziciji. Kaj pa njihove domene in kodomene? Preslikava $f$ mora imeti domeno $A$,
+  sicer ne bi bilo dovoljeno komponirati $f \circ \id[A]$, in mora imeti kodomeno $B$,
+  sicer ne bi bilo dovoljeno komponirati $\id[B] \circ f$. Ostaneta še domeni in kodomeni
+  preslikav $g$ in~$h$. Kompozicija $g \circ f$ kaže, da mora biti domena $g$ enaka
+  kodomeni~$f$, torej $B$. Kompozicija $h \circ g$ pa pove, da je kodomena $C$ enaka
+  domeni $h$. Če vse to zložimo v diagram, dobimo
+  %
+  \begin{equation*}
+    \xymatrix{
+      {A} \ar[r]^{f}
+      &
+      {B} \ar[r]^{g}
+      &
+      {\text{?}} \ar[r]^{h}
+      &
+      {\text{?}}
+    }
+  \end{equation*}
+  %
+  Trditev moramo razumeti tako, da bo čim bolj splošna in smiselna. Torej bomo za neznani
+  množici vzeli kar poljubni množici $C$ in $D$:
+  %
+  \begin{equation*}
+    \xymatrix{
+      {A} \ar[r]^{f}
+      &
+      {B} \ar[r]^{g}
+      &
+      {C} \ar[r]^{h}
+      &
+      {D}
+    }
+  \end{equation*}
+  %
+  Preverimo, ali smo trditev pravilno razumeli. Ko vstavimo podrobnosti, se prvi del
+  glasi: ``Za vse množice $A$ in $B$ ter preslikavo $f : A \to B$ velja
+  $\id[B] \circ f = f = f \circ \id[A]$.''
+  %
+  Ker je to smiselna izjava, jo dokažimo. Enakost preslikav se dokaže z ekstenzionalnostjo
+  preslikav, torej preverimo, ali imajo $\id[B] \circ f$, $f$ in $f \circ \id[A]$ enako
+  vrednost za poljuben $x \in A$:
+  %
+  \begin{align*}
+    (\id[B] \circ f)(x) &= \id[B] (f (x)) = f (x), \\
+    f (x) &= f(x), \\
+    (f \circ \id[A])(x) &= f (\id[A](x)) = f(x).
+  \end{align*}
+  %
+  Zapišimo podrobno še drugi del: ``Za vse množice $A$, $B$, $C$ in $D$ ter preslikave
+  $f : A \to B$, $g : B \to C$ in $h : C \to D$ velja
+  $(h \circ g) \circ f = h \circ (g \circ f)$. To spet dokažemo tako, da uporabimo levo in
+  desno stran enačbe na poljubnem $x \in A$:
+  %
+  \begin{align*}
+    ((h \circ g) \circ f)(x) &= (h \circ g)(f(x)) = h(g(f(x))) \\
+    (h \circ (g \circ f))(x) &= h((g \circ f)(x)) = h(g(f(x))). \qedhere
+  \end{align*}
+\end{dokaz}
+
+
+Kompozicijo smo zapisali z \emph{vgnezdenim} funkcijskim predpisom, ki argumentu priredi
+preslikavo, ki je spet podana s funkcijskim predpisom. V splošnem je vgnezdeni funkcijski
+predpis oblike
+%
+\begin{align*}
+  A &\mapsto C^B \\
+  a &\mapsto (b \mapsto \cdots),
+\end{align*}
+%
+kjer se lahko v $\cdots$ pojavita~$a$ in~$b$. Na tak zapis se je treba navaditi, a je zelo
+prikladen, še posebej v funkcijskem programiranju. V matematiki ni zelo pogost, a mi se ga
+ne bomo bali.
+
+Pri računanju s preslikavami višjega reda včasih hkrati obravnavamo več funkicjskih
+predpisov in lahko pride do zmede, če za vse uporabimo isto vezano spremenljivko. Na
+primer, kompozitum preslikav
+%
+\begin{equation*}
+  \begin{aligned}
+    \RR &\to \RR \\
+    x &\mapsto x^2 - 4
+  \end{aligned}
+  %
+  \qquad\text{in}\qquad
+  %
+  \begin{aligned}
+    \RR &\to \RR \\
+    x &\mapsto 2 - x
+  \end{aligned}
+\end{equation*}
+%
+bi lahko izračunali takole:
+%
+\begin{align*}
+  (x \mapsto x^2  - 4) \circ (x \mapsto 2 - x)
+  &= (x \mapsto (x \mapsto x^2 - 4) ((x \mapsto 2 - x) x)) \\
+  &= (x \mapsto (x \mapsto x^2 - 4) (2 - x)) \\
+  &= (x \mapsto (2 - x)^2 - 4) \\
+  &= (x \mapsto x^2 - 4 x).
+\end{align*}
+%
+Tu imamo tri pojavitve $x$, ki bi jih morali ločiti, ker vsaka nastopa kot vezana
+spremenljivka v svojem funkcijskem predpisu. Še posebej nejasen je računski korak
+$(x \mapsto (x \mapsto x^2 - 4) (2 - x)) = (x \mapsto (2 - x)^2 - 4)$, ko vezano
+spremenljivko~$x$ v funkcijskem predpisu zamenjamo z izrazom $2 - x$, ki tudi vsebuje~$x$.
+To sta dva različna $x$-a! Spomnimo se, da lahko vezane spremenljivke vedno preminujemo.
+Ponovimo račun, a tokrat tako, da imajo različni funkcijski predpisi različne vezane
+spremenljivke. Kompozitum
+%
+\begin{equation*}
+  \begin{aligned}
+    \RR &\to \RR \\
+    y &\mapsto y^2 - 4
+  \end{aligned}
+  %
+  \qquad\text{in}\qquad
+  %
+  \begin{aligned}
+    \RR &\to \RR \\
+    z &\mapsto 2 - z
+  \end{aligned}
+\end{equation*}
+%
+izračunamo takole:
+%
+\begin{align*}
+  (y \mapsto y^2  - 4) \circ (z \mapsto 2 - z)
+  &= (x \mapsto (y \mapsto y^2 - 4) ((z \mapsto 2 - z) x)) \\
+  &= (x \mapsto (y \mapsto y^2 - 4) (2 - x)) \\
+  &= (x \mapsto (2 - x)^2 - 4) \\
+  &= (x \mapsto x^2 - 4 x).
+\end{align*}
+%
+To je dosti bolj pregledno. Da ne bo prihajalo do zapletov z vezanimi spremenljivkami, se
+dogovorimo: \emph{kadar imamo opravka z večimi vezanimi spremenljivkami, jih vedno
+  preimenujemo tako, da so med seboj različne.}
+
+Funkcionale srečamo v analizi in funkcijskem programiranju. Limita zaporedja je
+funkcional, ker sprejme kot argument zaporedje realnih števil, se pravi element $\RR^\NN$,
+in mu priredi realno število. Odvod je funkcional, ki sprejme element $\RR^\RR$ in mu
+priredi element $\RR^\RR$. Če smo povsem natančni, limita kot preslikava $\RR^\NN \to \RR$
+ni celovit funkcional, ker nekatera zaporedja ne konvergirajo. Prav tako odvod kot
+preslikave $\RR^\RR \to \RR^\RR$ ni celovit, ker nekatere preslikave niso odvedljive.
+Preslikavam, ki niso celovite, pravimo \emph{delne} in o njih bomo več povedali v
+razdelku~\ref{delne-preslikve}.
+
+\section{Izomorfizem množic}
+\label{sec:izomorfizem-mnozic}
+
+Ko otrok prvič spozna pojem števila, je ta zanimiv sam po sebi. Z vnemo šteje do sto in se
+rad pogovarja se o tem, koliko je en miljon. Sčasoma se radovednost osredotoči na
+aritmetične operacije in, če ima mladenič ali mladenka v sebi matematično žilico, na
+\emph{zakonitosti} števil: množenje z~$1$ nima učinka, vrstni red seštevanja ni pomemben
+itd. Ali tudi operacijam na množicah, ki smo jih spoznali do sedaj, vladajo kakšne
+podobne zakonitosti?
+
+Za števili $a$ in $b$ velja $a \cdot b = b \cdot a$. Nekaj podobnega velja tudi za množici
+$A$ in $B$ in njuna zmnožka $A \times B$ in $B \times A$. V splošnem sicer nista enaka, a
+sta v nekem smislu enakovredna, ker lahko par $(x, y) \in A \times B$ pretvorimo v par
+$(y, x) \in B \times A$ in obratno. Ta razmislek vodi do pojma izomorfizma.
+
+% Pojasnilo: izomorfnost $A \cong B$ je struktura, ki je naravno podana z dvema
+% preslikavama $A \to B$ in $B \to A$ ter dvema enačbama med njima. Zato tu zapišemo
+% definicijo, ki hkrati uvede vse te pojme.
+
+\begin{definicija}
+  Množici $A$ in $B$ sta \df{izomorfni} in pišemo $A \cong B$, kadar obstajata preslikavi
+  %
+  \begin{equation*}
+    f : A \to B
+    \qquad\text{in}\qquad
+    g : B \to A,
+  \end{equation*}
+  %
+  za kateri velja
+  %
+  \begin{equation*}
+    g \circ f = \id[A]
+    \qquad\text{in}\qquad
+    f \circ g = \id[B].
+  \end{equation*}
+  %
+  Pravimo, da je~$f$ \df{izomorfizem} med~$A$ in~$B$ in da je~$g$ \df{inverz} ali
+  \df{obrat}~$f$.
+\end{definicija}
+
+Preverimo, da velja $A \times B \cong B \times A$ za poljubni množici $A$ in $B$. To
+storimo tako, da zapišemo preslikavi med zmnožkoma in preverimo, da tvorita
+izomorfizem:\footnote{Držimo se pravila, da nikoli ne uporabimo iste vezane spremenljivke
+  dvakrat, zato pravilo za $f$ zapišemo z $x$ in $y$ in pravilo za $g$ z $v$ in $u$.
+  Marsikdo bi oba funkcisjka predpisa zapisal z $x$ in $y$, torej
+  $f : (x, y) \mapsto (y, x)$ in $g : (y, x) \mapsto (x, y)$. To zmede nekatere študente,
+  ker mislijo, da ``sta je $x$ v definiciji $f$ isti kot v definiciji $g$'', karkoli že
+  naj bi to pomenilo. Poudarimo še enkat: vezana spremenljivka v funkcijskem predpisu nima
+  nikakršne zveze z nobeno drugo pojavitvijo iste spremenljivke kje druge.}
+%
+\begin{align*}
+  f &: A \times B \to B \times A &
+  g &: B \times A \to A \times B \\
+  f &: (x, y) \mapsto (y, x) &
+  g &: (v, u) \mapsto (u, v).
+\end{align*}
+%
+Treba je preveriti, da velja $g \circ f = \id[A \times B]$ in
+$f \circ g = \id[B \times A]$. To naredimo z uporabo ekstenzionalnosti preslikav, ki pravi
+da $g \circ f = \id[A]$ velja, če velja $(g \circ f)(a,b) = \id[A](a,b)$ za vse $a \in A$
+in $b \in B$, in podobno za $f \circ g$. Obravnavajmo torej poljubna $a \in A$ in
+$b \in B$ in izračunajmo:
+%
+\begin{equation*}
+  (g \circ f)(a, b) =
+  g (f (a, b)) = g (b, a) = (a, b).
+\end{equation*}
+%
+Na podoben način preverimo $f \circ g = \id[B \times A]$.
+
+\begin{zgled}\label{zgled:logaritmiranje-je-obratno-od-eksponenciranja}
+  Primere izmorfizmov poznamo že iz srednje šole. Naj bo $\RR$ množica vseh realnih števil
+  (glej razdelek~\ref{sec:realna-stevila}) in $\RR_{>0}$ množica vseh pozitivnih realnih
+  števil. Tedaj logaritem in eksponentna funkcija,
+  %
+  \begin{equation*}
+    \log : \RR_{>0} \to \RR
+    \qquad\text{in}\qquad
+    \exp : \RR \to \RR_{>0}
+  \end{equation*}
+  %
+  tvorita izomorfizem, saj za $x \in \RR$ velja $\log (\exp x) = x$ in za $y \in \RR_{>0}$
+  velja $\exp (\log y) = y$. Eksponentna funkcija seštevanje slika v množenje:
+  $\exp 0 = 1$ in $\exp (x + y) = \exp x \cdot \exp y$, zato ni samo izomorfizem med
+  množicama, ampak celo izomorfizem med grupama $(\RR, {+}, 0)$ in
+  $(\RR_{>0}, {\cdot}, 1)$.
+
+  Če ne veste, kaj je grupa in izomorfizem grup, nikar ne obupavajte. Vsak matematik se v
+  vsakdanjem delu nenehno srečuje z neznanimi pojmi. Veste, da je znameniti profesor
+  France Križanič\footnote{France Križanič (1928--2002), slovenski matematik} v enega od
+  svojih učbenikov zapisal, da naj tisti, ki mu je branje dokazov odveč, ravna tako kot Du
+  Fu:\footnote{Du Fu (712--770 pr.~n.~š), kitajski pesnik}
+  %
+  \begin{center}
+    \begin{tabular}{l}
+      Ko berem knjige,\\
+      z vinom se krepčam\\
+      in znak preskočim,\\
+      če ga ne poznam.
+    \end{tabular}
+  \end{center}
+\end{zgled}
+
+\begin{vaja}
+  Odkorakajte v knjižnico, izposodite si knjigo profesorja Križaniča in jo preberite.
+\end{vaja}
+
+Dokažimo nekaj osnovih lastnosti izmorfnosti in izomorizmov. Tokrat ne bomo zapisali
+podrobnih dokazov. Za vajo jih dopolnite do tolikšnih podrobnosti, da boste sami sebe
+prepričali, da trditve držijo.
+
+\begin{trditev}
+  Če je $f : A \to B$ izomorfizem med množicama $A$ in $B$ ter sta preslikavi
+  $g : B \to A$ in $h : B \to A$ obe obrata~$f$, potem je $g = h$.
+\end{trditev}
+
+\begin{dokaz}
+  Ker je $g$ obrat $f$, velja
+  %
+  \begin{equation*}
+    g \circ f = \id[A]
+    \qquad\text{in}\qquad
+    f \circ g = \id[B],
+  \end{equation*}
+  %
+  in ker je $h$ obrat $f$, velja
+  %
+  \begin{equation*}
+    h \circ f = \id[A]
+    \qquad\text{in}\qquad
+    f \circ h = \id[B].
+  \end{equation*}
+  %
+  Dokazati moramo, da iz teh štirih predpostavk sledi $g = h$, kar storimo z naslednjim
+  računom:
+  %
+  \begin{align*}
+    g
+    &= \id[A] \circ g \tag{kompozicija z $\id[A]$ nima učinka} \\
+    &= (h \circ f) \circ g \tag{predpostavka $h \circ f = \id[A]$} \\
+    &= h \circ (f \circ g) \tag{kompozicija je asociativna} \\
+    &= h \circ \id[B] \tag{predpostavka $f \circ g = \id[B]$} \\
+    &= h. \tag{kompozicija z $\id[B]$ nima učinka}
+  \end{align*}
+\end{dokaz}
+
+Če je $f : A \to B$ izomorfizem, potem ima natanko en obrat, ki ga označimo $\inv{f}$. Če
+$f$ ni izomorfizem, zapis $f^{-1}$ ni veljaven izraz.
+
+Oznaka za obrat je nekoliko nerodna, ker se prekriva z zapisom za obratno vrednost
+števila: če je $x \in \RR$ neničelno realno število, potem je $\inv{x}$ tisto realno
+število, za katerega velja $x \cdot \inv{x} = 1$. Torej moramo paziti: če je
+$f : \RR \to \RR$ izomorfizem in $x \in \RR$, je $\inv{(f(x))}$ obrat števila $f(x)$,
+medtem ko je $\inv{f}(x)$ število, ki ga dobimo, ko obrat preslikave $f$ uporabimo na~$x$.
+Sami premislite, kaj je $\inv{(\inv{f}(x))}$.
+
+\begin{vaja}
+  Podajte primer izomorfizma $f : \RR \to \RR$ in števila $x \in \RR$, da velja
+  $\inv{f}(x) = \inv{(f(x))}$. Nato podajte še primer, ko velja
+  $\inv{f}(x) \neq \inv{(f(x))}$.
+\end{vaja}
+
+\begin{vaja}
+  Ozrimo se še enkrat na dokaz prejšnje trditve. Ali smo uporabili vse štiri predpostavke?
+  Zapišite \emph{bolj splošno trditev}, se pravi tako, ki navede samo tiste predpostavke,
+  ki jih res potrebujemo v dokazu.
+\end{vaja}
+
+\begin{trditev}
+  Za vse izmorfizme $f : A \to B$ in $g : B \to C$ velja
+  %
+  \begin{equation*}
+    \inv{(\inv{f})} = f
+    \qquad\text{in}\qquad
+    \inv{(g \circ f)} = \inv{f} \circ \inv{g}.
+  \end{equation*}
+\end{trditev}
+
+\begin{dokaz}
+  Dokaz prepuščamo za vajo. Pozor, v desni enakosti se je zamenjal vrstni red $f$ in $g$!
+  Nadalje opazimo še to: zapisali smo $\inv{(\inv{f})}$ in $\inv{(g \circ f)}$, ne da bi
+  predhodno preverili, ali sta $\inv{f}$ in $g \circ f$ izomorfizma. Torej morate v dokazu
+  najprej preveriti, da je sta $\inv{f}$ in $g \circ f$ izomorfizma, če sta $f$ in $g$
+  izomorfizma.
+\end{dokaz}
+
+\begin{trditev}
+  Za vse množice $A$, $B$ in $C$ velja:
+  %
+  \begin{enumerate}
+  \item $A \cong A$,
+  \item če $A \cong B$, potem $B \cong A$,
+  \item če $A \cong B$ in $B \cong C$, potem $A \cong C$.
+  \end{enumerate}
+\end{trditev}
+
+\begin{dokaz}
+  \parbox{0pt}{}
+  %
+  \begin{enumerate}
+  \item $\id[A]$ je izomorfizem iz $A$ v $A$, ki je sam svoj obrat,
+  \item če je $f : A \to B$ izomorfizem iz $A$ v $B$, potem je $\inv{f}$ izomorfizem iz
+    $B$ v $A$ in $f$,
+  \item če je $f : A \to B$ izomorfizem iz $A$ v $B$ in $g : B \to C$ izomorfizem iz $B$ v
+    $C$, potem je $g \circ f$ izomorfizem iz $A \to C$. \qedhere
+  \end{enumerate}
+\end{dokaz}
+
+\begin{trditev}
+  Preslikava ima največ en inverz.
+\end{trditev}
+
+\begin{vaja}
+  Pogosto rečemo, da sta seštevanje in odštevanje obratni operaciji. Strogo vzeto, ti dve
+  operaciji nista obratni kot preslikavi, saj obe slikata (recimo, da ju gledamo na
+  realnih številih) $\RR \times \RR \to \RR$, tj.~ne slikata v nasprotnih smereh. Ugotovi,
+  v kakšnem smislu točno sta seštevanje in odštevanje obratni, tj.~kateri dve preslikavi
+  sta pravzaprav druga drugi obratni.
+\end{vaja}
+
+% TODO Izomorfnost je kongruenca za produkt, vsoto in eksponent.
+
+\section{Algebra množic}
+\label{sec:algebra-mnozic}
+
+Kot že veste, seštevanje, množenje in potenciranje števil zadoščajo naslednjim
+algebrajskim zakonom:
+%
+\begin{align*}
+  a + 0 &= a                   &     a \cdot 1 &= a \\
+  a + b &= b + a               &     a \cdot b &= b \cdot a \\
+  a + (b + c) &= (a + b) + c   &     a \cdot (b \cdot c) &= (a \cdot b) \cdot c \\[1ex]
+  0 \cdot a &= 0                           &   1^a &= 1 \\
+  (a + b) \cdot c &= a \cdot c + b \cdot c &   (a \cdot b)^c &= a^c \cdot b^c \\[1ex]
+  a^0 &= 1                     &   a^1 &= a \\
+  a^{b + c} &= a^b \cdot a^c   &   a^{b \cdot c} &= (a^b)^c \\[1ex]
+  0^a &= 0 \quad \text{če $a \neq 0$.}
+\end{align*}
+%
+Že prej smo opazili, da je zakon $a \cdot b = b \cdot a$ podoben izomorfizmu
+$A \times B \cong B \times A$. Kaj pa ostali zakoni?
+
+\begin{izrek}
+  \label{izrek:algebra-mnozic}
+  Za vse množice $A$, $B$ in $C$ velja:
+  %
+  \begin{align*}
+    A + \emptyset &\cong A                   &     A \times \one &\cong A \\
+    A + B &\cong B + A               &     A \times B &\cong B \times A \\
+    A + (B + C) &\cong (A + B) + C   &     A \times (B \times C) &\cong (A \times B) \times C \\[1ex]
+    \emptyset \times A &\cong \emptyset                           &   \one^A &\cong \one \\
+    (A + B) \times C &\cong A \times C + B \times C &   (A \times B)^C &\cong A^C \times B^C \\[1ex]
+    A^\emptyset &\cong \one                     &   A^\one &\cong A \\
+    A^{B + C} &\cong A^B \times A^C   &   A^{B \times C} &\cong (A^B)^C \\[1ex]
+    \emptyset^A &\cong \emptyset \quad \text{če $A \neq \emptyset$.}
+  \end{align*}
+\end{izrek}
+
+Izrek ni sam sebi namen, ampak je v njem nauk: \emph{z množicami lahko računamo}, tako kot
+s števili. Preostanek razdelka je posvečen dokazu izreka.
+
+\subsubsection{Asociativnost}
+\label{sec:asociativnost}
+
+Za ogrevanje dokažimo asociativnost zmnožkov,
+$A \times (B \times C) \cong (A \times B) \times C$. Splošni element
+$A \times (B \times C)$ je urejeni par oblike $(x, (y, z))$, kjer je $x \in A$, $y \in B$
+in $z \in C$, med tem ko je splošni element $(A \times B) \times C$ oblike $((u, v), w)$,
+kjer je $u \in A$, $v \in B$ in $w \in C$. Izomorfizmov ni težko zapisati:
+%
+\begin{align*}
+  f &:  A \times (B \times C) \to (A \times B) \times C &
+  g &: (A \times B) \times C \to A \times (B \times C) \\
+  f &: (x, (y, z)) \mapsto ((x, y), z) &
+  g &: ((u, v), w) \mapsto (u, (v, w)).
+\end{align*}
+%
+Preverimo, da je $g$ obrat $f$. Za vse $x \in A$, $y \in B$ in $z \in C$ velja:
+%
+\begin{equation*}
+  g(f(x, (y, z))) = g((x, y), z) = (x, (y, z))
+\end{equation*}
+%
+in za vse $u \in A$, $v \in B$ in $w \in C$ velja
+%
+\begin{equation*}
+  f(g((u, v), w)) = f(u, (v, w)) = ((u, v), w).
+\end{equation*}
+%
+Tudi asociativnost vsote, $A + (B + C) \cong (A + B) + C$ ni nič bolj zapletena, le da
+imamo opravka z injekcijami in obravnavanjem primerov. Najprej zapišimo izomorfizma s
+popolnoma natančnim zapisom, kjer vse injekcije opremimo z oznakami množic:
+%
+\begin{align*}
+  f &:  A + (B + C) \to (A + B) + C &
+  g &: (A + B) + C \to A + (B + C) \\
+  f &: \inl[A][B+C](x)             \mapsto \inl[A+B][C](\inl[A][B](x)) &
+  g &: \inl[A+B][C](\inl[A][B](u)) \mapsto \inl[A][B+C](u)\\
+  f &: \inr[A][B+C](\inl[B][C](y)) \mapsto \inl[A+B][C](\inr[A][B](y)) &
+  g &: \inl[A+B][C](\inr[A][B](v)) \mapsto \inr[A][B+C](\inl[B][C](v))  \\
+  f &: \inr[A][B+C](\inr[B][C](z)) \mapsto \inr[A+B][C](z) &
+  g &: \inr[A+B][C](w)              \mapsto \inr[A][B+C](\inr[B][C](w))
+\end{align*}
+%
+Isti zapis brez oznak množic je precej bolj čitljiv:
+%
+\begin{align*}
+  f &:  A + (B + C) \to (A + B) + C &
+  g &: (A + B) + C \to A + (B + C) \\
+  f &: \inl(x)             \mapsto \inl(\inl(x)) &
+  g &: \inl(\inl(u)) \mapsto \inl(u)\\
+  f &: \inr(\inl(y)) \mapsto \inl(\inr(y)) &
+  g &: \inl(\inr(v)) \mapsto \inr(\inl(v))  \\
+  f &: \inr(\inr(z)) \mapsto \inr(z) &
+  g &: \inr(w)              \mapsto \inr(\inr(w))
+\end{align*}
+%
+Ali vidite, zakaj matematiki cenimo kratek in pregleden zapis? Preveč podrobnosti lahko
+zakrije bistvo ideje. Preverjanje, da je $g$ obrat $f$, prepustimo tistim, ki radi veliko
+pišejo.
+
+\subsubsection{Preslikave in enojec}
+\label{sec:preslikave-enojec}
+
+Preslikavi
+%
+\begin{align*}
+  f &: A \times \one \to A &
+  g &: A \to A \times \one \\
+  f &: (x, u) \mapsto x &
+  g &: y \mapsto (y, \unit)
+\end{align*}
+%
+tvorita izomorfizem $A \times \one \cong A$, saj za vsak $a \in A$ in $t \in \one$ velja,
+upoštevaje da so vsi elementi~$\one$ enaki~$\unit$,
+%
+\begin{equation*}
+  g(f(a, t)) = g(a) = (a, \unit) = (a, t)
+  \qquad\text{in}\qquad
+  f(g(a)) = f(a, t) = a.
+\end{equation*}
+%
+Lahko bi rekli, da je $\one$ nevtralni element za zmnožek \emph{do izomorfizma natančno},
+s čimer povemo, da ne velja \emph{enakost} $A \times \one = A$, ampak le
+\emph{izomorfizem} $A \times \one \cong A$. Na tem mestu lahko tudi pojasnimo nenavadni
+zapis edinega elementa~$\one$. Elementi zmnožka dveh množic so urejene dvojice, zmnožka
+treh množic urejene trojice itd. Zmnožek nič množic je nevtralni element za množenje,
+torej so njegovi elementi urejen ničterice, oziroma urejena ničterica~$\unit$, ker je ena
+sama.
+
+Izomorfizma $A^\one \cong A$ ni težko zapisati:
+%
+\begin{align*}
+  f &: A^\one \to A &
+  g &: A \to A^\one \\
+  f &: h \mapsto h(\unit) &
+  g &: x \mapsto (y \mapsto x)
+\end{align*}
+%
+Preverimo, da je $g$ inverz $f$. Za vsak $x \in A$ velja
+%
+\begin{equation*}
+  f(g(x)) = f(y \mapsto x) = x,
+\end{equation*}
+%
+zato je $f \circ g = \id[A]$. Za vsak $h \in A^\one$ velja
+%
+\begin{equation*}
+  g(f(h)) = g(h(\unit)) = (y \mapsto h(\unit)).
+\end{equation*}
+%
+Ali sta $h$ in $y \mapsto h(\unit)$ enaki preslikavi? Kot vsakič, uporabimo
+ekstenzionalnost preslikav, le da je tokrat še posebej preprosta: preslikavi z
+domeno~$\one$ sta enaki, če imata enako vrednost pri argumentu $\unit$, saj je to edini
+element~$\one$. Torej je $h = (y \mapsto h(\unit))$, saj velja
+%
+\begin{equation*}
+  (y \mapsto h(\unit))(\unit) = h(\unit).
+\end{equation*}
+%
+Izomorfnost $A$ in $A^\one$ pravzaprav pove nekaj zanimivega: preslikave $\one \to A$
+lahko obravnavamo kot elemente~$A$ in obratno.
+
+
+\subsubsection{Preslikave in prazna množica}
+\label{sec:presl-prazna-mnozica}
+
+Lotimo se izomorfizmov, v katere je vpletena prazna množica. Tu se ne moremo več zanašati
+le na prirojen občutek za logiko, saj s prazno množico nimamo vsakdanjih izkušenj, oziroma
+jo obravnavamo kot posebnost. Kako bi odgovorili na vprašanje, ali so vsi elementi prazne
+množice praštevila? Pravilni odgovor je ``da''. In hkrati so vsi elementi prazne množice
+sestavljena števila. Zakaj je to res bomo spoznali v
+razdelku~\ref{sec:logika-prazna-mnozica}, ko bomo podrobno obravnavali pravila sklepanja.
+Zaenkrat si zapomnimo, da je pravilna vsaka izjava ``za vse elemente prazne množice velja
+\dots''. Pravimo, da je taka izjava \emph{na prazno izpolnjena}
+
+Začnimo z vprašanjem, ali lahko tvorimo kako preslikavo $\emptyset \to A$. Najprej
+ugotovimo, da so vse preslikave $\emptyset \to A$ enake. Res, za $f, g : \emptyset \to A$
+velja $f = g$ natanko tedaj, ko za vse $x \in \emptyset$ velja $f(x) = g(x)$. A ravnokar
+smo povedali, da je vsaka izjava oblike ``za vse $x \in \emptyset$ \dots'' veljavna. Pa
+imamo kako preslikavo $\emptyset \to A$? Odgovor je pritrdilen, če lahko podamo kako
+celovito in enolično prirejanje med elementi~$\emptyset$ in~$A$. Ker sta celovitost in
+enoličnost spet izavi oblike ``za vse $x \in \emptyset$ \dots'', sta na prazno izpolnjena,
+zato bo zadoščalo kakršnokoli prirejanje, denimo: nobenemu elementu ne priredimo nobenega
+elementa. S tem smo utemeljili naslednjo trditev.
+
+\begin{trditev}
+  Za vsako množico $A$ obstaja natanko ena preslikava $\emptyset \to A$.
+\end{trditev}
+
+Edini preslikavi $\emptyset \to A$ pravimo \df{prazna preslikava}. S tem smo utemeljili
+$A^\emptyset \cong \one$, saj izomorfizem prazni preslikavi priredi
+$\unit$, njegov obrat pa priredi $\unit$ prazno preslikavo.
+
+\subsubsection{Izomorfizmi in eksponenti}
+\label{sec:izomorfizmi-in-eksponenti}
+
+Nazadnje se posvetimo še zakonu $A^{B \times C} \cong (A^B)^C$.
+Preverimo, da preslikavi\footnote{Saj ste se že naučili grške črke, ali ne?}
+%
+\begin{align*}
+  \Lambda &: A^{B \times C} \to (A^B)^C
+  &
+  \Theta &: (A^B)^C \to A^{B \times C}
+  \\
+  \Lambda &: f \mapsto (c \mapsto (b \mapsto f(b, c)))
+  &
+  \Theta &: g \mapsto ((b, c) \mapsto g(c)(b))
+\end{align*}
+%
+tvorita izomorfizem. Za vse $f \in A^{B \times C}$, $x \in B$ in $y \in C$ velja
+%
+\begin{align*}
+  \Theta(\Lambda(f))(x, y)
+  &= ((b, c) \mapsto \Lambda(f)(c)(b)) (x, y)  \\
+  &= \Lambda(f)(y)(x) \\
+  &= (c \mapsto (b \mapsto f(b, c)))(y)(x) \\
+  &= (b \mapsto f(b, y)(x) \\
+  &= f(x, y),
+\end{align*}
+%
+zato je $\Theta(\Lambda(f)) = f$. Prav tako za vse $g \in (A^B)^C$ in $x \in B$ in
+$y \in C$ velja
+%
+\begin{align*}
+  \Lambda(\Theta(g))(y)(x)
+  &= (c \mapsto (b \mapsto \Theta(g)(b, c)))(y)(x) \\
+  &= (b \mapsto \Theta(g)(b, y))(x) \\
+  &= \Theta(g)(x, y) \\
+  &= ((b, c) \mapsto g(c)(b)) (x, y) \\
+  &= g(y)(x)
+\end{align*}
+%
+in zato $\Lambda(\Theta(g)) = g$.
+%
+Preslikavi $\Lambda(f)$ pravimo \df{transpozicija} preslikave~$f$, in prav tako preslikavi
+$\Theta(g)$ pravimo transpozicija preslikave~$g$.
+
+Izomorfizem $A^{B \times C} \cong (A^B)^C$ je zanimiv, ker pove, da lahko preslikavo dveh
+argumentov vedno prevedemo na preslikavo enega argumenta. Natančneje, če je
+$f : B \times C \to A$ preslikava dveh argumentov, je njena transpozicija
+$\Lambda(f) : C \to A^B$ preslikava enega argumenta, njena vrednost pa je preslikava, ki
+pričakuje še en argument. To dejstvo se s pridom izkorišča v funkcijskem programiranju:
+namesto, da bi definirali preslikavo $f : B \times C \to A$, ki sprejme urejeni par
+$(b, c)$ in vrne vrednost $f(b,c)$, raje definiramo enakovredno preslikavo
+$\tilde{f} : B \to C \to A$, ki sprejme $b$ in vrne preslikavo $\tilde{f}(b)$, ta pa
+sprejme še $c$ in vrne vrednost $\tilde{f}(b)(c)$.
+
+
+% TODO Potence A^n in binomski izrek.
+
+% TODO zmnozek, vsota in eksponent zo kongruenca za izomorfizme
+
+% Pri asociativnosti produkta obravnavamo $A_1 \times A_2 \times \cdots \times A_n$ in
+% enojec kot produkt nič množic. Podobno za vsote.
+
+% Tu je treba pojasniti, zakaj pišemo $\unit$ za element $\one$.
+
+
+% \section{Kar je že Davorin napisal}
+
+% Interval realnih števil podamo s krajiščema intervala v oklepajih --- okrogli oklepaji ( ) označujejo odprtost intervala (krajišče ni vključeno v interval), oglati oklepaji [ ] pa zaprtost (krajišče je vključeno). Tako se npr.~interval realnih števil od $0$ do $1$, ki ne vsebuje krajišč, označi z $(0, 1)$, če jih vsebuje, pa z $[0, 1]$.
+
+% Včasih pridejo prav tudi intervali na drugih množicah kot $\RR$. Zato se dogovorimo, da bomo intervale označevali tako, da podamo množico, ob kateri v indeksu zapišemo krajišči v oklepajih, npr.~$\intco[\NN]{1}{5} = \set{1, 2, 3, 4}$. Realna intervala iz prejšnjega odstavka tako zapišemo kot $\intoo{0}{1}$ in $\intcc{0}{1}$.
+
+% Če interval v katero smer gre v nedogled, preprosto zapišemo množico z ustreznim simbolom za urejenost in krajiščem v indeksu. Na primer, $\RR_{> 0}$ označuje množico pozitivnih realnih števil, $\RR_{\geq 0}$ pa množico nenegativnih realnih števil.
+
+% Primerjave med elementi, kot npr.~pravkar podani $>$ in $\geq$, imenujemo \df{relacije} (podrobneje jih bomo spoznali v poglavju~\ref{poglavje:relacije}). Zgornji zapis bomo uporabljali tudi za druge vrste relacij, ne samo za relacije urejenosti. Na primer, množico vseh neničelnih realnih števil zapišemo kot $\RR_{\neq 0}$.
+
+% \davorin{To bi vsaj bil moj predlog. Na ta način se izognemo dvoumnostim (kar je namen). Na primer, kaj pomeni $\forall\, a > 0$? Če zapišemo $\forall\, a \in \NN_{> 0}$ ali $\forall\, a \in \RR_{> 0}$, je jasno. Razlog, da matematiki ``goljufajo'' in pridejo skozi brez tega, je (napol dogovorjena in ponotranjena, ampak arbitrarna) izbira črk; vsak izkušen matematik ve, da $\forall\, \epsilon > 0$ pomeni $\forall\, \epsilon \in \RR_{> 0}$. Dodaten problem je, da kasneje uporabljamo urejene pare, ki jih vsi na naši fakulteti pišejo z okroglimi oklepaji. Poskusimo se izogniti zmedi, ali $(a, b)$ pomeni urejeni par ali odprti interval. Če se ne strinjate, popravite in pustite komentar.}
+
+% Če imamo dan neki element in neko množico, potem pripadnost tega elementa tej množici izrazimo s simbolom $\in$. Na primer, da je štiri naravno število, zapišemo $4 \in \NN$ (beri: ``štiri pripada množici naravnih števil'').
+
+% Elementi množic lahko zadoščajo raznim lastnostim. Na primer, recimo, da $\phi$ označuje lastnost ``biti manj od pet''; to potem zapišemo
+% \[\phi(x) \ = \ \ x < 5.\]
+% V tem primeru $x$ imenujemo \df{spremenljivka}, saj ne gre za točno določeno vrednost, pač pa predstavlja splošno število (recimo, da se dogovorimo, da s $\phi$ označujemo lastnost na realnih številih).
+
+% Tovrstne lastnosti nam omogočajo, da iz neke množice odberemo elemente z dano lastnostjo in na ta način dobimo novo množico, ki je podmnožica prejšnje. Množico vseh realnih števil, ki so manjša od pet, zapišemo na naslednji način.
+% \[\set{x \in \RR}{x < 5}\]
+% Seveda, ker je primerjava s števili zelo pogosta lastnost, je uporabno, če uvedemo krajše oznake, ki povejo isto; že prej smo se dogovorili, da tako množico označimo z $\RR_{< 5}$. Za povsem splošne lastnosti pa ne bomo imeli vnaprej dogovorjenih oznak, zato je dobro, da poznamo splošni zapis. Torej, če je $X$ poljubna množica in $\phi$ poljubna lastnost njenih elementov, tedaj podmnožico, ki vsebuje točno tiste elemente množice $X$, ki zadoščajo lastnosti $\phi$, označimo takole.
+% \[\set[1]{x \in X}{\phi(x)}\]
+
+% Pri tem se zavedajmo: ni pomembno, da spremenljivko označimo ravno z $x$. Zapis
+% \[\set[1]{y \in X}{\phi(y)}\]
+% še vedno označuje isto množico. V vsakem primeru gre za množico vseh elementov iz $X$ z lastnostjo $\phi$. Pravzaprav sploh ni nujno, da uporabimo črko; poslužimo se lahko kateregakoli simbola (ki mu nismo predtem že predpisali določenega pomena). Taisto množico lahko zapišemo tudi $\set{\heartsuit \in X}{\phi(\heartsuit)}$.
+
+% Kadar imamo spremenljivko, ki jo lahko preimenujemo, ne da bi spremenili pomen izraza, jo imenujemo \df{nema spremenljivka}. Takšne primere že dobro poznate; na primer, integral $\int_0^1 x^2 \,dx$ se ne spremeni, če preimenujete spremenljivko in zapišete $\int_0^1 y^2 \,dy$.
+
+% \begin{zgled}
+% Kako bi zapisali množico vseh sodih naravnih števil? Spomnimo se, da je število sodo, kadar je deljivo z $2$. Za $n \in \NN$ to zapišemo takole: $2 \divides n$ (beri: ``dve deli $n$''). Množica sodih naravnih števil se potem zapiše kot
+% \[\set[1]{n \in \NN}{2 \divides n}.\]
+% \end{zgled}
+
+
+\section{Vaje}
+
+\begin{vaja}
+Kaj veste povedati o množici~$A$, če zanjo velja, da so vsi njeni elementi enaki?
+\begin{resitev}
+Množica~$A$ ima kvečjemu en element, tj.~množica~$A$ je bodisi prazna bodisi enojec. Tudi: množica~$A$ je podmnožica kakega enojca oz.~edina preslikava $A \to \one$ je injektivna.
+\end{resitev}
+\end{vaja}
+
+\begin{vaja}
+  Pravilo ekstenzionalnosti preslikav bi lahko zapisali tudi takole:
+  %
+  \begin{quote}
+    Preslikavi $f : A \to B$ in $g : C \to D$ sta enaki, če velja $A = C$, $B = D$ in za
+    vse $x_1, x_2 \in A$ velja, da iz $x_1 = x_2$ sledi $f(x_1) = g(x_2)$.
+  \end{quote}
+  %
+  Dokažite, da je ta različica enakovredna običajnem pravilu ekstenzionalnosti.
+\end{vaja}
+
+\begin{vaja}
+  Zapišite pravila za zmnožek treh množic. Nato premislite še, kako bi podali pravila za
+  zmnožek $n$ množic, kjer je~$n$ naravno število.
+\end{vaja}
+
+\begin{vaja}
+  Naštejte vse elemente množice $\one + \one + \one$.
+\end{vaja}
+
+\begin{vaja}
+  Preveri tiste izomorfnosti iz izreka~\ref{izrek:algebra-mnozic}, ki jih v
+  razdelku~\ref{sec:algebra-mnozic} nismo utemeljili.
+\end{vaja}

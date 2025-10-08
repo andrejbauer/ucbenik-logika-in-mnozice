@@ -103,12 +103,12 @@ definiramo \textbf{razred} vseh objektov, ki zadoščajo pogoju $\phi$. Se pravi
 %
 Poglejmo nekaj primerov.
 
-\begin{primer}
+\begin{zgled}
   \textbf{Russellov razred} $R \defeq \set{ S \such S \not\in S }$ vsebuje vse množice, ki niso element same sebe. Paradoks smo razrešili, saj je nesmiselno zapisati $R \in R$.
-\end{primer}
+\end{zgled}
 
 
-\begin{primer}
+\begin{zgled}
   \textbf{Razred vseh množic}
   %
   \begin{equation*}
@@ -124,15 +124,15 @@ Poglejmo nekaj primerov.
   %
   ki ni nič drugega kot Russellov $R$. Tako bi spet dobili protislovje. Torej $V$
   ni množica.
-\end{primer}
+\end{zgled}
 
-\begin{primer}
+\begin{zgled}
   Razred vseh enojcev $E \defeq \set{ S \such \exactlyone{x \in S} \top }$ je pravi razred. Res, če bi bil množica, potem bi bila množica tudi njegova unija $\bigcup E$, ki pa je enaka~$V$.
-\end{primer}
+\end{zgled}
 
-\begin{primer}
+\begin{zgled}
   Zbirke vseh matematičnih struktur dane vrste pogosto tvorijo prave razrede. Na primer, razred vseh grup, razred vseh kolobarjev, vseh vektorskih prostorov itd.
-\end{primer}
+\end{zgled}
 
 Z razredi lahko delamo tako kot z množicami: tvorimo unije, preseke in produkte
 razredov, govorimo po podrazredih). Pri tem uporabljamo enake oznake za
@@ -175,7 +175,7 @@ Takim zbirkam pravimo \textbf{družine množic}. Družina množic je \textbf{ind
 \end{definicija}
 
 
-\begin{primer}
+\begin{zgled}
   Končno zbirko množic lahko indeksiramo s končno množico. Denimo, da imamo
   množice $A$, $B$, $C$, $D$, $E$. Iz njih lahko tvorimo družino $S : I \to \Set$:
   %
@@ -187,9 +187,9 @@ Takim zbirkam pravimo \textbf{družine množic}. Družina množic je \textbf{ind
   S_4 &= D,\\
   S_5 &= E.
   \end{align*}
-\end{primer}
+\end{zgled}
 
-\begin{primer}
+\begin{zgled}
   Nihče nas ne sili, da morajo biti indeksi števila. V prejšnjem primeru bi lahko
   uporabili $I = \set{42, 13, \sqrt{2}, \emptyset, \RR}$ in definirali $S : I \to \Set$
   %
@@ -200,27 +200,27 @@ Takim zbirkam pravimo \textbf{družine množic}. Družina množic je \textbf{ind
   S_{\emptyset} &= D,\\
   S_{\RR} &= E.
   \end{align*}
-\end{primer}
+\end{zgled}
 
 
-\begin{primer}
+\begin{zgled}
   Množice v družini se lahko ponavljajo. Skrajni primer je \textbf{konstantna družina}, v kateri so vse množice med seboj enake.
-\end{primer}
+\end{zgled}
 
-\begin{primer}
+\begin{zgled}
   \textbf{Prazna družina} je družina množic, ki je indeksirana z $\emptyset$.
-\end{primer}
+\end{zgled}
 
-\begin{primer}
+\begin{zgled}
   Prazno družino moramo ločiti od \textbf{družine praznih množic}
   %
   \begin{align*}
     I &\to \Set \\
     i &\mapsto \emptyset
   \end{align*}
-\end{primer}
+\end{zgled}
 
-\begin{primer}
+\begin{zgled}
   \textbf{Neprazna družina} je družina indeksirana z neprazno množico.
   \textbf{Družina nepraznih množic} je družina, v kateri so vse množice neprazne.
   Torej velja:
@@ -230,7 +230,7 @@ Takim zbirkam pravimo \textbf{družine množic}. Družina množic je \textbf{ind
   \item Družina praznih množic je lahko prazna družina (ko je indeksna množica $\emptyset$).
   \item Družina praznih množic je lahko neprazna družina (ko je indeksna množica neprazna).
   \end{itemize}
-\end{primer}
+\end{zgled}
 
 
 \section{Konstrukcije in operacije z družinami množic}
@@ -281,7 +281,7 @@ Kaj pa unija družine množic? Ali je množica? Izkaže se, da za to potrebujemo
   \textbf{Funkcija izbire} za družino $A : I \to \Set$ je tako prirejanje, ki vsakemu indeksu $i \in I$ priredi natanko en element $f(i) \in A_i$.
  \end{definicija}
 
- \begin{primer}
+ \begin{zgled}
    Primer: funkcija izbire za družino
    %
    \begin{align*}
@@ -290,7 +290,7 @@ Kaj pa unija družine množic? Ali je množica? Izkaže se, da za to potrebujemo
    \end{align*}
    %
    je na $f(n) \defeq 2^{-n - 1}$. To ni edina funkcija izbire za $A$, lahko bi vzeli tudi $f(n) = 2^{-n} / 3$.
- \end{primer}
+ \end{zgled}
 
  \begin{definicija}
    \textbf{Kartezični produkt} družine $A : I \to \Set$ je množica vseh funkcij izbire družine~$A$:

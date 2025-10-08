@@ -3,8 +3,11 @@
 
 
 Temeljni gradniki sodobne matematike so \df{množice}, ki so skupki ali zbirke matematičnih
-objektov, lahko spet množice. Vsaka množica sestoji iz \df{elementov} in je z njimi
-natančno določena. Kadar je $a$ element množice $M$, to zapišemo $a \in M$.
+objektov, lahko spet množic. Vsaka množica sestoji iz \df{elementov} in je z njimi
+natančno določena.
+%
+Kadar je $a$ element množice $M$, to zapišemo $a \in M$ in beremo ``$a$ je element~$M$'' ali ``$a$ pripada~$M$''.`
+Slišali boste tudi. Odsvetujemo ``$a$ je vsebovan v~$M$'', ker že $A \subseteq M$ beremo ``$A$ je vsebovan v $M$''.
 
 Ideja množice kot poljubne zbirke elementov je zavajajoče preprosta, kar so na lastni koži
 izkusili matematiki na prelomu iz 19.~v 20.~stoletje. Takrat so že vedeli, da so množice zelo
@@ -75,7 +78,7 @@ matematičnimi objekti namreč določajo dogovorjeni matematični zakoni in ne b
 katerimi jih poimenujemo.
 
 Še enkrat poudarimo, da ima vsakdo, še posebej pa mladi um, popolno svobodo matematičnega
-ustvarjanja. Želite razmišljati o drugačnih množicah, ki ne zadoščajo načelou
+ustvarjanja. Želite razmišljati o drugačnih množicah, ki ne zadoščajo načelu
 ekstenzionalnsti? Ali pa o številih, ki zadoščajo zakonu $x + x = 0$? O geometriji, v
 kateri skozi točko lahko potegnemo dve vzporednici k dani premici? Kar dajte! Pri tem vas
 le prosimo, celo zahtevamo, da razmišljate temeljito, vztrajno in globoko, da ste iskreni
@@ -141,7 +144,7 @@ načinov. (Ne verjamete? Naslednji člen v zaporedju $1, 2, 3, \ldots$ je seveda
 naslednji člen vsota prejšnjih dveh, kot v Fibonaccijevem zaporedju.)
 
 Kot smo že omenili, želimo pojem množice, pri kateri vrstni red elementov ni pomemben.
-Torej bi morali biti množici $\set{1, 2}$ in $\set{2, 1}$ enaki. Pa je to res? Velja ena
+Pričakujemo, da lahko dokažemo enakost množic $\set{1, 2}$ in $\set{2, 1}$. Pa je to res? Velja ena
 od treh možnosti:
 %
 \begin{enumerate}
@@ -150,8 +153,8 @@ od treh možnosti:
 \item Načelo ekstenzionalnosti in konstrukcije množic $\set{1, 2}$ in $\set{2, 1}$ ne določajo, ali sta enaki.
 \end{enumerate}
 %
-V prvem primeru bi želeli dokazati enakost. V drugem primeru smo v zagati, saj smo se
-dogovorili za matematična pravila, ki imajo neželene posledice. V tretjem primeru moramo
+V prvem primeru želimo videti dokaza. V drugem primeru bi bili v zagati, saj 
+bi izbrana matematična pravila imela neželene posledice. V tretjem primeru bi morali
 dodati še kakšne nove zakone o množicah. Na srečo obvelja prva možnost.
 
 \begin{trditev}
@@ -160,7 +163,7 @@ dodati še kakšne nove zakone o množicah. Na srečo obvelja prva možnost.
 
 \begin{proof}
   Dokaz, ki ga bomo zapisali je izjemno podroben in ga v praksi matematik ne bi zapisal,
-  saj je z njegovim branjem več dela, kot če bi naredili sami. Ker pa želimo pokazati, da
+  saj je z njegovim branjem več dela, kot če bi ga poustvarili sami. Ker pa želimo pokazati, da
   tudi najbolj trivialna dejstva lahko dokažemo, ga zapišimo.
 
   Izhajati smemo izključno iz naslednji dejstev:
@@ -202,7 +205,7 @@ dodati še kakšne nove zakone o množicah. Na srečo obvelja prva možnost.
   \end{enumerate}
 \end{proof}
 
-Mimogrede, črn kvadratek označuje konec dokaza. Imenuje se tudi ``Halmos'' po matematiku
+Mimogrede, kvadratek označuje konec dokaza. Imenuje se tudi ``Halmos'' po matematiku
 Paulu Halmosu, ki ga je prvi uporabljal. S podobnim razmislekom, ki ga prepuščamo za vajo,
 lahko dokažemo, da ni pomembno, ali se element pojavi enkrat ali večkrat.
 
@@ -528,9 +531,9 @@ in teorijo funkcijskih predpisov poimenoval \df{$\lambda$-račun}. V logiki se j
 zapis obdržal in se uveljavil tudi v programski jezikih:
 %
 \begin{itemize}
-\item v Pythonu pišemo \verb|lambda x : 1+x**2|,
-\item v Haskellu pišemo \verb|\x -> 1+x**2| in
-\item v OCamlu pišemo \verb|fun x => 1+x*x|.
+\item v Pythonu pišemo \verb|lambda x: 1 + x ** 2|,
+\item v Haskellu pišemo \verb|\x -> 1 + x ** 2| in
+\item v OCamlu pišemo \verb|fun x => 1 + x * x|.
 \end{itemize}
 %
 Predvsem v programiranju funkcijskim predpisom pravijo tudi \df{anonimne} ali \df{brezimne
@@ -539,17 +542,18 @@ Predvsem v programiranju funkcijskim predpisom pravijo tudi \df{anonimne} ali \d
 Nekateri starejši zapisi funkcijskih predpisov so slabi, a jih ljudje vztrajno
 uporabljajo. Opozorimo le na en slab zapis, ki povzroča precej preglavic, ne da bi se
 matematiki tega zares zavedali. Funkcijski predpis mora določati vezano spremenljivko,
-sicer ne vemo, kako vstaviti vrednosti, a na žalost jo matematiki pogosto izpustijo skupaj
-z $\mapsto$, da ostane samo izraz na desni.
+sicer ne vemo, kako vstaviti vrednosti. Na žalost jo matematiki pogosto izpustijo skupaj
+z $\mapsto$ in pišejo $1 + x^2$ namesto $x \mapsto 1 + x^2$.
 %
-Težava je v tem, da se lahko v funkcijskem predpisu pojavi več kot en simbol. Če vam na primer povem, da imam v mislih funkcijski predpis
+Težava je v tem, da se lahko v funkcijskem predpisu pojavi več kot en simbol. Če vam na primer nekdo poe, da ima v mislih funkcijski predpis
 %
 \begin{equation*}
   a \cdot x + b
 \end{equation*}
 %
-boste vsi mislili, da je mišljeno $x \mapsto a \cdot x + b$. A pravzprav bi lahko bilo
-tudi $a \mapsto a \cdot x + b$ ali $b \mapsto a \cdot x + b$ ali celo
+boste zaradi ustaljenih navad v šolskem sistemu vsi mislili, da je mišljeno $x \mapsto a \cdot x + b$.
+%
+A pravzprav bi lahko bilo tudi $a \mapsto a \cdot x + b$ ali $b \mapsto a \cdot x + b$ ali celo
 $t \mapsto a \cdot x + b$! Namreč, nič ni narobe s funkcijskim predpisom, v katerem se
 pojavijo dodatni simboli.
 
@@ -600,10 +604,10 @@ To seveda pomeni, da $f$ elementu $1$ priredi $10$, $2$ priredi $10$, $3$ prired
 priredi $10$. Tabelo lahko predstavimo na različne načine, lahko kar naštejemo vsa prirejanja:
 %
 \begin{align*}
-  f(1) &= 10 \\
-  f(2) &= 10 \\
-  f(3) &= 20 \\
-  f(5) &= 10.
+  f(1) &\dfeq 10 \\
+  f(2) &\dfeq 10 \\
+  f(3) &\dfeq 20 \\
+  f(5) &\dfeq 10.
 \end{align*}
 %
 Tudi
@@ -625,15 +629,15 @@ računalničar bi pripomnil, da je treba pri tem izbrati programski jezik, ki im
 matematično definicijo.
 
 Preslikave lahko podamo tudi tako, da opišemo pogoje, pri katerih je element kodomene
-prirejen elementu domene. Na primer, preslikavo $f : \NN \to \ZZ$ bi lahko definirali z
-zahtevo, da naravnemu številu $n \in \NN$ priredimo celo število $k \in \ZZ$, kadar velja
+prirejen elementu domene. Na primer, lahko bi definirali preslikavo $g : \NN \to \ZZ$ z
+zahtevo, da naravnemu številu $n \in \NN$ priredi celo število $k \in \ZZ$, kadar velja
 %
 \begin{equation*}
   k^2 \leq n < (k+1)^2.
 \end{equation*}
 %
 To prirejanje je veljavno, če je celovito in enolično, česar ne bomo preverjali, lahko pa
-poskusite sami. Nekaj prirejanj $f$ prikazuje naslednja razpredelnica:
+poskusite sami. Nekaj prirejanj $g$ prikazuje naslednja razpredelnica:
 %
 \begin{align*}
 0 &\mapsto 0   &   4 &\mapsto 2   &    8  &\mapsto 2   &   12 &\mapsto 3 \\
@@ -642,12 +646,13 @@ poskusite sami. Nekaj prirejanj $f$ prikazuje naslednja razpredelnica:
 3 &\mapsto 1   &   7 &\mapsto 2   &    11 &\mapsto 3   &   15 &\mapsto 3
 \end{align*}
 %
-Ali znate z besedami opisati preslikavo~$f$?
+Ali znate z besedami opisati preslikavo~$g$?
 
-V splošnem je lahko preslikava podana s precej zapleteno konstrukcijo, ki zahteva veliko
-preverjanja in dokazovanja. Osnovne načine podajanja preslikav bomo spoznali skupaj s
+Osnovne načine podajanja preslikav bomo spoznali skupaj s
 konstrukcijami množic.
-
+%
+V splošnem je lahko preslikava podana s precej zapleteno konstrukcijo, ki zahteva veliko
+preverjanja in dokazovanja.
 
 \subsection{Aplikacija in substitucija}
 \label{sec:aplikacija-in-subsitucija}
@@ -687,17 +692,16 @@ uporabimo na argumentu~$3$:
   (x \mapsto 1 + x^2)(3).
 \end{equation*}
 %
-Se vam zdi tak zapis nenavaden? Verjetno, a pomislite, zakaj je tako: ker običajno
-preslikave poimenujemo in se nanje vedno sklicujemo z njihovim imenom. Prav nobenega
-razloga ni, da ne bi s funkcijskimi predpisi delali tako, kot s števili, vektorji in
-ostalimi matematičnimi objekti, na katere smo že navajeni. Računalničarji radi rečejo, da
-je treba tudi preslikave obravnavati kot ``enakopravne državljane''. Prav imajo, zato
-bomo vadili uporabo funkcijskih predpisov ter z njimi delali, kot da niso nič posebnega,
-saj niso!
+Se vam zdi tak zapis nenavaden? Verjetno, a pomislite, zakaj: ker so vas vzgojili, da
+je treba vse preslikave vedno poimenovali in se nanje skliceval z njihovim imenom.\footnote{Če bi veljalo enako tudi yza števila, vam v srednji šoli ne bi pustili pisati kar $3 + 5$, nujno bi bilo poimenovanje $a \dfeq 3 + 5$. Tudi trikotnika ne bi smeli narisati, ne da bi mu dali simbolno ime.}
+%
+Navkljub dobri vzgoji, bomo s preslikavami delali enako kot s števili, vektorji in
+ostalimi matematičnimi objekti. Računalničarji radi rečejo, da
+je treba tudi preslikave obravnavati kot ``enakopravne državljane''.
 
 Kako pravzaprav določimo vrednost funkcije pri danem argumentu? To je odvisno od tega,
 kako je podano prirejanje. Če imamo tabelarični prikaz, poiščemo argument v levem stolpcu
-in pogledamo v desni stolpec. Če je preslikava podana s funkcijskim predpisom, argument
+in pogledamo v pripadajoči desni stolpec. Če je preslikava podana s funkcijskim predpisom, argument
 vstavimo v predpis. Na primer, če je $f : \RR \to \RR$ podana s funkcijskim predpisom
 %
 \begin{equation*}
@@ -713,7 +717,7 @@ vstavimo argument neposredno v funkcijski predpis, zato je aplikacija
   (x \mapsto 1 + x^2)(3)
 \end{equation*}
 %
-seveda spet enaka $1 + 3^2$.
+spet enaka $1 + 3^2$.
 
 Preslikavo smemo uporabiti na poljubnem elementu domene, ki je lahko zapisan na bolj ali
 manj zapleten način, pri čemer gre še vedno samo za zamenjavo. Na primer, v zgornjo
@@ -724,10 +728,8 @@ vstavimo $u + 2$ in dobimo $1 + (u + 2)^2$. V razdelku~\ref{sec:eksponent} bomo 
 
 \subsection{Načelo ekstenzionalnosti preslikav}
 
-Kot smo že omenili, je možih več pogledov na preslikave. Ali je pomembno, kako učinkovito
-računamo vrednosti preslikave? Vsekakor, ampak ali naj to pomeni, da sta preslikavi
-različni, če imata enake vrednosti, a je ena podana z učinkovitim pravilom in druga z
-neučinkovitim? V matematiki je odgovor nikalen.
+Podobno kot za množice tudi za preslikave velja pravilo ekstenzionalnosti, ki pravi, da sta preslikavi enaki, če imata enako domeno in kodomeno ter prirejata argumentom enake vrednosti.
+
 
 \begin{pravilo}[Ekstenzionalnost preslikav]
   Preslikavi sta enaki, če imata enaki domeni in kodomeni ter imata za vse argumente
@@ -856,13 +858,11 @@ zelo pomembna.
 
 % \note{Uvod. Definicijsko območje in zaloga vrednosti \davorin{morda dodamo kot možno ime za zalogo vrednosti še prevod angleške besede `range', se pravi `razpon'?}. Zožitve (tako domene kot kodomene); oznake za to so $\rstr{f}_A$, $\rstr{f}^B$, $\rstr{f}_A^B$. Izvrednotenje (evalvacija) preslikave (če ne bomo tega pojasnili že pri eksponentih množic).}
 
-
-\section{Zmnožek}
-\label{sec:zmnozek}
+\section{Osnovne konstrukcije množic}
 
 Množice lahko \df{tvorimo} ali \df{konstruiramo} iz drugih množic na različne načine. V
 tem poglavju bomo spoznali tri osnovne konstrukcije, ostale pa kasneje, ko bomo že nekaj
-vedeli o logiki. Najprej obravnavajmo zmnožek ali kartezični produkt.
+vedeli o logiki.
 
 Takoj se zastavi vprašanje, kako sploh opisati novo konstrukcijo množic. Načelo
 ekstenzionalnosti pove, da je množica opredeljena s svojimi elementi. Torej moramo
@@ -878,6 +878,11 @@ določajo naslednja pravila:
 \end{enumerate}
 %
 Najbolje je, da si postopek ogledamo na primeru.
+
+\subsection{Zmnožek}
+\label{sec:zmnozek}
+
+Najprej obravnavajmo zmnožek ali kartezični produkt.
 
 \begin{pravilo}[Tvorba zmnožka]
   \label{pravilo:zmnozek-tvorba}
@@ -999,13 +1004,18 @@ je $p$ enak $(x, y)$ za enolično določena $x$ in $y$:
 %
 \begin{gather*}
   f : \RR \times \RR \to \RR \\
-  f(x, y) = x + y^2 \cdot x.
+  f(x, y) \dfeq x + y^2 \cdot x.
 \end{gather*}
 %
 Za tako preslikavo pravimo, da je ``funkcija dveh spremenljivk'', ker si mislimo, da smo
-podali argumenta $x$ in $y$ ločeno drug od drugega. Tu pravzaprav vidimo, da bi lahko
-rekli tudi, da je funkcija dveh spremenljivk pravzaprav običajna funkcija, katere
-arugmenti so urejeni pari.
+podali argumenta $x$ in $y$ ločeno drug od drugega. A lahko rekli tudi, da je to funkcija
+ene spremenljivke, ki jo uporabimo na urejenem paru:
+%
+\begin{gather*}
+  f : \RR \times \RR \to \RR \\
+  f(p) \dfeq \fst(p) + \snd(p)^2 \cdot \fst(p).
+\end{gather*}
+
 
 Poleg zmnožka dveh množic bi lahko tvorili tudi zmnožek treh ali več množic. Pravila bodo
 podobna kot za zmnožek dveh množic, le da bi namesto urejenih parov tvorili \df{urejene
@@ -1014,7 +1024,7 @@ pravilo, princip ekstenzionalnosti pa bi bil tudi podoben tistemu za urejene par
 Podorobnosti prepustimo za vajo.
 
 
-\section{Vsota}
+\subsection{Vsota}
 \label{sec:vsota}
 
 Spoznali smo že unijo $A \cup B$ množic $A$ in $B$, ki vsebuje tiste elemente, ki so v $A$
@@ -1042,7 +1052,7 @@ tiste, ki jih je prispevala~$B$, pa z drugo.
 
 S pravilom vpeljave smo pojasnili, da uporabljamo oznaki $\inl$ in $\inr$, prvo za
 elemente iz~$A$ in drugo za elemente iz~$B$. Oznakama pravimo tudi
-\df{injekciji}\footnote{Pravzaprav niti ni pomembno, kako poimenujemo oznaki, da sta le
+\df{injekciji}\footnote{Ni pomembno, kako poimenujemo oznaki, da sta le
   različni. V funkcijskem programiranju, kjer poznamo vsote podatkovnih tipov, programer
   sam določi, kakšne oznake bo uporabljal za injekcije.} in sta preslikavi
 %
@@ -1066,13 +1076,11 @@ pravilo.
   $u = \inr(b)$.
 \end{pravilo}
 
-Fraza ``bodisi \dots bodisi'' pomeni, da je vsak element $u \in A + B$ enak $\inl(a)$
-za natanko en $a \in A$ ali $\inr(b)$ za natanko en $b \in B$, ne more pa se zgoditi oboje
-hkrati ali nič od tega. Torej $\inl(a) = \inr(b)$ ne drži in celo v primeru, ko je
-$A = B$ in $a = b$, je $\inl(a) \neq \inr(b)$. S tem smo v $A + B$ res ločili elemente $A$
-od elementov $B$.
+V zgornjem pravilu fraza ``bodisi \dots bodisi \dots'' pomeni, da velja prva ali druga možnost, a ne obe hkrati.
 %
-Fraza ``natanko en'' pove, da iz $u = \inl(a_1)$ in $u = \inl(a_2)$ sledi $a_1 = a_2$.
+S tem smo v $A + B$ res ločili elemente $A$ od elementov $B$, saj velja $\inl(a) \neq \inr(b)$, tudi ko je $A = B$ in $a = b$. 
+%
+Fraza ``natanko en $a \in A$'' pove, da iz $u = \inl(a_1)$ in $u = \inl(a_2)$ sledi $a_1 = a_2$.
 Povedano drugače, če velja $\inl(a_1) = \inl(a_2)$, potem je $a_1 = a_2$. Podobno iz
 $\inr(b_1) = \inr(b_2)$ sledi $b_1 = b_2$.
 %
@@ -1108,8 +1116,8 @@ dogovorimo, da ga lahko zapišemo tudi s \emph{večdelnim} funkcijskim predpisom
 %
 \begin{align*}
   f &: A + B \to C, \\
-  f(\inl(a)) &= \cdots a \cdots \\
-  f(\inr(b)) &= \cdots b \cdots.
+  f(\inl(a)) &\dfeq \cdots a \cdots \\
+  f(\inr(b)) &\dfeq \cdots b \cdots.
 \end{align*}
 %
 Vsi ti zapisi res določajo celovito in enolično prirejanje, saj nam pravila za vsoto
@@ -1135,7 +1143,7 @@ ni veljaven, ker ni celovit, saj manjka primer $\inr(b) \mapsto \cdots$.
 Poleg vsote dveh množic bi lahko tvorili vsoto treh ali več množic. Pravila bi bila
 podobna, le da bi imeli več injekcij in več primerov.
 
-\section{Eksponent}
+\subsection{Eksponent}
 \label{sec:eksponent}
 
 Denimo, da sta $A$ in $B$ množici. Tedaj lahko obravnavamo preslikave
@@ -1259,7 +1267,7 @@ zamenjali vlogi~$f$ in~$g$.
   \begin{align*}
     (\id[B] \circ f)(x) &= \id[B] (f (x)) = f (x), \\
     f (x) &= f(x), \\
-    (f \circ \id[A])(x) &= f (\id[A](x)) = f(x).\\
+    (f \circ \id[A])(x) &= f (\id[A](x)) = f(x).
   \end{align*}
   %
   Zapišimo podrobno še drugi del: ``Za vse množice $A$, $B$, $C$ in $D$ ter preslikave
