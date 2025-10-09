@@ -179,42 +179,6 @@ primer, integralski znak $\int$ je Leibniz\footnote{Gottfried Wilhelm von Leibni
   knjižničar in diplomat lužiško sorbskega porekla.} izpeljal iz črke S, ker je na
 integral gledal kot na določene vrste vsoto (latinsko `summa').
 
-
-
-
-Poglejmo na primer ``množenje ima prednost pred seštevanjem''. Če tega dogovora ne bi
-imeli, bi bil zapis $3 + 4 \cdot 6$ dvoumen: ali naj najprej seštejemo~$3$ in~$4$ ter
-vsoto pomnožimo s~$6$, ali pa naj najprej zmnožimo~$4$ in~$6$ ter zmnožku prištejemo~$3$?
-Da se izognemo nesporazumom, moramo zapisati bodisi $(3 + 4) \cdot 6$ bodisi
-$3 + (4 \cdot 6)$, a ker so se pred mnogimi leti matematiki dogovorili, da ima množenje
-prednost pred seštevanjem, smemo v enem od obeh primerov oklepaje izpustiti in prihraniti
-nekaj črnila. Prav lahko si predstavljamo svet, v katerem bi obveljal drugačen dogovor in
-bi $3 + 4 \cdot 6$ pomenilo $(3 + 4) \cdot 6$.
-
-Kar smo ravnokar povedali, je bolj pomembno, kot se zdi na prvi pogled. V šoli so vam
-namreč v glavo hkrati vlivali matematična dejstva in dogovore o matematičnem zapisu, kot
-da med enimi in drugimi ni nobene razlike. Morda res ni bilo časa za poglobljene pogovore
-o pisanju oklepajev. Tako marsikdo dobi vtis, da je matematika skupek predpisov, ki jih
-učencem vsiljujejo učitelji, učbeniki in šolski sistem. A da ne bomo preveč filozofirali,
-si poglejmo nekaj dogovorov in navad v zvezi s pisanjem matematičnih izrazov.
-
-Aritmetične operacije $+$, $-$, $\cdot$ in $/$ pišemo kot \emph{medpone}, tako da operacija
-stoji med obema operandoma, na primer $x + y$. Kadar zapišemo operator za operand,
-pravimo, da je \emph{pripona}, na primer faktoriela~$x!$. Zapis operatorja je
-\emph{predpona} če stoji pred operandom, na primer nasprotna vrednost~$-x$. Poleg teh
-poznamo tudi druge zapise: potenciranje pišemo z eksponentom $x^y$, deljenje z ulomkom
-$\frac{x}{y}$, kvadratni koren s posebnim simbolom $\sqrt{x}$ itn. Skrajni primer je zapis
-množenja brez simbola, ko namesto $x \cdot y$ zapišemo kar $x y$.
-
-Nekatere operacije imajo \emph{prednost} pred drugimi in nekatere \emph{združujejo} levo
-ali desno. Prednost pove, katera operacija pride prej na vrsto, kadar ni oklepajev:
-potenciranje ima prednost pred množenjem in množenje pred seštevanjem. Operacija lahko
-tudi združuje levo ali desno. Na primer, seštevanje $+$ združuje levo, zato je $5 + 2 + 1$
-enako $(5 + 2) + 1$. Pri seštevanju to sicer ni pomembno, pri odštevanju pa moramo
-upoštevati združevanje na levo: $5 - 2 - 1$ je enako $(5 - 2) - 1$ in ne $5 - (2 - 1)$.
-Potenciranje združuje na desno, saj $2^{3^4}$ pomeni $2^{(3^4)}$. Nekatere operacije ne
-združujejo in v takih primerih moramo uporabiti oklepaje.
-
 Z vidika vsebine raznolikost matematičnega zapisa ni potrebna, saj bi lahko vse izraze
 pisali na isti način. Namesto simbolov, kot so $+$, $-$ in $\sqrt{\ }$, bi lahko
 uporabljali besede $\mathtt{plus}$, $\mathtt{minus}$, $\mathtt{sqrt}$ in jih zapisovali
@@ -223,7 +187,98 @@ predponami, medponami in priponami ter z levim in desnim združevanjem. Uporablj
 računalništvu, a kdo bi želel na tablo namesto $3 + \sqrt{5 - 4}$ zapisati
 $\mathtt{plus(3, \mathtt{sqrt}(\mathtt{minus}(5, 4)))}$?
 
-% V bodoče tu pojasniti, da so izrazi pravzaprav drevesa.
+Ni vsako zaporedje znakov pravilen izraz. Denimo, $3 + ) x \cdot 4$ ni pravilen izraz, ker ima narobe postavljen zaklepaj.
+%
+Izraz je \df{pravilno formiran} ali \df{sintaktično pravilen}, če ustreza pravilom, ki določajo kako postavljamo oklepaje, vejice, pike, kako uporabljamo razne posebne simbole ($+$, $\lor$, $\int$) itd.
+%
+Natančna \df{sintaktična pravila} za pisanje matematičnih izrazov so precej zapletena, ker je matematični zapis raznovrsten
+in se je razvijal skozi zgodovino. Mnoga že poznate (">vsak oklepaj mora imeti ustrezni zaklepaj"<, ">piše se $a + b$ in ne $a b +$"<), zato jih ne bomo podrobno obravnavali -- to je delo za računalničarje, ki želijo taka pravila implementirati. Posvetimo se raje pravilom in dogovorom za zapis izrazov, ki jih pogosto srečamo v matematiki.
+
+\subsection{Predpone, medpone, pripone, nadnapisi in podnapisi}
+
+Aritmetične operacije $+$, $-$, $\cdot$ in $/$ pišemo kot \df{medpone} ali \df{infiksne operacije}, tako da operacija
+stoji med obema operandoma, na primer $x + y$. Kadar zapišemo operator za operand,
+pravimo, da je \df{pripona} ali \df{postfiksna operacija}, na primer faktoriela~$x!$. Zapis operatorja je
+\df{predpona} ali \df{prefiksna operacija}, če stoji pred operandom, na primer nasprotna vrednost~$-x$. Poleg teh
+poznamo tudi druge zapise: potenciranje pišemo z eksponentom $x^y$, deljenje z ulomkom
+$\frac{x}{y}$, kvadratni koren s posebnim simbolom $\sqrt{x}$ itn. Skrajni primer je zapis
+množenja brez simbola, ko namesto $x \cdot y$ zapišemo kar $x y$.
+
+Argumente operacije ali funkcije včasih zapišemo v \df{podnapis} ali \df{nadnapis}. Na primer, če je $a : \NN \to \RR$ preslikava, pogosto pišemo $a_i$ namesto $a(i)$.
+
+\subsection{Prednost in združevanje}
+
+Nekatere operacije imajo \df{prednost} ali \df{prioriteto} pred drugimi in nekatere \df{združujejo} ali \df{asociirajo} levo ali desno. Prednost pove, katera operacija pride prej na vrsto, kadar ni oklepajev:
+potenciranje ima prednost pred množenjem in množenje pred seštevanjem. Operacija lahko
+tudi združuje levo ali desno. Na primer, seštevanje $+$ združuje levo, zato je $5 + 2 + 1$
+enako $(5 + 2) + 1$. Pri seštevanju to sicer ni pomembno, pri odštevanju pa moramo
+upoštevati združevanje na levo: $5 - 2 - 1$ je enako $(5 - 2) - 1$ in ne $5 - (2 - 1)$.
+Potenciranje združuje na desno, saj $2^{3^4}$ pomeni $2^{(3^4)}$. Nekatere operacije ne
+združujejo in v takih primerih moramo uporabiti oklepaje.
+
+Povejmo še to: nič ni narobe, če zapišemo več oklepajev, kot je to nujno potrebno. Izraza $3 \cdot 4 + 5$ in $(((3) \cdot 5) + 5)$ sta enakovredna.
+
+\subsection{Implicitni argumenti, privzete vrednosti in preobteževanje}
+\label{sec:implicitni-argumenti}
+
+Argumente operacije lahko opustimo in od bralca pričakujemo, da bo pravilno uganil, kaj smo mislili. Pravimo, da so to
+\df{implicitni argumenti}. Primer implicitnih argumentov smo že videli, ko smo zapisali prvo in drugo projekcijo $\fst$ in
+$\snd$:
+\begin{align*}
+  \fst &: A \times B \to A, \\
+  \snd &: A \times B \to A.
+\end{align*}
+%
+Če bi bili zelo natančni, bi morali pri projekcijah zapisati tudi množici $A$ in $B$, ki tvorita kartezični produkt, na
+primer nekaj takega kot $\fst^{A,B} : A \times B \to A$.
+%
+Ko torej vpeljemo novo zapis, lahko nekatere argumente razglasimo za \df{implicitne}, kar pomeni, da jih bomo opuščali,
+kadar to ne pripelje do zmede.
+
+\begin{vaja}
+  Ali ima kompozicija preslikav $\circ$ implicitne argumente? Katere?
+\end{vaja}
+
+Argument operacije ima lahko \df{privzeto vrednost}. Na primer logaritem $x$ z osnovo $b$ zapišemo $\log_b x$. Če opustimo~$b$, se razume, da je mišljen desetiški logaritem, $\log x = \log_10 x$. Pravimo, da je privzeta vrednost osnove $b = 10$.
+
+Simbol lahko tudi \df{preobtežimo}, da ima več pomenov, nato pa od bralca pričakujemo, da bo uganil, katerega smo
+mislili. Na primer, $+$ uporabljamo za
+%
+seštevanje naravnih števil,
+seštevanje celih števil,
+seštevanje racionalnih števil,
+seštevanje realnih števil,
+seštevanje kompleksnih števil,
+seštevanje vektorjev,
+seštevanje matrik,
+itd.
+%
+S preobteževanjem ne gre pretiravati, ker lahko pripelje do zmede. Običajno z istim simbolom označimo različne operacije, ki imajo kaj skupnega. Na primer, $+$ vedno uporabljamo le za operacijo, ki je komutativna, asociativna in ima nevtralni element.
+
+\subsection{Izrazi predstavljajo drevesa}
+
+Izrazi so zaporedja znakov, ki jih pišemo z leve na desno. A kje drugje na tem svetu bi jih pisali z desne na levo ali
+navpično. Izrazi so le \emph{predstavitve} tako imenovanih \df{sintaktičnih dreves}. Na primer $((3 + x) \times y)^2$ predstavlja sintaktično drevo, pri čemer potenciranje predstavimo z znakom ${}^{\wedge}$:
+%
+\begin{center}
+  \begin{tikzpicture}[level/.style={sibling distance=5em/#1},,level distance=2em,
+    every node/.style = {align=center}, baseline=(current bounding box.center)
+    ]
+    \node {${}^{\wedge}$}
+    child { node {$\times$}
+      child { node {$+$}
+        child { node {$3$} }
+        child { node {$x$} }
+      }
+      child { node {$y$} }
+    }
+    child { node {$2$} } ;
+  \end{tikzpicture}
+\end{center}
+%
+O sintaktičnih drevesih ne bomo govorili, a jih omenimo, ker so pomembna iz dveh razlogov: sintaktična drevesa so
+\emph{podatkovni tip}, s katerim v programu dejansko obdelujemo izraze; s pomočjo sintaktičnih dreves lahko simbolni zapis predstavimo kot posebno vrsto algebre, ki omogoča matematično obravnavo izrazov.
+
 
 \section{Slike in diagrami}
 \label{sec:slike-in-diagrami}

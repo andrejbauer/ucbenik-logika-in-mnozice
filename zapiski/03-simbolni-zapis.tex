@@ -1,117 +1,263 @@
 \chapter{Simbolni zapis}
 
-V matematiki uporabljamo \textbf{simbolni zapis} -- matematične objekte, konstrukcije in dokaze opišemo s pomočjo izrazov kot so
+Tako kot vsaka stroka ima tudi matematika svoj strokovni jezik, ki obsega matematične
+simbole in izraze ter svojevrsten način izražanja. Matematiki stremimo k popolni
+natančnosti in nedvoumnosti matematične misli. To je seveda le ideal, ki se mu bolj ali
+manj približamo, dejanska matematična besedila pa pišemo ljudje za ljudi, zato ni nič
+nenavadnega, da so prežeta s tradicijo in nepisanimi družbenimi dogovori, ki matematiko
+oddaljijo od formalnega ideala, a jo tudi naredijo humano.
 %
-\begin{gather*}
-  3 + 4\\
-  x \mapsto x^2 + 3\\
-  \all{x \in \RR} x^2 + x + 1 \geq 1/4
-\end{gather*}
-%
-Matematično besedilo je mešanica naravnega jezika (slovenščine) in simbolnega zapisa. Načeloma bi lahko pisali matematiko \emph{samo} s simbolnim zapisom (kar dejansko počnemo, kadar matematiko \emph{formaliziramo} z računalnikom, a o tem kdaj drugič), a bi bilo to ljudem preveč nerazumljivo. V starih časih so uporabljali samo naravni jezik (latinščino), kar je bilo tudi zelo nerazumljivo.
+Pred študentom matematike je torej težka naloga, saj se mora hkrati z novo matematiko
+učiti še nekoliko nenavadnega jezika. V pomoč se zato najprej posvetimo samo formi
+matematičnega izražanja. In ne zamerite nam, če vam dobrohotno ponudimo še kak nasvet o
+študiju matematike.
 
-Spoznajmo pravila simbolnega zapisa in se učimo razumeti, brati in pisati logične formule (matematične izjave, izražene s simbolnim zapisom).
+Matematično komuniciranje je raznoliko, saj je namenjeno različnim publikam in zato
+posredovano na različne načine. Tako v raziskovalnem matematičnem članku ne bomo našli
+pojasnil in izračunov, ki jih profesor matematike zahteva od svojih študentov. In verjetno
+ni dveh matematikov, ki bi uporabljala povsem usklajen matematični zapis in izrazoslovje.
+Kljub temu je matematični jezik skupen vsem matematikom in v večji meri poenoten.
+Nesporazume, ki nastopijo zaradi različnih navad, pa lahko rešimo s pogovorom. Vsi
+izkušeni matematiki vedo, da vedo zelo malo in zato vprašajo, ko česa ne vedo. To naj bo
+torej prvi nasvet: vprašajte in če ne dobite odgovora, vprašajte še enkrat.
 
+Ker je namen tega učbenika postaviti dobre osnove matematičnega izražanja in mišljenja,
+bomo bolj natančni kot večina matematikov v praksi. Začetnik namreč potrebuje oporo v
+natančnosti, kasneje, ko razume stvari bolje, pa lahko ubere bližnjice, ki jih bolj
+izkušeni kolegi uporabljajo, ne da bi to sploh opazili. Sproti bomo opozarjali nanje,
+kakor tudi na manjše nedoslednosti v matematični praksi, ki izhajajo iz zgodovinskega
+razvoja matematike.
 
-\section{Izrazi}
-
-\textbf{(Simbolni) izraz} je zaporedje znakov, ki predstavlja neki matematični pojem, na primer
-%
-\begin{gather*}
-  3 + 5 \\
-  S \cap (T \cup V) \\
-  2 x y \leq x^2 + y^2
-\end{gather*}
-%
-Izraz je \emph{pravilno formiran} ali \emph{sintaktično pravilen}, če ustreza pravilom, ki določajo kako postavljamo oklepaje,
-vejice, pike, kako uporabljamo razne posebne simbole ($+$, $\lor$, $\int$) itd. Na primer, izraz $3 + ) x \cdot 4$ ni sintaktično
-pravilen, ker ima narobe postavljen zaklepaj.
-
-Natančna sintaktična pravila za pisanje matematičnih izrazov so precej zapletena, ker je matematični zapis raznovrsten
-in se je razvijal skozi zgodovino. Na srečo skoraj vsa pravila že poznate (">vsak oklepaj mora imeti ustrezni zaklepaj"<,
-">piše se $a + b$ in ne $a b +$"< ipd). Tu se ne bomo ukvarjali s podajanjem vseh pravil -- to je delo za računalničarje,
-ki želijo taka pravila naprogramirati. Kljub temu pa velja omeniti nekatere pojme.
-
-
-\subsection{Prefiksne, postfiksne in infiksne operacije}
-
-V simbolnem zapisu uporabljamo \emph{operacije}, ki jih pišemo pred, za ali med argumente:
-%
-\begin{itemize}
-\item \textbf{prefiksne operacije} so take, ki jih pišemo \emph{pred} argument:
-  \begin{itemize}
-  \item  $-x$ za nasprotno vrednost $x$,
-  \item  $\neg P$ za negacijo izjave $P$,
-  \end{itemize}
-\item \textbf{infiksne operacije} so take, ki jih pišemo \emph{med} argumenta:
-  \begin{itemize}
-  \item aritmetične operacije $x + y$, $x - y$, $x \cdot y$ itn.
-  \item logični vezniki $P \land Q$, $P \lor Q$, $P \lthen Q$ itn.
-  \end{itemize}
-\item \textbf{postfiksne operacije} so take, ki jih pišemo \emph{za} argument:
-  \begin{itemize}
-  \item $n!$ za faktorielo števila $n$.
-  \end{itemize}
-\end{itemize}
-%
-Včasih uporabljamo tudi druge oblike zapisa:
-%
-\begin{itemize}
-\item \emph{potenciranje} $A^B$
-\item \emph{ulomki} $\frac{a}{b}$
-\item integrali $\int f(x) dx$ in vsote $\sum_{i = 0}^n a_i$,
-\item zapis podmnožice $\set{x \in \RR \such x^2 + x > 2}$.
-\end{itemize}
-%
-Operacija je lahko celo ">nevidna"<, oziroma jo pišemo kot presledek med argumentoma:
-%
-\begin{itemize}
-\item $x \, y$ kot zmnožek $x$ in $y$,
-\item $\sin x$ kot uporabe funkcije $\sin$ na argumentu~$x$.
-\end{itemize}
+% * Sestavni deli besedila, brez podrobnih razlag, morda primeri, tu samo opozorimo na
+%   raznovrstnost konceptov.
+%    * spremno besedilo
+%    * konstrukcije
+%    * računi
+%    * izjave (sinonimi, kako jih številčimo)
+%    * dokazi (kako so označeni)
+%    * definicije
+%    * zgledi
+%    * naloge in rešitve (namigi)
+%    * formule in izrazi (kako jih številčimo in kako se nanje sklicujemo)
+%    * citati in reference
 
 
-\subsection{Oklepaji, prioriteta in asociiranost}
+% PRIMERI DRUŽBENIH DOGOVOROV
 
-Z oklepaji ponazorimo, katera operacija ima prednost. Na primer, če ne bi imeli dogovora, da ima množenje prednost pred
-seštevanjem, potem bi lahko izraz $3 + 4 \times 5$ razumeli kot $3 + (4 \times 5)$ ali kot $(3 + 4) \times 5$. Oklepajev ne smemo opustiti, kadar bi lahko prišlo do take zmede. Nikoli pa ne škodi, če zapišemo kak oklepaj več, kot je to potrebno (v mejah normale).
+% $\vec{a}$ uporabljamo za oznako vektorja
 
-Da se izognemo pisanju oklepajev, se dogovorimo, da imajo nekatere operacije prednost pred ostalimi, kar so vas učili že
-v osnovni šoli. Pravimo, da imajo operacije \textbf{prioriteto}. Operacija z višjo prioriteto ima prednost pred operacijo z
-nižjo prioriteto.
+% Pri algebri v prvem letniku na FMF je običaj, da se linearno preslikavo označi z
+% $\mathcal{A}$, matriko, ki tej linearni preslikavi pripada, pa z $A$.
 
-\begin{zgled}
-  Množenje $\times$ ima višjo prioriteto kot seštevanje $+$ (to je \emph{dogovor} in ne matematično dejstvo).
-  Podobno ima konjunkcija $\land$ višjo prioriteto kot disjunkcija $\lor$.
-\end{zgled}
+\section{Pisave in simboli}
+\label{sec:pisave-in-simboli}
 
-Poleg prioritete imajo nekatere operacije tudi \textbf{asociiranost}. Kako naj razumemo izraz $8 - 3 - 2$, kot $(8 - 3) - 2$
-ali kot $8 - (3 - 2)$? V šoli so vas učili, da je
+Matematična abeceda vsebuje precej več simbolov, kot zgolj običajne črke in števke. Nekatere že poznamo, na primer~$=$, $<$, $+$, $\emptyset$, $\cup$, $\cap$, $\int$ in tako naprej, precej jih še bomo spoznali. Poleg tega matematiki uporabljamo različne pisave, kot je prikazano v tabeli~\ref{tabela:oblike-crk}. Na tabli in v zvezku sicer težko ločimo med pokončno, odebeljeno in ležečo pisavo, ali med kaligrafsko in rokopisno, zato nabor pisav omejimo. V tiskanem besedilu se vedno držimo nekaterih pravil glede izbire pisav. Tako posamezne črke $a$, $b$, $c$, \ldots, $x$, $y$, $z$ pišemo v ležeči pisavi, imena elementarnih funkcij pa pokončno: $\sin$, $\cos$, $\log$, \ldots Šumnikov običajno ne uporabljamo. Včasih z uporabo znakov nakažemo povezavo med dvema objektoma: $f$ je funkcija in $F$ njen integral, $\mathcal{A}$ je linearna preslikava in $A$ njej pripadajoča matrika itd.
+
+\begin{table}[ht]
+\centering
+\begin{tabular}{c|c}
+\textbf{Pisava} & \textbf{Črke} \\
+\hline
+pokončna & $\mathrm{ABCDEFGHIJKLMNOPQRSTUVWXYZ}$ \\
+odebeljena & $\mathbf{ABCDEFGHIJKLMNOPQRSTUVWXYZ}$ \\
+ležeča & $ABCDEFGHIJKLMNOPQRSTUVWXYZ$ \\
+kaligrafska & $\mathcal{ABCDEFGHIJKLMNOPQRSTUVWXYZ}$ \\
+rokopisna & $\mathscr{ABCDEFGHIJKLMNOPQRSTUVWXYZ}$ \\
+frakturna & $\mathfrak{ABCDEFGHIJKLMNOPQRSTUVWXYZ}$ \\
+dvopoudarjena & $\mathbb{ABCDEFGHIJKLMNOPQRSTUVWXYZ}$
+\end{tabular}
+\caption{Pisave}\label{tabela:oblike-crk}
+\end{table}
+
+Črke lahko dodatno opremimo s črticami, vijugami, vektorskimi znaki, strešicami in podobno:
 %
 \begin{equation*}
-  A - B - C = (A - B) - C
+ a \quad
+ a' \quad
+ \dot{a} \quad
+ \bar{a} \quad
+ \vec{a} \quad
+ \tilde{a} \quad
+ \hat{a} \quad
+ \check{a}.
 \end{equation*}
 %
-Pravimo, da $-$ veže na levo oziroma da ima \textbf{levo asociiranost}. Ker beremo z leve na desno, ima večina operacij levo
-asociiranost. Velja na primer
+Uporabimo lahko tudi \emph{podpis} ali
+\emph{nadpis}, ki je lahko črka, številka, ali kak drug simbol, na primer
 %
+\begin{equation*}
+  a_i \quad
+  a^i \quad
+  a_1 \quad
+  a_{\star} \quad
+  a^{\dagger}.
+\end{equation*}
+%
+Podpisu in nadpisu pogovorno pravimo tudi \emph{indeks} in \emph{eksponent}, a to ni
+najbolj posrečena raba, ker se indeks lahko pojavi tudi v nadpisu ali kje drugje,
+eksponent pa lahko pomeni tudi število, s katerim potenciramo.
+
+Kljub temu obilju črk in oznak posežemo še po drugih abecedah, še posebej grški, zato se
+jo čimprej naučite! Grške črke skupaj z njihovo izgovorjavo najdete v
+tabeli~\ref{tabela:grska-abeceda}. Prostoročni zapis grških črk se boste naučili v
+razredu.
+%
+Pa tudi to matematikom še ni dovolj! V teoriji množic uporabljamo še hebrejske črke
+alef~$\aleph$, bet~$\beth$ in gimel~$\gimel$.
+
+\begin{table}[ht]
+\begin{center}
+\begin{tabular}{cc|cc}
+\multicolumn{2}{c|}{\textbf{Grška črka}} & \multicolumn{2}{c}{\textbf{Izgovorjava}} \\
+\textit{velika} & \textit{mala} & \textit{v slovenščini} & \textit{v grščini} \\
+\hline
+A & $\alpha$ & alfa & alfa \\
+B & $\beta$ & beta & vita \\
+$\Gamma$ & $\gamma$ & gama & {\textgamma}ama \\
+$\Delta$ & $\delta$ & delta & delta \\
+E & $\epsilon$, $\varepsilon$ & epsilon & epsilon \\
+Z & $\zeta$ & zeta & zita \\
+H & $\eta$ & eta & ita \\
+$\Theta$ & $\theta$, $\vartheta$ & {\scriptsize\textTheta}eta & {\scriptsize\textTheta}ita \\
+I & $\iota$ & jota & jota \\
+K & $\kappa$ & kapa & kapa \\
+$\Lambda$ & $\lambda$ & lambda & lamda \\
+M & $\mu$ & mi & mi \\
+N & $\nu$ & ni & ni \\
+$\Xi$ & $\xi$ & ksi & ksi \\
+O & $\omicron$ & omikron & omikron \\
+$\Pi$ & $\pi$, $\varpi$ & pi & pi \\
+P & $\rho$, $\varrho$ & ro & ro \\
+$\Sigma$ & $\sigma$, $\varsigma$ & sigma & si{\textgamma}ma \\
+T & $\tau$ & ta\hill{u} & taf \\
+$\Upsilon$ & $\upsilon$ & ipsilon & ipsilon \\
+$\Phi$ & $\phi$, $\varphi$ & fi & fi \\
+X & $\chi$ & hi & {\textchi}i \\
+$\Psi$ & $\psi$ & psi & psi \\
+$\Omega$ & $\omega$ & omega & ome{\textgamma}a \\
+\end{tabular}
+\end{center}
+\par\medskip
+\footnotesize{
+Izgovorjava: \hill{u} je ustnični u (kot v besedi `pav');
+{\textgamma} je cerkljanski `g' (nekaj med `g' in `h' --- vprašajte sošolce s tega območja);
+{\scriptsize\textTheta} je angleški nezveneči `th' (kot v besedi `thing');
+{\textchi} je nemški `ch' (kot v besedi `ich').}
+\caption{Grška abeceda.}
+\label{tabela:grska-abeceda}
+\end{table}
+
+In zakaj pravzaprav potrebujemo tako veliko število črk? Verjetno zato, ker je v
+matematiki krajši zapis bolj učinkovit, saj zasede manj prostora na papirju, pa še hitreje
+ga zapišemo in preberemo. Računalničarji imajo drugačne navade, saj pri njih velja, da naj
+se uporablja opisna imena, ki razkrijejo pomen: kjer bi matematik in fizik uporabila~$m$
+in~$a$, bi računalničar zapisal $\mathtt{masa\_delca}$ in $\mathtt{pospesek}$.
+
+\section{Izrazi}
+\label{sec:irazi}
+
+Matematično besedilo je mešanica naravnega jezika in simbolnega zapisa. Delom besedila, ki
+so napisani s simboli, pravimo \emph{simbolni izrazi} ali krajše kar \emph{izrazi}. Vsi
+ste jih že videli, denimo
+%
+\begin{equation*}
+  (3 + 4) \cdot 6 \qquad\quad
+  \int_0^1 \frac{x}{1 + x^2} \, dx \qquad\quad
+  a x^2 + b x + c = 0 \qquad\quad
+  x > 0 \lor x \leq 0
+\end{equation*}
+%
+Ste se kdaj vprašali, zakaj pravzaprav pišemo ulomke z vodoravno črto, integral z znakom
+$\int$, zakaj ima množenje prednost pred seštevanjem in zakaj seštevamo od leve proti
+desni, čeprav bi lahko tudi v drugi smeri? Odgovor je vedno isti: to so splošno sprejete
+navade, ki so se izoblikovale v razvoju matematike. To niso matematične resnice, ampak
+\emph{dogovori} med ljudmi, ki se jih držimo zato, ker so se izkazali za smiselne. Na
+primer, integralski znak $\int$ je Leibniz\footnote{Gottfried Wilhelm von Leibniz
+  (1646--1716) je bil nemški filozof, matematik, fizik, pravnik, zgodovinar, jezikoslovec,
+  knjižničar in diplomat lužiško sorbskega porekla.} izpeljal iz črke S, ker je na
+integral gledal kot na določene vrste vsoto (latinsko `summa').
+
+Z vidika vsebine raznolikost matematičnega zapisa ni potrebna, saj bi lahko vse izraze
+pisali na isti način. Namesto simbolov, kot so $+$, $-$ in $\sqrt{\ }$, bi lahko
+uporabljali besede $\mathtt{plus}$, $\mathtt{minus}$, $\mathtt{sqrt}$ in jih zapisovali
+kot preslikave. Tak zapis je preprost in enoten, saj se nam ni treba ukvarjati s
+predponami, medponami in priponami ter z levim in desnim združevanjem. Uporablja se v
+računalništvu, a kdo bi želel na tablo namesto $3 + \sqrt{5 - 4}$ zapisati
+$\mathtt{plus(3, \mathtt{sqrt}(\mathtt{minus}(5, 4)))}$?
+
+Ni vsako zaporedje znakov pravilen izraz. Denimo, $3 + ) x \cdot 4$ ni pravilen izraz, ker ima narobe postavljen zaklepaj.
+%
+Izraz je \df{pravilno formiran} ali \df{sintaktično pravilen}, če ustreza pravilom, ki določajo kako postavljamo oklepaje, vejice, pike, kako uporabljamo razne posebne simbole ($+$, $\lor$, $\int$) itd.
+%
+Natančna \df{sintaktična pravila} za pisanje matematičnih izrazov so precej zapletena, ker je matematični zapis raznovrsten
+in se je razvijal skozi zgodovino. Mnoga že poznate (">vsak oklepaj mora imeti ustrezni zaklepaj"<, ">piše se $a + b$ in ne $a b +$"<), zato jih ne bomo podrobno obravnavali -- to je delo za računalničarje, ki želijo taka pravila implementirati. Posvetimo se raje pravilom in dogovorom za zapis izrazov, ki jih pogosto srečamo v matematiki.
+
+\subsection{Predpone, medpone, pripone, nadnapisi in podnapisi}
+
+Aritmetične operacije $+$, $-$, $\cdot$ in $/$ pišemo kot \df{medpone} ali \df{infiksne operacije}, tako da operacija
+stoji med obema operandoma, na primer $x + y$. Kadar zapišemo operator za operand,
+pravimo, da je \df{pripona} ali \df{postfiksna operacija}, na primer faktoriela~$x!$. Zapis operatorja je
+\df{predpona} ali \df{prefiksna operacija}, če stoji pred operandom, na primer nasprotna vrednost~$-x$. Poleg teh
+poznamo tudi druge zapise: potenciranje pišemo z eksponentom $x^y$, deljenje z ulomkom
+$\frac{x}{y}$, kvadratni koren s posebnim simbolom $\sqrt{x}$ itn. Skrajni primer je zapis
+množenja brez simbola, ko namesto $x \cdot y$ zapišemo kar $x y$.
+
+Argumente operacije ali funkcije včasih zapišemo v \df{podnapis} ali \df{nadnapis}. Na primer, če je $a : \NN \to \RR$ preslikava, pogosto pišemo $a_i$ namesto $a(i)$.
+
+\subsection{Prednost in združevanje}
+
+Nekatere operacije imajo \df{prednost} ali \df{prioriteto} pred drugimi in nekatere \df{združujejo} ali \df{asociirajo} levo ali desno. Prednost pove, katera operacija pride prej na vrsto, kadar ni oklepajev:
+potenciranje ima prednost pred množenjem in množenje pred seštevanjem. Operacija lahko
+tudi združuje levo ali desno. Na primer, seštevanje $+$ združuje levo, zato je $5 + 2 + 1$
+enako $(5 + 2) + 1$. Pri seštevanju to sicer ni pomembno, pri odštevanju pa moramo
+upoštevati združevanje na levo: $5 - 2 - 1$ je enako $(5 - 2) - 1$ in ne $5 - (2 - 1)$.
+Potenciranje združuje na desno, saj $2^{3^4}$ pomeni $2^{(3^4)}$. Nekatere operacije ne
+združujejo in v takih primerih moramo uporabiti oklepaje.
+
+Povejmo še to: nič ni narobe, če zapišemo več oklepajev, kot je to nujno potrebno. Izraza $3 \cdot 4 + 5$ in $(((3) \cdot 5) + 5)$ sta enakovredna.
+
+\subsection{Implicitni argumenti, privzete vrednosti in preobteževanje}
+\label{sec:implicitni-argumenti}
+
+Argumente operacije lahko opustimo in od bralca pričakujemo, da bo pravilno uganil, kaj smo mislili. Pravimo, da so to
+\df{implicitni argumenti}. Primer implicitnih argumentov smo že videli, ko smo zapisali prvo in drugo projekcijo $\fst$ in
+$\snd$:
 \begin{align*}
-  A + B + C &= (A + B) + C \\
-  A \times B \times C &= (A \times B) \times C.
+  \fst &: A \times B \to A, \\
+  \snd &: A \times B \to A.
 \end{align*}
 %
-Morda bo kdo pripomnil, da itak velja $(A + B) + C = A + (B + C)$ in da zato ni pomembno, kako razumemo $A + B + C$. To je
-res v preprostih primerih, ko vemo, da smo s $+$ označili seštevanje števil. Kaj pa, če s $+$ označimo kako drugo
-preslikavo? Ali $(A + B) + C = A + (B + C)$ velja tudi v programskih jezikih, pri katerih lahko pride do prekoračitve
-največjega možnega števila?
+Če bi bili zelo natančni, bi morali pri projekcijah zapisati tudi množici $A$ in $B$, ki tvorita kartezični produkt, na
+primer nekaj takega kot $\fst^{A,B} : A \times B \to A$.
+%
+Ko torej vpeljemo novo zapis, lahko nekatere argumente razglasimo za \df{implicitne}, kar pomeni, da jih bomo opuščali,
+kadar to ne pripelje do zmede.
 
-Primer operacije z desno asociiranostjo je implikacija: $P \lthen Q \lthen R$ je enako $P \lthen (Q \lthen R)$.
+\begin{vaja}
+  Ali ima kompozicija preslikav $\circ$ implicitne argumente? Katere?
+\end{vaja}
 
+Argument operacije ima lahko \df{privzeto vrednost}. Na primer logaritem $x$ z osnovo $b$ zapišemo $\log_b x$. Če opustimo~$b$, se razume, da je mišljen desetiški logaritem, $\log x = \log_10 x$. Pravimo, da je privzeta vrednost osnove $b = 10$.
+
+Simbol lahko tudi \df{preobtežimo}, da ima več pomenov, nato pa od bralca pričakujemo, da bo uganil, katerega smo
+mislili. Na primer, $+$ uporabljamo za
+%
+seštevanje naravnih števil,
+seštevanje celih števil,
+seštevanje racionalnih števil,
+seštevanje realnih števil,
+seštevanje kompleksnih števil,
+seštevanje vektorjev,
+seštevanje matrik,
+itd.
+%
+S preobteževanjem ne gre pretiravati, ker lahko pripelje do zmede. Običajno z istim simbolom označimo različne operacije, ki imajo kaj skupnega. Na primer, $+$ vedno uporabljamo le za operacijo, ki je komutativna, asociativna in ima nevtralni element.
 
 \subsection{Izrazi predstavljajo drevesa}
 
-Izrazi so zaporedja znakov, ki jih pišemo z leve na desno. A kje drugje bi jih morda pisali z desne na levo ali
-navpično. Izrazi so le \emph{predstavitve} tako imenovanih \textbf{sintaktičnih dreves}. Na primer $((3 + x) \times y)^2$ predstavlja sintaktično drevo, pri čemer potenciranje predstavimo z znakom ${}^{\wedge}$:
+Izrazi so zaporedja znakov, ki jih pišemo z leve na desno. A kje drugje na tem svetu bi jih pisali z desne na levo ali
+navpično. Izrazi so le \emph{predstavitve} tako imenovanih \df{sintaktičnih dreves}. Na primer $((3 + x) \times y)^2$ predstavlja sintaktično drevo, pri čemer potenciranje predstavimo z znakom ${}^{\wedge}$:
 %
 \begin{center}
   \begin{tikzpicture}[level/.style={sibling distance=5em/#1},,level distance=2em,
@@ -130,63 +276,105 @@ navpično. Izrazi so le \emph{predstavitve} tako imenovanih \textbf{sintaktični
 \end{center}
 %
 O sintaktičnih drevesih ne bomo govorili, a jih omenimo, ker so pomembna iz dveh razlogov: sintaktična drevesa so
-\emph{podatkovni tip}, s katerim v programu dejansko obdelujemo izraze; s pomočjo sintaktičnih dreves lahko simbolni zapis
-predstavimo kot posebno vrsto algebre, ki omogoča matematično obravnavo izrazov.
+\emph{podatkovni tip}, s katerim v programu dejansko obdelujemo izraze; s pomočjo sintaktičnih dreves lahko simbolni zapis predstavimo kot posebno vrsto algebre, ki omogoča matematično obravnavo izrazov.
 
 
-\subsection{Ostala sintaktična pravila}
+\section{Slike in diagrami}
+\label{sec:slike-in-diagrami}
 
-Sintaktičnih pravil je še več, od katerih omenimo le nekatera.
+Matematiki uporabljamo tudi diagrame in slike, slednje predvsem v geometriji in analizi. Z
+njimi lahko razjasnimo pojme in si pomagamo pri predstavi zapletenih pojmov in
+konstrukcij, zato so nepogrešljivo orodje. To še posebej velja za poučevanje matematike.
 
-\subsubsection{Podnapisi in nadnapisi}
-\label{sec:podnapisi-nadnapisi}
+Vendar pa moramo biti pri uporabi slik pazljivi, ker nas lahko zavedejo. V poduk podajmo ">dokaz"<, da so vsi trikotniki enakokraki!
 
-Argumente operacije ali funkcije včasih zapišemo v \textbf{podnapis} ali \textbf{nadnapis}. Na primer, če je $a : \NN \to \RR$
-preslikava, pogosto pišemo $a_i$ namesto $a(i)$.
+\begin{izrek}
+  Vsi trikotniki so enakokraki.
+\end{izrek}
 
-\subsubsection{Implicitni argumenti}
-\label{sec:implicitni-argumenti}
+\begin{dokaz}
+  Naj bo $\triangle ABC$ poljuben trikotnik, glej sliko~\ref{fig:trikotnik}.
+  %
+  \begin{figure}[ht]
+    \centering
+\tikzset{
+    right angle quadrant/.code={
+        \pgfmathsetmacro\quadranta{{1,1,-1,-1}[#1-1]}     % Arrays for selecting quadrant
+        \pgfmathsetmacro\quadrantb{{1,-1,-1,1}[#1-1]}},
+    right angle quadrant=1, % Make sure it is set, even if not called explicitly
+    right angle length/.code={\def\rightanglelength{#1}},   % Length of symbol
+    right angle length=4ex, % Make sure it is set...
+    right angle symbol/.style n args={3}{
+        insert path={
+            let \p0 = ($(#1)!(#3)!(#2)$) in     % Intersection
+                let \p1 = ($(\p0)!\quadranta*\rightanglelength!(#3)$), % Point on base line
+                \p2 = ($(\p0)!\quadrantb*\rightanglelength!(#2)$) in % Point on perpendicular line
+                let \p3 = ($(\p1)+(\p2)-(\p0)$) in  % Corner point of symbol
+            (\p1) -- (\p3) -- (\p2)
+        }
+    }
+}
 
-Argumente operacije lahko opustimo in od bralca pričakujemo, da bo pravilno uganil, kaj smo mislili. Pravimo, da so to
-\textbf{implicitni argumenti}. Primer implicitnih argumentov smo že videli, ko smo zapisali prvo in drugo projekcijo $\fst$ in
-$\snd$:
-\begin{align*}
-  \fst &: A \times B \to A, \\
-  \snd &: A \times B \to A.
-\end{align*}
-%
-Če bi bili zelo natančni, bi morali pri projekcijah zapisati tudi množici $A$ in $B$, ki tvorita kartezični produkt, na
-primer nekaj takega kot $\fst^{A,B} : A \times B \to A$.
-%
-Ko torej vpeljemo novo zapis, lahko nekatere argumente razglasimo za \textbf{implicitne}, kar pomeni, da jih bomo opuščali,
-kadar to ne pripelje do zmede.
+\begin{center}
+\begin{tikzpicture}[scale=0.5]
 
-\begin{vaja}
-  Ali ima kompozicija preslikav $\circ$ implicitne argumente? Katere?
-\end{vaja}
+% Triangle vertices
+\coordinate (A) at (3,10);
+\coordinate (B) at (0,0);
+\coordinate (C) at (8,2);
+\coordinate (P) at (4,1);
+\coordinate (Q) at (7/2,3);
+\coordinate (R) at (243/218, 405/109);
+\coordinate (S) at (1119/178, 422/89);
 
-\subsubsection{Privzete vrednosti}
-\label{sec:privzete-vrednosti}
+% Draw the perpendiculars from midpoints to opposite sides
+\draw[thick] (S) -- (Q);
+\draw[thick] (R) -- (Q);
+\draw[thick] (P) -- (Q);
+\draw[thick] (B) -- (Q);
+\draw[thick] (C) -- (Q);
+\draw[thick] (A) -- (Q);
 
-Argument operacije ima lahko \textbf{privzeto vrednost}. Na primer logaritem $x$ z osnovo $b$ zapišemo $\log_b x$. Če opustimo~$b$, se razume, da je mišljen desetiški logaritem, $\log x = \log_10 x$. Pravimo, da je privzeta vrednost osnove $b = 10$.
+% Draw triangle
+\draw[very thick] (A) -- (B) -- (C) -- cycle;
 
-\subsubsection{Preobteževanje}
-\label{sec:preobteevanje}
+% Perpendicular marks
+\draw [right angle symbol={B}{A}{Q}];
+\draw [right angle symbol={C}{A}{Q}];
+\draw [right angle symbol={B}{C}{Q}];
 
-Simbol lahko tudi \textbf{preobtežimo}, da ima več pomenov, nato pa od bralca pričakujemo, da bo uganil, katerega smo
-mislili. Na primer, $+$ uporabljamo za
-%
-seštevanje naravnih števil,
-seštevanje celih števil,
-seštevanje racionalnih števil,
-seštevanje realnih števil,
-seštevanje kompleksnih števil,
-seštevanje vektorjev,
-seštevanje matrik,
-itd.
-%
-S preobteževanjem ne gre pretiravati, ker lahko pripelje do zmede. Običajno z istim simbolom označimo različne operacije, ki imajo kaj skupnega. Na primer, $+$ vedno uporabljamo le za operacijo, ki je komutativna, asociativna in ima nevtralni element.
+\tkzMarkAngle[size=2,mark=|](B,A,Q)
+\tkzMarkAngle[size=2,mark=|](Q,A,S)
 
+% Points
+\fill (A) circle (5pt) node[above] {A};
+\fill (B) circle (5pt) node[below left] {B};
+\fill (C) circle (5pt) node[below right] {C};
+\fill (P) circle (5pt) node[below] {P};
+\fill (S) circle (5pt) node[above right] {S};
+\fill (R) circle (5pt) node[above left] {R};
+\fill (Q) circle (5pt) node[above right] {Q};
+\end{tikzpicture}
+\end{center}
+    \caption{trikotnik $\triangle ABC$}
+    \label{fig:trikotnik}
+  \end{figure}
+  %
+  Naj bo $P$ središče stranice $BC$ ter $Q$ presečišče simetrale kota $\angle BAC$ in simetrale stranice $BC$.
+  Naj bo~$R$ pravokotna projekcija točke~$Q$ na stranico~$AB$ in~$S$ pravokotna projekcija točke~$Q$ na stranico~$AC$.
+  %
+  Trikotnik~$\triangle BCQ$ je enakokrak z vrhom~$Q$, zato velja $BQ \cong CQ$.
+  %
+  Trikotnika $\triangle AQR$ in~$\triangle AQS$ sta podobna, saj skladna, ker imata skupno stranico in kota ob njej, torej velja $AR \cong AS$ in $QR \cong QS$.
+  %
+  Sklepamo, da sta tudi trikotnika $\triangle BQR$ in $\triangle CQS$ skladna, saj sta pravokotna trikotnika s skladno kateto in skladno hipotenuzo. Potemtakem sta skladni še preostali kateti, $RB \cong SC$, od koder izračunamo
+  %
+  \begin{equation*}
+    AB \cong AR + RB \cong AS + SC \cong AC.
+  \end{equation*}
+  %
+  Trikotnik $\triangle ABC$ je res enakokrak.
+\end{dokaz}
 
 \section{Logične formule}
 
