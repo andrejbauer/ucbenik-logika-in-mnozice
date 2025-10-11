@@ -353,9 +353,14 @@ Zapomnimo si, da je prirejanje $X \to Y$ podano pravilno, če zadošča naslednj
 %
 \begin{itemize}
 \item \df{celovitost}: vsakemu elementu iz $X$ je prirejen vsaj en element iz $Y$,
-\item \df{enoličnost}: če sta elementu $x$ prirejena $y \in Y$ in $z \in Y$, potem $y = z$.
+\item \df{enoličnost}: če sta elementu $x \in X$ prirejena $y \in Y$ in $z \in Y$, potem $y = z$.
 \end{itemize}
 
+
+\subsection{Identiteta in konstantna preslikava}
+\label{sec:ident-konst-presl}
+
+Dve posebej preprosti zvrsti preslikav sta identiteta in konstantna preslikava.
 Za vsako množico~$A$ je \df{identiteta} na~$A$ preslikava
 %
 \begin{equation*}
@@ -376,8 +381,12 @@ Za vsaki množici $A$ in $B$ ter $b \in B$ \df{konstantna preslikava}
   \konst{b} : A \to B
 \end{equation*}
 %
-priredi vsakemu elementu iz~$A$ element~$b$. Sami premislite, da je tako prirejanje
-celovito in enolično.
+priredi vsakemu elementu iz~$A$ element~$b$. Za vajo preverimo, da je to prirejanje celovito in enolično:
+%
+\begin{itemize}
+\item celovitost: vsakemu $x \in A$ priredimo vsaj en element~$B$, namreč~$b$.
+\item enoličnost: če sta $x \in A$ prirejena $y_1 \in B$ in $y_2 \in B$, potem sta enaka, ker sta oba enaka~$b$.
+\end{itemize}
 
 \subsection{Funkcijski predpisi}
 \label{sec:funkcijski-predpisi}
