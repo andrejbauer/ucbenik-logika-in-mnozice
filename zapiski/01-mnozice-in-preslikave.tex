@@ -342,14 +342,14 @@ V teoriji množic lahko prirejanje med elementi domene in kodomene podamo na kak
 
 \begin{zgled}
   \label{zgled:prirejanje-opis}
-  Preslikava $f : \RR \to \RR$ je podana s prirejanjem, ki elementu $x \in \RR$ iz domene priredi najmanjše realno število $y \in \RR$ iz kodomene, za katerega velja $x y^5 + y + 1 = 0$.
+  Preslikava $f : \RR \to \RR$ je podana s prirejanjem, ki elementu $x \in \RR$ iz domene priredi najmanjše realno število $y \in \RR$ iz kodomene, za katerega velja $y^5 + y = x$.
 \end{zgled}
 
-Takoj se moramo vprašati, ali prirejanje v zgledu sploh poda preslikavo? Ali je res, da za vsak~$x \in \RR$ obstaja natanko en~$y \in \RR$, ki ima lastnost: najmanjše realno število~$y$, ki zadošča $x y^5 + y + 1 = 0$. Odgovor je pritrdilen: $y$ obstaja, ker je $x y^5 + y + 1$ polinom lihe stopnje v spremenljivki~$y$ in ima vsaj eno realno ničlo, po drugi strani pa je $y$ enolično določen, ker je ena od končno mnogo ničel tega polinoma najmanjša.
+Takoj se moramo vprašati, ali prirejanje v zgledu sploh poda preslikavo? Ali je res, da za vsak~$x \in \RR$ obstaja natanko en~$y \in \RR$, ki ima lastnost: najmanjše realno število~$y$, ki zadošča $x y^5 + y = x$. Odgovor je pritrdilen: $y$ obstaja, ker je $x y^5 + y - x$ polinom lihe stopnje v spremenljivki~$y$ in ima vsaj eno realno ničlo, po drugi strani pa je $y$ enolično določen, ker je ena od končno mnogo ničel tega polinoma najmanjša.
 %
 Če bi v zgledu potenco~$5$ nadomestili s~$6$, bi zgled pokvarili. Znate to utemeljiti?
 
-Zapomnimo si, da je prirejanje $X \to Y$ podano pravilno, če zadošča naslednjima pogojema:
+Zapomnimo si, da je prirejanje med domeno~$X$ in kodomeno~$Y$ podano pravilno, če zadošča naslednjima pogojema:
 %
 \begin{itemize}
 \item \df{celovitost}: vsakemu elementu iz $X$ je prirejen vsaj en element iz $Y$,
@@ -367,38 +367,15 @@ Za vsako množico~$A$ je \df{identiteta} na~$A$ preslikava
   \id[A] : A \to A
 \end{equation*}
 %
-ki element $x \in A$ priredi~$x$.
-
+ki elementu $x \in A$ priredi~$x$.
+%
 Za vsaki množici $A$ in $B$ ter $b \in B$ \df{konstantna preslikava}
 %
 \begin{equation*}
   \konst{b} : A \to B
 \end{equation*}
 %
-priredi vsakemu elementu iz~$A$ element~$b$. Za vajo preverimo, da je to prirejanje celovito in enolično:
-%
-\begin{itemize}
-\item celovitost: vsakemu $x \in A$ priredimo vsaj en element~$B$, namreč~$b$.
-\item enoličnost: če sta $x \in A$ prirejena $y_1 \in B$ in $y_2 \in B$, potem sta enaka, ker sta oba enaka~$b$.
-\end{itemize}
-
-\subsection{Funkcijski predpisi}
-\label{sec:funkcijski-predpisi}
-
-Predpise lahko podamo na različne načine, najbolj pogost pa je \df{funkcijski predpis}, ki
-se mu še posebej posvetimo in se ob njem naučimo nekaj natančnosti. Funkcijski predpis ima
-obliko
-%
-\begin{equation*}
-  x \mapsto \cdots,
-\end{equation*}
-%
-ki smo jo že videli maloprej. Na desni, lahko namesto $\cdots$ zapišemo izraz, v katerem
-se sme pojaviti simbol~$x$, denimo
-%
-\begin{equation*}
-  x \mapsto 1 + x^2.
-\end{equation*}
+priredi vsakemu elementu iz~$A$ element~$b$.
 %
 S funkcijskim predpisom zapišemo identiteto in konstantno preslikavo takole:
 %
@@ -412,17 +389,23 @@ S funkcijskim predpisom zapišemo identiteto in konstantno preslikavo takole:
   \konst{b} &: x \mapsto b.
 \end{align*}
 
-Ni nujno, da se~$x$ pojavi, denimo $x \mapsto 42$ vsakemu elementu iz domene priredi
-število $42$. V funkcijskem predpisu se smejo pojaviti tudi drugi simboli, ki jim
-pravimo \df{parametri}. Tako je
+\subsection{Funkcijski predpisi}
+\label{sec:funkcijski-predpisi}
+
+Predpisu \nls{$x$ se slika v \dots}, ki ga zapišemo
 %
 \begin{equation*}
-  x \mapsto a \cdot x + b
+  x \mapsto \cdots
 \end{equation*}
 %
-funkcijski predpis s parametroma $a$ in $b$, ki elementu $x$ priredi element $a \cdot x + b$.
-
-Spremenljivka $x$ nima v naprej določene vrednosti, pač pa kaže, kam lahko vstavimo
+pravimo tudi \df{funkcijski predpis}. Posvetimo se mu in se ob njem naučimo nekaj natančnosti.
+Na desni, lahko namesto $\cdots$ zapišemo izraz, v katerem se sme pojaviti simbol~$x$, denimo
+%
+\begin{equation*}
+  x \mapsto 1 + x^2.
+\end{equation*}
+%
+Spremenljivka~$x$ nima v naprej določene vrednosti, pač pa kaže, kam lahko vstavimo
 elemente domene. Pravimo, da je $x$ \df{vezana spremenljivka}, kar pomeni, da je veljavna
 le v funkcijskem predpisu, nanj je vezana, in da ni pomembno, s katerim simbolom jo
 označimo. Tako sta funkcijska predpisa
@@ -436,6 +419,15 @@ označimo. Tako sta funkcijska predpisa
 enaka in lahko bi celo pisali $\Box \mapsto 1 + \Box^2$ ali
 $\heartsuit \mapsto 1 + \heartsuit^2$.
 
+V funkcijskem predpisu se smejo pojaviti tudi druge spremenljivke, ki jim
+pravimo \df{parametri}. Predpis \nls{pomnoži z~$a$ in prištej~$b$} zapišemo
+%
+\begin{equation*}
+  x \mapsto a \cdot x + b,
+\end{equation*}
+%
+tu sta $a$ in $b$ parametra in $x$ vezana spremenljivka.
+
 V funkcijskem predpisu mora na levi stati en sam simbol, ki na desni kaže, kam je treba
 vstaviti element iz domene. Tako
 %
@@ -447,7 +439,7 @@ vstaviti element iz domene. Tako
   \sin(x) \mapsto 2 \cdot \sin(x)
 \end{equation*}
 %
-\emph{niso} veljavni funkcijski predpisi.
+\emph{niso} veljavni funkcijski predpisi. Kasneje bomo spoznali izjeme, ko je dovoljeno pisati tudi kaj drugega kot golo spremenljivko.
 
 Seveda dopuščamo možnost, da se vezana spremenljivka pojavi enkrat, večkrat ali sploh ne.
 Funkcijska predpisa
@@ -461,13 +453,13 @@ Funkcijska predpisa
 %
 sta torej veljavna.
 
-Če želimo preslikavo z danim funkcijskim predpisom poimenovati, na primer $f$, zapišemo
+Če želimo preslikavo z danim funkcijskim predpisom poimenovati, na primer~$f$, zapišemo
 %
 \begin{equation*}
   f : x \mapsto 1 + x^2.
 \end{equation*}
 %
-To preberemo ">$f$ slika $x$ v ena plus $x$ na kvadrat."< Običajna sta tudi zapisa
+To preberemo \nls{$f$ slika $x$ v ena plus $x$ na kvadrat}. Običajna sta tudi zapisa
 %
 \begin{equation*}
   f(x) = 1 + x^2
@@ -475,6 +467,8 @@ To preberemo ">$f$ slika $x$ v ena plus $x$ na kvadrat."< Običajna sta tudi zap
   f(x) \dfeq 1 + x^2.
 \end{equation*}
 %
+Mi se bomo držali zapisa z $\dfeq$, da bomo lahko ločili med definicijo~$f$ in trditvijo, da je $f(x)$ enako neki vrednosti.\footnote{Naslednji primer pojasni, v čem je razlika med $\dfeq$ in $=$: ``Naj bo preslikava $f : \RR \to \RR$ definirana s predpisom $f(x) \dfeq 1 + x^2$. Tedaj za vse $x \in \RR$ velja $f(x) = (x + 1)^2 - 2 x$.''}
+
 Funkcijske predpise je podrobno prvi preučeval Alonzo Church,\footnote{Alonzo Church
   (1903--1995) je bil ameriški matematik in logik, ki je pomembno prispeval k razvoju
   logike in teoretičnega računalništva. Njegov študent, Dana Stewarta Scott, je imel
@@ -503,7 +497,7 @@ matematiki tega zares zavedali. Funkcijski predpis mora določati vezano spremen
 sicer ne vemo, kako vstaviti vrednosti. Na žalost jo matematiki pogosto izpustijo skupaj
 z $\mapsto$ in pišejo $1 + x^2$ namesto $x \mapsto 1 + x^2$.
 %
-Težava je v tem, da se lahko v funkcijskem predpisu pojavi več kot en simbol. Če vam na primer nekdo poe, da ima v mislih funkcijski predpis
+Težava je v tem, da se lahko v funkcijskem predpisu pojavi več kot en simbol. Če vam na primer nekdo pove, da ima v mislih funkcijski predpis
 %
 \begin{equation*}
   a \cdot x + b
@@ -595,14 +589,15 @@ zahtevo, da naravnemu številu $n \in \NN$ priredi celo število $k \in \ZZ$, ka
 \end{equation*}
 %
 To prirejanje je veljavno, če je celovito in enolično, česar ne bomo preverjali, lahko pa
-poskusite sami. Nekaj prirejanj $g$ prikazuje naslednja razpredelnica:
+poskusite sami.
+%Nekaj prirejanj $g$ prikazuje naslednja razpredelnica:
 %
-\begin{align*}
-0 &\mapsto 0   &   4 &\mapsto 2   &    8  &\mapsto 2   &   12 &\mapsto 3 \\
-1 &\mapsto 1   &   5 &\mapsto 2   &    9  &\mapsto 3   &   13 &\mapsto 3 \\
-2 &\mapsto 1   &   6 &\mapsto 2   &    10 &\mapsto 3   &   14 &\mapsto 3 \\
-3 &\mapsto 1   &   7 &\mapsto 2   &    11 &\mapsto 3   &   15 &\mapsto 3
-\end{align*}
+% \begin{align*}
+% 0 &\mapsto 0   &   4 &\mapsto 2   &    8  &\mapsto 2   &   12 &\mapsto 3 \\
+% 1 &\mapsto 1   &   5 &\mapsto 2   &    9  &\mapsto 3   &   13 &\mapsto 3 \\
+% 2 &\mapsto 1   &   6 &\mapsto 2   &    10 &\mapsto 3   &   14 &\mapsto 3 \\
+% 3 &\mapsto 1   &   7 &\mapsto 2   &    11 &\mapsto 3   &   15 &\mapsto 3
+% \end{align*}
 %
 Ali znate z besedami opisati preslikavo~$g$?
 
@@ -651,7 +646,7 @@ uporabimo na argumentu~$3$:
 \end{equation*}
 %
 Se vam zdi tak zapis nenavaden? Verjetno, a pomislite, zakaj: ker so vas vzgojili, da
-je treba vse preslikave vedno poimenovali in se nanje skliceval z njihovim imenom.\footnote{Če bi veljalo enako tudi yza števila, vam v srednji šoli ne bi pustili pisati kar $3 + 5$, nujno bi bilo poimenovanje $a \dfeq 3 + 5$. Tudi trikotnika ne bi smeli narisati, ne da bi mu dali simbolno ime.}
+je treba vse preslikave vedno poimenovali in se nanje skliceval z njihovim imenom.\footnote{Če bi veljalo enako tudi za števila, vam v srednji šoli ne bi pustili pisati kar $3 + 5$, nujno bi bilo poimenovanje $a \dfeq 3 + 5$. Tudi trikotnika ne bi smeli narisati, ne da bi mu dali simbolno ime.}
 %
 Navkljub dobri vzgoji, bomo s preslikavami delali enako kot s števili, vektorji in
 ostalimi matematičnimi objekti. Računalničarji radi rečejo, da
@@ -697,38 +692,35 @@ Podobno kot za množice tudi za preslikave velja pravilo ekstenzionalnosti, ki p
 Natančneje, če sta $f : A \to B$ in $g : C \to D$ preslikavi in velja $A = C$, $B = D$ ter
 za vsak $x \in A$ velja $f(x) = g(x)$, tedaj velja $f = g$.
 
-Takoj opozorimo na razliko med
+Opozorimo na razliko med
 %
 \begin{equation*}
   f(x) = g(x)
   \qquad\text{in}\qquad
-  f = g
+  f = g.
 \end{equation*}
 %
-saj bi marsikdo trdil, da med njima ni razlike. Levi izraz pravi, da sta $f(x)$ in $g(x)$
-enaka elementa množice $C$, desni pa da sta $f$ in~$g$ enaki preslikavi iz $A$ v $B$. Na
-sploh je treba razlikovati med $f$ in $f(x)$, saj to nikakor nista enaka objekta: prvi je
+Levi izraz pravi, da sta $f(x)$ in $g(x)$ enaka elementa kodomene, desni pa da sta $f$ in~$g$ enaki preslikavi
+%
+Na sploh je treba razlikovati med $f$ in $f(x)$, saj to nikakor nista enaka objekta: prvi je
 preslikava, drugi pa vrednost te preslikave pri~$x$. Verjetno nihče ne bi trdil, da je
 preslikava $\cos$ isto kot $\cos \frac{\pi}{4}$, ali ne? Isti razmislek veleva, da
-$\cos x$ ni isto kot $\cos$, če tudi si mislimo, da je $x$ poljuben. Zmeda izhaja iz
-neprimernega zapisa preslikav. Če bi že od malih nog pravilno uporabljali funkcijske
-predpise, bi seveda vedeli, da pravilo ekstenzionalnosti za preslikave zagotavlja enakost
-~$\cos$ in $x \mapsto \cos x$, oba pa sta različna od $\cos x$, ki sploh ni preslikava,
-ampak neko realno število. Čeprav je število $\cos x$ odvisno od parametra~$x$, je še
-vedno le število.
+$\cos x$ ni isto kot $\cos$, če tudi si mislimo, da je $x \in \RR$ neko neznano realno število.
+Zmeda izhaja iz neprimernega zapisa preslikav, ko na primer rečemo \nls{$\cos x$ je soda funkcija}, čeprav bi bilo pravilno \nls{$\cos$ je soda funkcija}.
+%
+Če dosledno uporabljamo funkcijske predpise in vezane spremenljivke, lažje razumemo, da sta $\cos$ in $x \mapsto \cos x$ enaki preslikavi, zahvaljujoč pravilu ekstenzionalnosti, obe pa sta različni $\cos x$, ki sploh ni funkcija, ampak realno število, odvisno od parametra~$x$.
 
 V bran tradicionalnemu zapisu pa moramo vseeno povedati, da se lahko \emph{dogovorimo} za
-nekoliko napačen zapis, če to ne povzroča zmede. S tem se izognemu preveč birokratskemu
-pisanju nebistvenih podrobnosti in lahko bistveno izboljšamo komunikacijo in razumevanje
-med izkušenimi matematiki. A začetnikom priporočamo, da v dobrobit boljšega razumevanja
-snovi vsaj na začetku študija raje vztrajajo pri doslednem zapisu.
+nekoliko napačen zapis, če to ne povzroča zmede. S tem se izkušeni matematik izogne preveč birokratskemu
+pisanju nebistvenih podrobnosti in lahko bolj učinkovito komunicira s stanovskimi kolegicami in kolegi.
+A začetnikom priporočamo, da v dobrobit boljšega razumevanja snovi vsaj na začetku študija raje vztrajajo pri doslednem zapisu.
 
 Vrnimo se še k pravilu ekstenzionalnosti preslikav. Ali ni pravzaprav očitno, da sta
 preslikavi enaki, če imata enaki domeni, kodomeni in vrednosti? Morda res, a to ni razlog,
 da tega ne bi eksplicitno zapisali. Vsak matematik vam ve povedati kako zgodbo o tem,
 kako se je v dokazu skrivala napako ravno tam, kjer je bilo nekaj ">očitno"<. Poleg tega
 pa si lahko predstavljamo razmere, v katerih je smiselno razlikovati med dvema
-preslikavama, ki imata vedno enake vrednosti, denimo v programiranju, kjer je učinkovitost
+preslikavama, ki imata vedno enake vrednosti, denimo v programiranju, kjer je računska učinkovitost
 zelo pomembna.
 
 \section{Zmnožek, vsota in eksponent množic}
