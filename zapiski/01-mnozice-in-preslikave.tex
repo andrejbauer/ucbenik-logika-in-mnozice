@@ -282,7 +282,7 @@ logaritem itd. Nas pa ne bodo zanimale posamezne preslikave, ali posebne lastnos
 preslikav, ampak preslikave na splošno.
 
 Vsaka preslikava ima tri sestavne dele: \df{domeno} ali \df{začetno množico},
-\df{kodomeno} ali \df{ciljno množico} in \df{predpis}. Domeni se pogosto reče tudi
+\df{kodomeno} ali \df{ciljno množico} in \df{prirejanje}. Domeni se pogosto reče tudi
 \df{definicijsko območje}. Če govorimo o preslikavi, ki ima domeno~$X$ in kodomeno~$Y$, to
 ponazorimo s puščico med $X$ in $Y$, takole
 %
@@ -336,18 +336,18 @@ in preberemo ">$x$ se slika v dvakrat sinus od $x$ plus pi četrtin."<
 Matematiki smo natančni, zato ne mešamo uporabe puščic $\to$ in $\mapsto$. Navadna puščica
 se uporablja pri oznaki domene in kodomene, repata pa v predpisu. V računalništvu besedo
 `predpis' razumemo kot `programska koda' in o preslikavah razmišljajo kar kot o
-algoritmih --- tudi to je eden od možnih pogledov na preslikave.
+algoritmih.
 
 V teoriji množic lahko prirejanje med elementi domene in kodomene podamo na kak drug način, ki ga ne moremo neposredno izraziti z matematično formulo.
 
 \begin{zgled}
   \label{zgled:prirejanje-opis}
-  Preslikava $f : \RR \to \RR$ je podana s prirejanjem, ki elementu $x \in \RR$ iz domene priredi najmanjše realno število $y \in \RR$ iz kodomene, za katerega velja $y^5 + y = x$.
+  Definirajmo preslikavo $f : \RR \to \RR$ s prirejanjem, ki elementu $x \in \RR$ iz domene priredi najmanjše realno število $y \in \RR$ iz kodomene, za katerega velja $y^5 + y = x$.
+  %
+  Ali to prirejanje sploh poda preslikavo? Ali je res, da za vsak~$x \in \RR$ obstaja natanko en~$y \in \RR$, ki je najmanjše realno število~$y$, ki zadošča $x y^5 + y = x$? Odgovor je pritrdilen: $y$ obstaja, ker je $x y^5 + y - x$ polinom lihe stopnje v spremenljivki~$y$ in ima vsaj eno realno ničlo, po drugi strani pa je~$y$ enolično določen, ker je ena od končno mnogo ničel tega polinoma najmanjša.
+  %
+  Če bi v zgledu potenco~$5$ nadomestili s~$6$, bi zgled pokvarili. Znate to utemeljiti?
 \end{zgled}
-
-Takoj se moramo vprašati, ali prirejanje v zgledu sploh poda preslikavo? Ali je res, da za vsak~$x \in \RR$ obstaja natanko en~$y \in \RR$, ki ima lastnost: najmanjše realno število~$y$, ki zadošča $x y^5 + y = x$. Odgovor je pritrdilen: $y$ obstaja, ker je $x y^5 + y - x$ polinom lihe stopnje v spremenljivki~$y$ in ima vsaj eno realno ničlo, po drugi strani pa je $y$ enolično določen, ker je ena od končno mnogo ničel tega polinoma najmanjša.
-%
-Če bi v zgledu potenco~$5$ nadomestili s~$6$, bi zgled pokvarili. Znate to utemeljiti?
 
 Zapomnimo si, da je prirejanje med domeno~$X$ in kodomeno~$Y$ podano pravilno, če zadošča naslednjima pogojema:
 %
@@ -467,7 +467,17 @@ To preberemo \nls{$f$ slika $x$ v ena plus $x$ na kvadrat}. Običajna sta tudi z
   f(x) \dfeq 1 + x^2.
 \end{equation*}
 %
-Mi se bomo držali zapisa z $\dfeq$, da bomo lahko ločili med definicijo~$f$ in trditvijo, da je $f(x)$ enako neki vrednosti.\footnote{Naslednji primer pojasni, v čem je razlika med $\dfeq$ in $=$: ``Naj bo preslikava $f : \RR \to \RR$ definirana s predpisom $f(x) \dfeq 1 + x^2$. Tedaj za vse $x \in \RR$ velja $f(x) = (x + 1)^2 - 2 x$.''}
+Mi se bomo držali zapisa z $\dfeq$, da bomo lahko ločili med definicijo~$f$ in trditvijo, da je $f(x)$ enak neki vrednosti.
+
+\begin{zgled}
+  Z zgledom pojasnimo, zakaj je pametno zapisati definicijo z enim simbolom in enakost z drugim:
+  %
+  \begin{quote}
+    ``Naj bo preslikava $f : \RR \to \RR$ definirana s predpisom $f(x) \dfeq 1 + x^2$. Tedaj za vse $x \in \RR$ velja $f(x) = (x + 1)^2 - 2 x$.'' 
+  \end{quote}
+  %
+  V prvi povedi smo~$f$ \emph{definirali}, v drugi pa \emph{trdili}, da velja zapisana enakost.
+\end{zgled}
 
 Funkcijske predpise je podrobno prvi preučeval Alonzo Church,\footnote{Alonzo Church
   (1903--1995) je bil ameriški matematik in logik, ki je pomembno prispeval k razvoju
@@ -527,7 +537,7 @@ funkcijski predpis
 ni celovit, če je domena množica realnih števil, in je celovit, če je domena množica
 racionalnih števil. Tudi kodomeno moramo poznati, sicer ne moremo določiti nekaterih
 lastnosti preslikave, kot je na primer surjektivnost, glej
-razdelek~\ref{razdelek:injektivnost-in-surjektivnost}.
+poglavje~\ref{cha:lastnosti-preslikav}.
 
 
 
@@ -1101,20 +1111,11 @@ podobna, le da bi imeli več injekcij in več primerov.
 \subsection{Eksponent}
 \label{sec:eksponent}
 
-Denimo, da sta $A$ in $B$ množici. Tedaj lahko obravnavamo preslikave
-%
-\begin{equation*}
-  A \to B
-\end{equation*}
-%
-z domeno $A$ in kodomeno $B$. Ali vse take preslikave tvorijo množico? Russellov paradoks
-nas je izučil, da moramo pazljivo postaviti pravila za konstrukcije množic, nato pa jih
-strogo držati. Pravila, ki smo jih podali do sedaj, ne zagotavljajo knostrukcije množic
-vseh preslikav iz $A$ v $B$. Potrebujemo novo pravilo.
+Pravila, ki smo jih podali do sedaj, ne zagotavljajo obstoja množice vseh preslikav z dano domeno in kodomeno. Potrebujemo novo pravilo.
 
 \begin{pravilo}[Eksponent]
-  Za vsaki množici $A$ in $B$ ima \df{eksponent} ali \df{eksponentna množica $B^A$} za
-  elemente natanko vse preslikave iz~$A$ v~$B$.
+  Za vsaki množici $A$ in $B$ je \df{eksponent} ali \df{eksponentna množica $B^A$},
+  katere elementi so natanko vse preslikave iz~$A$ v~$B$.
 \end{pravilo}
 
 Potemtakem je zapis $f : A \to B$ enakovreden zapisu $f \in B^A$.
