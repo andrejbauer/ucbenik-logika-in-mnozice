@@ -192,11 +192,11 @@ V matematiki razumemo besedilo dobesedno. Ker v pravilu~\ref{pravilo:koncna-mnoz
 objekte}, imamo povsem proste rok. Povedano z drugimi besedami, množico
 $\set{2, 1, 1}$ smemo tvoriti, ker nikjer ne piše, da moramo našteti različne elemente.
 
-\subsection{Prazna množica, dvojec in unija}
+\subsection{Prazna množica, enojec, dvojec in unija}
 \label{sec:prazna-dvojec-unija}
 
 Nesrečno tropičje v pravilu~\ref{pravilo:koncna-mnozica} povzroča dovolj dvomov, da bi ga bilo dobro odpraviti.
-To dosežemo s tremi novimi pravili, ki imajo skupaj enak učinek kot prvotno pravilo.
+To dosežemo s tremi nadomestnimi pravili, ki imajo skupaj enak učinek kot prvotno pravilo.
 
 \begin{pravilo}
   \label{pravilo:prazna-mnozica}
@@ -211,8 +211,8 @@ To dosežemo s tremi novimi pravili, ki imajo skupaj enak učinek kot prvotno pr
 
 \begin{pravilo}
   \label{pravilo:unija}
-  Za vsaki množici $A$ in $B$ je \df{unija $A \cup B$} množica, ki ima za elemente
-  natanko vse objekte, ki so element $A$ ali element $B$.
+  \df{Unija $A \cup B$} množic~$A$ in~$B$ je množica, ki ima za elemente
+  natanko vse objekte, ki so element $A$ ali element $B$ (lahko tudi obeh).
 \end{pravilo}
 
 V pravilu~\ref{pravilo:neurejeni-dvojec} smo besedo \nls{neurejeni} zapisali v oklepaju, kar
@@ -253,7 +253,7 @@ Naslednje pravilo zagotavlja tako množico.
 
 \begin{pravilo}
   \label{pravilo:enojec}
-  \df{Standardni enojec} je množica~$\one$, katere edini element je~$\unit$.
+  \df{Standardni enojec}~$\one$ je množica, katere edini element je~$\unit$.
 \end{pravilo}
 
 Morda se zdi nenavadno, da množico označimo s številom, a ta občutek bo hitro izginil, ko
@@ -261,7 +261,7 @@ bomo računali z množicami. Pravaprav bi lahko prazno množico označili z nič
 in nekateri matematiki to dejansko počnejo.
 
 Edini element množice $\one$ smo nenavadno zapisali $\unit$. To ni tiskarska napaka,
-ampak načrtna izbira, ki bo pojasnjena v razdeleku~\ref{sec:algebra-mnozic}.
+ampak načrtna izbira, ki bo pojasnjena v razdeleku~\ref{sec:aritmetika-mnozic}.
 In seveda velja $\one = \set{\unit}$.
 
 Pravilo~\ref{pravilo:enojec} ni nujno potrebno, saj lahko tvorimo veliko različnih enojcev,
@@ -338,25 +338,6 @@ se uporablja pri oznaki domene in kodomene, repata pa v predpisu. V računalniš
 `predpis' razumemo kot `programska koda' in o preslikavah razmišljajo kar kot o
 algoritmih.
 
-V teoriji množic lahko prirejanje med elementi domene in kodomene podamo na kak drug način, ki ga ne moremo neposredno izraziti z matematično formulo.
-
-\begin{zgled}
-  \label{zgled:prirejanje-opis}
-  Definirajmo preslikavo $f : \RR \to \RR$ s prirejanjem, ki elementu $x \in \RR$ iz domene priredi najmanjše realno število $y \in \RR$ iz kodomene, za katerega velja $y^5 + y = x$.
-  %
-  Ali to prirejanje sploh poda preslikavo? Ali je res, da za vsak~$x \in \RR$ obstaja natanko en~$y \in \RR$, ki je najmanjše realno število~$y$, ki zadošča $x y^5 + y = x$? Odgovor je pritrdilen: $y$ obstaja, ker je $x y^5 + y - x$ polinom lihe stopnje v spremenljivki~$y$ in ima vsaj eno realno ničlo, po drugi strani pa je~$y$ enolično določen, ker je ena od končno mnogo ničel tega polinoma najmanjša.
-  %
-  Če bi v zgledu potenco~$5$ nadomestili s~$6$, bi zgled pokvarili. Znate to utemeljiti?
-\end{zgled}
-
-Zapomnimo si, da je prirejanje med domeno~$X$ in kodomeno~$Y$ podano pravilno, če zadošča naslednjima pogojema:
-%
-\begin{itemize}
-\item \df{celovitost}: vsakemu elementu iz $X$ je prirejen vsaj en element iz $Y$,
-\item \df{enoličnost}: če sta elementu $x \in X$ prirejena $y \in Y$ in $z \in Y$, potem $y = z$.
-\end{itemize}
-
-
 \subsection{Identiteta in konstantna preslikava}
 \label{sec:ident-konst-presl}
 
@@ -388,6 +369,66 @@ S funkcijskim predpisom zapišemo identiteto in konstantno preslikavo takole:
   &
   \konst{b} &: x \mapsto b.
 \end{align*}
+
+\subsection{Kako še lahko podamo prirejanje}
+\label{sec:drugi-nacin-prirejanje}
+
+V teoriji množic lahko prirejanje med elementi domene~$X$ in kodomene podamo~$Y$ na kak drug način, ki ga ne moremo neposredno izraziti z matematično formulo. Paziti moramo le, da zadošča pogojema:
+%
+\begin{itemize}
+\item \df{celovitost}: vsakemu elementu iz $X$ je prirejen vsaj en element iz $Y$,
+\item \df{enoličnost}: če sta elementu $x \in X$ prirejena $y \in Y$ in $z \in Y$, potem $y = z$.
+\end{itemize}
+%
+Obravnavajmo nekaj zgledov.
+
+\begin{zgled}
+  \label{zgled:prirejanje-opis}
+  Definirajmo preslikavo $f : \RR \to \RR$ s prirejanjem, ki elementu $x \in \RR$ iz domene priredi najmanjše realno število $y \in \RR$ iz kodomene, za katerega velja $y^5 + y = x$.
+  %
+  Ali to prirejanje sploh poda preslikavo? Ali je res, da za vsak~$x \in \RR$ obstaja natanko en~$y \in \RR$, ki je najmanjše realno število~$y$, ki zadošča $x y^5 + y = x$? Odgovor je pritrdilen: $y$ obstaja, ker je $x y^5 + y - x$ polinom lihe stopnje v spremenljivki~$y$ in ima vsaj eno realno ničlo, po drugi strani pa je~$y$ enolično določen, ker je ena od končno mnogo ničel tega polinoma najmanjša.
+  %
+  Če bi v zgledu potenco~$5$ nadomestili s~$6$, bi zgled pokvarili. Znate to utemeljiti?
+\end{zgled}
+
+Preslikavo s \emph{končno} domeno lahko podamo s tabelo, denimo:
+%
+\begin{center}
+  $f : \set{1, 2, 3, 5} \to \NN$
+
+  \medskip
+
+  \begin{tabular}{cc}
+    \toprule
+    $x$ & $f(x)$ \\ \midrule
+    $1$ & $10$ \\ 
+    $2$ & $10$ \\ 
+    $3$ & $20$ \\ 
+    $5$ & $10$ \\ \bottomrule
+  \end{tabular}
+\end{center}
+%
+Tabela elementu v levem stolpcu priredi istoležni element v desnem stolpcu: $1$ priredi $10$, $2$ priredi $10$, $3$ priredi $20$ in $5$ priredi $10$. Funkcijo lahko predstavimo tudi tako, da naštejemo vsa prirejanja:
+%
+\begin{align*}
+  f(1) &\dfeq 10    &&\text{ali}&    f : 1 &\mapsto 10 \\
+  f(2) &\dfeq 10    &&&    f : 2 &\mapsto 10 \\
+  f(3) &\dfeq 20    &&&    f : 3 &\mapsto 20 \\
+  f(5) &\dfeq 10    &&&    f : 5 &\mapsto 10.
+\end{align*}
+%
+To se še vedno le tabele, predstavljene na drugačen način. Pomembno je, da je domena~$f$ končna množica.
+
+Preslikava je lahko določena tudi z opisom računskega postopka, pravimo mu \df{algoritem},
+s pomočjo katerega izračunamo vrednost preslikave pri danem argumentu. Paziti moramo, da je
+opis postopka res natančen in nedvoumen, lahko ga kar zapišemo kot program.
+
+\begin{vaja}
+ Definirajmo preslikavo $g : \NN \to \ZZ$ z zahtevo, da naravnemu številu $n \in \NN$ priredi tisto celo število $k \in \ZZ$, za katerega velja $k^2 \leq n < (k+1)^2$.
+ %
+ Preverite, da je prirejanje celovito in enolično in podajte čim bolj razumljiv besedni opis preslikave~$g$.
+\end{vaja}
+
 
 \subsection{Funkcijski predpisi}
 \label{sec:funkcijski-predpisi}
@@ -515,18 +556,24 @@ Težava je v tem, da se lahko v funkcijskem predpisu pojavi več kot en simbol. 
 %
 boste zaradi ustaljenih navad v šolskem sistemu vsi mislili, da je mišljeno $x \mapsto a \cdot x + b$.
 %
-A pravzprav bi lahko bilo tudi $a \mapsto a \cdot x + b$ ali $b \mapsto a \cdot x + b$ ali celo
-$t \mapsto a \cdot x + b$! Namreč, nič ni narobe s funkcijskim predpisom, v katerem se
-pojavijo dodatni simboli.
-
-Morda pa lahko vezano spremenljivko in $\mapsto$ brez škode izpustimo, če v izrazu nastopa
-samo en simbol, denimo $1 + x^2?$
+A pravzaprav bi lahko bilo tudi
 %
-A spet bi zabredli v težave. Je $42$ število ali funkcijski predpis $x \mapsto 42$? Je
-$1 + x^2$ funkcijski predpis $x \mapsto 1 + x^2$ ali $a \mapsto 1 + x^2$?
+\begin{equation*}
+  a \mapsto a \cdot x + b
+  \quad\text{ali}\quad
+  b \mapsto a \cdot x + b
+  \quad\text{ali celo}\quad
+  t \mapsto a \cdot x + b!
+\end{equation*}
+% %
+% Morda pa lahko vezano spremenljivko in $\mapsto$ brez škode izpustimo, če v izrazu nastopa
+% samo en simbol, denimo $1 + x^2?$
+% %
+% A spet bi zabredli v težave. Je $42$ število ali funkcijski predpis $x \mapsto 42$? Je
+% $1 + x^2$ funkcijski predpis $x \mapsto 1 + x^2$ ali $a \mapsto 1 + x^2$?
 
-Velikokrat površno rečemo, da funkcijski predpis podaja preslikavo. To ni res, saj smo že
-prej povedali, da ima vsaka preslikava tri sestavne dele: domeno, kodomeno in prirejanje.
+Poudarimo, da je funkcijski predpis le eden od treh sestavnih delov preslikave in zato same \emph{ne} podaja preslikave.
+%
 Res, če ne poznamo domene, ne moremo preveriti, ali je funkcijski predpis celovit. Denimo,
 funkcijski predpis
 %
@@ -534,91 +581,11 @@ funkcijski predpis
   x \mapsto \frac{x}{x^2 - 2}
 \end{equation*}
 %
-ni celovit, če je domena množica realnih števil, in je celovit, če je domena množica
-racionalnih števil. Tudi kodomeno moramo poznati, sicer ne moremo določiti nekaterih
-lastnosti preslikave, kot je na primer surjektivnost, glej
-poglavje~\ref{cha:lastnosti-preslikav}.
+ni celovit kot preslikava $\mathbb{R} \to \mathbb{R}$ in je celovit kot preslikava $\mathbb{Q} \to \mathbb{Q}$.
 
 
-
-\subsection{Ostali načini podajanja preslikav}
-\label{sec:ostali-predpisi}
-
-Funkcijski predpisi niso edini način za podajanje prirejanja, zato omenimo še nekatere
-druge.
-
-Preslikavo s končno domeno lahko podamo s tabelo, na primer:
-%
-\begin{center}
-  $f : \set{1, 2, 3, 5} \to \set{10, 20, 30}$
-
-  \medskip
-
-  \begin{tabular}{|c|c|} \hline
-    1 & 10 \\ \hline
-    2 & 10 \\ \hline
-    3 & 20 \\ \hline
-    5 & 10 \\ \hline
-  \end{tabular}
-\end{center}
-%
-To seveda pomeni, da $f$ elementu $1$ priredi $10$, $2$ priredi $10$, $3$ priredi $20$ in $5$
-priredi $10$. Tabelo lahko predstavimo na različne načine, lahko kar naštejemo vsa prirejanja:
-%
-\begin{align*}
-  f(1) &\dfeq 10 \\
-  f(2) &\dfeq 10 \\
-  f(3) &\dfeq 20 \\
-  f(5) &\dfeq 10.
-\end{align*}
-%
-Tudi
-%
-\begin{align*}
-  1 &\mapsto 10 \\
-  2 &\mapsto 10 \\
-  3 &\mapsto 20 \\
-  5 &\mapsto 10.
-\end{align*}
-%
-je še vedno le tabela, ki prikazuje prirejanje. Ne sme nas motiti dejstvo, da smo
-$\mapsto$ uporabili za naštevanje prirejanj, namesto za funkcijski predpis.
-
-Preslikava je lahko določena tudi z opisom računskega postopka, pravimo mu \df{algoritem},
-s pomočjo katerega izračunamo vrednost preslikave pri danem argumentu. Paziti moramo, da je
-opis postopka res natančen in nedvoumen, lahko ga kar zapišemo kot program. Teoretični
-računalničar bi pripomnil, da je treba pri tem izbrati programski jezik, ki ima ustrezno
-matematično definicijo.
-
-Preslikave lahko podamo tudi tako, da opišemo pogoje, pri katerih je element kodomene
-prirejen elementu domene. Na primer, lahko bi definirali preslikavo $g : \NN \to \ZZ$ z
-zahtevo, da naravnemu številu $n \in \NN$ priredi celo število $k \in \ZZ$, kadar velja
-%
-\begin{equation*}
-  k^2 \leq n < (k+1)^2.
-\end{equation*}
-%
-To prirejanje je veljavno, če je celovito in enolično, česar ne bomo preverjali, lahko pa
-poskusite sami.
-%Nekaj prirejanj $g$ prikazuje naslednja razpredelnica:
-%
-% \begin{align*}
-% 0 &\mapsto 0   &   4 &\mapsto 2   &    8  &\mapsto 2   &   12 &\mapsto 3 \\
-% 1 &\mapsto 1   &   5 &\mapsto 2   &    9  &\mapsto 3   &   13 &\mapsto 3 \\
-% 2 &\mapsto 1   &   6 &\mapsto 2   &    10 &\mapsto 3   &   14 &\mapsto 3 \\
-% 3 &\mapsto 1   &   7 &\mapsto 2   &    11 &\mapsto 3   &   15 &\mapsto 3
-% \end{align*}
-%
-Ali znate z besedami opisati preslikavo~$g$?
-
-Osnovne načine podajanja preslikav bomo spoznali skupaj s
-konstrukcijami množic.
-%
-V splošnem je lahko preslikava podana s precej zapleteno konstrukcijo, ki zahteva veliko
-preverjanja in dokazovanja.
-
-\subsection{Aplikacija in substitucija}
-\label{sec:aplikacija-in-subsitucija}
+\subsection{Uporaba in zamenjava}
+\label{sec:uporaba-in-zamenjava}
 
 Do sedaj smo se ukvarjali s tem, kako preslikavo podamo, zdaj pa se vprašajmo, kako lahko
 preslikavo uporabimo. Če je $f : X \to Y$ preslikava iz $X$ v $Y$ in je $x \in X$, potem
@@ -632,7 +599,7 @@ pri~$x$ zapišemo
   f\,x
 \end{equation*}
 %
-in preberemo ">$f$ od $x$"< ali ">$f$ pri $x$"<. Izraz $f(x)$, oziroma $f\,x$, se imenuje
+in preberemo \nls{$f$ od $x$} ali \nls{$f$ pri $x$}. Izraza $f(x)$, oziroma $f\,x$, se imenuje
 \df{aplikacija}. Večinoma se uporablja zapis z oklepaji, a ne vedno: navajeni smo pisati
 $\ln 2$ in $\sin \alpha$ namesto $\ln(2)$ in $\sin(\alpha)$. Oklepaje izpuščamo tudi v
 nekaterih programskih jezikih in občasno v algebri.
@@ -643,11 +610,12 @@ Aplikacijo $a(n)$, ki označuje $n$-ti člen zaporedja, ponavadi pišemo~$a_n$, 
 argument podpišemo.
 
 Preslikavo lahko uporabimo na argumentu tudi, če je nismo poimenovali. Na primer,
-preslikavo $\RR \to \RR$, podano s funkcijskim predpisom
+preslikavo
 %
-\begin{equation*}
-  x \mapsto 1 + x^2
-\end{equation*}
+\begin{align*}
+  \RR &\to \RR \\
+  x &\mapsto 1 + x^2
+\end{align*}
 %
 uporabimo na argumentu~$3$:
 %
@@ -660,33 +628,45 @@ je treba vse preslikave vedno poimenovali in se nanje skliceval z njihovim imeno
 %
 Navkljub dobri vzgoji, bomo s preslikavami delali enako kot s števili, vektorji in
 ostalimi matematičnimi objekti. Računalničarji radi rečejo, da
-je treba tudi preslikave obravnavati kot ">enakopravne državljane"<.
+je treba tudi preslikave obravnavati kot enakopravne državljane.
 
-Kako pravzaprav določimo vrednost funkcije pri danem argumentu? To je odvisno od tega,
+Kako izračunamo vrednost funkcije pri danem argumentu? To je odvisno od tega,
 kako je podano prirejanje. Če imamo tabelarični prikaz, poiščemo argument v levem stolpcu
 in pogledamo v pripadajoči desni stolpec. Če je preslikava podana s funkcijskim predpisom, argument
 vstavimo v predpis. Na primer, če je $f : \RR \to \RR$ podana s funkcijskim predpisom
 %
 \begin{equation*}
-  f(x) = 1 + x^2,
+  f(x) \dfeq 1 + x^2,
 \end{equation*}
 %
-potem je vrednost $f(3)$ enaka $1 + 3^2$, kar je seveda enako~$10$, a to zahteva dodaten
-račun, ki nas v tem trenutku ne zanima. Pravimo, da smo simbol~$x$ \df{zamenjali} ali
-\df{substituirali} s~$3$, oziroma da smo~$3$ \df{vstavili} v~$f$ namesto~$x$. Seveda lahko
-vstavimo argument neposredno v funkcijski predpis, zato je aplikacija
+potem je vrednost $f(3)$ enaka $1 + 3^2$ -- vezano spremenljivko~$x$ smo zamenjali s~$3$. (Seveda je $1 + 3^2$ enako~$10$, a to je že naslednji korak, ki zahteva dodatno računanje.)
+Pravimo, da smo simbol~$x$ \df{zamenjali} ali
+\df{substituirali} s~$3$, oziroma da smo~$3$ \df{vstavili} v predpis za~$f$ namesto~$x$. 
+%
+Preslikavo lahko uporabimo tudi na kakem bolj zapletenem argumentu, na primer:
+%
+\begin{align*}
+  f(3) &= 1 + 3^2, \\
+  f(2 + \sqrt{5}) &= 1 + (2 + \sqrt{5})^2, \\
+  f(y) &= 1 + y^2, \\
+  f(y + 2 z^2) &= 1 + (y + 2 z^2)^2, \\
+  f(x) &= 1 + x^2.
+\end{align*}
+%
+V vseh primerih smo le zamenjali vezano spremenljivko~$x$ z argumentom.
+%
+Tudi zadnja vrstica je zamenjava, v kateri smo (vezano spremenljivko)~$x$ zamenjali z (prosto) spremenljivko~$x$.
+
+Uporabimo lahko tudi funkcijski predpis, pri čemer še vedno velja, da vezano spremenljivko zamenjamo z argumentom.
+Tako je
 %
 \begin{equation*}
   (x \mapsto 1 + x^2)(3)
 \end{equation*}
 %
-spet enaka $1 + 3^2$.
-
-Preslikavo smemo uporabiti na poljubnem elementu domene, ki je lahko zapisan na bolj ali
-manj zapleten način, pri čemer gre še vedno samo za zamenjavo. Na primer, v zgornjo
-preslikavo~$f$ lahko vstavimo $3 + 4$ in dobimo $1 + (3 + 4)^2$ ali pa za neki $u \in \RR$
-vstavimo $u + 2$ in dobimo $1 + (u + 2)^2$. V razdelku~\ref{sec:eksponent} bomo spoznali
-še dodatna pravila za vstavljanje izrazov, ki se vrtijo okoli vezanih spremenljivk.
+spet enako $1 + 3^2$.
+%
+V razdelku~\ref{sec:eksponent} bomo spoznali še dodatna pravila za vstavljanje izrazov, ki se vrtijo okoli vezanih spremenljivk.
 
 
 \subsection{Pravilo ekstenzionalnosti preslikav}
@@ -716,13 +696,14 @@ Na sploh je treba razlikovati med $f$ in $f(x)$, saj to nikakor nista enaka obje
 preslikava, drugi pa vrednost te preslikave pri~$x$. Verjetno nihče ne bi trdil, da je
 preslikava $\cos$ isto kot $\cos \frac{\pi}{4}$, ali ne? Isti razmislek veleva, da
 $\cos x$ ni isto kot $\cos$, če tudi si mislimo, da je $x \in \RR$ neko neznano realno število.
-Zmeda izhaja iz neprimernega zapisa preslikav, ko na primer rečemo \nls{$\cos x$ je soda funkcija}, čeprav bi bilo pravilno \nls{$\cos$ je soda funkcija}.
-%
-Če dosledno uporabljamo funkcijske predpise in vezane spremenljivke, lažje razumemo, da sta $\cos$ in $x \mapsto \cos x$ enaki preslikavi, zahvaljujoč pravilu ekstenzionalnosti, obe pa sta različni $\cos x$, ki sploh ni funkcija, ampak realno število, odvisno od parametra~$x$.
+Zmeda izhaja iz površnega izražanja, ko na primer rečemo \nls{$x^2 + \cos x$ je soda funkcija}, čeprav bi bilo pravilno \nls{$x \mapsto x^2 + \cos x$ je soda funkcija}.
 
-V bran tradicionalnemu zapisu pa moramo vseeno povedati, da se lahko \emph{dogovorimo} za
-nekoliko napačen zapis, če to ne povzroča zmede. S tem se izkušeni matematik izogne preveč birokratskemu
-pisanju nebistvenih podrobnosti in lahko bolj učinkovito komunicira s stanovskimi kolegicami in kolegi.
+Če dosledno uporabljamo funkcijske predpise, lažje razumemo, da sta $\cos$ in $x \mapsto \cos x$ enaki preslikavi, zahvaljujoč pravilu ekstenzionalnosti, obe pa sta različni od $\cos x$, ki sploh ni funkcija, ampak realno število, odvisno od parametra~$x$.
+
+V bran tradicionalnemu zapisu moramo vseeno povedati, da se lahko \emph{dogovorimo} za
+nekoliko napačen zapis, če to ne povzroča zmede. S tem se izkušeni matematiki izognejo preveč birokratskemu
+pisanju nebistvenih podrobnosti in lahko bolj učinkovito komunicirajo.
+%
 A začetnikom priporočamo, da v dobrobit boljšega razumevanja snovi vsaj na začetku študija raje vztrajajo pri doslednem zapisu.
 
 Vrnimo se še k pravilu ekstenzionalnosti preslikav. Ali ni pravzaprav očitno, da sta
@@ -736,29 +717,35 @@ zelo pomembna.
 \section{Zmnožek, vsota in eksponent množic}
 
 Množice lahko \df{tvorimo} ali \df{konstruiramo} iz drugih množic na različne načine. V
-tem razdelku bomo spoznali zmnožek in vsoto, ob koncu poglavja pa še eksponent.
+tem razdelku bomo spoznali tri: zmnožek, vsoto in eksponent.
 %
 Ostale konstrukcije pridejo na vrsto kasneje, ko bomo že nekaj vedeli o logiki.
 
-Takoj se zastavi vprašanje, kako sploh opisati novo konstrukcijo množic. Pravilo
-ekstenzionalnosti pove, da je množica opredeljena s svojimi elementi. Torej moramo
-pojasniti, kaj so elementi nove množice, se pravi, kako jih vpeljemo, kaj lahko z njimi
-počnemo in kakšne so njihove zakonitosti. Natančneje, novo konstrukcijo množic
-določajo naslednja pravila:
+Ko opišemo novo konstrukcijo množic, jo moramo natančno opredeliti. Pri tem se naslonimo na pravilo ekstenzionalnosti, ki pove, da je množica opredeljena s svojimi elementi.
 %
-\begin{enumerate}
-\item pravilo \df{tvorbe}, ki vpelje novo množico,
-\item pravila \df{vpeljave} elementov, ki podajo operacije, s katerimi gradimo njene elemente,
-\item pravila \df{uporabe}, ki podajo opreacije, s katerimi razgradimo ali uporabimo elemente,
-\item \df{enačbe}, ki opredeljujejo zakonitosti podanih operacij.
-\end{enumerate}
+Če torej želimo določiti elemente neke množice~$A$, to lahko storimo s pogojem oblike
+\nls{$x \in A$ natanko tedaj, ko \dots}, ali s formulo
 %
-Najbolje je, da si postopek ogledamo na primeru.
+\begin{equation*}
+  x \in A \ \liff\  \ldots.
+\end{equation*}
+%
+Take primere smo že videli:
+%
+\begin{align*}
+  x \in \set{a, b} &\ \liff\  x = a \lor x = b,\\
+  x \in \one &\ \liff\  x = \unit,\\
+  x \in A \cup B &\ \liff\  x \in A \lor x \in B,\\
+  x \in \emptyset &\ \liff\  \bot.
+\end{align*}
+%
+Tudi v nadaljevanju bomo sledili temu receptu in nove konstrukcije množic opisali tako, da bomo natančno opredelili njihove elemente.
 
 \subsection{Zmnožek}
 \label{sec:zmnozek}
 
-Najprej obravnavajmo zmnožek ali kartezični produkt.
+V srednji šoli ste že spoznali kartezični produkt ali zmnožek, katerega elementi so urejeni pari.
+Tu podajmo vse sestavine te konstrukcije, previdno in podrobno.
 
 \begin{pravilo}[Tvorba zmnožka]
   \label{pravilo:zmnozek-tvorba}
@@ -786,7 +773,8 @@ razstavimo elemente zmnožka.
   \df{druga projekcija} elementa~$p$.
 \end{pravilo}
 
-Nazadnje podamo še enačbe.
+\noindent
+Potrebujemo še enačbe, ki povedo, kako računamo z urejenimi pari in kako jih primerjamo.
 
 \begin{pravilo}[Računsko pravilo za urejene pare]
   \label{pravilo:zmnozek-racunanje}
@@ -798,11 +786,6 @@ Nazadnje podamo še enačbe.
   Za vse $p, q \in A \times B$ velja: če $\fst(p) = \fst(q)$ in $\snd(p) = \snd(q)$,
   potem $p = q$.
 \end{pravilo}
-
-\noindent
-%
-Računsko pravilo se tako imenuje, ker lahko z njim poenostavljamo izraze, drugo pa je
-pravilo ekstenzionalnosti, ker pravi, da je urejeni par določen s prvo in drugo projekcijo.
 
 Kadar imamo opravka z večimi zmnožki, na primer $A \times B$ in $C \times D$, bi lahko
 prišlo do zmede glede projekcij. Takrat jih opremimo še z dodatnimi oznakami množic, da
@@ -1128,6 +1111,10 @@ zamenjave: funkcijski predpis uporabimo na argumentu tako, da vezano spremenljiv
 predpisu zamenjamo z argumentom. In ekstenzionalnost preslikav pove, kdaj sta dve
 preslikavi enaki.
 
+
+\subsection{Kompozicija preslikav}
+\label{sec:komp-presl}
+
 Preslikavi, ki sprejme kot argument preslikavo, pravimo \df{funkcional} ali \df{preslikava
   višjega reda}. Primer take preslikave je \df{kompozicija}:
 %
@@ -1143,7 +1130,7 @@ uporabili eksponente, a v tem primeru je bolj pregleden diagram:
   \xymatrix{
     {A}
     \ar[r]^{f}
-    \ar@/_2ex/[rr]_{g \circ f}
+    \ar@/_3ex/[rr]_{g \circ f}
     &
     {B}
     \ar[r]^{g}
@@ -1159,8 +1146,8 @@ $f \circ g$? Ker si je mnogo lažje zapomniti računsko pravilo
   (g \circ f)(x) = g(f(x)),
 \end{equation*}
 %
-ki velja z našo definicijo, kot pa $(f \circ g)(x) = g(f(x))$, kar bi veljalo, če bi
-zamenjali vlogi~$f$ in~$g$.
+ki velja z našo definicijo, kot pa računsko pravilo $(f \circ g)(x) = g(f(x))$, ki bi ga dobili, če bi
+pisali kompozicijo v obratnem vrstnem redu.
 
 \begin{trditev}
   \parbox{0pt}{}
@@ -1321,8 +1308,61 @@ in mu priredi realno število. Odvod je funkcional, ki sprejme element $\RR^\RR$
 priredi element $\RR^\RR$. Če smo povsem natančni, limita kot preslikava $\RR^\NN \to \RR$
 ni celovit funkcional, ker nekatera zaporedja ne konvergirajo. Prav tako odvod kot
 preslikave $\RR^\RR \to \RR^\RR$ ni celovit, ker nekatere preslikave niso odvedljive.
-Preslikavam, ki niso celovite, pravimo \emph{delne} in o njih bomo več povedali v
-razdelku~\ref{delne-preslikve}.
+% Preslikavam, ki niso celovite, pravimo \emph{delne} in o njih bomo več povedali v
+% razdelku~\ref{delne-preslikve}.
+
+\subsection{Funkcijski predpis, podan po kosih}
+
+Omenimo še en pogost način podajanja preslikav, namreč s predpisom po kosih.
+
+\begin{zgled}
+  Preslikava 'absolutno' je definirana po kosih za negativna in nenegativna števila:
+  %
+  \begin{align*}
+    \RR &\to \RR \\
+    x &\mapsto
+    \begin{cases}
+      -x & \text{če $x < 0$,}\\
+       x & \text{če $x \geq 0$.}
+    \end{cases}
+  \end{align*}
+  %
+  Pravilo preberemo takole: \nls{če je $x < 0$, mu priredimo vrednost $-x$, in če je $x \geq 0$, mu priredimo vrednost~$x$}.
+\end{zgled}
+
+\begin{zgled}
+  Preslikava `predznak' je definirana po kosih:
+  %
+  \begin{align*}
+    \RR &\to \RR \\
+    x &\mapsto
+      \begin{cases}
+        -1 & \text{če $x < 0$,}\\
+        0 & \text{če $x = 0$,}\\
+        1 & \text{če $x > 0$.}
+      \end{cases}
+  \end{align*}
+  %
+  Pravilo preberemo takole: \nls{če je $x < 0$, mu priredimo vrednost~$-1$, če je $x = 0$, mu priredimo vrednost~$0$, in če je $x > 0$, mu priredimo vrednost~$1$}.
+\end{zgled}
+
+Pri takem zapisu moramo paziti, da posamezni kosi skupaj pokrivajo domeno (vsi elementi domene so obravnavani) in da se kosi ne prekrivajo (vsak element domene je obravnavan natanko enkrat). Pravzaprav se smejo kosi prekrivati, a moramo v tem primeru preveriti, da se na skupnih delih skladajo, se pravi, da vsi kosi podajajo enake vrednosti na preseku.
+
+\begin{zgled}
+  Preslikavo `absolutno' bi lahko podali takole:
+  %
+  \begin{align*}
+    \RR &\to \RR \\
+    x &\mapsto
+    \begin{cases}
+      -x & \text{če $x \leq 0$,}\\
+       x & \text{če $x \geq 0$.}
+    \end{cases}
+  \end{align*}
+  %
+  Kosa se prekrivata pri $x = 0$, vendar to ni težava, ker je $-0 = 0$.
+\end{zgled}
+
 
 \section{Izomorfizem množic}
 \label{sec:izomorfizem-mnozic}
@@ -1546,11 +1586,11 @@ Sami premislite, kaj je $\inv{(\inv{f}(x))}$.
 
 % TODO Izomorfnost je kongruenca za produkt, vsoto in eksponent.
 
-\section{Algebra množic}
-\label{sec:algebra-mnozic}
+\section{Aritmetika množic}
+\label{sec:aritmetika-mnozic}
 
 Kot že veste, seštevanje, množenje in potenciranje števil zadoščajo naslednjim
-algebrajskim zakonom:
+aritmetičnim zakonom:
 %
 \begin{align*}
   a + 0 &= a                   &     a \cdot 1 &= a \\
@@ -1567,7 +1607,7 @@ algebrajskim zakonom:
 $A \times B \cong B \times A$. Kaj pa ostali zakoni?
 
 \begin{izrek}
-  \label{izrek:algebra-mnozic}
+  \label{izrek:aritmetika-mnozic}
   Za vse množice $A$, $B$ in $C$ velja:
   %
   \begin{align*}
@@ -1617,14 +1657,27 @@ Tudi asociativnost vsote, $A + (B + C) \cong (A + B) + C$ ni nič bolj zapletena
 imamo opravka z injekcijami in obravnavanjem primerov. Najprej zapišimo izomorfizma s
 popolnoma natančnim zapisom, kjer vse injekcije opremimo z oznakami množic:
 %
+% % f left of g
+% \begin{align*}
+%   f &:  A + (B + C) \to (A + B) + C &
+%   g &: (A + B) + C \to A + (B + C) \\
+%   f &: \inl[A][B+C](x)             \mapsto \inl[A+B][C](\inl[A][B](x)) &
+%   g &: \inl[A+B][C](\inl[A][B](u)) \mapsto \inl[A][B+C](u)\\
+%   f &: \inr[A][B+C](\inl[B][C](y)) \mapsto \inl[A+B][C](\inr[A][B](y)) &
+%   g &: \inl[A+B][C](\inr[A][B](v)) \mapsto \inr[A][B+C](\inl[B][C](v))  \\
+%   f &: \inr[A][B+C](\inr[B][C](z)) \mapsto \inr[A+B][C](z) &
+%   g &: \inr[A+B][C](w)              \mapsto \inr[A][B+C](\inr[B][C](w))
+% \end{align*}
+% g below f
 \begin{align*}
-  f &:  A + (B + C) \to (A + B) + C &
+  f &:  A + (B + C) \to (A + B) + C \\
+  f &: \inl[A][B+C](x)             \mapsto \inl[A+B][C](\inl[A][B](x)) \\
+  f &: \inr[A][B+C](\inl[B][C](y)) \mapsto \inl[A+B][C](\inr[A][B](y)) \\
+  f &: \inr[A][B+C](\inr[B][C](z)) \mapsto \inr[A+B][C](z) \\[\baselineskip]
+  %
   g &: (A + B) + C \to A + (B + C) \\
-  f &: \inl[A][B+C](x)             \mapsto \inl[A+B][C](\inl[A][B](x)) &
   g &: \inl[A+B][C](\inl[A][B](u)) \mapsto \inl[A][B+C](u)\\
-  f &: \inr[A][B+C](\inl[B][C](y)) \mapsto \inl[A+B][C](\inr[A][B](y)) &
   g &: \inl[A+B][C](\inr[A][B](v)) \mapsto \inr[A][B+C](\inl[B][C](v))  \\
-  f &: \inr[A][B+C](\inr[B][C](z)) \mapsto \inr[A+B][C](z) &
   g &: \inr[A+B][C](w)              \mapsto \inr[A][B+C](\inr[B][C](w))
 \end{align*}
 %
@@ -1868,6 +1921,6 @@ Množica~$A$ ima kvečjemu en element, tj.~množica~$A$ je bodisi prazna bodisi 
 \end{vaja}
 
 \begin{vaja}
-  Preveri tiste izomorfnosti iz izreka~\ref{izrek:algebra-mnozic}, ki jih v
-  razdelku~\ref{sec:algebra-mnozic} nismo utemeljili.
+  Preveri tiste izomorfnosti iz izreka~\ref{izrek:aritmetika-mnozic}, ki jih v
+  razdelku~\ref{sec:aritmetika-mnozic} nismo utemeljili.
 \end{vaja}

@@ -59,21 +59,31 @@
 
 \newcommand{\one}{\mathbb{1}}
 \newcommand{\two}{\mathbb{2}}
-\newcommand{\unit}{\pair{}}
+\newcommand{\unit}{(\,)}
 
 %%% Množice
 \newcommand{\set}[1]{\left\{#1\right\}}
 \newcommand{\such}{\; \middle| \;}
 \newcommand{\iso}{\cong}
 
-\newcommand{\pair}[1]{(#1)}
-\newcommand{\pr}[1][]{\mathsf{pr}_#1}
-\newcommand{\fst}{\pr[1]}
-\newcommand{\snd}{\pr[2]}
-
+%%%%%%  Projections and Injections
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \newcommand{\inj}[1][]{\mathsf{in}_{#1}}
-\newcommand{\inl}{\inj[1]}
-\newcommand{\inr}{\inj[2]}
+\newcommand{\pr}[1][]{\mathsf{pr}_{#1}}
+
+\NewDocumentCommand{\fst}
+{O{\empty} O{\empty}}
+{\pr[1]^{{#1}\ifthenelse{\equal{#2}{}}{}{,}{#2}}}
+\NewDocumentCommand{\snd}
+{O{\empty} O{\empty}}
+{\pr[2]^{{#1}\ifthenelse{\equal{#2}{}}{}{,}{#2}}}
+\NewDocumentCommand{\inl}
+{O{\empty} O{\empty}}
+{\inj[1]^{{#1}\ifthenelse{\equal{#2}{}}{}{,}{#2}}}
+\NewDocumentCommand{\inr}
+{O{\empty} O{\empty}}
+{\inj[2]^{{#1}\ifthenelse{\equal{#2}{}}{}{,}{#2}}}
+
 
 %%% Naravna števila
 \newcommand{\suc}[1]{{#1^{+}}}
