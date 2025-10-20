@@ -184,7 +184,7 @@ povezana s kakim elementom $y \in B$.
   Zgornji izrek zapiši bolj natančno, da bo razvidno, kaj so domene in kodomene relacij.
 \end{vaja}
 
-\begin{dokaz}
+\begin{proof}
   Najprej dokažimo asociativnost kompozicije.
   %
   Naj bo $R \subseteq A \times B$, $S \subseteq B \times C$ in $T \subseteq C \times D$ ter $a \in A$ in $d \in D$. Tedaj velja
@@ -221,7 +221,7 @@ povezana s kakim elementom $y \in B$.
   \end{align*}
   %
   V zadnjem koraku smo uporabili ekvivalenco $(\some{u \in U} u = v \land P(v)) \liff P(v)$. Podobno dokažemo, da je diagonala desna enota.
-\end{dokaz}
+\end{proof}
 
 Kompozitum relacij ima torej podobne lastnosti kot kompozitum funkcij.
 
@@ -305,11 +305,11 @@ $\phi_{\Gamma_{\!f}} : A \to B$ dobimo nazaj prvotno funkcijo $f$. Obratno, če 
   $\Gamma_{g \circ f} = \Gamma_g \circ \Gamma_{\!f}$.
 \end{izjava}
 
-\begin{dokaz}
+\begin{proof}
   Dokaz prepustimo za vajo, še prej pa morate izjavo zapisati bolj natančno: od
   kod in kam slikata preslikavi $f$ in $g$, kaj pomeni kompozitum na levi in kaj
   na desni?
-\end{dokaz}
+\end{proof}
 
 
 \section{Ovojnice relacij}
@@ -354,7 +354,7 @@ naslednje dejstvo.
   vsak $i \in I$ velja, da je $R_i$ tranzitivna relacija, potem je tudi presek $\bigcap R$ tranzitivna relacija.
 \end{lema}
 
-\begin{dokaz}
+\begin{proof}
   Iz definicije preseka družine množic (relacije so le posebne množice) sledi
   %
   \begin{equation*}
@@ -380,13 +380,13 @@ naslednje dejstvo.
   Uporabimo $\all{j \in I} y R_j z$ pri $j = k$ in dobimo $y R_k z$.
   %
   Po predpostavki je $R_k$ tranzitivna relacija, torej velja $x R_k z$.
-\end{dokaz}
+\end{proof}
 
 \begin{izrek}
   Vsaka relacija ima enolično tranzitivno ovojnico.
 \end{izrek}
 
-\begin{dokaz}
+\begin{proof}
   Najprej premislimo, da ima $R$ največ eno tranzitivno ovojnico: če sta
   $S$ in $T$ obe tranzitivni ovojnici $R$, potem iz definicije tranzitivne ovojnice
   sledi $S \subseteq T$ in $T \subseteq S$, torej velja $S = T$.
@@ -404,7 +404,7 @@ naslednje dejstvo.
   Ker velja $R \subseteq S$ za vsak $S \in D$, seveda sledi $R \subseteq \textstyle\bigcap D$.
   %
   Če je $R \subseteq T$ in $T \subseteq A \times A$ tranzitivna relacija, tedaj velja $T \in D$, torej je $\bigcap D \subseteq T$.
-\end{dokaz}
+\end{proof}
 
 
 Po istem kopitu pokažemo, da ima vsaka relacija $R \subseteq A \times A$ tudi ostale

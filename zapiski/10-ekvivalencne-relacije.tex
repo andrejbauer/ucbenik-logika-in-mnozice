@@ -92,7 +92,7 @@ Ali je vsaka ekvivalenčna relacija porojena z neko preslikavo?
   Vsaka ekvivalenčna relacija je porojena z neko preslikavo.
 \end{izrek}
 
-\begin{dokaz}
+\begin{proof}
   Dokažimo, da je ekvivalenčna relacija porojena s svojo kvocientno preslikavo.
 
   Naj bo $E$ ekvivalenčna relacija na $A$. Najprej ugotovimo naslednje: za vse $x,
@@ -109,7 +109,7 @@ Ali je vsaka ekvivalenčna relacija porojena z neko preslikavo?
   dobimo $x \rel{E} y$.
 
   Sedaj izrek sledi zlahka: $q_E(x) = q_E(y) \liff [x]_E = [y]_E \liff x \rel{E} y$.
-\end{dokaz}
+\end{proof}
 
 
 \subsection{Razdelitev množice}
@@ -146,7 +146,7 @@ Ali je vsaka ekvivalenčna relacija porojena z neko preslikavo?
   razdelitev množice $A$.
 \end{izrek}
 
-\begin{dokaz}
+\begin{proof}
   Dokažimo, da so ekvivalenčni razredi neprazni, paroma disjunktni in da tvorijo pokritje.
 
   Naj bo $\xi \in \pow{A}$ ekvivalenčni razred za $E$. Tedaj obstaja $x \in A$, da je $\xi = [x]_E$,
@@ -156,7 +156,7 @@ Ali je vsaka ekvivalenčna relacija porojena z neko preslikavo?
 
   Očitno je unija vseh ekvivalenčnih razredov podmnožica $A$, saj je vsak ekvivalenčni razred podmnožica $A$. Zagotovo
   pa je vsak $x \in A$ v kakem ekvivalenčnem razredu, namreč $x \in [x]_E$.
-\end{dokaz}
+\end{proof}
 
 Torej vsaka ekvivalenčna relacija na $A$ določa razdelitev množice $A$, namreč na
 ekvivalenčne razrede. Velja pa tudi obrat: vsaka razdelitev $S \subseteq \pow{A}$ določa ekvivalenčno
@@ -203,9 +203,9 @@ Preslikava $c : A/E \to A$ je \emph{prerez} kvocientne preslikave $q_E : A \to A
   njegova slika $\img{s}(A/E) = \set{ c(\xi) \such \xi \in A/E }$ izbor predstavnikov za $E$.
 \end{izjava}
 
-\begin{dokaz}
+\begin{proof}
   Vaja.
-\end{dokaz}
+\end{proof}
 
 Ker izbor predstavnikov in prerez kvocientne preslikave določata drug drugega, včasih tudi
 prerez imenujemo ">izbor predstavnikov"<.
@@ -264,7 +264,7 @@ enostavno, kot se zdi na prvi pogled, doma premislite o naslednji nalogi.
   \end{enumerate}
 \end{izrek}
 
-\begin{dokaz}
+\begin{proof}
   ($1 \lthen 2$):
   %
   Naj bo $E \subseteq A \times A$ ekvivalenčna relacija na $A$. Tedaj je $q_E : A \to A/E$
@@ -308,7 +308,7 @@ enostavno, kot se zdi na prvi pogled, doma premislite o naslednji nalogi.
   množic. Po predpostavki (4) je produkt te družine neprazen, torej vsebuje neko
   funkcijo izbire $c : Y \to \bigcup A$, se pravi, da je $f(c(y)) = y$ za vsak $y \in Y$.
   Opazimo še, da je $\bigcup A = Y$, torej je $c$ prerez $f$.
-\end{dokaz}
+\end{proof}
 
 Izbor predstavnikov je torej ekvivalenten še nekaterim drugim trditvam. Pa te veljajo? Za
 to potrebujemo aksiom.
@@ -340,7 +340,7 @@ s pomočjo preslikave $A \to B$. Kdaj lahko to naredimo?
   preslikava $f : A/E \to B$, da je $f([x]_E) = g(x)$ za vse $x \in A$, ali drugače povedano, $f \circ q_E = g$.
 \end{izrek}
 
-\begin{dokaz}
+\begin{proof}
   Dokažimo najprej, da imamo največ eno tako preslikavo. Denimo da za $f_1 : A/E \to B$ in
   $f_2 : A/E \to B$ velja $f_1 \circ q_E = f_2 \circ q_E$. Ker je $q_E$ surjektivna, je epi in jo smemo
   krajšati na desni, od koder res sledi $f_1 = f_2$.
@@ -363,7 +363,7 @@ s pomočjo preslikave $A \to B$. Kdaj lahko to naredimo?
   %
   Naj bo $f : A/E \to B$ preslikava, ki je določena s funkcijsko relacijo $\phi$. Za $x \in A$
   velja $\phi([x]_E, f([x]_E))$, od tod pa iz definicije $\phi$ sledi tudi $g(x) = f([x]_E)$.
-\end{dokaz}
+\end{proof}
 
 \begin{opomba}
   Profesorja prosite, da pojasni ali sem zapiše, zakaj se reče ">univerzalna lastnost"< kvocientne množice.

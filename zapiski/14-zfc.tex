@@ -203,9 +203,9 @@ Bistvo kumulativne hierarhije je, da zaobjame vse množice.
   $\Set = \bigcup_{\alpha \in \On} V_\alpha$.
 \end{izrek}
 
-\begin{dokaz}
+\begin{proof}
   Dokaz opustimo, povejmo le, da je za izrek bistven aksiom o dobro osnovanosti. Le ta nam zagotavlja, da se vsaka padajoča $\in$-veriga konča z~$\emptyset$.
-\end{dokaz}
+\end{proof}
 
 
 % \subsection{Zakon trihotomije}
@@ -255,7 +255,7 @@ Za konec povejmo še nekaj več o aksiomu izbire in Zornovi lemi, ki mu je ekviv
   potem ima $P$ maksimalni element.
 \end{lema}
 
-\begin{dokaz}
+\begin{proof}
   Dokaz se naslanja na aksiom izbire in Bourbaki-Wittov izrek o negibnih točkah (glej
   spodaj). Naj bo $C$ množica vseh verig v $P$. Uredimo jo z $\subseteq$. Na njej definiramo preslikavo
   $f : C \to C$, ki razširi verigo, če ni maksimalna, sicer je ne spremeni (tu uporabimo
@@ -274,7 +274,7 @@ Za konec povejmo še nekaj več o aksiomu izbire in Zornovi lemi, ki mu je ekviv
   maksimalni element v $P$: denimo, da velja $m \leq y$ za $m \in P$. Ker je $V \cup \set{y}$
   veriga, ki vsebuje maksimalno verigo $V$, sledi $V = V \cup \set{y}$, od tod pa $y \in V$
   ter $y \leq m$. Torej je $m = y$ in $m$ je res maksimalni element.
-\end{dokaz}
+\end{proof}
 
 \begin{definicija}
   Naj bo $(P, \leq)$ delna ureditev. Preslikava $f : P \to P$ je \textbf{progresivna}, ko
@@ -290,9 +290,9 @@ Za konec povejmo še nekaj več o aksiomu izbire in Zornovi lemi, ki mu je ekviv
   preslikava. Tedaj ima $f$ negibno točko: to je tak $x \in P$, da velja $f(x) = x$.
 \end{izrek}
 
-\begin{dokaz}
+\begin{proof}
   Dokaz opustimo.
-\end{dokaz}
+\end{proof}
 
 \begin{izrek}
   V teoriji množic \emph{brez} aksioma izbire so naslednje izjave ekvivalentne:
@@ -304,7 +304,7 @@ Za konec povejmo še nekaj več o aksiomu izbire in Zornovi lemi, ki mu je ekviv
   \end{enumerate}
 \end{izrek}
 
-\begin{dokaz}
+\begin{proof}
   ($1 \lthen 2$) Glej Zornovo lemo.
 
   ($2 \lthen 3$) Skica dokaza: naj bo $A$ poljubna množica, ki jo želimo dobro urediti.
@@ -367,13 +367,13 @@ Za konec povejmo še nekaj več o aksiomu izbire in Zornovi lemi, ki mu je ekviv
   na uniji $\bigcup A$. Ker so vse množice $A_i$ neprazne, ima vsaka od njih prvi element
   glede na $\prec$. Torej lahko definiramo funkcijo izbire $f$ s predpisom
   $f(i) \defeq \text{">prvi element $A_i$"<}$.
-\end{dokaz}
+\end{proof}
 
 \begin{izrek}
   Vsak vektorski prostor ima bazo.
 \end{izrek}
 
-\begin{dokaz}
+\begin{proof}
   Naj bo $L$ vektorski prostor. Definiramo množico
   %
   \begin{equation*}
@@ -386,4 +386,4 @@ Za konec povejmo še nekaj več o aksiomu izbire in Zornovi lemi, ki mu je ekviv
   neodvisna (vaja). Po Zornovi lemi obstaja maksimalni element v $P$, torej
   maksimalna linearno neodvisna množica $B$ v $L$. To pa je seveda vektorska baza
   za $L$.
-\end{dokaz}
+\end{proof}

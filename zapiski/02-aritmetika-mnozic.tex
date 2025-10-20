@@ -334,7 +334,7 @@ Pravzaprav je to izomorfizem, katerega inverz je ">uncurrying"<:
   Če sta $f : A \to B$ in $g : A \to B$ oba inverza preslikave $h : B \to A$, potem je $f = g$.
 \end{izjava}
 
-\begin{dokaz}
+\begin{proof}
   Denimo, da sta $f : A \to B$ in $g : A \to B$ inverza preslikave $h : B \to A$. Tedaj velja
   %
   \begin{equation*}
@@ -345,7 +345,7 @@ Pravzaprav je to izomorfizem, katerega inverz je ">uncurrying"<:
     \id[B] \circ g =
     g.
   \end{equation*}
-\end{dokaz}
+\end{proof}
 
 Ali znate utemeljiti vsakega od zgornjih korakov?
 
@@ -373,7 +373,7 @@ Ali znate utemeljiti vsakega od zgornjih korakov?
   Če sta $f : A \to B$ in $g : B \to C$ izomorfizma, potem je tudi $g \circ f : A \to C$ izomorfizem. Velja torej $\inv{(g \circ f)} = \inv{f} \circ \inv{g}$.
 \end{izjava}
 
-\begin{dokaz}
+\begin{proof}
   Dokazati moramo, da ima $g \circ f$ inverz. Trdimo, da je $\inv{f} \circ \inv{g} : C \to A$ inverz preslikave $g \circ f$. Računajmo:
   %
   \begin{align*}
@@ -386,7 +386,7 @@ Ali znate utemeljiti vsakega od zgornjih korakov?
   \end{align*}
   %
   Doma sami preverite, da velja tudi $(\inv{f} \circ \inv{g}) \circ (g \circ f) = \id[A]$.
-\end{dokaz}
+\end{proof}
 
 \subsection{Izomorfne množice}
 
@@ -405,14 +405,14 @@ Ali znate utemeljiti vsakega od zgornjih korakov?
   \end{enumerate}
 \end{izjava}
 
-\begin{dokaz}
+\begin{proof}
   %
   \begin{enumerate}
      \item $\id[A]$ je izomorfizem $A \to A$,
      \item če je $f : A \to B$ izomorfizem, potem je tudi $\inv{f} : B \to A$ izomorfizem,
      \item če je $f : A \to B$ izomorfizem in $g : B \to C$ izomorfizem, potem je $g \circ f : A \to C$ izomorfizem.
   \end{enumerate}
-\end{dokaz}
+\end{proof}
 
 \begin{zgled}
   $A \times B \iso B \times A$, ker imamo izomorfizem in njegov inverz

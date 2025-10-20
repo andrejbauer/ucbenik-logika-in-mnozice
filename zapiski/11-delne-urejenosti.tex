@@ -114,7 +114,7 @@ in druga \textbf{leksikografska} urejenost
   Produktna in leksikografska urejenosti sta delni urejenosti. Leksikografska urejenost linearnih urejenosti je linearna.
 \end{izjava}
 
-\begin{dokaz}
+\begin{proof}
   Dejstvo, da je produktna urejenost refleksivna, tranzitivna in antisimetrična, pustimo za vajo. Preverimo, da je leksikografska urejenost $\leq_\mathrm{lex}$ delna urejenost.
 
   Dokaz, da je $\leq_\mathrm{lex}$ je refleksivna: za vsak $(x, y) \in P \times Q$ velja $x = x \land y \sqsubseteq y$, torej velja $(x, y) \sqsubseteq (x, y)$.
@@ -212,7 +212,7 @@ in druga \textbf{leksikografska} urejenost
   \end{equation*}
   %
   To pa drži po zakonu o izključeni tretji možnosti. S tem je linearnost $\leq_\mathrm{lex}$, dokazana.
-\end{dokaz}
+\end{proof}
 
 \subsubsection{Vsota urejenosti}
 
@@ -295,9 +295,9 @@ Torej je $\preceq$ dobro definirana.
   Relacija, ki je inducirana s šibko ureditvijo, je delna ureditev.
 \end{izjava}
 
-\begin{dokaz}
+\begin{proof}
   Refleksivnost in tranzitivnost $\preceq$ sledita iz refleksivnosti in tranzitivnosti~$\leq$. Preverimo antisimetričnost: denimo, da velja $[x] \leq [y]$ in $[y] \leq [x]$. Tedaj velja $x \leq y$ in $y \leq x$, torej velja $x \sim y$ in $[x] = [y]$.
-\end{dokaz}
+\end{proof}
 
 \begin{zgled}
   Obravnavajmo cela števila $\ZZ$ in deljivost $\mid$, ki je šibka
@@ -331,10 +331,10 @@ Torej je $\preceq$ dobro definirana.
   Kompozicija monotonih preslikav je monotona. Identiteta je monotona.
 \end{izrek}
 
-\begin{dokaz}
+\begin{proof}
   Naj bosta $f : P \to Q$ in $g : Q \to R$ monotoni preslikavi med delnimi
   urejenostmi $(P, {\leq_P})$, $(Q, {\leq_Q})$ in $(R, {\leq_R})$. Če je $x \leq_P y$, potem je zaradi monotonosti $f$ tudi $f(x) \leq_Q f(y)$, nato pa je zaradi monotonosti $g$ spet $g(f(x)) \leq_R g(f(y))$. Identiteta je očitno monotona.
-\end{dokaz}
+\end{proof}
 
 \begin{zgled}
   Primeri monotonih preslikav:
@@ -385,11 +385,11 @@ ureditev.
   infimum in največ en supremum, ki ju zapišemo $\inf S$ ter $\sup S$, kadar obstajata.
 \end{izrek}
 
-\begin{dokaz}
+\begin{proof}
   Denimo, da sta $x$ in $y$ oba infimum $S$. Ker je $y$ spodnja meja za
   $S$ in $x$ njen infimum, velja $y \leq x$. Podobno velja $x \leq y$, torej $x = y$. Za
   supremum je dokaz podoben.
-\end{dokaz}
+\end{proof}
 
 \begin{zgled}
   Supremum končne neprazne množice $S \subseteq \NN$ za relacijo deljivosti $\mid$
@@ -418,7 +418,7 @@ ureditev.
   najmanjši element in največji element, ter imata vsaka sva elementa infimum in supremum.
 \end{izrek}
 
-\begin{dokaz}
+\begin{proof}
   Denimo, da je $(P, \leq)$ omejena mreža. Tedaj $P$ ima najmanjši element, namreč
   $\sup \emptyset$, in največji element, namreč $\inf \emptyset$. Infimum in supremum $x$ in $y$ sta seveda $\inf \set{x, y}$ in $\sup \set{x, y}$.
 
@@ -429,7 +429,7 @@ ureditev.
   \item če je $S = \emptyset$, potem je $\inf S = \top_P$ in $\sup S = \bot_P$,
   \item če je $S = \set{x_1, \ldots, x_n}$ za $n > 0$, potem je $\inf S = \inf \set{x_1, \ldots, x_{n-1}} \lor x_n$ in $\sup S = \sup \set{x_1, \ldots, x_{n-1}} \lor x_n$.
   \end{enumerate}
-\end{dokaz}
+\end{proof}
 
 \begin{zgled}
   Primeri mrež:

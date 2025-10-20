@@ -60,7 +60,7 @@ Pojma monomorfizem in epimorfizem sta uporabna, ker nam omogočata, da \emph{kra
   \end{enumerate}
 \end{izrek}
 
-\begin{dokaz}
+\begin{proof}
   \begin{enumerate}
   \item Naj bosta $f : A \to B$ in $g : B \to C$ monomorfizma. Dokazujemo, da je
     $g \circ f$ tudi monomorfizem. Naj bosta $h, k : D \to A$ preslikavi, za kateri velja
@@ -82,7 +82,7 @@ Pojma monomorfizem in epimorfizem sta uporabna, ker nam omogočata, da \emph{kra
     kompozicije, dobimo $h \circ (g \circ f) = k \circ (g \circ f)$. Ker je $g \circ f$
     epimorfizem, ga smemo krajšati na desni, od koder dobimo želeno enakost $h = k$.
   \end{enumerate}
-\end{dokaz}
+\end{proof}
 
 
 \begin{izrek}
@@ -96,7 +96,7 @@ Pojma monomorfizem in epimorfizem sta uporabna, ker nam omogočata, da \emph{kra
 \end{izrek}
 
 
-\begin{dokaz}
+\begin{proof}
   \begin{enumerate}
   \item ($\Rightarrow$) Če je $f$ monomorfizem in $f(x) = f(y)$, tedaj je
   $(f \circ (u \mapsto x)) \unit = f(x) = f(y) = (f \circ (u \mapsto y)) \unit$, torej
@@ -134,7 +134,7 @@ Pojma monomorfizem in epimorfizem sta uporabna, ker nam omogočata, da \emph{kra
     To velja, saj $\some{x \in A} f(x) = y$ sledi iz surjektivnosti $f$ in
     $\all{x_1, x_2} f(x_1) = y \land f(x_2) = y \lthen x_1 = x_2$ iz injektivnosti~$f$.
   \end{enumerate}
-\end{dokaz}
+\end{proof}
 
 \subsection{Retrakcija in prerez}
 
@@ -157,9 +157,9 @@ Spoznajmo še pojem retrakcije in prereza. Na predavanjih bomo s sliko pojasnili
   Retrakcija je epimorfizem, prerez je monomorfizem.
 \end{izrek}
 
-\begin{dokaz}
+\begin{proof}
   Denimo, da velja $f \circ g = \id$, torej je $f$ retrakcija in $g$ prerez. Ker je identiteta monomorfizem, je po izreku \ref{izr:epi-mono-comp} tudi $g$ monomorfizem. In ker je identiteta epimorfizem, je po istem izreku $f$ epimorfizem.
-\end{dokaz}
+\end{proof}
 
 \section{Slike in praslike}
 
@@ -246,9 +246,9 @@ Ker slikata preslikave v preslikave, pravimo, da sta to \textbf{preslikavi višj
   \end{itemize}
 \end{izrek}
 
-\begin{dokaz}
+\begin{proof}
   Dokaz pustimo za vajo.
-\end{dokaz}
+\end{proof}
 
 \begin{izrek}
   Praslike ohranjajo preseke in unije: za vse $f : A \to B$ in $S : I \to \pow{B}$ velja
@@ -261,14 +261,14 @@ Ker slikata preslikave v preslikave, pravimo, da sta to \textbf{preslikavi višj
   \end{equation*}
 \end{izrek}
 
-\begin{dokaz}
+\begin{proof}
   Dokažimo prvo izjavo, druga je zelo podobna, le da $\exists$ zamenjamo z $\forall$.
   %
   Dokazujemo $\invimg{f} (\bigcup_{i \in I} S_i) \subseteq \bigcup_{i \in I} \invimg{f}(S_i)$.
   Naj bo $x \in \invimg{f} (\bigcup_{i \in I} S_i)$ in dokazujemo $x \in \bigcup_{j \in I} \invimg{f}(S_j)$.
   Ker je $f(x) \in \bigcup_{i \in I} S_i$ obstaja $k \in I$, da je $f(x) \in S_k$, torej je
   $x \in \invimg{f}(S_k) \subseteq \bigcup_{i \in I} \invimg{f}(S_i)$.
-\end{dokaz}
+\end{proof}
 
 \begin{izrek}
   Naj bo $f : A \to B$ in $T : I \to \pow{A}$. Tedaj je
@@ -282,9 +282,9 @@ Ker slikata preslikave v preslikave, pravimo, da sta to \textbf{preslikavi višj
   %
 \end{izrek}
 
-\begin{dokaz}
+\begin{proof}
   Dokaz prepustimo za vajo.
-\end{dokaz}
+\end{proof}
 
 \begin{vaja}
   Iz zgornjih dveh izrekov izpeljite naslednja dejstva:

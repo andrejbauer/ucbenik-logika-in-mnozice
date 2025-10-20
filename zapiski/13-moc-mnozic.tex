@@ -93,7 +93,7 @@ Pravilo vključitve in izključitve za tri množice se glasi
   Množica $A$ je neskončna natanko tedaj, ko obstaja injektivna preslikava $\NN \to A$.
 \end{izrek}
 
-\begin{dokaz}
+\begin{proof}
 
 ($\lthen$)
 %
@@ -110,7 +110,7 @@ Tako dobimo $e : \NN \to A$, ki je injektivna.
 Denimo, da obstaja injektivna preslikava $e : \NN \to A$.
 Če bi za neki $n$ veljalo $A \iso [n]$, bi imeli izomorfizem $f : A \to [n]$.
 Tedaj bi bil kompozitum $f \circ e : \NN \to [n]$ injektivna preslikava, ta pa ne obstaja (dokaz opustimo).
-\end{dokaz}
+\end{proof}
 
 \subsection{Moč množic}
 
@@ -180,7 +180,7 @@ Moči množic lahko primerjamo med seboj, čeprav ne vemo, kaj točno naravna š
   $|A| \leq |B|$ natanko tedaj, ko je $A = \emptyset$ ali obstaja surjekcija $B \to A$.
 \end{izrek}
 
-\begin{dokaz}
+\begin{proof}
   Denimo, da je $f : A \to B$ injektivna in $A \neq \emptyset$. Torej obstaja neki $a \in A$.
   Definiramo preslikavo $g : B \to A$ takole:
   %
@@ -203,7 +203,7 @@ Moči množic lahko primerjamo med seboj, čeprav ne vemo, kaj točno naravna š
   Obratno, denimo, da je $A$ prazna ali obstaja surjekcija $f : B \to A$. Če je $A$
   prazna, je edina preslikava $\emptyset \to B$ injektivna. Če je $f : B \to A$ surjektivna,
   ima prerez (zakaj?), ki je injektivna preslikava.
-\end{dokaz}
+\end{proof}
 
 
 \subsection{Cantorjev izrek}
@@ -212,7 +212,7 @@ Moči množic lahko primerjamo med seboj, čeprav ne vemo, kaj točno naravna š
   $|A| < |\pow{A}|$.
 \end{izrek}
 
-\begin{dokaz}
+\begin{proof}
   Najprej dokažimo $|A| \leq |\pow{A}|$. Iščemo injektivno preslikava $f : A \to \pow{A}$. Vzemimo $f(x) = \{x\}$. Zlahka preverimo, da je $f$ res injektivna.
 
   Sedaj dokazujemo, da ne obstaja bijekcija $A \to \pow{A}$. Dokazali bomo, da ne obstaja surjekcija $A \to \pow{A}$, kar zadostuje. Denimo, da je $g : A \to \pow{A}$ poljubna preslikava. Trdimo, da $g$ ni surjekcija. Res, podmnožica
@@ -227,7 +227,7 @@ Moči množic lahko primerjamo med seboj, čeprav ne vemo, kaj točno naravna š
   \item velja $y \not\in S$: če $y \in S$ potem $y \not\in g(y) = S$ po definiciji $S$,
   \item velja $\lnot (y \not\in S)$: če $y \not\in S$ potem $y \not\in g(y) = S$.
   \end{itemize}
-\end{dokaz}
+\end{proof}
 
 
 \subsection{Števne in neštevne množice}
@@ -254,7 +254,7 @@ Kot smo že povedali, moč množice $\NN$ označimo z $\aleph_0$.
   \end{enumerate}
 \end{izrek}
 
-\begin{dokaz}
+\begin{proof}
 %
 \begin{itemize}
 \item[$(1 \lthen 2)$]
@@ -302,15 +302,15 @@ Po izreku Cantor-Schröder-Bernstein, ki ga bomo dokazali spodaj, je torej $A$ i
 Če je $A$ končna, je števna, ker očitno velja $A = |[n]| \leq |\NN| = \aleph_0$.
 Če je $A$ izomorfna $\NN$, potem velja $|A| = |\NN| \leq |\NN| = \aleph_0$.
 \end{itemize}
-\end{dokaz}
+\end{proof}
 
 \begin{izrek}
   $\NN \times \NN \iso \NN$.
 \end{izrek}
 
-\begin{dokaz}
+\begin{proof}
   Za vajo, poiščite dokaz v zapiskih iz analize ali na internetu.
-\end{dokaz}
+\end{proof}
 
 \begin{definicija}
   \textbf{Števna družina} je družina $A : I \to \Set$, katere indeksna množica~$I$ je števna.
@@ -320,7 +320,7 @@ Po izreku Cantor-Schröder-Bernstein, ki ga bomo dokazali spodaj, je torej $A$ i
   Unija števne družine števnih množic je števna.
 \end{izrek}
 
-\begin{dokaz}
+\begin{proof}
   Izrek bomo dokazali le za primer, ko je indeksna množica~$\NN$.
   %
   Najprej obravnavajmo unijo družine $A : \NN \to \Set$, kjer je $A_n$ števna za vse $n \in \NN$.
@@ -337,7 +337,7 @@ Po izreku Cantor-Schröder-Bernstein, ki ga bomo dokazali spodaj, je torej $A$ i
   \end{equation*}
   %
   Trdimo, da je $e'$ surjekcija iz $\NN \times \NN$ na $\one + \bigcup_{n \in \NN} A_n$.
-\end{dokaz}
+\end{proof}
 
 
 \subsection{Cantor-Schröder-Bernsteinov izrek in zakon trihotomije}
@@ -346,7 +346,7 @@ Po izreku Cantor-Schröder-Bernstein, ki ga bomo dokazali spodaj, je torej $A$ i
   Če obstajata injektivni preslikava $A \to B$ in $B \to A$, potem obstaja bijektivna preslikava $A \to B$.
 \end{izrek}
 
-\begin{dokaz}
+\begin{proof}
   Definirajmo družino $C : \NN \to \mathsf{Set}$ takole:
   %
   \begin{align*}
@@ -411,15 +411,15 @@ Po izreku Cantor-Schröder-Bernstein, ki ga bomo dokazali spodaj, je torej $A$ i
     Ker $x \not\in D$, velja $h(x) = g^{-1}(x) = g^{-1}(g(z)) = z$, kar smo
     želeli dokazati.
   \end{enumerate}
-\end{dokaz}
+\end{proof}
 
 \begin{posledica}
   Če $|A| \leq |B|$ in $|B| \leq |A|$, potem $|A| = |B|$.
 \end{posledica}
 
-\begin{dokaz}
+\begin{proof}
   To sledi neposredno iz izreka CSB in definicije $\leq$.
-\end{dokaz}
+\end{proof}
 
 Brez dokaza omenimo še, da velja \textbf{zakon trihotomije}: za vsaki množici $A$ in $B$
 velja

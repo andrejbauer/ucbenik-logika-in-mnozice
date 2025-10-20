@@ -13,7 +13,7 @@ Slišali boste tudi \nls{$a$ je vsebovan v~$M$}, a to rabo odsvetujemo, ker tudi
 V splošni razpravi o množicah, ki bi presegala meje ožje matematične vede, bi se opirali na
 zgodovinski in družbeni kontekst, jezikovni izvor in rabo besed `množica', `skupek' in
 `zbirka', kognitivno analizo, eksperimente, filozofijo itn. Vsi ti vidiki so za matematike
-izjemo koristni, saj iz takih ">pred-matematičnih"< obravnav črpamo sveže zamisli in
+izjemo koristni, saj iz takih `pred-matematičnih' obravnav črpamo sveže zamisli in
 matematiko naredimo zares uporabno. Ko pa delujemo znotraj matematike, zunanje vplive
 odmislimo in se zanašamo le še na pravila logičnega sklepanja in dogovorjene matematične zakone, da ne
 prihaja do nejasnosti in dvomljivih sklepov.
@@ -46,7 +46,7 @@ zakonom, ki mu pravimo \df{pravilo ekstenzionalnosti}:
   Množici sta enaki, če vsebujeta iste elemente.
 \end{pravilo}
 
-Kaj pravzaprav pomeni, da je to ">pravilo"<, ">matematični zakon"< ali ">načelo"<? So ga
+Kaj pravzaprav pomeni, da je to \nls{pravilo}, \nls{matematični zakon} ali \nls{načelo}? So ga
 razglasili v parlementu, je to zakon narave, ali morda dogma, ki jo je razglasil profesor
 na predavanjih? Bodo tisti, ki pravila ekstenzionalnosti ne spoštujejo, deležni Lešnikove
 masti? Ne. Matematični zakoni so \emph{dogovori}, nekakšna pravila matematične igre. Skozi
@@ -135,7 +135,7 @@ $\set{1, 2} = \set{2, 1, 1}$. Pa je to res?
   Množici $\set{1, 2}$ in $\set{2, 1, 1}$ sta enaki.
 \end{trditev}
 
-\begin{dokaz}
+\begin{proof}
   Dokaz, ki ga bomo zapisali je izjemno podroben in ga v praksi ne bi zapisali,
   saj je z njegovim branjem več dela, kot če bi ga poustvarili sami. Ker pa želimo pokazati, da
   tudi najbolj trivialna dejstva lahko dokažemo, ga zapišimo.
@@ -179,9 +179,9 @@ $\set{1, 2} = \set{2, 1, 1}$. Pa je to res?
   \end{enumerate}
   %
   Dokaz je končan.
-\end{dokaz}
+\end{proof}
 
-Mimogrede, kvadratek označuje konec dokaza. Imenuje se tudi ">Halmos"< po matematiku
+Mimogrede, kvadratek označuje konec dokaza. Imenuje se tudi \emph{halmoš} po matematiku
 Paulu Halmosu, ki ga je prvi uporabljal. Nekateri avtorji pišejo tudi QED, kar je okrajšava za \nls{quod erat demonstrandum}.
 
 Še enkrat se pojavi dvom o uporabi pravila~\ref{pravilo:koncna-mnozica}. Nikjer ne piše, da smemo pri naštevanju isti element večkrat ponoviti. Je sploh dovoljeno ponavljati elemente končne množice in pisati $\set{2, 1, 1}$?
@@ -273,10 +273,10 @@ proglasili za prvega med enakimi. S prazno množico nimamo podobnih težav, saj 
 
 Temelj matematike ne tvorijo le množice, ampak tudi drugi matematični pojmi. Prvi izmed
 njih je \df{preslikava}, oziroma s tujko \df{funkcija}.\footnote{Nekateri uporabljajo
-  izraz ">funkcija"< samo za tiste preslikave, ki slikajo v realna ali kompleksna števila,
+  izraz `funkcija' samo za tiste preslikave, ki slikajo v realna ali kompleksna števila,
   vendar to navado izpodriva računalništvo, saj funkcije v programskih jezikih nimajo
-  omejitev. Dandanes večina matematikov besedo ">funkcija"< obravnava kot sopomenko besede
-  ">preslikava"< in tako jo bomo uporabljali tudi mi.} V srednji šoli ste že spoznali
+  omejitev. Dandanes večina matematikov besedo `funkcija' obravnava kot sopomenko besede
+  `preslikava' in tako jo bomo uporabljali tudi mi.} V srednji šoli ste že spoznali
 nekatere preslikave, kot so na primer linearne preslikave, trigonometrijske funkcije,
 logaritem itd. Nas pa ne bodo zanimale posamezne preslikave, ali posebne lastnosti
 preslikav, ampak preslikave na splošno.
@@ -331,7 +331,7 @@ $2 \sin(x + \pi/4)$. S simboli tak predpis zapišemo
   x \mapsto 2 \sin(x + \pi/4).
 \end{equation*}
 %
-in preberemo ">$x$ se slika v dvakrat sinus od $x$ plus pi četrtin."<
+in preberemo \nls{$x$ se slika v dvakrat sinus od $x$ plus pi četrtin.}
 %
 Matematiki smo natančni, zato ne mešamo uporabe puščic $\to$ in $\mapsto$. Navadna puščica
 se uporablja pri oznaki domene in kodomene, repata pa v predpisu. V računalništvu besedo
@@ -417,7 +417,9 @@ Tabela elementu v levem stolpcu priredi istoležni element v desnem stolpcu: $1$
   f(5) &\dfeq 10    &&&    f : 5 &\mapsto 10.
 \end{align*}
 %
-To se še vedno le tabele, predstavljene na drugačen način. Pomembno je, da je domena~$f$ končna množica.
+To se še vedno le tabele, predstavljene na drugačen način.
+%
+Tabelarični prikaz lahko uporabimo, kader je domena~$f$ končna množica, katere elemente lahko naštejemo.
 
 Preslikava je lahko določena tudi z opisom računskega postopka, pravimo mu \df{algoritem},
 s pomočjo katerega izračunamo vrednost preslikave pri danem argumentu. Paziti moramo, da je
@@ -461,13 +463,24 @@ enaka in lahko bi celo pisali $\Box \mapsto 1 + \Box^2$ ali
 $\heartsuit \mapsto 1 + \heartsuit^2$.
 
 V funkcijskem predpisu se smejo pojaviti tudi druge spremenljivke, ki jim
-pravimo \df{parametri}. Predpis \nls{pomnoži z~$a$ in prištej~$b$} zapišemo
+pravimo \df{parametri}. V predpisu
 %
 \begin{equation*}
   x \mapsto a \cdot x + b,
 \end{equation*}
 %
-tu sta $a$ in $b$ parametra in $x$ vezana spremenljivka.
+tu sta $a$ in $b$ parametra in $x$ vezana spremenljivka. Ni vseeno, katere spremenljivko so vezane in katere parametri:
+%
+\begin{center}
+  \begin{tabular}{ll}
+    \toprule
+    Predpis & Pomen \\ \midrule
+    $x \mapsto a \cdot x + b$ \qquad\hbox{} & \nls{pomnoži z~$a$ in prištej~$b$} \\
+    $a \mapsto a \cdot x + b$ & \nls{pomnoži z~$x$ in prištej~$b$} \\
+    $b \mapsto a \cdot x + b$ & \nls{prištej~$a \cdot x$} \\
+    \bottomrule
+  \end{tabular}
+\end{center}
 
 V funkcijskem predpisu mora na levi stati en sam simbol, ki na desni kaže, kam je treba
 vstaviti element iz domene. Tako
@@ -574,8 +587,7 @@ A pravzaprav bi lahko bilo tudi
 
 Poudarimo, da je funkcijski predpis le eden od treh sestavnih delov preslikave in zato same \emph{ne} podaja preslikave.
 %
-Res, če ne poznamo domene, ne moremo preveriti, ali je funkcijski predpis celovit. Denimo,
-funkcijski predpis
+Če ne poznamo domene, ne moremo preveriti, ali je funkcijski predpis celovit. Denimo,
 %
 \begin{equation*}
   x \mapsto \frac{x}{x^2 - 2}
@@ -624,11 +636,10 @@ uporabimo na argumentu~$3$:
 \end{equation*}
 %
 Se vam zdi tak zapis nenavaden? Verjetno, a pomislite, zakaj: ker so vas vzgojili, da
-je treba vse preslikave vedno poimenovali in se nanje skliceval z njihovim imenom.\footnote{Če bi veljalo enako tudi za števila, vam v srednji šoli ne bi pustili pisati kar $3 + 5$, nujno bi bilo poimenovanje $a \dfeq 3 + 5$. Tudi trikotnika ne bi smeli narisati, ne da bi mu dali simbolno ime.}
+je treba vse preslikave poimenovati in se nanje skliceval z danim imenom.\footnote{Če bi veljalo enako tudi za števila, vam v srednji šoli ne bi pustili pisati kar $3 + 5$, nujno bi bilo poimenovanje $a \dfeq 3 + 5$. Tudi trikotnika ne bi smeli narisati, ne da bi mu dali simbolno ime.}
 %
-Navkljub dobri vzgoji, bomo s preslikavami delali enako kot s števili, vektorji in
-ostalimi matematičnimi objekti. Računalničarji radi rečejo, da
-je treba tudi preslikave obravnavati kot enakopravne državljane.
+Taka vzgoja vzbuja občutek, da so preslikave bolj imenitne in zastrašujoče kot števila, daljice in drugi matematični objekti. Morda je občutek do neke mere utemeljen za laika, a prav hitro bomo spoznali, da preslikave niso nič
+posebnega in da lahko z njimi delamo enako kot s števili, vektorji in ostalimi matematičnimi objekti. Računalničarji radi rečejo, da je treba tudi preslikave obravnavati kot enakopravne državljane.
 
 Kako izračunamo vrednost funkcije pri danem argumentu? To je odvisno od tega,
 kako je podano prirejanje. Če imamo tabelarični prikaz, poiščemo argument v levem stolpcu
@@ -709,7 +720,7 @@ A začetnikom priporočamo, da v dobrobit boljšega razumevanja snovi vsaj na za
 Vrnimo se še k pravilu ekstenzionalnosti preslikav. Ali ni pravzaprav očitno, da sta
 preslikavi enaki, če imata enaki domeni, kodomeni in vrednosti? Morda res, a to ni razlog,
 da tega ne bi eksplicitno zapisali. Vsak matematik vam ve povedati kako zgodbo o tem,
-kako se je v dokazu skrivala napako ravno tam, kjer je bilo nekaj ">očitno"<. Poleg tega
+kako se je v dokazu skrivala napako ravno tam, kjer je bilo nekaj `očitno'. Poleg tega
 pa si lahko predstavljamo razmere, v katerih je smiselno razlikovati med dvema
 preslikavama, ki imata vedno enake vrednosti, denimo v programiranju, kjer je računska učinkovitost
 zelo pomembna.
@@ -807,7 +818,7 @@ dokažemo.
   $a \in A$ in natanko en $b \in B$, da velja $p = (a, b)$.
 \end{trditev}
 
-\begin{dokaz}
+\begin{proof}
   Naj bosta $A$ in $B$ množici in $p \in A \times B$. Najprej pokažimo, da $p$ res je enak
   nekemu urejenemu paru, namreč
   %
@@ -838,7 +849,7 @@ dokažemo.
   \end{equation*}
   %
   kar smo želeli dokazati.
-\end{dokaz}
+\end{proof}
 
 Trditev je prikladna, ko želimo podati funkcijsko pravilo za preslikavo, katere domena je
 zmnožek množic. Primer take preslikave je
@@ -866,7 +877,7 @@ je $p$ enak $(x, y)$ za enolično določena $x$ in $y$:
   f(x, y) \dfeq x + y^2 \cdot x.
 \end{gather*}
 %
-Za tako preslikavo pravimo, da je ">funkcija dveh spremenljivk"<, ker si mislimo, da smo
+Za tako preslikavo pravimo, da je `funkcija dveh spremenljivk', ker si mislimo, da smo
 podali argumenta $x$ in $y$ ločeno drug od drugega. A lahko rekli tudi, da je to funkcija
 ene spremenljivke, ki jo uporabimo na urejenem paru:
 %
@@ -916,17 +927,16 @@ elemente iz~$A$ in drugo za elemente iz~$B$. Oznakama pravimo tudi
   sam določi, kakšne oznake bo uporabljal za injekcije.} in sta preslikavi
 %
 \begin{equation*}
-  \iota_1 : A \to A + B
+  \inl : A \to A + B
   \qquad\text{and}\qquad
-  \iota_2 : B \to A + B.
+  \inr : B \to A + B.
 \end{equation*}
 %
 Kadar imamo opravka z večimi vsotami, na primer $A + B$ in $C + D$, bi lahko prišlo do
 zmede glede oznak. Takrat injekcije opremimo še z dodatnimi oznakami množic, da razločimo
 injekciji $\inl[A][B] : A \to A + B$ in $\inl[C][D] : C \to C + D$, in podobno za~$\inr$.
 
-Potrebujemo še pravili za uporabo in enakost elementov vsote, ki ju združimo v eno samo
-pravilo.
+S pravilom~\ref{vsota:vpeljava} elementi $A + B$ še niso povsem opredeljeni. Kako vemo, da poleg elementov, ki jih predpisuje pravilo, $A + B$ ne vsebuje nobenih drugih? In kako primerjamo elemente~$A + B$? Potrebujemo še eno pravilo.
 
 \begin{pravilo}
   \label{vsota:uporaba}
@@ -935,11 +945,11 @@ pravilo.
   $u = \inr(b)$.
 \end{pravilo}
 
-V zgornjem pravilu fraza ">bodisi \dots bodisi \dots"< pomeni, da velja prva ali druga možnost, a ne obe hkrati.
+V zgornjem pravilu fraza \nls{bodisi \dots bodisi \dots} pomeni, da velja prva ali druga možnost, a ne obe hkrati.
 %
 S tem smo v $A + B$ res ločili elemente $A$ od elementov $B$, saj velja $\inl(a) \neq \inr(b)$, tudi ko je $A = B$ in $a = b$. 
 %
-Fraza ">natanko en $a \in A$"< pove, da iz $u = \inl(a_1)$ in $u = \inl(a_2)$ sledi $a_1 = a_2$.
+Fraza \nls{natanko en $a \in A$} pove, da iz $u = \inl(a_1)$ in $u = \inl(a_2)$ sledi $a_1 = a_2$.
 Povedano drugače, če velja $\inl(a_1) = \inl(a_2)$, potem je $a_1 = a_2$. Podobno iz
 $\inr(b_1) = \inr(b_2)$ sledi $b_1 = b_2$.
 %
@@ -964,7 +974,7 @@ $\inl(a)$ za neki $a \in A$ bodisi $\inr(b)$ za neki $b \in B$, \emph{obravnavam
 %
 kjer smemo v $\cdots a \cdots$ zapisati izraz, ki vsebuje simbol~$a$, in v
 $\cdots b \cdots$ izraz, ki vsebuje simbol~$b$. Ker je tak zapis nekoliko neroden, se
-dogovorimo, da ga lahko zapišemo tudi s \emph{večdelnim} funkcijskim predpisom:
+dogovorimo, da ga lahko zapišemo tudi z \emph{večdelnim} funkcijskim predpisom:
 %
 \begin{align*}
   \inl(a) &\mapsto \cdots a \cdots, \\
@@ -974,11 +984,34 @@ dogovorimo, da ga lahko zapišemo tudi s \emph{večdelnim} funkcijskim predpisom
 Če želimo preslikavo poimenovati, zapišemo
 %
 \begin{align*}
-  f &: A + B \to C, \\
+  f : A + B &\to C, \\
   f(\inl(a)) &\dfeq \cdots a \cdots \\
   f(\inr(b)) &\dfeq \cdots b \cdots.
 \end{align*}
-%
+
+\begin{zgled}
+  Predpis
+  %
+  \begin{align*}
+    f : \set{1, 2} + \set{2, 3} &\to \NN, \\
+    f(\inl(x)) &\dfeq x^2 \\
+    f(\inr(y)) &\dfeq 6 / x
+  \end{align*}
+  %
+  bi lahko predstavili s tabelo
+  %
+  \begin{center}
+    \begin{tabular}{cc}
+      \toprule
+      $u$ & $f(u)$ \\ \midrule
+      $\inl(1)$ & $1$ \\
+      $\inl(2)$ & $4$ \\
+      $\inr(2)$ & $3$ \\
+      $\inr(3)$ & $2$ \\ \bottomrule
+    \end{tabular}
+  \end{center}
+\end{zgled}
+
 Vsi ti zapisi res določajo celovito in enolično prirejanje, saj nam pravila za vsoto
 zagotavljajo, da vedno obvelja natanko en primer. Na sploh lahko podamo funkcijski zapis z
 večimi primeri, če le pazimo, da obravnavamo vse možnosti, in da se le-te ne prekrivajo.
@@ -1158,7 +1191,7 @@ pisali kompozicijo v obratnem vrstnem redu.
   \end{enumerate}
 \end{trditev}
 
-\begin{dokaz}
+\begin{proof}
   Trditev je zapisana pomanjkljivo, saj ne piše, kaj so $A$, $B$,$ f$ in~$g$. Avtorja
   trditve bi lahko vprašali, kaj je hotel povedati, a je bolje, da poskusimo to razvozlati
   sami, ker je to odlična vaja iz razumevanja matematičnih besedil.
@@ -1200,8 +1233,8 @@ pisali kompozicijo v obratnem vrstnem redu.
   \end{equation*}
   %
   Preverimo, ali smo trditev pravilno razumeli. Ko vstavimo podrobnosti, se prvi del
-  glasi: ">Za vse množice $A$ in $B$ ter preslikavo $f : A \to B$ velja
-  $\id[B] \circ f = f = f \circ \id[A]$."<
+  glasi: \nls{Za vse množice $A$ in $B$ ter preslikavo $f : A \to B$ velja
+  $\id[B] \circ f = f = f \circ \id[A]$.}
   %
   Ker je to smiselna izjava, jo dokažimo. Enakost preslikav se dokaže z ekstenzionalnostjo
   preslikav, torej preverimo, ali imajo $\id[B] \circ f$, $f$ in $f \circ \id[A]$ enako
@@ -1222,7 +1255,7 @@ pisali kompozicijo v obratnem vrstnem redu.
     ((h \circ g) \circ f)(x) &= (h \circ g)(f(x)) = h(g(f(x))) \\
     (h \circ (g \circ f))(x) &= h((g \circ f)(x)) = h(g(f(x))). \qedhere
   \end{align*}
-\end{dokaz}
+\end{proof}
 
 
 Kompozicijo smo zapisali z \emph{vgnezdenim} funkcijskim predpisom, ki argumentu priredi
@@ -1410,7 +1443,7 @@ izomorfizem:\footnote{Držimo se pravila, da nikoli ne uporabimo iste vezane spr
   dvakrat, zato pravilo za $f$ zapišemo z $x$ in $y$ in pravilo za $g$ z $v$ in $u$.
   Marsikdo bi oba funkcisjka predpisa zapisal z $x$ in $y$, torej
   $f : (x, y) \mapsto (y, x)$ in $g : (y, x) \mapsto (x, y)$. To zmede nekatere študente,
-  ker mislijo, da ">sta je $x$ v definiciji $f$ isti kot v definiciji $g$"<, karkoli že
+  ker mislijo, da \nls{sta je $x$ v definiciji $f$ isti kot v definiciji $g$}, karkoli že
   naj bi to pomenilo. Poudarimo še enkat: vezana spremenljivka v funkcijskem predpisu nima
   nikakršne zveze z nobeno drugo pojavitvijo iste spremenljivke kje druge.}
 %
@@ -1480,7 +1513,7 @@ prepričali, da trditve držijo.
   $g : B \to A$ in $h : B \to A$ obe obrata~$f$, potem je $g = h$.
 \end{trditev}
 
-\begin{dokaz}
+\begin{proof}
   Ker je $g$ obrat $f$, velja
   %
   \begin{equation*}
@@ -1508,7 +1541,7 @@ prepričali, da trditve držijo.
     &= h \circ \id[B] \tag{predpostavka $f \circ g = \id[B]$} \\
     &= h. \tag{kompozicija z $\id[B]$ nima učinka}
   \end{align*}
-\end{dokaz}
+\end{proof}
 
 Če je $f : A \to B$ izomorfizem, potem ima natanko en obrat, ki ga označimo $\inv{f}$. Če
 $f$ ni izomorfizem, zapis $f^{-1}$ ni veljaven izraz.
@@ -1542,13 +1575,13 @@ Sami premislite, kaj je $\inv{(\inv{f}(x))}$.
   \end{equation*}
 \end{trditev}
 
-\begin{dokaz}
+\begin{proof}
   Dokaz prepuščamo za vajo. Pozor, v desni enakosti se je zamenjal vrstni red $f$ in $g$!
   Nadalje opazimo še to: zapisali smo $\inv{(\inv{f})}$ in $\inv{(g \circ f)}$, ne da bi
   predhodno preverili, ali sta $\inv{f}$ in $g \circ f$ izomorfizma. Torej morate v dokazu
   najprej preveriti, da je sta $\inv{f}$ in $g \circ f$ izomorfizma, če sta $f$ in $g$
   izomorfizma.
-\end{dokaz}
+\end{proof}
 
 \begin{trditev}
   Za vse množice $A$, $B$ in $C$ velja:
@@ -1560,7 +1593,7 @@ Sami premislite, kaj je $\inv{(\inv{f}(x))}$.
   \end{enumerate}
 \end{trditev}
 
-\begin{dokaz}
+\begin{proof}
   \parbox{0pt}{}
   %
   \begin{enumerate}
@@ -1570,7 +1603,7 @@ Sami premislite, kaj je $\inv{(\inv{f}(x))}$.
   \item če je $f : A \to B$ izomorfizem iz $A$ v $B$ in $g : B \to C$ izomorfizem iz $B$ v
     $C$, potem je $g \circ f$ izomorfizem iz $A \to C$. \qedhere
   \end{enumerate}
-\end{dokaz}
+\end{proof}
 
 \begin{trditev}
   Preslikava ima največ en inverz.
@@ -1767,19 +1800,19 @@ lahko obravnavamo kot elemente~$A$ in obratno.
 Lotimo se izomorfizmov, v katere je vpletena prazna množica. Tu se ne moremo več zanašati
 le na prirojen občutek za logiko, saj s prazno množico nimamo vsakdanjih izkušenj, oziroma
 jo obravnavamo kot posebnost. Kako bi odgovorili na vprašanje, ali so vsi elementi prazne
-množice praštevila? Pravilni odgovor je ">da"<. In hkrati so vsi elementi prazne množice
+množice praštevila? Pravilni odgovor je `da'. In hkrati so vsi elementi prazne množice
 sestavljena števila. Zakaj je to res bomo spoznali v
 razdelku~\ref{sec:logika-prazna-mnozica}, ko bomo podrobno obravnavali pravila sklepanja.
-Zaenkrat si zapomnimo, da je pravilna vsaka izjava ">za vse elemente prazne množice velja
-\dots"<. Pravimo, da je taka izjava \emph{na prazno izpolnjena}
+Zaenkrat si zapomnimo, da je pravilna vsaka izjava \nls{za vse elemente prazne množice velja
+\dots}. Pravimo, da je taka izjava \emph{na prazno izpolnjena}
 
 Začnimo z vprašanjem, ali lahko tvorimo kako preslikavo $\emptyset \to A$. Najprej
 ugotovimo, da so vse preslikave $\emptyset \to A$ enake. Res, za $f, g : \emptyset \to A$
 velja $f = g$ natanko tedaj, ko za vse $x \in \emptyset$ velja $f(x) = g(x)$. A ravnokar
-smo povedali, da je vsaka izjava oblike ">za vse $x \in \emptyset$ \dots"< veljavna. Pa
+smo povedali, da je vsaka izjava oblike \nls{za vse $x \in \emptyset$ \dots} veljavna. Pa
 imamo kako preslikavo $\emptyset \to A$? Odgovor je pritrdilen, če lahko podamo kako
 celovito in enolično prirejanje med elementi~$\emptyset$ in~$A$. Ker sta celovitost in
-enoličnost spet izavi oblike ">za vse $x \in \emptyset$ \dots"<, sta na prazno izpolnjena,
+enoličnost spet izavi oblike \nls{za vse $x \in \emptyset$ \dots}, sta na prazno izpolnjena,
 zato bo zadoščalo kakršnokoli prirejanje, denimo: nobenemu elementu ne priredimo nobenega
 elementa. S tem smo utemeljili naslednjo trditev.
 
