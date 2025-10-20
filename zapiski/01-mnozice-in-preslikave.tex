@@ -270,6 +270,7 @@ Da se ne bi vsakič znova ukvarjali z nepotrebnim izbiranjem nekega enojca, smo 
 proglasili za prvega med enakimi. S prazno množico nimamo podobnih težav, saj je ena sama.
 
 \section{Preslikave}
+\label{sec:preslikave}
 
 Temelj matematike ne tvorijo le množice, ampak tudi drugi matematični pojmi. Prvi izmed
 njih je \df{preslikava}, oziroma s tujko \df{funkcija}.\footnote{Nekateri uporabljajo
@@ -725,6 +726,134 @@ pa si lahko predstavljamo razmere, v katerih je smiselno razlikovati med dvema
 preslikavama, ki imata vedno enake vrednosti, denimo v programiranju, kjer je računska učinkovitost
 zelo pomembna.
 
+\subsection{Kompozicija}
+\label{sec:kompozicija}
+
+Kompozicija preslikav je temeljna operacija, ki združi preslikavi $f : A \to B$ in $g : B \to C$ v preslikavo
+$g \circ f : A \to C$, podano s prirejanjem
+%
+\begin{equation*}
+  (g \circ f)(x) \dfeq g (f (x)).
+\end{equation*}
+%
+Zakaj pišemo $g \circ f$ in ne obratno $f \circ g$?  Ker si je mnogo lažje zapomniti zgornje računsko pravilo kot pravilo $(f \circ g)(x) = g(f(x))$, ki bi ga dobili, če bi pisali kompozicijo v obratnem vrstnem redu.
+
+\begin{trditev}
+  \parbox{0pt}{}
+  %
+  \begin{enumerate}
+  \item Identiteta je nevtralna za kompozicijo: $\id[B] \circ f = f = f \circ \id[A]$.
+  \item Kompozicija je asociativna: $(h \circ g) \circ f = h \circ (g \circ f)$.
+  \end{enumerate}
+\end{trditev}
+
+\begin{proof}
+  Trditev je zapisana pomanjkljivo, saj ne piše, kaj so $A$, $B$,$ f$ in~$g$. Avtorja
+  trditve bi lahko vprašali, kaj je hotel povedati, a je bolje, da poskusimo to razvozlati
+  sami, ker je to odlična vaja iz razumevanja matematičnih besedil.
+
+  Takoj vidimo, da je $A$ množica, sicer zapis $\id[A]$ ne bi bil smiselen, in podobno je
+  tudi $B$ množica. Simboli $f$, $g$ in $h$ zagotovo označujejo preslikave, saj nastopajo
+  v kompoziciji. Kaj pa njihove domene in kodomene? Preslikava $f$ mora imeti domeno $A$,
+  sicer ne bi bilo dovoljeno komponirati $f \circ \id[A]$, in mora imeti kodomeno $B$,
+  sicer ne bi bilo dovoljeno komponirati $\id[B] \circ f$. Ostaneta še domeni in kodomeni
+  preslikav $g$ in~$h$. Kompozicija $g \circ f$ kaže, da mora biti domena $g$ enaka
+  kodomeni~$f$, torej $B$. Kompozicija $h \circ g$ pa pove, da je kodomena $C$ enaka
+  domeni $h$. Če vse to zložimo v diagram, dobimo
+  %
+  \begin{equation*}
+    \xymatrix{
+      {A} \ar[r]^{f}
+      &
+      {B} \ar[r]^{g}
+      &
+      {\text{?}} \ar[r]^{h}
+      &
+      {\text{?}}
+    }
+  \end{equation*}
+  %
+  Trditev moramo razumeti tako, da bo čim bolj splošna in smiselna. Torej bomo za neznani
+  množici vzeli kar poljubni množici $C$ in $D$:
+  %
+  \begin{equation*}
+    \xymatrix{
+      {A} \ar[r]^{f}
+      &
+      {B} \ar[r]^{g}
+      &
+      {C} \ar[r]^{h}
+      &
+      {D}
+    }
+  \end{equation*}
+  %
+  Preverimo, ali smo trditev pravilno razumeli. Ko vstavimo podrobnosti, se prvi del
+  glasi: \nls{Za vse množice $A$ in $B$ ter preslikavo $f : A \to B$ velja
+  $\id[B] \circ f = f = f \circ \id[A]$.}
+  %
+  Ker je to smiselna izjava, jo dokažimo. Enakost preslikav se dokaže z ekstenzionalnostjo
+  preslikav, torej preverimo, ali imajo $\id[B] \circ f$, $f$ in $f \circ \id[A]$ enako
+  vrednost za poljuben $x \in A$:
+  %
+  \begin{align*}
+    (\id[B] \circ f)(x) &= \id[B] (f (x)) = f (x), \\
+    f (x) &= f(x), \\
+    (f \circ \id[A])(x) &= f (\id[A](x)) = f(x).
+  \end{align*}
+  %
+  Zapišimo podrobno še drugi del: ">Za vse množice $A$, $B$, $C$ in $D$ ter preslikave
+  $f : A \to B$, $g : B \to C$ in $h : C \to D$ velja
+  $(h \circ g) \circ f = h \circ (g \circ f)$. To spet dokažemo tako, da uporabimo levo in
+  desno stran enačbe na poljubnem $x \in A$:
+  %
+  \begin{align*}
+    ((h \circ g) \circ f)(x) &= (h \circ g)(f(x)) = h(g(f(x))) \\
+    (h \circ (g \circ f))(x) &= h((g \circ f)(x)) = h(g(f(x))). \qedhere
+  \end{align*}
+\end{proof}
+
+
+
+
+\subsection{Kosoma podano prirejanje}
+
+Včasih podamo prirejanje `po kosih', kar pomeni, da domeno razdelimo na podmnožice in za vsako posebej povemo, kako na njej deluje prirejanje.
+%
+Zgled, ki ga že poznate iz srednje šole, je preslikava 'absolutno', ki je definirana po kosih za negativna in nenegativna števila:
+% 
+\begin{align*}
+  \RR &\to \RR \\
+  x &\mapsto
+      \begin{cases}
+        -x & \text{če $x \leq 0$,}\\
+        x & \text{če $x \geq 0$.}
+      \end{cases}
+\end{align*}
+% 
+Pravilo preberemo: \nls{če je $x \leq 0$, mu priredimo vrednost $-x$, in če je $x \geq 0$, mu priredimo vrednost~$x$}.
+%
+Domeno $\RR$ smo razdelili na množico nepozitivnih števil $\set{x \in \RR \such x \leq 0}$ in množico nenegativnih\footnote{Preberite pozorno, piše \nls{ne-negativnih}!} števil $\set{x \in \RR \such x \geq 0}$.
+%
+Celovitost tako podanega prirejanja je zagotovljena, če je unija kosov celotno domeno,
+enoličnost pa v primeru, ko se prirejanja skladajo na preseku.
+%
+V zgornjem zgledu je to res, saj je vsako realno število nepozitivno ali nenegativno, edino hkrati nenegativno in nepozitivno število pa je $0$ in to zadošča $-0 = 0$.
+
+Če bi absolutno vrednost definirali s predpisom
+%
+\begin{align*}
+  \RR &\to \RR \\
+  x &\mapsto
+      \begin{cases}
+        -x & \text{če $x < 0$,}\\
+        x & \text{če $x \geq 0$,}
+      \end{cases}
+\end{align*}
+%
+se kosa ne bi prekrivala in nam ne bi bilo treba preverjati $-0 = 0$.
+
+
 \section{Zmnožek, vsota in eksponent množic}
 
 Množice lahko \df{tvorimo} ali \df{konstruiramo} iz drugih množic na različne načine. V
@@ -1130,136 +1259,44 @@ podobna, le da bi imeli več injekcij in več primerov.
 Pravila, ki smo jih podali do sedaj, ne zagotavljajo obstoja množice vseh preslikav z dano domeno in kodomeno. Potrebujemo novo pravilo.
 
 \begin{pravilo}[Eksponent]
+  \label{pravilo:eksponent}%
   Za vsaki množici $A$ in $B$ je \df{eksponent} ali \df{eksponentna množica $B^A$},
   katere elementi so natanko vse preslikave iz~$A$ v~$B$.
 \end{pravilo}
 
 Potemtakem je zapis $f : A \to B$ enakovreden zapisu $f \in B^A$.
 
-Pravila, ki opredeljujejo elemente množice $B^A$ smo že spoznali. Pravilo vpeljave pravi,
-da je preslikava podana z domeno, kodomeno ter celovitim in enoličnim prirejanjem med
-njima. Pravilo uporabe je kar aplikacija: če je $f \in B^A$ in $a \in A$, lahko tvorimo
-$f(a) \in B$. Tudi računsko pravilo za preslikave smo že spoznali, saj je to kar pravilo
-zamenjave: funkcijski predpis uporabimo na argumentu tako, da vezano spremenljivko v
-predpisu zamenjamo z argumentom. In ekstenzionalnost preslikav pove, kdaj sta dve
-preslikavi enaki.
+Zmnožek množic smo podali s pravili tvorbe, vpeljave in uporabe ter računskima praviloma in pravilom ekstenzionalnosti.
+%
+Tudi eksponent množic smo podali po istem vzorcu v razdelku~\ref{sec:preslikave}:
+%
+\begin{itemize}
+\item \emph{pravilo tvorbe} je prvi del pravila~\ref{pravilo:eksponent},
+\item \emph{vpeljava:} preslikava je podana z domeno, kodomeno in prirejanjem,
+\item \emph{uporaba:} preslikavo lahko uporabimo na argumentu,
+\item \emph{računsko pravilo} je pravilo zamenjave vezane spremenljivke z argumentom,
+\item \emph{ekstenzionalnost} zagotavlja enakost preslikav z enakimi vrednostmi.
+\end{itemize}
 
 
-\subsection{Kompozicija preslikav}
-\label{sec:komp-presl}
+\section{Preslikave višjega reda}
+\label{sec:presl-visj-red}
 
-Preslikavi, ki sprejme kot argument preslikavo, pravimo \df{funkcional} ali \df{preslikava
-  višjega reda}. Primer take preslikave je \df{kompozicija}:
+Preslikavo, ki sprejme kot argument preslikavo, imenujemo \df{funkcional} ali \df{preslikava
+  višjega reda}. Znan primer je določeni integral, ki kot argumente sprejme realni števili $a, b\in \RR$ in integrabilno funkcijo $f \in \RR^\RR$ ter izračuna ploščino pod~$f$ na intervalu~$[a,b]$.
+Še en primer je operacija $\lim$, ki sprejme konvergentno zaporedje $a \in \RR^\NN$ in izračuna njegovo limito.
+
+V razdelku~\ref{sec:kompozicija} mi smo že srečali funkcional, namreč kompozicijo preslikav. Zapišimo jo še enkrat tako, da nastopi operacija $\circ$ kot preslikava:
 %
 \begin{align*}
-  {\circ} &: C^B \times B^A \to C^A \\
+  {\circ} &: C^B \times B^A \to C^A, \\
   {\circ} &: (g, f) \mapsto (x \mapsto g(f(x))).
 \end{align*}
 %
-Pišemo jo kot operacijo, torej $g \circ f$ namesto ${\circ}(g, f)$. V zgornjem zapisu smo
-uporabili eksponente, a v tem primeru je bolj pregleden diagram:
+Res, lahko si mislimo, da $\circ$ sprejme urejeni par preslikav $(g, f)$ in izračuna njun kompozitum, ki ga pišemo $g \circ f$ namesto ${\circ}(g, f)$.
 %
-\begin{equation*}
-  \xymatrix{
-    {A}
-    \ar[r]^{f}
-    \ar@/_3ex/[rr]_{g \circ f}
-    &
-    {B}
-    \ar[r]^{g}
-    &
-    {C}
-  }
-\end{equation*}
-%
-Zakaj smo $\circ$ definirali tako, da kompozicijo $f$ in $g$ pišemo $g \circ f$ namesto
-$f \circ g$? Ker si je mnogo lažje zapomniti računsko pravilo
-%
-\begin{equation*}
-  (g \circ f)(x) = g(f(x)),
-\end{equation*}
-%
-ki velja z našo definicijo, kot pa računsko pravilo $(f \circ g)(x) = g(f(x))$, ki bi ga dobili, če bi
-pisali kompozicijo v obratnem vrstnem redu.
-
-\begin{trditev}
-  \parbox{0pt}{}
-  %
-  \begin{enumerate}
-  \item Identiteta je nevtralna za kompozicijo: $\id[B] \circ f = f = f \circ \id[A]$.
-  \item Kompozicija je asociativna: $(h \circ g) \circ f = h \circ (g \circ f)$.
-  \end{enumerate}
-\end{trditev}
-
-\begin{proof}
-  Trditev je zapisana pomanjkljivo, saj ne piše, kaj so $A$, $B$,$ f$ in~$g$. Avtorja
-  trditve bi lahko vprašali, kaj je hotel povedati, a je bolje, da poskusimo to razvozlati
-  sami, ker je to odlična vaja iz razumevanja matematičnih besedil.
-
-  Takoj vidimo, da je $A$ množica, sicer zapis $\id[A]$ ne bi bil smiselen, in podobno je
-  tudi $B$ množica. Simboli $f$, $g$ in $h$ zagotovo označujejo preslikave, saj nastopajo
-  v kompoziciji. Kaj pa njihove domene in kodomene? Preslikava $f$ mora imeti domeno $A$,
-  sicer ne bi bilo dovoljeno komponirati $f \circ \id[A]$, in mora imeti kodomeno $B$,
-  sicer ne bi bilo dovoljeno komponirati $\id[B] \circ f$. Ostaneta še domeni in kodomeni
-  preslikav $g$ in~$h$. Kompozicija $g \circ f$ kaže, da mora biti domena $g$ enaka
-  kodomeni~$f$, torej $B$. Kompozicija $h \circ g$ pa pove, da je kodomena $C$ enaka
-  domeni $h$. Če vse to zložimo v diagram, dobimo
-  %
-  \begin{equation*}
-    \xymatrix{
-      {A} \ar[r]^{f}
-      &
-      {B} \ar[r]^{g}
-      &
-      {\text{?}} \ar[r]^{h}
-      &
-      {\text{?}}
-    }
-  \end{equation*}
-  %
-  Trditev moramo razumeti tako, da bo čim bolj splošna in smiselna. Torej bomo za neznani
-  množici vzeli kar poljubni množici $C$ in $D$:
-  %
-  \begin{equation*}
-    \xymatrix{
-      {A} \ar[r]^{f}
-      &
-      {B} \ar[r]^{g}
-      &
-      {C} \ar[r]^{h}
-      &
-      {D}
-    }
-  \end{equation*}
-  %
-  Preverimo, ali smo trditev pravilno razumeli. Ko vstavimo podrobnosti, se prvi del
-  glasi: \nls{Za vse množice $A$ in $B$ ter preslikavo $f : A \to B$ velja
-  $\id[B] \circ f = f = f \circ \id[A]$.}
-  %
-  Ker je to smiselna izjava, jo dokažimo. Enakost preslikav se dokaže z ekstenzionalnostjo
-  preslikav, torej preverimo, ali imajo $\id[B] \circ f$, $f$ in $f \circ \id[A]$ enako
-  vrednost za poljuben $x \in A$:
-  %
-  \begin{align*}
-    (\id[B] \circ f)(x) &= \id[B] (f (x)) = f (x), \\
-    f (x) &= f(x), \\
-    (f \circ \id[A])(x) &= f (\id[A](x)) = f(x).
-  \end{align*}
-  %
-  Zapišimo podrobno še drugi del: ">Za vse množice $A$, $B$, $C$ in $D$ ter preslikave
-  $f : A \to B$, $g : B \to C$ in $h : C \to D$ velja
-  $(h \circ g) \circ f = h \circ (g \circ f)$. To spet dokažemo tako, da uporabimo levo in
-  desno stran enačbe na poljubnem $x \in A$:
-  %
-  \begin{align*}
-    ((h \circ g) \circ f)(x) &= (h \circ g)(f(x)) = h(g(f(x))) \\
-    (h \circ (g \circ f))(x) &= h((g \circ f)(x)) = h(g(f(x))). \qedhere
-  \end{align*}
-\end{proof}
-
-
-Kompozicijo smo zapisali z \emph{vgnezdenim} funkcijskim predpisom, ki argumentu priredi
-preslikavo, ki je spet podana s funkcijskim predpisom. V splošnem je vgnezdeni funkcijski
+Tu smo kompozicijo smo zapisali z \emph{gnezdenim} funkcijskim predpisom, ki argumentu $(g, f)$ priredi
+preslikavo, podano s predpisom $x \mapsto g(f(x)$. V splošnem je gnezdeni funkcijski
 predpis oblike
 %
 \begin{align*}
@@ -1268,12 +1305,25 @@ predpis oblike
 \end{align*}
 %
 kjer se lahko v $\cdots$ pojavita~$a$ in~$b$. Na tak zapis se je treba navaditi, a je zelo
-prikladen, še posebej v funkcijskem programiranju. V matematiki ni zelo pogost, a mi se ga
-ne bomo bali.
+prikladen, še posebej v funkcijskem programiranju. Čeprav v matematiki ni pogost, se mu ne bomo izogibali.
 
-Pri računanju s preslikavami višjega reda včasih hkrati obravnavamo več funkicjskih
-predpisov in lahko pride do zmede, če za vse uporabimo isto vezano spremenljivko. Na
-primer, kompozitum preslikav
+Primer gnezdenega funkcijskega predpisa je preslikava~$\konst{}$ iz razdelka~\ref{sec:ident-konst-presl}, ki tvori konstantno preslikavo. Spomnimo se, če sta $A$ in $B$ množici ter $b \in B$, definiramo konstantno preslikavo
+%
+\begin{align*}
+  \konst{b} &: A \to B \\
+  \konst{b} &: a \mapsto b.
+\end{align*}
+%
+Pravzaprav imamo opravka s preslikavo, ki sprejme $b \in B$ term tvori konstantno preslikavo:
+%
+\begin{align*}
+  \konst{} &: B \to B^A \\
+  \konst{} &: b \mapsto (a \mapsto b).
+\end{align*}
+%
+Uporabili smo gnezdeni funkcijski predpis.
+
+Pri računanju s funkcionali včasih obravnavamo več funkcijskih predpisov hkrati. Če za vse uporabimo isto vezano spremenljivko, se lahko hitro zmedemo. Na primer, kompozitum preslikav
 %
 \begin{equation*}
   \begin{aligned}
@@ -1299,13 +1349,25 @@ bi lahko izračunali takole:
   &= (x \mapsto x^2 - 4 x).
 \end{align*}
 %
-Tu imamo tri pojavitve $x$, ki bi jih morali ločiti, ker vsaka nastopa kot vezana
-spremenljivka v svojem funkcijskem predpisu. Še posebej nejasen je računski korak
-$(x \mapsto (x \mapsto x^2 - 4) (2 - x)) = (x \mapsto (2 - x)^2 - 4)$, ko vezano
-spremenljivko~$x$ v funkcijskem predpisu zamenjamo z izrazom $2 - x$, ki tudi vsebuje~$x$.
-To sta dva različna $x$-a! Spomnimo se, da lahko vezane spremenljivke vedno preminujemo.
-Ponovimo račun, a tokrat tako, da imajo različni funkcijski predpisi različne vezane
-spremenljivke. Kompozitum
+Tu imamo tri različne $x$-e, saj vsak nastopa kot vezana spremenljivka v svojem funkcijskem predpisu.
+%
+Lahko bi jih ločili z barvami:
+%
+{%
+\newcommand{\redx}{{\color{red}x}}%
+\newcommand{\greenx}{{\color{green}x}}%
+\newcommand{\bluex}{{\color{blue}x}}%
+\begin{align*}
+  (\redx \mapsto \redx^2  - 4) \circ (\greenx \mapsto 2 - \greenx)
+  &= (\bluex \mapsto (\redx \mapsto \redx^2 - 4) ((\greenx \mapsto 2 - \greenx) \bluex)) \\
+  &= (\bluex \mapsto (\redx \mapsto \redx^2 - 4) (2 - \bluex)) \\
+  &= (\bluex \mapsto (2 - \bluex)^2 - 4) \\
+  &= (\bluex \mapsto \bluex^2 - 4 \bluex).
+\end{align*}}% ne brisat tega komentarja
+%
+Še posebej nejasen je drugi računski korak, ko imamo opravka s tremi barvami hkrati.
+%
+Spomnimo se, da lahko vezane spremenljivke vedno preimenujemo in da lahko namesto barv preprosto uporabimo tri različne spremenljivke. Kompozicijo
 %
 \begin{equation*}
   \begin{aligned}
@@ -1321,7 +1383,7 @@ spremenljivke. Kompozitum
   \end{aligned}
 \end{equation*}
 %
-izračunamo takole:
+izračunamo še tretjič, tokrat bolj pregledno:
 %
 \begin{align*}
   (y \mapsto y^2  - 4) \circ (z \mapsto 2 - z)
@@ -1331,70 +1393,7 @@ izračunamo takole:
   &= (x \mapsto x^2 - 4 x).
 \end{align*}
 %
-To je dosti bolj pregledno. Da ne bo prihajalo do zapletov z vezanimi spremenljivkami, se
-dogovorimo: \emph{kadar imamo opravka z večimi vezanimi spremenljivkami, jih vedno
-  preimenujemo tako, da so med seboj različne.}
-
-Funkcionale srečamo v analizi in funkcijskem programiranju. Limita zaporedja je
-funkcional, ker sprejme kot argument zaporedje realnih števil, se pravi element $\RR^\NN$,
-in mu priredi realno število. Odvod je funkcional, ki sprejme element $\RR^\RR$ in mu
-priredi element $\RR^\RR$. Če smo povsem natančni, limita kot preslikava $\RR^\NN \to \RR$
-ni celovit funkcional, ker nekatera zaporedja ne konvergirajo. Prav tako odvod kot
-preslikave $\RR^\RR \to \RR^\RR$ ni celovit, ker nekatere preslikave niso odvedljive.
-% Preslikavam, ki niso celovite, pravimo \emph{delne} in o njih bomo več povedali v
-% razdelku~\ref{delne-preslikve}.
-
-\subsection{Funkcijski predpis, podan po kosih}
-
-Omenimo še en pogost način podajanja preslikav, namreč s predpisom po kosih.
-
-\begin{zgled}
-  Preslikava 'absolutno' je definirana po kosih za negativna in nenegativna števila:
-  %
-  \begin{align*}
-    \RR &\to \RR \\
-    x &\mapsto
-    \begin{cases}
-      -x & \text{če $x < 0$,}\\
-       x & \text{če $x \geq 0$.}
-    \end{cases}
-  \end{align*}
-  %
-  Pravilo preberemo takole: \nls{če je $x < 0$, mu priredimo vrednost $-x$, in če je $x \geq 0$, mu priredimo vrednost~$x$}.
-\end{zgled}
-
-\begin{zgled}
-  Preslikava `predznak' je definirana po kosih:
-  %
-  \begin{align*}
-    \RR &\to \RR \\
-    x &\mapsto
-      \begin{cases}
-        -1 & \text{če $x < 0$,}\\
-        0 & \text{če $x = 0$,}\\
-        1 & \text{če $x > 0$.}
-      \end{cases}
-  \end{align*}
-  %
-  Pravilo preberemo takole: \nls{če je $x < 0$, mu priredimo vrednost~$-1$, če je $x = 0$, mu priredimo vrednost~$0$, in če je $x > 0$, mu priredimo vrednost~$1$}.
-\end{zgled}
-
-Pri takem zapisu moramo paziti, da posamezni kosi skupaj pokrivajo domeno (vsi elementi domene so obravnavani) in da se kosi ne prekrivajo (vsak element domene je obravnavan natanko enkrat). Pravzaprav se smejo kosi prekrivati, a moramo v tem primeru preveriti, da se na skupnih delih skladajo, se pravi, da vsi kosi podajajo enake vrednosti na preseku.
-
-\begin{zgled}
-  Preslikavo `absolutno' bi lahko podali takole:
-  %
-  \begin{align*}
-    \RR &\to \RR \\
-    x &\mapsto
-    \begin{cases}
-      -x & \text{če $x \leq 0$,}\\
-       x & \text{če $x \geq 0$.}
-    \end{cases}
-  \end{align*}
-  %
-  Kosa se prekrivata pri $x = 0$, vendar to ni težava, ker je $-0 = 0$.
-\end{zgled}
+Da ne bo prihajalo do zapletov z vezanimi spremenljivkami, se dogovorimo: \emph{kadar imamo opravka z večimi vezanimi spremenljivkami, jih po potrebi preimenujemo tako, da so med seboj različne.}
 
 
 \section{Izomorfizem množic}
@@ -1468,8 +1467,7 @@ $b \in B$ in izračunajmo:
 Na podoben način preverimo $f \circ g = \id[B \times A]$.
 
 \begin{zgled}\label{zgled:logaritmiranje-je-obratno-od-eksponenciranja}
-  Primere izmorfizmov poznamo že iz srednje šole. Naj bo $\RR$ množica vseh realnih števil
-  (glej razdelek~\ref{sec:realna-stevila}) in $\RR_{>0}$ množica vseh pozitivnih realnih
+  Primere izmorfizmov poznamo že iz srednje šole. Naj bo $\RR_{>0}$ množica vseh pozitivnih realnih
   števil. Tedaj logaritem in eksponentna funkcija,
   %
   \begin{equation*}
@@ -1478,14 +1476,16 @@ Na podoben način preverimo $f \circ g = \id[B \times A]$.
     \exp : \RR \to \RR_{>0}
   \end{equation*}
   %
-  tvorita izomorfizem, saj za $x \in \RR$ velja $\log (\exp x) = x$ in za $y \in \RR_{>0}$
-  velja $\exp (\log y) = y$. Eksponentna funkcija seštevanje slika v množenje:
-  $\exp 0 = 1$ in $\exp (x + y) = \exp x \cdot \exp y$, zato ni samo izomorfizem med
-  množicama, ampak celo izomorfizem med grupama $(\RR, {+}, 0)$ in
-  $(\RR_{>0}, {\cdot}, 1)$.
+  tvorita izomorfizem, saj za vsak $x \in \RR$ velja $\log (\exp x) = x$ in za vsak $y \in \RR_{>0}$
+  velja $\exp (\log y) = y$.
 
+  Še več, eksponentna funkcija seštevanje pretvori v množenje,
+  $\exp 0 = 1$ in $\exp (x + y) = \exp x \cdot \exp y$, zato ni le izomorfizem množic, ampak tudi izomorfizem \emph{grup} $(\RR, {+}, 0)$ in $(\RR_{>0}, {\cdot}, 1)$.
+
+  Opazko o izomorfizmu grupo smo podtaknili namenoma kot priložnost za nasvet.
+  %
   Če ne veste, kaj je grupa in izomorfizem grup, nikar ne obupavajte. Vsak matematik se v
-  vsakdanjem delu nenehno srečuje z neznanimi pojmi. Veste, da je znameniti profesor
+  svojem delu nenehno srečuje z neznanimi pojmi. Znameniti profesor
   France Križanič\footnote{France Križanič (1928--2002), slovenski matematik} v enega od
   svojih učbenikov zapisal, da naj tisti, ki mu je branje dokazov odveč, ravna tako kot Du
   Fu:\footnote{Du Fu (712--770 pr.~n.~š), kitajski pesnik}
@@ -1498,17 +1498,17 @@ Na podoben način preverimo $f \circ g = \id[B \times A]$.
       če ga ne poznam.
     \end{tabular}
   \end{center}
+  %
+  Morda pa bi veljalo odkorakati v knjižnico in ugotoviti, kaj vse je še napisal profesor Križanič.
 \end{zgled}
 
-\begin{vaja}
-  Odkorakajte v knjižnico, izposodite si knjigo profesorja Križaniča in jo preberite.
-\end{vaja}
 
 Dokažimo nekaj osnovih lastnosti izmorfnosti in izomorizmov. Tokrat ne bomo zapisali
 podrobnih dokazov. Za vajo jih dopolnite do tolikšnih podrobnosti, da boste sami sebe
 prepričali, da trditve držijo.
 
 \begin{trditev}
+  \label{trditev:enolicen-inverz}%
   Če je $f : A \to B$ izomorfizem med množicama $A$ in $B$ ter sta preslikavi
   $g : B \to A$ in $h : B \to A$ obe obrata~$f$, potem je $g = h$.
 \end{trditev}
@@ -1546,24 +1546,10 @@ prepričali, da trditve držijo.
 Če je $f : A \to B$ izomorfizem, potem ima natanko en obrat, ki ga označimo $\inv{f}$. Če
 $f$ ni izomorfizem, zapis $f^{-1}$ ni veljaven izraz.
 
-Oznaka za obrat je nekoliko nerodna, ker se prekriva z zapisom za obratno vrednost
-števila: če je $x \in \RR$ neničelno realno število, potem je $\inv{x}$ tisto realno
-število, za katerega velja $x \cdot \inv{x} = 1$. Torej moramo paziti: če je
-$f : \RR \to \RR$ izomorfizem in $x \in \RR$, je $\inv{(f(x))}$ obrat števila $f(x)$,
+Oznaka za obrat je nekoliko nerodna, ker tudi obratno vrednost števila $x \in \RR$ pišemo $\inv{x}$.
+Torej moramo paziti: če je $f : \RR \to \RR$ izomorfizem in $x \in \RR$, je $\inv{(f(x))}$ obrat števila $f(x)$,
 medtem ko je $\inv{f}(x)$ število, ki ga dobimo, ko obrat preslikave $f$ uporabimo na~$x$.
 Sami premislite, kaj je $\inv{(\inv{f}(x))}$.
-
-\begin{vaja}
-  Podajte primer izomorfizma $f : \RR \to \RR$ in števila $x \in \RR$, da velja
-  $\inv{f}(x) = \inv{(f(x))}$. Nato podajte še primer, ko velja
-  $\inv{f}(x) \neq \inv{(f(x))}$.
-\end{vaja}
-
-\begin{vaja}
-  Ozrimo se še enkrat na dokaz prejšnje trditve. Ali smo uporabili vse štiri predpostavke?
-  Zapišite \emph{bolj splošno trditev}, se pravi tako, ki navede samo tiste predpostavke,
-  ki jih res potrebujemo v dokazu.
-\end{vaja}
 
 \begin{trditev}
   Za vse izmorfizme $f : A \to B$ in $g : B \to C$ velja
@@ -1604,18 +1590,6 @@ Sami premislite, kaj je $\inv{(\inv{f}(x))}$.
     $C$, potem je $g \circ f$ izomorfizem iz $A \to C$. \qedhere
   \end{enumerate}
 \end{proof}
-
-\begin{trditev}
-  Preslikava ima največ en inverz.
-\end{trditev}
-
-\begin{vaja}
-  Pogosto rečemo, da sta seštevanje in odštevanje obratni operaciji. Strogo vzeto, ti dve
-  operaciji nista obratni kot preslikavi, saj obe slikata (recimo, da ju gledamo na
-  realnih številih) $\RR \times \RR \to \RR$, tj.~ne slikata v nasprotnih smereh. Ugotovi,
-  v kakšnem smislu točno sta seštevanje in odštevanje obratni, tj.~kateri dve preslikavi
-  sta pravzaprav druga drugi obratni.
-\end{vaja}
 
 % TODO Izomorfnost je kongruenca za produkt, vsoto in eksponent.
 
@@ -1946,7 +1920,7 @@ Množica~$A$ ima kvečjemu en element, tj.~množica~$A$ je bodisi prazna bodisi 
 
 \begin{vaja}
   Zapišite pravila za zmnožek treh množic. Nato premislite še, kako bi podali pravila za
-  zmnožek $n$ množic, kjer je~$n$ naravno število.
+  zmnožek $n$ množic, kjer je~$n$ naravno število. Seveda ne velja uporaba tropičja `\dots`!
 \end{vaja}
 
 \begin{vaja}
@@ -1954,6 +1928,27 @@ Množica~$A$ ima kvečjemu en element, tj.~množica~$A$ je bodisi prazna bodisi 
 \end{vaja}
 
 \begin{vaja}
+  Podajte primer izomorfizma $f : \RR \to \RR$ in števila $x \in \RR$, da velja
+  $\inv{f}(x) = \inv{(f(x))}$. Nato podajte še primer, ko velja
+  $\inv{f}(x) \neq \inv{(f(x))}$.
+\end{vaja}
+
+\begin{vaja}
+  Ozrimo se še enkrat na dokaz trditve~\ref{trditev:enolicen-inverz}. Ali smo uporabili vse štiri predpostavke?
+  Zapišite bolj splošno trditev, se pravi tako, ki navede samo tiste predpostavke,
+  ki jih res potrebujemo v dokazu.
+\end{vaja}
+
+\begin{vaja}
+  Pogosto rečemo, da sta seštevanje in odštevanje obratni operaciji. Strogo vzeto, ti dve
+  operaciji nista obratni kot preslikavi, saj obe slikata (recimo, da ju gledamo na
+  realnih številih) $\RR \times \RR \to \RR$, tj.~ne slikata v nasprotnih smereh. Ugotovi,
+  v kakšnem smislu točno sta seštevanje in odštevanje obratni, tj.~kateri dve preslikavi
+  sta pravzaprav druga drugi obratni.
+\end{vaja}
+
+\begin{vaja}
   Preveri tiste izomorfnosti iz izreka~\ref{izrek:aritmetika-mnozic}, ki jih v
   razdelku~\ref{sec:aritmetika-mnozic} nismo utemeljili.
 \end{vaja}
+
