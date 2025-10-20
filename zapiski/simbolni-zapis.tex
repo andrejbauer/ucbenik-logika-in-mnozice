@@ -276,14 +276,14 @@ O sintaktičnih drevesih ne bomo govorili, a jih omenimo, ker so pomembna iz dve
 Matematiki uporabljamo tudi diagrame in slike, slednje predvsem v geometriji in analizi. Z
 njimi lahko razjasnimo pojme in si pomagamo pri predstavi zapletenih pojmov in
 konstrukcij, zato so nepogrešljivo orodje. To še posebej velja za poučevanje matematike.
+%
+Pri uporabi slik moramo biti pazljivi, ker nas lahko zavedejo. V poduk naj bo naslednji `izrek'.
 
-Vendar pa moramo biti pri uporabi slik pazljivi, ker nas lahko zavedejo. V poduk podajmo ">dokaz"<, da so vsi trikotniki enakokraki!
-
-\begin{izrek}
+\begin{izrek}[neveljaven]
   Vsi trikotniki so enakokraki.
 \end{izrek}
 
-\begin{proof}
+\begin{proof}[Neveljaven dokaz]
   Naj bo $\triangle ABC$ poljuben trikotnik, glej sliko~\ref{fig:trikotnik}.
   %
   \begin{figure}[ht]
@@ -367,105 +367,400 @@ Vendar pa moramo biti pri uporabi slik pazljivi, ker nas lahko zavedejo. V poduk
   Trikotnik $\triangle ABC$ je res enakokrak.
 \end{proof}
 
-\clearpage
-\newpage
-\hbox{}
-\vfill
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{Simbolni zapis matematičnih izjav}
+\label{sec:simbolni-zapis-izjav}
+
+Matematična izjava je besedilo, ki izraža kako matematično dejstvo. Primeri matematičnih izjav:
+%
+\begin{itemize}
+\item $2 + 2 = 5$.
+\item Točke $P$, $Q$ in $R$ so kolinearne.
+\item Enačba $x^2 + 1 = 0$ ima tri realne rešitve.
+\item $a > 5$.
+\item $\phi \lor \psi \lthen (\lnot \phi \lthen \psi)$.
+\end{itemize}
+%
+Vidimo, da je lahko izjava resnična, neresnična, ali pa je resničnost
+izjave \emph{odvisna} od vrednosti parametrov, ki nastopajo v njej.
+Primeri besedila, ki \emph{niso} matematične izjave:
+%
+\begin{itemize}
+\item Ali je $2 + 2 = 5$?
+\item Za vsak $x > 5$.
+\item Študenti bi morali znati reševati diferencialne enačbe.
+\item Od nekdaj lepe so Ljubljanke slovele, al lepše od Urške bilo ni nobene.
+\item $\phi \lor ) \psi \lthen \psi$.
+\end{itemize}
+%
+Matematične izjave običajno pišemo kombinirano v naravnem in simbolnem jeziku,
+saj so tako najlažje razumljive ljudem.
+%
+Če situacija to zahteva, izjavo zapišemo \emph{samo} z matematičnimi simboli.
+Tako zapisani izjavi pravimo \df{logična formula} ali \df{logični izraz}.
+
+Osnovni gradniki logičnih formul so \df{logične operacije}, ki jih delimo na tri sklope.
+V prvi sklop sodita \df{logični konstanti}:
+%
+\begin{itemize}
+\item resnica $\top$,
+\item neresnica $\bot$.
+\end{itemize}
+%
+V računalništvu resnico $\top$ pogosto označimo z $1$ ali \texttt{True} in
+neresnico $\bot$ z $0$ ali \texttt{False}. Naslednji sklop so \df{logični
+vezniki}, s katerimi sestavljamo nove izjave iz že danih:
+%
+\begin{itemize}
+\item \df{konjunkcija} $\phi \land \psi$, beremo \nls{$\phi$ in $\psi$},
+\item \df{disjunkcija} $\phi \lor \psi$, beremo \nls{$\phi$ ali $\psi$},
+\item \df{implikacija} $\phi \lthen \psi$, beremo na več načinov:
+  %
+  \begin{itemize}
+  \item \nls{če $\phi$ potem $\psi$},
+  \item \nls{iz $\phi$ sledi $\psi$},
+  \item \nls{$\phi$ samo če $\psi$},
+  \item \nls{$\psi$ sledi iz $\phi$},
+  \item \nls{$\phi$ je zadosten pogoj za $\psi$},
+  \item \nls{$\psi$ je potreben pogoj za $\phi$}.
+  \end{itemize}
+  %
+\item \df{ekvivalenca} $\phi \liff \psi$, beremo \nls{$\phi$ če, in samo če, $\psi$} ali \nls{$\phi$ natanko tedaj, kadar~$\psi$},
+\item negacija $\lnot \phi$, beremo \nls{ne $\phi$}, \nls{ni res, da $\phi$} ali \nls{ne velja $\phi$}.
+\end{itemize}
+%
+V tretji sklop sodita \df{logična kvantifikatorja}:
+%
+\begin{itemize}
+\item univerzalni kvantifikator $\all{x \in S} \phi$, beremo \nls{za vse $x$
+  iz $S$ velja $\phi$},
+\item eksistenčni kvantifikator $\some{x \in S} \phi$, beremo \nls{obstaja
+  $x$ v $S$, da velja $\phi$} ali \nls{za neki $x$ iz $S$ velja $\phi$}.
+\end{itemize}
+%
+Pri tem je $S$ množica, razred\footnote{V poglavju~\ref{chap:mnozice}
+  bomo spoznali razliko med množicami in razredi, zaenkrat si $S$
+  predstavljamo kot množico.} ali tip spremenljivke~$x$. V praksi se
+uporablja več inačic zapisa za kvantifikatorje, kot so:
+%
+\begin{equation*}
+  \forall (x : S) , \phi
+  \qquad
+  \forall x \in S : \phi
+  \quad
+  (\forall x \in S) \phi.
+\end{equation*}
+%
+Podobne zapise najdemo tudi za eksistenčni kvantifikator.
+%
+Srečamo tudi zapis
+%
+\begin{equation*}
+  \phi, \forall x \in S,
+\end{equation*}
+%
+ki pa ga odsvetujemo, ker ga je težko uporabljati, ko imamo opravka z več gnezdenimi kvantifikatorji.
+%
+Poleg tega uvede vezano spremenljivko~$x$ v formuli~$\phi$ šele za tem, ko smo že prebrali~$\phi$.
+
+\df{Neomejena kvantifikatorja} $\all{x} \phi$ in
+$\some{x} \phi$ se uporabljata, kadar je vnaprej znana množica $S$,
+po kateri teče spremenljivka~$x$. V matematičnem besedilu je običajno
+razvidna iz spremnega besedila, včasih pa je treba upoštevati
+ustaljene navade: $n$ je naravno ali celo število, $x$ realno, $f$ je
+funkcija ipd.
+
+V uporabi so nekatere ustaljene okrajšave:
+%
 \begin{center}
-  \LARGE
-  \textbf{Od tu naprej \\ zapiski niso več tako lepo urejeni \\ in vsebujejo več napak.}
+  \begin{tabular}{cc}
+    \toprule
+    Okrajšava & Pomen \\ \midrule
+    $\some{x,y \in S} \phi$
+    &
+    $\some{x \in S} (\some{y}{S} \phi)$
+    \\
+    $\all{x \in S, y \in T} \phi$
+    &
+    $\all{x \in S}(\all{y \in T} \phi)$
+    \\
+    $\phi \liff \psi \liff \rho \liff \sigma$
+    &
+    $(\phi \liff \psi) \land (\psi \liff \rho) \land (\rho \liff \sigma)$
+    \\
+    $a = b = c = d$
+    &
+    $a = b \land b = c \land c = d$
+    \\
+    $a \leq b < c \leq d$
+    &
+    $a \leq b \land b < c \land c \leq d$
+    \\
+    \bottomrule
+  \end{tabular}
 \end{center}
-\vfill
-\hbox{}
-\newpage
+%
+Nekatere okrajšave odsvetujemo. V nizu neenakosti naj gredo vse
+primerjave v isto smer. Torej ne pišemo $a \leq b < c \geq d$, ker se
+zlahka zmotimo in mislimo, da velja $a \geq d$. To bi morali zapisati
+ločeno kot $a \leq b < c$ in $c \geq d$. Prav tako ne nizamo neenakosti,
+saj premnogi iz $a \neq b \neq c$ napačno sklepajo $a \neq c$,
+čeprav neenakost \emph{ni} tranzitivna relacija. Zapis $a =
+b \neq c = d$ je v redu, saj ena sama neenakost ne povzroči težav.
 
-\section{Logične formule}
-
-Izrazi, ki označujejo števila, se imenujejo \textbf{aritmetični izrazi}.
-
-Izrazi, ki označujejo matematične izjave, se imenujejo \textbf{logični izrazi} ali \textbf{logične formule}. Razumevanje, branje in pisanje le-teh zahteva kar nekaj treninga, zato se mu bomo posvetili tu in na vajah. Pravzaprav ne bomo vadili le razumevanja zapisa, ampak tudi, kako matematiki razmišljajo in razumejo drug drugega.
-
-Tu o dokazih in pravilih dokazovanja še ne bomo govorili, bomo pa pojasnili intuitivni pomen logičnih operacij.
-
-Računanje z logičnimi formulami delimo na:
+Dogovorimo se za prioriteto logičnih operacij:
 %
 \begin{itemize}
-\item \textbf{izjavni račun} zaobjema logične veznike $\neg $, $\land$, $\lor$, $\lthen$, $\liff$,
-\item \textbf{predikatni račun} zaobjema izjavni račun, ter kvantifikatorja $\forall$ in $\exists$.
+\item negacija $\lnot$ ima prednost pred
+\item konjunkcijo $\land$, ki ima prednost pred
+\item disjunkcijo $\lor$, ki ima prednost pred
+\item implikacijo $\lthen$, ki ima prednost pred
+\item kvantifikatorjema $\forall$ in $\exists$.
 \end{itemize}
-
-
-\subsection{Izjavni račun}
-
-\textbf{Izjavni vezniki} so naslednje operacije:
+%
+Na primer:
 %
 \begin{itemize}
-
-\item \textbf{resničnostni konstanti} $\bot$ in $\top$: beremo ju ">neresnica"> in ">resnica"<,
-
-\item \textbf{negacija} $\neg$: izjavo $\neg A$ beremo ">$A$ ne velja"< ali ">ni res, da $A$"<,
-
-\item \textbf{konjunkcija} $\land$: izjavo $A \land B$ beremo ">$A$ in $B$"<,
-
-\item \textbf{disjunkcija} $\lor$: izjavo $A \lor B$ beremo ">$A$ ali $B$"<,
-
-\item \textbf{implikacija} $\lthen$: izjavo $A \lthen B$ lahko beremo na več načinov:
-  %
-  \begin{itemize}
-  \item ">Iz $A$ sledi $B$."<
-  \item ">Če $A$, potem $B$."<
-  \item ">$A$ samo če $B$."<
-  \item ">$B$ sledi iz $A$."<
-  \item ">$A$ je zadosten pogoj za $B$."<
-  \item ">$B$ je potreben pogoj za $A$."<
-  \end{itemize}
-  %
-\item \textbf{ekvivalenca} $\liff$: izjavo $A \liff B$ beremo
-  %
-  \begin{itemize}
-  \item ">$A$ je ekvivalentno $B$."<
-  \item ">$A$, če in samo če $B$."<
-  \item ">$A$ natanko tedaj, ko $B$."<
-  \item ">$A$ je zadosten in potreben pogoj za $B$."<
-  \end{itemize}
+\item $\lnot \phi \lor \psi$ je isto kot $(\lnot \phi) \lor \psi$,
+\item $\lnot \lnot \phi \lthen \phi$ je isto kot $(\lnot(\lnot\phi))
+  \lthen \phi$,
+\item $\phi \lor \psi \land \rho$ je isto kot $\phi \lor (\psi \land \rho)$,
+\item $\phi \land \psi \lthen \phi \lor \psi$ je isto kot $(\phi
+  \land \psi) \lthen (\phi \lor \psi)$,
+\item $\all{x \in S} \phi \lthen \psi$ je isto kot $\all{x \in S} (\phi
+    \lthen \psi)$,
+\item $\some{x \in S} \phi \land \psi$ je isto kot $\some{x \in S} (\phi
+    \land \psi)$.
 \end{itemize}
 %
+Dalje, konjunkcija in disjunkcija združujeta levo:
+% 
+\begin{align*}
+  \phi \land \psi \land \rho
+  &\qquad\text{pomeni}\qquad
+  (\phi \land \psi) \land \rho,\\
+  \phi \lor \psi \lor \rho
+  &\qquad\text{pomeni}\qquad
+  (\phi \lor \psi) \lor \rho.
+\end{align*}
+%
+Za disjunkcijo in konjunkcijo sicer ni pomembno, kako postavimo
+oklepaje, ker sta obe možnosti med seboj ekvivalentni, vendar je prav,
+da natančno določimo, katera od njiju je mišljena.
+Implikacija združuje desno:
+%
+\begin{equation*}
+  \phi \lthen \psi \lthen \rho
+  \qquad\text{pomeni}\qquad
+  \phi \lthen (\psi \lthen \rho).
+\end{equation*}
+%
+Tu \emph{ni} vseeno, kako postavimo oklepaje, saj $\phi \lthen (\psi
+\lthen \rho)$ in $(\phi \lthen \psi) \lthen \rho$ v splošnem nista
+ekvivalentna. Vendar pozor! Kadar vidite zapis
+%
+\begin{equation*}
+  \phi \lthen \psi \lthen \rho,
+\end{equation*}
+%
+le-ta skoraj vedno označuje konjunkcijo implikacij
+%
+\begin{equation*}
+  (\phi \lthen \psi) \land (\psi \lthen \rho).
+\end{equation*}
+%
+Zakaj? Ker je to priročen zapis, ki nakazuje zaporedje sklepov
+\nls{iz $\phi$ sledi $\psi$ in nato iz $\psi$ sledi $\rho$}, še posebej,
+če je zapisan v več vrsticah. Recimo, za nenegativni števili $x$ in
+$y$ bi takole zapisali utemeljitev neenakosti med aritmetično in
+geometrijsko sredino:
+%
+\begin{align*}
+  (x - y)^2 \geq 0
+  &\lthen x^2 - 2 x y + y^2 \geq 0
+  \tag{zmnožimo}\\
+  &\lthen x^2 + 2 x y + y^2 \geq 4 x y
+  \tag{prištejemo $4 x y$}\\
+  &\lthen (x + y)^2 \geq 4 x y
+  \tag{razstavimo}\\
+  &\lthen \frac{(x + y)^2}{4} \geq x y
+  \tag{delimo s $4$}\\
+  &\lthen \frac{x+y}{2} \geq \sqrt{x y}.
+  \tag{korenimo}
+\end{align*}
+%
+Matematiki radi celo spustijo znak $\lthen$ in pišejo vsak naslednji sklep v novo vrstico.
+%
+Če res želite zapisati gnezdeno implikacijo, je bolje uporabiti oklepaje in zapisati $\phi \lthen (\psi
+\lthen \rho)$.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{Kako beremo in pišemo simbolni zapis}
+\label{sec:simbolni-zapis}
+
+Izjave, zapisane v simbolni obliki, ni težko prebrati. Na primer,
+%
+\begin{equation*}
+  \all{x, y \in \RR}
+    x^2 = 4 \land y^2 = 4 \lthen x = y,
+\end{equation*}
+%
+preberemo:
+%
+\begin{quote}
+  \nls{Za vse realne $x$ in $y$, če je $x^2$ enako $4$ in $y^2$ enako
+  $4$, potem je $x$ enako~$y$.}
+\end{quote}
+%
+Več izkušenj pa je potrebnih, da \emph{razumemo} matematični pomen
+take izjave, v tem primeru:
+%
+\begin{quote}
+  \nls{Enačba $x^2 = 4$ ima največ eno realno rešitev.}
+\end{quote}
+%
+Prehod iz golega branja formule do njenega razumevanja zahteva čas in vajo.
+Tudi prevod v obratno smer, iz besedila v simbolno obliko, ni preprost,
+zato povejmo, kako se prevede nekatere standardne fraze.
+
+\paragraph{\nls{$\phi$ je zadosten pogoj za $\psi$}}
+%
+Zadošča dokazati $\phi$ zato, da dokažemo $\psi$, v simbolni obliki $\phi \lthen \psi$.
+
+\paragraph{\nls{$\phi$ je potreben pogoj za $\psi$}}
+%
+Izjava $\psi$ ne more veljati, ne da bi veljal~$\phi$. Z drugimi
+besedami, če velja $\psi$, potem velja tudi $\phi$, kar se v simbolni obliki
+zapiše $\psi \lthen \phi$.
+
+\paragraph{\nls{$\phi$ je zadosten in potreben pogoj za $\psi$}}
+%
+To je kombinacija prejšnjih dveh primerov, ki trdi, da iz $\phi$ sledi
+$\psi$ in iz $\psi$ sledi $\phi$, kar pa je ekvivalenca:
+%
+$\phi \liff \psi$.
+
+\paragraph{\nls{Naslednje izjave so ekvivalentne: $\phi$, $\psi$, $\rho$ in $\sigma$.}}
+%
+To pomeni, da sta vsaki dve izmed danih izjav ekvivalentni, se pravi
+%
+\begin{equation*}
+  (\phi \liff \psi) \land (\phi \liff \rho) \land (\phi \liff \sigma) \land (\psi \liff \rho)
+  \land (\psi \liff \sigma) \land (\rho \liff \sigma).
+\end{equation*}
+%
+Ker je ekvivalenca tranzitivna relacija, ni treba obravnavati vseh
+kombinacij, zadostujejo že tri, ki dane izjave povežejo med seboj:
+%
+\begin{equation*}
+  (\phi \liff \psi) \land (\psi \liff \rho) \land (\rho \liff \sigma).
+\end{equation*}
+%
+To pišemo krajše
+%
+\begin{equation*}
+  \phi \liff \psi \liff \rho \liff \sigma,
+\end{equation*}
+%
+čeprav je formalno gledano tako zapis nepravilen. V
+razdelku~\ref{sec:ekvivalenca} bomo spoznali, kako se tako zaporedje
+ekvivalenc dokaže s ciklom implikacij $\phi \lthen \psi \lthen \rho
+\lthen \sigma \lthen \phi$.
+
+\paragraph{\nls{Za vsak $x$ iz $S$, za katerega velja $\phi$, velja tudi
+  $\psi$}}
+%
+To lahko preberemo tudi kot \nls{za vsak $x$ iz $S$, če zanj velja $\phi$,
+potem velja $\psi$}, kar je v simbolni obliki
+%
+\begin{equation*}
+  \all{x \in S} \phi \lthen \psi.
+\end{equation*}
+%
+Tudi izjave oblike \nls{vsi $\phi$-ji so $\psi$-ji} so te oblike, denimo \nls{vsa
+od dva večja praštevila so liha} zapišemo
+%
+\begin{equation*}
+  \all{n \in \NN} n > 2 \land \text{$n$ je praštevilo} \lthen \text{$n$ je lih}.
+\end{equation*}
+
+\paragraph{\nls{Enačba $f(x) = g(x)$ nima realne rešitve}}
+%
+To lahko povemo takole: ni res, da obstaja $x \in \RR$, za katerega bi
+veljalo $f(x) = g(x)$. S simboli zapišemo
+%
+\begin{equation*}
+  \lnot \some{x \in \RR} f(x) = g(x).
+\end{equation*}
+%
+Opozoriti velja, da iz same enačbe ne moremo vedno sklepati, kaj je
+neznanka. V enačbi $a x^2 + b x + c = 0$ bi za neznanko lahko načeloma
+imeli katerokoli od štirih spremenljivk $a$, $b$, $c$ in $x$, ali pa
+kar vse. Večina matematikov bi sicer uganila, da je najverjetneje
+neznanka~$x$, vendar se v splošnem ne moremo zanašati na običaje in
+uganjevanje, ampak moramo točno povedati, kateri simboli so
+\emph{neznanke} in kateri \emph{parametri}.
+
+
+\paragraph{\nls{Brez izgube za splošnost \dots}}
+%
+Fraza ">brez izgube za splošnost"< nakazuje, da dokaz obravnava le eno
+od večih možnosti. Načeloma bi morali obravnavati tudi ostale
+možnosti, ki pa jih je pisec dokaza opustil, ker so bodisi zelo lahke
+bodisi zelo podobne tisti, ki jo dokaz obravnava. Podajmo primer.
+
+\begin{trditev}
+  \label{izrek:abc-vsota-razlik-soda}
+  Za vsa cela števila $a$, $b$ in $c$ je $|a-b|+|b-c|+|c-a|$ sodo število.
+\end{trditev}
+
+\begin{proof}
+  Brez izgube za splošnost smemo predpostaviti $a \geq b \geq c$.
+  Tedaj velja
+  %
+  \begin{equation*}
+    |a-b| + |b-c| + |c-a| = (a - b) + (b - c) - (c - a) = 2 (a - c),
+  \end{equation*}
+  %
+  kar je sodo število.
+\end{proof}
+
+Za začetnika je najtežje dognati, katere so preostale možnosti in zakaj se je pisec
+dokaza pravzaprav odločil zanje. Avtor zgornjega dokaza je verjetno opazil, da števila $a$, $b$ in $c$ v izrazu $|a-b|+|b-c|+|c-a|$ nastopajo \emph{simetrično}: če jih premešamo, se izraz ne spremeni.
+Denimo, ko zamenjamo $a$ in $b$, dobimo $|b-a|+|a-c|+|c-b|$, kar je
+enako prvotnemu izrazu $|a-b|+|b-c|+|c-a|$. Torej lahko izmed šestih
+možnosti
+%
+\begin{xalignat*}{3}
+  & a \geq b \geq c,&
+  & a \geq c \geq b,&
+  & b \geq a \geq c,\\
+  & b \geq c \geq a,&
+  & c \geq a \geq b,&
+  & c \geq b \geq a
+\end{xalignat*}
+%
+obravnavamo le eno. Seveda pisanje dokazov, pri katerih večji del
+dokaza opustimo, zahteva pazljivost in nekaj izkušenj.
+
+
+\begin{center}
+  \fbox{
+  \textbf{Od tu naprej zapiski niso več tako lepo urejeni in vsebujejo več napak.}}
+\end{center}
+
+
+\subsubsection{Ekskluzivna disjunkcija}
+
 Malo bolj neobičajna je:
 %
 \begin{itemize}
 \item \textbf{ekskluzivna disjunkcija} $\oplus$: izjava $A \oplus B$ beremo ">bodisi $A$ bodisi $B$"< ali ">$A$ ali $B$, vendar ne oba hkrati"<.
 \end{itemize}
 %
-Prioriteta veznikov, od najvišje do najnižje:
-%
-\begin{itemize}
-\item $\neg$,
-\item $\land$,
-\item $\lor$, $\oplus$,
-\item $\lthen$, $\liff$.
-\end{itemize}
-
-\begin{zgled}
-  Izraz $\neg A \land B \lthen C \lor D$ beremo kot $((\neg  A) \land B) \lthen (C \lor D)$.
-\end{zgled}
-
-Asociiranost veznikov:
-%
-\begin{itemize}
-\item leva asociiranost: $\land$, $\lor$, $\oplus$,
-\item desna asociiranost: $\lthen$.
-\end{itemize}
-%
-Ekvivalenca $\liff$ nima asociiranosti, zato je zapis $A \liff B \liff C$ načeloma dvoumen, a v praksi pomeni $(A \liff B) \land (B \liff C)$.
-
-\begin{opomba}
-  Tudi zapis $x = y = z$ pravzaprav ni smiseln, saj sta $(x = y) = z$ in $x = (y = z)$ oba nesmiselna. V praksi $x = y = z$ pomeni $(x = y) \land (y = z)$. Pa še to: koliko enačb je izraženih z $a = b = c = d$? Tri! Toliko kot je enačajev.
-\end{opomba}
-
-\begin{opomba}
-  Zapis $x \neq y \neq z$ je nejasen in se mu je bolje izogibati, saj zlahka pripelje do pomote, ker iz $x
-  \neq y$ in $y \neq z$ ne sledi nujno $x \neq z$.
-\end{opomba}
 
 Glede razumevanja veznikov, omenimo:
 %
@@ -475,55 +770,6 @@ Glede razumevanja veznikov, omenimo:
 \item ekvivalenco $A \liff B$ lahko razumemo kot okrajšavo za $(A \lthen B) \land (B \lthen A)$.
 \end{itemize}
 
-\subsection{Kvantifikatorja}
-
-Matematične izjave vsebujejo fraze, kot so ">za vse"<, ">za neki"<, ">obstaja vsaj en"<, ">za natanko enega"< ipd. Le-te izrazimo s \textbf{kvantifikatorji}. Osnovna kvantifikatorja sta \textbf{univerzalni} in \textbf{eksistenčni}.
-
-
-\subsubsection{Univerzalni kvantifikator $\forall$}
-
-Formulo $\all {x \in A} \phi$ beremo:
-%
-\begin{itemize}
-\item ">Za vsak $x$ iz $A$ velja $\phi$."<,
-\item ">Vsi $x$ iz $A$ zadoščajo $\phi$."<,
-\item ">$\phi$ za vse $x$ iz $A$."<
-\end{itemize}
-%
-Pika pri tem nima nobenega posebnega pomena, pogosti so tudi zapisi
-%
-\begin{equation*}
-  \forall x \in A \,,\, \phi
-  \qquad\text{ali}\qquad
-  \forall x : A \,,\, \phi
-  \qquad\text{ali}\qquad
-  (\forall x : A) \phi.
-\end{equation*}
-%
-Nekateri matematiki pišejo po principu ">piši kao što govoriš"<
-%
-\begin{equation*}
-  \phi, \forall x \in A
-  \qquad\qquad \text{(">$\phi$ za vse $x$ iz $A$"<)}
-\end{equation*}
-%
-Ta zapis odsvetujemo, ker ne deluje, ko kombiniramo več kvantifikatorjev hkrati.
-
-Omenili smo že, da $\all{x \in \emptyset} \phi$ vedno velja. To bomo utemeljili v poglavju o pravilih sklepanja.
-
-\subsubsection{Eksistenčni kvantifikator $\exists$}
-
-Formulo $\some{x \in A} \phi$ beremo:
-%
-\begin{itemize}
-\item ">Obstaja $x$ iz $A$ velja $\phi$."<
-\item ">Obstaja vsaj en $x$ iz $A$ velja $\phi$."<
-\item ">Za neki $x$ iz $A$ velja $\phi$."<
-\item ">$\phi$ za neki $x$ iz $A$."<
-\end{itemize}
-%
-S tem povemo, da obstaja \emph{eden ali več} takih~$x$. Na primer, izjava $\some{x \in \NN} x
-< 3$ je veljavna, saj je $2$ naravno število, ki je manjša od $3$.
 
 
 \subsubsection{Prioriteta $\forall$ in $\exists$}
@@ -643,4 +889,55 @@ Ne bi pa smeli $x$ preimenovati v $a$, saj bi dobili
 \end{equation*}
 %
 Pravimo, da se je prosta spremenljivka $a$ \emph{ujela} v integral.
+
+\section{Vaje}
+
+\begin{vaja}
+  Zapiši $a = b \neq c = d$ brez okrajšav.
+\end{vaja}
+
+\begin{vaja}
+  Je \nls{$n$ je sod in $n > 2$} \textbf{potreben} ali \textbf{zadosten}
+  pogoj za \nls{$n$ ni praštevilo}?
+\end{vaja}
+
+\begin{vaja}
+  Podaj konkretne primere izjav $\phi$, $\psi$ in $\rho$, iz katerih
+  je razvidno, da izjava $(\phi \liff \psi) \land (\psi \liff \rho)$
+  \emph{ni} ekvivalentna niti $(\phi \liff \psi) \liff \rho$ niti
+  $\phi \liff (\psi \liff \rho)$.
+\end{vaja}
+
+\begin{vaja}
+  V simbolni obliki zapiši ">$n$ je lih"< in ">$n$ je praštevilo"<.
+  Namig: $n$ je lih, kadar obstaja naravno število $k$, za katerega
+  velja $n = 2 k + 1$, in $n$ je praštevilo, kadar \emph{ni} zmnožek
+  dveh naravnih števil, ki sta obe večji od~$1$.
+\end{vaja}
+
+\begin{vaja}
+  Zapiši v simbolni obliki: Sistem enačb
+  %
+  \begin{align*}
+    a_1 x + b_1 y &= c_1,\\
+    a_2 x + b_2 y &= c_2
+  \end{align*}
+  %
+  nima pozitivnih realnih rešitev $x, y$.
+\end{vaja}
+
+\begin{vaja}
+  Zapiši v simbolni obliki:
+  \begin{enumerate}
+  \item \nls{Enačba $f(x) = g(x)$ ima največ eno realno rešitev.}
+  \item \nls{Enačba $f(x) = g(x)$ ima več kot eno realno rešitev.}
+  \item \nls{Enačba $f(x) = g(x)$ ima natanko dve realni rešitvi.}
+  \end{enumerate}
+\end{vaja}
+
+\begin{vaja}
+  Dokaži izrek~\ref{izrek:abc-vsota-razlik-soda} tako, da obravnavaš
+  samo možnost $b \geq c \geq a$ in zraven dopišeš ">brez izgube za
+  splošnost"<.
+\end{vaja}
 
