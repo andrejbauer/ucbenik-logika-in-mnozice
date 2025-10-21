@@ -6,7 +6,7 @@ Temeljni gradniki sodobne matematike so \df{množice}, ki so skupki ali zbirke m
 objektov, lahko spet množic. Vsaka množica sestoji iz \df{elementov} in je z njimi
 natančno določena.
 %
-Kadar je $a$ element množice $M$, to zapišemo $a \in M$ in beremo \nls{$a$ je element~$M$} ali \nls{$a$ pripada~$M$}.
+Kadar je $a$ element množice $M$, to zapišemo $$a \in M$$ in beremo \nls{$a$ je element~$M$} ali \nls{$a$ pripada~$M$}.
 %
 Slišali boste tudi \nls{$a$ je vsebovan v~$M$}, a to rabo odsvetujemo, ker tudi $A \subseteq M$ beremo \nls{$A$ je vsebovan v $M$}.
 
@@ -56,7 +56,7 @@ V matematiki je izbor besed, s katerimi poimenujemo pojme, hkrati pomemben in ne
 S povsem človeškega stališča je pomembno, da izbiramo besede, katerih predhodni vsakdanji pomen nakazuje matematični pomen.
 %
 Hkrati je izbor besed nebistven, saj strukturo, lastnosti in povezave med
-matematičnimi objekti določajo izključno dogovorjeni matematični zakoni in ne vsakdanja raba besed izven polja matematike.
+matematičnimi objekti določajo izključno dogovorjeni matematični zakoni in ne raba besed izven polja matematike.
 %
 Če bi se dogovorili, da namesto besed  `množica' in `element' govorimo `zbor' in `član', ali celo `morje' in `riba', se matematična vsebina teorije morja ne bi čisto nič spremenila.
 %
@@ -111,7 +111,7 @@ natančen, saj dopušča dvoumnosti. Denimo, so elementi množice
   \set{3, 5, 7, \ldots, 31},
 \end{equation*}
 %
-liha števila med $3$ in $31$, ali samo praštevila? Zapis res ni dovolj natančen. Kljub
+liha števila med $3$ in $31$, ali samo praštevila? Kljub
 temu tak zapis uporabljamo, ker v praksi bralec večinoma pravilno ugane, kaj je
 bilo mišljeno, saj imamo ljudje zelo podobne sposobnosti prepoznavanja vzorcev. Z
 matematičnega vidika pa to ni dopustno, ker lahko tropičje \emph{vedno} razumemo na več
@@ -124,7 +124,7 @@ tvoriti množico z nič elementi? Če namreč vstavimo nič elementov, se pravil
 vse objekte je $\set{\,}$ množica, katere elementi so natanko objekti}, kar bi učiteljica
 slovenščine prečrtala z rdečo. Iz nesrečnega tropičja se res ne vidi, kaj je in kaj ni dovoljeno. 
 %
-Iz zagate se bomo izvili v razdelku~\ref{sec:prazna-dvojec-unija}, kjer bomo pravilo končnih množic nadomestili s tremi
+Iz zagate se bomo izvili malo kasneje, ko bomo pravilo končnih množic nadomestili s tremi
 bolj preprostimi, ki imajo skupaj enakovreden učinek.
 
 Preverimo, ali ima pravilo ekstenzionalnosti vsaj pričakovani učinek.
@@ -155,7 +155,8 @@ $\set{1, 2} = \set{2, 1, 1}$. Pa je to res?
   %
   \begin{enumerate}
   \item Za vsak element $\set{1, 2}$ dokažemo, da je element $\set{2, 1, 1}$.
-    Naj bo $x \in \set{1, 2}$. Iz definicije množice $\set{1, 2}$
+
+    Pa naj bo $x \in \set{1, 2}$. Iz definicije množice $\set{1, 2}$
     sledi, da je $x = 1$ ali $x = 2$. Obravnavamo dva primera:
     %
     \begin{enumerate}
@@ -182,8 +183,8 @@ $\set{1, 2} = \set{2, 1, 1}$. Pa je to res?
   Dokaz je končan.
 \end{proof}
 
-Mimogrede, kvadratek označuje konec dokaza. Imenuje se tudi \emph{halmoš} po matematiku
-Paulu Halmosu, ki ga je prvi uporabljal. Nekateri avtorji pišejo tudi QED, kar je okrajšava za \nls{quod erat demonstrandum}.
+Mimogrede, kvadratek označuje konec dokaza. Imenuje se tudi \emph{halmoš} po
+Paulu Halmosu,\footnote{Paul Halmos (1916--2006), ameriški matematik madžarskega rodu.} ki ga je populariziral. Nekateri avtorji pišejo tudi QED, kar je okrajšava za \nls{quod erat demonstrandum}, vsaj ena študentska krilatica pa trdi, da je pravilna okrajšava \nls{quite easily done}.
 
 Še enkrat se pojavi dvom o uporabi pravila~\ref{pravilo:koncna-mnozica}. Nikjer ne piše, da smemo pri naštevanju isti element večkrat ponoviti. Je sploh dovoljeno ponavljati elemente končne množice in pisati $\set{2, 1, 1}$?
 %
@@ -258,7 +259,7 @@ Morda se zdi nenavadno, da množico označimo s številom, a ta občutek bo hitr
 bomo računali z množicami. Pravaprav bi lahko prazno množico označili z nič $\mathbf{0}$
 in nekateri matematiki to dejansko počnejo.
 
-Edini element množice $\one$ smo nenavadno zapisali $\unit$. To ni tiskarska napaka,
+Edini element množice $\one$ smo zapisali $\unit$. To ni tiskarska napaka,
 ampak načrtna izbira, ki bo pojasnjena v razdeleku~\ref{sec:aritmetika-mnozic}.
 In seveda velja $\one = \set{\unit}$.
 
@@ -528,7 +529,7 @@ Mi se bomo držali zapisa z $\dfeq$, da bomo lahko ločili med definicijo~$f$ in
 
 Funkcijske predpise je podrobno prvi preučeval Alonzo Church,\footnote{Alonzo Church
   (1903--1995) je bil ameriški matematik in logik, ki je pomembno prispeval k razvoju
-  logike in teoretičnega računalništva. Njegov študent, Dana Stewarta Scott, je imel
+  logike in teoretičnega računalništva. Njegov študent, Dana Stewart Scott, je imel
   študenta Marka Petkovška in Andreja Bauerja, slednji pa je imel študenta Davorina
   Lešnika.} ki je uporabljal zapis
 %
