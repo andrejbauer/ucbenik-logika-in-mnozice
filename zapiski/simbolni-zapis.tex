@@ -465,11 +465,29 @@ Disjunkcija in ekskluzivna disjunkcija se razlikujeta v tem, ali dopuščata vel
 \item \df{ekskluzivna} disjunkcija $\phi \veebar \psi$ izraža, da velja $\phi$ ali $\psi$, vendar \emph{ne} oba hkrati.
 \end{itemize}
 %
-V matematičnem govoru bodite pozorni na razliko med inkluzivno in ekskluzivno disjunkcijo, saj ju v vsakdanjem govoru pogosto mešamo ali ne ločimo med njima.
+Bodite pozorni na razliko med inkluzivno in ekskluzivno disjunkcijo, saj ju v vsakdanjem govoru pogosto mešamo ali ne ločimo med njima.
 
-[NEKAJ O IMPLIKACIJI NA TEM MESTU]
+Ekvivalenco $\phi \liff \psi$ lahko razumemo kot okrajšavo za $(\phi \lthen \psi) \land (\psi \lthen \phi)$.
 
-V uporabi so nekatere ustaljene okrajšave:
+V implikaciji $\phi \lthen \psi$ se $\phi$ imenuje \df{antecedent} in $\psi$ \df{konsekvent}. 
+%
+Izmed vseh veznikov implikacija povzroča največ težav, ker ljudje pogosto ne ločijo med $\phi \lthen \psi$ in $\psi \lthen \phi$ in celo $\phi \liff \psi$. Če mati sinu reče:
+%
+\begin{quote}
+  \nls{Če ne pospraviš sobe, potem ti ne spečem palačink,}
+\end{quote}
+%
+bo sin razočaran, če pospravi sobo, a mama ne speče palačink. A striktno gledano, mama ni povedala nič o tem,
+kaj bo storila, če sin sobo pospravi, le kaj se zgodi, če je \emph{ne} pospravi. Če bi mama rekla:
+%
+\begin{quote}
+  \nls{Če pospraviš sobo, potem ti spečem palačinke,}
+\end{quote}
+%
+bi to bila drugačna obljuba, ki bi mamo zavezala k peki palačink v primeru, da sin pospravi sobo.
+Povedano z logičnimi formulami, izjavi $\neg \phi \lthen \neg \psi$ in $\phi \lthen \psi$ nista ekvivalentni.
+
+V uporabi so naslednje ustaljene okrajšave:
 %
 \begin{center}
   \begin{tabular}{cc}
@@ -519,18 +537,43 @@ Dogovorimo se za prioriteto logičnih operacij:
 %
 Na primer:
 %
-\begin{itemize}
-\item $\lnot \phi \lor \psi$ je isto kot $(\lnot \phi) \lor \psi$,
-\item $\lnot \lnot \phi \lthen \phi$ je isto kot $(\lnot(\lnot\phi))
-  \lthen \phi$,
-\item $\phi \lor \psi \land \rho$ je isto kot $\phi \lor (\psi \land \rho)$,
-\item $\phi \land \psi \lthen \phi \lor \psi$ je isto kot $(\phi
-  \land \psi) \lthen (\phi \lor \psi)$,
-\item $\all{x \in S} \phi \lthen \psi$ je isto kot $\all{x \in S} (\phi
-    \lthen \psi)$,
-\item $\some{x \in S} \phi \land \psi$ je isto kot $\some{x \in S} (\phi
-    \land \psi)$.
-\end{itemize}
+\begin{align*}
+  \lnot \phi \lor \psi
+   &\qquad\text{pomeni}\qquad (\lnot \phi) \lor \psi, \\
+  \lnot \lnot \phi \lthen \phi
+   &\qquad\text{pomeni}\qquad (\lnot(\lnot\phi)) \lthen \phi, \\
+  \phi \lor \psi \land \rho
+   &\qquad\text{pomeni}\qquad \phi \lor (\psi \land \rho), \\
+  \phi \land \psi \lthen \phi \lor \psi
+   &\qquad\text{pomeni}\qquad (\phi \land \psi) \lthen (\phi \lor \psi).
+\end{align*}
+%
+Kvantifikatorja vedno zajameta čim daljšo izjavo:
+%
+\begin{align*}
+  \all{x \in S} \phi \lthen \psi
+    &\qquad\text{pomeni}\qquad \all{x \in S} (\phi \lthen \psi), \\
+  %
+  \some{x \in S} \phi \land \psi
+    &\qquad\text{pomeni}\qquad \some{x \in S} (\phi \land \psi), \\
+  %
+  \all{x \in A} \phi \land \some{y \in B} \psi
+    &\qquad\text{pomeni}\qquad
+  \all{x \in A} (\phi \land (\some{y \in B} \psi)) \\
+  %
+  \all{x \in A} \phi \land \some{y \in B} \psi
+    &\qquad\text{\emph{ne} pomeni}\qquad
+    (\all{x \in A} \phi) \land (\some{y \in B} \psi), \\
+  %
+  \all{x \in S} \phi \lthen \all {y \in T} \psi
+    &\qquad\text{pomeni}\qquad
+  \all{x \in S} (\phi \lthen \all {y \in T} \psi) \\
+  %
+  \all{x \in S} \phi \lthen \all {y \in T} \psi
+    &\qquad\text{\emph{ne }pomeni}\qquad
+  (\all{x \in S} \phi) \lthen (\all {y \in T} \psi) \\
+  %
+\end{align*}
 %
 Dalje, konjunkcija in disjunkcija združujeta levo:
 % 
@@ -556,7 +599,14 @@ Implikacija združuje desno:
 %
 Tu \emph{ni} vseeno, kako postavimo oklepaje, saj $\phi \lthen (\psi
 \lthen \rho)$ in $(\phi \lthen \psi) \lthen \rho$ v splošnem nista
-ekvivalentna. Vendar pozor! Kadar vidite zapis
+ekvivalentna.
+
+\begin{zgled}
+  Naj bosta $x, y \in \RR$. Izjava $x \leq y \lthen (y \leq x \lthen x = y)$ je veljavna za vse vrednosti~$x$ in~$y$,
+  izjava $(x \leq y \lthen y \leq x) \lthen x = y$ pa velja natanko tedaj, ko je $x = y$.
+\end{zgled}
+
+Vendar pozor! Kadar vidite zapis
 %
 \begin{equation*}
   \phi \lthen \psi \lthen \rho,
@@ -594,26 +644,10 @@ Matematiki radi celo spustijo znak $\lthen$ in pišejo vsak naslednji sklep v no
 \lthen \rho)$.
 
 
-
-
 \subsection{Logična kvantifikatorja}
 \label{sec:logina-kvant}
 
-
-
-
-
-V tretji sklop sodita \df{logična kvantifikatorja}:
-%
-\begin{itemize}
-\item univerzalni kvantifikator $\all{x \in S} \phi$, beremo \nls{za vse $x$
-  iz $S$ velja $\phi$},
-\item eksistenčni kvantifikator $\some{x \in S} \phi$, beremo \nls{obstaja
-  $x$ v $S$, da velja $\phi$} ali \nls{za neki $x$ iz $S$ velja $\phi$}.
-\end{itemize}
-%
-Pri tem je $S$ množica, razred\footnote{V poglavju~\ref{cha:razred-druzine}
-  bomo spoznali razliko med množicami in razredi, zaenkrat si $S$
+V zapisih $\all{x \in S} \phi$ in $\some{x \in S} \phi$ je je $S$ množica, razred\footnote{V poglavju~\ref{cha:razred-druzine} bomo spoznali razliko med množicami in razredi, zaenkrat si $S$
   predstavljamo kot množico.} ali tip spremenljivke~$x$. V praksi se
 uporablja več inačic zapisa za kvantifikatorje, kot so:
 %
@@ -630,12 +664,17 @@ Podobne zapise najdemo tudi za eksistenčni kvantifikator.
 Srečamo tudi zapis
 %
 \begin{equation*}
-  \phi, \forall x \in S,
+  \phi\quad \forall x \in S,
 \end{equation*}
 %
-ki pa ga odsvetujemo, ker ga je težko uporabljati, ko imamo opravka z več gnezdenimi kvantifikatorji.
+ki pa ga odsvetujemo, ker je nepregleden in nepraktičen, ko imamo opravka z več gnezdenimi kvantifikatorji.
 %
 Poleg tega uvede vezano spremenljivko~$x$ v formuli~$\phi$ šele za tem, ko smo že prebrali~$\phi$.
+
+Izjava $\some{x \in S} \phi$ pravi, da obstaja \emph{vsaj en} $x \in S$, da velja $\phi$. Na primer,
+$\some{x \in \RR} x^2 = 4$ je resnična izjava, saj je $2^2 = 4$. (Seveda velja tudi $(-2)^2 = 4$, a je za utemeljitev $\some{x \in \RR} x^2 = 4$ dovolj podati le eno vrednost~$x$, ki zadošča $x^2 = 4$.)
+%
+V razdelku~\ref{sec:enolicni-obstoj} bomo spoznali, kako se zapiše ``obstaja natanko en'' s pomočjo~$\exists$ in~$\forall$.
 
 Poznamo tudi \df{neomejena kvantifikatorja} 
 %
@@ -663,6 +702,25 @@ funkcija ipd.
   %
   \begin{equation*}
     (\all{n \in \NN} f(n) = 0) \lor (\some{n \in \NN} f(n) = 1).
+  \end{equation*}
+  %
+  Ta zapis je res bolj natančen, a verjetno se lahko strinjamo, da ni bistveno bolj pregleden od prvotnega.
+\end{zgled}
+
+Naslednji zgled je nevljudna, a vzgojna različica prejšnjega.
+
+\begin{zgled}
+  Naj bo $n : \NN \to \set{0, 1}$ preslikava. V formuli
+  %
+  \begin{equation*}
+    (\all{f} n(f) = 0) \lor (\some{f} n(f) = 1)
+  \end{equation*}
+  %
+  se pojavita neomejena kvantifikatorja. Sklepamo, da je $f$ naravno število, saj se v formuli pojavi izraz $n(f)$,
+  ki je smiselen le, če je $f \in \NN$. Torej bi natančneje zapisali
+  %
+  \begin{equation*}
+    (\all{f \in \NN} n(f) = 0) \lor (\some{f \in \NN} n(f) = 1).
   \end{equation*}
   %
   Ta zapis je res bolj natančen, a verjetno se lahko strinjamo, da ni bistveno bolj pregleden od prvotnega.
@@ -827,43 +885,6 @@ dokaza opustimo, zahteva pazljivost in nekaj izkušenj.
 \end{center}
 
 
-\subsubsection{Ekskluzivna disjunkcija}
-
-Malo bolj neobičajna je:
-%
-\begin{itemize}
-\item \textbf{ekskluzivna disjunkcija} $\oplus$: izjava $A \oplus B$ beremo ">bodisi $A$ bodisi $B$"< ali ">$A$ ali $B$, vendar ne oba hkrati"<.
-\end{itemize}
-%
-
-Glede razumevanja veznikov, omenimo:
-%
-\begin{itemize}
-\item disjunkcija je \emph{inkluzivna}, kar pomeni, da je $A \lor B$ resnična izjava, če sta $A$ in $B$ resnični,
-\item v implikaciji $A \lthen B$ se $A$ imenuje \textbf{antecedent} in $B$ \textbf{konsekvent}. Implikacija je veljavna, če je antecedent neveljaven,
-\item ekvivalenco $A \liff B$ lahko razumemo kot okrajšavo za $(A \lthen B) \land (B \lthen A)$.
-\end{itemize}
-
-
-
-\subsubsection{Prioriteta $\forall$ in $\exists$}
-
-Prioriteta kvantifikatorjev $\forall$ in $\exists$ je nižja od prioritete veznikov. Na primer:
-%
-\begin{itemize}
-\item $\all{x \in A} \phi \land \psi$ je enako $\all{x \in A} (\phi \land \psi)$,
-\item $\all{x \in \RR} x > 0 \lthen \phi$ je enako $\all{x \in \RR} (x > 0 \lthen \phi)$.
-\end{itemize}
-% 
-Kvantifikator vedno zaobjame vse, kar zmore:
-%
-\begin{itemize}
-\item $\all{x \in A} \phi \land \exists{y \in B} \psi$ je enako $\all {x \in A} (\phi \land (\exists y \in B . \psi))$ in \emph{ni} enako $(\all{x \in A} \phi) \land (\exists {y \in B} \psi)$,
-
-\item $(P \land \all{x \in A} Q \lthen R) \lthen \some{y \in B} S$ je enako $(P \land \all{x \in A}  (Q \lthen R)) \lthen (\some{y \in B} S)$ in \emph{ni} enako 
-  $(P \land (\all{x \in A} Q) \lthen R) \lthen (\some{y \in B} S)$
-\end{itemize}
-
 \subsubsection{Kombinacija $\forall$ in $\exists$}
 
 Pozor, vrstnega reda kvantifikatorjev ne smemo mešati:
@@ -971,7 +992,7 @@ Pravimo, da se je prosta spremenljivka $a$ \emph{ujela} v integral.
 \end{vaja}
 
 \begin{vaja}
-  Je \nls{$n$ je sod in $n > 2$} \textbf{potreben} ali \textbf{zadosten}
+  Je \nls{$n$ je sod in $n > 2$} potreben ali zadosten
   pogoj za \nls{$n$ ni praštevilo}?
 \end{vaja}
 
@@ -1007,11 +1028,5 @@ Pravimo, da se je prosta spremenljivka $a$ \emph{ujela} v integral.
   \item \nls{Enačba $f(x) = g(x)$ ima več kot eno realno rešitev.}
   \item \nls{Enačba $f(x) = g(x)$ ima natanko dve realni rešitvi.}
   \end{enumerate}
-\end{vaja}
-
-\begin{vaja}
-  Dokaži izrek~\ref{izrek:abc-vsota-razlik-soda} tako, da obravnavaš
-  samo možnost $b \geq c \geq a$ in zraven dopišeš ">brez izgube za
-  splošnost"<.
 \end{vaja}
 
