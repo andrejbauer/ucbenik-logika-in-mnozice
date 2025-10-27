@@ -370,7 +370,7 @@ Pri uporabi slik moramo biti pazljivi, ker nas lahko zavedejo. V poduk naj bo na
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\section{Simbolni zapis matematičnih izjav}
+\section{Logične formule}
 \label{sec:simbolni-zapis-izjav}
 
 Matematična izjava je besedilo, ki izraža kako matematično dejstvo. Primeri matematičnih izjav:
@@ -401,36 +401,80 @@ saj so tako najlažje razumljive ljudem.
 Če situacija to zahteva, izjavo zapišemo \emph{samo} z matematičnimi simboli.
 Tako zapisani izjavi pravimo \df{logična formula} ali \df{logični izraz}.
 
-Osnovni gradniki logičnih formul so \df{logične operacije}, ki jih delimo na tri sklope.
-V prvi sklop sodita \df{logični konstanti}:
+\begin{figure}[hpt]
+  \centering
+  \begin{tabular}{ccc}
+    \toprule
+    \textbf{Operacija} & \textbf{Zapis} & \textbf{Izgovorjava} \\
+    \midrule
+    resnica & $\top$
+            & \nls{resnica} \\
+            && \nls{je res} \\
+            && \nls{pravilno} \\[1ex]
+    neresnica & $\bot$
+            & \nls{neresnica} \\
+            && \nls{ni res} \\
+            && \nls{nepravilno} \\[1ex]
+    konjunkcija & $\phi \land \psi$ & \nls{$\phi$ in $\psi$} \\[1ex]
+    disjunkcija & $\phi \lor \psi$ & \nls{$\phi$ ali $\psi$} \\[1ex]
+    implikacija & $\phi \lthen \psi$
+       & \nls{če $\phi$ potem $\psi$} \\
+      && \nls{iz $\phi$ sledi $\psi$} \\
+      && \nls{$\phi$ samo če $\psi$} \\
+      && \nls{$\psi$ sledi iz $\phi$} \\
+      && \nls{$\phi$ je zadosten pogoj za $\psi$} \\
+      && \nls{$\psi$ je potreben pogoj za $\phi$} \\[1ex]
+    ekvivalenca & $\phi \liff \psi$
+       & \nls{$\phi$ če, in samo če, $\psi$} \\
+       && \nls{$\phi$ natanko tedaj, ko $\psi$} \\[1ex]
+    negacija & $\lnot \phi$
+       & \nls{ne $\phi$} \\
+       && \nls{ni res, da $\phi$} \\
+       && \nls{ne velja $\phi$} \\[1ex]
+    ekskluzivna disjunkcija & $\phi \veebar \psi$ & \nls{bodisi $\phi$ bodisi $\psi$} \\
+        & $\phi \oplus \psi$ & \\[1ex]
+    univerzalni kvantifikator & $\all{x \in S} \phi$
+        & \nls{za vse $x$ iz $S$ velja $\phi$} \\
+       && \nls{$\phi$ za vse $x$ iz $S$} \\[1ex]
+    eksistenčni kvantifikator & $\some{x \in S} \phi$
+       & \nls{obstaja $x$ iz $S$, da $\phi$} \\
+       && \nls{za neki $x$ iz $S$ velja $\phi$} \\
+       && \nls{$\phi$ za neki $x$ iz $S$} \\
+    \bottomrule
+  \end{tabular}
+  \caption{Logični konstanti, vezniki in kvantifikatorja}
+  \label{fig:logicne-operacije}
+\end{figure}
+
+Osnovni gradniki logičnih formul so \df{logične operacije}, ki so prikazane v tabeli~\ref{fig:logicne-operacije},
+ki navaja njihova imena, zapis in izgovorjavo.
+%
+Delimo jih na tri sklope:
 %
 \begin{itemize}
-\item resnica $\top$,
-\item neresnica $\bot$.
+\item \df{konstanti} $\bot$ in $\top$,
+\item \df{vezniki} $\land$, $\lor$, $\lthen$, $\liff$, $\neg$, in $\veebar$,
+\item \df{kvantifikatorja} $\forall$ in $\exists$.
 \end{itemize}
 %
-V računalništvu resnico $\top$ pogosto označimo z $1$ ali \texttt{True} in
-neresnico $\bot$ z $0$ ali \texttt{False}. Naslednji sklop so \df{logični
-vezniki}, s katerimi sestavljamo nove izjave iz že danih:
+
+Disjunkcija in ekskluzivna disjunkcija se razlikujeta v tem, ali dopuščata veljavnost obeh argumentov:
 %
 \begin{itemize}
-\item \df{konjunkcija} $\phi \land \psi$, beremo \nls{$\phi$ in $\psi$},
-\item \df{disjunkcija} $\phi \lor \psi$, beremo \nls{$\phi$ ali $\psi$},
-\item \df{implikacija} $\phi \lthen \psi$, beremo na več načinov:
-  %
-  \begin{itemize}
-  \item \nls{če $\phi$ potem $\psi$},
-  \item \nls{iz $\phi$ sledi $\psi$},
-  \item \nls{$\phi$ samo če $\psi$},
-  \item \nls{$\psi$ sledi iz $\phi$},
-  \item \nls{$\phi$ je zadosten pogoj za $\psi$},
-  \item \nls{$\psi$ je potreben pogoj za $\phi$}.
-  \end{itemize}
-  %
-\item \df{ekvivalenca} $\phi \liff \psi$, beremo \nls{$\phi$ če, in samo če, $\psi$} ali \nls{$\phi$ natanko tedaj, kadar~$\psi$},
-\item negacija $\lnot \phi$, beremo \nls{ne $\phi$}, \nls{ni res, da $\phi$} ali \nls{ne velja $\phi$}.
+\item disjunkcija $\phi \lor \psi$ je \df{inkluzivna}: velja $\phi$ ali $\psi$, lahko tudi oba.
+\item \df{ekskluzivna} disjunkcija $\phi \veebar \psi$ izraža, da velja $\phi$ ali $\psi$, vendar \emph{ne} oba hkrati.
 \end{itemize}
 %
+V matematičnem govoru boditi pozorni na razliko med inkluzivno in ekskluzivno disjunkcijo, saj ju v vsakdanjem govoru pogosto mešamo ali ne ločimo med njima.
+
+
+\subsection{Logična kvantifikatorja}
+\label{sec:logina-kvant}
+
+
+
+
+
 V tretji sklop sodita \df{logična kvantifikatorja}:
 %
 \begin{itemize}
@@ -440,7 +484,7 @@ V tretji sklop sodita \df{logična kvantifikatorja}:
   $x$ v $S$, da velja $\phi$} ali \nls{za neki $x$ iz $S$ velja $\phi$}.
 \end{itemize}
 %
-Pri tem je $S$ množica, razred\footnote{V poglavju~\ref{chap:mnozice}
+Pri tem je $S$ množica, razred\footnote{V poglavju~\ref{cha:razred-druzine}
   bomo spoznali razliko med množicami in razredi, zaenkrat si $S$
   predstavljamo kot množico.} ali tip spremenljivke~$x$. V praksi se
 uporablja več inačic zapisa za kvantifikatorje, kot so:
@@ -465,12 +509,38 @@ ki pa ga odsvetujemo, ker ga je težko uporabljati, ko imamo opravka z več gnez
 %
 Poleg tega uvede vezano spremenljivko~$x$ v formuli~$\phi$ šele za tem, ko smo že prebrali~$\phi$.
 
-\df{Neomejena kvantifikatorja} $\all{x} \phi$ in
-$\some{x} \phi$ se uporabljata, kadar je vnaprej znana množica $S$,
+Poznamo tudi \df{neomejena kvantifikatorja} 
+%
+\begin{equation*}
+  \all{x} \phi
+  \qquad\text{in}\qquad
+  \some{x} \phi,
+\end{equation*}
+%
+ki se uporabljata, kadar je vnaprej znana množica $S$,
 po kateri teče spremenljivka~$x$. V matematičnem besedilu je običajno
 razvidna iz spremnega besedila, včasih pa je treba upoštevati
 ustaljene navade: $n$ je naravno ali celo število, $x$ realno, $f$ je
 funkcija ipd.
+
+\begin{zgled}
+  Naj bo $f : \NN \to \set{0, 1}$ preslikava. V formuli
+  %
+  \begin{equation*}
+    (\all{n} f(n) = 0) \lor (\some{n} f(n) = 1)
+  \end{equation*}
+  %
+  se pojavita neomejena kvantifikatorja. Sklepamo, da je $n$ naravno število, saj se v formuli pojavi izraz $f(n)$,
+  ki je smiselen le, če je $n \in \NN$. Torej bi natančneje zapisali
+  %
+  \begin{equation*}
+    (\all{n \in \NN} f(n) = 0) \lor (\some{n \in \NN} f(n) = 1).
+  \end{equation*}
+  %
+  Ta zapis je res bolj natančen, a verjetno se lahko strinjamo, da ni bistveno bolj pregleden od prvotnega.
+\end{zgled}
+
+
 
 V uporabi so nekatere ustaljene okrajšave:
 %
