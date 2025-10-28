@@ -477,8 +477,7 @@ Izmed vseh veznikov implikacija povzroča največ težav, ker ljudje pogosto ne 
   \nls{Če ne pospraviš sobe, potem ti ne spečem palačink,}
 \end{quote}
 %
-bo sin razočaran, če pospravi sobo, a mama ne speče palačink. A striktno gledano, mama ni povedala nič o tem,
-kaj bo storila, če sin sobo pospravi, le kaj se zgodi, če je \emph{ne} pospravi. Če bi mama rekla:
+bo sin razočaran, če pospravi sobo, a mama ne speče palačink. A če bi sin študiral matematiko, bi vedel, da mama ni povedala nič o tem, kaj bo storila, če sobo pospravi. Če bi mama rekla:
 %
 \begin{quote}
   \nls{Če pospraviš sobo, potem ti spečem palačinke,}
@@ -538,40 +537,54 @@ Dogovorimo se za prioriteto logičnih operacij:
 Na primer:
 %
 \begin{align*}
-  \lnot \phi \lor \psi
-   &\qquad\text{pomeni}\qquad (\lnot \phi) \lor \psi, \\
-  \lnot \lnot \phi \lthen \phi
-   &\qquad\text{pomeni}\qquad (\lnot(\lnot\phi)) \lthen \phi, \\
-  \phi \lor \psi \land \rho
-   &\qquad\text{pomeni}\qquad \phi \lor (\psi \land \rho), \\
-  \phi \land \psi \lthen \phi \lor \psi
-   &\qquad\text{pomeni}\qquad (\phi \land \psi) \lthen (\phi \lor \psi).
+  &\lnot \phi \lor \psi
+    &&\text{pomeni}
+  &(\lnot \phi) \lor \psi, \\
+  %
+  &\lnot \lnot \phi \lthen \phi
+    &&\text{pomeni}
+  &(\lnot(\lnot\phi)) \lthen \phi, \\
+  %
+  &\phi \lor \psi \land \rho
+    &&\text{pomeni}
+  &\phi \lor (\psi \land \rho), \\
+  %
+  &\phi \land \psi \lthen \phi \lor \psi
+    &&\text{pomeni}
+  &(\phi \land \psi) \lthen (\phi \lor \psi).
+  %
 \end{align*}
 %
 Kvantifikatorja vedno zajameta čim daljšo izjavo:
 %
 \begin{align*}
-  \all{x \in S} \phi \lthen \psi
-    &\qquad\text{pomeni}\qquad \all{x \in S} (\phi \lthen \psi), \\
+  &\all{x \in S} \phi \lthen \psi
+    &&\text{pomeni}
+  &\all{x \in S} (\phi \lthen \psi), \\
   %
-  \some{x \in S} \phi \land \psi
-    &\qquad\text{pomeni}\qquad \some{x \in S} (\phi \land \psi), \\
+  &\all{x \in S} \phi \lthen \psi
+    &&\text{\emph{ne} pomeni}
+  &(\all{x \in S} \phi) \lthen \psi,\\
   %
-  \all{x \in A} \phi \land \some{y \in B} \psi
-    &\qquad\text{pomeni}\qquad
-  \all{x \in A} (\phi \land (\some{y \in B} \psi)) \\
+  &\some{x \in S} \phi \land \psi
+    &&\text{pomeni}
+  &\some{x \in S} (\phi \land \psi), \\
   %
-  \all{x \in A} \phi \land \some{y \in B} \psi
-    &\qquad\text{\emph{ne} pomeni}\qquad
-    (\all{x \in A} \phi) \land (\some{y \in B} \psi), \\
+  &\all{x \in A} \phi \land \some{y \in B} \psi
+    &&\text{pomeni}
+  &\all{x \in A} (\phi \land (\some{y \in B} \psi)) \\
   %
-  \all{x \in S} \phi \lthen \all {y \in T} \psi
-    &\qquad\text{pomeni}\qquad
-  \all{x \in S} (\phi \lthen \all {y \in T} \psi) \\
+  &\all{x \in A} \phi \land \some{y \in B} \psi
+    &&\text{\emph{ne} pomeni}
+  &(\all{x \in A} \phi) \land (\some{y \in B} \psi), \\
   %
-  \all{x \in S} \phi \lthen \all {y \in T} \psi
-    &\qquad\text{\emph{ne }pomeni}\qquad
-  (\all{x \in S} \phi) \lthen (\all {y \in T} \psi) \\
+  &\all{x \in S} \phi \lthen \all {y \in T} \psi
+    &&\text{pomeni}
+  &\all{x \in S} (\phi \lthen \all {y \in T} \psi) \\
+  %
+  &\all{x \in S} \phi \lthen \all {y \in T} \psi
+    &&\text{\emph{ne }pomeni}
+  &(\all{x \in S} \phi) \lthen (\all {y \in T} \psi)
   %
 \end{align*}
 %
@@ -587,7 +600,7 @@ Dalje, konjunkcija in disjunkcija združujeta levo:
 \end{align*}
 %
 Za disjunkcijo in konjunkcijo sicer ni pomembno, kako postavimo
-oklepaje, ker sta obe možnosti med seboj ekvivalentni, vendar je prav,
+oklepaje, ker sta si obe možnosti ekvivalentni, vendar je prav,
 da natančno določimo, katera od njiju je mišljena.
 Implikacija združuje desno:
 %
@@ -609,18 +622,19 @@ ekvivalentna.
 Vendar pozor! Kadar vidite zapis
 %
 \begin{equation*}
-  \phi \lthen \psi \lthen \rho,
+  \phi \lthen \psi \lthen \rho \lthen \sigma,
 \end{equation*}
 %
-le-ta skoraj vedno označuje konjunkcijo implikacij
+le-ta pogosto označuje konjunkcijo implikacij
 %
 \begin{equation*}
-  (\phi \lthen \psi) \land (\psi \lthen \rho).
+  (\phi \lthen \psi) \land (\psi \lthen \rho) \land (\rho \lthen \sigma),
 \end{equation*}
 %
-Zakaj? Ker je to priročen zapis, ki nakazuje zaporedje sklepov
-\nls{iz $\phi$ sledi $\psi$ in nato iz $\psi$ sledi $\rho$}, še posebej,
-če je zapisan v več vrsticah. Recimo, za nenegativni števili $x$ in
+podobno kot $a \leq b \leq c \leq d$ označuje konjunkcijo neenačb.
+Tako pišemo, čeprav je formalno nepravilno, ker želimo nakazati zaporedje sklepov
+\nls{iz $\phi$ sledi $\psi$ in nato iz $\psi$ sledi $\rho$ in nato iz $\rho$ sledi $\sigma$}.
+Poleg tega vsak sklep zapišemo v svojo vrstico. Recimo, za nenegativni števili $x$ in
 $y$ bi takole zapisali utemeljitev neenakosti med aritmetično in
 geometrijsko sredino:
 %
@@ -671,10 +685,10 @@ ki pa ga odsvetujemo, ker je nepregleden in nepraktičen, ko imamo opravka z ve�
 %
 Poleg tega uvede vezano spremenljivko~$x$ v formuli~$\phi$ šele za tem, ko smo že prebrali~$\phi$.
 
-Izjava $\some{x \in S} \phi$ pravi, da obstaja \emph{vsaj en} $x \in S$, da velja $\phi$. Na primer,
-$\some{x \in \RR} x^2 = 4$ je resnična izjava, saj je $2^2 = 4$. (Seveda velja tudi $(-2)^2 = 4$, a je za utemeljitev $\some{x \in \RR} x^2 = 4$ dovolj podati le eno vrednost~$x$, ki zadošča $x^2 = 4$.)
+Kvantifikator $\some{x \in S}$ pravi, da obstaja \emph{vsaj en}~$x$, se pravi, da jih je lahko tudi več.
+Na primer, $\some{x \in \RR} x^2 = 4$ je resnična izjava, saj obstajata dve števili, katerih kvadrat je~$4$.
 %
-V razdelku~\ref{sec:enolicni-obstoj} bomo spoznali, kako se zapiše ``obstaja natanko en'' s pomočjo~$\exists$ in~$\forall$.
+V razdelku~\ref{sec:enolicni-obstoj} bomo spoznali, kako se zapiše \nls{obstaja natanko} en s pomočjo~$\exists$ in~$\forall$.
 
 Poznamo tudi \df{neomejena kvantifikatorja} 
 %
@@ -686,9 +700,8 @@ Poznamo tudi \df{neomejena kvantifikatorja}
 %
 ki se uporabljata, kadar je vnaprej znana množica $S$,
 po kateri teče spremenljivka~$x$. V matematičnem besedilu je običajno
-razvidna iz spremnega besedila, včasih pa je treba upoštevati
-ustaljene navade: $n$ je naravno ali celo število, $x$ realno, $f$ je
-funkcija ipd.
+razvidna iz spremnega besedila, včasih pa se zanesemo na ustaljene navade:
+$n$ je naravno ali celo število, $x$ realno, $f$ je funkcija ipd.
 
 \begin{zgled}
   Naj bo $f : \NN \to \set{0, 1}$ preslikava. V formuli
@@ -748,7 +761,13 @@ preberemo:
 \end{quote}
 %
 Več izkušenj pa je potrebnih, da \emph{razumemo} matematični pomen
-take izjave, v tem primeru:
+take izjave, v tem primeru
+%
+\begin{quote}
+  \nls{Število $4$ ima največ en realen kvadratni koren.}
+\end{quote}
+%
+pa tudi
 %
 \begin{quote}
   \nls{Enačba $x^2 = 4$ ima največ eno realno rešitev.}
@@ -925,8 +944,8 @@ In še druga izjava:
 \item ">Vsako naravno število, ki je sodo, je deljivo s 3."<
 \item ">Za vsako naravno število velja, da če je sodo, potem je deljivo s 3."<
 \item ">Za vsak $x$ iz $\NN$ velja, če je $x$ sod, potem je $x$ deljiv s $3$."<
-\item $\forall{x \in \NN} \text{$x$ sod} \lthen \text{$x$ deljiv s 3}$
-\item $\forall{x \in \NN} (\some{y \in \NN} x = 2 y) \lthen (\some{z \in \NN} x = 3 z)$
+\item $\all{x \in \NN} \text{$x$ sod} \lthen \text{$x$ deljiv s 3}$
+\item $\all{x \in \NN} (\some{y \in \NN} x = 2 y) \lthen (\some{z \in \NN} x = 3 z)$
 \end{itemize}
 %
 Zapomnimo si: \textbf{dodatni pogoj pri $\exists$ izrazimo $\land$} in \textbf{dodatni pogoj pri $\forall$ izrazimo $\lthen$}.
