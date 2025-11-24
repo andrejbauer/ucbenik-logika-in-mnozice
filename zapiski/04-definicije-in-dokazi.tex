@@ -1,99 +1,5 @@
 \chapter{Definicije in dokazi}
 
-\section{Enolični obstoj}
-
-\subsection{Kvantifikatorje za enolični obstoj $\exists!$}
-\label{sec:enolicni-obstoj}
-
-S kvantifikatorje $\forall$ in $\exists$ lahko izrazimo tudi druge kvantifikatorje.
-Na primer, ">obstajata vsaj dva elementa $x$ in $y$ iz $A$, da velja $\phi(x,y)$"< zapišemo
-%
-\begin{equation*}
-    \some{x \in A} \some{y \in A} x \neq y \land \phi(x,y)
-\end{equation*}
-%
-Kako pa izrazimo ">obstaja natanko en $x$ iz $A$, da velja $\phi(x)$"<? Takole:
-%
-\begin{equation*}
-  (\some{x \in A} \phi(x)) \land \all{y z \in A} \phi(y) \land \phi(z) \lthen y = z
-\end{equation*}
-%
-ali ekvivalentno
-%
-\begin{equation*}
-    \some{x \in A} (\phi(x) \land \all{y \in A} \phi(y) \lthen x = y).
-\end{equation*}
-%
-To okrajšamo $\exactlyone{x \in A} \phi(x)$ in beremo ">obstaja natanko en $x$ iz $A$, da velja $\phi(x)$"<.
-%
-Uporablja se tudi zapis $\exists^1 x \in A \,.\, \phi(x)$.
-
-\subsection{Operator enoličnega opisa}
-
-Če dokažemo, da obstaja natanko en $x \in A$, ki zadošča pogoju $\phi(x)$, potem se lahko nanj smiselno sklicujemo z ">tisti $x$ iz $A$, ki zadošča $\phi(x)$"<. Primeri:
-%
-\begin{itemize}
-\item ">tisto realno število $x$, za katero je $x³ = 2$"<, namreč kubični koren 2,
-\item ">tista množica $S$, ki nima nobenega elementa"<, namreč prazna množica.
-\end{itemize}
-%
-Proti-primeri:
-%
-\begin{itemize}
-\item ">tisto racionalno število $x$, za katero je $x² = 2$"<, saj takega števila ni,
-\item ">tisto realno število $x$, za katero je $x² = 2$"<, ker sta dve taki števili,
-\item ">tista množica $S$, ki ima natanko en element"<, ker je takih množic je zelo veliko.
-\end{itemize}
-%
-To je lahko zelo koristen način za opredelitev matematičnih objektov, zato uvedemo zanj simbolni zapis. Če dokažemo
-%
-\begin{equation*}
-    \exactlyone{x \in A} \phi(x)
-\end{equation*}
-%
-potem lahko pišemo
-%
-\begin{equation*}
-  \descr{x \in A} \phi(x),
-  \qquad\qquad\text{">tisti $x \in A$, za katerega velja $\phi(x)$"<}
-\end{equation*}
-%
-Torej velja
-%
-\begin{equation*}
-  \phi(\descr{x \in A} \phi(x)).
-\end{equation*}
-%
-Spremenljivka $x$ je \emph{vezana} v $\descr{x \in A} \phi(x)$.
-
-\begin{zgled}
-  Denimo, da še ne bi poznali simbola $\sqrt{}$ za kvadratne korene. Tedaj bi
-  lahko kvadratni koren iz $2$ zapisali kot
-  %
-  \begin{equation*}
-    \descr{x \in R} (x > 0 \land x^2 = 2)
-  \end{equation*}
-  %
-  Še več, preslikavo $\sqrt{} : \RR_{\geq 0} \to \RR_{\geq 0}$ lahko definiramo takole:
-  %
-  \begin{equation*}
-    \sqrt{} : x \mapsto (\descr{y \in \RR} (y \geq 0 \land y^2 = x)).
-  \end{equation*}
-\end{zgled}
-
-\begin{vaja}
-  Zapišite ">limita zaporedja $a : \NN \to \RR$"< z operatorjem $\iota$, pod predpostavko,
-  da je $a$ konvergentno zaporedje. Najprej povejte z besedami ">limita zaporedja $a$ je
-  tisti $x \in \RR$, ki \dots"<, nato pa zapišite še v obliki $\descr{x \in \RR} \dots$.
-\end{vaja}
-
-
-\begin{opomba}
-  Ne pozabite: zapis $\descr{x \in A} \phi(x)$ je veljaven samo v primeru, da velja
-  $\exactlyone{x \in A} \phi(x)$.
-\end{opomba}
-
-
 \section{Spremenljivke in definicije}
 
 Preden v matematičnem besedilu uporabimo simbol ali spremenljivko, ga moramo \emph{vpeljati}. To pomeni, da moramo pojasniti, kakšen je pomen simbola. Poznamo dva osnovna načina za vpeljavo novih simbolov:
@@ -564,3 +470,43 @@ Negacijo $\lnot \phi$ uporabimo tako, da dokažemo $\phi$ in zaključimo dokaz.
 %
 Opomba: dokaz s protislovjem in pravilo vpeljave za negacijo sta \emph{različni}
 pravili!
+
+\subsubsection{Brez izgube za splošnost}
+
+Fraza \nls{brez izgube za splošnost \dots} nakazuje, da dokaz obravnava le poseben primer, iz katerega sledi cilj, oziroma je preostanek dokaza zelo podoben posebnemu primeru. Bralcu mora sam razbrati, zakaj je tako.
+Podajmo primer.
+
+\begin{trditev}
+  \label{izrek:abc-vsota-razlik-soda}
+  Za vsa cela števila $a$, $b$ in $c$ je $|a-b|+|b-c|+|c-a|$ sodo število.
+\end{trditev}
+
+\begin{proof}
+  Brez izgube za splošnost smemo predpostaviti $a \geq b \geq c$.
+  Tedaj velja
+  %
+  \begin{equation*}
+    |a-b| + |b-c| + |c-a| = (a - b) + (b - c) - (c - a) = 2 (a - c),
+  \end{equation*}
+  %
+  kar je sodo število.
+\end{proof}
+
+Za začetnika je najtežje dognati, katere so preostale možnosti in zakaj se je pisec
+dokaza pravzaprav odločil zanje. Avtor zgornjega dokaza je verjetno opazil, da števila $a$, $b$ in $c$ v izrazu $|a-b|+|b-c|+|c-a|$ nastopajo \emph{simetrično}: če jih premešamo, se izraz ne spremeni.
+Denimo, ko zamenjamo $a$ in $b$, dobimo $|b-a|+|a-c|+|c-b|$, kar je
+enako prvotnemu izrazu $|a-b|+|b-c|+|c-a|$. Torej lahko izmed šestih
+možnosti
+%
+\begin{xalignat*}{3}
+  & a \geq b \geq c,&
+  & a \geq c \geq b,&
+  & b \geq a \geq c,\\
+  & b \geq c \geq a,&
+  & c \geq a \geq b,&
+  & c \geq b \geq a
+\end{xalignat*}
+%
+obravnavamo le eno. Seveda pisanje dokazov, pri katerih večji del
+dokaza opustimo, zahteva pazljivost in nekaj izkušenj.
+

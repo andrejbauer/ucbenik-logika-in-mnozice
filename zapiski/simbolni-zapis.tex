@@ -462,7 +462,7 @@ Disjunkcija in ekskluzivna disjunkcija se razlikujeta v tem, ali dopuščata vel
 %
 \begin{itemize}
 \item disjunkcija $\phi \lor \psi$ je \df{inkluzivna}: velja $\phi$ ali $\psi$, lahko tudi oba.
-\item \df{ekskluzivna} disjunkcija $\phi \veebar \psi$ izraža, da velja $\phi$ ali $\psi$, vendar \emph{ne} oba hkrati.
+\item \df{ekskluzivna} disjunkcija $\phi \veebar \psi$: velja $\phi$ ali $\psi$, vendar \emph{ne} oba.
 \end{itemize}
 %
 Bodite pozorni na razliko med inkluzivno in ekskluzivno disjunkcijo, saj ju v vsakdanjem govoru pogosto mešamo ali ne ločimo med njima.
@@ -477,13 +477,15 @@ Izmed vseh veznikov implikacija povzroča največ težav, ker ljudje pogosto ne 
   \nls{Če ne pospraviš sobe, potem ti ne spečem palačink,}
 \end{quote}
 %
-bo sin razočaran, če pospravi sobo, a mama ne speče palačink. A če bi sin študiral matematiko, bi vedel, da mama ni povedala nič o tem, kaj bo storila, če sobo pospravi. Če bi mama rekla:
+bo sin razočaran, ko bo pospravil sobo, mama pa ne bo spekla palačink. A če bi sin študiral matematiko, bi vedel, da mama ni povedala nič o tem, kaj bo storila, če sobo pospravi. Če bi mama rekla:
 %
 \begin{quote}
   \nls{Če pospraviš sobo, potem ti spečem palačinke,}
 \end{quote}
 %
 bi to bila drugačna obljuba, ki bi mamo zavezala k peki palačink v primeru, da sin pospravi sobo.
+Če bi mama spekla palačinke v primeru, ko sin sobe ne pospravi, svoje obljube ne bi prelomila, bi pa vzgojila razvajenega mulca.
+%
 Povedano z logičnimi formulami, izjavi $\neg \phi \lthen \neg \psi$ in $\phi \lthen \psi$ nista ekvivalentni.
 
 V uporabi so naslednje ustaljene okrajšave:
@@ -619,10 +621,10 @@ ekvivalentna.
   izjava $(x \leq y \lthen y \leq x) \lthen x = y$ pa velja natanko tedaj, ko je $x = y$.
 \end{zgled}
 
-Vendar pozor! Kadar vidite zapis
+Vendar pozor! Kadar vidite niz implikacij
 %
 \begin{equation*}
-  \phi \lthen \psi \lthen \rho \lthen \sigma,
+  \phi \lthen \psi \lthen \rho \lthen \sigma
 \end{equation*}
 %
 le-ta pogosto označuje konjunkcijo implikacij
@@ -634,7 +636,7 @@ le-ta pogosto označuje konjunkcijo implikacij
 podobno kot $a \leq b \leq c \leq d$ označuje konjunkcijo neenačb.
 Tako pišemo, čeprav je formalno nepravilno, ker želimo nakazati zaporedje sklepov
 \nls{iz $\phi$ sledi $\psi$ in nato iz $\psi$ sledi $\rho$ in nato iz $\rho$ sledi $\sigma$}.
-Poleg tega vsak sklep zapišemo v svojo vrstico. Recimo, za nenegativni števili $x$ in
+Običajno vsak sklep zapišemo v svojo vrstico. Recimo, za nenegativni števili $x$ in
 $y$ bi takole zapisali utemeljitev neenakosti med aritmetično in
 geometrijsko sredino:
 %
@@ -652,24 +654,24 @@ geometrijsko sredino:
   \tag{korenimo}
 \end{align*}
 %
-Matematiki radi celo spustijo znak $\lthen$ in pišejo vsak naslednji sklep v novo vrstico.
-%
-Če res želite zapisati gnezdeno implikacijo, je bolje uporabiti oklepaje in zapisati $\phi \lthen (\psi
+Če res želite izraziti gnezdeno implikacijo, je bolje uporabiti oklepaje in zapisati $\phi \lthen (\psi
 \lthen \rho)$.
 
 
 \subsection{Logična kvantifikatorja}
 \label{sec:logina-kvant}
 
-V zapisih $\all{x \in S} \phi$ in $\some{x \in S} \phi$ je je $S$ množica, razred\footnote{V poglavju~\ref{cha:razred-druzine} bomo spoznali razliko med množicami in razredi, zaenkrat si $S$
+V zapisih $\all{x \in S} \phi$ in $\some{x \in S} \phi$ je $S$ množica, razred\footnote{V poglavju~\ref{cha:razred-druzine} bomo spoznali razliko med množicami in razredi, zaenkrat si $S$
   predstavljamo kot množico.} ali tip spremenljivke~$x$. V praksi se
 uporablja več inačic zapisa za kvantifikatorje, kot so:
 %
 \begin{equation*}
   \forall (x : S) , \phi
   \qquad
+  \qquad
   \forall x \in S : \phi
-  \quad
+  \qquad
+  \qquad
   (\forall x \in S) \phi.
 \end{equation*}
 %
@@ -685,10 +687,10 @@ ki pa ga odsvetujemo, ker je nepregleden in nepraktičen, ko imamo opravka z ve�
 %
 Poleg tega uvede vezano spremenljivko~$x$ v formuli~$\phi$ šele za tem, ko smo že prebrali~$\phi$.
 
-Kvantifikator $\some{x \in S}$ pravi, da obstaja \emph{vsaj en}~$x$, se pravi, da jih je lahko tudi več.
+Kvantifikator $\some{x \in S} \phi$ pravi, da obstaja \emph{vsaj en}~$x$, lahko jih je tudi več.
 Na primer, $\some{x \in \RR} x^2 = 4$ je resnična izjava, saj obstajata dve števili, katerih kvadrat je~$4$.
 %
-V razdelku~\ref{sec:enolicni-obstoj} bomo spoznali, kako se zapiše \nls{obstaja natanko} en s pomočjo~$\exists$ in~$\forall$.
+V razdelku~\ref{sec:enolicni-obstoj} bomo spoznali, kako se zapiše \nls{obstaja natanko en} s pomočjo~$\exists$ in~$\forall$.
 
 Poznamo tudi \df{neomejena kvantifikatorja} 
 %
@@ -855,49 +857,6 @@ neznanka~$x$, vendar se v splošnem ne moremo zanašati na običaje in
 uganjevanje, ampak moramo točno povedati, kateri simboli so
 \emph{neznanke} in kateri \emph{parametri}.
 
-
-\paragraph{\nls{Brez izgube za splošnost \dots}}
-%
-Fraza ">brez izgube za splošnost"< nakazuje, da dokaz obravnava le eno
-od večih možnosti. Načeloma bi morali obravnavati tudi ostale
-možnosti, ki pa jih je pisec dokaza opustil, ker so bodisi zelo lahke
-bodisi zelo podobne tisti, ki jo dokaz obravnava. Podajmo primer.
-
-\begin{trditev}
-  \label{izrek:abc-vsota-razlik-soda}
-  Za vsa cela števila $a$, $b$ in $c$ je $|a-b|+|b-c|+|c-a|$ sodo število.
-\end{trditev}
-
-\begin{proof}
-  Brez izgube za splošnost smemo predpostaviti $a \geq b \geq c$.
-  Tedaj velja
-  %
-  \begin{equation*}
-    |a-b| + |b-c| + |c-a| = (a - b) + (b - c) - (c - a) = 2 (a - c),
-  \end{equation*}
-  %
-  kar je sodo število.
-\end{proof}
-
-Za začetnika je najtežje dognati, katere so preostale možnosti in zakaj se je pisec
-dokaza pravzaprav odločil zanje. Avtor zgornjega dokaza je verjetno opazil, da števila $a$, $b$ in $c$ v izrazu $|a-b|+|b-c|+|c-a|$ nastopajo \emph{simetrično}: če jih premešamo, se izraz ne spremeni.
-Denimo, ko zamenjamo $a$ in $b$, dobimo $|b-a|+|a-c|+|c-b|$, kar je
-enako prvotnemu izrazu $|a-b|+|b-c|+|c-a|$. Torej lahko izmed šestih
-možnosti
-%
-\begin{xalignat*}{3}
-  & a \geq b \geq c,&
-  & a \geq c \geq b,&
-  & b \geq a \geq c,\\
-  & b \geq c \geq a,&
-  & c \geq a \geq b,&
-  & c \geq b \geq a
-\end{xalignat*}
-%
-obravnavamo le eno. Seveda pisanje dokazov, pri katerih večji del
-dokaza opustimo, zahteva pazljivost in nekaj izkušenj.
-
-
 \begin{center}
   \fbox{
   \textbf{Od tu naprej zapiski niso več tako lepo urejeni in vsebujejo več napak.}}
@@ -969,6 +928,101 @@ Pri prvem načinu moramo biti v naprej dogovorjeni, da $\RR_{> 0}$ označuje mno
 Pri drugem načinu smo vstavili definicijo $\RR_{> 0}$, zato dogovor ni več potreben, a je zapis bolj nečitljiv.
 Pri tretjem načinu smo predstavili pozitivnost kot dodatni pogoj.
 Četrti način je najbolj čitljiv in se pogosto uporablja, a nam ne pove, ali je $x$ realno, celo, ali racionalno število.
+
+
+\section{Enolični obstoj}
+
+\subsection{Kvantifikatorje za enolični obstoj $\exists!$}
+\label{sec:enolicni-obstoj}
+
+S kvantifikatorje $\forall$ in $\exists$ lahko izrazimo tudi druge kvantifikatorje.
+Na primer, ">obstajata vsaj dva elementa $x$ in $y$ iz $A$, da velja $\phi(x,y)$"< zapišemo
+%
+\begin{equation*}
+    \some{x \in A} \some{y \in A} x \neq y \land \phi(x,y)
+\end{equation*}
+%
+Kako pa izrazimo ">obstaja natanko en $x$ iz $A$, da velja $\phi(x)$"<? Takole:
+%
+\begin{equation*}
+  (\some{x \in A} \phi(x)) \land \all{y z \in A} \phi(y) \land \phi(z) \lthen y = z
+\end{equation*}
+%
+ali ekvivalentno
+%
+\begin{equation*}
+    \some{x \in A} (\phi(x) \land \all{y \in A} \phi(y) \lthen x = y).
+\end{equation*}
+%
+To okrajšamo $\exactlyone{x \in A} \phi(x)$ in beremo ">obstaja natanko en $x$ iz $A$, da velja $\phi(x)$"<.
+%
+Uporablja se tudi zapis $\exists^1 x \in A \,.\, \phi(x)$.
+
+\subsection{Operator enoličnega opisa}
+
+Če dokažemo, da obstaja natanko en $x \in A$, ki zadošča pogoju $\phi(x)$, potem se lahko nanj smiselno sklicujemo z ">tisti $x$ iz $A$, ki zadošča $\phi(x)$"<. Primeri:
+%
+\begin{itemize}
+\item ">tisto realno število $x$, za katero je $x³ = 2$"<, namreč kubični koren 2,
+\item ">tista množica $S$, ki nima nobenega elementa"<, namreč prazna množica.
+\end{itemize}
+%
+Proti-primeri:
+%
+\begin{itemize}
+\item ">tisto racionalno število $x$, za katero je $x² = 2$"<, saj takega števila ni,
+\item ">tisto realno število $x$, za katero je $x² = 2$"<, ker sta dve taki števili,
+\item ">tista množica $S$, ki ima natanko en element"<, ker je takih množic je zelo veliko.
+\end{itemize}
+%
+To je lahko zelo koristen način za opredelitev matematičnih objektov, zato uvedemo zanj simbolni zapis. Če dokažemo
+%
+\begin{equation*}
+    \exactlyone{x \in A} \phi(x)
+\end{equation*}
+%
+potem lahko pišemo
+%
+\begin{equation*}
+  \descr{x \in A} \phi(x),
+  \qquad\qquad\text{">tisti $x \in A$, za katerega velja $\phi(x)$"<}
+\end{equation*}
+%
+Torej velja
+%
+\begin{equation*}
+  \phi(\descr{x \in A} \phi(x)).
+\end{equation*}
+%
+Spremenljivka $x$ je \emph{vezana} v $\descr{x \in A} \phi(x)$.
+
+\begin{zgled}
+  Denimo, da še ne bi poznali simbola $\sqrt{}$ za kvadratne korene. Tedaj bi
+  lahko kvadratni koren iz $2$ zapisali kot
+  %
+  \begin{equation*}
+    \descr{x \in R} (x > 0 \land x^2 = 2)
+  \end{equation*}
+  %
+  Še več, preslikavo $\sqrt{} : \RR_{\geq 0} \to \RR_{\geq 0}$ lahko definiramo takole:
+  %
+  \begin{equation*}
+    \sqrt{} : x \mapsto (\descr{y \in \RR} (y \geq 0 \land y^2 = x)).
+  \end{equation*}
+\end{zgled}
+
+\begin{vaja}
+  Zapišite ">limita zaporedja $a : \NN \to \RR$"< z operatorjem $\iota$, pod predpostavko,
+  da je $a$ konvergentno zaporedje. Najprej povejte z besedami ">limita zaporedja $a$ je
+  tisti $x \in \RR$, ki \dots"<, nato pa zapišite še v obliki $\descr{x \in \RR} \dots$.
+\end{vaja}
+
+
+\begin{opomba}
+  Ne pozabite: zapis $\descr{x \in A} \phi(x)$ je veljaven samo v primeru, da velja
+  $\exactlyone{x \in A} \phi(x)$.
+\end{opomba}
+
 
 
 \subsubsection{Vezane in proste spremenljivke}
