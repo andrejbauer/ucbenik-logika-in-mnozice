@@ -1,33 +1,23 @@
 \chapter{Podmnožice in potenčne množice}
 
-\subsection{Definicija relacije $\subseteq$}
+Pravimo, da je množica $S$ \df{podmnožica} množice $T$ in pišemo $S \subseteq T$, ko velja $\all{x \in S} x \in T$. Pravimo tudi, da je $S$ \df{vsebovana} v $T$ in da je $T$ \df{nadmnožica}~$S$.
 
-Pravimo, da je množica $S$ \textbf{podmnožica} množice $T$, pišemo $S \subseteq T$, ko velja $\all{x \in S} x \in T$. Pravimo tudi, da je $S$ \textbf{vsebovana} v $T$ in da je $T$ \textbf{nadmnožica}~$S$.
-
-Vedno velja $\emptyset \subseteq S$ in $S \subseteq S$.
-
-Princip ekstenzionalnosti za množice pravi:
+Princip ekstenzionalnosti za množice lahko zapišemo s pomočjo podmnožic:
 %
 \begin{equation*}
-  S = T \iff (\all{x \in S} S \in T) \land (\all{y \in T} y \in S)
-\end{equation*}
-%
-kar lahko zapišemo s podmnožicami:
-%
-\begin{equation*}
-  S = T \iff S \subseteq T \land T \subseteq S.
+  S = T \liff S \subseteq T \land T \subseteq S.
 \end{equation*}
 %
 Vsaka podmnožica $S \subseteq A$ opredeljuje neko lastnost elementov iz $A$: tisti
 elementi, ki imajo opredeljeno lastnost, so v $S$, ostali pa ne.
+
+Vsaka množica $S$ ima vsak kako podmnožico, namreč $\emptyset \subseteq S$ in $S \subseteq S$.
 
 \begin{zgled}
   Naj bo $P$ množica vseh praštevil, torej je $P \subseteq N$. Podmnožica $P$
   opredeljuje lastnost ">je praštevilo"<.
 \end{zgled}
 
-
-\subsection{Kako tvorimo podmnožice}
 
 Če je $\phi(x)$ logična formula, v kateri nastopa spremenljivka $x \in A$, lahko tvorimo množico
 %
@@ -38,35 +28,30 @@ elementi, ki imajo opredeljeno lastnost, so v $S$, ostali pa ne.
 Pri tem je $x$ vezana spremenljivka. Za to množico velja:
 %
 \begin{equation*}
-    a \in \set{ x \in A \such \phi(x) } \iff a \in A \land \phi(a).
+    a \in \set{ x \in A \such \phi(x) } \liff a \in A \land \phi(a).
 \end{equation*}
 %
 Povedano z besedami: elementi množice $\set{ x \in A \such \phi(x) }$ so tisti elementi iz $A$, ki zadoščajo pogoju $\phi$.
 %
 Velja $\set{ x \in A \such \phi(x) } \subseteq A$, prav tako pa
 \begin{equation*}
-  \set{x \in A \mid \phi(x)} \subseteq \set{x \in A \mid \psi(x)} \iff
+  \set{x \in A \mid \phi(x)} \subseteq \set{x \in A \mid \psi(x)} \liff
   \all{x \in A} \phi(x) \lthen \psi(x).
 \end{equation*}
 
-
-\subsection{Kanonična inkluzija}
-
-Za podmnožico $S \subseteq T$ definiramo \textbf{kanonično inkluzijo} ali \textbf{kanonično vključitev} $i_S : S \to T$, s predpisom $i_S : x \mapsto x$. Pozor, to ni identiteta, razen v primeru $S = T$!.
+Za podmnožico $S \subseteq T$ definiramo \df{kanonično inkluzijo} ali \df{kanonično vključitev} $i_S : S \to T$, s predpisom $i_S : x \mapsto x$. Pozor, to ni identiteta, razen v primeru $S = T$!.
 Oznaka $i_S$ ni standardna, pravzaprav standardne oznake ni.
 
-Če je $f : T \to U$ in $S \subseteq T$, pravimo kompozitumu $f \circ i_S$ \textbf{zožitev} preslikave $f$ na $S$, pišemo $\restrict{f}{S}$.
+Če je $f : T \to U$ in $S \subseteq T$, pravimo kompozitumu $f \circ i_S$ \df{zožitev} preslikave $f$ na $S$, pišemo $\restrict{f}{S}$.
 
 
-\section{Potenčna množica}
+\section{Potenčna množica in karakteristične funkcije}
 
-\subsection{Definicija potenčne množice}
-
-Za vsako množico $A$ tvorimo množico $\pow{A}$, ki ji pravimo \textbf{potenčna množica}.
+Za vsako množico $A$ tvorimo množico $\pow{A}$, ki ji pravimo \df{potenčna množica}.
 Elementi potenčne množice $\pow{A}$ so natanko podmnožice množice $A$:
 %
 \begin{equation*}
-    S \in \pow{A} \iff S \subseteq A
+    S \in \pow{A} \liff S \subseteq A
 \end{equation*}
 %
 Na primer $\pow{\emptyset} = \set{\emptyset}$ in
@@ -76,19 +61,16 @@ Na primer $\pow{\emptyset} = \set{\emptyset}$ in
 \end{equation*}
 
 
-\subsection{Karakteristične funkcije}
-
-\textbf{Karakteristična funkcija} na množici $A$ je funkcija z domeno $A$ in kodomeno $\two$. Tu je $\two = \set{\bot, \top}$ množica resničnostnih vrednosti.
-
+\df{Karakteristična funkcija} na množici $A$ je funkcija z domeno~$A$ in kodomeno~$\two$, pri čemer je $\two = \set{\bot, \top}$ množica resničnostnih vrednosti.
+%
 Eksponentna množica $\two^A$ je torej množica vseh karakterističnih funkcij na $A$.
 
 \begin{opomba}
   Karakteristične funkcije se uporabljajo tudi v analizi, kjer jih
-  običajno razumemo kot preslikave $A \to \set{0,1}$ namesto $A \to \set{\bot, \top}$. Ker sta množici $\set{\bot,\top}$ in $\set{0,1}$ izomorfni, to ni bistvena razlika.
+  običajno razumemo kot preslikave $A \to \set{0,1}$. Ker sta množici $\set{\bot,\top}$ in $\set{0,1}$ izomorfni, to ni bistvena razlika.
 \end{opomba}
 
-Karakteristično funkcijo si lahko predstavljamo kot preslikavo, ki opredeljuje
-neko lastnost elementov~$A$: tisti elementi, ki imajo opredeljeno lastnost, se
+Karakteristično funkcija opredeljuje neko lastnost elementov~$A$: tisti elementi, ki imajo opredeljeno lastnost, se
 slikajo v $\top$, ostali pa v $\bot$.
 
 \begin{zgled}
@@ -142,7 +124,7 @@ podmnožicami $A$ in karakterističnimi preslikavami na $A$ obstaja neka zveza.
   \xi_f &\defeq \set{x \in A \such f(x) }.
   \end{align*}
   %
-  Preslikavi $\chi_S$ pravimo \textbf{karakteristična funkcija podmnožice $S$}.
+  Preslikavi $\chi_S$ pravimo \df{karakteristična funkcija podmnožice $S$}.
   %
   Trdimo, da sta $\chi$ in $\xi$ inverza:
   %
@@ -165,14 +147,12 @@ podmnožicami $A$ in karakterističnimi preslikavami na $A$ obstaja neka zveza.
   \end{enumerate}
 \end{proof}
 
-\subsection{Boolova algebra podmnožic}
-
 Podmnožice množice $A$ tvorijo Boolovo algebro za operacije presek $\cap$, unija $\cup$ in relativni komplement. Nevtralni element za unijo je $\emptyset$ in nevtralni element za presek je $A$.
 
-Definirajmo tudi operacijo \textbf{simetrična razlika $\oplus$}, ki podmnožicama $S, T \in A$ priredi podmnožico
+Definirajmo tudi operacijo \df{simetrična razlika $\oplus$}, ki podmnožicama $S, T \in A$ priredi podmnožico
 %
 \begin{equation*}
   S \oplus T \defeq (S \setminus T) \cup (T \setminus S) = (S \cup T) \setminus (S \cap T).
 \end{equation*}
 %
-Potenčna množica $\pow{A}$ je za operacijo $\oplus$ Abelova grupa.
+Potenčna množica $\pow{A}$ je za operacijo $\oplus$ komutativna grupa, saj je vsak element sam sebi inverz, ker je $S \oplus S = \emptyset$.

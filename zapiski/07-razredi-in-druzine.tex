@@ -18,27 +18,27 @@ opisali množice kot ">kakršnokoli"< zbirko stvari. Torej bi lahko pisali
 \end{equation*}
 %
 za množico vseh tistih stvari (objektov, matematičnih entitet), ki zadoščajo
-pogoju~$\phi$. Se pravi, da bi veljalo
+pogoju~$\phi$:
 %
 \begin{equation*}
-    a \in \set{ x \such \phi(x) } \iff \phi(a)
+    a \in \set{ x \such \phi(x) } \liff \phi(a)
 \end{equation*}
 %
-A izkaže se, da ne moremo kar tako tvoriti povsem poljubnih množic objektov. To
-je odkril znameniti filozof, logik in matematik Betrand Russell. Razmislek se po
-njem imenuje \textbf{Russellov paradoks}. Le-ta je v matematiko vnesel pravo ">krizo
-temeljev"<, iz katere se je v prvi polovici 20.~stoletja razvila logika in
+A je znameniti filozof, logik in matematik Betrand Russell odkril, 
+da je taka, neomejena tvorba zbirk protislovna.
+%
+Razmislek, ki se po njem imenuje \df{Russellov paradoks}, je v matematiko vnesel pravo ">krizo
+temeljev"<, iz katere je v prvi polovici 20.~stoletja izšla logika in
 temelji matematike, kot jih poznamo danes.
 
-Russellov paradoks gre takole. Denimo, da bi lahko tvorili poljubne množice
-objektov. Tedaj bi lahko tvorili tudi množico vseh množic, ki niso element same
+Russellov paradoks gre takole. Denimo, da bi lahko tvorili množico vseh množic, ki niso element same
 sebe:
 %
 \begin{equation*}
-    R \defeq \set{ S \such S \not\in S }
+    R \defeq \set{ S \such S \not\in S }.
 \end{equation*}
 %
-Sedaj bomo izpeljali protislovje tako, da bomo dokazali $R \not\in R$ in $R \in R$:
+Tedaj bi lahko izpeljali protislovje, ker bi hkrati veljalo $R \not\in R$ in $R \in R$:
 %
 \begin{enumerate}
 \item Dokažimo $R \not\in R$.
@@ -50,102 +50,94 @@ Sedaj bomo izpeljali protislovje tako, da bomo dokazali $R \not\in R$ in $R \in 
   Dokažimo $R \in R$. V prvem koraku smo že dokazali $R \not\in R$, torej po
   definiciji $R$ velja $R \in R$.
 \end{enumerate}
-%
-Kaj lahko storimo? Očitno je treba pazljivo nadzorovati dopustne konstrukcije
-množic.
+
 
 \section{Množice in razredi}
 
 V sodobni teoriji množic Russellov paradoks razrešimo tako, da ločimo med dvema
-različnima zvrstema zbirk ali skupkov elementov, namreč \textbf{množicami} in \textbf{razredi}.
-
-Torej imamo opravka s tremi zvrstmi matematičnih objektov:
+zvrstema zbirk ali skupkov elementov, namreč \df{množicami} in \df{razredi}:
 %
 \begin{enumerate}
-\item Elementi, ki niso množice (na primer naravna števila), pravimo jim \textbf{urelementi}.
-\item Zbirke elementov, ki se imenujejo \textbf{množice}.
-\item Zbirke elementov, ki se imenujejo \textbf{razredi}.
+\item \df{urelementi} so matematični objekti, ki niso skupki,
+\item \df{množice} so skupki, katerih elementi so urelementi in množice,
+\item \df{razredi} so skupki, katerih elementi so urelementi in množice.
 \end{enumerate}
 %
-Elementi množic so urelementi in množice. Enako velja za razrede.
+Na prvi pogled ni razlike med množicami in razredi, a to ni res:
+\emph{množica je lahko element množice ali razreda,
+razred pa ne more biti element množice ali razreda.}
 %
-V čem je torej razlika med množicami in razredi?
-%
-\emph{Množica je lahko element (druge množice ali razreda).
-Razred ne more biti element (druge množice ali razreda).}
-%
-S tem želimo povedati, da je zapis
+Zapis
 %
 \begin{equation*}
     x \in Y
   \end{equation*}
 %
-\emph{neveljaven}, če je~$x$ razred. Se pravi, če je $x$ razred, potem sploh ne moremo govoriti o tem, ali je $x \in Y$ resnična izjava, saj ni izjava, ker ni izraz.
+je veljaven v primeru, da je $x$ urelement ali množica in $Y$ množica ali razred.
+Če je $x$ razred, tedaj $x \in Y$ ni veljavna izjava, podobno kot $1/0$ ni veljaven izraz, in sploh ne moremo govoriti o njegovi resničnostni vrednosti.
 
-Vsaka množica je hkrati razred. Ni pa vsak razred tudi množica.
-
-Razred je množica, če ga lahko skonstruiramo še na kak drug način s pomočjo
-pravil za konstrukcije množic (kartezični produkti, vsote, eksponenti, unije,
-preseki, podmnožice in vse ostale konstrukcije množic, ki jih bomo še spoznali).
-
-\textbf{Pravi razred} je tak razred, ki ni množica.
-%
-Z zapisom
+Sedaj lahko natančneje povemo, kako tvorimo razrede. Razred
 %
 \begin{equation*}
   \set{ x \such \phi(x) }
 \end{equation*}
 %
-definiramo \textbf{razred} vseh objektov, ki zadoščajo pogoju $\phi$. Se pravi, da velja
+je skupek vseh urelementov in množic, ki zadoščajo pogoju $\phi$:
 %
 \begin{equation*}
     a \in \set{ x \such \phi(x) } \iff \phi(a).
 \end{equation*}
 %
-Poglejmo nekaj primerov.
+Predpišimo tudi \df{pravilo ekstenzionalnosti za razrede}, ki pravi da sta razreda~$C$ in~$D$ enaka, če imata iste elemente:
+%
+\begin{equation*}
+  C = D \liff \all{x} (x \in C \liff x \in D).
+\end{equation*}
 
 \begin{zgled}
-  \textbf{Russellov razred} $R \defeq \set{ S \such S \not\in S }$ vsebuje vse množice, ki niso element same sebe. Paradoks smo razrešili, saj je nesmiselno zapisati $R \in R$.
+  \df{Russellov razred} $R \defeq \set{ S \such S \not\in S }$ vsebuje vse množice, ki niso element same sebe. Paradoks smo razrešili, saj je nesmiselno zapisati $R \in R$.
 \end{zgled}
 
+\begin{zgled}
+  Razred $\set{x \such \bot}$ je prazni razred, saj nima elementov.
+\end{zgled}
 
 \begin{zgled}
-  \textbf{Razred vseh množic}
+  Razred $\set{x \such x = 42}$ vsebuje natanko en element, namreč število~$42$.
+\end{zgled}
+
+\begin{zgled}
+  Naj bo $S$ množica. Razred $\set{x \such x \in S}$ vsebuje natanko elemente množice~$S$.
+\end{zgled}
+
+Zadnji zgled pove, da so nekateri razredi pravzaprav množice. Pravimo, da je $C$ \df{nepravi razred}, če obstaja množica $S$, ki ima iste elemente kot~$C$, velja $\all{x} (x \in S \liff x \in C)$. V nasprotnem primeru je $C$ \df{pravi razred}.
+
+\begin{zgled}
+  \df{Razred vseh množic}
   %
   \begin{equation*}
-    V \defeq \set{ S \such \text{$S$ je množica} },
-  \end{equation*}
-% 
-  ki ga označimo tudi s $\Set$. To je pravi razred. Res, če bi bil $V$ množica,
-  potem bi lahko tvorili podmnožico
-  %
-  \begin{equation*}
-    \set{ S \in V \such S \not\in S},
+    \Set \defeq \set{ S \such \text{$S$ je množica} },
   \end{equation*}
   %
-  ki ni nič drugega kot Russellov $R$. Tako bi spet dobili protislovje. Torej $V$
-  ni množica.
+  ki ga označimo tudi z $V$, je pravi razred. Res, če bi bil $V$ množica,
+  potem bi lahko tvorili \emph{množico}
+  $\set{ S \in V \such S \not\in S}$,
+  ki ni nič drugega kot Russellov protislovni~$R$.
 \end{zgled}
 
 \begin{zgled}
-  Razred vseh enojcev $E \defeq \set{ S \such \exactlyone{x \in S} \top }$ je pravi razred. Res, če bi bil množica, potem bi bila množica tudi njegova unija $\bigcup E$, ki pa je enaka~$V$.
-\end{zgled}
-
-\begin{zgled}
-  Zbirke vseh matematičnih struktur dane vrste pogosto tvorijo prave razrede. Na primer, razred vseh grup, razred vseh kolobarjev, vseh vektorskih prostorov itd.
+  Razred vseh enojcev $E \defeq \set{ S \such \exactlyone{x} x \in S }$ je pravi razred. Res, če bi bil množica, potem bi bila množica tudi njegova unija $\bigcup E$, ki pa je enaka~$V$.
 \end{zgled}
 
 Z razredi lahko delamo tako kot z množicami: tvorimo unije, preseke in produkte
-razredov, govorimo po podrazredih). Pri tem uporabljamo enake oznake za
+razredov in govorimo po podrazredih. Pri tem uporabljamo enake oznake za
 operacije kot pri množicah. Paziti moramo le, da razreda nikoli ne uporabimo kot
 element kake množice ali razreda. Na primer, če je $C$ razred, lahko tvorimo
-">potenčni razred"> $\pow{C}$, ki vsebuje vse \emph{podmnožice} $C$:
+potenčni razred $\pow{C}$, ki vsebuje vse \emph{podmnožice} $C$:
 %a
 \begin{equation*}
-    \pow{C} \defeq \set{ S \such S \in \Set \land S \subseteq C }.
+  \pow{C} \defeq \set{ S \such S \in \Set \land S \subseteq C }.
 \end{equation*}
-%
-Ne smemo pa tvoriti $\set{ D \such D \subseteq C }$, ker bi s tem $C$ postal element razreda $\set{D \such D \subseteq C}$.
 
 \section{Družine množic}
 
@@ -169,10 +161,10 @@ naštejemo in vsako od njih poimenujemo
 \end{align*}
 %
 A tu se zadeve še ne končajo, saj lahko v splošnem obravnavamo poljubno zbirko množic.
-Takim zbirkam pravimo \textbf{družine množic}. Družina množic je \textbf{indeksirana} z elementi neke množice $I$, ki ji pravimo \textbf{indeksna množica}. Za vsak $i \in I$ imamo množico $A_i$,  kar lahko izrazimo tudi z naslednjo definicijo.
+Takim zbirkam pravimo \df{družine množic}. Družina množic je \df{indeksirana} z elementi neke množice $I$, ki ji pravimo \df{indeksna množica}. Za vsak $i \in I$ imamo množico $A_i$,  kar lahko izrazimo tudi z naslednjo definicijo.
 
 \begin{definicija}
-  \textbf{Družina množic} je preslikava $I \to \Set$. Množici $I$ pravimo \textbf{indeksna množica} in njenim elementov \textbf{indeksi}.
+  \df{Družina množic} je preslikava $I \to \Set$. Množici $I$ pravimo \df{indeksna množica} in njenim elementov \df{indeksi}.
 \end{definicija}
 
 
@@ -205,15 +197,15 @@ Takim zbirkam pravimo \textbf{družine množic}. Družina množic je \textbf{ind
 
 
 \begin{zgled}
-  Množice v družini se lahko ponavljajo. Skrajni primer je \textbf{konstantna družina}, v kateri so vse množice med seboj enake.
+  Množice v družini se lahko ponavljajo. Skrajni primer je \df{konstantna družina}, v kateri so vse množice med seboj enake.
 \end{zgled}
 
 \begin{zgled}
-  \textbf{Prazna družina} je družina množic, ki je indeksirana z $\emptyset$.
+  \df{Prazna družina} je družina množic, ki je indeksirana z $\emptyset$.
 \end{zgled}
 
 \begin{zgled}
-  Prazno družino moramo ločiti od \textbf{družine praznih množic}
+  Prazno družino moramo ločiti od \df{družine praznih množic}
   %
   \begin{align*}
     I &\to \Set \\
@@ -222,8 +214,8 @@ Takim zbirkam pravimo \textbf{družine množic}. Družina množic je \textbf{ind
 \end{zgled}
 
 \begin{zgled}
-  \textbf{Neprazna družina} je družina indeksirana z neprazno množico.
-  \textbf{Družina nepraznih množic} je družina, v kateri so vse množice neprazne.
+  \df{Neprazna družina} je družina indeksirana z neprazno množico.
+  \df{Družina nepraznih množic} je družina, v kateri so vse množice neprazne.
   Torej velja:
   %
   \begin{itemize}
@@ -279,7 +271,7 @@ Kaj pa unija družine množic? Ali je množica? Izkaže se, da za to potrebujemo
 \subsection{Kartezični produkt družine}
 
 \begin{definicija}
-  \textbf{Funkcija izbire} za družino $A : I \to \Set$ je tako prirejanje, ki vsakemu indeksu $i \in I$ priredi natanko en element $f(i) \in A_i$.
+  \df{Funkcija izbire} za družino $A : I \to \Set$ je tako prirejanje, ki vsakemu indeksu $i \in I$ priredi natanko en element $f(i) \in A_i$.
  \end{definicija}
 
  \begin{zgled}
@@ -294,14 +286,14 @@ Kaj pa unija družine množic? Ali je množica? Izkaže se, da za to potrebujemo
  \end{zgled}
 
  \begin{definicija}
-   \textbf{Kartezični produkt} družine $A : I \to \Set$ je množica vseh funkcij izbire družine~$A$:
+   \df{Kartezični produkt} družine $A : I \to \Set$ je množica vseh funkcij izbire družine~$A$:
    %
    \begin{equation*}
      \prod_{i \in I} A_i \defeq
      \set{f : I \to \textstyle\bigcup_{i \in I} A_i \such \all{i \in I} f(i) \in A_i}.
    \end{equation*}
    %
-   Za vsak $j \in I$ imamo \textbf{$j$-to projekcijo}
+   Za vsak $j \in I$ imamo \df{$j$-to projekcijo}
    %
    \begin{align*}
     \pr[j] &:  \left(\textstyle\prod_{i \in I} A_i\right) \to A_j, \\
@@ -336,11 +328,11 @@ Na desni imamo produkt konstantne družine množic
 Vsoto množic posplošimo na koprodukt družine.
 
 \begin{definicija}
-  \textbf{Koprodukt} ali \textbf{vsota družine} $A : I \to \Set$ je množica
+  \df{Koprodukt} ali \df{vsota družine} $A : I \to \Set$ je množica
   $\sum_{i \in I} A_i$, katere elementi so $\inj[i](a)$ za $i \in I$ in $a \in A_i$.
-  Preslikavi $\inj[k] : A_k \to \sum_{i \in I} A_i$ pravimo \textbf{$k$-ta injekcija}.
+  Preslikavi $\inj[k] : A_k \to \sum_{i \in I} A_i$ pravimo \df{$k$-ta injekcija}.
 
-  Poleg tega definiramo še \textbf{projekciji}
+  Poleg tega definiramo še \df{projekciji}
   %
   \begin{align*}
     \fst (\inj[i](a)) &= i, \\

@@ -690,7 +690,7 @@ Poleg tega uvede vezano spremenljivko~$x$ v formuli~$\phi$ šele za tem, ko smo 
 Kvantifikator $\some{x \in S} \phi$ pravi, da obstaja \emph{vsaj en}~$x$, lahko jih je tudi več.
 Na primer, $\some{x \in \RR} x^2 = 4$ je resnična izjava, saj obstajata dve števili, katerih kvadrat je~$4$.
 %
-V razdelku~\ref{sec:enolicni-obstoj} bomo spoznali, kako se zapiše \nls{obstaja natanko en} s pomočjo~$\exists$ in~$\forall$.
+V razdelku~\ref{sec:enolicni-obstoj} bomo zapisali \nls{obstaja natanko en} s pomočjo~$\exists$ in~$\forall$.
 
 Poznamo tudi \df{neomejena kvantifikatorja} 
 %
@@ -722,24 +722,24 @@ $n$ je naravno ali celo število, $x$ realno, $f$ je funkcija ipd.
   Ta zapis je res bolj natančen, a verjetno se lahko strinjamo, da ni bistveno bolj pregleden od prvotnega.
 \end{zgled}
 
-Naslednji zgled je nevljudna, a vzgojna različica prejšnjega.
+% Naslednji zgled je nevljudna, a vzgojna različica prejšnjega.
 
-\begin{zgled}
-  Naj bo $n : \NN \to \set{0, 1}$ preslikava. V formuli
-  %
-  \begin{equation*}
-    (\all{f} n(f) = 0) \lor (\some{f} n(f) = 1)
-  \end{equation*}
-  %
-  se pojavita neomejena kvantifikatorja. Sklepamo, da je $f$ naravno število, saj se v formuli pojavi izraz $n(f)$,
-  ki je smiselen le, če je $f \in \NN$. Torej bi natančneje zapisali
-  %
-  \begin{equation*}
-    (\all{f \in \NN} n(f) = 0) \lor (\some{f \in \NN} n(f) = 1).
-  \end{equation*}
-  %
-  Ta zapis je res bolj natančen, a verjetno se lahko strinjamo, da ni bistveno bolj pregleden od prvotnega.
-\end{zgled}
+% \begin{zgled}
+%   Naj bo $n : \NN \to \set{0, 1}$ preslikava. V formuli
+%   %
+%   \begin{equation*}
+%     (\all{f} n(f) = 0) \lor (\some{f} n(f) = 1)
+%   \end{equation*}
+%   %
+%   se pojavita neomejena kvantifikatorja. Sklepamo, da je $f$ naravno število, saj se v formuli pojavi izraz $n(f)$,
+%   ki je smiselen le, če je $f \in \NN$. Torej bi natančneje zapisali
+%   %
+%   \begin{equation*}
+%     (\all{f \in \NN} n(f) = 0) \lor (\some{f \in \NN} n(f) = 1).
+%   \end{equation*}
+%   %
+%   Ta zapis je res bolj natančen, a verjetno se lahko strinjamo, da ni bistveno bolj pregleden od prvotnega.
+% \end{zgled}
 
 
 
@@ -819,9 +819,16 @@ To pišemo krajše
 \end{equation*}
 %
 čeprav je formalno gledano tako zapis nepravilen. V
-razdelku~\ref{sec:ekvivalenca} bomo spoznali, kako se tako zaporedje
-ekvivalenc dokaže s ciklom implikacij $\phi \lthen \psi \lthen \rho
-\lthen \sigma \lthen \phi$.
+razdelku~\ref{sec:ekvivalenca} bomo tako zaporedje
+ekvivalenc dokazali s ciklom implikacij
+%
+\begin{equation*}
+\phi \lthen \psi, \qquad
+\psi \lthen \rho, \qquad
+\rho \lthen \sigma, \qquad
+\sigma \lthen \phi.
+\end{equation*}
+
 
 \paragraph{\nls{Za vsak $x$ iz $S$, za katerega velja $\phi$, velja tudi
   $\psi$}}
@@ -837,7 +844,7 @@ Tudi izjave oblike \nls{vsi $\phi$-ji so $\psi$-ji} so te oblike, denimo \nls{vs
 od dva večja praštevila so liha} zapišemo
 %
 \begin{equation*}
-  \all{n \in \NN} n > 2 \land \text{$n$ je praštevilo} \lthen \text{$n$ je lih}.
+  \all{n \in \NN} (n > 2 \land \text{\nls{$n$ je praštevilo}}) \lthen \text{\nls{$n$ je lih}}.
 \end{equation*}
 
 \paragraph{\nls{Enačba $f(x) = g(x)$ nima realne rešitve}}
@@ -857,12 +864,6 @@ neznanka~$x$, vendar se v splošnem ne moremo zanašati na običaje in
 uganjevanje, ampak moramo točno povedati, kateri simboli so
 \emph{neznanke} in kateri \emph{parametri}.
 
-\begin{center}
-  \fbox{
-  \textbf{Od tu naprej zapiski niso več tako lepo urejeni in vsebujejo več napak.}}
-\end{center}
-
-
 \subsubsection{Kombinacija $\forall$ in $\exists$}
 
 Pozor, vrstnega reda kvantifikatorjev ne smemo mešati:
@@ -881,71 +882,66 @@ To dejstvo bomo utrjevali na vajah. Zapomnite se, da morate biti tudi pri ostali
 Pogosto kvantifikacijo kombiniramo z dodatnim pogojem, na primer:
 %
 \begin{itemize}
-\item ">Obstaja \emph{liho} naravno število, ki ni deljivo s 7."<
-\item ">Vsako \emph{sodo} naravno število je deljivo s 3."<
+\item \nls{Obstaja \emph{liho} naravno število, ki ni deljivo s 7.}
+\item \nls{Vsako \emph{sodo} naravno število je deljivo s 3.}
 \end{itemize}
 %
-V prvem primeru je dodatni pogoj izražen z besedico ">liho"< in v drugem s ">sodo"<. Kako zapišemo take izjave s formulo, kam
-vtaknemo dodatni pogoj? Izjavi pretvorimo po korakih:
+V prvem primeru je dodatni pogoj izražen z besedico \nls{liho} in v drugem s \nls{sodo}. Kako zapišemo take izjave s formulo in kam vtaknemo dodatni pogoj? Izjavi pretvorimo po korakih:
 %
 \begin{itemize}
-\item ">Obstaja liho naravno število, ki ni deljivo s 7."<
-\item ">Obstaja naravno število, ki je liho in ki ni deljivo s 7."<
-\item ">Obstaja naravno število, ki je liho in deljivo s 7."<
-\item ">Obstaja $x$ iz $\NN$, da je $x$ lih in $x$ je deljiva s 7."<
-\item $\some{x \in \NN} (\text{$x$ je lih}) \land (\text{$x$ je deljiv s 7})$
-\item $\some{x \in \NN} (\some{y \in \NN} x = 2 y + 1) \land (\some{z \in \NN} y = 7 z)$
+\item \nls{Obstaja liho naravno število, ki ni deljivo s 7.}
+\item \nls{Obstaja naravno število, ki je liho in ki ni deljivo s 7.}
+\item \nls{Obstaja $x$ iz $\NN$, da je $x$ lih in $x$ ni deljiv s 7.}
+\item $\some{x \in \NN} \text{\nls{$x$ je lih}} \land \text{\nls{$x$ ni deljiv s 7}}$
+\item $\some{x \in \NN} (\some{y \in \NN} x = 2 y + 1) \land \neg (\some{z \in \NN} y = 7 z)$
 \end{itemize}
 %
 In še druga izjava:
 \begin{itemize}
-\item ">Vsako sodo naravno število je deljivo s 3."<
-\item ">Vsako naravno število, ki je sodo, je deljivo s 3."<
-\item ">Za vsako naravno število velja, da če je sodo, potem je deljivo s 3."<
-\item ">Za vsak $x$ iz $\NN$ velja, če je $x$ sod, potem je $x$ deljiv s $3$."<
-\item $\all{x \in \NN} \text{$x$ sod} \lthen \text{$x$ deljiv s 3}$
+\item \nls{Vsako sodo naravno število je deljivo s 3.}
+\item \nls{Vsako naravno število, ki je sodo, je deljivo s 3.}
+\item \nls{Za vsako naravno število velja, da če je sodo, potem je deljivo s 3.}
+\item \nls{Za vsak $x$ iz $\NN$ velja, če je $x$ sod, potem je $x$ deljiv s $3$.}
+\item $\all{x \in \NN} \text{\nls{$x$ sod}} \lthen \text{\nls{$x$ je deljiv s 3}}$
 \item $\all{x \in \NN} (\some{y \in \NN} x = 2 y) \lthen (\some{z \in \NN} x = 3 z)$
 \end{itemize}
 %
-Zapomnimo si: \textbf{dodatni pogoj pri $\exists$ izrazimo $\land$} in \textbf{dodatni pogoj pri $\forall$ izrazimo $\lthen$}.
+Zapomnimo si: \emph{dodatni pogoj pri $\exists$ izrazimo $\land$} in \emph{dodatni pogoj pri $\forall$ izrazimo $\lthen$}.
 
-Poglejmo še en primer, ko imamo več možnosti za zapis s formulo:
+Poglejmo še primer, ko imamo več možnosti za zapis s formulo:
 %
 \begin{quote}
-  ">Za vsako pozitivno realno število $x$ obstaja tako naravno število $n$, da je $x < n$."<
+  \nls{Za vsako pozitivno realno število $x$ velja $\phi(x)$.}
 \end{quote}
 %
-Začetni del ">za vsako pozitivno realno število"< lahko zapišemo na več načinov:
+Začetni del \nls{za vsako pozitivno realno število} bi lahko zapisali na enega od načinov:
 %
 \begin{itemize}
-\item $\all{x \in \RR_{> 0}} \some{n \in \NN} x < n$,
-\item $\all{x \in \set{y \in \RR \such y > 0}} \some{n \in \NN} x < n$,
-\item $\all{x \in \RR} x > 0 \lthen \some{n \in \NN} x < n$,
-\item $\all{x > 0} \some{n \in \NN} x < n$.
+\item $\all{x \in \RR_{> 0}} \phi(x)$,
+\item $\all{x \in \set{y \in \RR \such y > 0}} \phi(x)$,
+\item $\all{x \in \RR} x > 0 \lthen \phi(x)$,
+\item $\all{x > 0} \phi(x)$.
 \end{itemize}
 %
-Pri prvem načinu moramo biti v naprej dogovorjeni, da $\RR_{> 0}$ označuje množico pozitivnih realnih števil.
-Pri drugem načinu smo vstavili definicijo $\RR_{> 0}$, zato dogovor ni več potreben, a je zapis bolj nečitljiv.
-Pri tretjem načinu smo predstavili pozitivnost kot dodatni pogoj.
+Pri prvem smo uporabili zapis $\RR_{> 0}$, ki označuje množico vseh pozitivnih realnih števil.
+Pri drugem smo se znebili $\RR_{> 0}$, je zapis bolj nepregledn.
+Pri tretjem smo predstavili pozitivnost kot dodatni pogoj.
 Četrti način je najbolj čitljiv in se pogosto uporablja, a nam ne pove, ali je $x$ realno, celo, ali racionalno število.
 
-
 \section{Enolični obstoj}
-
-\subsection{Kvantifikatorje za enolični obstoj $\exists!$}
 \label{sec:enolicni-obstoj}
 
 S kvantifikatorje $\forall$ in $\exists$ lahko izrazimo tudi druge kvantifikatorje.
-Na primer, ">obstajata vsaj dva elementa $x$ in $y$ iz $A$, da velja $\phi(x,y)$"< zapišemo
+Na primer, \nls{obstajata vsaj dva elementa $x$ in $y$ iz $A$, da velja $\phi(x,y)$} zapišemo
 %
 \begin{equation*}
-    \some{x \in A} \some{y \in A} x \neq y \land \phi(x,y)
+    \some{x \in A} \some{y \in A} x \neq y \land \phi(x,y).
 \end{equation*}
 %
-Kako pa izrazimo ">obstaja natanko en $x$ iz $A$, da velja $\phi(x)$"<? Takole:
+Pogosto želimi izraziti \nls{obstaja natanko en $x$ iz $A$, da velja $\phi(x)$}, kar naredimo takole:
 %
 \begin{equation*}
-  (\some{x \in A} \phi(x)) \land \all{y z \in A} \phi(y) \land \phi(z) \lthen y = z
+  (\some{x \in A} \phi(x)) \land (\all{y, z \in A} \phi(y) \land \phi(z) \lthen y = z)
 \end{equation*}
 %
 ali ekvivalentno
@@ -958,24 +954,22 @@ To okrajšamo $\exactlyone{x \in A} \phi(x)$ in beremo ">obstaja natanko en $x$ 
 %
 Uporablja se tudi zapis $\exists^1 x \in A \,.\, \phi(x)$.
 
-\subsection{Operator enoličnega opisa}
-
-Če dokažemo, da obstaja natanko en $x \in A$, ki zadošča pogoju $\phi(x)$, potem se lahko nanj smiselno sklicujemo z ">tisti $x$ iz $A$, ki zadošča $\phi(x)$"<. Primeri:
+Če dokažemo, da obstaja natanko en $x \in A$, ki zadošča pogoju $\phi(x)$, potem se lahko nanj smiselno sklicujemo s \nls{tisti $x$ iz $A$, ki zadošča $\phi(x)$}, na primer:
 %
 \begin{itemize}
-\item ">tisto realno število $x$, za katero je $x³ = 2$"<, namreč kubični koren 2,
-\item ">tista množica $S$, ki nima nobenega elementa"<, namreč prazna množica.
+\item \nls{tisto realno število $x$, za katero je $x^3 = 2$} (namreč kubični koren 2),
+\item \nls{tista množica $S$, ki nima nobenega elementa} (namreč prazna množica).
 \end{itemize}
 %
-Proti-primeri:
+Ni pa vsak tovrstni zapis veljaven:
 %
 \begin{itemize}
-\item ">tisto racionalno število $x$, za katero je $x² = 2$"<, saj takega števila ni,
-\item ">tisto realno število $x$, za katero je $x² = 2$"<, ker sta dve taki števili,
-\item ">tista množica $S$, ki ima natanko en element"<, ker je takih množic je zelo veliko.
+\item \nls{tisto racionalno število $x$, za katero je $x^2 = 2$} (takega števila ni),
+\item \nls{tisto realno število $x$, za katero je $x^2 = 2$} (sta dve taki števili),
+\item \nls{tista množica $S$, ki ima natanko en element} (takih množic je več).
 \end{itemize}
 %
-To je lahko zelo koristen način za opredelitev matematičnih objektov, zato uvedemo zanj simbolni zapis. Če dokažemo
+Za opredelitev matematičnih objektov z enoličnim opisom uvedimo simbolni zapis. Če dokažemo
 %
 \begin{equation*}
     \exactlyone{x \in A} \phi(x)
@@ -985,10 +979,11 @@ potem lahko pišemo
 %
 \begin{equation*}
   \descr{x \in A} \phi(x),
-  \qquad\qquad\text{">tisti $x \in A$, za katerega velja $\phi(x)$"<}
 \end{equation*}
 %
-Torej velja
+in beremo \nls{tisti $x \in A$, za katerega velja $\phi(x)$}.
+%
+Velja
 %
 \begin{equation*}
   \phi(\descr{x \in A} \phi(x)).
@@ -1023,40 +1018,38 @@ Spremenljivka $x$ je \emph{vezana} v $\descr{x \in A} \phi(x)$.
   $\exactlyone{x \in A} \phi(x)$.
 \end{opomba}
 
+% \subsubsection{Vezane in proste spremenljivke}
 
+% V nekaterih izrazih nastopajo spremenljivke, ki so \textbf{vezane}. To pomeni, da je njihovo območje veljavnosti omejeno,
+% oziroma da so neke vrste ">lokalne spremenljivke"<. Spremenljivka, ki ni vezana, je \textbf{prosta}. Primeri:
+% %
+% \begin{itemize}
+% \item V funkcijskem predpisu $x \mapsto x^2 + y$ je $x$ vezan in $y$ prost.
+% \item V funkcijskem predpisu $(x,y) \mapsto x^2 + y$ sta $x$ in $y$ vezana.
+% \item V integralu $\int (x + a)^2 d x$ je $x$ vezan in $a$ prost.
+% \item V vsoti $\sum_{i=0}^n (i^2 + 1)$ je $i$ vezan in $n$ prost.
+% \item V formuli $\all{x \in \RR} x^3 + 3 x < 7$ je $x$ vezana spremenljivka.
+% \end{itemize}
 
-\subsubsection{Vezane in proste spremenljivke}
-
-V nekaterih izrazih nastopajo spremenljivke, ki so \textbf{vezane}. To pomeni, da je njihovo območje veljavnosti omejeno,
-oziroma da so neke vrste ">lokalne spremenljivke"<. Spremenljivka, ki ni vezana, je \textbf{prosta}. Primeri:
-%
-\begin{itemize}
-\item V funkcijskem predpisu $x \mapsto x^2 + y$ je $x$ vezan in $y$ prost.
-\item V funkcijskem predpisu $(x,y) \mapsto x^2 + y$ sta $x$ in $y$ vezana.
-\item V integralu $\int (x + a)^2 d x$ je $x$ vezan in $a$ prost.
-\item V vsoti $\sum_{i=0}^n (i^2 + 1)$ je $i$ vezan in $n$ prost.
-\item V formuli $\all{x \in \RR} x^3 + 3 x < 7$ je $x$ vezana spremenljivka.
-\end{itemize}
-
-Če vezano spremenljivko preimenujemo, se izraz ne spremeni. Funkcijska predpisa $x \mapsto a \cdot x^2 + 1$ in $y \mapsto y \cdot y^2 + 1$ sta \emph{enaka}. Vendar pozor, če vezano spremenljivko preimenujemo, za novo ime \emph{ne} smemo izbrati spremenljivke, ki se že pojavlja. Na primer, v integralu
-%
-\begin{equation*}
-  \int_0^1 (a + x)^2 \, d x
-\end{equation*}
-%
-smemo $x$ preimenovati v $t$, zato sta integrala enaka izraza (in imata tudi enako vrednost):
-%
-\begin{equation*}
-  \int_0^1 (a + x)^2 \, d x  = \int_0^1 (a + t)^2 \, d t
-\end{equation*}
-%
-Ne bi pa smeli $x$ preimenovati v $a$, saj bi dobili
-%
-\begin{equation*}
-  \int (a + a)^2 \, d a
-\end{equation*}
-%
-Pravimo, da se je prosta spremenljivka $a$ \emph{ujela} v integral.
+% Če vezano spremenljivko preimenujemo, se izraz ne spremeni. Funkcijska predpisa $x \mapsto a \cdot x^2 + 1$ in $y \mapsto y \cdot y^2 + 1$ sta \emph{enaka}. Vendar pozor, če vezano spremenljivko preimenujemo, za novo ime \emph{ne} smemo izbrati spremenljivke, ki se že pojavlja. Na primer, v integralu
+% %
+% \begin{equation*}
+%   \int_0^1 (a + x)^2 \, d x
+% \end{equation*}
+% %
+% smemo $x$ preimenovati v $t$, zato sta integrala enaka izraza (in imata tudi enako vrednost):
+% %
+% \begin{equation*}
+%   \int_0^1 (a + x)^2 \, d x  = \int_0^1 (a + t)^2 \, d t
+% \end{equation*}
+% %
+% Ne bi pa smeli $x$ preimenovati v $a$, saj bi dobili
+% %
+% \begin{equation*}
+%   \int (a + a)^2 \, d a
+% \end{equation*}
+% %
+% Pravimo, da se je prosta spremenljivka $a$ \emph{ujela} v integral.
 
 \section{Vaje}
 
