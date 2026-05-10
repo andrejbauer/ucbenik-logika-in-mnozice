@@ -370,27 +370,27 @@ Tako lahko prehajamo med delno in strogo urejenostjo.
 
 \begin{lema}
   \label{lem:nepr-min-veriga}%
-  Denimo, da je $<$ stroga urejenost na neprazni množici~$B$. Če $B$ nima
-  $\leq$-minimalnega elementa, potem ima padajočo verigo.
+  Denimo, da je $\sqsubset$ irefleksivna relacija na neprazni množici~$B$. Če $B$ nima
+  $\sqsubseteq$-minimalnega elementa, potem ima padajočo verigo.
 \end{lema}
 
 \begin{proof}
   Denimo, da $B$ nima minimalnega elementa, torej
-  %a
+  %
   \begin{equation*}
-    \lnot \some{x \in B} \all{y \in B} y \leq x \lthen y = x.
+    \lnot \some{x \in B} \all{y \in B} y \sqsubseteq x \lthen y = x.
   \end{equation*}
   %
   To je ekvivalentno
   %
   \begin{equation*}
-    \all{x \in B} \some{y \in B} y \leq x \land y \neq x
+    \all{x \in B} \some{y \in B} y \sqsubseteq x \land y \neq x,
   \end{equation*}
   %
-  kar je ekvivalentno
+  kar je zaradi irefleksivnosti $\sqsubset$ ekvivalentno
   \begin{equation}
     \label{eq:lema-min-elem}
-    \all{x \in B} \some{y \in B} y < x.
+    \all{x \in B} \some{y \in B} y \sqsubset x.
   \end{equation}
   %
   Padajočo verigo $b : \NN \to B$ definiramo z zaporedjem izbir: ker je $B$ neprazna, lahko izberemo
@@ -398,10 +398,10 @@ Tako lahko prehajamo med delno in strogo urejenostjo.
   tako, da velja
   %
   \begin{equation*}
-    b(i) < b(i-1) < \ldots < b(1) < b(0).
+    b(i) \sqsubset b(i-1), \ldots, b(2) \sqsubset b(1), b(1) \sqsubset b(0).
   \end{equation*}
   %
-  Ker $B$ nima minimalnega elementa, $b(i)$ ni minimalni, torej po \eqref{eq:lema-min-elem} obstaja tak $y \in B$, da je $y < b(i)$. Torej lahko izberemo $b(i+1) \in B$, da velja $b(i+1) < b(i)$.
+  Ker $B$ nima minimalnega elementa, $b(i)$ ni minimalni, torej po \eqref{eq:lema-min-elem} obstaja tak $y \in B$, da je $y \sqsubset b(i)$. Torej lahko izberemo $b(i+1) \in B$, da velja $b(i+1) \sqsubset b(i)$.
 \end{proof}
 
 \begin{opomba}
@@ -411,7 +411,7 @@ Tako lahko prehajamo med delno in strogo urejenostjo.
 
 \begin{izrek}
   \label{izr:dobr-osn-iff}
-  Naj bo $\sqsubset$ relacija na $A$. Tedaj so ekvivalentne naslednje izjave:
+  Naj bo $\sqsubset$ irefleksivna relacija na $A$. Tedaj so ekvivalentne naslednje izjave:
   %
   \begin{enumerate}
   \item \label{it:dobr-osn-1}%
@@ -450,8 +450,7 @@ Tako lahko prehajamo med delno in strogo urejenostjo.
   Torej obstaja element $y \in S$ z lastnostjo, da pod njim ni nobenega elementa iz
   $S$, kar pa pomeni, da je $y$ iskani minimalni element.
 
-  ($2 \lthen 3$) Denimo, da je $a : \NN \to A$ padajoča veriga. Tedaj slika $\set{ a(n) \mid n \in \NN }$ ne bi imela
-  minimalnega elementa, v nasprotju z \eqref{it:dobr-osn-2}.
+  ($2 \lthen 3$) Denimo, da je $a : \NN \to A$ padajoča veriga. Tedaj njena slika $\set{ a(n) \mid n \in \NN }$ nima $\sqsubseteq$-minimalnega elementa, saj $a(k)$ ne more biti minimalni ker je tudi $a(k+1)$ v sliki ter velja $a(k+1) \sqsubset a(k)$ in $a(k+1) \neq a(k)$. To je v nasprotju z~\eqref{it:dobr-osn-2}.
 
   ($3 \lthen 1$) Denimo, da je $S \subseteq A$ progresivna. Trdimo, da množica $C \defeq A \setminus S$ nima
   minimalnega elementa. Če bi bil $c \in C$ minimalni v $C$, bi to pomenilo
