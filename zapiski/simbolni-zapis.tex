@@ -43,7 +43,7 @@ torej prvi nasvet: vprašajte in če ne dobite odgovora, vprašajte še enkrat.
 \section{Pisave in simboli}
 \label{sec:pisave-in-simboli}
 
-Matematična abeceda vsebuje precej več simbolov, kot zgolj običajne črke in števke. Nekatere že poznamo, na primer~$=$, $<$, $+$, $\emptyset$, $\cup$, $\cap$, $\int$ in tako naprej, precej jih še bomo spoznali. Poleg tega matematiki uporabljamo različne pisave, kot je prikazano v tabeli~\ref{tabela:oblike-crk}. Na tabli in v zvezku sicer težko ločimo med pokončno, odebeljeno in ležečo pisavo, ali med kaligrafsko in rokopisno, zato nabor pisav omejimo. V tiskanem besedilu se vedno držimo nekaterih pravil glede izbire pisav. Tako posamezne črke $a$, $b$, $c$, \ldots, $x$, $y$, $z$ pišemo v ležeči pisavi, imena elementarnih funkcij pa pokončno: $\sin$, $\cos$, $\log$, \ldots Šumnikov običajno ne uporabljamo. Včasih z uporabo znakov nakažemo povezavo med dvema objektoma: $f$ je funkcija in $F$ njen integral, $\mathcal{A}$ je linearna preslikava in $A$ njej pripadajoča matrika itd.
+Matematična abeceda vsebuje precej več simbolov, kot zgolj običajne črke in števke. Nekatere že poznamo, na primer~$=$, $<$, $+$, $\emptyset$, $\cup$, $\cap$, $\int$ in tako naprej, precej jih še bomo spoznali. Poleg tega matematiki uporabljamo različne pisave, kot je prikazano v tabeli~\ref{tabela:oblike-crk}. Na tabli in v zvezku sicer težko ločimo med pokončno, odebeljeno in ležečo pisavo, ali med kaligrafsko in rokopisno, zato nabor pisav omejimo. V tiskanem besedilu se vedno držimo nekaterih pravil glede izbire pisav. Tako posamezne črke $a$, $b$, $c$, \ldots, $x$, $y$, $z$ pišemo v ležeči pisavi, imena elementarnih funkcij pa pokončno: $\sin$, $\cos$, $\log$, \ldots Naglasnih znakov, kot so na primer šumniki, običajno ne uporabljamo. Včasih z uporabo znakov nakažemo povezavo med dvema objektoma: $f$ je funkcija in $F$ njen integral, $\mathcal{A}$ je linearna preslikava in $A$ njej pripadajoča matrika itd.
 
 \begin{table}[ht]
 \centering
@@ -90,7 +90,7 @@ najbolj posrečena raba, ker se indeks lahko pojavi tudi v nadpisu ali kje drugj
 eksponent pa lahko pomeni tudi število, s katerim potenciramo.
 
 Kljub temu obilju črk in oznak posežemo še po drugih abecedah, še posebej grški, zato se
-jo čimprej naučite! Grške črke skupaj z njihovo izgovorjavo najdete v
+jo čim prej naučite! Grške črke skupaj z njihovo izgovorjavo najdete v
 tabeli~\ref{tabela:grska-abeceda}. Prostoročni zapis grških črk se boste naučili v
 razredu.
 %
@@ -146,7 +146,7 @@ se uporablja opisna imena, ki razkrijejo pomen: kjer bi matematik in fizik upora
 in~$a$, bi računalničar zapisal $\mathtt{masa\_delca}$ in $\mathtt{pospesek}$.
 
 \section{Izrazi}
-\label{sec:irazi}
+\label{sec:izrazi}
 
 Matematično besedilo je mešanica naravnega jezika in simbolnega zapisa. Delom besedila, ki
 so napisani s simboli, pravimo \emph{simbolni izrazi} ali krajše kar \emph{izrazi}. Vsi
@@ -216,20 +216,20 @@ Argumente operacije lahko opustimo in od bralca pričakujemo, da bo pravilno uga
 $\snd$:
 \begin{align*}
   \fst &: A \times B \to A, \\
-  \snd &: A \times B \to A.
+  \snd &: A \times B \to B.
 \end{align*}
 %
 Če bi bili zelo natančni, bi morali pri projekcijah zapisati tudi množici $A$ in $B$, ki tvorita kartezični produkt, na
 primer nekaj takega kot $\fst[A][B] : A \times B \to A$.
 %
-Ko torej vpeljemo novo zapis, lahko nekatere argumente razglasimo za \df{implicitne}, kar pomeni, da jih bomo opuščali,
+Ko torej vpeljemo nov zapis, lahko nekatere argumente razglasimo za \df{implicitne}, kar pomeni, da jih bomo opuščali,
 kadar to ne pripelje do zmede.
 
 \begin{vaja}
   Ali ima kompozicija preslikav $\circ$ implicitne argumente? Katere?
 \end{vaja}
 
-Argument operacije ima lahko \df{privzeto vrednost}. Na primer logaritem $x$ z osnovo $b$ zapišemo $\log_b x$. Če opustimo~$b$, se razume, da je mišljen desetiški logaritem, $\log x = \log_10 x$. Pravimo, da je privzeta vrednost osnove $b = 10$.
+Argument operacije ima lahko \df{privzeto vrednost}. Na primer logaritem $x$ z osnovo $b$ zapišemo $\log_b x$. Če opustimo~$b$, se razume, da je mišljen desetiški logaritem, $\log x = \log_{10} x$. Pravimo, da je privzeta vrednost osnove $b = 10$.
 
 Simbol lahko tudi \df{preobtežimo}, da ima več pomenov, nato pa od bralca pričakujemo, da bo uganil, katerega smo
 mislili. Na primer, $+$ uporabljamo za
@@ -391,7 +391,7 @@ Primeri besedila, ki \emph{niso} matematične izjave:
 \item Ali je $2 + 2 = 5$?
 \item Za vsak $x > 5$.
 \item Študenti bi morali znati reševati diferencialne enačbe.
-\item Od nekdaj lepe so Ljubljanke slovele, al lepše od Urške bilo ni nobene.
+\item Od nekdaj lepe so Ljubljanke slovele, al' lepše od Urške bilo ni nobene.
 \item $\phi \lor ) \psi \lthen \psi$.
 \end{itemize}
 %
@@ -496,7 +496,7 @@ V uporabi so naslednje ustaljene okrajšave:
     Okrajšava & Pomen \\ \midrule
     $\some{x,y \in S} \phi$
     &
-    $\some{x \in S} (\some{y}{S} \phi)$
+    $\some{x \in S} (\some{y \in S} \phi)$
     \\
     $\all{x \in S, y \in T} \phi$
     &
@@ -659,7 +659,7 @@ geometrijsko sredino:
 
 
 \subsection{Logična kvantifikatorja}
-\label{sec:logina-kvant}
+\label{sec:logicna-kvant}
 
 V zapisih $\all{x \in S} \phi$ in $\some{x \in S} \phi$ je $S$ množica, razred\footnote{V poglavju~\ref{cha:razred-druzine} bomo spoznali razliko med množicami in razredi, zaenkrat si $S$
   predstavljamo kot množico.} ali tip spremenljivke~$x$. V praksi se
@@ -874,7 +874,7 @@ Pozor, vrstnega reda kvantifikatorjev ne smemo mešati:
 \end{itemize}
 %
 To dejstvo bomo utrjevali na vajah. Zapomnite se, da morate biti tudi pri ostalih predmetih posebej pozorni na vrstni red
-">za vsak"< in ">obstaja"<. Je profesorica pri analizi rekla ">za vsak $\epsilon > 0$ obstaja tak $\delta > 0$ da \dots"< ali je rekla ">obstaja tak $\delta > 0$ da za vsak $\epsilon > 0$ \dots"<? Če boste zamešali ti dve izjavi na ustnem izpitu iz analize, boste imeli pokvarjen dan, ali pa cele počitnice!
+">za vsak"< in ">obstaja"<. Je profesorica pri analizi rekla ">za vsak $\epsilon > 0$ obstaja tak $\delta > 0$ da \dots"< ali je rekla ">obstaja tak $\delta > 0$ da za vsak $\epsilon > 0$ \dots"<? Če boste zamešali ti dve izjavi na ustnem izpitu iz analize, boste imeli pokvarjen dan ali pa cele počitnice!
 
 
 \subsubsection{Kvantifikator z dodatnim pogojem}
@@ -893,7 +893,7 @@ V prvem primeru je dodatni pogoj izražen z besedico \nls{liho} in v drugem s \n
 \item \nls{Obstaja naravno število, ki je liho in ki ni deljivo s 7.}
 \item \nls{Obstaja $x$ iz $\NN$, da je $x$ lih in $x$ ni deljiv s 7.}
 \item $\some{x \in \NN} \text{\nls{$x$ je lih}} \land \text{\nls{$x$ ni deljiv s 7}}$
-\item $\some{x \in \NN} (\some{y \in \NN} x = 2 y + 1) \land \neg (\some{z \in \NN} y = 7 z)$
+\item $\some{x \in \NN} (\some{y \in \NN} x = 2 y + 1) \land \neg (\some{z \in \NN} x = 7 z)$
 \end{itemize}
 %
 In še druga izjava:
@@ -924,7 +924,7 @@ Začetni del \nls{za vsako pozitivno realno število} bi lahko zapisali na enega
 \end{itemize}
 %
 Pri prvem smo uporabili zapis $\RR_{> 0}$, ki označuje množico vseh pozitivnih realnih števil.
-Pri drugem smo se znebili $\RR_{> 0}$, je zapis bolj nepregledn.
+Pri drugem smo se znebili $\RR_{> 0}$, vendar je zapis bolj nepregleden.
 Pri tretjem smo predstavili pozitivnost kot dodatni pogoj.
 Četrti način je najbolj čitljiv in se pogosto uporablja, a nam ne pove, ali je $x$ realno, celo, ali racionalno število.
 
@@ -938,7 +938,7 @@ Na primer, \nls{obstajata vsaj dva elementa $x$ in $y$ iz $A$, da velja $\phi(x,
     \some{x \in A} \some{y \in A} x \neq y \land \phi(x,y).
 \end{equation*}
 %
-Pogosto želimi izraziti \nls{obstaja natanko en $x$ iz $A$, da velja $\phi(x)$}, kar naredimo takole:
+Pogosto želimo izraziti \nls{obstaja natanko en $x$ iz $A$, da velja $\phi(x)$}, kar naredimo takole:
 %
 \begin{equation*}
   (\some{x \in A} \phi(x)) \land (\all{y, z \in A} \phi(y) \land \phi(z) \lthen y = z)
@@ -996,7 +996,7 @@ Spremenljivka $x$ je \emph{vezana} v $\descr{x \in A} \phi(x)$.
   lahko kvadratni koren iz $2$ zapisali kot
   %
   \begin{equation*}
-    \descr{x \in R} (x > 0 \land x^2 = 2)
+    \descr{x \in \RR} (x > 0 \land x^2 = 2)
   \end{equation*}
   %
   Še več, preslikavo $\sqrt{} : \RR_{\geq 0} \to \RR_{\geq 0}$ lahko definiramo takole:
