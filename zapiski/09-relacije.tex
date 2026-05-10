@@ -19,11 +19,11 @@ Predikat $P$ na množici $A$ lahko predstavimo na dva načina:
 \end{itemize}
 %
 Oba načina predstavitve sta uporabna, spoznali pa smo že izomorfizem med njima,
-saj velja $P(A) \iso \two^A$.
+saj velja $\pow{A} \iso \two^A$.
 
 \section{Relacije}
 
-Relacije s večmestni predikati. Se pravi, relacija $R$ opredeljujejo kako
+Relacije so večmestni predikati. Se pravi, relacija $R$ opredeljuje kako
 lastnost urejenih večteric kartezičnega produkta $A_1 \times A_2 \times \cdots \times A_n$. Pravimo, da je $R$ \textbf{$n$-člena} ali \textbf{$n$-mestna relacija} na množicah $A_1, …, A_n$.
 
 \begin{zgled}
@@ -40,8 +40,8 @@ kot predikate:
 \end{itemize}
 %
 Bolj običajna je predstavitev s podmnožicami, zato bomo dejstvo, da je $R$
-relacija na množicah $A_1, \ldots, A_n$ zapisali kar kot $R \subseteq A_1 \times A_2 \times \cdots \times A_n$.
-Za elemente $x_1 \in A_1, \ldots, x_n \in A_n$ dejstvo, da so v relaciji $R$ zapišemo
+relacija na množicah $A_1, \ldots, A_n$, zapisali kar kot $R \subseteq A_1 \times A_2 \times \cdots \times A_n$.
+Za elemente $x_1 \in A_1, \ldots, x_n \in A_n$ dejstvo, da so v relaciji $R$, zapišemo
 $R(x_1, \ldots, x_n)$, včasih pa tudi $(x_1, \ldots, x_n) \in R$.
 
 Na množicah $A_1, \ldots, A_n$ lahko vedno definiramo:
@@ -53,7 +53,7 @@ Na množicah $A_1, \ldots, A_n$ lahko vedno definiramo:
 %
 Univerzalna relacija se imenuje tudi \textbf{polna relacija}.
 
-V praksi so najbolj pogoste \textbf{dvomestna relacije}, se pravi relacije na dveh
+V praksi so najbolj pogoste \textbf{dvomestne relacije}, se pravi relacije na dveh
 množicah, $R \subseteq A \times B$.
 V tem primeru pravimo množici $A$ \textbf{domena} in $B$ \textbf{kodomena} relacije $R$, relaciji $R$ pa relacija med $A$ in $B$.
 
@@ -68,7 +68,7 @@ Zakaj ji pravimo diagonala?
 Izmed dvočlenih relacij so najbolj pogoste relacije, pri katerih se domena in
 kodomena ujemata, torej $R \subseteq A \times A$. V tem primeru pravimo, da je $R$ \textbf{relacija na množici $A$}.
 
-Denimo, da je $R \subseteq A \times B$ relacija, $x \in A$ in $y \in B$. Dejstvo, da sta $x$ in $y$ v relaciji $R$ zapišemo na enega od načinov
+Denimo, da je $R \subseteq A \times B$ relacija, $x \in A$ in $y \in B$. Dejstvo, da sta $x$ in $y$ v relaciji $R$, zapišemo na enega od načinov
 %
 \begin{equation*}
   (x, y) \in R
@@ -90,7 +90,7 @@ elemente množice $A$, nato pa narišemo puščico od $x$ do $y$, kadar velja $x
 
 \section{Osnovne lastnosti relacij}
 
-Relacije, ki so pomembne v matematični praksi imajo pogosto lastnosti, ki jih poimenujemo. Za relacijo $R \subseteq A \times A$ pravimo da je:
+Relacije, ki so pomembne v matematični praksi, imajo pogosto lastnosti, ki jih poimenujemo. Za relacijo $R \subseteq A \times A$ pravimo, da je:
 %
 \begin{itemize}
   \item \textbf{refleksivna:} $\all{x \in A} x \rel{R} x$,
@@ -118,7 +118,7 @@ presek $\cap$ in komplement $\compl{\Box}$. Denimo, da sta $R, S \subseteq A \ti
 \begin{align*}
   x \rel{(R \cup S)} y &\iff x \rel{R} y \lor x \rel{S} y, \\
   x \rel{(R \cap S)} y &\iff x \rel{R} y \land x \rel{S} y, \\
-  x \compl{R} y &\iff \lnot (x \rel{R} y).
+  x \rel{\compl{R}} y &\iff \lnot (x \rel{R} y).
 \end{align*}
 
 \begin{zgled}
@@ -137,7 +137,7 @@ presek $\cap$ in komplement $\compl{\Box}$. Denimo, da sta $R, S \subseteq A \ti
 Dvojiške relacije lahko tudi \textbf{transponiramo}. Transponiranka relacije $R \subseteq A \times B$ je relacija $\transpose{R} \subseteq B \times A$, definirana s predpisom
 %
 \begin{equation*}
-    y \transpose{R} x \defiff x \rel{R} y
+    y \rel{\transpose{R}} x \defiff x \rel{R} y
 \end{equation*}
 %
 ali ekvivalentno
@@ -203,7 +203,7 @@ povezana s kakim elementom $y \in B$.
     \some{b \in B} a \rel{R} b \land (\some{c \in C} b \rel{S} c \land c \rel{T} d) \label{eq:comp-2}
   \end{align}
   %
-  Torej je treba dokazati ekvivalenco izjav~\eqref{eq:comp-1} in~\eqref{eq:comp-2}, kar prepuščamo za vajo. Naj namignemo, da je treba pri dokazovanju ekvivalence uporabiti \emph{Frobeniuseva pravilo}
+  Torej je treba dokazati ekvivalenco izjav~\eqref{eq:comp-1} in~\eqref{eq:comp-2}, kar prepuščamo za vajo. Naj namignemo, da je treba pri dokazovanju ekvivalence uporabiti \emph{Frobeniusovo pravilo}
   %
   \begin{equation*}
     (\some{x \in X} p \land q(x)) \liff p \land \some{x \in X} q(x).
@@ -214,8 +214,8 @@ povezana s kakim elementom $y \in B$.
   Dokažimo še, da je diagonala enota za kompozicijo: naj bo $R \subseteq A \times B$ ter $x \in A$ in $y \in B$. Tedaj velja
   %
   \begin{align*}
-    x (\diag[B] \circ R) y &\iff \\
-    \some{z \in B} x \rel{R} z \land z \diag[B] y  &\iff \\
+    x \rel{(\diag[B] \circ R)} y &\iff \\
+    \some{z \in B} x \rel{R} z \land z \rel{\diag[B]} y  &\iff \\
     \some{z \in B} x \rel{R} z \land z = y &\iff \\
     x \rel{R} y
   \end{align*}
@@ -232,7 +232,7 @@ Za $n \in \NN$ definiramo \textbf{$n$-to potenco} relacije $R \subseteq A \times
 \begin{equation*}
     x R^n y \defiff
     \some{z_0, \ldots, z_n \in A}
-    z_0 = x \land z_n = y \land \all{i \in {0, \ldots, n-1}} z_i \rel{R} z_{i+1}.
+    z_0 = x \land z_n = y \land \all{i \in \set{0, \ldots, n-1}} z_i \rel{R} z_{i+1}.
 \end{equation*}
 %
 To je precej nečitljiva formula. Bolj razumljiva definicija je potenca kot $n$-kratni kompozitum relacije $R$ same s sabo:

@@ -5,7 +5,7 @@
 Preden v matematičnem besedilu uporabimo simbol ali spremenljivko, ga moramo \emph{vpeljati}. To pomeni, da moramo pojasniti, kakšen je pomen simbola. Poznamo dva osnovna načina za vpeljavo novih simbolov:
 %
 \begin{itemize}
-\item \item Nov simbol $s$ lahko \textbf{definiramo} kot okrajšavo za neki drugi izraz ali logično formulo.
+\item Nov simbol $s$ lahko \textbf{definiramo} kot okrajšavo za neki drugi izraz ali logično formulo.
 \item Nov simbol $s$ je (vezana ali prosta) \textbf{spremenljivka}, ki predstavlja neki (neznan, poljuben, nedoločen) element dane množice $A$.
 \end{itemize}
 %
@@ -21,7 +21,7 @@ Matematiki zapisujejo definicije in vpeljujejo spremenljivke na razne načine.
   Naj bo $x \in A$.
 \end{quote}
 %
-S tem postane $x$ veljavna spremenljivka, ki jo lahko uporabljamo. O njen vemo le to, da je element množice $A$ -- pravimo, da je $x$ \textbf{prosta spremenljivka}. V matematičnih besedilih boste zasledili tudi naslednje fraze, ki uvedejo prosto spremenljivko:
+S tem postane $x$ veljavna spremenljivka, ki jo lahko uporabljamo. O njem vemo le to, da je element množice $A$ -- pravimo, da je $x$ \textbf{prosta spremenljivka}. V matematičnih besedilih boste zasledili tudi naslednje fraze, ki uvedejo prosto spremenljivko:
 %
 \begin{itemize}
 \item ">Naj bo $x \in A$ poljuben."<
@@ -44,7 +44,7 @@ Definicija je v prvi vrsti \textbf{okrajšava} za neki izraz. Z njo uvedemo nov 
   s \defeq \ldots
 \end{equation*}
 %
-Na primer, v besedilu bi lahko napisali ">Naj bo $s := \sqrt{\log_2 7 + \pi/6}$."< S tem smo v kontekst dodali simbol $s$ in predpostavko $s = \sqrt{\log_2 7 + \pi/6}$. V matematičnih besedili boste zasledili tudi naslednje načine za definicijo:
+Na primer, v besedilu bi lahko napisali ">Naj bo $s := \sqrt{\log_2 7 + \pi/6}$."< S tem smo v kontekst dodali simbol $s$ in predpostavko $s = \sqrt{\log_2 7 + \pi/6}$. V matematičnih besedilih boste zasledili tudi naslednje načine za definicijo:
 %
 \begin{itemize}
 \item $s = \sqrt{\log_2 7 + \pi/6}$ (namesto $\defeq$ uporabimo $=$)
@@ -121,7 +121,7 @@ Matematiki v sklopu svojih aktivnosti \emph{konstruiramo} matematične objekte:
 \begin{itemize}
 \item v geometriji so znane konstrukcije z ravnilom in šestilom,
 \item računanje števk števila $\pi$ je konstrukcija približka,
-\item reševanje enačbe, je konstrukcija števila z želeno lastnostjo,
+\item reševanje enačbe je konstrukcija števila z želeno lastnostjo,
 \item konstruiramo lahko elemente množice, pogosto kar tako, da jih zapišemo, na primer $(2, \inl(3)) \in \NN \times (\ZZ + \ZZ)$.
 \end{itemize}
 
@@ -130,7 +130,7 @@ Poleg tega \emph{dokazujemo} matematične izjave. Na dokaz lahko gledamo kot na 
 Kaj pravzaprav je dokaz? V prvi vrsti je dokaz utemeljitev matematične izjave. Zgrajen je po točno določenih \emph{pravilih sklepanja}, ki jih lahko podamo formalno in jih tudi implementiramo na računalniku.\footnote{Kogar to zanima, si lahko ogleda ">\href{https://youtu.be/Z500sma3h90}{The dawn of formalized mathematics}"< (\href{https://www.icloud.com/keynote/0Gkr1yM7XY-31aQleWf-fiW7A}{prosojnice}) in se nauči uporabljati kak  \href{https://ncatlab.org/nlab/show/proof+assistant}{dokazovalni pomočnik} (v zadnjem času hitro napreduje \href{https://leanprover.github.io}{Lean}).
 }
 
-V praksi ljudje ne pišejo vseh podrobnosti v dokazu, ker bi bil tak dokaz nečitljiv in nerazumljiv. Pogosto podajo samo glavno idejo, iz katere lahko izkušeni matematik sam rekonstruira dokaz. Iz dobro napisanega dokaza se lahko naučimo marsikaj novega, poleg golega dejstva, da dokaza izjava velja.
+V praksi ljudje ne pišejo vseh podrobnosti v dokazu, ker bi bil tak dokaz nečitljiv in nerazumljiv. Pogosto podajo samo glavno idejo, iz katere lahko izkušeni matematik sam rekonstruira dokaz. Iz dobro napisanega dokaza se lahko naučimo marsikaj novega, poleg golega dejstva, da dokazana izjava velja.
 
 Mi bomo vadili podrobno pisanje dokazov. Pri ostalih predmetih boste videli ">žive dokaze"<, ki imajo manj podrobnosti in so zapisani manj formalno. A vsi pravilni matematični dokazi se dajo zapisati na način, kot ga bomo predstavili mi (in celo zapisati povsem formalno z dokazovalnim pomočnikom).
 
@@ -161,14 +161,14 @@ $(p \lor q) \land r \lthen (p \land r) \lor (q \land r)$.
     \hbox{}\quad Zaradi (2) lahko obravnavamo dva primera:\\
     \hbox{}\qquad \fbox{\parbox{0.5\textwidth}{
       (a) če velja $p$:\\
-          \hbox{}\quad Dokažimo $(p \land r) \lor (p \land r)$.\\
+          \hbox{}\quad Dokažimo $(p \land r) \lor (q \land r)$.\\
           \hbox{}\quad Dokažimo levi disjunkt $p \land r$: \\
           \hbox{}\qquad (i) $p$ velja zaradi (a) \\
           \hbox{}\qquad (ii) $r$ velja zaradi (3).
     }} \\
     \hbox{}\qquad \fbox{\parbox{0.5\textwidth}{
       (b) če velja $q$:\\
-          \hbox{}\quad Dokažimo $(p \land r) \lor (p \land r)$.\\
+          \hbox{}\quad Dokažimo $(p \land r) \lor (q \land r)$.\\
           \hbox{}\quad Dokažimo desni disjunkt $q \land r$: \\
           \hbox{}\qquad (i) $q$ velja zaradi (b) \\
           \hbox{}\qquad (ii) $r$ velja zaradi (3).
@@ -179,7 +179,7 @@ $(p \lor q) \land r \lthen (p \land r) \lor (q \land r)$.
 Dokaz bi bolj po človeško napisali takole:
 %
 \begin{quote}
-  Predpostavimo $p \lor q$ in $r$. Če velja $p$, potem sledi $p \land r$ ter od tod $(p \land r) \lor (p \land r)$. Če pa velja $q$, sledi $q \land r$ ter spet $(p \land r) \lor (p \land r)$. $\Box$
+  Predpostavimo $p \lor q$ in $r$. Če velja $p$, potem sledi $p \land r$ ter od tod $(p \land r) \lor (q \land r)$. Če pa velja $q$, sledi $q \land r$ ter spet $(p \land r) \lor (q \land r)$. $\Box$
 \end{quote}
 %
 Ali pa kar takole:
@@ -473,7 +473,7 @@ pravili!
 
 \subsubsection{Brez izgube za splošnost}
 
-Fraza \nls{brez izgube za splošnost \dots} nakazuje, da dokaz obravnava le poseben primer, iz katerega sledi cilj, oziroma je preostanek dokaza zelo podoben posebnemu primeru. Bralcu mora sam razbrati, zakaj je tako.
+Fraza \nls{brez izgube za splošnost \dots} nakazuje, da dokaz obravnava le poseben primer, iz katerega sledi cilj, oziroma je preostanek dokaza zelo podoben posebnemu primeru. Bralec mora sam razbrati, zakaj je tako.
 Podajmo primer.
 
 \begin{trditev}

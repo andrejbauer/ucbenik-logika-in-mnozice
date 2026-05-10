@@ -140,8 +140,8 @@ Aksiomi opredeljujejo množice brez urelementov (">\emph{Vse} je množica"<). Za
     \some{A} \emptyset \in A \land \all{x \in A} \suc{x} \in A.
   \end{equation*}
 
-\item[Podmnožica:] za vsako množico $A$ in formulo $\phi$ je $\set{x \in A \mid| \phi(x)}$
-  množica, ki vsebuje natanko vse element iz $A$, ki zadoščajo $\phi$:
+\item[Podmnožica:] za vsako množico $A$ in formulo $\phi$ je $\set{x \in A \mid \phi(x)}$
+  množica, ki vsebuje natanko vse elemente iz $A$, ki zadoščajo $\phi$:
   %
   \begin{equation*}
     \all{y} y \in \{x \in A | \phi(x)\} \liff \phi(y).
@@ -204,7 +204,7 @@ Bistvo kumulativne hierarhije je, da zaobjame vse množice.
 \end{izrek}
 
 \begin{proof}
-  Dokaz opustimo, povejmo le, da je za izrek bistven aksiom o dobro osnovanosti. Le ta nam zagotavlja, da se vsaka padajoča $\in$-veriga konča z~$\emptyset$.
+  Dokaz opustimo, povejmo le, da je za izrek bistven aksiom o dobri osnovanosti. Le ta nam zagotavlja, da se vsaka padajoča $\in$-veriga konča z~$\emptyset$.
 \end{proof}
 
 
@@ -282,7 +282,7 @@ Za konec povejmo še nekaj več o aksiomu izbire in Zornovi lemi, ki mu je ekviv
 \end{definicija}
 
 \begin{opomba}
-  Progresivna preslikav ni nujno monotona. (Poiščite proti-primer!)
+  Progresivna preslikava ni nujno monotona. (Poiščite proti-primer!)
 \end{opomba}
 
 \begin{izrek}[Bourbaki-Witt]
@@ -309,7 +309,7 @@ Za konec povejmo še nekaj več o aksiomu izbire in Zornovi lemi, ki mu je ekviv
 
   ($2 \lthen 3$) Skica dokaza: naj bo $A$ poljubna množica, ki jo želimo dobro urediti.
   %
-  Definirajmo \emph{delne} dobre ureditev množice $A$: to so pari $(B,R)$, kjer je $B \subseteq A$
+  Definirajmo \emph{delne} dobre ureditve množice $A$: to so pari $(B,R)$, kjer je $B \subseteq A$
   in $R \subseteq B \times B$ dobra ureditev na $B$. Za delni dobri ureditvi $(B,R)$ in
   $(C,Q)$ pravimo, da je $(C,Q)$ \emph{razširitev} $(B,R)$, kadar velja $B \subseteq C$, $R \subseteq Q$ in
   še, da je $B$ začetni segment v $C$, kar pomeni
@@ -322,7 +322,7 @@ Za konec povejmo še nekaj več o aksiomu izbire in Zornovi lemi, ki mu je ekviv
   dobrih ureditev množice $A$,
   %
   \begin{equation*}
-    P \defeq \set{ (B, R) \mid \text{$B \subseteq A$ in $R \subseteq B \times B$ in $R$ je dobra ureditev $B$}},
+    P \defeq \set{ (B, R) \mid \text{$B \subseteq A$ in $R \subseteq B \times B$ in $R$ je dobra ureditev na $B$}},
   \end{equation*}
   %
   urejena z relacijo $\preceq$. Očitno je $\preceq$ delna ureditev. Trdimo, da imajo verige v
@@ -344,7 +344,7 @@ Za konec povejmo še nekaj več o aksiomu izbire in Zornovi lemi, ki mu je ekviv
   Obstaja $(B,R) \in V$, da je $x_0 \in B$. Potem bi bila $x_0, x_1, x_2, x_3, \ldots$
   padajoča veriga v $(B,R)$, kar ni možno, saj je $(B,R)$ dobro urejena. Res, ker
   je $x_i \in V$, obstaja $(C,Q)$, da je $x_i \in C$. Če velja $(B,R) \preceq (C,Q)$, potem
-  $x_i \in B$ po definicijo $\preceq$. Če velja $(C,Q) \preceq (B,R)$, potem $x_i \in B$, ker velja
+  $x_i \in B$ po definiciji $\preceq$. Če velja $(C,Q) \preceq (B,R)$, potem $x_i \in B$, ker velja
   $C \subseteq B$. Torej je $(D,S)$ res delna ureditev $P$.
 
   Preverimo še, da velja $(B,R) \preceq (D,S)$ za vsak $(B,R) \in V$. Denimo, da je $y \in D$,
@@ -352,16 +352,16 @@ Za konec povejmo še nekaj več o aksiomu izbire in Zornovi lemi, ki mu je ekviv
   potem $y \in C \subseteq B$. Če pa velja $(B,R) \preceq (C,Q)$, potem je $y \in B$ po definiciji $\preceq$.
 
   Po Zornovi lemi obstaja maksimalni element $(B,R)$ v $P$. Trdimo, da je $B = A$. Če bi namreč
-  obstajal $x \in B \setminus A$, bi lahko razširili $(B,R)$ na večjo dobro ureditev tako, da bi dodali $x$
+  obstajal $x \in A \setminus B$, bi lahko razširili $(B,R)$ na večjo dobro ureditev tako, da bi dodali $x$
   na konec $B$:
   %
   \begin{align*}
     & (B \cup \set{x}, R') \\
-    & y \rel{R'} z \defiff z = x \land y \rel{R} z.
+    & y \rel{R'} z \defiff (y, z \in B \land y \rel{R} z) \lor (z = x \land y \in B).
   \end{align*}
   %
   To ni možno, ker je $(B,R)$ maksimalna delna ureditev. Torej je res $A = B$ in
-  našli so dobro ureditev $A$.
+  našli smo dobro ureditev $A$.
 
   $(3 \lthen 1)$ Naj bo $A : I \to \Set$ družina nepraznih množic. Naj bo $\prec$ dobra ureditev
   na uniji $\bigcup A$. Ker so vse množice $A_i$ neprazne, ima vsaka od njih prvi element

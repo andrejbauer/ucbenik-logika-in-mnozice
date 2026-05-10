@@ -11,10 +11,10 @@ Princip ekstenzionalnosti za množice lahko zapišemo s pomočjo podmnožic:
 Vsaka podmnožica $S \subseteq A$ opredeljuje neko lastnost elementov iz $A$: tisti
 elementi, ki imajo opredeljeno lastnost, so v $S$, ostali pa ne.
 
-Vsaka množica $S$ ima vsak kako podmnožico, namreč $\emptyset \subseteq S$ in $S \subseteq S$.
+Vsaka množica $S$ ima vsaj kako podmnožico, namreč $\emptyset \subseteq S$ in $S \subseteq S$.
 
 \begin{zgled}
-  Naj bo $P$ množica vseh praštevil, torej je $P \subseteq N$. Podmnožica $P$
+  Naj bo $P$ množica vseh praštevil, torej je $P \subseteq \NN$. Podmnožica $P$
   opredeljuje lastnost ">je praštevilo"<.
 \end{zgled}
 
@@ -39,7 +39,7 @@ Velja $\set{ x \in A \such \phi(x) } \subseteq A$, prav tako pa
   \all{x \in A} \phi(x) \lthen \psi(x).
 \end{equation*}
 
-Za podmnožico $S \subseteq T$ definiramo \df{kanonično inkluzijo} ali \df{kanonično vključitev} $i_S : S \to T$, s predpisom $i_S : x \mapsto x$. Pozor, to ni identiteta, razen v primeru $S = T$!.
+Za podmnožico $S \subseteq T$ definiramo \df{kanonično inkluzijo} ali \df{kanonično vključitev} $i_S : S \to T$, s predpisom $i_S : x \mapsto x$. Pozor, to ni identiteta, razen v primeru $S = T$!
 Oznaka $i_S$ ni standardna, pravzaprav standardne oznake ni.
 
 Če je $f : T \to U$ in $S \subseteq T$, pravimo kompozitumu $f \circ i_S$ \df{zožitev} preslikave $f$ na $S$, pišemo $\restrict{f}{S}$.
@@ -57,7 +57,7 @@ Elementi potenčne množice $\pow{A}$ so natanko podmnožice množice $A$:
 Na primer $\pow{\emptyset} = \set{\emptyset}$ in
 %
 \begin{equation*}
-  P(\set{a,b,c}) = \set{\set{}, \set{a}, \set{b}, \set{c}, \set{a,b}, \set{a,c}, \set{b,c}, \set{a,b,c}}.
+  \pow{\set{a,b,c}} = \set{\set{}, \set{a}, \set{b}, \set{c}, \set{a,b}, \set{a,c}, \set{b,c}, \set{a,b,c}}.
 \end{equation*}
 
 
@@ -70,7 +70,7 @@ Eksponentna množica $\two^A$ je torej množica vseh karakterističnih funkcij n
   običajno razumemo kot preslikave $A \to \set{0,1}$. Ker sta množici $\set{\bot,\top}$ in $\set{0,1}$ izomorfni, to ni bistvena razlika.
 \end{opomba}
 
-Karakteristično funkcija opredeljuje neko lastnost elementov~$A$: tisti elementi, ki imajo opredeljeno lastnost, se
+Karakteristična funkcija opredeljuje neko lastnost elementov~$A$: tisti elementi, ki imajo opredeljeno lastnost, se
 slikajo v $\top$, ostali pa v $\bot$.
 
 \begin{zgled}
@@ -87,7 +87,7 @@ slikajo v $\top$, ostali pa v $\bot$.
   je karakteristična preslikava lastnosti ">je praštevilo"<. Lahko bi jo zapisali tudi takole:
   %
   \begin{equation*}
-    p(n) = (n > 1 \land \all{k, m} n = k \cdot m \lthen k = 1 \lor m = 1).
+    p(n) = (n > 1 \land \all{k, m} (n = k \cdot m \lthen (k = 1 \lor m = 1))).
   \end{equation*}
 \end{zgled}
 
@@ -149,7 +149,7 @@ podmnožicami $A$ in karakterističnimi preslikavami na $A$ obstaja neka zveza.
 
 Podmnožice množice $A$ tvorijo Boolovo algebro za operacije presek $\cap$, unija $\cup$ in relativni komplement. Nevtralni element za unijo je $\emptyset$ in nevtralni element za presek je $A$.
 
-Definirajmo tudi operacijo \df{simetrična razlika $\oplus$}, ki podmnožicama $S, T \in A$ priredi podmnožico
+Definirajmo tudi operacijo \df{simetrična razlika $\oplus$}, ki podmnožicama $S, T \subseteq A$ priredi podmnožico
 %
 \begin{equation*}
   S \oplus T \defeq (S \setminus T) \cup (T \setminus S) = (S \cup T) \setminus (S \cap T).

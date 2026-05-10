@@ -68,7 +68,7 @@ Ali je vsaka ekvivalenčna relacija porojena z neko preslikavo?
 
 \begin{opomba}
   Kdor reče ">ekvivalentni razred"<, je newbie.
-  Če pustimo šalo ob strani: ekvivalenčni razredi se tako imenujejo zaradi zgodovinskih razlogov. Beseda ">razred"< nakazuje dejstvo, da so imajo elementi ekvivalenčnega razredi vsi nekaj skupnega (">delavski razred"<, ">Tina Maze je razred zase"<) in ne, da niso množice (saj očitno so).
+  Če pustimo šalo ob strani: ekvivalenčni razredi se tako imenujejo zaradi zgodovinskih razlogov. Beseda ">razred"< nakazuje dejstvo, da imajo elementi ekvivalenčnega razreda vsi nekaj skupnega (">delavski razred"<, ">Tina Maze je razred zase"<) in ne, da niso množice (saj očitno so).
 \end{opomba}
 
 \begin{definicija}
@@ -152,7 +152,7 @@ Ali je vsaka ekvivalenčna relacija porojena z neko preslikavo?
   Naj bo $\xi \in \pow{A}$ ekvivalenčni razred za $E$. Tedaj obstaja $x \in A$, da je $\xi = [x]_E$,
   torej je $x \in \xi$ in zato $\xi \neq \emptyset$.
 
-  Naj bosta $\zeta, \xi \in \pow{A}$. Dokazali bomo $\zeta \cap \xi \neq \emptyset \lthen \zeta = \xi$. Če je $x \in \zeta \cap \xi$, potem velja $\zeta \subseteq \xi$ ker: naj bo $y \in \zeta$, tedaj je $y \rel{E} x$ in ker je $x \in \xi$ velja $y \in \xi$. Simetrično dokažemo $\xi \subseteq \zeta$.
+  Naj bosta $\zeta, \xi \in \pow{A}$. Dokazali bomo $\zeta \cap \xi \neq \emptyset \lthen \zeta = \xi$. Če je $x \in \zeta \cap \xi$, potem velja $\zeta \subseteq \xi$, ker: naj bo $y \in \zeta$, tedaj je $y \rel{E} x$ in ker je $x \in \xi$ velja $y \in \xi$. Simetrično dokažemo $\xi \subseteq \zeta$.
 
   Očitno je unija vseh ekvivalenčnih razredov podmnožica $A$, saj je vsak ekvivalenčni razred podmnožica $A$. Zagotovo
   pa je vsak $x \in A$ v kakem ekvivalenčnem razredu, namreč $x \in [x]_E$.
@@ -160,7 +160,7 @@ Ali je vsaka ekvivalenčna relacija porojena z neko preslikavo?
 
 Torej vsaka ekvivalenčna relacija na $A$ določa razdelitev množice $A$, namreč na
 ekvivalenčne razrede. Velja pa tudi obrat: vsaka razdelitev $S \subseteq \pow{A}$ določa ekvivalenčno
-relacijo na $A$, namreč $\simeq_S$ definiran s predpisom
+relacijo na $A$, namreč $\simeq_S$ definirano s predpisom
 \begin{equation*}
     x \simeq_S y \defiff \some{B \in S} x \in B \land y \in B.
 \end{equation*}
@@ -200,7 +200,7 @@ Preslikava $c : A/E \to A$ je \emph{prerez} kvocientne preslikave $q_E : A \to A
 
 \begin{izjava}
   Če je $s : A/E \to A$ prerez kvocientne preslikave $q_E : A \to A/E$, potem je
-  njegova slika $\img{s}(A/E) = \set{ c(\xi) \such \xi \in A/E }$ izbor predstavnikov za $E$.
+  njegova slika $\img{s}(A/E) = \set{ s(\xi) \such \xi \in A/E }$ izbor predstavnikov za $E$.
 \end{izjava}
 
 \begin{proof}
@@ -290,7 +290,7 @@ enostavno, kot se zdi na prvi pogled, doma premislite o naslednji nalogi.
   Očitno je $f$ funkcija izbire za družino $A$, če je izraz na desni veljaven:
   %
   \begin{itemize}
-  \item Enoličnost: iz $\inj[i](x) \in C$ in $\inj[i](y) \in C$ sledi $\inj[i](x) = \inj[j](y)$.
+  \item Enoličnost: iz $\inj[i](x) \in C$ in $\inj[i](y) \in C$ sledi $\inj[i](x) = \inj[i](y)$.
   \item Celovitost: ker je $A_i$ neprazna, obstaja $z \in A_i$, torej obstaja $v \in C$, da je
     $i = \fst(\inj[i](z)) = \fst(v)$, in je potemtakem $\snd(v) \in A_i$ element, za katerega velja
     $\inj[i](\snd(v)) \in C$.
@@ -317,7 +317,7 @@ to potrebujemo aksiom.
   Vsaka družina nepraznih množic ima funkcijo izbire.
 \end{aksiom}
 
-Se pravi, če je $A : I \to \Set$ taka družina množica, da za vsak $i \in I$ velja $A_i \neq \emptyset$,
+Se pravi, če je $A : I \to \Set$ taka družina množic, da za vsak $i \in I$ velja $A_i \neq \emptyset$,
 tedaj obstaja $f : I \to \bigcup A$, za katerega je $f(i) \in A_i$ za vse $i \in I$.
 %
 O aksiomu izbire bomo še govorili.
@@ -341,7 +341,7 @@ s pomočjo preslikave $A \to B$. Kdaj lahko to naredimo?
 \end{izrek}
 
 \begin{proof}
-  Dokažimo najprej, da imamo največ eno tako preslikavo. Denimo da za $f_1 : A/E \to B$ in
+  Dokažimo najprej, da imamo največ eno tako preslikavo. Denimo, da za $f_1 : A/E \to B$ in
   $f_2 : A/E \to B$ velja $f_1 \circ q_E = f_2 \circ q_E$. Ker je $q_E$ surjektivna, je epi in jo smemo
   krajšati na desni, od koder res sledi $f_1 = f_2$.
 
@@ -358,7 +358,7 @@ s pomočjo preslikave $A \to B$. Kdaj lahko to naredimo?
     Enoličnost: če je $\phi(\xi, y_1)$ in $\phi(\xi, y_2)$, potem obstajata $x_1, x_2 \in \xi$, da je $g(x_1) = y_1$
     in $g(x_2) = y_2$. Ker pa velja $x_1 \rel{E} x_2$ in je $g$ skladna z $E$, sledi $y_1 = g(x1) = g(x_2) = y_2$.
 
-  \item  Celovitost: naj bo $\xi \in A/E$. Tedaj obstaja $x \in \xi$. Očitno velja $g(\xi, g(x))$.
+  \item  Celovitost: naj bo $\xi \in A/E$. Tedaj obstaja $x \in \xi$. Očitno velja $\phi(\xi, g(x))$.
   \end{itemize}
   %
   Naj bo $f : A/E \to B$ preslikava, ki je določena s funkcijsko relacijo $\phi$. Za $x \in A$
@@ -373,10 +373,10 @@ s pomočjo preslikave $A \to B$. Kdaj lahko to naredimo?
 \section{Kanonična razčlenitev preslikave}
 
 Naj bo $f : A \to B$ preslikava. Naj bo $\sim_f$ ekvivalenčna relacija na $A$, ki jo porodi
-$f$, in $q_f : A \to A/E$ kanonična kvocientna preslikava (morali bi jo pisati $q_{\sim_f}$,
-kar je nečitljivo). Naj bo $i : \img{f}(A) \to B$ kanonična inkluzija slike $f$ v kodomeno.
+$f$, in $q_f : A \to A/{\sim_f}$ kanonična kvocientna preslikava (morali bi jo pisati $q_{\sim_f}$,
+kar je nečitljivo). Naj bo $i_f : \img{f}(A) \to B$ kanonična inkluzija slike $f$ v kodomeno.
 Preslikava $f : A \to \img{f}(A)$ je skladna s $\sim_f$, zato obstaja (natanko ena) preslikava
-$b_f : A/f \to \img{f}(A)$, da velja $b_f([x]_\sim) = f(x)$. Trdimo:
+$b_f : A/{\sim_f} \to \img{f}(A)$, da velja $b_f([x]_\sim) = f(x)$. Trdimo:
 %
 \begin{enumerate}
 \item $f = i_f \circ b_f \circ q_f$ in

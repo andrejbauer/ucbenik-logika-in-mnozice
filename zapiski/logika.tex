@@ -53,7 +53,7 @@ zgrožen. Verjetno bo najprej preizkusil izrek na nekaj primerih:
 \begin{align*}
   1^3 - 1 &= 0,\\
   2^3 - 2 &= 8 - 2 = 6,\\
-  3^3 - 3 &= 27 - 4 = 24,\\
+  3^3 - 3 &= 27 - 3 = 24,\\
   4^3 - 4 &= 64 - 4 = 60.
 \end{align*}
 %
@@ -126,7 +126,7 @@ izjave še posebej skrbno preveriti.
 
 \noindent
 %
-Vrnimo s k izreku~\ref{izr:n3-n-deljivo-3}. Če dokaz zapišemo preveč
+Vrnimo se k izreku~\ref{izr:n3-n-deljivo-3}. Če dokaz zapišemo preveč
 podrobno, postane dolgočasen in ne\-ra\-zumljiv:
 
 \begin{quote}
@@ -146,7 +146,7 @@ podrobno, postane dolgočasen in ne\-ra\-zumljiv:
     Vidimo, da je $n^3 - n$ zmnožek treh zaporednih naravnih števil.
     Dokažimo, da je eno od njih deljivo s~$3$. Število $n$ lahko
     enolično zapišemo kot $n = 3 k + r$, kjer je $k$ naravno število
-    in $r = 0$, $r = 1$ ali $r = 2$. Obravavajmo tri primere:
+    in $r = 0$, $r = 1$ ali $r = 2$. Obravnavajmo tri primere:
     %
     \begin{itemize}
     \item če je $r = 0$, je $n = 3 k$, zato je $n$ deljiv s~$3$,
@@ -175,7 +175,7 @@ podrobno, postane dolgočasen in ne\-ra\-zumljiv:
     \end{itemize}
     %
     V vsakem primeru je $(n - 1) n (n + 1)$ deljivo s~$3$. Ker smo
-    dokazali, da je $n^3 = n = (n - 1) n (n + 1)$, je tudi $n^3 - n$
+    dokazali, da je $n^3 - n = (n - 1) n (n + 1)$, je tudi $n^3 - n$
     deljivo s~$3$.
   \end{proof}
 \end{quote}
@@ -318,8 +318,8 @@ Oglejmo si dokaz izjave $(\alpha \land \alpha) \land (\top
 \end{equation*}
 %
 Dokaz se razveji na dve veji, vsaka od njiju pa še na dve veji. Tako
-pri vrhu dobimo štiri liste, od katerih se trije izjava $\beta \land
-\alpha$ in en aksiom za $\top$.
+pri vrhu dobimo štiri liste, od katerih so trije izjave $\beta \land
+\alpha$ in eden aksiom za $\top$.
 
 \begin{vaja}
   Preveri, da je vsako vejišče v zgornjem dokazu res uporaba enega od
@@ -331,7 +331,7 @@ formalnega dokaza, le da se besedilo ne veji, ampak so sestavni kosi
 dokaza zloženi v zaporedje. Formalni dokazi so uporabni, kadar želimo
 preveriti veljavnost najbolj osnovnih logičnih dejstev. Ni mišljeno,
 da bi matematiki pisali ali preverjali velike formalne dokaze
-pomembnih matematičnih izrekov, to je delo za račualnike. Formalna
+pomembnih matematičnih izrekov, to je delo za računalnike. Formalna
 pravila sklepanja in formalni dokazi so za matematike pomembni, ker
 nam omogočajo, da natančno in v celoti povemo, kakšna so ">pravila
 igre"< v matematiki.
@@ -430,7 +430,7 @@ samo začasna hipoteza. Zapis
   \infer*{\psi}{[\phi]}
 \end{equation*}
 %
-pomeni ">dokaz izjave $\phi$ s pomočjo začasne hipoteze $\phi$."<
+pomeni ">dokaz izjave $\psi$ s pomočjo začasne hipoteze $\phi$."<
 
 Pravilo uporabe za implikacijo se imenuje \textbf{modus ponens} in se
 glasi
@@ -440,7 +440,7 @@ glasi
 \end{mathpar}
 %
 V matematičnem besedilu se modus ponens pojavi kot uporaba že prej
-dokazanega izreka izreka oblike $\phi \lthen \psi$.
+dokazanega izreka oblike $\phi \lthen \psi$.
 
 \subsection{Disjunkcija}
 \label{sec:disjunkcija}
@@ -554,7 +554,7 @@ primerov:
   Dokazujemo $\rho$. To bomo dokazali z obravnavo primerov $\phi$ in
   $\psi$:
   \begin{enumerate}
-  \item (Dokaz $\phi \lor \rho$)
+  \item (Dokaz $\phi \lor \psi$)
   \item Predpostavimo, da velja $\phi$. (Dokaz $\rho$)
   \item Predpostavimo, da velja $\psi$. (Dokaz $\rho$)
   \end{enumerate}
@@ -570,8 +570,8 @@ primerov:
 \end{izrek}
 
 \begin{proof}
-  Dokazujemo $|x - 3| > 5 \lthen x^4 > 15$. Predostavimo $|x - 3| > 5$
-  in dokažimo $x^4 > 15$. To bomo dokazali z obravavo primerov $x \leq
+  Dokazujemo $|x - 3| > 5 \lthen x^4 > 15$. Predpostavimo $|x - 3| > 5$
+  in dokažimo $x^4 > 15$. To bomo dokazali z obravnavo primerov $x \leq
   3$ in $x \geq 3$:
   %
   \begin{enumerate}
@@ -706,7 +706,7 @@ zamenjamo z drugo. To matematiki s pridom uporabljajo pri dokazovanju
 izjav, čeprav pogosto sploh ne omenijo, katero ekvivalenco so
 uporabili.
 
-Kadar dokazujemo medsebojno ekvivalenco večih izjav $\phi_1$,
+Kadar dokazujemo medsebojno ekvivalenco več izjav $\phi_1$,
 $\phi_2$, \ldots, $\phi_n$, zadostuje dokazati cikel implikacij
 %
 \begin{equation*}
@@ -945,7 +945,7 @@ dokaz izjave:
     %
     \begin{enumerate}
     \item Predpostavimo $\lnot\psi$.
-    \item (Dokaz $\lnot\psi$.)
+    \item (Dokaz $\lnot\phi$.)
     \end{enumerate}
     %
     Dokazali smo, da iz $\phi$ sledi $\psi$.
@@ -1188,7 +1188,7 @@ spremenljivka"<,\footnote{Podobnost z lokalnimi spremenljivkami v
   programskih jezikih ni zgolj naključje. Lokalna spremenljivka in
   števec v zanki sta tudi primera vezanih spremenljivk v teoriji
   programskih jezikov.} katere veljavnost je samo znotraj vsote,
-medtem ko sta spremenljiki $n$ in $a$ veljavni tudi zunaj samega
+medtem ko sta spremenljivki $n$ in $a$ veljavni tudi zunaj samega
 izraza. Podobno je v integralu $t$ vezana spremenljivka in $f$ prosta,
 v izjavi na desni pa je vezana spremenljivka $x$, spremenljivki $A$ in
 $\phi$ sta prosti.
@@ -1231,7 +1231,7 @@ kot ">za vsak"<, vendar to ne gre, saj je
   \all{C \in \RR} \int x^2 \, d x = (x \mapsto x^3/3 + C)
 \end{equation*}
 %
-nesemisel. Če bi to bilo res, bi veljalo za $C = 1$ in za $C = 2$, od
+nesmisel. Če bi to bilo res, bi veljalo za $C = 1$ in za $C = 2$, od
 koder bi dobili
 %
 \begin{equation*}
@@ -1241,7 +1241,7 @@ koder bi dobili
 \end{equation*}
 %
 Potemtakem bi morali biti funkciji $(x \mapsto x^3/3 + 1)$ in $(x
-\mapsto x^3/3 + 1)$ enaki, od koder sledi nesmisel $1 = 2$. Težave
+\mapsto x^3/3 + 2)$ enaki, od koder sledi nesmisel $1 = 2$. Težave
 nastopajo iz dejstva, da poskušamo nedoločeni integral razumeti kot
 operacijo, ki slika funkcije v funkcije, kar ni. Nedoločeni integral
 preslika funkcijo~$f$ v \emph{množico} vseh funkcij $F$, za katere
@@ -1297,7 +1297,7 @@ parameter $a$ zamenjati z $y^2$. To naredimo s substitucijo
   \int_0^1 \frac{x}{y^2 - x^2} \; dx.
 \end{equation*}
 %
-Vse lepo in prav. Kaj pa, če želimo $a$ zamenjati z $1 + x$? Ker je
+Vse lepo in prav. Kaj pa, če želimo $a$ zamenjati z $x^2$? Ker je
 spremenljivka $x$ vezana v integralu, \emph{ne smemo} delati takole:
 %
 \begin{equation*}
@@ -1310,7 +1310,7 @@ spremenljivko $x$ najprej preimenovati v kaj drugega, na primer $t$,
 šele nato vstavimo:
 %
 \begin{equation*}
-  \xsubst{\left(\int_0^1 \frac{x}{a - x^2}\; dt \right)}{a \subto x^2} =
+  \xsubst{\left(\int_0^1 \frac{x}{a - x^2}\; dx \right)}{a \subto x^2} =
   \xsubst{\left(\int_0^1 \frac{t}{a - t^2} \; dt\right)}{a \subto x^2} =
   \int_0^1 \frac{t}{x^2 - t^2} \; dt.
 \end{equation*}
@@ -1348,7 +1348,7 @@ Ločiti je treba med hkratno in zaporedno substitucijo:
 %
 
 V nadaljevanju bomo obravnavali pravila sklepanja za univerzalne in
-eksistenčne kvantifkatorje, v katerih se pojavi substitucija. Ker je
+eksistenčne kvantifikatorje, v katerih se pojavi substitucija. Ker je
 sam zapis za substitucijo nekoliko nepregleden, bomo uporabili
 nekoliko manj pravilen, a bolj praktičen zapis. Denimo, da imamo
 logično formulo $\phi$, v kateri se morda pojavi spremenljivka $x$, ni
@@ -1362,7 +1362,7 @@ priročen zapis hkrati manj pravilen? V formalni logiki strogo ločimo
 med \emph{simbolnim zapisom} matematičnega pojma, ki je zaporedje
 znakov na papirju, in njegovim \emph{pomenom}, ki je matematična
 abstrakcija. Substitucija $\xsubst{\phi}{x \subto e}$ nam pove, kako
-niz znakov $\phi$ predelamo v novi niz znakov, torej deluje na novoju
+niz znakov $\phi$ predelamo v novi niz znakov, torej deluje na nivoju
 simbolnega zapisa. Ko pišemo $\phi(x)$ pa si že predstavljamo, da je
 $\phi$ matematična funkcija, ki deluje na argumentu $x$. S tem nastopi
 zmešnjava med simbolnim zapisom in pomenom. Dokler se zmešnjave
@@ -1383,7 +1383,7 @@ iz $S$ velja $\phi$."< Pravili sklepanja sta
 %
 pri čemer je $x$ spremenljivka, $\phi(x)$ logična formula in $e$ poljuben izraz.
 
-V besedilu dokažemo se pravilo vpeljave zapiše:
+V besedilu se pravilo vpeljave zapiše:
 %
 \begin{quote}
   \it
@@ -1417,7 +1417,7 @@ ga že zapisali, bi šlo takole:
 Ob pravilu vpeljave stoji stranski pogoj, da mora biti spremenljivka
 $x$ ">sveža"<. To pomeni, da se $x$ ne sme pojavljati drugje v dokazu,
 saj bi sicer lahko prišlo do zmešnjave med vezanimi in prostimi
-spremenljivkami. V besedilu se dejstvo, da je $x$ svež izraža z
+spremenljivkami. V besedilu se dejstvo, da je $x$ svež, izraža z
 besedico ">poljuben"< ali ">katerikoli"<. Primer, kako gredo stvari
 narobe, če ne pazimo in pomešamo spremenljivke:
 
@@ -1459,7 +1459,7 @@ narobe, če ne pazimo in pomešamo spremenljivke:
     ">Dokazujemo $x > 42 \lthen \all{x \in \RR} x > 23$. Predpostavimo,
     da velja $x > 42$ in dokažimo $\all{x \in \RR} x > 23$. Naj bo $x
     \in \RR$. Po predpostavki je $x > 42$ in ker je $42 > 23$, od tod
-    sledi $x > 3$."<
+    sledi $x > 23$."<
   \end{quote}
   %
   Če bi izrek zapisali bolje kot $x > 42 \lthen \all{y \in \RR} y >
@@ -1576,7 +1576,7 @@ V besedilu dokažemo enolični obstoj takole:
   $\phi(x)$:
   %
   \begin{enumerate}
-  \item Obstoj: (Konstrukcija elementa $e \in S$ in dokaz, da velja $\phi(x)$.)
+  \item Obstoj: (Konstrukcija elementa $e \in S$ in dokaz, da velja $\phi(e)$.)
   \item Enoličnost: denimo da za $y \in S$ velja $\phi(y)$:
     %
     \begin{itemize}
@@ -1624,12 +1624,12 @@ pravilom sklepanja:
   \inferrule{\phi(a) \\ a = b}{\phi(b)}
 \end{mathpar}
 %
-Po vrsti so so pravilo \emph{refleksivnosti}, \emph{simetrije},
+Po vrsti so to pravila \emph{refleksivnosti}, \emph{simetrije},
 \emph{tranzitivnosti} in \emph{zamenjave}. Zaenkrat enakosti ne bomo
 posvečali posebne pozornosti, saj jo v praksi študenti dobro
 obvladajo.
 
-V osnovni iz srednji šoli se učimo pravil za reševanje enačb: enačbi
+V osnovni in srednji šoli se učimo pravil za reševanje enačb: enačbi
 smemo na obeh straneh prišteti ali odšteti poljuben izraz, pomnožiti
 ali deliti smemo s poljubnim \emph{neničelnim} izrazom, ipd. Od kod
 izhajajo ta pravila? Kaj sploh pomeni, da smo enačbo ">rešili"<? Ko
