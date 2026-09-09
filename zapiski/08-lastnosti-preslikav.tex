@@ -18,10 +18,9 @@ Najprej ponovimo lastnosti preslikav, ki se obravnavajo tudi v srednji šoli.
 \end{definicija}
 
 \begin{opomba}
-  Pogosto vidimo definicijo injektivnosti, ki pravi, da $f$ slika različne elemente v različne vrednosti, se pravi $\all{x, y \in A} x \neq y \lthen f(x) \neq f(y)$. Ta definicija je ekvivalentna zgornji, a je manj uporabna.
-  Naša definicija podaja recept, kako preverimo injektivnost: predpostavimo $f(x) = f(y)$ in izpeljemo
-  $x = y$, tako da predelamo \emph{enakost} $f(x) = f(y)$ v enačbo $x = y$. Definicija z neenakostjo pa ne
-  podaja priročnega recepta, saj je z neenakostmi težje računati.
+  Pogosto vidimo definicijo injektivnosti, ki pravi, da $f$ slika različne elemente v različne vrednosti, se pravi $\all{x y \in A} x \neq y \lthen f(x) \neq f(y)$. Ta definicija je ekvivalentna naši, a je ne priporočamo, ker je manj uporabna.
+  Naša definicija namreč podaja recept, kako preverimo injektivnost: predpostavimo $f(x) = f(y)$ in od tod izpeljemo
+  $x = y$ tako, da predelamo \emph{enačbo} $f(x) = f(y)$ v enačbo $x = y$. To je v splošnem lažje kot predelava \textbf{neenačb}.
 \end{opomba}
 
 \begin{vaja}
@@ -77,7 +76,7 @@ Pojma monomorfizem in epimorfizem sta uporabna, ker nam omogočata, da \emph{kra
 
   \item Naj bosta $f : A \to B$ in $g : B \to C$ preslikavi in $g \circ f$ epimorfizem.
     Dokazujemo, da je $g$ epimorfizem. Naj bosta $h, k : C \to D$ taki preslikavi, da
-    velja $h \circ g = k \circ g$. Dokazujemo, da je $h = k$. Iz $h \circ g = k \circ h$
+    velja $h \circ g = k \circ g$. Dokazujemo, da je $h = k$. Iz $h \circ g = k \circ g$
     sledi $(h \circ g) \circ f = (k \circ g) \circ f$. Če upoštevamo asociativnost
     kompozicije, dobimo $h \circ (g \circ f) = k \circ (g \circ f)$. Ker je $g \circ f$
     epimorfizem, ga smemo krajšati na desni, od koder dobimo želeno enakost $h = k$.
@@ -111,7 +110,7 @@ Pojma monomorfizem in epimorfizem sta uporabna, ker nam omogočata, da \emph{kra
       S = \set{ z \in B \such \some{x \in A} f(x) = z }
     \end{equation*}
     % a
-    ter preslikavi $\chi_S : B \to 2$ in $(y \mapsto \top) : B \to \two$. Ker velja
+    ter preslikavi $\chi_S : B \to \two$ in $(y \mapsto \top) : B \to \two$. Ker velja
     $\chi_S \circ f = (y \mapsto \top) \circ f$, sledi $\chi_S = (y \mapsto \top)$, torej $S = B$, kar je surjektivnost.
 
     ($\Leftarrow$) Če je $f$ surjektivna in $g \circ f = h \circ f$: naj bo $y \in B$. Obstaja $x \in A$, da je $f(x) = y$. Torej je $g(y) = g(f(x)) = h(f(x)) = h(y)$.
@@ -138,7 +137,7 @@ Pojma monomorfizem in epimorfizem sta uporabna, ker nam omogočata, da \emph{kra
 Spoznajmo še pojem retrakcije in prereza. Na predavanjih bomo s sliko pojasnili, zakaj se tako imenujeta.
 
 \begin{definicija}
-  Če sta $f : A \to B$ in $g : B \to A$ taki preslikava, da velja $f \circ g = \id[B]$, pravimo:
+  Če sta $f : A \to B$ in $g : B \to A$ taki preslikavi, da velja $f \circ g = \id[B]$, pravimo:
   %
   \begin{itemize}
   \item $f$ je \textbf{retrakcija} ali \textbf{levi inverz} $g$,
@@ -220,7 +219,7 @@ Običajni zapis za sliko $\img{f}(S)$ je tudi $f(S)$ ali $f[S]$. Predvsem $f(S)$
 Naj bo $f : A \to B$. Tedaj sta tudi $\invimg{f}$ in $\img{f}$ preslikavi.
 %
 Res, $\invimg{f} : \pow{B} \to \pow{A}$ je določena s predpisom $S \mapsto \set{ x \in A \such f(x) \in S }$, in
-$\img{f} : \pow{A} \to \pow{B}$ je določena s predpisom $T \mapsto \set{ f(x) \such x \in T }$
+$\img{f} : \pow{A} \to \pow{B}$ je določena s predpisom $T \mapsto \set{ f(x) \such x \in T }$.
 
 Še več, tudi ">zgornja zvezdica $^{*}$"< in ">spodnja zvezdica $_{*}$"< sta preslikavi
 %
@@ -274,7 +273,7 @@ Ker slikata preslikave v preslikave, pravimo, da sta to \textbf{preslikavi višj
     \textstyle
      \img{f} (\bigcup_{i \in I} T_i) = \bigcup_{i \in I} \img{f}(T_i)
      \iinn
-     \img{f} (\bigcap_{i \in I} T_i) \subseteq \bigcap_{i \in I} \img{f}(S_i).
+     \img{f} (\bigcap_{i \in I} T_i) \subseteq \bigcap_{i \in I} \img{f}(T_i).
   \end{equation*}
   %
 \end{izrek}

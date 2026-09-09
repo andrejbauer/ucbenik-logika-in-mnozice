@@ -9,7 +9,7 @@ V prejšnji lekciji smo spoznali zapis podmnožice
     \set{ x \in A \such \phi(x) },
 \end{equation*}
 %
-ki tvori podmnožico $A$ vseh elementov, ki zadoščajo pogoju $x$. Ko je bila
+ki tvori podmnožico $A$ vseh elementov, ki zadoščajo pogoju $\phi$. Ko je bila
 teorija množic še v povojih, se je sama po sebi ponujala ideja, da bi lahko
 opisali množice kot ">kakršnokoli"< zbirko stvari. Torej bi lahko pisali
 %
@@ -24,7 +24,7 @@ pogoju~$\phi$:
     a \in \set{ x \such \phi(x) } \liff \phi(a)
 \end{equation*}
 %
-A je znameniti filozof, logik in matematik Betrand Russell odkril, 
+A je znameniti filozof, logik in matematik Bertrand Russell odkril, 
 da je taka, neomejena tvorba zbirk protislovna.
 %
 Razmislek, ki se po njem imenuje \df{Russellov paradoks}, je v matematiko vnesel pravo ">krizo
@@ -122,7 +122,7 @@ Zadnji zgled pove, da so nekateri razredi pravzaprav množice. Pravimo, da je $C
   ki ga označimo tudi z $V$, je pravi razred. Res, če bi bil $V$ množica,
   potem bi lahko tvorili \emph{množico}
   $\set{ S \in V \such S \not\in S}$,
-  ki ni nič drugega kot Russellov protislovni~$R$.
+  ki ni nič drugega kot Russellov protislovni razred~$R$.
 \end{zgled}
 
 \begin{zgled}
@@ -130,7 +130,7 @@ Zadnji zgled pove, da so nekateri razredi pravzaprav množice. Pravimo, da je $C
 \end{zgled}
 
 Z razredi lahko delamo tako kot z množicami: tvorimo unije, preseke in produkte
-razredov in govorimo po podrazredih. Pri tem uporabljamo enake oznake za
+razredov in govorimo o podrazredih. Pri tem uporabljamo enake oznake za
 operacije kot pri množicah. Paziti moramo le, da razreda nikoli ne uporabimo kot
 element kake množice ali razreda. Na primer, če je $C$ razred, lahko tvorimo
 potenčni razred $\pow{C}$, ki vsebuje vse \emph{podmnožice} $C$:
@@ -164,7 +164,7 @@ A tu se zadeve še ne končajo, saj lahko v splošnem obravnavamo poljubno zbirk
 Takim zbirkam pravimo \df{družine množic}. Družina množic je \df{indeksirana} z elementi neke množice $I$, ki ji pravimo \df{indeksna množica}. Za vsak $i \in I$ imamo množico $A_i$,  kar lahko izrazimo tudi z naslednjo definicijo.
 
 \begin{definicija}
-  \df{Družina množic} je preslikava $I \to \Set$. Množici $I$ pravimo \df{indeksna množica} in njenim elementov \df{indeksi}.
+  \df{Družina množic} je preslikava $I \to \Set$. Množici $I$ pravimo \df{indeksna množica} in njenim elementom \df{indeksi}.
 \end{definicija}
 
 
@@ -279,10 +279,10 @@ Kaj pa unija družine množic? Ali je množica? Izkaže se, da za to potrebujemo
    %
    \begin{align*}
    A &: \NN \to \Set \\
-   A_n &\defeq \set{ x \in R \such 0 < x < 2^{-n} }
+   A_n &\defeq \set{ x \in \RR \such 0 < x < 2^{-n} }
    \end{align*}
    %
-   je na $f(n) \defeq 2^{-n - 1}$. To ni edina funkcija izbire za $A$, lahko bi vzeli tudi $f(n) = 2^{-n} / 3$.
+   je na primer $f(n) \defeq 2^{-n - 1}$. To ni edina funkcija izbire za $A$, lahko bi vzeli tudi $f(n) = 2^{-n} / 3$.
  \end{zgled}
 
  \begin{definicija}

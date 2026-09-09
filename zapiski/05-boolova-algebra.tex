@@ -3,7 +3,7 @@
 \section{Resničnostne tabele}
 
 Vsaka izjava ima \textbf{resničnostno vrednost}. Resničnostni vrednosti sta $\bot$
-(resnica) in $\top$ (neresnica). Na primer, izjava $\bot \lor (\top \lthen \top)$ je resnična, njena resničnostna vrednost je $\top$. Izjava $2 + 2 = 5$ je neresnična, njena resničnostna vrednost je~$\bot$.
+(neresnica) in $\top$ (resnica). Na primer, izjava $\bot \lor (\top \lthen \top)$ je resnična, njena resničnostna vrednost je $\top$. Izjava $2 + 2 = 5$ je neresnična, njena resničnostna vrednost je~$\bot$.
 
 Kadar izjava vsebuje spremenljivke (pravimo jim tudi \emph{parametri}), je njena
 resničnostna vrednost \emph{odvisna} od parametrov. Na primer, če sta $x, y \in \NN$ spremenljivki, je resničnostna vrednost izjave $x + 2 y < 3$ odvisna
@@ -26,7 +26,7 @@ od $x$ in $y$, kar lahko prikažemo z \textbf{resničnostno tabelo}:
 % 
 Kot vidimo, je lahko resničnostna tabela neskončna. Bolj uporabne so končne resničnostne tabele, v katerih parametri zavzemajo vrednosti iz končne množice.
 
-V izjavi lahko nastopajo tudi \textbf{izjavne spremenljivke} ali \textbf{izjavni simboli}, to se spremenljivke, ki zavzamejo vrednosti $\bot$ in $\top$.
+V izjavi lahko nastopajo tudi \textbf{izjavne spremenljivke} ali \textbf{izjavni simboli}, to so spremenljivke, ki zavzamejo vrednosti $\bot$ in $\top$.
 Na primer, naj bo $\two = \set{\bot, \top}$ in $p, q \in \two$. Tedaj je $\neg p \lor q$ izjava, katere resničnostna tabela je
 %
 \begin{center}
@@ -53,7 +53,7 @@ s predpisom
     (p_1, \ldots, p_n) \mapsto \phi(p_1, \ldots, p_n)
 \end{equation*}
 %
-Preslikavi, ki slika iz produkta $\two \times \cdots \times \two$ v $\two$ pravimo \textbf{Boolova preslikava}. Prikažemo jo lahko z resničnostno tabelo. Če ima preslikava~$n$ argumentov, ima tabela $2^n$ vrstic.
+Preslikavi, ki slika iz produkta $\two \times \cdots \times \two$ v $\two$, pravimo \textbf{Boolova preslikava}. Prikažemo jo lahko z resničnostno tabelo. Če ima preslikava~$n$ argumentov, ima tabela $2^n$ vrstic.
 
 
 \subsection{Tavtologije}
@@ -93,7 +93,7 @@ katere resničnostna tabela se glasi
     $\bot$ & $\bot$ & $\bot$ \\
     $\bot$ & $\top$ & $\top$ \\
     $\top$ & $\bot$ & $\top$ \\
-    $\bot$ & $\bot$ & $\bot$ \\
+    $\top$ & $\top$ & $\bot$ \\
     \bottomrule
   \end{tabular}
 \end{center}
@@ -103,7 +103,7 @@ Odgovor je pritrdilen. Podajmo dva načina, kako tako izjavo izračunamo iz tabe
 \subsubsection{Disjunktivna oblika}
 \label{sec:disjunktivna-oblika}
 
-Za vsako vrstico v tabeli, ki ima vrednost $\top$ zapišemo konjunkcijo simbolov in
+Za vsako vrstico v tabeli, ki ima vrednost $\top$, zapišemo konjunkcijo simbolov in
 njihovih negacij, pri čemer negiramo tiste simbole, ki imajo v dani vrstici vrednost
 $\bot$. Na primer, v zgornji tabeli imata druga in tretja vrstica vrednost $\top$, zanju
 zapišemo konjunkciji:
@@ -121,13 +121,13 @@ Nato tvorimo disjunkcijo tako dobljenih konjunkcij:
 %
 Dobljena formula ima želeno resničnostno tabelo.
 
-\subsubsection{Konjuktivna oblika}
-\label{sec:konjuktivna-oblika}
+\subsubsection{Konjunktivna oblika}
+\label{sec:konjunktivna-oblika}
 
-Za vsako vrstico v tabeli, ki ima vrednost $\bot$ zapišemo
+Za vsako vrstico v tabeli, ki ima vrednost $\bot$, zapišemo
 disjunkcijo simbolov in njihovih negacij, pri čemer negiramo tiste simbole, ki
 imajo v dani vrstici vrednost $\top$. Na primer, v zgornji tabeli imata prva in
-četrta vrstica vednost $\bot$, zanju zapišemo disjunkciji:
+četrta vrstica vrednost $\bot$, zanju zapišemo disjunkciji:
 %
 \begin{itemize}
 \item 1.~vrstica: $p \lor q$
@@ -153,7 +153,7 @@ Vidimo, da lahko vsako resničnostno tabelo dobimo z uporabo veznikov $\neg$, $\
 $\land$. \textbf{Polni nabor} je tak izbor veznikov, s katerim lahko dobimo vsako
 resničnostno tabelo.
 
-Torej je $\neg$, $\lor$, $\land$ poln nabor. Lahko bi ga še zmanjšali na $\neg$, $\land$, saj lahko $p \lor q$ izrazimo kot $\neg p \land \neg q$.
+Torej je $\neg$, $\lor$, $\land$ poln nabor. Lahko bi ga še zmanjšali na $\neg$, $\land$, saj lahko $p \lor q$ izrazimo kot $\neg(\neg p \land \neg q)$.
 
 Nabor $\land$, $\lor$ pa \emph{ni} poln, saj ne moremo dobiti resničnostne tabele
 %
@@ -178,10 +178,10 @@ vrednosti. Zato lahko namesto $p \liff q$ pišemo tudi $p = q$, če imamo v misl
 resničnostne vrednosti.
 
 \begin{opomba}
-  Ekvivalentni izjavi imata lahko različen \emph{pomena}. Na primer,
+  Ekvivalentni izjavi imata lahko različna \emph{pomena}. Na primer,
   $\all{x, y \in R} x + y = y + x$ in
   $\all{\alpha \in R} \sin(2 \alpha) = 2 \cdot \cos \alpha \cdot \sin \alpha$ sta
-  ekvivalentni, saj sta obe resnični, a ne moremo reči, da je njun pomen enak. (Predstavljate si, da bi bi vas v srednji šoli profesorica matematike vprašala adicijski izrek za $\sin$, vi pa bi odgovorili ">vrstni red seštevanja realnih števil ne vpliva na vrednost vsote"<.)
+  ekvivalentni, saj sta obe resnični, a ne moremo reči, da je njun pomen enak. (Predstavljajte si, da bi vas v srednji šoli profesorica matematike vprašala adicijski izrek za $\sin$, vi pa bi odgovorili ">vrstni red seštevanja realnih števil ne vpliva na vrednost vsote"<.)
 \end{opomba}
 
 
@@ -226,9 +226,9 @@ Kombinirana pravila:
 \begin{align}
   \neg(p \land q) &= \neg p \lor \neg q \tag{de Morganovo pravilo za $\land$} \\
   \neg(p \lor q) &= \neg p \land \neg q \tag{de Morganovo pravilo za $\lor$} \\
-  \neg(p \lthen q) &= \neg p \land q \notag \\
-  p \land (p \lor q) &= p \tag{absorbcijsko pravilo za $\land$}\\
-  p \lor (p \land q) &= p \tag{absorbcijsko pravilo za $\lor$} \\
+  \neg(p \lthen q) &= p \land \neg q \notag \\
+  p \land (p \lor q) &= p \tag{absorpcijsko pravilo za $\land$}\\
+  p \lor (p \land q) &= p \tag{absorpcijsko pravilo za $\lor$} \\
   p \land (q \lor r) &= (p \land q) \lor (p \land r) \tag{distributivnost $\land$}\\
   p \lor (q \land r) &= (p \lor q) \land (p \lor r) \tag{distributivnost $\lor$}
 \end{align}
@@ -253,17 +253,17 @@ namesto $=$, ker je to bolj običajno:
   (\some{x \in \set{a}} \phi(x))   &\iff   \phi(a) \\
   (\neg \all{x \in A} \phi(x))   &\iff   \some{x \in A} \neg \phi(x) \\
   (\neg \some{x \in A} \phi(x))   &\iff   \all{x \in A} \neg \phi(x) \\
-  (\psi \lthen \all{x \in A} \phi(x))   &\iff   \all{x \in A} \psi \lthen \phi(x) \\
-  (\psi \lor \all{x \in A} \phi(x))   &\iff   \all{x \in A} \psi \lor \phi(x) \\
-  (\psi \land \some{x \in A} \phi(x))   &\iff   \some{x \in A} \psi \land \phi(x) \\
+  (\psi \lthen \all{x \in A} \phi(x))   &\iff   \all{x \in A} (\psi \lthen \phi(x)) \\
+  (\psi \lor \all{x \in A} \phi(x))   &\iff   \all{x \in A} (\psi \lor \phi(x)) \\
+  (\psi \land \some{x \in A} \phi(x))   &\iff   \some{x \in A} (\psi \land \phi(x)) \\
   (\all{u \in A \times B} \phi(u))   &\iff   \all{x \in A} \all{y \in B} \phi(x, y) \\
   (\some{u \in A \times B} \phi(u))   &\iff   \some{x \in A} \some{y \in B} \phi(x, y) \\
   (\all{u \in A + B} \phi(u))   &\iff   (\all{x \in A} \phi(\inl(x))) \land (\all{y \in B} \phi(\inr(y))) \\
   (\all{u \in A \cup B} \phi(u))   &\iff   (\all{x \in A} \phi(x)) \land (\all{y \in B} \phi(y)) \\
   (\some{u \in A + B} \phi(u))   &\iff   (\some{x \in A} \phi(\inl(x))) \lor (\some{y \in B} \phi(\inr(y))) \\
   (\some{u \in A \cup B} \phi(u))   &\iff   (\some{x \in A} \phi(x)) \lor (\some{y \in B} \phi(y)) \\
-  (\all{u \in \set{x \in A \such \psi(x)}} \phi(u))   &\iff   \all{x \in A} \psi(x) \lthen \phi(x) \\
-  (\some{u \in \set{x \in A \such \psi(x)}} \phi(u))   &\iff   \some{x \in A} \psi(x) \land \phi(x)
+  (\all{u \in \set{x \in A \such \psi(x)}} \phi(u))   &\iff   \all{x \in A} (\psi(x) \lthen \phi(x)) \\
+  (\some{u \in \set{x \in A \such \psi(x)}} \phi(u))   &\iff   \some{x \in A} (\psi(x) \land \phi(x))
 \end{align*}
 %
 Te ekvivalence je treba preveriti tako, da jih dokažemo.

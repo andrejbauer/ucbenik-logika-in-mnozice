@@ -64,10 +64,10 @@ Da, s pomočjo relacije $<$:
 \end{equation*}
 %
 Temu principu pravimo tudi \textbf{krepka indukcija}, z besedami jo povemo takole: za podmnožico $S \subseteq \NN$ velja
-$S = \NN$, če za vse $m \in \NN$ velja ">če so vsa števila manjša od $m$ v $S$, potem je tudi $m$ v $S$"<.
+$S = \NN$, če za vse $m \in \NN$ velja ">če so vsa števila, manjša od $m$, v $S$, potem je tudi $m$ v $S$"<.
 
 Denimo, da $S$ res ima dano lastnost. Ali je $0 \in S$? Da, ker za vse predhodnike $0$ velja, da
-so $S$ (saj jih ni). Ali je $1 \in S$? Da, saj za vse predhodnike $1$ velja, da so v $S$. Ali je $2 \in
+so v $S$ (saj jih ni). Ali je $1 \in S$? Da, saj za vse predhodnike $1$ velja, da so v $S$. Ali je $2 \in
 S$? Da, saj za vse predhodnike $2$ velja, da so v $S$. In tako naprej.
 
 
@@ -203,7 +203,7 @@ sestavljeno drevo dve poddrevesi.
 
 \subsubsection{Dobra osnovanost in padajoče verige}
 
-Kako pa bi dobili kak proti-primer, se pravi, relacijo, ki ni dobra osnovanost? Poiskati
+Kako pa bi dobili kak proti-primer, se pravi, relacijo, ki ni dobro osnovana? Poiskati
 moramo kako lastnost, ki jo imajo vse dobre osnovanosti, nato pa relacijo, ki te lastnosti nima.
 
 \begin{definicija}
@@ -320,7 +320,7 @@ To velja v splošnem. Stroga urejenost $<$ na množici $A$ porodi delno urejenos
 definirano s predpisom:
 %
 \begin{equation*}
-    x \leq y  \defiff x = y \lor x \leq y.
+    x \leq y  \defiff x = y \lor x < y.
 \end{equation*}
 %
 V obratno smer, delna urejenost $\sqsubseteq$ določa strogo urejenost $\sqsubset$, definirano s predpisom
@@ -330,7 +330,7 @@ V obratno smer, delna urejenost $\sqsubseteq$ določa strogo urejenost $\sqsubse
   a \sqsubset b  \defiff  a \neq b \land a \sqsubseteq b.
 \end{equation}
 %
-Seveda je treba preveriti naslednja dejstva, ki jih postimo za vajo:
+Seveda je treba preveriti naslednja dejstva, ki jih pustimo za vajo:
 %
 \begin{itemize}
 \item če je $<$ stroga urejenost, potem je $\leq$ definirana s \eqref{eq:leq-iff-lteq} delna urejenost
@@ -339,19 +339,19 @@ Seveda je treba preveriti naslednja dejstva, ki jih postimo za vajo:
 %
 Tako lahko prehajamo med delno in strogo urejenostjo.
 
-\subsection{Dobra ureditev}
+\subsection{Dobra urejenost}
 
 \begin{definicija}
-  Relacija je \textbf{dobra ureditev}, če je dobro osnovana in stroga linearna ureditev.
+  Relacija je \textbf{dobra urejenost}, če je dobro osnovana in stroga linearna urejenost.
 \end{definicija}
 
 \begin{izrek}
-  Relacija je dobra ureditev natanko tedaj, ko je dobro osnovana in sovisna.
+  Relacija je dobra urejenost natanko tedaj, ko je dobro osnovana in sovisna.
 \end{izrek}
 
 \begin{proof}
   V eno smer je ekvivalenca očitna, zato dokažimo samo obratno smer. Denimo, da je
-  $R \subseteq A \times A$ dobro osnovana in sovisna relacija. Dokazujemo, da je dobra ureditev, se pravi,
+  $R \subseteq A \times A$ dobro osnovana in sovisna relacija. Dokazujemo, da je dobra urejenost, se pravi,
   da potrebujemo še irefleksivnost in tranzitivnost $R$.
 
   Relacija $R$ je irefleksivna: če bi veljalo $x \rel{R} x$ za $x \in A$, potem $R$ ne bi bila dobro
@@ -370,27 +370,27 @@ Tako lahko prehajamo med delno in strogo urejenostjo.
 
 \begin{lema}
   \label{lem:nepr-min-veriga}%
-  Denimo, da je $<$ stroga urejenost na neprazni množici~$B$. Če $B$ nima
-  $\leq$-minimalnega elementa, potem ima padajočo verigo.
+  Denimo, da je $\sqsubset$ irefleksivna relacija na neprazni množici~$B$. Če $B$ nima
+  $\sqsubseteq$-minimalnega elementa, potem ima padajočo verigo.
 \end{lema}
 
 \begin{proof}
   Denimo, da $B$ nima minimalnega elementa, torej
-  %a
+  %
   \begin{equation*}
-    \lnot \some{x \in B} \all{y \in B} y \leq x \lthen y = x.
+    \lnot \some{x \in B} \all{y \in B} y \sqsubseteq x \lthen y = x.
   \end{equation*}
   %
   To je ekvivalentno
   %
   \begin{equation*}
-    \all{x \in B} \some{y \in B} y \leq x \land y \neq x
+    \all{x \in B} \some{y \in B} y \sqsubseteq x \land y \neq x,
   \end{equation*}
   %
-  kar je ekvivalentno
+  kar je zaradi irefleksivnosti $\sqsubset$ ekvivalentno
   \begin{equation}
     \label{eq:lema-min-elem}
-    \all{x \in B} \some{y \in B} y < x.
+    \all{x \in B} \some{y \in B} y \sqsubset x.
   \end{equation}
   %
   Padajočo verigo $b : \NN \to B$ definiramo z zaporedjem izbir: ker je $B$ neprazna, lahko izberemo
@@ -398,10 +398,10 @@ Tako lahko prehajamo med delno in strogo urejenostjo.
   tako, da velja
   %
   \begin{equation*}
-    b(i) < b(i-1) < \ldots < b(1) < b(0).
+    b(i) \sqsubset b(i-1), \ldots, b(2) \sqsubset b(1), b(1) \sqsubset b(0).
   \end{equation*}
   %
-  Ker $B$ nima minimalnega elementa, $b(i)$ ni minimalni, torej po \eqref{eq:lema-min-elem} obstaja tak $y \in B$, da je $y < b(i)$. Torej lahko izberemo $b(i+1) \in B$, da velja $b(i+1) < b(i)$.
+  Ker $B$ nima minimalnega elementa, $b(i)$ ni minimalni, torej po \eqref{eq:lema-min-elem} obstaja tak $y \in B$, da je $y \sqsubset b(i)$. Torej lahko izberemo $b(i+1) \in B$, da velja $b(i+1) \sqsubset b(i)$.
 \end{proof}
 
 \begin{opomba}
@@ -411,7 +411,7 @@ Tako lahko prehajamo med delno in strogo urejenostjo.
 
 \begin{izrek}
   \label{izr:dobr-osn-iff}
-  Naj bo $\sqsubset$ relacija na $A$. Tedaj so ekvivalentne naslednje izjave:
+  Naj bo $\sqsubset$ irefleksivna relacija na $A$. Tedaj so ekvivalentne naslednje izjave:
   %
   \begin{enumerate}
   \item \label{it:dobr-osn-1}%
@@ -450,8 +450,7 @@ Tako lahko prehajamo med delno in strogo urejenostjo.
   Torej obstaja element $y \in S$ z lastnostjo, da pod njim ni nobenega elementa iz
   $S$, kar pa pomeni, da je $y$ iskani minimalni element.
 
-  ($2 \lthen 3$) Denimo, da je $a : \NN \to A$ padajoča veriga. Tedaj slika $\set{ a(n) \mid n \in \NN }$ ne bi imela
-  minimalnega elementa, v nasprotju z \eqref{it:dobr-osn-2}.
+  ($2 \lthen 3$) Denimo, da je $a : \NN \to A$ padajoča veriga. Tedaj njena slika $\set{ a(n) \mid n \in \NN }$ nima $\sqsubseteq$-minimalnega elementa, saj $a(k)$ ne more biti minimalni ker je tudi $a(k+1)$ v sliki ter velja $a(k+1) \sqsubset a(k)$ in $a(k+1) \neq a(k)$. To je v nasprotju z~\eqref{it:dobr-osn-2}.
 
   ($3 \lthen 1$) Denimo, da je $S \subseteq A$ progresivna. Trdimo, da množica $C \defeq A \setminus S$ nima
   minimalnega elementa. Če bi bil $c \in C$ minimalni v $C$, bi to pomenilo
@@ -502,8 +501,8 @@ Tako lahko prehajamo med delno in strogo urejenostjo.
       u \sqsubseteq v \defiff
       \begin{aligned}[t]
         &(\some{x \in P} \some{y \in Q} u = \inl(x) \land v = \inr(y)) \lor {}\\
-        &(\some{x \in P} \some{y \in P} u = \inl(x) \land v = \inl(y) \lor x \leq_P y) \lor {}\\
-        &(\some{x \in Q} \some{y \in Q} u = \inr(x) \land v = \inr(y) \lor x \leq_Q y).
+        &(\some{x \in P} \some{y \in P} u = \inl(x) \land v = \inl(y) \land x \leq_P y) \lor {}\\
+        &(\some{x \in Q} \some{y \in Q} u = \inr(x) \land v = \inr(y) \land x \leq_Q y).
       \end{aligned}
     \end{equation*}
 
@@ -536,13 +535,13 @@ in
 in
 %
 \begin{equation*}
-  0, 2, 4, 6, 8, \ldots, 1, 3, 4, 5, \ldots
+  0, 2, 4, 6, 8, \ldots, 1, 3, 5, 7, \ldots
 \end{equation*}
 %
 Zdi se, da sta prvi in drugi način ">isti tip"< urejenosti in se razlikujeta od tretjega. Res, v tretji vrsti ima $1$ neskončno predhodnikov, v prvi in drugi pa takega elementa ni. Govorimo o naslednjem pojmu.
 
 \begin{definicija}
-  Dobri ureditvi $(P, {\leq_P})$ in $(Q, {\leq_Q})$ \textbf{izomorfni}, če obstajata monotoni preslikavi $f : P \to Q$ in $Q \to P$, da velja $f \circ g = \id[Q]$ in $g \circ f = \id[P]$.
+  Dobri urejenosti $(P, {\leq_P})$ in $(Q, {\leq_Q})$ sta \textbf{izomorfni}, če obstajata monotoni preslikavi $f : P \to Q$ in $g : Q \to P$, da velja $f \circ g = \id[Q]$ in $g \circ f = \id[P]$.
 \end{definicija}
 
 Seveda je izomorfnost ekvivalenčna relacija, ki je definirana na pravem razredu vseh dobrih urejenosti. 
@@ -589,7 +588,7 @@ Poglejmo, kako deluje njegova ideja:
   Kako bi si predstavljali naslednje ordinale: $\omega + \omega + \omega$, $\omega \cdot \omega$, $\omega^3$, $\omega^\omega$?
 \end{vaja}
 
-Von Neumann je imel pravo idejo, a pušča kanček dvoma, ker je definicija ordinalnega števila \emph{rekurzivna} (se nanaša sama nase). Če se malce potrudimo, da lahko von Neumannove ordinale opredelimo neposredno.
+Von Neumann je imel pravo idejo, a pušča kanček dvoma, ker je definicija ordinalnega števila \emph{rekurzivna} (se nanaša sama nase). Če se malce potrudimo, lahko von Neumannove ordinale opredelimo neposredno.
 
 \begin{definicija}
   Množica $z$ je \textbf{tranzitivna}, če iz $x \in y$ in $y \in z$ sledi $x \in z$.
@@ -627,7 +626,7 @@ Razred vseh von Neumannovih ordinalov označimo z $\On$ (v angleščini ">ordina
   Poiščite množico, ki \emph{ni} tranzitivna in je dobro urejena z relacijo $\in$.
 \end{vaja}
 
-Ali definicija~\ref{def:von-neuman-ordinal} res sovpada z idejo, da je ordinal množica svojih prednikov? To potrjuje naslednja izjava.
+Ali definicija~\ref{def:von-neuman-ordinal} res sovpada z idejo, da je ordinal množica svojih predhodnikov? To potrjuje naslednja izjava.
 
 \begin{izjava}
   Če je $\alpha$ ordinal in $\beta \in \alpha$, potem je $\beta$ ordinal.
@@ -639,12 +638,12 @@ Ali definicija~\ref{def:von-neuman-ordinal} res sovpada z idejo, da je ordinal m
 \end{proof}
 
 \begin{vaja}
-  V zgornjem dokazu smo uporabili naslednje dejstvo: če je $(P, {<})$ dobra ureditev in $Q \subseteq P$, tedaj je $Q$ z relacijo $<$ zoženo na~$Q$ tudi dobra ureditev. Zapišite dokaz.
+  V zgornjem dokazu smo uporabili naslednje dejstvo: če je $(P, {<})$ dobra urejenost in $Q \subseteq P$, tedaj je $Q$ z relacijo $<$ zoženo na~$Q$ tudi dobra urejenost. Zapišite dokaz.
 \end{vaja}
 
 Brez dokaza navedimo, da so von Neumannovi ordinali izbor predstavnikov za dobre urejenosti.
 
 \begin{izrek}
-  Vsaka dobra ureditev je izomorfna natanko enemu von Neumannovemu ordinalu.
+  Vsaka dobra urejenost je izomorfna natanko enemu von Neumannovemu ordinalu.
 \end{izrek}
 

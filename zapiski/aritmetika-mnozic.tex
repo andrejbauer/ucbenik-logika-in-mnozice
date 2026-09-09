@@ -72,7 +72,7 @@ Potrebujemo še enačbe, ki povedo, kako računamo z urejenimi pari in kako jih 
   potem $p = q$.
 \end{pravilo}
 
-Kadar imamo opravka z večimi zmnožki, na primer $A \times B$ in $C \times D$, bi lahko
+Kadar imamo opravka z več zmnožki, na primer $A \times B$ in $C \times D$, bi lahko
 prišlo do zmede glede projekcij. Takrat jih opremimo še z dodatnimi oznakami množic, da
 razločimo projekciji $\fst[A][B] : A \times B \to A$ in $\fst[C][D] : C \times D \to C$,
 in podobno za~$\snd$.
@@ -113,7 +113,7 @@ dokažemo.
   Preveriti moramo še, da je $(\fst(p), \snd(p))$ edini urejeni par, ki je enak~$p$.
   Povedano z drugimi besedami, dokazati moramo: če je $p = (a, b)$ za neki $a \in A$ in
   $b \in B$, potem velja $a = \fst(p)$ in $b = \snd(p)$. Pa denimo, da bi za neki
-  $a \in A$ in $B \in B$ veljalo $p = (a,b)$. Tedaj bi lahko uporabili računska pravila za
+  $a \in A$ in $b \in B$ veljalo $p = (a,b)$. Tedaj bi lahko uporabili računska pravila za
   pare in dobili
   %
   \begin{equation*}
@@ -165,7 +165,7 @@ Poleg zmnožka dveh množic bi lahko tvorili tudi zmnožek treh ali več množic
 podobna kot za zmnožek dveh množic, le da bi namesto urejenih parov tvorili \df{urejene
   večterice} in da bi imeli več projekcij. Za vsako projekcijo bi zapisali eno računsko
 pravilo, princip ekstenzionalnosti pa bi bil tudi podoben tistemu za urejene pare.
-Podorobnosti prepustimo za vajo.
+Podrobnosti prepustimo za vajo.
 
 
 \section{Vsota}
@@ -173,9 +173,9 @@ Podorobnosti prepustimo za vajo.
 
 Spoznali smo že unijo $A \cup B$ množic $A$ in $B$, ki vsebuje tiste elemente, ki so v $A$
 ali v $B$. Če imata $A$ in $B$ skupne elemente, bodo ti v uniji seveda nastopili samo
-enkrat. V skranjem primeru dobimo $A \cup A = A$. Včasih pa želimo združiti množici tako,
+enkrat. V skrajnem primeru dobimo $A \cup A = A$. Včasih pa želimo združiti množici tako,
 da ne pride do prekrivanja. Taka konstrukcija je \df{vsota} $A + B$ množic $A$ in $B$.
-Prekrivanje preprečimo tako, da elemente, ki jih je prispevala~$A$ označimo z eno oznako,
+Prekrivanje preprečimo tako, da elemente, ki jih je prispevala~$A$, označimo z eno oznako,
 tiste, ki jih je prispevala~$B$, pa z drugo.
 
 \begin{pravilo}[Vsota]
@@ -202,11 +202,11 @@ elemente iz~$A$ in drugo za elemente iz~$B$. Oznakama pravimo tudi
 %
 \begin{equation*}
   \inl : A \to A + B
-  \qquad\text{and}\qquad
+  \qquad\text{in}\qquad
   \inr : B \to A + B.
 \end{equation*}
 %
-Kadar imamo opravka z večimi vsotami, na primer $A + B$ in $C + D$, bi lahko prišlo do
+Kadar imamo opravka z več vsotami, na primer $A + B$ in $C + D$, bi lahko prišlo do
 zmede glede oznak. Takrat injekcije opremimo še z dodatnimi oznakami množic, da razločimo
 injekciji $\inl[A][B] : A \to A + B$ in $\inl[C][D] : C \to C + D$, in podobno za~$\inr$.
 
@@ -227,7 +227,7 @@ Fraza \nls{natanko en $a \in A$} pove, da iz $u = \inl(a_1)$ in $u = \inl(a_2)$ 
 Povedano drugače, če velja $\inl(a_1) = \inl(a_2)$, potem je $a_1 = a_2$. Podobno iz
 $\inr(b_1) = \inr(b_2)$ sledi $b_1 = b_2$.
 %
-Podajmo prepost primer, ki verjetno marsikaj pojasni:
+Podajmo preprost primer, ki verjetno marsikaj pojasni:
 %
 \begin{equation*}
   \set{a, b, c} + \set{a, d, e} =
@@ -269,7 +269,7 @@ dogovorimo, da ga lahko zapišemo tudi z \emph{večdelnim} funkcijskim predpisom
   \begin{align*}
     f : \set{1, 2} + \set{2, 3} &\to \NN, \\
     f(\inl(x)) &\dfeq x^2 \\
-    f(\inr(y)) &\dfeq 6 / x
+    f(\inr(y)) &\dfeq 6 / y
   \end{align*}
   %
   bi lahko predstavili s tabelo
@@ -288,7 +288,7 @@ dogovorimo, da ga lahko zapišemo tudi z \emph{večdelnim} funkcijskim predpisom
 
 Vsi ti zapisi res določajo celovito in enolično prirejanje, saj nam pravila za vsoto
 zagotavljajo, da vedno obvelja natanko en primer. Na sploh lahko podamo funkcijski zapis z
-večimi primeri, če le pazimo, da obravnavamo vse možnosti, in da se le-te ne prekrivajo.
+več primeri, če le pazimo, da obravnavamo vse možnosti, in da se le-te ne prekrivajo.
 Na primer, predpis
 %
 \begin{align*}
@@ -431,7 +431,7 @@ Preslikavo, ki sprejme kot argument preslikavo, imenujemo \df{funkcional} ali \d
   višjega reda}. Znan primer je določeni integral, ki kot argumente sprejme realni števili $a, b\in \RR$ in integrabilno funkcijo $f \in \RR^\RR$ ter izračuna ploščino pod~$f$ na intervalu~$[a,b]$.
 Še en primer je operacija $\lim$, ki sprejme konvergentno zaporedje $a \in \RR^\NN$ in izračuna njegovo limito.
 
-V razdelku~\ref{sec:kompozicija} mi smo že srečali funkcional, namreč kompozicijo preslikav. Zapišimo jo še enkrat tako, da nastopi operacija $\circ$ kot preslikava:
+V razdelku~\ref{sec:kompozicija} smo že srečali funkcional, namreč kompozicijo preslikav. Zapišimo jo še enkrat tako, da nastopi operacija $\circ$ kot preslikava:
 %
 \begin{align*}
   {\circ} &: C^B \times B^A \to C^A, \\
@@ -441,7 +441,7 @@ V razdelku~\ref{sec:kompozicija} mi smo že srečali funkcional, namreč kompozi
 Res, lahko si mislimo, da $\circ$ sprejme urejeni par preslikav $(g, f)$ in izračuna njun kompozitum, ki ga pišemo $g \circ f$ namesto ${\circ}(g, f)$.
 %
 Tu smo kompozicijo zapisali z \emph{gnezdenim} funkcijskim predpisom, ki argumentu $(g, f)$ priredi
-preslikavo, podano s predpisom $x \mapsto g(f(x)$. V splošnem je gnezdeni funkcijski
+preslikavo, podano s predpisom $x \mapsto g(f(x))$. V splošnem je gnezdeni funkcijski
 predpis oblike
 %
 \begin{align*}
@@ -459,7 +459,7 @@ Primer gnezdenega funkcijskega predpisa je preslikava~$\konst{}$ iz razdelka~\re
   \konst{b} &: a \mapsto b.
 \end{align*}
 %
-Pravzaprav imamo opravka s preslikavo, ki sprejme $b \in B$ term tvori konstantno preslikavo:
+Pravzaprav imamo opravka s preslikavo, ki sprejme $b \in B$ ter tvori konstantno preslikavo:
 %
 \begin{align*}
   \konst{} &: B \to B^A \\
@@ -538,14 +538,14 @@ izračunamo še tretjič, tokrat bolj pregledno:
   &= (x \mapsto x^2 - 4 x).
 \end{align*}
 %
-Da ne bo prihajalo do zapletov z vezanimi spremenljivkami, se dogovorimo: \emph{kadar imamo opravka z večimi vezanimi spremenljivkami, jih po potrebi preimenujemo tako, da so med seboj različne.}
+Da ne bo prihajalo do zapletov z vezanimi spremenljivkami, se dogovorimo: \emph{kadar imamo opravka z več vezanimi spremenljivkami, jih po potrebi preimenujemo tako, da so med seboj različne.}
 
 
 \section{Izomorfizem množic}
 \label{sec:izomorfizem-mnozic}
 
 Ko otrok prvič spozna pojem števila, je ta zanimiv sam po sebi. Z vnemo šteje do sto in se
-rad pogovarja se o tem, koliko je en miljon. Sčasoma se radovednost osredotoči na
+rad pogovarja o tem, koliko je en milijon. Sčasoma se radovednost osredotoči na
 aritmetične operacije in, če ima mladenič ali mladenka v sebi matematično žilico, na
 \emph{zakonitosti} števil: množenje z~$1$ nima učinka, vrstni red seštevanja ni pomemben
 itd. Ali tudi operacijam na množicah, ki smo jih spoznali do sedaj, vladajo kakšne
@@ -585,11 +585,11 @@ Preverimo, da velja $A \times B \cong B \times A$ za poljubni množici $A$ in $B
 storimo tako, da zapišemo preslikavi med zmnožkoma in preverimo, da tvorita
 izomorfizem:\footnote{Držimo se pravila, da nikoli ne uporabimo iste vezane spremenljivke
   dvakrat, zato pravilo za $f$ zapišemo z $x$ in $y$ in pravilo za $g$ z $v$ in $u$.
-  Marsikdo bi oba funkcisjka predpisa zapisal z $x$ in $y$, torej
+  Marsikdo bi oba funkcijska predpisa zapisal z $x$ in $y$, torej
   $f : (x, y) \mapsto (y, x)$ in $g : (y, x) \mapsto (x, y)$. To zmede nekatere študente,
-  ker mislijo, da \nls{sta je $x$ v definiciji $f$ isti kot v definiciji $g$}, karkoli že
-  naj bi to pomenilo. Poudarimo še enkat: vezana spremenljivka v funkcijskem predpisu nima
-  nikakršne zveze z nobeno drugo pojavitvijo iste spremenljivke kje druge.}
+  ker mislijo, da \nls{sta $x$ v definiciji $f$ in v definiciji $g$ ista}, karkoli že
+  naj bi to pomenilo. Poudarimo še enkrat: vezana spremenljivka v funkcijskem predpisu nima
+  nikakršne zveze z nobeno drugo pojavitvijo iste spremenljivke kje drugje.}
 %
 \begin{align*}
   f &: A \times B \to B \times A &
@@ -600,7 +600,7 @@ izomorfizem:\footnote{Držimo se pravila, da nikoli ne uporabimo iste vezane spr
 %
 Treba je preveriti, da velja $g \circ f = \id[A \times B]$ in
 $f \circ g = \id[B \times A]$. To naredimo z uporabo ekstenzionalnosti preslikav, ki pravi
-da $g \circ f = \id[A]$ velja, če velja $(g \circ f)(a,b) = \id[A](a,b)$ za vse $a \in A$
+da $g \circ f = \id[A \times B]$ velja, če velja $(g \circ f)(a,b) = \id[A \times B](a,b)$ za vse $a \in A$
 in $b \in B$, in podobno za $f \circ g$. Obravnavajmo torej poljubna $a \in A$ in
 $b \in B$ in izračunajmo:
 %
@@ -627,13 +627,13 @@ Na podoben način preverimo $f \circ g = \id[B \times A]$.
   Še več, eksponentna funkcija seštevanje pretvori v množenje,
   $\exp 0 = 1$ in $\exp (x + y) = \exp x \cdot \exp y$, zato ni le izomorfizem množic, ampak tudi izomorfizem \emph{grup} $(\RR, {+}, 0)$ in $(\RR_{>0}, {\cdot}, 1)$.
 
-  Opazko o izomorfizmu grupo smo podtaknili namenoma kot priložnost za nasvet.
+  Opazko o izomorfizmu grup smo podtaknili namenoma kot priložnost za nasvet.
   %
   Če ne veste, kaj je grupa in izomorfizem grup, nikar ne obupavajte. Vsak matematik se v
   svojem delu nenehno srečuje z neznanimi pojmi. Znameniti profesor
-  France Križanič\footnote{France Križanič (1928--2002), slovenski matematik} v enega od
+  France Križanič\footnote{France Križanič (1928--2002), slovenski matematik} je v enega od
   svojih učbenikov zapisal, da naj tisti, ki mu je branje dokazov odveč, ravna tako kot Du
-  Fu:\footnote{Du Fu (712--770 pr.~n.~š), kitajski pesnik}
+  Fu:\footnote{Du Fu (712--770), kitajski pesnik}
   %
   \begin{center}
     \begin{tabular}{l}
@@ -648,7 +648,7 @@ Na podoben način preverimo $f \circ g = \id[B \times A]$.
 \end{zgled}
 
 
-Dokažimo nekaj osnovih lastnosti izmorfnosti in izomorfizmov. Tokrat ne bomo zapisali
+Dokažimo nekaj osnovnih lastnosti izomorfnosti in izomorfizmov. Tokrat ne bomo zapisali
 podrobnih dokazov. Za vajo jih dopolnite do tolikšnih podrobnosti, da boste sami sebe
 prepričali, da trditve držijo.
 
@@ -697,7 +697,7 @@ medtem ko je $\inv{f}(x)$ število, ki ga dobimo, ko obrat preslikave $f$ uporab
 Sami premislite, kaj je $\inv{(\inv{f}(x))}$.
 
 \begin{trditev}
-  Za vse izmorfizme $f : A \to B$ in $g : B \to C$ velja
+  Za vse izomorfizme $f : A \to B$ in $g : B \to C$ velja
   %
   \begin{equation*}
     \inv{(\inv{f})} = f
@@ -710,7 +710,7 @@ Sami premislite, kaj je $\inv{(\inv{f}(x))}$.
   Dokaz prepuščamo za vajo. Pozor, v desni enakosti se je zamenjal vrstni red $f$ in $g$!
   Nadalje opazimo še to: zapisali smo $\inv{(\inv{f})}$ in $\inv{(g \circ f)}$, ne da bi
   predhodno preverili, ali sta $\inv{f}$ in $g \circ f$ izomorfizma. Torej morate v dokazu
-  najprej preveriti, da je sta $\inv{f}$ in $g \circ f$ izomorfizma, če sta $f$ in $g$
+  najprej preveriti, da sta $\inv{f}$ in $g \circ f$ izomorfizma, če sta $f$ in $g$
   izomorfizma.
 \end{proof}
 
@@ -732,7 +732,7 @@ Sami premislite, kaj je $\inv{(\inv{f}(x))}$.
   \item če je $f : A \to B$ izomorfizem iz $A$ v $B$, potem je $\inv{f}$ izomorfizem iz
     $B$ v $A$ in $f$,
   \item če je $f : A \to B$ izomorfizem iz $A$ v $B$ in $g : B \to C$ izomorfizem iz $B$ v
-    $C$, potem je $g \circ f$ izomorfizem iz $A \to C$. \qedhere
+    $C$, potem je $g \circ f$ izomorfizem iz $A$ v $C$. \qedhere
   \end{enumerate}
 \end{proof}
 
@@ -783,7 +783,7 @@ s števili. Preostanek razdelka je posvečen dokazu izreka.
 Za ogrevanje dokažimo asociativnost zmnožkov,
 $A \times (B \times C) \cong (A \times B) \times C$. Splošni element
 $A \times (B \times C)$ je urejeni par oblike $(x, (y, z))$, kjer je $x \in A$, $y \in B$
-in $z \in C$, med tem ko je splošni element $(A \times B) \times C$ oblike $((u, v), w)$,
+in $z \in C$, medtem ko je splošni element $(A \times B) \times C$ oblike $((u, v), w)$,
 kjer je $u \in A$, $v \in B$ in $w \in C$. Izomorfizmov ni težko zapisati:
 %
 \begin{align*}
@@ -805,7 +805,7 @@ in za vse $u \in A$, $v \in B$ in $w \in C$ velja
   f(g((u, v), w)) = f(u, (v, w)) = ((u, v), w).
 \end{equation*}
 %
-Tudi asociativnost vsote, $A + (B + C) \cong (A + B) + C$ ni nič bolj zapletena, le da
+Tudi asociativnost vsote, $A + (B + C) \cong (A + B) + C$, ni nič bolj zapletena, le da
 imamo opravka z injekcijami in obravnavanjem primerov. Najprej zapišimo izomorfizma s
 popolnoma natančnim zapisom, kjer vse injekcije opremimo z oznakami množic:
 %
@@ -868,7 +868,7 @@ upoštevaje da so vsi elementi~$\one$ enaki~$\unit$,
 \begin{equation*}
   g(f(a, t)) = g(a) = (a, \unit) = (a, t)
   \qquad\text{in}\qquad
-  f(g(a)) = f(a, t) = a.
+  f(g(a)) = f(a, \unit) = a.
 \end{equation*}
 %
 Lahko bi rekli, da je $\one$ nevtralni element za zmnožek \emph{do izomorfizma natančno},
@@ -876,7 +876,7 @@ s čimer povemo, da ne velja \emph{enakost} $A \times \one = A$, ampak le
 \emph{izomorfizem} $A \times \one \cong A$. Na tem mestu lahko tudi pojasnimo nenavadni
 zapis edinega elementa~$\one$. Elementi zmnožka dveh množic so urejene dvojice, zmnožka
 treh množic urejene trojice itd. Zmnožek nič množic je nevtralni element za množenje,
-torej so njegovi elementi urejen ničterice, oziroma urejena ničterica~$\unit$, ker je ena
+torej so njegovi elementi urejene ničterice, oziroma urejena ničterica~$\unit$, ker je ena
 sama.
 
 Izomorfizma $A^\one \cong A$ ni težko zapisati:
@@ -922,7 +922,7 @@ množice praštevila? Pravilni odgovor je `da'. In hkrati so vsi elementi prazne
 sestavljena števila. Zakaj je to res bomo spoznali v
 razdelku~\ref{sec:logika-prazna-mnozica}, ko bomo podrobno obravnavali pravila sklepanja.
 Zaenkrat si zapomnimo, da je pravilna vsaka izjava \nls{za vse elemente prazne množice velja
-\dots}. Pravimo, da je taka izjava \emph{na prazno izpolnjena}
+\dots}. Pravimo, da je taka izjava \emph{na prazno izpolnjena}.
 
 Začnimo z vprašanjem, ali lahko tvorimo kako preslikavo $\emptyset \to A$. Najprej
 ugotovimo, da so vse preslikave $\emptyset \to A$ enake. Res, za $f, g : \emptyset \to A$
@@ -930,7 +930,7 @@ velja $f = g$ natanko tedaj, ko za vse $x \in \emptyset$ velja $f(x) = g(x)$. A 
 smo povedali, da je vsaka izjava oblike \nls{za vse $x \in \emptyset$ \dots} veljavna. Pa
 imamo kako preslikavo $\emptyset \to A$? Odgovor je pritrdilen, če lahko podamo kako
 celovito in enolično prirejanje med elementi~$\emptyset$ in~$A$. Ker sta celovitost in
-enoličnost spet izavi oblike \nls{za vse $x \in \emptyset$ \dots}, sta na prazno izpolnjena,
+enoličnost spet izjavi oblike \nls{za vse $x \in \emptyset$ \dots}, sta na prazno izpolnjena,
 zato bo zadoščalo kakršnokoli prirejanje, denimo: nobenemu elementu ne priredimo nobenega
 elementa. S tem smo utemeljili naslednjo trditev.
 
@@ -965,7 +965,7 @@ tvorita izomorfizem. Za vse $f \in A^{B \times C}$, $x \in B$ in $y \in C$ velja
   &= ((b, c) \mapsto \Lambda(f)(c)(b)) (x, y)  \\
   &= \Lambda(f)(y)(x) \\
   &= (c \mapsto (b \mapsto f(b, c)))(y)(x) \\
-  &= (b \mapsto f(b, y)(x) \\
+  &= (b \mapsto f(b, y))(x) \\
   &= f(x, y),
 \end{align*}
 %
@@ -1047,7 +1047,7 @@ sprejme še $c$ in vrne vrednost $\tilde{f}(b)(c)$.
 
 \begin{vaja}
   Zapišite pravila za zmnožek treh množic. Nato premislite še, kako bi podali pravila za
-  zmnožek $n$ množic, kjer je~$n$ naravno število. Seveda ne velja uporaba tropičja `\dots`!
+  zmnožek $n$ množic, kjer je~$n$ naravno število. Seveda ne velja uporaba tropičja `\dots'!
 \end{vaja}
 
 \begin{vaja}
