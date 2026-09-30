@@ -287,36 +287,30 @@ Vsaka preslikava ima tri sestavne dele: \df{domeno} ali \df{začetno množico},
 ponazorimo s puščico med $X$ in $Y$, takole
 %
 \begin{equation*}
-  \xymatrix{
-    {X} \ar[r] &
-    {Y}
-  }
+  \begin{tikzcd}
+    X \arrow[r] & Y
+  \end{tikzcd}
 \end{equation*}
 %
 Če želimo preslikavo poimenovati, na primer $f$, zapišemo
 %
 \begin{equation*}
-  \xymatrix{
-   {f : X} \ar[r] &
-    {Y}
-  }
+  \begin{tikzcd}
+    f : X \arrow[r] & Y
+  \end{tikzcd}
   \qquad\text{ali}\qquad
-  \xymatrix{
-   {X} \ar[r]^{f} &
-   {Y}
-  }
+  \begin{tikzcd}
+    X \arrow[r, "f"] & Y
+  \end{tikzcd}
 \end{equation*}
 %
 Pravimo, da je \df{$f$ preslikava iz $X$ v $Y$}. Zapis nad puščico je prikladen, kadar
 imamo opravka z več preslikavami, ki jih predstavimo z diagramom. Na primer,
 %
 \begin{equation*}
-  \xymatrix{
-    {X} \ar[r] &
-    {Y} \ar[r]^{f} &
-    {Z}  &
-    {W} \ar[l]_{g}
-  }
+  \begin{tikzcd}
+    X \arrow[r] & Y \arrow[r, "f"] & Z & W \arrow[l, "g"{swap}]
+  \end{tikzcd}
 \end{equation*}
 %
 nam pove, da imamo opravka z (neimenovano) preslikavo iz $X$ v $Y$, s preslikavo $f$ iz
@@ -753,30 +747,18 @@ Zakaj pišemo $g \circ f$ in ne obratno $f \circ g$?  Ker si je mnogo lažje zap
   domeni $h$. Če vse to zložimo v diagram, dobimo
   %
   \begin{equation*}
-    \xymatrix{
-      {A} \ar[r]^{f}
-      &
-      {B} \ar[r]^{g}
-      &
-      {\text{?}} \ar[r]^{h}
-      &
-      {\text{?}}
-    }
+    \begin{tikzcd}
+      A \arrow[r, "f"] & B \arrow[r, "g"] & {\text{?}} \arrow[r, "h"] & {\text{?}}
+    \end{tikzcd}
   \end{equation*}
   %
   Trditev moramo razumeti tako, da bo čim bolj splošna in smiselna. Torej bomo za neznani
   množici vzeli kar poljubni množici $C$ in $D$:
   %
   \begin{equation*}
-    \xymatrix{
-      {A} \ar[r]^{f}
-      &
-      {B} \ar[r]^{g}
-      &
-      {C} \ar[r]^{h}
-      &
-      {D}
-    }
+    \begin{tikzcd}
+      A \arrow[r, "f"] & B \arrow[r, "g"] & C \arrow[r, "h"] & D
+    \end{tikzcd}
   \end{equation*}
   %
   Preverimo, ali smo trditev pravilno razumeli. Ko vstavimo podrobnosti, se prvi del
@@ -850,9 +832,6 @@ se kosa ne bi prekrivala in nam ne bi bilo treba preverjati $-0 = 0$.
 
 \begin{vaja}
 Kaj veste povedati o množici~$A$, če zanjo velja, da so vsi njeni elementi enaki?
-\begin{resitev}
-Množica~$A$ ima kvečjemu en element, tj.~množica~$A$ je bodisi prazna bodisi enojec. Tudi: množica~$A$ je podmnožica kakega enojca oz.~edina preslikava $A \to \one$ je injektivna.
-\end{resitev}
 \end{vaja}
 
 \begin{vaja}

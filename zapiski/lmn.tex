@@ -1,205 +1,53 @@
-\documentclass[11pt,a4paper,twoside]{book}
+%% Prevajamo z LuaLaTeX.
+\documentclass[10pt,twoside]{book}
 
-%--------------------------------------------------------------------
-%-- Velikost strani
-
-%% A4 stran = 210mm x 297mm
-
-\usepackage[a4paper,
-            top=3cm,
-            bottom=4cm,
-            inner=4cm,
-            outer=4cm
-           ]{geometry}
-
-\usepackage[T1]{fontenc}
-\usepackage[utf8]{inputenc}
-\usepackage[slovene]{babel}
-\usepackage[colorlinks]{hyperref}
-
-\usepackage{xcolor}
-\usepackage{amsfonts,amssymb,amsmath,amsthm}
-
-\usepackage[scaled=.95]{newpxtext}
-\usepackage[vvarbb,smallerops]{newpxmath} % Matching math
-\usepackage[scaled=.85]{beramono} % Monospace
-
-\usepackage{textgreek} % Za grške črke v besedilu
-\usepackage{phonetic} % Fonetični zapis
-
-\usepackage{answers} % rešitve vaj
-
-\usepackage{datetime2}
-\usepackage{tablefootnote}
-
-\usepackage{bbold}
-\usepackage{fancyhdr}
-\usepackage{mathpartir}
-\usepackage{proof}
-\usepackage{xypic}
-
-\usepackage{tikz}
-\usepackage{tkz-euclide}
-\usetikzlibrary{calc}
-
-\usepackage{booktabs}
-
-\usepackage{enumitem}
-\setlist{nosep}
-
-%--------------------------------------------------------------------
-% Stil poglavij
-\usepackage[explicit]{titlesec}
-
-\titleformat{\chapter}[hang]
-  {\normalfont\huge\bfseries\raggedright} % format
-  {\thechapter}                % label (number only)
-  {1em}                        % space between number and title
-  {#1}                         % title
-
-% Adjust spacing before/after chapter titles
-\titlespacing*{\chapter}{0pt}{50pt}{30pt}
-
-%--------------------------------------------------------------------
-%-- Barve hiper povezav
-
-\hypersetup{
-    colorlinks,
-    linkcolor={red!50!black},
-    citecolor={blue!50!black},
-    urlcolor={blue!80!black}
-}
-
-%--------------------------------------------------------------------
-%-- Okolja
-
-{
-  \theoremstyle{plain}
-
-  \newtheorem{izrek}{Izrek}[chapter]
-  \newtheorem{lema}[izrek]{Lema}
-  \newtheorem{izjava}[izrek]{Izjava}
-  \newtheorem{trditev}[izrek]{Trditev}
-  \newtheorem{posledica}[izrek]{Posledica}
-  \newtheorem{hipoteza}[izrek]{Hipoteza}
-  \newtheorem{aksiom}[izrek]{Aksiom}
-  \newtheorem{pravilo}[izrek]{Pravilo}
-}
-
-{
-  \theoremstyle{definition}
-  \newtheorem{definicija}[izrek]{Definicija}
-  \newtheorem{zgled}[izrek]{Zgled}
-  \newtheorem{opomba}[izrek]{Opomba}
-  \newtheorem{vaja}[izrek]{Vaja}
-}
-
-\Newassociation{resitev}{Resitev}{resitve}
-\renewcommand{\Resitevlabel}[1]{\emph{Re\v{s}itev~#1}}
-
-
-%\newcommand{\qedsign}{{\vrule width 1ex height 1ex depth 0ex}}
-%\newcommand{\qed}{\hfill\qedsign}
-
-%--------------------------------------------------------------------
+\usepackage[osnutek]{oblika}
 \input{macros.tex}
 
-
-%--------------------------------------------------------------------
-%-- Glava in dno
-
-\pagestyle{fancyplain}
-
-%\setlength{\headrulewidth}{0.2pt}
-\addtolength{\headheight}{2pt}
-
-\renewcommand{\chaptermark}[1]{\markboth{#1}{}}
-\renewcommand{\sectionmark}[1]{\markright{\thesection\ #1}}
-
-\lhead[\fancyplain{}{{\thepage}}]%
-      {\fancyplain{}{{\rightmark}}}
-\rhead[\fancyplain{}{{\leftmark}}]%
-      {\fancyplain{}{\thepage}}
-\cfoot{\footnotesize [verzija \today]}
-\lfoot[]{}
-\rfoot[]{}
-
-%--------------------------------------------------------------------
-% NASLOV
-
 \author{Andrej Bauer \and Davorin Lešnik}
-\title{Logika in množice \\ (Zapiski v nastajanju)}
+\title{Logika in množice}
+\renewcommand{\lmnNaslovNaPlatnici}{Logika \&\\ množice}
 
 \begin{document}
 
-\maketitle
+\frontmatter
 
-\cleardoublepage
+\lmnNaslovnaStran
 
-%--------------------------------------------------------------------
-% KAZALO
-\pagestyle{fancyplain}
-
-{
-\renewcommand{\markboth}[2]{}
 \tableofcontents
-}
 
-\cleardoublepage
-
-%--------------------------------------------------------------------
-% VSEBINA
+\mainmatter
 
 \input{predgovor.tex}
 \input{mnozice-in-preslikave.tex}
 \input{aritmetika-mnozic.tex}
 \input{simbolni-zapis.tex}
+\input{definicije-in-dokazi.tex}
+% TODO: logika.tex sproži v LuaTeX-u napako "(nodes): problem in getting a node, case 3"
+% pri gnezdenih \inferrule* okoli vrstice 479.  Glej sporocilo ob predaji.
+% \input{logika.tex}
+\input{boolova-algebra.tex}
+\input{podmnozice-in-potencna-mnozica.tex}
+\input{razredi-in-druzine.tex}
+\input{lastnosti-preslikav.tex}
+\input{relacije.tex}
+\input{ekvivalencne-relacije.tex}
+\input{delne-urejenosti.tex}
+\input{indukcija-in-dobra-osnovanost.tex}
+\input{moc-mnozic.tex}
+\input{zfc.tex}
 
-\input{04-definicije-in-dokazi.tex}
+% Se ni vkljuceno: mnozice.tex, strukture.tex
 
-\input{logika.tex}
-
-\input{05-boolova-algebra.tex}
-
-\input{06-podmnozice-in-potencna-mnozica.tex}
-
-\input{07-razredi-in-druzine.tex}
-
-\input{08-lastnosti-preslikav.tex}
-
-\input{09-relacije.tex}
-
-\input{10-ekvivalencne-relacije.tex}
-
-\input{11-delne-urejenosti.tex}
-
-\input{12-indukcija-in-dobra-osnovanost.tex}
-
-\input{13-moc-mnozic.tex}
-
-\input{14-zfc.tex}
-
-
-% \input{mnozice.tex}
-
-
-%--------------------------------------------------------------------
-% BIBLIOGRAFIJA
+\backmatter
 
 \bibliographystyle{alpha}
-\addcontentsline{toc}{chapter}{\numberline{}Literatura}
-\markboth{}{Literatura}
-
-{
-\raggedright
-\renewcommand{\markboth}[2]{}
-\bibliography{literatura}
-}
-
+\addcontentsline{toc}{chapter}{Literatura}
+{\raggedright\bibliography{literatura}}
 
 \end{document}
 
-%%% Local Variables: 
+%%% Local Variables:
 %%% mode: latex
-%%% TeX-master: t
-%%% End: 
+%%% TeX-engine: luatex
+%%% End:
