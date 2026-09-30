@@ -1670,8 +1670,22 @@ dokaza opustimo, zahteva pazljivost in nekaj izkušenj.
 \section{Enakost in reševanje enačb}
 \label{sec:enakost}
 
-Enakost $=$ je osnovna relacija, ki zadošča naslednjim aksiomom in
-pravilom sklepanja:
+Enakost $=$ je osnovna relacija, ki zadošča štirim pravilom:
+%
+\begin{itemize}
+\item \df{refleksivnost}: vsak izraz je enak sam sebi,
+\item \df{simetrija}: če je $a = b$, je tudi $b = a$,
+\item \df{tranzitivnost}: če je $a = b$ in $b = c$, je tudi $a = c$,
+\item \df{zamenjava}: enak izraz smemo vedno zamenjati z njim enakim,
+  se pravi, iz $\phi(a)$ in $a = b$ sledi $\phi(b)$.
+\end{itemize}
+%
+Zaenkrat enakosti ne bomo posvečali posebne pozornosti, saj jo v praksi
+študenti dobro obvladajo.
+
+\dodatniRazdelek{Formalna pravila za enakost}
+
+Zgornja štiri pravila zapišemo formalno takole:
 %
 \begin{mathpar}
   \inferrule{ }{a = a}
@@ -1682,11 +1696,8 @@ pravilom sklepanja:
   \and
   \inferrule{\phi(a) \\ a = b}{\phi(b)}
 \end{mathpar}
-%
-Po vrsti so to pravila \emph{refleksivnosti}, \emph{simetrije},
-\emph{tranzitivnosti} in \emph{zamenjave}. Zaenkrat enakosti ne bomo
-posvečali posebne pozornosti, saj jo v praksi študenti dobro
-obvladajo.
+
+\subsection{Reševanje enačb}
 
 V osnovni in srednji šoli se učimo pravil za reševanje enačb: enačbi
 smemo na obeh straneh prišteti ali odšteti poljuben izraz, pomnožiti
