@@ -95,13 +95,12 @@
 %% Barve
 %%
 %% ULrdeca je barva CGP Univerze v Ljubljani (Pantone 1797, RAL 3028).
-%% Uporablja se na platnicah in naslovnici.
-%% poudarek je ista barva, zatemnjena za stavek v 10pt.
+%% To je edina barva v knjigi.  Nosijo jo crte ob dogovornih okoljih in
+%% stevilka poglavja; besedila ne barvamo.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \RequirePackage{xcolor}
 \definecolor{ULrdeca}{HTML}{E03127}
-\definecolor{poudarek}{HTML}{7B1B15}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %% Navpicni ritem
@@ -199,7 +198,7 @@
 \titleformat{\chapter}[display]
   {\normalfont\raggedright}
   {\lmnNaslovnaPisava\fontsize{\lmnStopnjaStevilkePoglavja}{\lmnStopnjaStevilkePoglavja}%
-   \selectfont\color{poudarek}\lmnVerzalke\thechapter}
+   \selectfont\color{ULrdeca}\lmnVerzalke\thechapter}
   {\lmnEnota}
   {\lmnNaslovnaPisava\fontsize{\lmnStopnjaNaslovaPoglavja}{\lmnStopnjaNaslovaPoglavja}\selectfont #1}
 
@@ -270,10 +269,7 @@
 
 \RequirePackage[
   unicode,
-  colorlinks,
-  linkcolor  = poudarek,
-  citecolor  = poudarek,
-  urlcolor   = poudarek,
+  hidelinks,
   pdfauthor  = {{Andrej Bauer, Davorin Lešnik}},
   pdftitle   = {Logika in množice},
   pdfsubject = {matematika}
