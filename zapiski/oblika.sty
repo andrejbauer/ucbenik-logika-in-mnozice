@@ -149,8 +149,26 @@
 \newtheorem{posledica}[izrek]{Posledica}
 \newtheorem{hipoteza}[izrek]{Hipoteza}
 
+% Definicije nosijo navpicno crto v barvi poudarka.  Nosijo jo samo one:
+% ce bi jo dobila se pravila in aksiomi, bi bile prve strani same crte.
+\RequirePackage[framemethod=default]{mdframed}
+\mdfdefinestyle{obDefinicija}{
+  linewidth         = 1pt,
+  linecolor         = poudarek,
+  topline           = false,
+  bottomline        = false,
+  rightline         = false,
+  leftline          = true,
+  innerleftmargin   = 1em,
+  innerrightmargin  = 0pt,
+  innertopmargin    = 0pt,
+  innerbottommargin = 0pt,
+  skipabove         = 0pt,
+  skipbelow         = 0pt
+}
+
 \theoremstyle{obDogovorni}
-\newtheorem{definicija}[izrek]{Definicija}
+\newmdtheoremenv[style=obDefinicija]{definicija}[izrek]{Definicija}
 \newtheorem{aksiom}[izrek]{Aksiom}
 \newtheorem{pravilo}[izrek]{Pravilo}
 \newtheorem{zgled}[izrek]{Zgled}
