@@ -51,7 +51,7 @@
 \newcommand{\liff}{\Leftrightarrow}
 
 % Hipoteticna izpeljava: iz predpostavk #1 pridemo do #2.
-\NewDocumentCommand{\izpeljava}{m m}{\begin{prooftree}\hypo{#1}\ellipsis{}{#2}\end{prooftree}}
+\NewDocumentCommand{\izpeljava}{m m}{\begin{array}[b]{c}{#1}\\ \vdots\\ {#2}\end{array}}
 \newcommand{\hypoinfer}{\izpeljava}  % starejse ime
 
 % Standardne množice
