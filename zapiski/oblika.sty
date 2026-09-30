@@ -17,8 +17,6 @@
 \newlength{\lmnPolEnota}     \setlength{\lmnPolEnota}{6.75pt}
 \newlength{\lmnDvojnaEnota}  \setlength{\lmnDvojnaEnota}{27pt}
 
-\newlength{\lmnDebelinaCrte} \setlength{\lmnDebelinaCrte}{2.5pt}
-
 \newcommand{\lmnStopnjaStevilkePoglavja}{48} % stopnja stevilke poglavja
 \newcommand{\lmnStopnjaNaslovaPoglavja}{20}   % stopnja naslova poglavja
 
@@ -132,25 +130,15 @@
 %% Oznaka v barvi poudarka, brez okvirjev, crt in podlag.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-%% Uokvirjena so okolja, ki jih student isce nazaj: trditve in dogovori.
-%% Barvi sta iz CGP UL -- rdeca za dogovore, antracit za trditve -- in
-%% nosita zelo blago podlago.  Zgled, opomba in vaja ostanejo neuokvirjeni,
-%% dokaz prav tako.
+%% Brez okvirjev, crt, podlag in barve.  Okolja locita oznaka in lega
+%% telesa: lezece pri trdilnih, pokoncno pri ostalih.  Barvo nosi samo
+%% stevilka poglavja.
 
-\newlength{\lmnDebelinaOkvira} \setlength{\lmnDebelinaOkvira}{0.6pt}
-\newcommand{\lmnGostotaPodlage}{5} % odstotki
-
-\newtheoremstyle{lmnLezeceTeloVOkviru}
-  {0pt}{0pt}                 % razmik prispeva mdframed od zunaj
-  {\itshape}{0pt}
-  {\bfseries\lmnVerzalke}{.}
-  {0.5em}{}
-
-\newtheoremstyle{lmnPokoncnoTeloVOkviru}
-  {0pt}{0pt}
-  {\upshape}{0pt}
-  {\bfseries\lmnVerzalke}{.}
-  {0.5em}{}
+\newtheoremstyle{lmnLezeceTelo}
+  {\lmnEnota}{\lmnEnota}     % razmik zgoraj / spodaj
+  {\itshape}{0pt}            % telo / zamik
+  {\bfseries\lmnVerzalke}{.} % oznaka / locilo
+  {0.5em}{}                  % razmik za oznako / oblika
 
 \newtheoremstyle{lmnPokoncnoTelo}
   {\lmnEnota}{\lmnEnota}
@@ -158,46 +146,18 @@
   {\bfseries\lmnVerzalke}{.}
   {0.5em}{}
 
-\RequirePackage[framemethod=default]{mdframed}
-
-\mdfdefinestyle{lmnOkvirTrditve}{
-  linewidth         = \lmnDebelinaOkvira,
-  linecolor         = ULantracit,
-  backgroundcolor   = ULantracit!\lmnGostotaPodlage,
-  innerleftmargin   = 0.8em,
-  innerrightmargin  = 0.8em,
-  innertopmargin    = \lmnPolEnota,
-  innerbottommargin = \lmnPolEnota,
-  skipabove         = \lmnEnota,
-  skipbelow         = \lmnEnota
-}
-
-\mdfdefinestyle{lmnOkvirDogovora}{
-  linewidth         = \lmnDebelinaOkvira,
-  linecolor         = ULrdeca,
-  backgroundcolor   = ULrdeca!\lmnGostotaPodlage,
-  innerleftmargin   = 0.8em,
-  innerrightmargin  = 0.8em,
-  innertopmargin    = \lmnPolEnota,
-  innerbottommargin = \lmnPolEnota,
-  skipabove         = \lmnEnota,
-  skipbelow         = \lmnEnota
-}
-
-\theoremstyle{lmnLezeceTeloVOkviru}
-\newmdtheoremenv[style=lmnOkvirTrditve]{izrek}{Izrek}[chapter]
-\newmdtheoremenv[style=lmnOkvirTrditve]{lema}[izrek]{Lema}
-\newmdtheoremenv[style=lmnOkvirTrditve]{izjava}[izrek]{Izjava}
-\newmdtheoremenv[style=lmnOkvirTrditve]{trditev}[izrek]{Trditev}
-\newmdtheoremenv[style=lmnOkvirTrditve]{posledica}[izrek]{Posledica}
-\newmdtheoremenv[style=lmnOkvirTrditve]{hipoteza}[izrek]{Hipoteza}
-
-\theoremstyle{lmnPokoncnoTeloVOkviru}
-\newmdtheoremenv[style=lmnOkvirDogovora]{definicija}[izrek]{Definicija}
-\newmdtheoremenv[style=lmnOkvirDogovora]{aksiom}[izrek]{Aksiom}
-\newmdtheoremenv[style=lmnOkvirDogovora]{pravilo}[izrek]{Pravilo}
+\theoremstyle{lmnLezeceTelo}
+\newtheorem{izrek}{Izrek}[chapter]
+\newtheorem{lema}[izrek]{Lema}
+\newtheorem{izjava}[izrek]{Izjava}
+\newtheorem{trditev}[izrek]{Trditev}
+\newtheorem{posledica}[izrek]{Posledica}
+\newtheorem{hipoteza}[izrek]{Hipoteza}
 
 \theoremstyle{lmnPokoncnoTelo}
+\newtheorem{definicija}[izrek]{Definicija}
+\newtheorem{aksiom}[izrek]{Aksiom}
+\newtheorem{pravilo}[izrek]{Pravilo}
 \newtheorem{zgled}[izrek]{Zgled}
 \newtheorem{opomba}[izrek]{Opomba}
 \newtheorem{vaja}[izrek]{Vaja}
