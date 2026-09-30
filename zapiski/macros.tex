@@ -1,6 +1,7 @@
 \newcommand{\nls}[1]{\guillemotright\textit{#1}\guillemotleft} % naravni jezik
 \newcommand{\df}[1]{\emph{\textbf{#1}}}  % definiranec
-\newcommand{\dfeq}{\mathrel{{:}{=}}}  % definicijska enačba
+\newcommand{\defeq}{\mathrel{{:}{=}}}  % definicijska enacba
+\newcommand{\dfeq}{\defeq}                     % starejse ime
 
 \newcommand{\konst}[1]{\mathrm{k}_{#1}} % konstantna preslikava
 
@@ -16,8 +17,10 @@
 \newcommand{\exactlyone}[1]{\exists! #1 \,.\,}
 \newcommand{\descr}[1]{\iota #1 \,.\,}
 
-\newcommand{\defeq}{\mathbin{{:}{=}}}
 \newcommand{\defiff}{\quad {{:}{\Longleftrightarrow}}\quad }
+
+% \Box je v unicode-math prazen kvadratek; rabimo ga kot vsebnik.
+\renewcommand{\Box}{\mdlgwhtsquare}
 
 \newcommand{\brac}[1]{\dots $\langle$#1$\rangle$ \dots}
 
@@ -47,8 +50,9 @@
 \newcommand{\lthen}{\Rightarrow}
 \newcommand{\liff}{\Leftrightarrow}
 
-% Sklep iz hipoteze
-\newcommand{\hypoinfer}[2]{\begin{array}[b]{c}{#1}\\ \vdots\\{#2}\end{array}}
+% Hipoteticna izpeljava: iz predpostavk #1 pridemo do #2.
+\NewDocumentCommand{\izpeljava}{m m}{\begin{prooftree}\hypo{#1}\ellipsis{}{#2}\end{prooftree}}
+\newcommand{\hypoinfer}{\izpeljava}  % starejse ime
 
 % Standardne množice
 \newcommand{\NN}{\mathbb{N}}
@@ -71,18 +75,13 @@
 \newcommand{\inj}[1][]{\mathsf{in}_{#1}}
 \newcommand{\pr}[1][]{\mathsf{pr}_{#1}}
 
-\NewDocumentCommand{\fst}
-{O{\empty} O{\empty}}
-{\pr[1]^{{#1}\ifthenelse{\equal{#2}{}}{}{,}{#2}}}
-\NewDocumentCommand{\snd}
-{O{\empty} O{\empty}}
-{\pr[2]^{{#1}\ifthenelse{\equal{#2}{}}{}{,}{#2}}}
-\NewDocumentCommand{\inl}
-{O{\empty} O{\empty}}
-{\inj[1]^{{#1}\ifthenelse{\equal{#2}{}}{}{,}{#2}}}
-\NewDocumentCommand{\inr}
-{O{\empty} O{\empty}}
-{\inj[2]^{{#1}\ifthenelse{\equal{#2}{}}{}{,}{#2}}}
+%% Neobvezna nadpisa loci vejica, kadar sta podana oba.
+\NewDocumentCommand{\nadpisa}{m m}{#1\IfBlankF{#2}{,}#2}
+
+\NewDocumentCommand{\fst}{O{} O{}}{\pr[1]^{\nadpisa{#1}{#2}}}
+\NewDocumentCommand{\snd}{O{} O{}}{\pr[2]^{\nadpisa{#1}{#2}}}
+\NewDocumentCommand{\inl}{O{} O{}}{\inj[1]^{\nadpisa{#1}{#2}}}
+\NewDocumentCommand{\inr}{O{} O{}}{\inj[2]^{\nadpisa{#1}{#2}}}
 
 
 %%% Naravna števila

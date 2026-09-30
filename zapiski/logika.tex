@@ -420,14 +420,14 @@ predpostavimo $\phi$ in dokažemo $\psi$. Tako pravilo vpeljave
 zapišemo
 %
 \begin{equation*}
-  \inferrule{\infer*{\psi}{[\phi]}}{\phi \lthen \psi}  
+  \inferrule{\izpeljava{[\phi]}{\psi}}{\phi \lthen \psi}  
 \end{equation*}
 %
 Zapis $[\phi]$ z oglatimi oklepaji pomeni, da $\phi$ ni prava, ampak
 samo začasna hipoteza. Zapis
 %
 \begin{equation*}
-  \infer*{\psi}{[\phi]}
+  \izpeljava{[\phi]}{\psi}
 \end{equation*}
 %
 pomeni ">dokaz izjave $\psi$ s pomočjo začasne hipoteze $\phi$."<
@@ -457,7 +457,7 @@ Disjunkcija ima dve pravili vpeljave in eno pravilo uporabe:
   {\phi \lor \psi}
   \and
   \inferrule
-  {\phi \lor \psi \\ \infer*{\rho}{[\phi]} \\ \infer*{\rho}{[\psi]}}
+  {\phi \lor \psi \\ \izpeljava{[\phi]}{\rho} \\ \izpeljava{[\psi]}{\rho}}
   {\rho}
 \end{mathpar}
 %
@@ -760,7 +760,7 @@ pravili sklepanja za negacijo:
 %
 \begin{mathpar}
   \inferrule
-  {\infer*{\bot}{[\phi]}}
+  {\izpeljava{[\phi]}{\bot}}
   {\lnot \phi}
   %
   \and
@@ -1014,7 +1014,7 @@ naslednjih ekvivalenc:
   % 
   \begin{equation}
     \label{eq:pozitivno-limita-0}
-    \all{a \in \RR^\NN}{\text{$(a_n)_n$ pozitivno zaporedje}
+    \all{a \in \RR^{\NN}}{\text{$(a_n)_n$ pozitivno zaporedje}
       \lthen \text{$0$ je limita zaporedja $(a_n)_n$}}.
   \end{equation}
   % 
@@ -1024,7 +1024,7 @@ naslednjih ekvivalenc:
   izrazimo negacijo izjave~\eqref{eq:pozitivno-limita-0}:
   % 
   \begin{equation*}
-    \some{a \in \RR^\NN}{\text{$(a_n)_n$ pozitivno zaporedje}
+    \some{a \in \RR^{\NN}}{\text{$(a_n)_n$ pozitivno zaporedje}
       \land \lnot (\text{$0$ je limita zaporedja $(a_n)_n$})}.
   \end{equation*}
   % 
@@ -1376,7 +1376,7 @@ iz $S$ velja $\phi$."< Pravili sklepanja sta
 %
 \begin{mathpar}
   \inferrule
-  {\infer*{\phi(x)}{[x \in S]}}{\all{x \in S} \phi(x)} \ \text{($x$ svež)}
+  {\izpeljava{[x \in S]}{\phi(x)}}{\all{x \in S} \phi(x)} \ \text{($x$ svež)}
   \and
   \inferrule{\all{x \in S} \phi(x) \\ e \in S}{\phi(e)}
 \end{mathpar}
@@ -1493,7 +1493,7 @@ $\phi$."< Pravili sklepanja za eksistenčni kvantifikator se glasita
   \inferrule
   {\some{x \in S} \phi(x)
     \\
-    \infer*{\psi}{[x \in S \land \phi(x)]}}
+    \izpeljava{[x \in S \land \phi(x)]}{\psi}}
   {\psi}\ \text{($x$ svež)}
 \end{mathpar}
 %
@@ -1562,7 +1562,7 @@ iz~\eqref{eq:uniqe-exists}:
     \\
     \phi(e)
     \\
-    \infer*{y = e}{y \in S \land \phi(y)}
+    \izpeljava{y \in S \land \phi(y)}{y = e}
   }
   {\exactlyone{x}{S}{\phi}}
 \end{equation*}

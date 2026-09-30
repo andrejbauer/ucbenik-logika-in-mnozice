@@ -376,7 +376,7 @@ podobna, le da bi imeli več injekcij in več primerov.
 % Marsikdaj želimo delati ne samo z eno preslikavo, pač pa s celo množico preslikav naenkrat. Zato uvedemo: množica vseh preslikav, ki slikajo iz $X$ v $Y$, se označi kot $Y^X$; temu se reče \df{eksponent} množic $X$ in $Y$ (\note{na primernem mestu kasneje} bomo razložili, od kod ta oznaka).
 
 % \begin{zgled}
-% Množico vseh preslikav, ki realna števila slikajo nazaj v realna števila, označimo z $\RR^\RR$. Če nas zanimajo realne preslikave, ki so definirana samo na intervalu $\intoo{-1}{1}$, opazujemo množico $\RR^{\intoo{-1}{1}}$. Definiramo lahko preslikavo
+% Množico vseh preslikav, ki realna števila slikajo nazaj v realna števila, označimo z $\RR^{\RR}$. Če nas zanimajo realne preslikave, ki so definirana samo na intervalu $\intoo{-1}{1}$, opazujemo množico $\RR^{\intoo{-1}{1}}$. Definiramo lahko preslikavo
 % \begin{align*}
 % \RR^{\intoo{-1}{1}} &\to \RR \\
 % f &\mapsto f(0),
@@ -428,8 +428,8 @@ Tudi eksponent množic smo podali po istem vzorcu v razdelku~\ref{sec:preslikave
 \label{sec:presl-visj-red}
 
 Preslikavo, ki sprejme kot argument preslikavo, imenujemo \df{funkcional} ali \df{preslikava
-  višjega reda}. Znan primer je določeni integral, ki kot argumente sprejme realni števili $a, b\in \RR$ in integrabilno funkcijo $f \in \RR^\RR$ ter izračuna ploščino pod~$f$ na intervalu~$[a,b]$.
-Še en primer je operacija $\lim$, ki sprejme konvergentno zaporedje $a \in \RR^\NN$ in izračuna njegovo limito.
+  višjega reda}. Znan primer je določeni integral, ki kot argumente sprejme realni števili $a, b\in \RR$ in integrabilno funkcijo $f \in \RR^{\RR}$ ter izračuna ploščino pod~$f$ na intervalu~$[a,b]$.
+Še en primer je operacija $\lim$, ki sprejme konvergentno zaporedje $a \in \RR^{\NN}$ in izračuna njegovo limito.
 
 V razdelku~\ref{sec:kompozicija} smo že srečali funkcional, namreč kompozicijo preslikav. Zapišimo jo še enkrat tako, da nastopi operacija $\circ$ kot preslikava:
 %
@@ -768,7 +768,7 @@ $A \times B \cong B \times A$. Kaj pa ostali zakoni?
     A + (B + C) &\cong (A + B) + C   &     A \times (B \times C) &\cong (A \times B) \times C \\[1ex]
     \emptyset \times A &\cong \emptyset                           &   \one^A &\cong \one \\
     (A + B) \times C &\cong A \times C + B \times C &   (A \times B)^C &\cong A^C \times B^C \\[1ex]
-    A^\emptyset &\cong \one                     &   A^\one &\cong A \\
+    A^\emptyset &\cong \one                     &   A^{\one} &\cong A \\
     A^{B + C} &\cong A^B \times A^C   &   A^{B \times C} &\cong (A^B)^C \\[1ex]
     \emptyset^A &\cong \emptyset \quad \text{če $A \neq \emptyset$.}
   \end{align*}
@@ -879,11 +879,11 @@ treh množic urejene trojice itd. Zmnožek nič množic je nevtralni element za 
 torej so njegovi elementi urejene ničterice, oziroma urejena ničterica~$\unit$, ker je ena
 sama.
 
-Izomorfizma $A^\one \cong A$ ni težko zapisati:
+Izomorfizma $A^{\one} \cong A$ ni težko zapisati:
 %
 \begin{align*}
-  f &: A^\one \to A &
-  g &: A \to A^\one \\
+  f &: A^{\one} \to A &
+  g &: A \to A^{\one} \\
   f &: h \mapsto h(\unit) &
   g &: x \mapsto (y \mapsto x)
 \end{align*}
@@ -894,7 +894,7 @@ Preverimo, da je $g$ inverz $f$. Za vsak $x \in A$ velja
   f(g(x)) = f(y \mapsto x) = x,
 \end{equation*}
 %
-zato je $f \circ g = \id[A]$. Za vsak $h \in A^\one$ velja
+zato je $f \circ g = \id[A]$. Za vsak $h \in A^{\one}$ velja
 %
 \begin{equation*}
   g(f(h)) = g(h(\unit)) = (y \mapsto h(\unit)).
@@ -909,7 +909,7 @@ element~$\one$. Torej je $h = (y \mapsto h(\unit))$, saj velja
   (y \mapsto h(\unit))(\unit) = h(\unit).
 \end{equation*}
 %
-Izomorfnost $A$ in $A^\one$ pravzaprav pove nekaj zanimivega: preslikave $\one \to A$
+Izomorfnost $A$ in $A^{\one}$ pravzaprav pove nekaj zanimivega: preslikave $\one \to A$
 lahko obravnavamo kot elemente~$A$ in obratno.
 
 \subsection{Preslikave in prazna množica}

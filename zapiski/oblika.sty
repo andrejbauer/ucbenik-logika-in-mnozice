@@ -1,0 +1,260 @@
+\ProvidesPackage{oblika}[2026/09/30 Oblika ucbenika Logika in mnozice]
+
+% Moznost `osnutek' doda v vznozje datum razlicice.
+\newif\ifobOsnutek\obOsnutekfalse
+\DeclareOption{osnutek}{\obOsnutektrue}
+\ProcessOptions\relax
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% Nastavljive konstante
+%%
+%% Format: 155 x 235 mm (evropski ustreznik 6" x 9").
+%% Stavek:  108 x 513pt = 38 vrstic po 13.5pt.
+%% Stopnja: 10pt, razmik vrstic 13.5pt.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\newlength{\obEnota}        \setlength{\obEnota}{13.5pt}
+\newlength{\obPolEnota}     \setlength{\obPolEnota}{6.75pt}
+\newlength{\obDvojnaEnota}  \setlength{\obDvojnaEnota}{27pt}
+
+\newcommand{\obStevilkaPoglavja}{48} % stopnja stevilke poglavja
+\newcommand{\obNaslovPoglavja}{20}   % stopnja naslova poglavja
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% Jezik
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\RequirePackage[slovene]{babel}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% Stran
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\RequirePackage[
+  paperwidth  = 155mm,
+  paperheight = 235mm,
+  textwidth   = 108mm,
+  textheight  = 513pt,   % 38 vrstic po 13.5pt
+  inner       = 21mm,
+  top         = 24mm,
+  includehead,
+  headheight  = \obEnota,
+  headsep     = \obEnota,
+  footskip    = \obDvojnaEnota
+]{geometry}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% Matematika (amsmath pred unicode-math!)
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\RequirePackage{amsmath}
+\RequirePackage{amsthm}
+\RequirePackage{mathtools}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% Pisave
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\RequirePackage{fontspec}
+\RequirePackage{unicode-math}
+
+\setmainfont{Libertinus Serif}[
+  Ligatures = TeX,
+  Numbers   = OldStyle
+]
+\setsansfont{Libertinus Sans}[Ligatures = TeX]
+\setmonofont{Libertinus Mono}[Scale = MatchLowercase]
+\setmathfont{Libertinus Math}
+% Libertinus Math nima znaka U+22BB (ekskluzivna disjunkcija).
+\setmathfont{STIX Two Math}[range={"22BB}]
+
+% Naslovna razlicica za velike stopnje
+\newfontfamily\obDisplay{Libertinus Serif Display}[Ligatures = TeX]
+
+% Kapitelke in verzalne stevke za tekoce naslove in oznake
+\newfontfamily\obKapitelke{Libertinus Serif}[
+  Ligatures = TeX,
+  Letters   = SmallCaps,
+  Numbers   = Lining
+]
+\newcommand{\obVerzalke}{\addfontfeature{Numbers=Lining}}
+
+% Pisava vizualne podobe UL -- samo za okrasno rabo
+\newfontfamily\obUniverza{Univerza Sans}[Ligatures = TeX]
+\newfontfamily\obUniverzaTanka{Univerza Sans Light}[Ligatures = TeX]
+
+\RequirePackage[
+  protrusion = true,
+  expansion  = true,
+  final
+]{microtype}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% Barve
+%%
+%% ULrdeca je barva CGP Univerze v Ljubljani (Pantone 1797, RAL 3028).
+%% Uporablja se na platnicah in naslovnici.
+%% poudarek je ista barva, zatemnjena za stavek v 10pt.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\RequirePackage{xcolor}
+\definecolor{ULrdeca}{HTML}{E03127}
+\definecolor{poudarek}{HTML}{7B1B15}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% Navpicni ritem
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\linespread{1.125} % 12pt -> 13.5pt
+
+% Strog navpicni ritem: strani koncamo, kjer se koncajo, namesto da bi jih
+% raztegovali do roba.
+\raggedbottom
+
+\setlength{\parindent}{1.5em}
+\setlength{\parskip}{0pt}
+
+\setlength{\abovedisplayskip}{\obPolEnota}
+\setlength{\belowdisplayskip}{\obPolEnota}
+\setlength{\abovedisplayshortskip}{0pt}
+\setlength{\belowdisplayshortskip}{\obPolEnota}
+
+\RequirePackage{enumitem}
+\setlist{nosep, topsep=\obPolEnota, itemsep=0pt, parsep=0pt}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% Izreki
+%%
+%% Trdilna okolja: telo v kurzivi.  Dogovorna okolja: telo pokoncno.
+%% Oznaka v barvi poudarka, brez okvirjev, crt in podlag.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\newtheoremstyle{obTrdilni}
+  {\obEnota}{\obEnota}                       % razmik zgoraj / spodaj
+  {\itshape}{0pt}                            % telo / zamik
+  {\bfseries\obVerzalke\color{poudarek}}{.}  % oznaka / locilo
+  {0.5em}{}                                  % razmik za oznako / oblika
+
+\newtheoremstyle{obDogovorni}
+  {\obEnota}{\obEnota}
+  {\upshape}{0pt}
+  {\bfseries\obVerzalke\color{poudarek}}{.}
+  {0.5em}{}
+
+\theoremstyle{obTrdilni}
+\newtheorem{izrek}{Izrek}[chapter]
+\newtheorem{lema}[izrek]{Lema}
+\newtheorem{izjava}[izrek]{Izjava}
+\newtheorem{trditev}[izrek]{Trditev}
+\newtheorem{posledica}[izrek]{Posledica}
+\newtheorem{hipoteza}[izrek]{Hipoteza}
+
+\theoremstyle{obDogovorni}
+\newtheorem{definicija}[izrek]{Definicija}
+\newtheorem{aksiom}[izrek]{Aksiom}
+\newtheorem{pravilo}[izrek]{Pravilo}
+\newtheorem{zgled}[izrek]{Zgled}
+\newtheorem{opomba}[izrek]{Opomba}
+\newtheorem{vaja}[izrek]{Vaja}
+
+\renewcommand{\qedsymbol}{\ensuremath{\mdlgwhtsquare}}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% Naslovi poglavij in razdelkov
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\RequirePackage[explicit]{titlesec}
+
+% Stevilka poglavja v pisavi UL, naslov v Libertinusu.
+\titleformat{\chapter}[display]
+  {\normalfont\raggedright}
+  {\obUniverzaTanka\fontsize{\obStevilkaPoglavja}{\obStevilkaPoglavja}%
+   \selectfont\color{poudarek}\thechapter}
+  {\obEnota}
+  {\obDisplay\fontsize{\obNaslovPoglavja}{\obNaslovPoglavja}\selectfont #1}
+
+% Poglavje se zacne priblizno tretjino strani navzdol (8 enot = 108pt).
+\titlespacing*{\chapter}{0pt}{108pt}{\obDvojnaEnota}
+
+\titleformat{\section}[hang]
+  {\normalfont\large\bfseries\raggedright}
+  {\thesection}{0.75em}{#1}
+\titlespacing*{\section}{0pt}{\obDvojnaEnota}{\obPolEnota}
+
+\titleformat{\subsection}[hang]
+  {\normalfont\bfseries\raggedright}
+  {\thesubsection}{0.75em}{#1}
+\titlespacing*{\subsection}{0pt}{\obEnota}{0pt}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% Tekoci naslovi
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\RequirePackage{fancyhdr}
+
+\renewcommand{\chaptermark}[1]{\markboth{#1}{}}
+\renewcommand{\sectionmark}[1]{\markright{\thesection\ #1}}
+
+\fancypagestyle{oblika}{%
+  \fancyhf{}%
+  \renewcommand{\headrulewidth}{0pt}%
+  \renewcommand{\footrulewidth}{0pt}%
+  \fancyhead[LE]{\obUniverza\small\thepage\qquad\nouppercase{\leftmark}}%
+  \fancyhead[RO]{\obUniverza\small\nouppercase{\rightmark}\qquad\thepage}%
+  \ifobOsnutek\fancyfoot[C]{\obUniverza\scriptsize[osnutek \today]}\fi
+}
+
+\fancypagestyle{plain}{%
+  \fancyhf{}%
+  \renewcommand{\headrulewidth}{0pt}%
+  \renewcommand{\footrulewidth}{0pt}%
+  \ifobOsnutek\fancyfoot[C]{\obUniverza\scriptsize[osnutek \today]}\fi
+}
+
+% Prazne strani, ki nastanejo pri \cleardoublepage, naj bodo res prazne.
+\RequirePackage{emptypage}
+
+\pagestyle{oblika}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% Risbe, diagrami, izpeljave, tabele
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\RequirePackage{tikz}
+\usetikzlibrary{calc}
+\RequirePackage{tkz-euclide}
+\RequirePackage{tikz-cd}
+
+% Slovenski babel naredi " aktiven, kar se zaleti v oznake puscic tikz-cd.
+\RequirePackage{etoolbox}
+\AtBeginEnvironment{tikzcd}{\shorthandoff{"}}
+
+\RequirePackage{ebproof}     % izpeljave
+\RequirePackage{mathpartir}  % nabori pravil sklepanja
+
+\RequirePackage{booktabs}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% Resitve vaj
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\RequirePackage{answers}
+\Newassociation{resitev}{Resitev}{resitve}
+\renewcommand{\Resitevlabel}[1]{\emph{Rešitev~#1}}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% Povezave -- nalozimo pozno
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\RequirePackage[
+  unicode,
+  colorlinks,
+  linkcolor  = poudarek,
+  citecolor  = poudarek,
+  urlcolor   = poudarek,
+  pdfauthor  = {{Andrej Bauer, Davorin Lešnik}},
+  pdftitle   = {Logika in množice},
+  pdfsubject = {matematika}
+]{hyperref}
+
+\endinput
