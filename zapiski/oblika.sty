@@ -171,9 +171,6 @@
 %% rdeca v polni jakosti.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\newlength{\lmnDebelinaNaslovneCrte}
-\setlength{\lmnDebelinaNaslovneCrte}{8pt}
-
 \newcommand{\lmnUstanova}{Univerza v Ljubljani}
 \newcommand{\lmnClanica}{Fakulteta za matematiko in fiziko}
 
@@ -186,9 +183,9 @@
     \fill[ULrdeca] (current page.south west) rectangle (current page.north east);
   \end{tikzpicture}%
   \raggedright\color{white}%
-  \vspace*{\dimexpr 0.22\textheight}%
-  {\color{white}\rule{\textwidth}{\lmnDebelinaNaslovneCrte}\par}%
-  \vspace{\lmnEnota}%
+  % Naslov stoji na zgornjem robu stavka, ustanova na spodnjem; razmerje
+  % dolocajo robovi strani, ne izbrana stevilka.
+  \vspace*{0pt}%
   {\lmnUniverzaSansTanka\fontsize{34}{38}\selectfont \@title\par}%
   \vspace{\lmnDvojnaEnota}%
   {\lmnUniverzaSans\fontsize{13}{\lmnEnota}\selectfont
