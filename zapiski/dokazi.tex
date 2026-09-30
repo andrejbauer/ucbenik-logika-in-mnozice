@@ -56,10 +56,9 @@ zgrožen. Verjetno bo najprej preizkusil izrek na nekaj primerih:
 Res dobivamo večkratnike števila~$3$. Ali smo izrek s tem dokazali? Seveda ne!
 Preizkusili smo le štiri primere, ostane pa jih še neskončno mnogo. Kdor
 misli, da lahko iz nekaj primerov sklepa na splošno veljavnost, naj v poduk
-vzame naslednji zgled.
+vzame naslednjo vajo.
 
 \begin{vaja}
-  \label{zgled:n2-n-41}
   Ali je $n^2 - n + 41$ praštevilo za vsako naravno število~$n$?
 \end{vaja}
 
@@ -583,10 +582,10 @@ pravili!
 
 \label{sec:lem}
 
-Aksiom o izključenem tretjem pravi, da za vsako izjavo~$\phi$ velja
+Aksiom o izključenem tretjem se glasi
 %
 \begin{equation*}
-  \phi \lor \lnot \phi.
+  \inferrule{ }{\phi \lor \lnot \phi}
 \end{equation*}
 %
 Povedano z besedami, vsaka izjava je bodisi resnična bodisi
@@ -598,7 +597,8 @@ katerih je najbolj znano \textbf{dokazovanje s protislovjem}: pri tem ne
 utemeljimo izjave $\phi$, ampak utemeljimo, zakaj $\lnot\phi$
 \emph{ne} velja. Natančneje povedano, izjavo $\phi$ zamenjamo z njej
 ekvivalentno izjavo $\lnot\lnot\phi$ in dokažemo $\lnot\lnot\phi$.
-V matematičnem besedilu se dokaz s protislovjem
+V dokazu $\lnot\lnot\phi \lthen \phi$ smo uporabili aksiom o
+izključenem tretjem. V matematičnem besedilu se dokaz s protislovjem
 glasi:
 %
 \begin{quote}
@@ -888,18 +888,23 @@ dokaza opustimo, zahteva pazljivost in nekaj izkušenj.
 \section{Enakost in reševanje enačb}
 \label{sec:enakost}
 
-Enakost $=$ je osnovna relacija, ki zadošča štirim pravilom:
+Enakost $=$ je osnovna relacija, ki zadošča naslednjim aksiomom in
+pravilom sklepanja:
 %
-\begin{itemize}
-\item \df{refleksivnost}: vsak izraz je enak sam sebi,
-\item \df{simetrija}: če je $a = b$, je tudi $b = a$,
-\item \df{tranzitivnost}: če je $a = b$ in $b = c$, je tudi $a = c$,
-\item \df{zamenjava}: enak izraz smemo vedno zamenjati z njim enakim,
-  se pravi, iz $\phi(a)$ in $a = b$ sledi $\phi(b)$.
-\end{itemize}
+\begin{mathpar}
+  \inferrule{ }{a = a}
+  \and
+  \inferrule{a = b}{b = a}
+  \and
+  \inferrule{a = b \\ b = c}{a = c}
+  \and
+  \inferrule{\phi(a) \\ a = b}{\phi(b)}
+\end{mathpar}
 %
-Zaenkrat enakosti ne bomo posvečali posebne pozornosti, saj jo v praksi
-študenti dobro obvladajo.
+Po vrsti so to pravila \emph{refleksivnosti}, \emph{simetrije},
+\emph{tranzitivnosti} in \emph{zamenjave}. Zaenkrat enakosti ne bomo
+posvečali posebne pozornosti, saj jo v praksi študenti dobro
+obvladajo.
 
 \subsection{Reševanje enačb}
 
@@ -1003,8 +1008,6 @@ učimo, da smejo enačbo množiti samo z od nič različnimi števili.
 \label{sec:formalna-pravila}
 
 \subsection{Zapis pravil sklepanja}
-
-\label{sec:formalna-pravila}
 
 Povedali smo že, da je dokaz utemeljitev neke matematične izjave. V
 razdelku~\ref{sec:kaj-je-dokaz} smo govorili o tem, da so dokazi
@@ -1766,19 +1769,6 @@ implikacij:
   {\lnot\lnot\phi \lthen \phi}
 \end{mathpar}
 
-\subsection{Enakost}
-
-Zgornja štiri pravila zapišemo formalno takole:
-%
-\begin{mathpar}
-  \inferrule{ }{a = a}
-  \and
-  \inferrule{a = b}{b = a}
-  \and
-  \inferrule{a = b \\ b = c}{a = c}
-  \and
-  \inferrule{\phi(a) \\ a = b}{\phi(b)}
-\end{mathpar}
 
 %%% Local Variables:
 %%% mode: latex
