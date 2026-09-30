@@ -171,6 +171,9 @@
 %% rdeca v polni jakosti.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
+\newlength{\lmnDebelinaNaslovneCrte}
+\setlength{\lmnDebelinaNaslovneCrte}{8pt}
+
 \newcommand{\lmnUstanova}{Univerza v Ljubljani}
 \newcommand{\lmnClanica}{Fakulteta za matematiko in fiziko}
 
@@ -178,7 +181,9 @@
   \begin{titlepage}%
   \thispagestyle{empty}%
   \raggedright
-  \vspace*{\dimexpr 0.28\textheight}%
+  \vspace*{\dimexpr 0.22\textheight}%
+  {\color{ULrdeca}\rule{\textwidth}{\lmnDebelinaNaslovneCrte}\par}%
+  \vspace{\lmnEnota}%
   {\lmnUniverzaSansTanka\fontsize{34}{38}\selectfont\color{ULrdeca}%
    \@title\par}%
   \vspace{\lmnDvojnaEnota}%
@@ -186,15 +191,38 @@
    \renewcommand{\and}{\quad\textcolor{ULsiva}{\textbar}\quad}%
    \@author\par}%
   \vfill
+  {\lmnUniverzaSans\fontsize{10}{\lmnEnota}\selectfont\color{ULrdeca}%
+   \lmnUstanova\par}%
   {\lmnUniverzaSansTanka\fontsize{10}{\lmnEnota}\selectfont\color{ULantracit}%
-   \lmnUstanova\\ \lmnClanica\par}%
+   \lmnClanica\par}%
   \iflmnOsnutek
     \vspace{\lmnEnota}%
     {\lmnUniverzaSansTanka\fontsize{9}{\lmnEnota}\selectfont\color{ULantracit}%
      osnutek, \today\par}%
   \fi
   \end{titlepage}%
+  \lmnHrbtnaStran
 }
+
+%% Hrbtna stran naslovnice: kolofon in dovoljenje za uporabo.
+\newcommand{\lmnHrbtnaStran}{%
+  \thispagestyle{empty}%
+  \null\vfill
+  {\raggedright\footnotesize
+   \textcopyright\ \the\year\ \lmnAvtorji\par
+   \vspace{\lmnEnota}
+   Gradivo je namenjeno študiju pri predmetu Logika in množice.
+   Uporabljate ga smete za lasten študij.  Razmnoževanje, objavljanje,
+   javno priobčevanje in predelava brez pisnega dovoljenja avtorjev niso
+   dovoljeni.\par
+   \vspace{\lmnEnota}
+   \lmnUstanova, \lmnClanica\par
+   \iflmnOsnutek Osnutek z dne \today.\par\fi
+  }%
+  \clearpage
+}
+
+\newcommand{\lmnAvtorji}{Andrej Bauer in Davorin Lešnik}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %% Naslovi poglavij in razdelkov
