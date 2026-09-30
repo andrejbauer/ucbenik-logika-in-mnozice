@@ -257,4 +257,8 @@
   pdfsubject = {matematika}
 ]{hyperref}
 
+% Sklici so oznake, ne tekoce besedilo, zato verzalne stevke.
+\NewCommandCopy{\obRef}{\ref}
+\RenewDocumentCommand{\ref}{s m}{{\obVerzalke\IfBooleanTF{#1}{\obRef*{#2}}{\obRef{#2}}}}
+
 \endinput
