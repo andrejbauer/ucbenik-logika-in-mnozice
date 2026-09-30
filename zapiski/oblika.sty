@@ -141,6 +141,14 @@
   {\bfseries\obVerzalke\color{poudarek}}{.}
   {0.5em}{}
 
+% Pri uokvirjenih okoljih razmik prispeva mdframed od zunaj; ce bi ga
+% dodal se slog izreka, bi crta segala cez besedilo gor in dol.
+\newtheoremstyle{obDogovorniCrta}
+  {0pt}{0pt}
+  {\upshape}{0pt}
+  {\bfseries\obVerzalke\color{poudarek}}{.}
+  {0.5em}{}
+
 \theoremstyle{obTrdilni}
 \newtheorem{izrek}{Izrek}[chapter]
 \newtheorem{lema}[izrek]{Lema}
@@ -163,14 +171,16 @@
   innerrightmargin  = 0pt,
   innertopmargin    = 0pt,
   innerbottommargin = 0pt,
-  skipabove         = 0pt,
-  skipbelow         = 0pt
+  skipabove         = \obEnota,
+  skipbelow         = \obEnota
 }
 
-\theoremstyle{obDogovorni}
+\theoremstyle{obDogovorniCrta}
 \newmdtheoremenv[style=obDefinicija]{definicija}[izrek]{Definicija}
 \newmdtheoremenv[style=obDefinicija]{aksiom}[izrek]{Aksiom}
 \newmdtheoremenv[style=obDefinicija]{pravilo}[izrek]{Pravilo}
+
+\theoremstyle{obDogovorni}
 \newtheorem{zgled}[izrek]{Zgled}
 \newtheorem{opomba}[izrek]{Opomba}
 \newtheorem{vaja}[izrek]{Vaja}
