@@ -1,7 +1,6 @@
 \chapter{Dokazi}
 \label{chap:dokazi}
 
-
 \section{Kaj je matematični dokaz?}
 \label{sec:kaj-je-dokaz}
 
@@ -59,15 +58,10 @@ Preizkusili smo le štiri primere, ostane pa jih še neskončno mnogo. Kdor
 misli, da lahko iz nekaj primerov sklepa na splošno veljavnost, naj v poduk
 vzame naslednji zgled.
 
-\begin{zgled}
+\begin{vaja}
   \label{zgled:n2-n-41}
   Ali je $n^2 - n + 41$ praštevilo za vsako naravno število~$n$?
-
-  Za $n = 1, 2, \ldots, 40$ res dobivamo sama praštevila, zato bi kdo
-  prenaglil s sklepom, da izjava velja vedno. Za $n = 41$ pa je
-  $41^2 - 41 + 41 = 41^2$, kar ni praštevilo. Štirideset potrjenih
-  primerov torej ne zadošča.
-\end{zgled}
+\end{vaja}
 
 \noindent
 Ko izkušenega matematika prosimo, da naj nam vsaj pojasni idejo dokaza,
@@ -205,12 +199,9 @@ dokazov, ki pa še zdaleč ne bodo zadostovale za reševanje zares zanimivih
 matematičnih problemov, ki zahtevajo poglobljeno znanje, vztrajnost, kanček
 talenta in nekaj sreče.
 
-
-
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \section{Kako pišemo dokaze}
-
 
 \subsection{Vpeljava spremenljivke}
 \label{sec:vpeljava-spremenljivke}
@@ -331,111 +322,8 @@ predpostavke so na voljo.
 Nekateri deli dokaza so samostojni pod-dokazi pomožnih izjav. Vse spremenljivke in
 predpostavke, ki jih uvedemo v pod-dokazu, so na voljo izključno v pod-dokazu samem.
 
-\dodatniRazdelek{Formalna pravila sklepanja}
-\label{sec:formalna-pravila}
-
-Povedali smo že, da je dokaz utemeljitev neke matematične izjave. V
-razdelku~\ref{sec:kaj-je-dokaz} smo govorili o tem, da so dokazi
-mešanica besedila in simbolov, ki jih matematiki uporabljajo tako za
-utemeljitev matematičnih izjav, kakor tudi za razlago in podajanje
-matematičnih idej. V tem razdelku se posvetimo \textbf{formalnim
-  dokazom}, ki so logične konstrukcije namenjene mehanskemu
-preverjanju pravilnosti izjav.
-
-Za vsako logično operacijo bomo podali \textbf{formalna pravila
-  sklepanja}, ki jih smemo uporabljati v formalnem dokazu. Pravilo
-sklepanja shematsko zapišemo
-%
-\begin{equation*}
-  \inferrule{\phi \\ \psi \\ \rho}{\sigma}
-\end{equation*}
-%
-in ga preberemo: ">Če smo dokazali $\phi$, $\psi$ in $\rho$, smemo
-sklepati $\sigma$."< Izjavam nad črto pravimo \textbf{hipoteze}, izjavi
-pod črto pa \textbf{sklep}. Hipotez je lahko nič ali več, sklep mora
-biti natanko en. Pravilo sklepanja brez hipotez se imenuje
-\textbf{aksiom}.
-
-Da bomo lahko pojasnili, kaj je dokaz, podajmo pravila sklepanja za
-$\top$ in $\land$, ki jih bomo v naslednjem razdelku še enkrat bolj
-pozorno obravnavali:
-%
-\begin{mathpar}
-  \inferrule{\quad}{\top}
-  %
-  \and
-  %
-  \inferrule
-  {\phi \\ \psi}
-  {\phi \land \psi}
-  %
-  \and
-  %
-  \inferrule
-  {\phi \land \psi}
-  {\phi}
-  %
-  \and
-  %
-  \inferrule
-  {\phi \land \psi}
-  {\psi}  
-\end{mathpar}
-%
-Po vrsti beremo:
-%
-\begin{itemize}
-\item Velja $\top$.
-\item Če velja $\phi$ in $\psi$, smemo sklepati $\phi \land \psi$.
-\item Če velja $\phi \land \psi$, smemo sklepati $\phi$.
-\item Če velja $\phi \land \psi$, smemo sklepati $\psi$.
-\end{itemize}
-%
-Formalni dokaz ima drevesno obliko in prikazuje, kako iz danih
-\textbf{hipotez} dokažemo neko \textbf{sodbo}. Pri dnu je zapisana izjava,
-ki jo dokazujemo, nad njo pa dokaz. Vsako vejišče je eno od pravil
-sklepanja. Vsaka veja se mora zaključiti z aksiomom ali s hipotezo.
-Oglejmo si dokaz izjave $(\alpha \land \alpha) \land (\top
-\land \beta)$ iz hipoteze $\beta \land \alpha$:
-%
-\begin{equation*}
-  \inferrule{
-    \inferrule{
-      \inferrule{\beta \land \alpha}{\alpha}
-      \\
-      \inferrule{\beta \land \alpha}{\alpha}}
-      {\alpha \land \alpha}
-    \\
-    \inferrule{
-      \inferrule{ }{\top}
-      \\
-      \inferrule{\beta \land \alpha}{\beta}
-    }{\top \land \beta}
-  }{(\alpha \land \alpha) \land (\top \land \beta)}
-\end{equation*}
-%
-Dokaz se razveji na dve veji, vsaka od njiju pa še na dve veji. Tako
-pri vrhu dobimo štiri liste, od katerih so trije izjave $\beta \land
-\alpha$ in eden aksiom za $\top$.
-
-\begin{vaja}
-  Preveri, da je vsako vejišče v zgornjem dokazu res uporaba enega od
-  zgoraj podanih pravil sklepanja.
-\end{vaja}
-
-V praksi matematično besedilo bolj ali manj odraža strukturo
-formalnega dokaza, le da se besedilo ne veji, ampak so sestavni kosi
-dokaza zloženi v zaporedje. Formalni dokazi so uporabni, kadar želimo
-preveriti veljavnost najbolj osnovnih logičnih dejstev. Ni mišljeno,
-da bi matematiki pisali ali preverjali velike formalne dokaze
-pomembnih matematičnih izrekov, to je delo za računalnike. Formalna
-pravila sklepanja in formalni dokazi so za matematike pomembni, ker
-nam omogočajo, da natančno in v celoti povemo, kakšna so ">pravila
-igre"< v matematiki.
-
 \section{Pravila sklepanja}
 \label{sec:pravila-sklepanja}
-
 
 \subsection{Konjunkcija}
 
@@ -461,52 +349,6 @@ igre"< v matematiki.
 Opomba: v praksi tega koraka ne delamo, ampak namesto predpostavke $\phi \land \psi$ kar takoj vpeljemo ločeni
 predpostavki $\phi$ in $\psi$.
 
-\dodatniPodrazdelek{Formalni pravili}
-
-\label{sec:konjunkcija}
-
-Konjunkcija ima eno pravilo vpeljave in dve pravili uporabe:
-%
-\begin{mathpar}
-  \inferrule
-  {\phi \\ \psi}
-  {\phi \land \psi}
-  \and
-  \inferrule
-  {\phi \land \psi}
-  {\phi}  
-  %
-  \and
-  %
-  \inferrule
-  {\phi \land \psi}
-  {\psi}
-\end{mathpar}
-%
-Pravilo vpeljave pove, da konjunkcijo $\phi \land \psi$ dokažemo
-tako, da dokažemo posebej $\phi$ in posebej $\psi$. Pravili uporabe pa
-povesta, da lahko $\phi \land \psi$ ">razstavimo"< na izjavi~$\phi$
-in~$\psi$.
-
-V matematičnem besedilu je dokaz konjunkcije $\phi \land \psi$ zapisan
-kot zaporedje dveh pod-dokazov:
-%
-\begin{quote}
-  \it 
-  %
-  Dokazujemo $\phi \land \psi$:
-  \begin{enumerate}
-  \item (Dokaz $\phi$)
-  \item (Dokaz $\psi$)
-  \end{enumerate}
-  Dokazali smo $\phi \land \psi$.
-\end{quote}
-%
-Manj podroben dokaz ne vsebuje začetnega in končnega stavka, ampak
-samo dokaza za $\phi$ in $\psi$. Bralec mora sam ugotoviti, da je s
-tem dokazana izjava $\phi \land \psi$.
-
-
 \subsection{Implikacija}
 
 \paragraph{Vpeljava.}
@@ -531,60 +373,6 @@ tem dokazana izjava $\phi \land \psi$.
   %
   Torej velja tudi $\psi$.
 \end{quote}
-
-\dodatniPodrazdelek{Formalni pravili}
-
-\label{sec:implikacija}
-
-Preden zapišemo pravila sklepanja za implikacijo, si oglejmo primer
-neformalnega dokaza.
-
-\begin{izrek}
-  Če je $x > 2$, potem je $x^3 + x + 7 > 16$.
-\end{izrek}
-
-\begin{proof}
-  Predpostavimo, da velja $x > 2$. Tedaj je $x^3 > 2^3 = 8$, zato
-  velja
-  %
-  \begin{equation*}
-    x^3 + x + 7 > 8 + 2 + 7 = 17 > 16.
-  \end{equation*}
-  %
-  Dokazali smo $x > 2 \lthen x^3 + x + 7 > 16$.
-\end{proof}
-
-\noindent
-%
-Prvi stavek dokaza z besedico ">predpostavimo"< uvede \textbf{začasno
-  hipotezo} $x > 2$, iz katere nato izpeljemo posledico $x^3 + x + 7 >
-16$. Implikacijo $\phi \lthen \psi$ torej dokažemo tako, da začasno
-predpostavimo $\phi$ in dokažemo $\psi$. Tako pravilo vpeljave
-zapišemo
-%
-\begin{equation*}
-  \inferrule{\izpeljava{[\phi]}{\psi}}{\phi \lthen \psi}  
-\end{equation*}
-%
-Zapis $[\phi]$ z oglatimi oklepaji pomeni, da $\phi$ ni prava, ampak
-samo začasna hipoteza. Zapis
-%
-\begin{equation*}
-  \izpeljava{[\phi]}{\psi}
-\end{equation*}
-%
-pomeni ">dokaz izjave $\psi$ s pomočjo začasne hipoteze $\phi$."<
-
-Pravilo uporabe za implikacijo se imenuje \textbf{modus ponens} in se
-glasi
-%
-\begin{mathpar}
-  \inferrule{\phi \lthen \psi \\ \phi}{\psi}
-\end{mathpar}
-%
-V matematičnem besedilu se modus ponens pojavi kot uporaba že prej
-dokazanega izreka oblike $\phi \lthen \psi$.
-
 
 \subsection{Disjunkcija}
 
@@ -626,186 +414,6 @@ Drugi način:
   \end{enumerate}
 \end{quote}
 
-\dodatniPodrazdelek{Formalni pravili}
-
-\label{sec:disjunkcija}
-
-Disjunkcija ima dve pravili vpeljave in eno pravilo uporabe:
-%
-\begin{mathpar}
-  \inferrule
-  {\phi}
-  {\phi \lor \psi}
-  \and
-  \inferrule
-  {\psi}
-  {\phi \lor \psi}
-  \and
-  \inferrule
-  {\phi \lor \psi \\ \izpeljava{[\phi]}{\rho} \\ \izpeljava{[\psi]}{\rho}}
-  {\rho}
-\end{mathpar}
-%
-Pravili sklepanja povesta, da lahko dokažemo disjunkcijo $\phi \lor
-\psi$ tako, da dokažemo enega od disjunktov.
-
-Pojasnimo še pravilo uporabe. Denimo, da bi radi dokazali $\rho$, pri
-čemer že vemo, da velja $\phi \lor \psi$. Pravilo uporabe pravi, da je
-treba obravnavati dva primera: iz začasne hipoteze $\phi$ je treba
-dokazati $\rho$ in iz začasne hipoteze $\psi$ je treba dokazati
-$\rho$.
-
-Ponazorimo pravilo uporabe v dokazu izjave $(\alpha \lor \gamma) \land
-(\beta \lor \gamma)$ iz hipoteze $(\alpha \land \beta) \lor \gamma$.
-Dokazno drevo je precej veliko, v njem pa se dvakrat pojavi uporaba
-disjunkcije:
-%
-\begin{equation*}
-  \inferrule
-  {\inferrule*
-    {\inferrule*{}{(\alpha \land \beta) \lor \gamma}
-      \\
-      \inferrule*{
-        \inferrule
-        {[\alpha \land \beta]}
-        {\alpha}
-      }{\alpha \lor \gamma}
-      \\
-      \inferrule*{[\gamma]}{\alpha \lor \gamma}
-    }
-    {\alpha \lor \gamma}
-    \\
-    \inferrule*
-    {\inferrule*{}{(\alpha \land \beta) \lor \gamma}
-      \\
-      \inferrule*{
-        \inferrule
-        {[\alpha \land \beta]}
-        {\beta}
-      }{\beta \lor \gamma}
-      \\
-      \inferrule*{[\gamma]}{\beta \lor \gamma}
-    }
-    {\beta \lor \gamma}
-  }
-  {(\alpha \lor \gamma) \land (\beta \lor \gamma)}
-\end{equation*}
-%
-Poglejmo na primer levo vejo tega dokaza, desna je podobna:
-%
-\begin{equation*}
-  \inferrule*
-    {\inferrule*{}{(\alpha \land \beta) \lor \gamma}
-      \\
-      \inferrule*{
-        \inferrule
-        {[\alpha \land \beta]}
-        {\alpha}
-      }{\alpha \lor \gamma}
-      \\
-      \inferrule*{[\gamma]}{\alpha \lor \gamma}
-    }
-    {\alpha \lor \gamma}
-\end{equation*}
-%
-Res je to uporaba disjunkcije $\phi \lor \psi$, kjer smo vzeli $\phi =
-\alpha \land \beta$ in $\psi = \gamma$, dokazali pa smo izjavo $\rho =
-\alpha \lor \gamma$.
-
-\begin{vaja}
-  Iz hipoteze $(\alpha \lor \gamma) \land (\beta \lor \gamma)$ dokaži
-  $(\alpha \land \beta) \lor \gamma$.
-\end{vaja}
-
-V besedilu dokažemo disjunkcijo s pravilom za vpeljavo takole:
-%
-\begin{quote}
-  \it
-  %
-  Dokazujemo $\phi \lor \psi$. Zadostuje dokazati $\phi$:
-  \begin{enumerate}
-  \item[] (Dokaz $\phi$.)
-  \end{enumerate}
-  %
-  Dokazali smo $\phi \lor \psi$.
-\end{quote}
-%
-Pravilo uporabe disjunkcije se v besedilu zapiše kot obravnava
-primerov:
-%
-\begin{quote}
-  \it
-  %
-  Dokazujemo $\rho$. To bomo dokazali z obravnavo primerov $\phi$ in
-  $\psi$:
-  \begin{enumerate}
-  \item (Dokaz $\phi \lor \psi$)
-  \item Predpostavimo, da velja $\phi$. (Dokaz $\rho$)
-  \item Predpostavimo, da velja $\psi$. (Dokaz $\rho$)
-  \end{enumerate}
-  %
-  Dokazali smo $\rho$.
-\end{quote}
-%
-Še primer konkretnega dokaza, ki je tako napisan.
-
-\begin{izrek}
-  \label{izrek:x-3-5}
-  Naj bo $x$ realno število. Če je $|x - 3| > 5$, potem je $x^4 > 15$.
-\end{izrek}
-
-\begin{proof}
-  Dokazujemo $|x - 3| > 5 \lthen x^4 > 15$. Predpostavimo $|x - 3| > 5$
-  in dokažimo $x^4 > 15$. To bomo dokazali z obravnavo primerov $x \leq
-  3$ in $x \geq 3$:
-  %
-  \begin{enumerate}
-  \item $x \leq 3 \lor x \geq 3$ velja, ker so realna števila linearno
-    urejena z relacijo $\leq$.
-  \item Predpostavimo $x \leq 3$. Tedaj je $x - 3 \leq 0$ in zato $|x
-    - 3| = 3 - x$, od koder sledi $3 - x = |x - 3| > 5$, oziroma $x <
-    -2$. Tako dobimo
-    %
-    \begin{equation*}
-      x^4 > (-2)^4 = 16 > 15.
-    \end{equation*}
-  \item Predpostavimo $x \geq 3$. Tedaj je $x - 3 \geq 0$ in zato$|x -
-    3| = x - 3$, od koder sledi $x - 3 = |x - 3| > 5$, oziroma $x >
-    8$. Tako dobimo
-    %
-    \begin{equation*}
-      x^4 > 8^4 = 4096 > 15.
-    \end{equation*}
-  \end{enumerate}
-  %
-  Iz predpostavke $|x - 3| > 5$ smo izpeljali $x^4 > 15$. S tem smo
-  dokazali $|x - 3| > 5 \lthen x^4 > 15$.
-\end{proof}
-
-Težji del tega dokaza se skriva v izbiri disjunkcije. Kako je pisec
-uganil, da je treba obravnavati primera $x \leq 3$ in $x \geq 3$?
-Zakaj ni raje obravnaval $x < 3$ in $x \geq 3$, ali morda $x \leq 17$
-in $x \geq 17$? Odgovor se skriva v definiciji absolutne vrednosti:
-%
-\begin{equation*}
-  |a| =
-  \begin{cases}
-    a & \text{če je $a \geq 0$,}\\
-    -a & \text{če je $a \leq 0$.}
-  \end{cases}
-\end{equation*}
-%
-Ker v izreku nastopa izraz $|x - 3|$, bo obravnava primerov $x - 3
-\geq 0$ in $x - 3 \leq 0$ omogočila, da $|x - 3|$ poenostavimo enkrat
-v $x - 3$ in drugič v $3 - x$. Seveda pa je $x - 3 \geq 0$
-ekvivalentno $x \geq 3$ in $x - 3 \leq 0$ ekvivalentno $x \leq 3$.
-
-\begin{vaja}
-  Ali bi lahko izrek~\ref{izrek:x-3-5} dokazali tudi z obravnavo
-  primerov $x < 3$ in $x \geq 3$?
-\end{vaja}
-
-
 \subsection{Resnica in neresnica}
 
 \paragraph{Vpeljava.}
@@ -838,52 +446,6 @@ Resnica ni uporabna kot predpostavka in jo lahko zavržemo.
   \end{itemize}
 \end{quote}
 
-\dodatniPodrazdelek{Formalni pravili}
-
-\label{sec:resnica-neresnica}
-
-Logična konstanta $\top$ označuje resnico. Kar je res, je res, in tega
-ni treba posebej dokazovati. To dejstvo izraža aksiom
-%
-\begin{equation*}
-  \inferrule{\qquad}{\top}
-\end{equation*}
-%
-Logična konstanta $\top$ nima pravila uporabe, ker iz $\top$ ne moremo
-sklepati nič koristnega.
-
-Logična konstanta $\bot$ označuje neresnico. Ker se tega, kar ni res,
-ne more dokazati, $\bot$ nima pravila vpeljave. Pravilo uporabe je
-%
-\begin{equation*}
-  \inferrule{\quad\bot\quad}{\phi}
-\end{equation*}
-%
-se imenuje \textbf{ex falso (sequitur) quodlibet}, kar pomeni ">iz
-neresnice sledi karkoli"<.
-
-V matematičnem besedilu se $\top$ in $\bot$ ne pojavljata pogosto, ker
-matematiki izraze, v katerih se $\top$ in $\bot$ pojavita, vedno
-poenostavijo s pomočjo ekvivalenc:
-%
-\begin{mathpar}
-  \top \land \phi \liff \phi
-  \and
-  \top \lor \phi \liff \phi
-  \and
-  \bot \land \phi \liff \bot
-  \and
-  \bot \lor \phi \liff \phi
-  \\
-  (\top \lthen \phi) \liff \phi
-  \and
-  (\bot \lthen \phi) \liff \top
-  \and
-  (\phi \lthen \top) \liff \top
-\end{mathpar}
-%
-
-
 \subsection{Ekvivalenca}
 
 \paragraph{Vpeljava.}
@@ -895,94 +457,6 @@ poenostavijo s pomočjo ekvivalenc:
   \item Dokažimo $\psi \lthen \phi$: \quad \brac{dokaz $\psi \lthen \phi$}
   \end{enumerate}
 \end{quote}
-
-\dodatniPodrazdelek{Formalni pravili}
-
-\label{sec:ekvivalenca}
-
-Logična ekvivalenca $\phi \liff \psi$ je okrajšava za
-%
-\begin{equation*}
-  (\phi \lthen \psi) \land (\psi \lthen \phi).
-\end{equation*}
-%
-Ker je to konjunkcija (dveh implikacij), so pravila za vpeljavo in
-uporabo ekvivalence samo poseben primer pravil sklepanja za
-konjunkcijo:
-%
-\begin{mathpar}
-  \inferrule
-  {\phi \lthen \psi \\ \psi \lthen \phi}
-  {\phi \liff \psi}
-  \and
-  \inferrule{\phi \liff \psi}{\phi \lthen \psi}
-  \and
-  \inferrule{\phi \liff \psi}{\psi \lthen \phi}
-\end{mathpar}
-%
-V matematičnem besedilu ekvivalenco dokažemo takole:
-%
-\begin{quote}
-  \it
-  %
-  Dokazujemo $\phi \liff \psi$:
-  %
-  \begin{enumerate}
-  \item (Dokaz $\phi \lthen \psi$)
-  \item (Dokaz $\psi \lthen \phi$)
-  \end{enumerate}
-  Dokazali smo $\phi \liff \psi$.
-\end{quote}
-
-Če sta izjavi $\phi$ in $\psi$ logično ekvivalentni, lahko eno
-zamenjamo z drugo. To matematiki s pridom uporabljajo pri dokazovanju
-izjav, čeprav pogosto sploh ne omenijo, katero ekvivalenco so
-uporabili.
-
-Kadar dokazujemo medsebojno ekvivalenco več izjav $\phi_1$,
-$\phi_2$, \ldots, $\phi_n$, zadostuje dokazati cikel implikacij
-%
-\begin{equation*}
-  \phi_1 \lthen \phi_2 \lthen \cdots \lthen \phi_{n-1} \lthen \phi_n \lthen \phi_1.
-\end{equation*}
-%
-(Ne spreglejte zadnje implikacije $\phi_n \lthen \phi_1$, ki zaključi
-cikel). V besedilu to dokažemo:
-
-\begin{quote}
-  \it
-  %
-  Dokazujemo, da so izjave $\phi_1, \phi_2, \ldots, \phi_n$
-  ekvivalentne:
-  %
-  \begin{enumerate}
-  \item (Dokaz $\phi_1 \lthen \phi_2$)
-  \item (Dokaz $\phi_2 \lthen \phi_3$)
-  \item \dots
-  \item (Dokaz $\phi_{n-1} \lthen \phi_n$)
-  \item (Dokaz $\phi_n \lthen \phi_1$)
-  \end{enumerate}
-\end{quote}
-
-\noindent
-%
-Seveda smemo pred samim dokazovanjem izjave $\phi_1, \ldots, \phi_n$
-preurediti tako, da je zahtevane implikacije kar najlažje dokazati.
-Dokaz lahko tudi razdelimo na dva ločena cikla implikacij
-%
-\begin{equation*}
-  \phi_1 \lthen \cdots \lthen \phi_k \lthen \phi_1
-\end{equation*}
-%
-in
-%
-\begin{equation*}
-  \phi_{k+1} \lthen \cdots \lthen \phi_n \lthen \phi_{k+1}
-\end{equation*}
-%
-in nato dokažemo še eno ekvivalenco $\phi_i \liff \phi_j$, pri čemer
-je $\phi_i$ iz prvega in $\phi_j$ iz drugega cikla.
-
 
 \subsection{Negacija}
 
@@ -1014,63 +488,6 @@ Negacijo $\lnot \phi$ uporabimo tako, da dokažemo $\phi$ in zaključimo dokaz.
   Torej velja $\rho$.
 \end{quote}
 
-\dodatniPodrazdelek{Formalni pravili}
-
-\label{sec:negacija}
-
-
-Negacija $\lnot\phi$ je definirana kot okrajšava za $\phi
-\lthen \bot$. Iz pravil sklepanja za $\lthen$ in $\bot$ tako izpeljemo
-pravili sklepanja za negacijo:
-%
-\begin{mathpar}
-  \inferrule
-  {\izpeljava{[\phi]}{\bot}}
-  {\lnot \phi}
-  %
-  \and
-  %
-  \inferrule
-  {\lnot\phi \\ \phi}
-  {\psi}
-\end{mathpar}
-%
-V besedilu dokazujemo $\lnot\phi$ takole:
-%
-\begin{quote}
-  \it
-  %
-  Dokazujemo $\lnot\phi$.
-  \begin{itemize}
-  \item[] Predpostavimo $\phi$.
-  \item[] (Dokaz $\bot$.)
-  \end{itemize}
-  Dokazali smo $\lnot\phi$.
-\end{quote}
-%
-Tu ">Dokaz $\bot$"< pomeni, da iz danih predpostavk izpeljemo
-protislovje. Mnogi matematiki menijo, da se takemu dokazu reče ">dokaz
-s protislovjem"<, vendar to ni res. To je samo navaden dokaz negacije.
-Dokazovanje s protislovjem bomo obravnavali v razdelku~\ref{sec:lem}.
-
-Pravilo uporabe za $\lnot\phi$ v besedilu ni eksplicitno vidno, ampak
-ga matematiki uporabijo, ko sredi dokaza, da velja $\psi$, izpeljejo
-protislovje:
-%
-\begin{quote}
-  \it
-  %
-  Dokazujemo $\psi$.
-  %
-  \begin{itemize}
-  \item[] (Dokaz $\phi$.)
-  \item[] (Dokaz $\lnot\phi$.)
-  \end{itemize}
-  %
-  To je nesmisel, in ker iz nesmisla sledi karkoli, sledi $\psi$.
-\end{quote}
-
-
 \subsection{Univerzalni kvantifikator}
 
 \paragraph{Vpeljava.}
@@ -1093,117 +510,6 @@ protislovje:
   Vemo, da je $\langle\text{izraz}\rangle \in A$.\\
   Torej velja $\phi(\langle\text{izraz}\rangle)$.
 \end{quote}
-
-\dodatniPodrazdelek{Formalni pravili}
-
-\label{sec:univerzalni-kvantifikator}
-
-Univerzalna kvantifikacija $\all{x \in S} \phi$ se prebere ">Za vse $x$
-iz $S$ velja $\phi$."< Pravili sklepanja sta
-%
-\begin{mathpar}
-  \inferrule
-  {\izpeljava{[x \in S]}{\phi(x)}}{\all{x \in S} \phi(x)} \ \text{($x$ svež)}
-  \and
-  \inferrule{\all{x \in S} \phi(x) \\ e \in S}{\phi(e)}
-\end{mathpar}
-%
-pri čemer je $x$ spremenljivka, $\phi(x)$ logična formula in $e$ poljuben izraz.
-
-V besedilu se pravilo vpeljave zapiše:
-%
-\begin{quote}
-  \it
-  %
-  Dokazujemo $\all{x \in S} \phi(x)$:
-  %
-  \begin{itemize}
-  \item[] Naj bo $x \in S$ poljuben.
-  \item[] (Dokaz, da velja $\phi(x)$).
-  \end{itemize}
-  %
-  Dokazali smo $\all{x \in S} \phi(x)$.
-\end{quote}
-%
-Pravilo uporabe v besedilu ponavadi ni eksplicitno navedeno, če pa bi
-ga že zapisali, bi šlo takole:
-%
-\begin{quote}
-  \it
-  %
-  Dokazujemo, da velja $\phi(e)$:
-  \begin{itemize}
-  \item[] (Dokaz, da velja $\all{x \in S} \phi(x)$.)
-  \item[] (Dokaz, da velja $e \in S$.)
-  \end{itemize}
-  %
-  Torej velja $\phi(e)$.
-\end{quote}
-
-
-Ob pravilu vpeljave stoji stranski pogoj, da mora biti spremenljivka
-$x$ ">sveža"<. To pomeni, da se $x$ ne sme pojavljati drugje v dokazu,
-saj bi sicer lahko prišlo do zmešnjave med vezanimi in prostimi
-spremenljivkami. V besedilu se dejstvo, da je $x$ svež, izraža z
-besedico ">poljuben"< ali ">katerikoli"<. Primer, kako gredo stvari
-narobe, če ne pazimo in pomešamo spremenljivke:
-
-\begin{izrek}[z napako v dokazu]
-  Če je $x$ večji od~$42$, so vsa realna števila večja od~$23$.
-\end{izrek}
-
-\begin{proof}
-  Denimo, da bi nekoliko nerodno zapisali izrek simbolno takole:
-  %
-  \begin{equation*}
-    x > 42 \lthen \all{x \in \RR} x > 23.
-  \end{equation*}
-  %
-  To je sicer dovoljeno, saj se prosti $x$, ki stoji zunaj $\forall$
-  ni ujel, ni pa preveč smotrno, ker smo na dobri poti, da bomo
-  zunanji prosti $x$ in vezanega znotraj $\forall$ pomešali. Res, če
-  ne upoštevamo pravila, da mora biti $x$ svež, dobimo tale nepravi
-  ">dokaz"<:
-  %
-  \begin{equation*}
-    \inferrule*
-    {
-      \inferrule*
-      {\inferrule*
-        {[x > 42] \\ 42 > 23}
-        {x > 23}
-      }
-      {\all{x \in \RR} x > 23}
-    }
-    {x > 42 \lthen \all{x \in \RR} x > 23}
-  \end{equation*}
-  %
-  Pri pravilu za vpeljavo $\forall$ smo uporabili spremenljivko $x$,
-  ki pa je že nastopala v začasni hipotezi $x > 42$. Z besedilom bi se
-  isti dokaz glasil takole:
-  %
-  \begin{quote}
-    ">Dokazujemo $x > 42 \lthen \all{x \in \RR} x > 23$. Predpostavimo,
-    da velja $x > 42$ in dokažimo $\all{x \in \RR} x > 23$. Naj bo $x
-    \in \RR$. Po predpostavki je $x > 42$ in ker je $42 > 23$, od tod
-    sledi $x > 23$."<
-  \end{quote}
-  %
-  Če bi izrek zapisali bolje kot $x > 42 \lthen \all{y \in \RR} y >
-    23$, težav ne bi bilo, saj bi se prejšnji dokaz ">zataknil"<:
-  %
-  \begin{quote}
-    ">Dokazujemo $x > 42 \lthen \all{y \in \RR} y > 23$. Predpostavimo,
-    da velja $x > 42$ in dokažimo $\all{y \in \RR} y > 23$. Naj bo $y
-    \in \RR$. (Kaj zdaj? Lahko sicer dokažemo $x > 23$, a zares bi
-    morali dokazati $y > 23$, kar ne gre.)"<
-  \end{quote}
-\end{proof}
-
-Pogoj, da mora biti spremenljivka $x$ v pravilu za vpeljavo ">sveža"<,
-se v praksi kaže v tem, da pri uvajanju nove spremenljivke izberemo
-zanjo novo ime, ki se še ni pojavilo v dokazu.
-
 
 \subsection{Eksistenčni kvantifikator}
 
@@ -1236,64 +542,7 @@ voljo).
 %
 \textbf{Pozor:} spremenljivka $x$ mora biti sveža, se pravi, da se ne pojavlja v $\rho$ ali kjerkoli drugje. Če se~$x$ pojavi kje drugje, ga moramo najprej nadomestiti s svežo spremenljivko~$y$.
 
-\dodatniPodrazdelek{Formalni pravili}
-
-\label{sec:eksistencni-kvantifikator}
-
-Eksistenčna kvantifikacija $\some{x \in S} \phi$ se prebere ">obstaja
-$x$ iz $S$, za katerega velja $\phi$"< ali ">za neki $x$ iz $S$ velja
-$\phi$."< Pravili sklepanja za eksistenčni kvantifikator se glasita
-%
-\begin{mathpar}
-  \inferrule
-  {\phi(e) \\ e \in S}
-  {\some{x \in S} \phi(x)}
-  \and
-  \inferrule
-  {\some{x \in S} \phi(x)
-    \\
-    \izpeljava{[x \in S \land \phi(x)]}{\psi}}
-  {\psi}\ \text{($x$ svež)}
-\end{mathpar}
-%
-kjer je $e$ poljuben izraz in $x$ spremenljivka. Pri tem mora biti $x$
-v pravilu uporabe svež. V besedilu pravilo vpeljave uporabimo takole:
-%
-\begin{quote}
-  \it
-  %
-  Dokazujemo $\some{x \in S} \phi(x)$:
-  %
-  \begin{enumerate}
-  \item (Skonstruiramo element $e \in S$.)
-  \item (Dokažemo, da velja $\phi(e)$.)
-  \end{enumerate}
-  %
-  Dokazali smo $\some{x \in S} \phi(x)$.
-\end{quote}
-%
-Pravilo uporabe pa se v besedilu izraža takole:
-%
-\begin{quote}
-  \it
-  %
-  Dokazujemo $\psi$:
-  %
-  \begin{enumerate}
-  \item (Dokaz izjave $\some{x \in S} \phi(x)$.)
-  \item Predpostavimo, da za $x \in S$ velja $\phi(x)$:
-    %
-    \begin{itemize}
-    \item[] (Dokaz izjave $\psi$.)
-    \end{itemize}
-  \end{enumerate}
-  %
-  Dokazali smo $\psi$.
-\end{quote}
-
-
 \section{Posebni načini dokazovanja}
-
 
 \subsection{Izključena tretja možnost}
 
@@ -1330,13 +579,14 @@ Pravilo uporabe pa se v besedilu izraža takole:
 Opomba: dokaz s protislovjem in pravilo vpeljave za negacijo sta \emph{različni}
 pravili!
 
-\dodatniRazdelek{Aksiom o izključenem tretjem}
+\subsection{Aksiom o izključenem tretjem}
+
 \label{sec:lem}
 
-Aksiom o izključenem tretjem se glasi
+Aksiom o izključenem tretjem pravi, da za vsako izjavo~$\phi$ velja
 %
 \begin{equation*}
-  \inferrule{ }{\phi \lor \lnot \phi}
+  \phi \lor \lnot \phi.
 \end{equation*}
 %
 Povedano z besedami, vsaka izjava je bodisi resnična bodisi
@@ -1348,39 +598,7 @@ katerih je najbolj znano \textbf{dokazovanje s protislovjem}: pri tem ne
 utemeljimo izjave $\phi$, ampak utemeljimo, zakaj $\lnot\phi$
 \emph{ne} velja. Natančneje povedano, izjavo $\phi$ zamenjamo z njej
 ekvivalentno izjavo $\lnot\lnot\phi$ in dokažemo $\lnot\lnot\phi$.
-Dokaz ekvivalence $\phi \liff \lnot\lnot\phi$ sestoji iz dokazov dveh
-implikacij:
-%
-\begin{mathpar}
-  \inferrule
-  {\inferrule{
-      \inferrule{[\lnot\phi] \\ [\phi]}{\bot}
-    }
-    {\lnot\lnot\phi}
-  }
-  {\phi \lthen \lnot\lnot\phi}
-  %
-  \and
-  %
-  \inferrule*
-  {\inferrule*
-    {\inferrule*{ }{\phi \lor \lnot\phi} \\
-     [\phi] \\
-     \inferrule*{
-       \inferrule*{
-         [\lnot\lnot\phi] \\ [\lnot\phi]
-       }
-       {\bot}
-     }
-     {\phi}
-    }
-    {\phi}
-  }
-  {\lnot\lnot\phi \lthen \phi}
-\end{mathpar}
-%
-V dokazu $\lnot\lnot\phi \lthen \phi$ smo uporabili aksiom o
-izključenem tretjem. V matematičnem besedilu se dokaz s protislovjem
+V matematičnem besedilu se dokaz s protislovjem
 glasi:
 %
 \begin{quote}
@@ -1683,20 +901,6 @@ Enakost $=$ je osnovna relacija, ki zadošča štirim pravilom:
 Zaenkrat enakosti ne bomo posvečali posebne pozornosti, saj jo v praksi
 študenti dobro obvladajo.
 
-\dodatniRazdelek{Formalna pravila za enakost}
-
-Zgornja štiri pravila zapišemo formalno takole:
-%
-\begin{mathpar}
-  \inferrule{ }{a = a}
-  \and
-  \inferrule{a = b}{b = a}
-  \and
-  \inferrule{a = b \\ b = c}{a = c}
-  \and
-  \inferrule{\phi(a) \\ a = b}{\phi(b)}
-\end{mathpar}
-
 \subsection{Reševanje enačb}
 
 V osnovni in srednji šoli se učimo pravil za reševanje enačb: enačbi
@@ -1790,13 +994,791 @@ učimo, da smejo enačbo množiti samo z od nič različnimi števili.
   enačbe?
 \end{vaja}
 
-
-
 %%% Local Variables: 
 %%% mode: latex
 %%% TeX-master: "lmn"
 %%% End:
 
+\dodatniRazdelek{Formalna pravila sklepanja}
+\label{sec:formalna-pravila}
+
+\subsection{Zapis pravil sklepanja}
+
+\label{sec:formalna-pravila}
+
+Povedali smo že, da je dokaz utemeljitev neke matematične izjave. V
+razdelku~\ref{sec:kaj-je-dokaz} smo govorili o tem, da so dokazi
+mešanica besedila in simbolov, ki jih matematiki uporabljajo tako za
+utemeljitev matematičnih izjav, kakor tudi za razlago in podajanje
+matematičnih idej. V tem razdelku se posvetimo \textbf{formalnim
+  dokazom}, ki so logične konstrukcije namenjene mehanskemu
+preverjanju pravilnosti izjav.
+
+Za vsako logično operacijo bomo podali \textbf{formalna pravila
+  sklepanja}, ki jih smemo uporabljati v formalnem dokazu. Pravilo
+sklepanja shematsko zapišemo
+%
+\begin{equation*}
+  \inferrule{\phi \\ \psi \\ \rho}{\sigma}
+\end{equation*}
+%
+in ga preberemo: ">Če smo dokazali $\phi$, $\psi$ in $\rho$, smemo
+sklepati $\sigma$."< Izjavam nad črto pravimo \textbf{hipoteze}, izjavi
+pod črto pa \textbf{sklep}. Hipotez je lahko nič ali več, sklep mora
+biti natanko en. Pravilo sklepanja brez hipotez se imenuje
+\textbf{aksiom}.
+
+Da bomo lahko pojasnili, kaj je dokaz, podajmo pravila sklepanja za
+$\top$ in $\land$, ki jih bomo v naslednjem razdelku še enkrat bolj
+pozorno obravnavali:
+%
+\begin{mathpar}
+  \inferrule{\quad}{\top}
+  %
+  \and
+  %
+  \inferrule
+  {\phi \\ \psi}
+  {\phi \land \psi}
+  %
+  \and
+  %
+  \inferrule
+  {\phi \land \psi}
+  {\phi}
+  %
+  \and
+  %
+  \inferrule
+  {\phi \land \psi}
+  {\psi}  
+\end{mathpar}
+%
+Po vrsti beremo:
+%
+\begin{itemize}
+\item Velja $\top$.
+\item Če velja $\phi$ in $\psi$, smemo sklepati $\phi \land \psi$.
+\item Če velja $\phi \land \psi$, smemo sklepati $\phi$.
+\item Če velja $\phi \land \psi$, smemo sklepati $\psi$.
+\end{itemize}
+%
+Formalni dokaz ima drevesno obliko in prikazuje, kako iz danih
+\textbf{hipotez} dokažemo neko \textbf{sodbo}. Pri dnu je zapisana izjava,
+ki jo dokazujemo, nad njo pa dokaz. Vsako vejišče je eno od pravil
+sklepanja. Vsaka veja se mora zaključiti z aksiomom ali s hipotezo.
+Oglejmo si dokaz izjave $(\alpha \land \alpha) \land (\top
+\land \beta)$ iz hipoteze $\beta \land \alpha$:
+%
+\begin{equation*}
+  \inferrule{
+    \inferrule{
+      \inferrule{\beta \land \alpha}{\alpha}
+      \\
+      \inferrule{\beta \land \alpha}{\alpha}}
+      {\alpha \land \alpha}
+    \\
+    \inferrule{
+      \inferrule{ }{\top}
+      \\
+      \inferrule{\beta \land \alpha}{\beta}
+    }{\top \land \beta}
+  }{(\alpha \land \alpha) \land (\top \land \beta)}
+\end{equation*}
+%
+Dokaz se razveji na dve veji, vsaka od njiju pa še na dve veji. Tako
+pri vrhu dobimo štiri liste, od katerih so trije izjave $\beta \land
+\alpha$ in eden aksiom za $\top$.
+
+\begin{vaja}
+  Preveri, da je vsako vejišče v zgornjem dokazu res uporaba enega od
+  zgoraj podanih pravil sklepanja.
+\end{vaja}
+
+V praksi matematično besedilo bolj ali manj odraža strukturo
+formalnega dokaza, le da se besedilo ne veji, ampak so sestavni kosi
+dokaza zloženi v zaporedje. Formalni dokazi so uporabni, kadar želimo
+preveriti veljavnost najbolj osnovnih logičnih dejstev. Ni mišljeno,
+da bi matematiki pisali ali preverjali velike formalne dokaze
+pomembnih matematičnih izrekov, to je delo za računalnike. Formalna
+pravila sklepanja in formalni dokazi so za matematike pomembni, ker
+nam omogočajo, da natančno in v celoti povemo, kakšna so ">pravila
+igre"< v matematiki.
+
+\subsection{Konjunkcija}
+
+\label{sec:konjunkcija}
+
+Konjunkcija ima eno pravilo vpeljave in dve pravili uporabe:
+%
+\begin{mathpar}
+  \inferrule
+  {\phi \\ \psi}
+  {\phi \land \psi}
+  \and
+  \inferrule
+  {\phi \land \psi}
+  {\phi}  
+  %
+  \and
+  %
+  \inferrule
+  {\phi \land \psi}
+  {\psi}
+\end{mathpar}
+%
+Pravilo vpeljave pove, da konjunkcijo $\phi \land \psi$ dokažemo
+tako, da dokažemo posebej $\phi$ in posebej $\psi$. Pravili uporabe pa
+povesta, da lahko $\phi \land \psi$ ">razstavimo"< na izjavi~$\phi$
+in~$\psi$.
+
+V matematičnem besedilu je dokaz konjunkcije $\phi \land \psi$ zapisan
+kot zaporedje dveh pod-dokazov:
+%
+\begin{quote}
+  \it 
+  %
+  Dokazujemo $\phi \land \psi$:
+  \begin{enumerate}
+  \item (Dokaz $\phi$)
+  \item (Dokaz $\psi$)
+  \end{enumerate}
+  Dokazali smo $\phi \land \psi$.
+\end{quote}
+%
+Manj podroben dokaz ne vsebuje začetnega in končnega stavka, ampak
+samo dokaza za $\phi$ in $\psi$. Bralec mora sam ugotoviti, da je s
+tem dokazana izjava $\phi \land \psi$.
+
+\subsection{Implikacija}
+
+\label{sec:implikacija}
+
+Preden zapišemo pravila sklepanja za implikacijo, si oglejmo primer
+neformalnega dokaza.
+
+\begin{izrek}
+  Če je $x > 2$, potem je $x^3 + x + 7 > 16$.
+\end{izrek}
+
+\begin{proof}
+  Predpostavimo, da velja $x > 2$. Tedaj je $x^3 > 2^3 = 8$, zato
+  velja
+  %
+  \begin{equation*}
+    x^3 + x + 7 > 8 + 2 + 7 = 17 > 16.
+  \end{equation*}
+  %
+  Dokazali smo $x > 2 \lthen x^3 + x + 7 > 16$.
+\end{proof}
+
+\noindent
+%
+Prvi stavek dokaza z besedico ">predpostavimo"< uvede \textbf{začasno
+  hipotezo} $x > 2$, iz katere nato izpeljemo posledico $x^3 + x + 7 >
+16$. Implikacijo $\phi \lthen \psi$ torej dokažemo tako, da začasno
+predpostavimo $\phi$ in dokažemo $\psi$. Tako pravilo vpeljave
+zapišemo
+%
+\begin{equation*}
+  \inferrule{\izpeljava{[\phi]}{\psi}}{\phi \lthen \psi}  
+\end{equation*}
+%
+Zapis $[\phi]$ z oglatimi oklepaji pomeni, da $\phi$ ni prava, ampak
+samo začasna hipoteza. Zapis
+%
+\begin{equation*}
+  \izpeljava{[\phi]}{\psi}
+\end{equation*}
+%
+pomeni ">dokaz izjave $\psi$ s pomočjo začasne hipoteze $\phi$."<
+
+Pravilo uporabe za implikacijo se imenuje \textbf{modus ponens} in se
+glasi
+%
+\begin{mathpar}
+  \inferrule{\phi \lthen \psi \\ \phi}{\psi}
+\end{mathpar}
+%
+V matematičnem besedilu se modus ponens pojavi kot uporaba že prej
+dokazanega izreka oblike $\phi \lthen \psi$.
+
+\subsection{Disjunkcija}
+
+\label{sec:disjunkcija}
+
+Disjunkcija ima dve pravili vpeljave in eno pravilo uporabe:
+%
+\begin{mathpar}
+  \inferrule
+  {\phi}
+  {\phi \lor \psi}
+  \and
+  \inferrule
+  {\psi}
+  {\phi \lor \psi}
+  \and
+  \inferrule
+  {\phi \lor \psi \\ \izpeljava{[\phi]}{\rho} \\ \izpeljava{[\psi]}{\rho}}
+  {\rho}
+\end{mathpar}
+%
+Pravili sklepanja povesta, da lahko dokažemo disjunkcijo $\phi \lor
+\psi$ tako, da dokažemo enega od disjunktov.
+
+Pojasnimo še pravilo uporabe. Denimo, da bi radi dokazali $\rho$, pri
+čemer že vemo, da velja $\phi \lor \psi$. Pravilo uporabe pravi, da je
+treba obravnavati dva primera: iz začasne hipoteze $\phi$ je treba
+dokazati $\rho$ in iz začasne hipoteze $\psi$ je treba dokazati
+$\rho$.
+
+Ponazorimo pravilo uporabe v dokazu izjave $(\alpha \lor \gamma) \land
+(\beta \lor \gamma)$ iz hipoteze $(\alpha \land \beta) \lor \gamma$.
+Dokazno drevo je precej veliko, v njem pa se dvakrat pojavi uporaba
+disjunkcije:
+%
+\begin{equation*}
+  \inferrule
+  {\inferrule*
+    {\inferrule*{}{(\alpha \land \beta) \lor \gamma}
+      \\
+      \inferrule*{
+        \inferrule
+        {[\alpha \land \beta]}
+        {\alpha}
+      }{\alpha \lor \gamma}
+      \\
+      \inferrule*{[\gamma]}{\alpha \lor \gamma}
+    }
+    {\alpha \lor \gamma}
+    \\
+    \inferrule*
+    {\inferrule*{}{(\alpha \land \beta) \lor \gamma}
+      \\
+      \inferrule*{
+        \inferrule
+        {[\alpha \land \beta]}
+        {\beta}
+      }{\beta \lor \gamma}
+      \\
+      \inferrule*{[\gamma]}{\beta \lor \gamma}
+    }
+    {\beta \lor \gamma}
+  }
+  {(\alpha \lor \gamma) \land (\beta \lor \gamma)}
+\end{equation*}
+%
+Poglejmo na primer levo vejo tega dokaza, desna je podobna:
+%
+\begin{equation*}
+  \inferrule*
+    {\inferrule*{}{(\alpha \land \beta) \lor \gamma}
+      \\
+      \inferrule*{
+        \inferrule
+        {[\alpha \land \beta]}
+        {\alpha}
+      }{\alpha \lor \gamma}
+      \\
+      \inferrule*{[\gamma]}{\alpha \lor \gamma}
+    }
+    {\alpha \lor \gamma}
+\end{equation*}
+%
+Res je to uporaba disjunkcije $\phi \lor \psi$, kjer smo vzeli $\phi =
+\alpha \land \beta$ in $\psi = \gamma$, dokazali pa smo izjavo $\rho =
+\alpha \lor \gamma$.
+
+\begin{vaja}
+  Iz hipoteze $(\alpha \lor \gamma) \land (\beta \lor \gamma)$ dokaži
+  $(\alpha \land \beta) \lor \gamma$.
+\end{vaja}
+
+V besedilu dokažemo disjunkcijo s pravilom za vpeljavo takole:
+%
+\begin{quote}
+  \it
+  %
+  Dokazujemo $\phi \lor \psi$. Zadostuje dokazati $\phi$:
+  \begin{enumerate}
+  \item[] (Dokaz $\phi$.)
+  \end{enumerate}
+  %
+  Dokazali smo $\phi \lor \psi$.
+\end{quote}
+%
+Pravilo uporabe disjunkcije se v besedilu zapiše kot obravnava
+primerov:
+%
+\begin{quote}
+  \it
+  %
+  Dokazujemo $\rho$. To bomo dokazali z obravnavo primerov $\phi$ in
+  $\psi$:
+  \begin{enumerate}
+  \item (Dokaz $\phi \lor \psi$)
+  \item Predpostavimo, da velja $\phi$. (Dokaz $\rho$)
+  \item Predpostavimo, da velja $\psi$. (Dokaz $\rho$)
+  \end{enumerate}
+  %
+  Dokazali smo $\rho$.
+\end{quote}
+%
+Še primer konkretnega dokaza, ki je tako napisan.
+
+\begin{izrek}
+  \label{izrek:x-3-5}
+  Naj bo $x$ realno število. Če je $|x - 3| > 5$, potem je $x^4 > 15$.
+\end{izrek}
+
+\begin{proof}
+  Dokazujemo $|x - 3| > 5 \lthen x^4 > 15$. Predpostavimo $|x - 3| > 5$
+  in dokažimo $x^4 > 15$. To bomo dokazali z obravnavo primerov $x \leq
+  3$ in $x \geq 3$:
+  %
+  \begin{enumerate}
+  \item $x \leq 3 \lor x \geq 3$ velja, ker so realna števila linearno
+    urejena z relacijo $\leq$.
+  \item Predpostavimo $x \leq 3$. Tedaj je $x - 3 \leq 0$ in zato $|x
+    - 3| = 3 - x$, od koder sledi $3 - x = |x - 3| > 5$, oziroma $x <
+    -2$. Tako dobimo
+    %
+    \begin{equation*}
+      x^4 > (-2)^4 = 16 > 15.
+    \end{equation*}
+  \item Predpostavimo $x \geq 3$. Tedaj je $x - 3 \geq 0$ in zato$|x -
+    3| = x - 3$, od koder sledi $x - 3 = |x - 3| > 5$, oziroma $x >
+    8$. Tako dobimo
+    %
+    \begin{equation*}
+      x^4 > 8^4 = 4096 > 15.
+    \end{equation*}
+  \end{enumerate}
+  %
+  Iz predpostavke $|x - 3| > 5$ smo izpeljali $x^4 > 15$. S tem smo
+  dokazali $|x - 3| > 5 \lthen x^4 > 15$.
+\end{proof}
+
+Težji del tega dokaza se skriva v izbiri disjunkcije. Kako je pisec
+uganil, da je treba obravnavati primera $x \leq 3$ in $x \geq 3$?
+Zakaj ni raje obravnaval $x < 3$ in $x \geq 3$, ali morda $x \leq 17$
+in $x \geq 17$? Odgovor se skriva v definiciji absolutne vrednosti:
+%
+\begin{equation*}
+  |a| =
+  \begin{cases}
+    a & \text{če je $a \geq 0$,}\\
+    -a & \text{če je $a \leq 0$.}
+  \end{cases}
+\end{equation*}
+%
+Ker v izreku nastopa izraz $|x - 3|$, bo obravnava primerov $x - 3
+\geq 0$ in $x - 3 \leq 0$ omogočila, da $|x - 3|$ poenostavimo enkrat
+v $x - 3$ in drugič v $3 - x$. Seveda pa je $x - 3 \geq 0$
+ekvivalentno $x \geq 3$ in $x - 3 \leq 0$ ekvivalentno $x \leq 3$.
+
+\begin{vaja}
+  Ali bi lahko izrek~\ref{izrek:x-3-5} dokazali tudi z obravnavo
+  primerov $x < 3$ in $x \geq 3$?
+\end{vaja}
+
+\subsection{Resnica in neresnica}
+
+\label{sec:resnica-neresnica}
+
+Logična konstanta $\top$ označuje resnico. Kar je res, je res, in tega
+ni treba posebej dokazovati. To dejstvo izraža aksiom
+%
+\begin{equation*}
+  \inferrule{\qquad}{\top}
+\end{equation*}
+%
+Logična konstanta $\top$ nima pravila uporabe, ker iz $\top$ ne moremo
+sklepati nič koristnega.
+
+Logična konstanta $\bot$ označuje neresnico. Ker se tega, kar ni res,
+ne more dokazati, $\bot$ nima pravila vpeljave. Pravilo uporabe je
+%
+\begin{equation*}
+  \inferrule{\quad\bot\quad}{\phi}
+\end{equation*}
+%
+se imenuje \textbf{ex falso (sequitur) quodlibet}, kar pomeni ">iz
+neresnice sledi karkoli"<.
+
+V matematičnem besedilu se $\top$ in $\bot$ ne pojavljata pogosto, ker
+matematiki izraze, v katerih se $\top$ in $\bot$ pojavita, vedno
+poenostavijo s pomočjo ekvivalenc:
+%
+\begin{mathpar}
+  \top \land \phi \liff \phi
+  \and
+  \top \lor \phi \liff \phi
+  \and
+  \bot \land \phi \liff \bot
+  \and
+  \bot \lor \phi \liff \phi
+  \\
+  (\top \lthen \phi) \liff \phi
+  \and
+  (\bot \lthen \phi) \liff \top
+  \and
+  (\phi \lthen \top) \liff \top
+\end{mathpar}
+%
+
+\subsection{Ekvivalenca}
+
+\label{sec:ekvivalenca}
+
+Logična ekvivalenca $\phi \liff \psi$ je okrajšava za
+%
+\begin{equation*}
+  (\phi \lthen \psi) \land (\psi \lthen \phi).
+\end{equation*}
+%
+Ker je to konjunkcija (dveh implikacij), so pravila za vpeljavo in
+uporabo ekvivalence samo poseben primer pravil sklepanja za
+konjunkcijo:
+%
+\begin{mathpar}
+  \inferrule
+  {\phi \lthen \psi \\ \psi \lthen \phi}
+  {\phi \liff \psi}
+  \and
+  \inferrule{\phi \liff \psi}{\phi \lthen \psi}
+  \and
+  \inferrule{\phi \liff \psi}{\psi \lthen \phi}
+\end{mathpar}
+%
+V matematičnem besedilu ekvivalenco dokažemo takole:
+%
+\begin{quote}
+  \it
+  %
+  Dokazujemo $\phi \liff \psi$:
+  %
+  \begin{enumerate}
+  \item (Dokaz $\phi \lthen \psi$)
+  \item (Dokaz $\psi \lthen \phi$)
+  \end{enumerate}
+  Dokazali smo $\phi \liff \psi$.
+\end{quote}
+
+Če sta izjavi $\phi$ in $\psi$ logično ekvivalentni, lahko eno
+zamenjamo z drugo. To matematiki s pridom uporabljajo pri dokazovanju
+izjav, čeprav pogosto sploh ne omenijo, katero ekvivalenco so
+uporabili.
+
+Kadar dokazujemo medsebojno ekvivalenco več izjav $\phi_1$,
+$\phi_2$, \ldots, $\phi_n$, zadostuje dokazati cikel implikacij
+%
+\begin{equation*}
+  \phi_1 \lthen \phi_2 \lthen \cdots \lthen \phi_{n-1} \lthen \phi_n \lthen \phi_1.
+\end{equation*}
+%
+(Ne spreglejte zadnje implikacije $\phi_n \lthen \phi_1$, ki zaključi
+cikel). V besedilu to dokažemo:
+
+\begin{quote}
+  \it
+  %
+  Dokazujemo, da so izjave $\phi_1, \phi_2, \ldots, \phi_n$
+  ekvivalentne:
+  %
+  \begin{enumerate}
+  \item (Dokaz $\phi_1 \lthen \phi_2$)
+  \item (Dokaz $\phi_2 \lthen \phi_3$)
+  \item \dots
+  \item (Dokaz $\phi_{n-1} \lthen \phi_n$)
+  \item (Dokaz $\phi_n \lthen \phi_1$)
+  \end{enumerate}
+\end{quote}
+
+\noindent
+%
+Seveda smemo pred samim dokazovanjem izjave $\phi_1, \ldots, \phi_n$
+preurediti tako, da je zahtevane implikacije kar najlažje dokazati.
+Dokaz lahko tudi razdelimo na dva ločena cikla implikacij
+%
+\begin{equation*}
+  \phi_1 \lthen \cdots \lthen \phi_k \lthen \phi_1
+\end{equation*}
+%
+in
+%
+\begin{equation*}
+  \phi_{k+1} \lthen \cdots \lthen \phi_n \lthen \phi_{k+1}
+\end{equation*}
+%
+in nato dokažemo še eno ekvivalenco $\phi_i \liff \phi_j$, pri čemer
+je $\phi_i$ iz prvega in $\phi_j$ iz drugega cikla.
+
+\subsection{Negacija}
+
+\label{sec:negacija}
+
+Negacija $\lnot\phi$ je definirana kot okrajšava za $\phi
+\lthen \bot$. Iz pravil sklepanja za $\lthen$ in $\bot$ tako izpeljemo
+pravili sklepanja za negacijo:
+%
+\begin{mathpar}
+  \inferrule
+  {\izpeljava{[\phi]}{\bot}}
+  {\lnot \phi}
+  %
+  \and
+  %
+  \inferrule
+  {\lnot\phi \\ \phi}
+  {\psi}
+\end{mathpar}
+%
+V besedilu dokazujemo $\lnot\phi$ takole:
+%
+\begin{quote}
+  \it
+  %
+  Dokazujemo $\lnot\phi$.
+  \begin{itemize}
+  \item[] Predpostavimo $\phi$.
+  \item[] (Dokaz $\bot$.)
+  \end{itemize}
+  Dokazali smo $\lnot\phi$.
+\end{quote}
+%
+Tu ">Dokaz $\bot$"< pomeni, da iz danih predpostavk izpeljemo
+protislovje. Mnogi matematiki menijo, da se takemu dokazu reče ">dokaz
+s protislovjem"<, vendar to ni res. To je samo navaden dokaz negacije.
+Dokazovanje s protislovjem bomo obravnavali v razdelku~\ref{sec:lem}.
+
+Pravilo uporabe za $\lnot\phi$ v besedilu ni eksplicitno vidno, ampak
+ga matematiki uporabijo, ko sredi dokaza, da velja $\psi$, izpeljejo
+protislovje:
+%
+\begin{quote}
+  \it
+  %
+  Dokazujemo $\psi$.
+  %
+  \begin{itemize}
+  \item[] (Dokaz $\phi$.)
+  \item[] (Dokaz $\lnot\phi$.)
+  \end{itemize}
+  %
+  To je nesmisel, in ker iz nesmisla sledi karkoli, sledi $\psi$.
+\end{quote}
+
+\subsection{Univerzalni kvantifikator}
+
+\label{sec:univerzalni-kvantifikator}
+
+Univerzalna kvantifikacija $\all{x \in S} \phi$ se prebere ">Za vse $x$
+iz $S$ velja $\phi$."< Pravili sklepanja sta
+%
+\begin{mathpar}
+  \inferrule
+  {\izpeljava{[x \in S]}{\phi(x)}}{\all{x \in S} \phi(x)} \ \text{($x$ svež)}
+  \and
+  \inferrule{\all{x \in S} \phi(x) \\ e \in S}{\phi(e)}
+\end{mathpar}
+%
+pri čemer je $x$ spremenljivka, $\phi(x)$ logična formula in $e$ poljuben izraz.
+
+V besedilu se pravilo vpeljave zapiše:
+%
+\begin{quote}
+  \it
+  %
+  Dokazujemo $\all{x \in S} \phi(x)$:
+  %
+  \begin{itemize}
+  \item[] Naj bo $x \in S$ poljuben.
+  \item[] (Dokaz, da velja $\phi(x)$).
+  \end{itemize}
+  %
+  Dokazali smo $\all{x \in S} \phi(x)$.
+\end{quote}
+%
+Pravilo uporabe v besedilu ponavadi ni eksplicitno navedeno, če pa bi
+ga že zapisali, bi šlo takole:
+%
+\begin{quote}
+  \it
+  %
+  Dokazujemo, da velja $\phi(e)$:
+  \begin{itemize}
+  \item[] (Dokaz, da velja $\all{x \in S} \phi(x)$.)
+  \item[] (Dokaz, da velja $e \in S$.)
+  \end{itemize}
+  %
+  Torej velja $\phi(e)$.
+\end{quote}
+
+Ob pravilu vpeljave stoji stranski pogoj, da mora biti spremenljivka
+$x$ ">sveža"<. To pomeni, da se $x$ ne sme pojavljati drugje v dokazu,
+saj bi sicer lahko prišlo do zmešnjave med vezanimi in prostimi
+spremenljivkami. V besedilu se dejstvo, da je $x$ svež, izraža z
+besedico ">poljuben"< ali ">katerikoli"<. Primer, kako gredo stvari
+narobe, če ne pazimo in pomešamo spremenljivke:
+
+\begin{izrek}[z napako v dokazu]
+  Če je $x$ večji od~$42$, so vsa realna števila večja od~$23$.
+\end{izrek}
+
+\begin{proof}
+  Denimo, da bi nekoliko nerodno zapisali izrek simbolno takole:
+  %
+  \begin{equation*}
+    x > 42 \lthen \all{x \in \RR} x > 23.
+  \end{equation*}
+  %
+  To je sicer dovoljeno, saj se prosti $x$, ki stoji zunaj $\forall$
+  ni ujel, ni pa preveč smotrno, ker smo na dobri poti, da bomo
+  zunanji prosti $x$ in vezanega znotraj $\forall$ pomešali. Res, če
+  ne upoštevamo pravila, da mora biti $x$ svež, dobimo tale nepravi
+  ">dokaz"<:
+  %
+  \begin{equation*}
+    \inferrule*
+    {
+      \inferrule*
+      {\inferrule*
+        {[x > 42] \\ 42 > 23}
+        {x > 23}
+      }
+      {\all{x \in \RR} x > 23}
+    }
+    {x > 42 \lthen \all{x \in \RR} x > 23}
+  \end{equation*}
+  %
+  Pri pravilu za vpeljavo $\forall$ smo uporabili spremenljivko $x$,
+  ki pa je že nastopala v začasni hipotezi $x > 42$. Z besedilom bi se
+  isti dokaz glasil takole:
+  %
+  \begin{quote}
+    ">Dokazujemo $x > 42 \lthen \all{x \in \RR} x > 23$. Predpostavimo,
+    da velja $x > 42$ in dokažimo $\all{x \in \RR} x > 23$. Naj bo $x
+    \in \RR$. Po predpostavki je $x > 42$ in ker je $42 > 23$, od tod
+    sledi $x > 23$."<
+  \end{quote}
+  %
+  Če bi izrek zapisali bolje kot $x > 42 \lthen \all{y \in \RR} y >
+    23$, težav ne bi bilo, saj bi se prejšnji dokaz ">zataknil"<:
+  %
+  \begin{quote}
+    ">Dokazujemo $x > 42 \lthen \all{y \in \RR} y > 23$. Predpostavimo,
+    da velja $x > 42$ in dokažimo $\all{y \in \RR} y > 23$. Naj bo $y
+    \in \RR$. (Kaj zdaj? Lahko sicer dokažemo $x > 23$, a zares bi
+    morali dokazati $y > 23$, kar ne gre.)"<
+  \end{quote}
+\end{proof}
+
+Pogoj, da mora biti spremenljivka $x$ v pravilu za vpeljavo ">sveža"<,
+se v praksi kaže v tem, da pri uvajanju nove spremenljivke izberemo
+zanjo novo ime, ki se še ni pojavilo v dokazu.
+
+\subsection{Eksistenčni kvantifikator}
+
+\label{sec:eksistencni-kvantifikator}
+
+Eksistenčna kvantifikacija $\some{x \in S} \phi$ se prebere ">obstaja
+$x$ iz $S$, za katerega velja $\phi$"< ali ">za neki $x$ iz $S$ velja
+$\phi$."< Pravili sklepanja za eksistenčni kvantifikator se glasita
+%
+\begin{mathpar}
+  \inferrule
+  {\phi(e) \\ e \in S}
+  {\some{x \in S} \phi(x)}
+  \and
+  \inferrule
+  {\some{x \in S} \phi(x)
+    \\
+    \izpeljava{[x \in S \land \phi(x)]}{\psi}}
+  {\psi}\ \text{($x$ svež)}
+\end{mathpar}
+%
+kjer je $e$ poljuben izraz in $x$ spremenljivka. Pri tem mora biti $x$
+v pravilu uporabe svež. V besedilu pravilo vpeljave uporabimo takole:
+%
+\begin{quote}
+  \it
+  %
+  Dokazujemo $\some{x \in S} \phi(x)$:
+  %
+  \begin{enumerate}
+  \item (Skonstruiramo element $e \in S$.)
+  \item (Dokažemo, da velja $\phi(e)$.)
+  \end{enumerate}
+  %
+  Dokazali smo $\some{x \in S} \phi(x)$.
+\end{quote}
+%
+Pravilo uporabe pa se v besedilu izraža takole:
+%
+\begin{quote}
+  \it
+  %
+  Dokazujemo $\psi$:
+  %
+  \begin{enumerate}
+  \item (Dokaz izjave $\some{x \in S} \phi(x)$.)
+  \item Predpostavimo, da za $x \in S$ velja $\phi(x)$:
+    %
+    \begin{itemize}
+    \item[] (Dokaz izjave $\psi$.)
+    \end{itemize}
+  \end{enumerate}
+  %
+  Dokazali smo $\psi$.
+\end{quote}
+
+\subsection{Izključena tretja možnost}
+
+Dokaz ekvivalence $\phi \liff \lnot\lnot\phi$ sestoji iz dokazov dveh
+implikacij:
+%
+\begin{mathpar}
+  \inferrule
+  {\inferrule{
+      \inferrule{[\lnot\phi] \\ [\phi]}{\bot}
+    }
+    {\lnot\lnot\phi}
+  }
+  {\phi \lthen \lnot\lnot\phi}
+  %
+  \and
+  %
+  \inferrule*
+  {\inferrule*
+    {\inferrule*{ }{\phi \lor \lnot\phi} \\
+     [\phi] \\
+     \inferrule*{
+       \inferrule*{
+         [\lnot\lnot\phi] \\ [\lnot\phi]
+       }
+       {\bot}
+     }
+     {\phi}
+    }
+    {\phi}
+  }
+  {\lnot\lnot\phi \lthen \phi}
+\end{mathpar}
+
+\subsection{Enakost}
+
+Zgornja štiri pravila zapišemo formalno takole:
+%
+\begin{mathpar}
+  \inferrule{ }{a = a}
+  \and
+  \inferrule{a = b}{b = a}
+  \and
+  \inferrule{a = b \\ b = c}{a = c}
+  \and
+  \inferrule{\phi(a) \\ a = b}{\phi(b)}
+\end{mathpar}
 
 %%% Local Variables:
 %%% mode: latex
