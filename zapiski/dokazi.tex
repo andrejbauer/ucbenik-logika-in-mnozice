@@ -69,7 +69,6 @@ vzame naslednji zgled.
   primerov torej ne zadošča.
 \end{zgled}
 
-
 \noindent
 Ko izkušenega matematika prosimo, da naj nam vsaj pojasni idejo dokaza,
 zapiše:
@@ -111,6 +110,22 @@ očitno pritrdilna, mar ne? To pa ne pomeni, da ju ni treba dokazati.
 Nasprotno, zgodovina matematike nas uči, da moramo prav ">očitne"<
 izjave še posebej skrbno preveriti.
 
+\begin{vaja}
+  Kakšno je tvoje mnenje o resničnosti naslednjih izjav? Vprašaj
+  starejše kolege, asistente in učitelje, kaj menijo oni. Ali znajo
+  svoje mnenje utemeljiti z dokazi?
+  %
+  \begin{enumerate}
+  \item Sodih števil je manj kot naravnih števil.
+  \item Kroglo je mogoče razdeliti na pet delov tako, da lahko iz njih
+    sestavimo dve krogli, ki sta enako veliki kot prvotna krogla.
+  \item Sklenjena krivulja v ravnini, ki ne seka same sebe, razdeli
+    ravnino na dve območji, eno omejeno in eno neomejeno.
+  \item S krivuljo ne moremo prekriti notranjosti kvadrata.
+  \item Če ravnino razdelimo na tri območja, potem zagotovo obstaja
+    točka, ki je dvomeja in ni tromeja med območji.
+  \end{enumerate}
+\end{vaja}
 
 \noindent
 %
@@ -168,6 +183,13 @@ podrobno, postane dolgočasen in ne\-ra\-zumljiv:
   \end{proof}
 \end{quote}
 
+\begin{vaja}
+  S kolegi se igraj naslednjo igro.\footnote{%
+    Igranje odsvetujemo zunaj prostorov Fakultete za matematiko in fiziko.}
+  Prvi igralec v zgornjem dokazu poišče korak, ki ga je treba še dodatno
+  utemeljiti. Drugi igralec ga utemelji. Nato prvi igralec poišče nov korak,
+  ki ga je treba še dodatno utemeljiti in igra se ponovi. Zgubi tisti, ki se prvi naveliča igrati. Ali lahko igra traja neskončno dolgo?
+\end{vaja}
 
 Matematični dokaz ima dvojno vlogo. Po eni strani je utemeljitev matematične
 izjave, zato mora biti čim bolj podroben. V idealnem primeru bi bil dokaz
@@ -210,7 +232,9 @@ S tem postane $x$ veljavna spremenljivka, ki jo lahko uporabljamo. O njem vemo l
 %
 Pozor, beseda ">izberimo"< bi komu dala misliti, da si lahko izbere neki konkretni~$x$, a to preprečuje beseda ">poljuben"<, ki jo matematik uporabi, kadar želi povedati, da je~$x$ neznana ali nedoločena (poljubna) vrednost.
 
-
+\begin{vaja}
+  Denimo, da učitelj reče ">Naj bo $n$ (poljubno) naravno število"<, nato pa vas vpraša ">Ali je $n$ sodo število?"<, kako boste odgovorili?
+\end{vaja}
 
 \subsection{Cilj in kontekst}
 
@@ -394,6 +418,10 @@ Dokaz se razveji na dve veji, vsaka od njiju pa še na dve veji. Tako
 pri vrhu dobimo štiri liste, od katerih so trije izjave $\beta \land
 \alpha$ in eden aksiom za $\top$.
 
+\begin{vaja}
+  Preveri, da je vsako vejišče v zgornjem dokazu res uporaba enega od
+  zgoraj podanih pravil sklepanja.
+\end{vaja}
 
 V praksi matematično besedilo bolj ali manj odraža strukturo
 formalnega dokaza, le da se besedilo ne veji, ampak so sestavni kosi
@@ -684,6 +712,10 @@ Res je to uporaba disjunkcije $\phi \lor \psi$, kjer smo vzeli $\phi =
 \alpha \land \beta$ in $\psi = \gamma$, dokazali pa smo izjavo $\rho =
 \alpha \lor \gamma$.
 
+\begin{vaja}
+  Iz hipoteze $(\alpha \lor \gamma) \land (\beta \lor \gamma)$ dokaži
+  $(\alpha \land \beta) \lor \gamma$.
+\end{vaja}
 
 V besedilu dokažemo disjunkcijo s pravilom za vpeljavo takole:
 %
@@ -767,6 +799,11 @@ Ker v izreku nastopa izraz $|x - 3|$, bo obravnava primerov $x - 3
 \geq 0$ in $x - 3 \leq 0$ omogočila, da $|x - 3|$ poenostavimo enkrat
 v $x - 3$ in drugič v $3 - x$. Seveda pa je $x - 3 \geq 0$
 ekvivalentno $x \geq 3$ in $x - 3 \leq 0$ ekvivalentno $x \leq 3$.
+
+\begin{vaja}
+  Ali bi lahko izrek~\ref{izrek:x-3-5} dokazali tudi z obravnavo
+  primerov $x < 3$ in $x \geq 3$?
+\end{vaja}
 
 
 \subsection{Resnica in neresnica}
@@ -1380,6 +1417,12 @@ uporabe aksioma o izključenem tretjem. Za dokaz implikacij
 $\Leftarrow$ iz desne na levo pa potrebujemo aksiom o izključenem
 tretjem.
 
+\begin{vaja}
+  Sestavi formalne dokaze za zgornjih pet ekvivalenc. Pri dokazovanju
+  ekvivalenc za $\forall$ in $\exists$ si pomagaj s pravili sklepanja
+  iz razdelkov~\ref{sec:univerzalni-kvantifikator}
+  in~\ref{sec:eksistencni-kvantifikator}.
+\end{vaja}
 
 Povejmo, kako zgornje ekvivalence uporabimo v besedilu za posredni
 dokaz izjave:
@@ -1713,54 +1756,6 @@ za splošne $a$ in $b$ velja le v primeru, ko je $c \neq 0$. Ker pri
 reševanju enačb potrebujemo implikacijo v obe smeri, srednješolce
 učimo, da smejo enačbo množiti samo z od nič različnimi števili.
 
-
-
-
-
-%%% Local Variables: 
-%%% mode: latex
-%%% TeX-master: "lmn"
-%%% End:
-
-\section{Vaje}
-
-\begin{vaja}
-  Kakšno je tvoje mnenje o resničnosti naslednjih izjav? Vprašaj
-  starejše kolege, asistente in učitelje, kaj menijo oni. Ali znajo
-  svoje mnenje utemeljiti z dokazi?
-  %
-  \begin{enumerate}
-  \item Sodih števil je manj kot naravnih števil.
-  \item Kroglo je mogoče razdeliti na pet delov tako, da lahko iz njih
-    sestavimo dve krogli, ki sta enako veliki kot prvotna krogla.
-  \item Sklenjena krivulja v ravnini, ki ne seka same sebe, razdeli
-    ravnino na dve območji, eno omejeno in eno neomejeno.
-  \item S krivuljo ne moremo prekriti notranjosti kvadrata.
-  \item Če ravnino razdelimo na tri območja, potem zagotovo obstaja
-    točka, ki je dvomeja in ni tromeja med območji.
-  \end{enumerate}
-\end{vaja}
-
-\begin{vaja}
-  S kolegi se igraj naslednjo igro.\footnote{%
-    Igranje odsvetujemo zunaj prostorov Fakultete za matematiko in fiziko.}
-  Prvi igralec v zgornjem dokazu poišče korak, ki ga je treba še dodatno
-  utemeljiti. Drugi igralec ga utemelji. Nato prvi igralec poišče nov korak,
-  ki ga je treba še dodatno utemeljiti in igra se ponovi. Zgubi tisti, ki se prvi naveliča igrati. Ali lahko igra traja neskončno dolgo?
-\end{vaja}
-
-\begin{vaja}
-  Preveri, da je vsako vejišče v zgornjem dokazu res uporaba enega od
-  zgoraj podanih pravil sklepanja.
-\end{vaja}
-
-\begin{vaja}
-  Sestavi formalne dokaze za zgornjih pet ekvivalenc. Pri dokazovanju
-  ekvivalenc za $\forall$ in $\exists$ si pomagaj s pravili sklepanja
-  iz razdelkov~\ref{sec:univerzalni-kvantifikator}
-  in~\ref{sec:eksistencni-kvantifikator}.
-\end{vaja}
-
 \begin{vaja}
   Kako bi srednješolcem pojasnil, od kod izvira pravilo za množenje
   enačbe z neničelnim številom?
@@ -1784,19 +1779,12 @@ učimo, da smejo enačbo množiti samo z od nič različnimi števili.
   enačbe?
 \end{vaja}
 
-\begin{vaja}
-  Denimo, da učitelj reče ">Naj bo $n$ (poljubno) naravno število"<, nato pa vas vpraša ">Ali je $n$ sodo število?"<, kako boste odgovorili?
-\end{vaja}
 
-\begin{vaja}
-  Iz hipoteze $(\alpha \lor \gamma) \land (\beta \lor \gamma)$ dokaži
-  $(\alpha \land \beta) \lor \gamma$.
-\end{vaja}
 
-\begin{vaja}
-  Ali bi lahko izrek~\ref{izrek:x-3-5} dokazali tudi z obravnavo
-  primerov $x < 3$ in $x \geq 3$?
-\end{vaja}
+%%% Local Variables: 
+%%% mode: latex
+%%% TeX-master: "lmn"
+%%% End:
 
 
 %%% Local Variables:
