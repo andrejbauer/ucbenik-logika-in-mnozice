@@ -208,20 +208,21 @@
   \lmnHrbtnaStran
 }
 
-%% Hrbtna stran naslovnice: kolofon in dovoljenje za uporabo.
+%% Hrbtna stran naslovnice: kolofon in licenca.
 \newcommand{\lmnHrbtnaStran}{%
   \thispagestyle{empty}%
   \null\vfill
   {\raggedright\footnotesize
    \textcopyright\ \the\year\ \lmnAvtorji\par
    \vspace{\lmnEnota}
-   Gradivo je namenjeno študiju pri predmetu Logika in množice.
-   Uporabljate ga smete za lasten študij.  Razmnoževanje, objavljanje,
-   javno priobčevanje in predelava brez pisnega dovoljenja avtorjev niso
-   dovoljeni.\par
-   \vspace{\lmnEnota}
-   \lmnUstanova, \lmnClanica\par
-   \iflmnOsnutek Osnutek z dne \today.\par\fi
+   To delo je ponujeno pod licenco Creative Commons Priznanje
+   avtorstva--Nekomercialno--Brez predelav 4.0 Mednarodna.\par
+   \vspace{\lmnPolEnota}
+   \url{https://creativecommons.org/licenses/by-nc-nd/4.0/deed.sl}\par
+   \iflmnOsnutek
+     \vspace{\lmnEnota}
+     Osnutek z dne \today.\par
+   \fi
   }%
   \clearpage
 }
