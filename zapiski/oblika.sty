@@ -101,6 +101,8 @@
 
 \RequirePackage{xcolor}
 \definecolor{ULrdeca}{HTML}{E03127}
+\definecolor{ULantracit}{HTML}{58595B}
+\definecolor{ULsiva}{HTML}{A7A8AA}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %% Navpicni ritem
@@ -130,52 +132,75 @@
 %% Oznaka v barvi poudarka, brez okvirjev, crt in podlag.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\newtheoremstyle{lmnLezeceTelo}
-  {0pt}{0pt}                 % razmik prispeva mdframed od zunaj
-  {\itshape}{0pt}            % telo / zamik
-  {\bfseries\lmnVerzalke}{.} % oznaka / locilo
-  {0.5em}{}                  % razmik za oznako / oblika
+%% Uokvirjena so okolja, ki jih student isce nazaj: trditve in dogovori.
+%% Barvi sta iz CGP UL -- rdeca za dogovore, antracit za trditve -- in
+%% nosita zelo blago podlago.  Zgled, opomba in vaja ostanejo neuokvirjeni,
+%% dokaz prav tako.
 
-\newtheoremstyle{lmnPokoncnoTelo}
+\newlength{\lmnDebelinaOkvira} \setlength{\lmnDebelinaOkvira}{0.6pt}
+\newcommand{\lmnGostotaPodlage}{5} % odstotki
+
+\newtheoremstyle{lmnLezeceTeloVOkviru}
+  {0pt}{0pt}                 % razmik prispeva mdframed od zunaj
+  {\itshape}{0pt}
+  {\bfseries\lmnVerzalke}{.}
+  {0.5em}{}
+
+\newtheoremstyle{lmnPokoncnoTeloVOkviru}
   {0pt}{0pt}
   {\upshape}{0pt}
   {\bfseries\lmnVerzalke}{.}
   {0.5em}{}
 
-% Vsa izrekom podobna okolja nosijo navpicno crto v rdeci UL.
+\newtheoremstyle{lmnPokoncnoTelo}
+  {\lmnEnota}{\lmnEnota}
+  {\upshape}{0pt}
+  {\bfseries\lmnVerzalke}{.}
+  {0.5em}{}
+
 \RequirePackage[framemethod=default]{mdframed}
-\mdfdefinestyle{lmnCrta}{
-  linewidth         = \lmnDebelinaCrte,
-  linecolor         = ULrdeca,
-  topline           = false,
-  bottomline        = false,
-  rightline         = false,
-  leftline          = true,
-  innerleftmargin   = 1em,
-  innerrightmargin  = 0pt,
-  innertopmargin    = 0pt,
-  innerbottommargin = 0pt,
+
+\mdfdefinestyle{lmnOkvirTrditve}{
+  linewidth         = \lmnDebelinaOkvira,
+  linecolor         = ULantracit,
+  backgroundcolor   = ULantracit!\lmnGostotaPodlage,
+  innerleftmargin   = 0.8em,
+  innerrightmargin  = 0.8em,
+  innertopmargin    = \lmnPolEnota,
+  innerbottommargin = \lmnPolEnota,
   skipabove         = \lmnEnota,
   skipbelow         = \lmnEnota
 }
 
-% Trdilna okolja: telo v kurzivi.
-\theoremstyle{lmnLezeceTelo}
-\newmdtheoremenv[style=lmnCrta]{izrek}{Izrek}[chapter]
-\newmdtheoremenv[style=lmnCrta]{lema}[izrek]{Lema}
-\newmdtheoremenv[style=lmnCrta]{izjava}[izrek]{Izjava}
-\newmdtheoremenv[style=lmnCrta]{trditev}[izrek]{Trditev}
-\newmdtheoremenv[style=lmnCrta]{posledica}[izrek]{Posledica}
-\newmdtheoremenv[style=lmnCrta]{hipoteza}[izrek]{Hipoteza}
+\mdfdefinestyle{lmnOkvirDogovora}{
+  linewidth         = \lmnDebelinaOkvira,
+  linecolor         = ULrdeca,
+  backgroundcolor   = ULrdeca!\lmnGostotaPodlage,
+  innerleftmargin   = 0.8em,
+  innerrightmargin  = 0.8em,
+  innertopmargin    = \lmnPolEnota,
+  innerbottommargin = \lmnPolEnota,
+  skipabove         = \lmnEnota,
+  skipbelow         = \lmnEnota
+}
 
-% Ostala okolja: telo pokoncno.
+\theoremstyle{lmnLezeceTeloVOkviru}
+\newmdtheoremenv[style=lmnOkvirTrditve]{izrek}{Izrek}[chapter]
+\newmdtheoremenv[style=lmnOkvirTrditve]{lema}[izrek]{Lema}
+\newmdtheoremenv[style=lmnOkvirTrditve]{izjava}[izrek]{Izjava}
+\newmdtheoremenv[style=lmnOkvirTrditve]{trditev}[izrek]{Trditev}
+\newmdtheoremenv[style=lmnOkvirTrditve]{posledica}[izrek]{Posledica}
+\newmdtheoremenv[style=lmnOkvirTrditve]{hipoteza}[izrek]{Hipoteza}
+
+\theoremstyle{lmnPokoncnoTeloVOkviru}
+\newmdtheoremenv[style=lmnOkvirDogovora]{definicija}[izrek]{Definicija}
+\newmdtheoremenv[style=lmnOkvirDogovora]{aksiom}[izrek]{Aksiom}
+\newmdtheoremenv[style=lmnOkvirDogovora]{pravilo}[izrek]{Pravilo}
+
 \theoremstyle{lmnPokoncnoTelo}
-\newmdtheoremenv[style=lmnCrta]{definicija}[izrek]{Definicija}
-\newmdtheoremenv[style=lmnCrta]{aksiom}[izrek]{Aksiom}
-\newmdtheoremenv[style=lmnCrta]{pravilo}[izrek]{Pravilo}
-\newmdtheoremenv[style=lmnCrta]{zgled}[izrek]{Zgled}
-\newmdtheoremenv[style=lmnCrta]{opomba}[izrek]{Opomba}
-\newmdtheoremenv[style=lmnCrta]{vaja}[izrek]{Vaja}
+\newtheorem{zgled}[izrek]{Zgled}
+\newtheorem{opomba}[izrek]{Opomba}
+\newtheorem{vaja}[izrek]{Vaja}
 
 \renewcommand{\qedsymbol}{\ensuremath{\mdlgwhtsquare}}
 
