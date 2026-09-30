@@ -69,7 +69,10 @@
 \setmathfont{STIX Two Math}[range={"22BB}]
 
 % Naslovna razlicica za velike stopnje
-\newfontfamily\lmnNaslovnaPisava{Libertinus Serif Display}[Ligatures = TeX]
+\newfontfamily\lmnNaslovnaPisava{Libertinus Serif Display}[
+  Ligatures = TeX,
+  BoldFont  = LibertinusSerif-Bold.otf   % Display nima krepkega reza
+]
 
 % Kapitelke in verzalne stevke za tekoce naslove in oznake
 \newfontfamily\lmnKapitelke{Libertinus Serif}[
@@ -171,6 +174,12 @@
 %% rdeca v polni jakosti.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
+% Naslov na naslovnici je lahko drugacen od naslova knjige (kazalo,
+% tekoci naslovi, metapodatki PDF uporabljajo \title).
+\newcommand{\lmnNaslovNaPlatnici}{\@title}
+\newcommand{\lmnStopnjaNaslovnice}{80}
+\newcommand{\lmnRazmikNaslovnice}{84}
+
 \newcommand{\lmnUstanova}{Univerza v Ljubljani}
 \newcommand{\lmnClanica}{Fakulteta za matematiko in fiziko}
 
@@ -186,7 +195,10 @@
   % Naslov stoji na zgornjem robu stavka, ustanova na spodnjem; razmerje
   % dolocajo robovi strani, ne izbrana stevilka.
   \vspace*{0pt}%
-  {\lmnUniverzaSansTanka\fontsize{34}{38}\selectfont \@title\par}%
+  {\lmnNaslovnaPisava\bfseries
+   \fontsize{\lmnStopnjaNaslovnice}{\lmnRazmikNaslovnice}\selectfont
+   \hyphenpenalty=10000 \exhyphenpenalty=10000
+   \lmnNaslovNaPlatnici\par}%
   \vspace{\lmnDvojnaEnota}%
   {\lmnUniverzaSans\fontsize{13}{\lmnEnota}\selectfont
    \renewcommand{\and}{\quad\textbar\quad}%
