@@ -131,37 +131,20 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \newtheoremstyle{lmnLezeceTelo}
-  {\lmnEnota}{\lmnEnota}                       % razmik zgoraj / spodaj
-  {\itshape}{0pt}                            % telo / zamik
-  {\bfseries\lmnVerzalke}{.}  % oznaka / locilo
-  {0.5em}{}                                  % razmik za oznako / oblika
+  {0pt}{0pt}                 % razmik prispeva mdframed od zunaj
+  {\itshape}{0pt}            % telo / zamik
+  {\bfseries\lmnVerzalke}{.} % oznaka / locilo
+  {0.5em}{}                  % razmik za oznako / oblika
 
 \newtheoremstyle{lmnPokoncnoTelo}
-  {\lmnEnota}{\lmnEnota}
-  {\upshape}{0pt}
-  {\bfseries\lmnVerzalke}{.}
-  {0.5em}{}
-
-% Pri uokvirjenih okoljih razmik prispeva mdframed od zunaj; ce bi ga
-% dodal se slog izreka, bi crta segala cez besedilo gor in dol.
-\newtheoremstyle{lmnPokoncnoTeloBrezRazmika}
   {0pt}{0pt}
   {\upshape}{0pt}
   {\bfseries\lmnVerzalke}{.}
   {0.5em}{}
 
-\theoremstyle{lmnLezeceTelo}
-\newtheorem{izrek}{Izrek}[chapter]
-\newtheorem{lema}[izrek]{Lema}
-\newtheorem{izjava}[izrek]{Izjava}
-\newtheorem{trditev}[izrek]{Trditev}
-\newtheorem{posledica}[izrek]{Posledica}
-\newtheorem{hipoteza}[izrek]{Hipoteza}
-
-% Dogovorna okolja -- definicija, aksiom, pravilo -- nosijo navpicno crto
-% v barvi poudarka.  Crta oznacuje register, ne posameznega okolja.
+% Vsa izrekom podobna okolja nosijo navpicno crto v rdeci UL.
 \RequirePackage[framemethod=default]{mdframed}
-\mdfdefinestyle{lmnDogovor}{
+\mdfdefinestyle{lmnCrta}{
   linewidth         = \lmnDebelinaCrte,
   linecolor         = ULrdeca,
   topline           = false,
@@ -176,15 +159,23 @@
   skipbelow         = \lmnEnota
 }
 
-\theoremstyle{lmnPokoncnoTeloBrezRazmika}
-\newmdtheoremenv[style=lmnDogovor]{definicija}[izrek]{Definicija}
-\newmdtheoremenv[style=lmnDogovor]{aksiom}[izrek]{Aksiom}
-\newmdtheoremenv[style=lmnDogovor]{pravilo}[izrek]{Pravilo}
+% Trdilna okolja: telo v kurzivi.
+\theoremstyle{lmnLezeceTelo}
+\newmdtheoremenv[style=lmnCrta]{izrek}{Izrek}[chapter]
+\newmdtheoremenv[style=lmnCrta]{lema}[izrek]{Lema}
+\newmdtheoremenv[style=lmnCrta]{izjava}[izrek]{Izjava}
+\newmdtheoremenv[style=lmnCrta]{trditev}[izrek]{Trditev}
+\newmdtheoremenv[style=lmnCrta]{posledica}[izrek]{Posledica}
+\newmdtheoremenv[style=lmnCrta]{hipoteza}[izrek]{Hipoteza}
 
+% Ostala okolja: telo pokoncno.
 \theoremstyle{lmnPokoncnoTelo}
-\newtheorem{zgled}[izrek]{Zgled}
-\newtheorem{opomba}[izrek]{Opomba}
-\newtheorem{vaja}[izrek]{Vaja}
+\newmdtheoremenv[style=lmnCrta]{definicija}[izrek]{Definicija}
+\newmdtheoremenv[style=lmnCrta]{aksiom}[izrek]{Aksiom}
+\newmdtheoremenv[style=lmnCrta]{pravilo}[izrek]{Pravilo}
+\newmdtheoremenv[style=lmnCrta]{zgled}[izrek]{Zgled}
+\newmdtheoremenv[style=lmnCrta]{opomba}[izrek]{Opomba}
+\newmdtheoremenv[style=lmnCrta]{vaja}[izrek]{Vaja}
 
 \renewcommand{\qedsymbol}{\ensuremath{\mdlgwhtsquare}}
 
