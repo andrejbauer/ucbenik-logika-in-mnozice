@@ -149,8 +149,8 @@
 \newtheorem{posledica}[izrek]{Posledica}
 \newtheorem{hipoteza}[izrek]{Hipoteza}
 
-% Definicije nosijo navpicno crto v barvi poudarka.  Nosijo jo samo one:
-% ce bi jo dobila se pravila in aksiomi, bi bile prve strani same crte.
+% Dogovorna okolja -- definicija, aksiom, pravilo -- nosijo navpicno crto
+% v barvi poudarka.  Crta oznacuje register, ne posameznega okolja.
 \RequirePackage[framemethod=default]{mdframed}
 \mdfdefinestyle{obDefinicija}{
   linewidth         = 1pt,
@@ -169,8 +169,8 @@
 
 \theoremstyle{obDogovorni}
 \newmdtheoremenv[style=obDefinicija]{definicija}[izrek]{Definicija}
-\newtheorem{aksiom}[izrek]{Aksiom}
-\newtheorem{pravilo}[izrek]{Pravilo}
+\newmdtheoremenv[style=obDefinicija]{aksiom}[izrek]{Aksiom}
+\newmdtheoremenv[style=obDefinicija]{pravilo}[izrek]{Pravilo}
 \newtheorem{zgled}[izrek]{Zgled}
 \newtheorem{opomba}[izrek]{Opomba}
 \newtheorem{vaja}[izrek]{Vaja}
