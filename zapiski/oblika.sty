@@ -177,12 +177,12 @@
 \newcommand{\lmnNaslovnaStran}{%
   \begin{titlepage}%
   \thispagestyle{empty}%
+  \raggedright\color{white}\setlength{\parindent}{0pt}%
   % Polna rdeca podlaga cez celo stran.  CGP: na temnih podlagah je vse
   % enobarvno in nikoli rdece, zato je tipografija tukaj bela.
-  \begin{tikzpicture}[remember picture, overlay]
+  \noindent\begin{tikzpicture}[remember picture, overlay]
     \fill[ULrdeca] (current page.south west) rectangle (current page.north east);
-  \end{tikzpicture}%
-  \raggedright\color{white}%
+  \end{tikzpicture}\par
   % Naslov stoji na zgornjem robu stavka, ustanova na spodnjem; razmerje
   % dolocajo robovi strani, ne izbrana stevilka.
   \vspace*{0pt}%
@@ -192,12 +192,6 @@
    \renewcommand{\and}{\quad\textbar\quad}%
    \@author\par}%
   \vfill
-  {\lmnUniverzaSans\fontsize{10}{\lmnEnota}\selectfont \lmnUstanova\par}%
-  {\lmnUniverzaSansTanka\fontsize{10}{\lmnEnota}\selectfont \lmnClanica\par}%
-  \iflmnOsnutek
-    \vspace{\lmnEnota}%
-    {\lmnUniverzaSansTanka\fontsize{9}{\lmnEnota}\selectfont osnutek, \today\par}%
-  \fi
   \end{titlepage}%
   \lmnHrbtnaStran
 }
