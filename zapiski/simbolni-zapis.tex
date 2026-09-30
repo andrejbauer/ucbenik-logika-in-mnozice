@@ -930,6 +930,121 @@ Pri drugem smo se znebili $\RR_{> 0}$, vendar je zapis bolj nepregleden.
 Pri tretjem smo predstavili pozitivnost kot dodatni pogoj.
 Četrti način je najbolj čitljiv in se pogosto uporablja, a nam ne pove, ali je $x$ realno, celo, ali racionalno število.
 
+\section{Definicije}
+\label{sec:definicije}
+
+Preden v matematičnem besedilu uporabimo simbol ali spremenljivko, ga moramo \emph{vpeljati}. To pomeni, da moramo pojasniti, kakšen je pomen simbola. Poznamo dva osnovna načina za vpeljavo novih simbolov:
+%
+\begin{itemize}
+\item Nov simbol $s$ lahko \textbf{definiramo} kot okrajšavo za neki drugi izraz ali logično formulo.
+\item Nov simbol $s$ je (vezana ali prosta) \textbf{spremenljivka}, ki predstavlja neki (neznan, poljuben, nedoločen) element dane množice $A$.
+\end{itemize}
+%
+V obeh primerih dodamo simbol~$s$ v \textbf{kontekst}, se pravi v spisek znanih simbolov. Če smo simbol uvedli le začasno (na primer v enem poglavju, ali v delu dokaza), ga iz konteksta odstranimo, ko ni več veljaven.
+
+Matematiki zapisujejo definicije in vpeljujejo spremenljivke na razne načine.
+
+Poznamo tri vrste definicij. Prva in najpreprostejša je definicija, ki
+služi kot \textbf{okrajšava} za daljši izraz. To smemo vedno nadomestiti
+s prvotnim izrazom. Na primer, funkcija ">hiperbolični tangens"<
+$\tanh(x)$ je definirana kot
+%
+\begin{equation*}
+  \tanh(x) = \frac{e^{2 x} - 1}{e^{2 x} + 1}.
+\end{equation*}
+%
+Lahko bi shajali tudi brez zapisa $\tanh(x)$, vendar bi morali potem
+povsod pisati daljši izraz $\frac{e^{2 x} - 1}{e^{2 x} + 1}$, kar bi
+bilo nepregledno.
+
+Druga vrsta definicije je vpeljava novega matematičnega pojma.
+Študenti prvega letnika matematike spoznajo celo vrsto novih pojmov
+(grupa, vektorski prostor, limita, stekališče, metrika itn.), s
+katerimi si razširijo sposobnost matematičnega razmišljanja.
+Matematiki cenijo dobre definicije in vpeljavo novih matematičnih
+pojmov vsaj toliko, kot dokaze težkih izrekov.
+
+Tretja vrsta definicije je \textbf{konstrukcija} matematičnega objekta s
+pomočjo dokaza o enoličnem obstoju. O tem bomo povedali več v
+razdelku~\ref{sec:enolicni-obstoj}.
+
+\subsection{Definicija simbola}
+
+Definicija je v prvi vrsti \textbf{okrajšava} za neki izraz. Z njo uvedemo nov simbol~$s$ in mu pripišemo neko vrednost. Simbol $s$ je enak vrednosti, ki smo mu jo pripisali. Simbolni zapis za definicijo je
+%
+\begin{equation*}
+  s \defeq \ldots
+\end{equation*}
+%
+Na primer, v besedilu bi lahko napisali ">Naj bo $s := \sqrt{\log_2 7 + \pi/6}$."< S tem smo v kontekst dodali simbol $s$ in predpostavko $s = \sqrt{\log_2 7 + \pi/6}$. V matematičnih besedilih boste zasledili tudi naslednje načine za definicijo:
+%
+\begin{itemize}
+\item $s = \sqrt{\log_2 7 + \pi/6}$ (namesto $\defeq$ uporabimo $=$)
+\item $s \cong \sqrt{\log_2 7 + \pi/6}$ (namesto $\defeq$ uporabimo $\cong$)
+\item $s \triangleq \sqrt{\log_2 7 + \pi/6}$ (namesto $\defeq$ uporabimo $\triangleq$)
+\end{itemize}
+%
+Kadar definiramo simbol tako, da mu priredimo funkcijski predpis, recimo
+%
+\begin{equation*}
+  f \defeq (x \mapsto x^2 + 7)
+\end{equation*}
+%
+to raje zapišemo kot
+%
+\begin{equation*}
+  f(x) \defeq x^2 + 7.
+\end{equation*}
+%
+Kadar definiramo simbol s pomočjo enoličnega obstoja, recimo
+%
+\begin{equation*}
+  r \defeq \descr{x \in \RR} x^3 = 2
+\end{equation*}
+%
+to raje zapišemo z besedami:
+%
+\begin{equation*}
+  \text{Naj bo $r$ tisto realno število, ki zadošča $r^3 = 2$.}
+\end{equation*}
+%
+Poglejmo še, kako definiramo okrajšave za logične formule. Denimo, da želimo s $\phi(x)$ označiti izjavo $\some{y \in \RR} y^2 = x + 1$. Glede na zgornji dogovor, zapišemo
+%
+\begin{equation*}
+  \phi \defeq (x \mapsto (\some{y \in \RR} y^2 = x + 1))
+\end{equation*}
+%
+ali
+%
+\begin{equation*}
+  \phi(x) \defeq (\some{y \in \RR} y^2 = x + 1).
+\end{equation*}
+%
+Vendar takega zapisa v praksi ne boste videli. Dosti bolj pogost je zapis
+%
+\begin{equation*}
+  \phi(x) \defiff \some{y \in \RR} y^2 = x + 1
+\end{equation*}
+%
+ali pa kar $\phi(x) \liff \some{y \in \RR} y^2 = x + 1$.
+
+\subsection{Definicije novih matematičnih pojmov}
+
+Kaj pa definicije novih pojmov, ki jih srečujete pri predavanjih, denimo pri analizi?
+
+\begin{definicija}
+  Zaporedje števil $a : \NN \to \RR$ je \textbf{neomejeno}, če za vsak $x \in \RR$ obstaja $i \in \NN$, da je $a_i > x$.
+\end{definicija}
+
+\noindent
+S stališča simbolnega zapisa, je to le uvedba novega simbola $\mathsf{neomejeno}$:
+%
+\begin{equation*}
+  \mathsf{neomejeno}(a) \defeq (\all{x \in \RR} \some{i \in \NN} a_i > x).
+\end{equation*}
+%
+Seveda bistvo take definicije ni le krajši zapis izjave $\all{x \in \RR} \some{i \in \NN} a_i > x$, ampak uporabna vrednost pojma ">neomejeno zaporedje"<.
+
 \section{Enolični obstoj}
 \label{sec:enolicni-obstoj}
 
@@ -1052,6 +1167,80 @@ Spremenljivka $x$ je \emph{vezana} v $\descr{x \in A} \phi(x)$.
 % \end{equation*}
 % %
 % Pravimo, da se je prosta spremenljivka $a$ \emph{ujela} v integral.
+
+
+Poleg običajnega eksistenčnega kvantifikatorja $\exists$ poznamo tudi
+\emph{enolični} eksistenčni kvantifikator $\exists!$. Izjavo
+$\exactlyone{x}{S}{\phi}$ preberemo ">obstaja natanko en $x \in S$, za
+katerega velja $\phi(x)$"<.
+
+Enolični eksistenčni kvantifikator ni osnovni logični operator, ampak
+je $\exactlyone{x}{S}{\phi}$ le okrajšava za
+%
+\begin{equation}
+  \label{eq:uniqe-exists}
+  \some{x \in S} \phi(x) \land (\all{y \in S} \phi(y) \lthen x = y).
+\end{equation}
+%
+Z besedami preberemo to izjavo takole: ">obstaja $x$ iz $S$, za
+katerega velja $\phi(x)$ in za vsak $y \in S$ za katerega velja
+$\phi(y)$ sledi $x = y$"<. To je samo zapleten način, kako povedati,
+da obstaja natanko en element množice~$S$, ki zadošča pogoju $\phi$.
+
+Pravilo sklepanja za vpeljavo enoličnega obstoja izpeljemo
+iz~\eqref{eq:uniqe-exists}:
+%
+\begin{equation*}
+  \inferrule{
+    e \in S
+    \\
+    \phi(e)
+    \\
+    \izpeljava{y \in S \land \phi(y)}{y = e}
+  }
+  {\exactlyone{x}{S}{\phi}}
+\end{equation*}
+%
+V besedilu dokažemo enolični obstoj takole:
+%
+\begin{quote}
+  \it
+  %
+  Dokazujemo, da obstaja natanko en $x \in S$, za katerega velja
+  $\phi(x)$:
+  %
+  \begin{enumerate}
+  \item Obstoj: (Konstrukcija elementa $e \in S$ in dokaz, da velja $\phi(e)$.)
+  \item Enoličnost: denimo da za $y \in S$ velja $\phi(y)$:
+    %
+    \begin{itemize}
+    \item[] (Dokaz, da je $e = y$).
+    \end{itemize}
+  \end{enumerate}
+  %
+  Dokazali smo $\exactlyone{x \in S} \phi(x)$.
+\end{quote}
+
+Če dokažemo enolični obstoj $\exactlyone{x \in S} \phi(x)$, lahko
+vpeljemo novo konstanto $c$, ki označuje tisti element iz $S$, ki
+zadošča pogoju~$\phi$, pri čemer moramo seveda paziti, da znaka $c$
+nismo že prej uporabili za kak drug pomen. Nova konstanta~$c$ je
+opredeljena s praviloma
+%
+\begin{mathpar}
+  \inferrule{ }{\phi(c)}
+  \and
+  \inferrule{
+    y \in S
+    \\
+    \phi(y)
+  }
+  {y = c}
+\end{mathpar}
+%
+Če v formuli $\phi$ poleg spremenljivke $x$ nastopajo še druge proste
+spremenljivke, denimo $y_1, \ldots, y_n$, potem je nova konstanta~$c$
+v resnici \emph{funkcija} parametrov $y_1, \ldots, y_n$.
 
 \section{Vaje}
 

@@ -255,6 +255,17 @@
 \titlespacing*{\subsection}{0pt}{\lmnEnota}{0pt}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% Dodatna snov
+%%
+%% Razdelki, ki jih sme bralec pri prvem branju izpustiti.  Naslov nosi
+%% zvezdico, stevilcenje in kazalo ostaneta nedotaknjena.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\newcommand{\lmnZvezdica}{\textsuperscript{$*$}}
+\newcommand{\dodatniRazdelek}[1]{\subsection[#1\lmnZvezdica]{#1\lmnZvezdica}}
+\newcommand{\dodatniPodrazdelek}[1]{\subsubsection[#1\lmnZvezdica]{#1\lmnZvezdica}}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %% Tekoci naslovi
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 

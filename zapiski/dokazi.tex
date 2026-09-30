@@ -1,10 +1,7 @@
-\chapter{Logika in pravila sklepanja (dodatno poglavje)}
-\label{chap:logika}
+\chapter{Dokazi}
+\label{chap:dokazi}
 
 
-\textbf{Opomba:} To poglavje je del učbenika v nastajanju in ni povsem v skladu s predavanji. Kljub temu ga vključujem v te zapiske, ker vsebuje precej koristnih nasvetov in misli.
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Kaj je matematični dokaz?}
 \label{sec:kaj-je-dokaz}
 
@@ -62,9 +59,6 @@ Preizkusili smo le štiri primere, ostane pa jih še neskončno mnogo. Kdor
 misli, da lahko iz nekaj primerov sklepa na splošno veljavnost, naj v poduk
 vzame naslednjo nalogo.
 
-\begin{vaja}
-  Ali je $n^2 - n + 41$ praštevilo za vsako naravno število~$n$?
-\end{vaja}
 
 \noindent
 Ko izkušenega matematika prosimo, da naj nam vsaj pojasni idejo dokaza,
@@ -107,22 +101,6 @@ očitno pritrdilna, mar ne? To pa ne pomeni, da ju ni treba dokazati.
 Nasprotno, zgodovina matematike nas uči, da moramo prav ">očitne"<
 izjave še posebej skrbno preveriti.
 
-\begin{vaja}
-  Kakšno je tvoje mnenje o resničnosti naslednjih izjav? Vprašaj
-  starejše kolege, asistente in učitelje, kaj menijo oni. Ali znajo
-  svoje mnenje utemeljiti z dokazi?
-  %
-  \begin{enumerate}
-  \item Sodih števil je manj kot naravnih števil.
-  \item Kroglo je mogoče razdeliti na pet delov tako, da lahko iz njih
-    sestavimo dve krogli, ki sta enako veliki kot prvotna krogla.
-  \item Sklenjena krivulja v ravnini, ki ne seka same sebe, razdeli
-    ravnino na dve območji, eno omejeno in eno neomejeno.
-  \item S krivuljo ne moremo prekriti notranjosti kvadrata.
-  \item Če ravnino razdelimo na tri območja, potem zagotovo obstaja
-    točka, ki je dvomeja in ni tromeja med območji.
-  \end{enumerate}
-\end{vaja}
 
 \noindent
 %
@@ -180,13 +158,6 @@ podrobno, postane dolgočasen in ne\-ra\-zumljiv:
   \end{proof}
 \end{quote}
 
-\begin{vaja}
-  S kolegi se igraj naslednjo igro.\footnote{%
-    Igranje odsvetujemo zunaj prostorov Fakultete za matematiko in fiziko.}
-  Prvi igralec v zgornjem dokazu poišče korak, ki ga je treba še dodatno
-  utemeljiti. Drugi igralec ga utemelji. Nato prvi igralec poišče nov korak,
-  ki ga je treba še dodatno utemeljiti in igra se ponovi. Zgubi tisti, ki se prvi naveliča igrati. Ali lahko igra traja neskončno dolgo?
-\end{vaja}
 
 Matematični dokaz ima dvojno vlogo. Po eni strani je utemeljitev matematične
 izjave, zato mora biti čim bolj podroben. V idealnem primeru bi bil dokaz
@@ -205,37 +176,129 @@ talenta in nekaj sreče.
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\section{Definicije}
-\label{sec:definicije}
+
+\section{Kako pišemo dokaze}
 
 
-Poznamo tri vrste definicij. Prva in najpreprostejša je definicija, ki
-služi kot \textbf{okrajšava} za daljši izraz. To smemo vedno nadomestiti
-s prvotnim izrazom. Na primer, funkcija ">hiperbolični tangens"<
-$\tanh(x)$ je definirana kot
+\subsection{Vpeljava spremenljivke}
+\label{sec:vpeljava-spremenljivke}
+
+Če želimo vpeljati spremenljivko $x$, ki predstavlja neki poljuben ali neznani element množice $A$, zapišemo
 %
-\begin{equation*}
-  \tanh(x) = \frac{e^{2 x} - 1}{e^{2 x} + 1}.
-\end{equation*}
+\begin{quote}
+  Naj bo $x \in A$.
+\end{quote}
 %
-Lahko bi shajali tudi brez zapisa $\tanh(x)$, vendar bi morali potem
-povsod pisati daljši izraz $\frac{e^{2 x} - 1}{e^{2 x} + 1}$, kar bi
-bilo nepregledno.
+S tem postane $x$ veljavna spremenljivka, ki jo lahko uporabljamo. O njem vemo le to, da je element množice $A$ -- pravimo, da je $x$ \textbf{prosta spremenljivka}. V matematičnih besedilih boste zasledili tudi naslednje fraze, ki uvedejo prosto spremenljivko:
+%
+\begin{itemize}
+\item ">Naj bo $x \in A$ poljuben."<
+\item ">Obravnavajmo poljuben $x \in A$."<
+\item ">Izberimo poljuben $x \in A$."<
+\item ">Denimo, da imamo poljuben $x \in A$."<
+\end{itemize}
+%
+Pozor, beseda ">izberimo"< bi komu dala misliti, da si lahko izbere neki konkretni~$x$, a to preprečuje beseda ">poljuben"<, ki jo matematik uporabi, kadar želi povedati, da je~$x$ neznana ali nedoločena (poljubna) vrednost.
 
-Druga vrsta definicije je vpeljava novega matematičnega pojma.
-Študenti prvega letnika matematike spoznajo celo vrsto novih pojmov
-(grupa, vektorski prostor, limita, stekališče, metrika itn.), s
-katerimi si razširijo sposobnost matematičnega razmišljanja.
-Matematiki cenijo dobre definicije in vpeljavo novih matematičnih
-pojmov vsaj toliko, kot dokaze težkih izrekov.
 
-Tretja vrsta definicije je \textbf{konstrukcija} matematičnega objekta s
-pomočjo dokaza o enoličnem obstoju. O tem bomo povedali več v
-razdelku~\ref{sec:enolicni-obstoj}.
 
-\section{Pravila sklepanja in dokazi}
-\label{sec:pravila-sklepanja-in-dokazi}
+\subsection{Cilj in kontekst}
 
+Matematiki v sklopu svojih aktivnosti \emph{konstruiramo} matematične objekte:
+%
+\begin{itemize}
+\item v geometriji so znane konstrukcije z ravnilom in šestilom,
+\item računanje števk števila $\pi$ je konstrukcija približka,
+\item reševanje enačbe je konstrukcija števila z želeno lastnostjo,
+\item konstruiramo lahko elemente množice, pogosto kar tako, da jih zapišemo, na primer $(2, \inl(3)) \in \NN \times (\ZZ + \ZZ)$.
+\end{itemize}
+
+Poleg tega \emph{dokazujemo} matematične izjave. Na dokaz lahko gledamo kot na konstrukcijo, saj je to le še ena zvrst matematičnega objekta. Ker pa so dokazi skoraj vedno zapisani v naravnem jeziku, jih matematiki pogosto dojemajo ločeno od ostalih matematičnih objektov (števila, preslikave, množice, ploskve, \dots).
+
+Kaj pravzaprav je dokaz? V prvi vrsti je dokaz utemeljitev matematične izjave. Zgrajen je po točno določenih \emph{pravilih sklepanja}, ki jih lahko podamo formalno in jih tudi implementiramo na računalniku.\footnote{Kogar to zanima, si lahko ogleda ">\href{https://youtu.be/Z500sma3h90}{The dawn of formalized mathematics}"< (\href{https://www.icloud.com/keynote/0Gkr1yM7XY-31aQleWf-fiW7A}{prosojnice}) in se nauči uporabljati kak  \href{https://ncatlab.org/nlab/show/proof+assistant}{dokazovalni pomočnik} (v zadnjem času hitro napreduje \href{https://leanprover.github.io}{Lean}).
+}
+
+V praksi ljudje ne pišejo vseh podrobnosti v dokazu, ker bi bil tak dokaz nečitljiv in nerazumljiv. Pogosto podajo samo glavno idejo, iz katere lahko izkušeni matematik sam rekonstruira dokaz. Iz dobro napisanega dokaza se lahko naučimo marsikaj novega, poleg golega dejstva, da dokazana izjava velja.
+
+Mi bomo vadili podrobno pisanje dokazov. Pri ostalih predmetih boste videli ">žive dokaze"<, ki imajo manj podrobnosti in so zapisani manj formalno. A vsi pravilni matematični dokazi se dajo zapisati na način, kot ga bomo predstavili mi (in celo zapisati povsem formalno z dokazovalnim pomočnikom).
+
+Pravila sklepanja so kot pravila igre. Ne povedo, kako dobro igrati, samo kaj je dovoljeno. Seveda bomo hkrati s pravili sklepanja povedali nekaj namigov in nasvetov, kako dokaz poiščemo. A kot pri vsaki igri velja, da vaja dela mojstra.
+
+Dokaz ima ugnezdeno strukturo: sestoji iz delov in pod-dokazov, ki sestoje iz nadaljnjih pod-dokazov itn., ki se zaključijo z osnovnimi dejstvi. Vsi ti kosi so s pomočjo pravil sklepanja zloženi v dokazno ">drevo"<.
+
+Ko pišemo dokaz, moramo v vsakem trenutku poznati
+%
+\begin{itemize}
+\item \textbf{cilj}: kaj trenutno dokazujemo in
+\item \textbf{kontekst}: katere spremenljivke in predpostavke imamo trenutno na voljo.
+\end{itemize}
+%
+Ko napravimo korak v dokazu, mora biti utemeljen z enim od pravil sklepanja. Dokaz je
+popoln, ko smo utemeljili vse pod-dokaze, ki ga sestavljajo. Kot primer si poglejmo zelo podroben dokaz izjave
+%
+$(p \lor q) \land r \lthen (p \land r) \lor (q \land r)$.
+
+\subsection{Dokaz na treh ravneh podrobnosti}
+
+\begin{center}
+  \fbox{\parbox{0.6\textwidth}{
+    Dokažimo $(p \lor q) \land r \lthen (p \land r) \lor (q \land r)$. \\
+    \hbox{}\quad (1) Predpostavimo $(p \lor q) \land r.$ \\
+    \hbox{}\quad (2) Zaradi (1) velja $p \lor q$. \\
+    \hbox{}\quad (3) Zaradi (1) velja $r$. \\
+    \hbox{}\quad Zaradi (2) lahko obravnavamo dva primera:\\
+    \hbox{}\qquad \fbox{\parbox{0.5\textwidth}{
+      (a) če velja $p$:\\
+          \hbox{}\quad Dokažimo $(p \land r) \lor (q \land r)$.\\
+          \hbox{}\quad Dokažimo levi disjunkt $p \land r$: \\
+          \hbox{}\qquad (i) $p$ velja zaradi (a) \\
+          \hbox{}\qquad (ii) $r$ velja zaradi (3).
+    }} \\
+    \hbox{}\qquad \fbox{\parbox{0.5\textwidth}{
+      (b) če velja $q$:\\
+          \hbox{}\quad Dokažimo $(p \land r) \lor (q \land r)$.\\
+          \hbox{}\quad Dokažimo desni disjunkt $q \land r$: \\
+          \hbox{}\qquad (i) $q$ velja zaradi (b) \\
+          \hbox{}\qquad (ii) $r$ velja zaradi (3).
+    }}
+  }}
+\end{center}
+%
+Dokaz bi bolj po človeško napisali takole:
+%
+\begin{quote}
+  Predpostavimo $p \lor q$ in $r$. Če velja $p$, potem sledi $p \land r$ ter od tod $(p \land r) \lor (q \land r)$. Če pa velja $q$, sledi $q \land r$ ter spet $(p \land r) \lor (q \land r)$. $\Box$
+\end{quote}
+%
+Ali pa kar takole:
+%
+\begin{quote}
+  Očitno.
+\end{quote}
+
+Pravila sklepanja delimo na:
+%
+\begin{itemize}
+\item \textbf{pravila vpeljave}, ki povedo, kako dokažemo izjavo, ter
+\item \textbf{pravila uporabe}, ki povedo, kako lahko že znano izjavo uporabimo.
+\end{itemize}
+%
+Poleg tega poznamo še pravila o zamenjavi:
+%
+\begin{itemize}
+\item \textbf{zamenjava enakih izrazov}: izraz lahko vedno zamenjamo z njim enakim,
+\item \textbf{zamenjava ekvivalentnih izjav}: izjavo vedno lahko zamenjamo z njej ekvivalentno.
+\end{itemize}
+
+Dokaz je skupek računskih korakov in sklepov, s katerimi utemeljimo izjavo. V vsakem
+trenutku mora biti jasno, kaj dokazujemo, katere spremenljivke so veljavne in katere
+predpostavke so na voljo.
+%
+Nekateri deli dokaza so samostojni pod-dokazi pomožnih izjav. Vse spremenljivke in
+predpostavke, ki jih uvedemo v pod-dokazu, so na voljo izključno v pod-dokazu samem.
+
+\dodatniRazdelek{Formalna pravila sklepanja}
+\label{sec:formalna-pravila}
 
 Povedali smo že, da je dokaz utemeljitev neke matematične izjave. V
 razdelku~\ref{sec:kaj-je-dokaz} smo govorili o tem, da so dokazi
@@ -321,10 +384,6 @@ Dokaz se razveji na dve veji, vsaka od njiju pa še na dve veji. Tako
 pri vrhu dobimo štiri liste, od katerih so trije izjave $\beta \land
 \alpha$ in eden aksiom za $\top$.
 
-\begin{vaja}
-  Preveri, da je vsako vejišče v zgornjem dokazu res uporaba enega od
-  zgoraj podanih pravil sklepanja.
-\end{vaja}
 
 V praksi matematično besedilo bolj ali manj odraža strukturo
 formalnega dokaza, le da se besedilo ne veji, ampak so sestavni kosi
@@ -336,17 +395,36 @@ pravila sklepanja in formalni dokazi so za matematike pomembni, ker
 nam omogočajo, da natančno in v celoti povemo, kakšna so ">pravila
 igre"< v matematiki.
 
+\section{Pravila sklepanja}
+\label{sec:pravila-sklepanja}
 
-\section{Izjavni račun}
-\label{sec:izjavni-racun}
-
-Izjavni račun je tisti del logike, ki govori o logičnih konstantah
-$\bot$, $\top$ in o logičnih operacijah $\land$, $\lor$, $\lthen$,
-$\liff$, $\lnot$. Za vsako od njih podamo formalna pravila sklepanja,
-ki so dveh vrst. Pravila \textbf{vpeljave} povedo, kako se izjave
-dokaže, pravila \textbf{uporabe} pa povedo, kako se že dokazane izjave uporabi.
 
 \subsection{Konjunkcija}
+
+\paragraph{Vpeljava.}
+%
+\begin{quote}
+  \sl
+  Dokažimo $\phi \land \psi$.
+  \begin{enumerate}
+  \item Dokažimo $\phi$: \quad \brac{dokaz $\phi$}
+  \item Dokažimo $\psi$: \quad \brac{dokaz $\psi$}
+  \end{enumerate}
+\end{quote}
+
+\paragraph{Uporaba.}
+\begin{quote}
+  \sl
+  Vemo, da velja $\phi \land \psi$.\\
+  Torej velja $\phi$.\\
+  Torej velja $\psi$.
+\end{quote}
+%
+Opomba: v praksi tega koraka ne delamo, ampak namesto predpostavke $\phi \land \psi$ kar takoj vpeljemo ločeni
+predpostavki $\phi$ in $\psi$.
+
+\dodatniPodrazdelek{Formalni pravili}
+
 \label{sec:konjunkcija}
 
 Konjunkcija ima eno pravilo vpeljave in dve pravili uporabe:
@@ -390,7 +468,34 @@ Manj podroben dokaz ne vsebuje začetnega in končnega stavka, ampak
 samo dokaza za $\phi$ in $\psi$. Bralec mora sam ugotoviti, da je s
 tem dokazana izjava $\phi \land \psi$.
 
+
 \subsection{Implikacija}
+
+\paragraph{Vpeljava.}
+\begin{quote}
+  \sl
+  Dokažimo $\phi \lthen \psi$:
+  %
+  \begin{itemize}
+  \item[] Predpostavimo $\phi$. \\
+        Dokažimo $\psi$: \quad \brac{dokaz $\psi$}
+  \end{itemize}
+\end{quote}
+
+\paragraph{Uporaba.}
+\begin{quote}
+  \sl
+  Vemo, da velja $\phi \lthen \psi$.
+  %
+  \begin{itemize}
+  \item[] Dokažimo $\phi$: \quad \brac{dokaz $\phi$}
+  \end{itemize}
+  %
+  Torej velja tudi $\psi$.
+\end{quote}
+
+\dodatniPodrazdelek{Formalni pravili}
+
 \label{sec:implikacija}
 
 Preden zapišemo pravila sklepanja za implikacijo, si oglejmo primer
@@ -442,7 +547,49 @@ glasi
 V matematičnem besedilu se modus ponens pojavi kot uporaba že prej
 dokazanega izreka oblike $\phi \lthen \psi$.
 
+
 \subsection{Disjunkcija}
+
+\paragraph{Vpeljava.}
+Prvi način:
+%
+\begin{quote}
+  \sl
+  Dokažimo $\phi \lor \psi$.
+  %
+  \begin{itemize}
+  \item[] Zadostuje dokazati levi disjunkt $\phi$: \quad \brac{dokaz $\phi$}
+  \end{itemize}
+\end{quote}
+%
+Drugi način:
+%
+\begin{quote}
+  \sl
+  Dokažimo $\phi \lor \psi$.
+  %
+  \begin{itemize}
+  \item[] Zadostuje dokazati desni disjunkt $\psi$: \quad \brac{dokaz $\psi$}
+  \end{itemize}
+\end{quote}
+
+\paragraph{Uporaba.}
+%
+\begin{quote}
+  \sl
+  Dokažimo $\rho$.\\
+  Vemo, da velja $\phi \lor \psi$, torej obravnavamo primera:\\
+  %
+  \begin{enumerate}
+  \item Če velja $\phi$: \\
+        Dokažemo $\rho$: \quad \brac{dokaz $\rho$}
+  \item Če velja $\psi$: \\
+        Dokažemo $\rho$: \quad \brac{dokaz $\rho$}
+  \end{enumerate}
+\end{quote}
+
+\dodatniPodrazdelek{Formalni pravili}
+
 \label{sec:disjunkcija}
 
 Disjunkcija ima dve pravili vpeljave in eno pravilo uporabe:
@@ -527,10 +674,6 @@ Res je to uporaba disjunkcije $\phi \lor \psi$, kjer smo vzeli $\phi =
 \alpha \land \beta$ in $\psi = \gamma$, dokazali pa smo izjavo $\rho =
 \alpha \lor \gamma$.
 
-\begin{vaja}
-  Iz hipoteze $(\alpha \lor \gamma) \land (\beta \lor \gamma)$ dokaži
-  $(\alpha \land \beta) \lor \gamma$.
-\end{vaja}
 
 V besedilu dokažemo disjunkcijo s pravilom za vpeljavo takole:
 %
@@ -615,12 +758,41 @@ Ker v izreku nastopa izraz $|x - 3|$, bo obravnava primerov $x - 3
 v $x - 3$ in drugič v $3 - x$. Seveda pa je $x - 3 \geq 0$
 ekvivalentno $x \geq 3$ in $x - 3 \leq 0$ ekvivalentno $x \leq 3$.
 
-\begin{vaja}
-  Ali bi lahko izrek~\ref{izrek:x-3-5} dokazali tudi z obravnavo
-  primerov $x < 3$ in $x \geq 3$?
-\end{vaja}
 
 \subsection{Resnica in neresnica}
+
+\paragraph{Vpeljava.}
+Resnice $\top$ ni treba dokazovati, zapišemo ">očitno"<. \footnote{
+V praksi $\top$ nastopi kot izjava, ki jo želimo dokazati, ko neko drugo izjavo poenostavimo. Primer: ko dokazujemo
+$12^2 + 12^2 < 17^2$, najprej izračunamo, da je to ekvivalentno $288 < 289$, kar je ekvivalentno $\top$. S tem je dokaz
+zaključen, saj smo dobili $\top$.}
+
+Kadar dokazujemo $\bot$, pravimo, da ">iščemo protislovje"<.
+
+\begin{quote}
+  \sl
+  Poiščimo protislovje.
+  \begin{enumerate}
+  \item Dokažimo $\phi$: \quad \brac{dokaz $\phi$}
+  \item Dokažimo $\lnot \phi$: \quad \brac{dokaz $\lnot\phi$}
+  \end{enumerate}
+\end{quote}
+
+\paragraph{Uporaba.}
+Resnica ni uporabna kot predpostavka in jo lahko zavržemo.
+
+\begin{quote}
+  \sl
+  Dokažimo $\rho$:
+  \begin{itemize}
+  \item[]
+    Ugotovimo, da velja $\bot$.\\
+    Ker iz neresnice sledi karkoli, velja $\rho$.
+  \end{itemize}
+\end{quote}
+
+\dodatniPodrazdelek{Formalni pravili}
+
 \label{sec:resnica-neresnica}
 
 Logična konstanta $\top$ označuje resnico. Kar je res, je res, in tega
@@ -664,7 +836,21 @@ poenostavijo s pomočjo ekvivalenc:
 \end{mathpar}
 %
 
+
 \subsection{Ekvivalenca}
+
+\paragraph{Vpeljava.}
+\begin{quote}
+  \sl
+  Dokažimo $\phi \liff \psi$.
+  \begin{enumerate}
+  \item Dokažimo $\phi \lthen \psi$: \quad \brac{dokaz $\phi \lthen \psi$}
+  \item Dokažimo $\psi \lthen \phi$: \quad \brac{dokaz $\psi \lthen \phi$}
+  \end{enumerate}
+\end{quote}
+
+\dodatniPodrazdelek{Formalni pravili}
+
 \label{sec:ekvivalenca}
 
 Logična ekvivalenca $\phi \liff \psi$ je okrajšava za
@@ -750,7 +936,39 @@ in
 in nato dokažemo še eno ekvivalenco $\phi_i \liff \phi_j$, pri čemer
 je $\phi_i$ iz prvega in $\phi_j$ iz drugega cikla.
 
+
 \subsection{Negacija}
+
+\paragraph{Vpeljava.}
+\begin{quote}
+  \sl
+  Dokažimo $\lnot \psi$:
+  %
+  \begin{itemize}
+  \item[] Predpostavimo $\psi$. \\
+          Poiščimo protislovje: \quad \dots
+  \end{itemize}
+\end{quote}
+%
+Opomba: ni nujno, da poiščemo protislovje med $\psi$ in $\lnot\psi$, vsako protislovje je sprejemljivo.
+
+\paragraph{Uporaba.}
+Negacijo $\lnot \phi$ uporabimo tako, da dokažemo $\phi$ in zaključimo dokaz.
+%
+\begin{quote}
+  \sl
+  Dokažimo $\rho$.\\
+  Vemo, da velja $\lnot\phi$.
+  %
+  \begin{itemize}
+  \item Dokažimo $\phi$: \quad \brac{dokaz $\phi$}
+  \end{itemize}
+  %
+  Torej velja $\rho$.
+\end{quote}
+
+\dodatniPodrazdelek{Formalni pravili}
+
 \label{sec:negacija}
 
 
@@ -805,7 +1023,267 @@ protislovje:
   To je nesmisel, in ker iz nesmisla sledi karkoli, sledi $\psi$.
 \end{quote}
 
-\subsection{Aksiom o izključenem tretjem}
+
+\subsection{Univerzalni kvantifikator}
+
+\paragraph{Vpeljava.}
+\begin{quote}
+  \sl
+  Dokažimo $\all{x \in A} \phi(x)$.
+  %
+  \begin{enumerate}
+  \item[] Naj bo $x \in A$. \\
+          Dokažemo $\phi(x)$: \quad \brac{dokaz $\phi(x)$}
+  \end{enumerate}
+\end{quote}
+%
+\textbf{Pozor:} spremenljivka $x$ mora biti \emph{sveža}, se pravi, da je ne uporabljamo nikjer drugje. Če jo, najprej izberemo svežo spremenljivko~$y$ in $x$ preimenujemo v~$y$.
+
+\paragraph{Uporaba.}
+\begin{quote}
+  \sl
+  Vemo, da velja $\all{x \in A} \phi(x)$.\\
+  Vemo, da je $\langle\text{izraz}\rangle \in A$.\\
+  Torej velja $\phi(\langle\text{izraz}\rangle)$.
+\end{quote}
+
+\dodatniPodrazdelek{Formalni pravili}
+
+\label{sec:univerzalni-kvantifikator}
+
+Univerzalna kvantifikacija $\all{x \in S} \phi$ se prebere ">Za vse $x$
+iz $S$ velja $\phi$."< Pravili sklepanja sta
+%
+\begin{mathpar}
+  \inferrule
+  {\izpeljava{[x \in S]}{\phi(x)}}{\all{x \in S} \phi(x)} \ \text{($x$ svež)}
+  \and
+  \inferrule{\all{x \in S} \phi(x) \\ e \in S}{\phi(e)}
+\end{mathpar}
+%
+pri čemer je $x$ spremenljivka, $\phi(x)$ logična formula in $e$ poljuben izraz.
+
+V besedilu se pravilo vpeljave zapiše:
+%
+\begin{quote}
+  \it
+  %
+  Dokazujemo $\all{x \in S} \phi(x)$:
+  %
+  \begin{itemize}
+  \item[] Naj bo $x \in S$ poljuben.
+  \item[] (Dokaz, da velja $\phi(x)$).
+  \end{itemize}
+  %
+  Dokazali smo $\all{x \in S} \phi(x)$.
+\end{quote}
+%
+Pravilo uporabe v besedilu ponavadi ni eksplicitno navedeno, če pa bi
+ga že zapisali, bi šlo takole:
+%
+\begin{quote}
+  \it
+  %
+  Dokazujemo, da velja $\phi(e)$:
+  \begin{itemize}
+  \item[] (Dokaz, da velja $\all{x \in S} \phi(x)$.)
+  \item[] (Dokaz, da velja $e \in S$.)
+  \end{itemize}
+  %
+  Torej velja $\phi(e)$.
+\end{quote}
+
+
+Ob pravilu vpeljave stoji stranski pogoj, da mora biti spremenljivka
+$x$ ">sveža"<. To pomeni, da se $x$ ne sme pojavljati drugje v dokazu,
+saj bi sicer lahko prišlo do zmešnjave med vezanimi in prostimi
+spremenljivkami. V besedilu se dejstvo, da je $x$ svež, izraža z
+besedico ">poljuben"< ali ">katerikoli"<. Primer, kako gredo stvari
+narobe, če ne pazimo in pomešamo spremenljivke:
+
+\begin{izrek}[z napako v dokazu]
+  Če je $x$ večji od~$42$, so vsa realna števila večja od~$23$.
+\end{izrek}
+
+\begin{proof}
+  Denimo, da bi nekoliko nerodno zapisali izrek simbolno takole:
+  %
+  \begin{equation*}
+    x > 42 \lthen \all{x \in \RR} x > 23.
+  \end{equation*}
+  %
+  To je sicer dovoljeno, saj se prosti $x$, ki stoji zunaj $\forall$
+  ni ujel, ni pa preveč smotrno, ker smo na dobri poti, da bomo
+  zunanji prosti $x$ in vezanega znotraj $\forall$ pomešali. Res, če
+  ne upoštevamo pravila, da mora biti $x$ svež, dobimo tale nepravi
+  ">dokaz"<:
+  %
+  \begin{equation*}
+    \inferrule*
+    {
+      \inferrule*
+      {\inferrule*
+        {[x > 42] \\ 42 > 23}
+        {x > 23}
+      }
+      {\all{x \in \RR} x > 23}
+    }
+    {x > 42 \lthen \all{x \in \RR} x > 23}
+  \end{equation*}
+  %
+  Pri pravilu za vpeljavo $\forall$ smo uporabili spremenljivko $x$,
+  ki pa je že nastopala v začasni hipotezi $x > 42$. Z besedilom bi se
+  isti dokaz glasil takole:
+  %
+  \begin{quote}
+    ">Dokazujemo $x > 42 \lthen \all{x \in \RR} x > 23$. Predpostavimo,
+    da velja $x > 42$ in dokažimo $\all{x \in \RR} x > 23$. Naj bo $x
+    \in \RR$. Po predpostavki je $x > 42$ in ker je $42 > 23$, od tod
+    sledi $x > 23$."<
+  \end{quote}
+  %
+  Če bi izrek zapisali bolje kot $x > 42 \lthen \all{y \in \RR} y >
+    23$, težav ne bi bilo, saj bi se prejšnji dokaz ">zataknil"<:
+  %
+  \begin{quote}
+    ">Dokazujemo $x > 42 \lthen \all{y \in \RR} y > 23$. Predpostavimo,
+    da velja $x > 42$ in dokažimo $\all{y \in \RR} y > 23$. Naj bo $y
+    \in \RR$. (Kaj zdaj? Lahko sicer dokažemo $x > 23$, a zares bi
+    morali dokazati $y > 23$, kar ne gre.)"<
+  \end{quote}
+\end{proof}
+
+Pogoj, da mora biti spremenljivka $x$ v pravilu za vpeljavo ">sveža"<,
+se v praksi kaže v tem, da pri uvajanju nove spremenljivke izberemo
+zanjo novo ime, ki se še ni pojavilo v dokazu.
+
+
+\subsection{Eksistenčni kvantifikator}
+
+\paragraph{Vpeljava.}
+\begin{quote}
+  \sl
+  Dokažimo $\some{x \in A} \phi(x)$:
+  %
+  \begin{itemize}
+  \item[] Podamo $x \mathbin{{:}{=}} \langle\text{izraz}\rangle$. \\
+          Dokažemo $\langle\text{izraz}\rangle \in A$: \quad \dots \\
+          Dokažemo $\phi(\langle\text{izraz}\rangle)$: \quad \dots
+  \end{itemize}
+\end{quote}
+%
+Opomba: $\langle\text{izraz}\rangle$ sme vsebovati vse proste spremenljivke, ki so trenutno na voljo ($x$ \emph{ni} na
+voljo).
+
+\paragraph{Uporaba.}
+\begin{quote}
+  \sl
+  Dokažimo $\rho$.\\
+  Vemo, da velja $\some{x \in A} \phi(x)$.
+  %
+  \begin{enumerate}
+  \item[] Imamo $x \in A$, za katerega velja $\phi(x)$.\\
+       Dokažemo $\rho$: \quad \brac{dokaz $\rho$}
+  \end{enumerate}
+\end{quote}
+%
+\textbf{Pozor:} spremenljivka $x$ mora biti sveža, se pravi, da se ne pojavlja v $\rho$ ali kjerkoli drugje. Če se~$x$ pojavi kje drugje, ga moramo najprej nadomestiti s svežo spremenljivko~$y$.
+
+\dodatniPodrazdelek{Formalni pravili}
+
+\label{sec:eksistencni-kvantifikator}
+
+Eksistenčna kvantifikacija $\some{x \in S} \phi$ se prebere ">obstaja
+$x$ iz $S$, za katerega velja $\phi$"< ali ">za neki $x$ iz $S$ velja
+$\phi$."< Pravili sklepanja za eksistenčni kvantifikator se glasita
+%
+\begin{mathpar}
+  \inferrule
+  {\phi(e) \\ e \in S}
+  {\some{x \in S} \phi(x)}
+  \and
+  \inferrule
+  {\some{x \in S} \phi(x)
+    \\
+    \izpeljava{[x \in S \land \phi(x)]}{\psi}}
+  {\psi}\ \text{($x$ svež)}
+\end{mathpar}
+%
+kjer je $e$ poljuben izraz in $x$ spremenljivka. Pri tem mora biti $x$
+v pravilu uporabe svež. V besedilu pravilo vpeljave uporabimo takole:
+%
+\begin{quote}
+  \it
+  %
+  Dokazujemo $\some{x \in S} \phi(x)$:
+  %
+  \begin{enumerate}
+  \item (Skonstruiramo element $e \in S$.)
+  \item (Dokažemo, da velja $\phi(e)$.)
+  \end{enumerate}
+  %
+  Dokazali smo $\some{x \in S} \phi(x)$.
+\end{quote}
+%
+Pravilo uporabe pa se v besedilu izraža takole:
+%
+\begin{quote}
+  \it
+  %
+  Dokazujemo $\psi$:
+  %
+  \begin{enumerate}
+  \item (Dokaz izjave $\some{x \in S} \phi(x)$.)
+  \item Predpostavimo, da za $x \in S$ velja $\phi(x)$:
+    %
+    \begin{itemize}
+    \item[] (Dokaz izjave $\psi$.)
+    \end{itemize}
+  \end{enumerate}
+  %
+  Dokazali smo $\psi$.
+\end{quote}
+
+
+\section{Posebni načini dokazovanja}
+
+
+\subsection{Izključena tretja možnost}
+
+\textbf{Pravilo izključene tretje možnosti} pravi, da vedno velja $\phi \lor \lnot\phi$ in ga uporabimo takole:
+%
+\begin{quote}
+  \sl
+  Dokažimo $\rho$.\\
+  Velja $\phi \lor \lnot \phi$:
+  %
+  \begin{enumerate}
+  \item Če velja $\phi$:\\
+        Dokažemo $\rho$: \quad \dots
+  \item Če velja $\lnot\phi$. \\
+        Dokažemo $\rho$: \quad \dots
+  \end{enumerate}
+\end{quote}
+%
+
+\subsection{Dokaz s protislovjem}
+
+\textbf{Dokaz s protislovjem} poteka takole:
+%
+\begin{quote}
+  \sl
+  Dokažimo $\rho$. Dokazujemo s protislovjem:
+  %
+  \begin{itemize}
+  \item[] Predpostavimo $\lnot\rho$.\\
+        Poiščimo protislovje: \quad \dots
+  \end{itemize}
+\end{quote}
+%
+Opomba: dokaz s protislovjem in pravilo vpeljave za negacijo sta \emph{različni}
+pravili!
+
+\dodatniRazdelek{Aksiom o izključenem tretjem}
 \label{sec:lem}
 
 Aksiom o izključenem tretjem se glasi
@@ -892,12 +1370,6 @@ uporabe aksioma o izključenem tretjem. Za dokaz implikacij
 $\Leftarrow$ iz desne na levo pa potrebujemo aksiom o izključenem
 tretjem.
 
-\begin{vaja}
-  Sestavi formalne dokaze za zgornjih pet ekvivalenc. Pri dokazovanju
-  ekvivalenc za $\forall$ in $\exists$ si pomagaj s pravili sklepanja
-  iz razdelkov~\ref{sec:univerzalni-kvantifikator}
-  in~\ref{sec:eksistencni-kvantifikator}.
-\end{vaja}
 
 Povejmo, kako zgornje ekvivalence uporabimo v besedilu za posredni
 dokaz izjave:
@@ -1102,513 +1574,47 @@ naslednjih ekvivalenc:
 \end{zgled}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\section{Predikatni račun}
-\label{sec:predikatni-racun}
 
-Predikatni račun je tisti del logike, ki obravnava predikate ter
-kvantifikatorja~$\forall$ in~$\exists$.
+\subsection{Brez izgube za splošnost}
 
-Predikate tvorimo z logičnimi operacijami in kvantifikatorji iz
-\textbf{osnovnih predikatov}. Katere osnovne predikate imamo na voljo,
-je odvisno od snovi, ki jo obravnavamo.\footnote{Na primer, če
-  obravnavamo ravninsko geometrijo, potem so osnovni predikati ">točka
-  $x$ leži na premici $y$"<, ">premici $p$ in $q$ se sekata"< itn.}
-Vedno imamo na voljo tudi \textbf{enakost} $x = y$, ki jo bomo
-obravnavali v razdelku~\ref{sec:enakost}.
+Fraza \nls{brez izgube za splošnost \dots} nakazuje, da dokaz obravnava le poseben primer, iz katerega sledi cilj, oziroma je preostanek dokaza zelo podoben posebnemu primeru. Bralec mora sam razbrati, zakaj je tako.
+Podajmo primer.
 
-V osnovnih predikatih nastopajo \textbf{izrazi} ali \textbf{termi}. Katere
-izraze lahko tvorimo je spet odvisno od tega, katere konstante in
-operacije imamo na voljo. Na primer, če obravnavamo aritmetiko celih
-števil, so na voljo operacije $+$, $-$, $\times$, če pa obravnavamo
-realna števila, so na voljo operacije $+$, $-$, $\times$, $/$. V
-izrazih vedno lahko nastopajo \textbf{spremenljivke}. Kadar uporabimo
-spremenljivko, moramo povedati njen \textbf{tip} oziroma \textbf{množico}
-vrednosti, ki jih lahko zavzame spremenljivka. Pogosto je tip
-spremenljivke razviden iz spremnega besedila ali iz ustaljene uporabe:
-$n$ se uporablja za naravno število, $x$ za realno, $f$ za funkcijo
-ipd.
-
-Ponazorimo pravkar definirane pojme s primerom. Predikat
-%
-\begin{equation*}
-  0 < f(x) \land f(x) < \pi/4 \lthen \sin(2 f(x)) = 1/3
-\end{equation*}
-%
-je sestavljen s pomočjo logičnih operacij $\land$ in $\lthen$ iz treh
-osnovnih predikatov, zgrajenih iz osnovnih relacij $<$ in $=$,
-%
-\begin{mathpar}
-  0 < f(x)
-  \and
-  f(x) < \pi/4
-  \and
-  \sin(2 f(x)) = 1/3,
-\end{mathpar}
-%
-v katerih nastopa pet izrazov:
-%
-\begin{mathpar}
-  0
-  \and
-  f(x)
-  \and
-  \pi/4
-  \and
-  \sin(2 f(x))
-  \and
-  1/3
-\end{mathpar}
-%
-V teh izrazih nastopa spremenljivka $x$, katere tip je množica
-realnih števil (to moramo uganiti) in spremenljivka $f$, ki označuje
-funkcijo iz realnih v realna števila (tudi to moramo uganiti).
-Nadalje, v izrazih nastopajo konstante $0$, $\pi$, $4$, $2$,
-$1$ in $3$, operacija $\sin$ in operacija množenja.
-
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsection{Proste in vezane spremenljivke}
-\label{sec:spremenljivke}
-
-V predikatih in izrazih se pojavljajo spremenljivke. Pri tem moramo
-ločiti med \textbf{prostimi} in \textbf{vezanimi} spremenljivkami. Oglejmo
-si naslednja izraza in predikat:
-%
-\begin{equation*}
-  \sum_{i=0}^{n} a_i,
-  \qquad
-  \int_0^1 f(t) \, d t,
-  \qquad
-  \forall x \in A .\, \phi(x) \;.
-\end{equation*}
-%
-V vsoti je vezana spremenljivka $i$, spremenljivki $n$ in $a$ sta
-prosti. To pomeni, da je $i$ neke vrste ">lokalna
-spremenljivka"<,\footnote{Podobnost z lokalnimi spremenljivkami v
-  programskih jezikih ni zgolj naključje. Lokalna spremenljivka in
-  števec v zanki sta tudi primera vezanih spremenljivk v teoriji
-  programskih jezikov.} katere veljavnost je samo znotraj vsote,
-medtem ko sta spremenljivki $n$ in $a$ veljavni tudi zunaj samega
-izraza. Podobno je v integralu $t$ vezana spremenljivka in $f$ prosta,
-v izjavi na desni pa je vezana spremenljivka $x$, spremenljivki $A$ in
-$\phi$ sta prosti.
-
-Vezane spremenljivke so ">nevidne"< zunaj izraza in jih lahko vedno
-preimenujemo, ne da bi spremenili pomen izraza (seveda se novo ime ne
-sme mešati z ostalimi spremenljivkami, ki nastopajo v izrazu): izraza
-$\int_0^1 f(t)\, d t$ in $\int_0^1 f(x)\, d x$ štejemo za
-\emph{enaka}, ker se razlikujeta le v imenu vezane spremenljivke.
-Spremenljivki, ki ni vezana, pravimo \textbf{prosta}. Izrazu, v katerem
-ni prostih spremenljivk, pravimo \textbf{zaprt izraz}. Zaprta
-logična izjava se imenuje \textbf{stavek}.
-
-Pomembno se je zavedati, da vezana spremenljivka ">zunaj"< svojega
-območja ne obstaja. Matematiki so glede tega precej površni in na
-primer pišejo
-%
-\begin{equation*}
-  \int x^2 \, d x = x^3/3 + C,
-\end{equation*}
-%
-kar je strogo gledano nesmisel. Na levi strani v integralu stoji
-vezana spremenljivka~$x$, ki je na desni ">pobegnila"< iz integrala.
-Še več, če je $x \in \RR$ in $C \in \RR$, potem je izraz $x^3/3 + C$
-\emph{število} (odvisno od vrednosti $x$ in $C$), saj je vsota dveh
-realnih števil. Na desni strani bi morala stati oznaka za
-\emph{funkcijo}, recimo
-%
-\begin{equation*}
-  \int x^2 \, d x = (x \mapsto x^3/3 + C),
-\end{equation*}
-%
-vendar tega v praksi nihče ne piše. Seveda pri vsem tem ostane še
-vprašanje, kakšno vlogo ima v zgornjem izrazu~$C$. Pri analizi se
-učimo, da je~$C$ ">poljubna konstanta"<. Poskusimo to razumeti
-natančno s stališča logike. Besedico ">poljubno"< ponavadi razumemo
-kot ">za vsak"<, vendar to ne gre, saj je
-%
-\begin{equation*}
-  \all{C \in \RR} \int x^2 \, d x = (x \mapsto x^3/3 + C)
-\end{equation*}
-%
-nesmisel. Če bi to bilo res, bi veljalo za $C = 1$ in za $C = 2$, od
-koder bi dobili
-%
-\begin{equation*}
-  (x \mapsto x^3/3 + 1) =
-  \int x^2 \, d x =
-  (x \mapsto x^3/3 + 2).
-\end{equation*}
-%
-Potemtakem bi morali biti funkciji $(x \mapsto x^3/3 + 1)$ in $(x
-\mapsto x^3/3 + 2)$ enaki, od koder sledi nesmisel $1 = 2$. Težave
-nastopajo iz dejstva, da poskušamo nedoločeni integral razumeti kot
-operacijo, ki slika funkcije v funkcije, kar ni. Nedoločeni integral
-preslika funkcijo~$f$ v \emph{množico} vseh funkcij $F$, za katere
-velja $F' = f$. Če bi to želeli zapisati zares pravilno, bi dobili
-%
-\begin{equation*}
-  \int x^2 \, d x =
-  \set{(x \mapsto x^3/3 + C) \such C \in \RR}.
-\end{equation*}
-%
-Ali naj torej sklepamo, da so matematiki pravzaprav zelo površni pri
-pisanju integralov? Da, s stališča formalne logike prav gotovo. Vendar
-to ni nujno slabo: matematični zapis v praksi služi ljudem za
-sporazumevanje in prav je, da si izberejo tak zapis, s katerim najbolj
-učinkovito komunicirajo drug z drugim. Kljub temu pa se je treba
-zavedati, kdaj gredo matematiki ">po bližnjici"< in ne zapišejo ali
-povedo vsega dovolj natančno, da bi to bilo sprejemljivo za standarde,
-ki jih postavlja formalna logika.
-
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsection{Substitucija}
-\label{sec:substitucija}
-
-\textbf{Substitucija} je osnovna sintaktična operacija, v kateri
-\emph{proste} spremenljivke zamenjamo z izrazi. Zapis
-%
-\begin{equation*}
-  \xsubst{e}{x_1 \subto e_1, \ldots, x_n \subto e_n}
-\end{equation*}
-%
-pomeni: ">v izrazu $e$ \emph{hkrati} zamenjaj proste spremenljivke
-$x_1$ z $e_1$, $x_2$ z $e_2$, \dots{} in $x_n$ z $e_n$."<  Na primer,
-%
-\begin{equation*}
-  \subst{x^2 + y}{x \subto 3, y \subto 5, z \subto 12}
-\end{equation*}
-%
-je enako $3^2 + 5$. Nič hudega ni, če se v substituciji omenja
-spremenljivko $z$, ki se v izrazu $x^2 + y$ ne pojavi.
-
-Ko naredimo substitucijo, moramo paziti, da se proste spremenljivke ne
-">ujamejo"<. Denimo, da želimo v integralu
-%
-\begin{equation*}
-  \int_0^1 \frac{x}{a - x^2} \; dx
-\end{equation*}
-%
-parameter $a$ zamenjati z $y^2$. To naredimo s substitucijo
-%
-\begin{equation*}
-  \xsubst{\left(\int_0^1 \frac{x}{a - x^2} \; dx\right)}{a \subto y^2} =
-  \int_0^1 \frac{x}{y^2 - x^2} \; dx.
-\end{equation*}
-%
-Vse lepo in prav. Kaj pa, če želimo $a$ zamenjati z $x^2$? Ker je
-spremenljivka $x$ vezana v integralu, \emph{ne smemo} delati takole:
-%
-\begin{equation*}
-  \xsubst{\left(\int_0^1 \frac{x}{a - x^2} \; dx\right)}{a \subto x^2} =
-  \int_0^1 \frac{x}{x^2 - x^2} \; dx ?!
-\end{equation*}
-%
-Ker vstavljamo v integral spremenljivko $x$, moramo vezano
-spremenljivko $x$ najprej preimenovati v kaj drugega, na primer $t$,
-šele nato vstavimo:
-%
-\begin{equation*}
-  \xsubst{\left(\int_0^1 \frac{x}{a - x^2}\; dx \right)}{a \subto x^2} =
-  \xsubst{\left(\int_0^1 \frac{t}{a - t^2} \; dt\right)}{a \subto x^2} =
-  \int_0^1 \frac{t}{x^2 - t^2} \; dt.
-\end{equation*}
-%
-Podajmo še nekaj primerov substitucij:
-%
-\begin{align*}
-  \subst{x + y + 1}{x \subto 2} &= 2 + y + 1 \;,
-  \\
-  \subst{x + y^2 + 1}{x \subto y, y \subto x} &= y + x^2 + 1 \;
-  \\
-  \subst{\subst{x + y^2 + 1}{x \subto y}}{y \subto x} &=
-  x + x^2 + 1 \;,
-  \\
-  \textstyle
-  \subst{x + \int_0^1 x \cdot y \;, d x}{x \subto 2}
-  &= \textstyle  2 + \int_0^1 x \cdot y \;, d x \;,
-  \\
-  \textstyle
-  \subst{\int_0^1 x \cdot y \; d x}{y \subto x^2}
-  &= \textstyle \int_0^1 t \cdot x^2 \; d t \;.
-\end{align*}
-%
-Ločiti je treba med hkratno in zaporedno substitucijo:
-%
-\begin{align*}
-  \subst{x + y^2}{x \subto y, y \subto x} &= y + x^2
-  \\
-  \subst{\subst{x + y^2}{x \subto y}}{y \subto x} &=
-  \subst{y + y^2}{y \subto x} = x + x^2
-  \\
-  \subst{\subst{x + y^2}{y \subto x}}{x \subto y} &=
-  \subst{x + x^2}{x \subto y} = y + y^2.
-\end{align*}
-%
-
-V nadaljevanju bomo obravnavali pravila sklepanja za univerzalne in
-eksistenčne kvantifikatorje, v katerih se pojavi substitucija. Ker je
-sam zapis za substitucijo nekoliko nepregleden, bomo uporabili
-nekoliko manj pravilen, a bolj praktičen zapis. Denimo, da imamo
-logično formulo $\phi$, v kateri se morda pojavi spremenljivka $x$, ni
-pa to nujno. Tedaj pišemo $\phi(x)$. Če želimo zamenjati $x$ z izrazom
-$e$, zapišemo $\phi(e)$. To je pravzaprav običajni zapis, kot ga
-uporabljajo matematiki za zapis funkcij, mi pa smo ga uporabili za
-zapis logičnih formul. Če bi uporabili zapis s substitucijo, bi
-formulo označili samo s $\phi$ namesto s $\phi(x)$ in zamenjavo s
-$\xsubst{\phi}{x \subto e}$ namesto s $\phi(e)$. Zakaj je ta bolj
-priročen zapis hkrati manj pravilen? V formalni logiki strogo ločimo
-med \emph{simbolnim zapisom} matematičnega pojma, ki je zaporedje
-znakov na papirju, in njegovim \emph{pomenom}, ki je matematična
-abstrakcija. Substitucija $\xsubst{\phi}{x \subto e}$ nam pove, kako
-niz znakov $\phi$ predelamo v novi niz znakov, torej deluje na nivoju
-simbolnega zapisa. Ko pišemo $\phi(x)$ pa si že predstavljamo, da je
-$\phi$ matematična funkcija, ki deluje na argumentu $x$. S tem nastopi
-zmešnjava med simbolnim zapisom in pomenom. Dokler se zmešnjave
-zavedamo, je vse v redu.
-
-\subsection{Univerzalni kvantifikator}
-\label{sec:univerzalni-kvantifikator}
-
-Univerzalna kvantifikacija $\all{x \in S} \phi$ se prebere ">Za vse $x$
-iz $S$ velja $\phi$."< Pravili sklepanja sta
-%
-\begin{mathpar}
-  \inferrule
-  {\izpeljava{[x \in S]}{\phi(x)}}{\all{x \in S} \phi(x)} \ \text{($x$ svež)}
-  \and
-  \inferrule{\all{x \in S} \phi(x) \\ e \in S}{\phi(e)}
-\end{mathpar}
-%
-pri čemer je $x$ spremenljivka, $\phi(x)$ logična formula in $e$ poljuben izraz.
-
-V besedilu se pravilo vpeljave zapiše:
-%
-\begin{quote}
-  \it
-  %
-  Dokazujemo $\all{x \in S} \phi(x)$:
-  %
-  \begin{itemize}
-  \item[] Naj bo $x \in S$ poljuben.
-  \item[] (Dokaz, da velja $\phi(x)$).
-  \end{itemize}
-  %
-  Dokazali smo $\all{x \in S} \phi(x)$.
-\end{quote}
-%
-Pravilo uporabe v besedilu ponavadi ni eksplicitno navedeno, če pa bi
-ga že zapisali, bi šlo takole:
-%
-\begin{quote}
-  \it
-  %
-  Dokazujemo, da velja $\phi(e)$:
-  \begin{itemize}
-  \item[] (Dokaz, da velja $\all{x \in S} \phi(x)$.)
-  \item[] (Dokaz, da velja $e \in S$.)
-  \end{itemize}
-  %
-  Torej velja $\phi(e)$.
-\end{quote}
-
-
-Ob pravilu vpeljave stoji stranski pogoj, da mora biti spremenljivka
-$x$ ">sveža"<. To pomeni, da se $x$ ne sme pojavljati drugje v dokazu,
-saj bi sicer lahko prišlo do zmešnjave med vezanimi in prostimi
-spremenljivkami. V besedilu se dejstvo, da je $x$ svež, izraža z
-besedico ">poljuben"< ali ">katerikoli"<. Primer, kako gredo stvari
-narobe, če ne pazimo in pomešamo spremenljivke:
-
-\begin{izrek}[z napako v dokazu]
-  Če je $x$ večji od~$42$, so vsa realna števila večja od~$23$.
-\end{izrek}
+\begin{trditev}
+  \label{izrek:abc-vsota-razlik-soda}
+  Za vsa cela števila $a$, $b$ in $c$ je $|a-b|+|b-c|+|c-a|$ sodo število.
+\end{trditev}
 
 \begin{proof}
-  Denimo, da bi nekoliko nerodno zapisali izrek simbolno takole:
+  Brez izgube za splošnost smemo predpostaviti $a \geq b \geq c$.
+  Tedaj velja
   %
   \begin{equation*}
-    x > 42 \lthen \all{x \in \RR} x > 23.
+    |a-b| + |b-c| + |c-a| = (a - b) + (b - c) - (c - a) = 2 (a - c),
   \end{equation*}
   %
-  To je sicer dovoljeno, saj se prosti $x$, ki stoji zunaj $\forall$
-  ni ujel, ni pa preveč smotrno, ker smo na dobri poti, da bomo
-  zunanji prosti $x$ in vezanega znotraj $\forall$ pomešali. Res, če
-  ne upoštevamo pravila, da mora biti $x$ svež, dobimo tale nepravi
-  ">dokaz"<:
-  %
-  \begin{equation*}
-    \inferrule*
-    {
-      \inferrule*
-      {\inferrule*
-        {[x > 42] \\ 42 > 23}
-        {x > 23}
-      }
-      {\all{x \in \RR} x > 23}
-    }
-    {x > 42 \lthen \all{x \in \RR} x > 23}
-  \end{equation*}
-  %
-  Pri pravilu za vpeljavo $\forall$ smo uporabili spremenljivko $x$,
-  ki pa je že nastopala v začasni hipotezi $x > 42$. Z besedilom bi se
-  isti dokaz glasil takole:
-  %
-  \begin{quote}
-    ">Dokazujemo $x > 42 \lthen \all{x \in \RR} x > 23$. Predpostavimo,
-    da velja $x > 42$ in dokažimo $\all{x \in \RR} x > 23$. Naj bo $x
-    \in \RR$. Po predpostavki je $x > 42$ in ker je $42 > 23$, od tod
-    sledi $x > 23$."<
-  \end{quote}
-  %
-  Če bi izrek zapisali bolje kot $x > 42 \lthen \all{y \in \RR} y >
-    23$, težav ne bi bilo, saj bi se prejšnji dokaz ">zataknil"<:
-  %
-  \begin{quote}
-    ">Dokazujemo $x > 42 \lthen \all{y \in \RR} y > 23$. Predpostavimo,
-    da velja $x > 42$ in dokažimo $\all{y \in \RR} y > 23$. Naj bo $y
-    \in \RR$. (Kaj zdaj? Lahko sicer dokažemo $x > 23$, a zares bi
-    morali dokazati $y > 23$, kar ne gre.)"<
-  \end{quote}
+  kar je sodo število.
 \end{proof}
 
-Pogoj, da mora biti spremenljivka $x$ v pravilu za vpeljavo ">sveža"<,
-se v praksi kaže v tem, da pri uvajanju nove spremenljivke izberemo
-zanjo novo ime, ki se še ni pojavilo v dokazu.
+Za začetnika je najtežje dognati, katere so preostale možnosti in zakaj se je pisec
+dokaza pravzaprav odločil zanje. Avtor zgornjega dokaza je verjetno opazil, da števila $a$, $b$ in $c$ v izrazu $|a-b|+|b-c|+|c-a|$ nastopajo \emph{simetrično}: če jih premešamo, se izraz ne spremeni.
+Denimo, ko zamenjamo $a$ in $b$, dobimo $|b-a|+|a-c|+|c-b|$, kar je
+enako prvotnemu izrazu $|a-b|+|b-c|+|c-a|$. Torej lahko izmed šestih
+možnosti
+%
+\begin{xalignat*}{3}
+  & a \geq b \geq c,&
+  & a \geq c \geq b,&
+  & b \geq a \geq c,\\
+  & b \geq c \geq a,&
+  & c \geq a \geq b,&
+  & c \geq b \geq a
+\end{xalignat*}
+%
+obravnavamo le eno. Seveda pisanje dokazov, pri katerih večji del
+dokaza opustimo, zahteva pazljivost in nekaj izkušenj.
 
-
-\subsection{Eksistenčni kvantifikator}
-\label{sec:eksistencni-kvantifikator}
-
-Eksistenčna kvantifikacija $\some{x \in S} \phi$ se prebere ">obstaja
-$x$ iz $S$, za katerega velja $\phi$"< ali ">za neki $x$ iz $S$ velja
-$\phi$."< Pravili sklepanja za eksistenčni kvantifikator se glasita
-%
-\begin{mathpar}
-  \inferrule
-  {\phi(e) \\ e \in S}
-  {\some{x \in S} \phi(x)}
-  \and
-  \inferrule
-  {\some{x \in S} \phi(x)
-    \\
-    \izpeljava{[x \in S \land \phi(x)]}{\psi}}
-  {\psi}\ \text{($x$ svež)}
-\end{mathpar}
-%
-kjer je $e$ poljuben izraz in $x$ spremenljivka. Pri tem mora biti $x$
-v pravilu uporabe svež. V besedilu pravilo vpeljave uporabimo takole:
-%
-\begin{quote}
-  \it
-  %
-  Dokazujemo $\some{x \in S} \phi(x)$:
-  %
-  \begin{enumerate}
-  \item (Skonstruiramo element $e \in S$.)
-  \item (Dokažemo, da velja $\phi(e)$.)
-  \end{enumerate}
-  %
-  Dokazali smo $\some{x \in S} \phi(x)$.
-\end{quote}
-%
-Pravilo uporabe pa se v besedilu izraža takole:
-%
-\begin{quote}
-  \it
-  %
-  Dokazujemo $\psi$:
-  %
-  \begin{enumerate}
-  \item (Dokaz izjave $\some{x \in S} \phi(x)$.)
-  \item Predpostavimo, da za $x \in S$ velja $\phi(x)$:
-    %
-    \begin{itemize}
-    \item[] (Dokaz izjave $\psi$.)
-    \end{itemize}
-  \end{enumerate}
-  %
-  Dokazali smo $\psi$.
-\end{quote}
-
-\subsubsection{Enolični obstoj}
-\label{sec:enolicni-obstoj}
-
-Poleg običajnega eksistenčnega kvantifikatorja $\exists$ poznamo tudi
-\emph{enolični} eksistenčni kvantifikator $\exists!$. Izjavo
-$\exactlyone{x}{S}{\phi}$ preberemo ">obstaja natanko en $x \in S$, za
-katerega velja $\phi(x)$"<.
-
-Enolični eksistenčni kvantifikator ni osnovni logični operator, ampak
-je $\exactlyone{x}{S}{\phi}$ le okrajšava za
-%
-\begin{equation}
-  \label{eq:uniqe-exists}
-  \some{x \in S} \phi(x) \land (\all{y \in S} \phi(y) \lthen x = y).
-\end{equation}
-%
-Z besedami preberemo to izjavo takole: ">obstaja $x$ iz $S$, za
-katerega velja $\phi(x)$ in za vsak $y \in S$ za katerega velja
-$\phi(y)$ sledi $x = y$"<. To je samo zapleten način, kako povedati,
-da obstaja natanko en element množice~$S$, ki zadošča pogoju $\phi$.
-
-Pravilo sklepanja za vpeljavo enoličnega obstoja izpeljemo
-iz~\eqref{eq:uniqe-exists}:
-%
-\begin{equation*}
-  \inferrule{
-    e \in S
-    \\
-    \phi(e)
-    \\
-    \izpeljava{y \in S \land \phi(y)}{y = e}
-  }
-  {\exactlyone{x}{S}{\phi}}
-\end{equation*}
-%
-V besedilu dokažemo enolični obstoj takole:
-%
-\begin{quote}
-  \it
-  %
-  Dokazujemo, da obstaja natanko en $x \in S$, za katerega velja
-  $\phi(x)$:
-  %
-  \begin{enumerate}
-  \item Obstoj: (Konstrukcija elementa $e \in S$ in dokaz, da velja $\phi(e)$.)
-  \item Enoličnost: denimo da za $y \in S$ velja $\phi(y)$:
-    %
-    \begin{itemize}
-    \item[] (Dokaz, da je $e = y$).
-    \end{itemize}
-  \end{enumerate}
-  %
-  Dokazali smo $\exactlyone{x \in S} \phi(x)$.
-\end{quote}
-
-Če dokažemo enolični obstoj $\exactlyone{x \in S} \phi(x)$, lahko
-vpeljemo novo konstanto $c$, ki označuje tisti element iz $S$, ki
-zadošča pogoju~$\phi$, pri čemer moramo seveda paziti, da znaka $c$
-nismo že prej uporabili za kak drug pomen. Nova konstanta~$c$ je
-opredeljena s praviloma
-%
-\begin{mathpar}
-  \inferrule{ }{\phi(c)}
-  \and
-  \inferrule{
-    y \in S
-    \\
-    \phi(y)
-  }
-  {y = c}
-\end{mathpar}
-%
-Če v formuli $\phi$ poleg spremenljivke $x$ nastopajo še druge proste
-spremenljivke, denimo $y_1, \ldots, y_n$, potem je nova konstanta~$c$
-v resnici \emph{funkcija} parametrov $y_1, \ldots, y_n$.
-
-\subsection{Enakost in reševanje enačb}
+\section{Enakost in reševanje enačb}
 \label{sec:enakost}
 
 Enakost $=$ je osnovna relacija, ki zadošča naslednjim aksiomom in
@@ -1697,6 +1703,58 @@ za splošne $a$ in $b$ velja le v primeru, ko je $c \neq 0$. Ker pri
 reševanju enačb potrebujemo implikacijo v obe smeri, srednješolce
 učimo, da smejo enačbo množiti samo z od nič različnimi števili.
 
+
+
+
+
+%%% Local Variables: 
+%%% mode: latex
+%%% TeX-master: "lmn"
+%%% End:
+
+\section{Vaje}
+
+\begin{vaja}
+  Ali je $n^2 - n + 41$ praštevilo za vsako naravno število~$n$?
+\end{vaja}
+
+\begin{vaja}
+  Kakšno je tvoje mnenje o resničnosti naslednjih izjav? Vprašaj
+  starejše kolege, asistente in učitelje, kaj menijo oni. Ali znajo
+  svoje mnenje utemeljiti z dokazi?
+  %
+  \begin{enumerate}
+  \item Sodih števil je manj kot naravnih števil.
+  \item Kroglo je mogoče razdeliti na pet delov tako, da lahko iz njih
+    sestavimo dve krogli, ki sta enako veliki kot prvotna krogla.
+  \item Sklenjena krivulja v ravnini, ki ne seka same sebe, razdeli
+    ravnino na dve območji, eno omejeno in eno neomejeno.
+  \item S krivuljo ne moremo prekriti notranjosti kvadrata.
+  \item Če ravnino razdelimo na tri območja, potem zagotovo obstaja
+    točka, ki je dvomeja in ni tromeja med območji.
+  \end{enumerate}
+\end{vaja}
+
+\begin{vaja}
+  S kolegi se igraj naslednjo igro.\footnote{%
+    Igranje odsvetujemo zunaj prostorov Fakultete za matematiko in fiziko.}
+  Prvi igralec v zgornjem dokazu poišče korak, ki ga je treba še dodatno
+  utemeljiti. Drugi igralec ga utemelji. Nato prvi igralec poišče nov korak,
+  ki ga je treba še dodatno utemeljiti in igra se ponovi. Zgubi tisti, ki se prvi naveliča igrati. Ali lahko igra traja neskončno dolgo?
+\end{vaja}
+
+\begin{vaja}
+  Preveri, da je vsako vejišče v zgornjem dokazu res uporaba enega od
+  zgoraj podanih pravil sklepanja.
+\end{vaja}
+
+\begin{vaja}
+  Sestavi formalne dokaze za zgornjih pet ekvivalenc. Pri dokazovanju
+  ekvivalenc za $\forall$ in $\exists$ si pomagaj s pravili sklepanja
+  iz razdelkov~\ref{sec:univerzalni-kvantifikator}
+  in~\ref{sec:eksistencni-kvantifikator}.
+\end{vaja}
+
 \begin{vaja}
   Kako bi srednješolcem pojasnil, od kod izvira pravilo za množenje
   enačbe z neničelnim številom?
@@ -1720,9 +1778,22 @@ učimo, da smejo enačbo množiti samo z od nič različnimi števili.
   enačbe?
 \end{vaja}
 
+\begin{vaja}
+  Denimo, da učitelj reče ">Naj bo $n$ (poljubno) naravno število"<, nato pa vas vpraša ">Ali je $n$ sodo število?"<, kako boste odgovorili?
+\end{vaja}
+
+\begin{vaja}
+  Iz hipoteze $(\alpha \lor \gamma) \land (\beta \lor \gamma)$ dokaži
+  $(\alpha \land \beta) \lor \gamma$.
+\end{vaja}
+
+\begin{vaja}
+  Ali bi lahko izrek~\ref{izrek:x-3-5} dokazali tudi z obravnavo
+  primerov $x < 3$ in $x \geq 3$?
+\end{vaja}
 
 
-%%% Local Variables: 
+%%% Local Variables:
 %%% mode: latex
 %%% TeX-master: "lmn"
-%%% End: 
+%%% End:
