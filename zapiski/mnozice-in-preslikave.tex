@@ -67,7 +67,7 @@ matematičnimi objekti določajo izključno dogovorjeni matematični zakoni in n
 
 Vrnimo se k našim množicam. Pravilo ekstenzionalnosti nam pove, da lahko množico podamo
 tako, da natančno opredelimo njene elemente. A to ne pomeni, da množica obstaja, brž ko jo
-lahko natančno opredelimo! Ta  pot vodi v protislovje, ki ga je odkril Bertrand Russell\footnote{Bertrand Arthur William Russell (1872--1970), angleški filozof, logik in matematik.} na začetku 20.~stoletja in ga bomo še obravnavali.
+lahko natančno opredelimo! Ta  pot vodi v protislovje, ki ga je odkril Bertrand Russell\footnote{Bertrand Arthur William Russell (1872--1970), angleški filozof, logik in matematik.} na začetku 20.~stoletja in ga bomo obravnavali v razdelku~\ref{sec:russellov-paradoks}.
 Iz zagate so se matematiki rešili s previdno izbranimi pravili, ki določajo dopustne konstrukcije množic.
 
 Posebej preprosta konstrukcija združi končen nabor matematičnih objektov v množico.
@@ -770,6 +770,49 @@ $g \circ f : A \to C$, podano s prirejanjem
 \end{equation*}
 %
 Zakaj pišemo $g \circ f$ in ne obratno $f \circ g$?  Ker si je mnogo lažje zapomniti zgornje računsko pravilo kot pravilo $(f \circ g)(x) = g(f(x))$, ki bi ga dobili, če bi pisali kompozicijo v obratnem vrstnem redu.
+
+\begin{zgled}
+  Naj bosta $f : \RR \to \RR$ in $g : \RR \to \RR$ podani s predpisoma $f(x) \dfeq x^2$ in $g(x) \dfeq 2 x$.
+  %
+  Ker se kodomena vsake od njiju ujema z domeno druge, lahko tvorimo obe kompoziciji $g \circ f$ in $f \circ g$:
+  %
+  \begin{align*}
+    (g \circ f)(x) &= g(f(x)) = 2 x^2, \\
+    (f \circ g)(x) &= f(g(x)) = (2 x)^2 = 4 x^2.
+  \end{align*}
+  %
+  Preslikavi $g \circ f$ in $f \circ g$ sta različni, saj je $(g \circ f)(1) = 2$ in $(f \circ g)(1) = 4$.
+  %
+  Kompozicija torej ni komutativna.
+\end{zgled}
+
+\begin{zgled}
+  Oglejmo si preslikavi $\sin : \RR \to [-1, 1]$ in $\arcsin : [-1, 1] \to \RR$.
+  %
+  Tudi tu lahko tvorimo obe kompoziciji:
+  %
+  \begin{equation*}
+    \arcsin \circ \sin : \RR \to \RR
+    \qquad\text{in}\qquad
+    \sin \circ \arcsin : [-1, 1] \to [-1, 1].
+  \end{equation*}
+  %
+  Za vsak $y \in [-1, 1]$ velja $\sin(\arcsin y) = y$, zato je $\sin \circ \arcsin = \id[{[-1, 1]}]$.
+  %
+  Po drugi strani $\arcsin \circ \sin$ ni identiteta na~$\RR$, saj je $\arcsin(\sin \pi) = \arcsin 0 = 0 \neq \pi$.
+  %
+  Enakost $\arcsin(\sin x) = x$ velja le za $x \in [-\pi/2, \pi/2]$, v splošnem pa je
+  %
+  \begin{equation*}
+    \arcsin(\sin x) = (-1)^m (x - m \pi),
+    \qquad\text{kjer je}\qquad
+    m = \lfloor x/\pi + 1/2 \rfloor.
+  \end{equation*}
+  %
+  Pri tem $\lfloor t \rfloor$ označuje število~$t$, zaokroženo navzdol, se pravi največje celo število, ki ni večje od~$t$.
+  %
+  Narišite graf te funkcije!
+\end{zgled}
 
 \begin{trditev}
   \parbox{0pt}{}
