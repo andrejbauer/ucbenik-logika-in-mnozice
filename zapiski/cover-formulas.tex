@@ -1,0 +1,354 @@
+% The formulas of the wall, shuffled on the cover.  \F*{...} marks a formula
+% that the cover places in the visible lower part of the wall.
+
+% Notation used only on the cover, in addition to macros.tex.
+\newcommand{\lam}[1]{\lambda #1 \,.\,}
+\renewcommand{\Diamond}{\mdlgwhtdiamond}
+\newcommand{\Lax}{\mdlgwhtcircle}
+\newcommand{\PiType}[1]{\Pi_{#1}\,}
+\newcommand{\SigmaType}[1]{\Sigma_{#1}\,}
+\newcommand{\oc}{\mathord{!}}
+\newcommand{\wn}{\mathord{?}}
+
+% Intuitionistic propositional logic
+\F{p \lthen (q \lthen p)} % Hilbert's axiom K
+\F{(p \lthen (q \lthen r)) \lthen ((p \lthen q) \lthen (p \lthen r))} % Hilbert's axiom S
+\F{p \land q \lthen p} % elimination of conjunction, left
+\F{p \land q \lthen q} % elimination of conjunction, right
+\F{p \lthen (q \lthen p \land q)} % introduction of conjunction
+\F{p \lthen p \lor q} % introduction of disjunction, left
+\F{q \lthen p \lor q} % introduction of disjunction, right
+\F{(p \lthen r) \lthen ((q \lthen r) \lthen (p \lor q \lthen r))} % elimination of disjunction
+\F{\bot \lthen p} % ex falso quodlibet
+\F{\lnot p \liff (p \lthen \bot)} % negation as implication of falsehood
+\F{(p \land q \lthen r) \liff (p \lthen (q \lthen r))} % currying
+\F{p \land (q \lor r) \liff (p \land q) \lor (p \land r)} % distributivity of conjunction over disjunction
+\F{p \lor (q \land r) \liff (p \lor q) \land (p \lor r)} % distributivity of disjunction over conjunction
+\F{\lnot (p \lor q) \liff \lnot p \land \lnot q} % De Morgan's law for disjunction
+\F{p \lthen \lnot\lnot p} % introduction of double negation
+\F{\lnot\lnot\lnot p \liff \lnot p} % triple negation is negation
+\F{\lnot\lnot (p \lor \lnot p)} % double negation of excluded middle
+
+% Classical and intermediate logics
+\F{p \lor \lnot p} % law of excluded middle
+\F{\lnot\lnot p \lthen p} % elimination of double negation
+\F{((p \lthen q) \lthen p) \lthen p} % Peirce's law
+\F{\lnot (p \land q) \liff \lnot p \lor \lnot q} % De Morgan's law for conjunction, classical
+\F{(p \lthen q) \liff (\lnot q \lthen \lnot p)} % contraposition, classical
+\F{(p \lthen q) \lor (q \lthen p)} % Dummett's axiom of Gödel-Dummett logic
+\F{\lnot p \lor \lnot\lnot p} % weak excluded middle, axiom of De Morgan logic
+\F{(\lnot p \lthen q \lor r) \lthen (\lnot p \lthen q) \lor (\lnot p \lthen r)} % Kreisel-Putnam axiom
+
+% Predicate logic
+\F{(\all{x} \phi(x)) \lthen \phi(t)} % universal instantiation
+\F{\phi(t) \lthen \some{x} \phi(x)} % existential generalization
+\F{\all{x} x = x} % reflexivity of equality
+\F{\all{x y} x = y \lthen (\phi(x) \lthen \phi(y))} % Leibniz's law
+\F{(\lnot \some{x} \phi(x)) \liff \all{x} \lnot \phi(x)} % De Morgan's law for the existential quantifier
+\F{(\lnot \all{x} \phi(x)) \liff \some{x} \lnot \phi(x)} % De Morgan's law for the universal quantifier, classical
+\F{(\all{x} \phi(x) \land \psi(x)) \liff (\all{x} \phi(x)) \land (\all{x} \psi(x))} % universal quantifier commutes with conjunction
+\F{(\some{x} \phi(x) \lor \psi(x)) \liff (\some{x} \phi(x)) \lor (\some{x} \psi(x))} % existential quantifier commutes with disjunction
+\F{(\some{x} \all{y} \rho(x, y)) \lthen \all{y} \some{x} \rho(x, y)} % exchange of quantifiers
+\F{\some{x} \phi(x) \lthen \all{y} \phi(y)} % drinker paradox, classical
+\F{(\all{x} p \lor \phi(x)) \lthen p \lor \all{x} \phi(x)} % constant domain axiom
+\F{(p \lthen \some{x} \phi(x)) \lthen \some{x} (p \lthen \phi(x))} % independence of premise
+
+% Zermelo-Fraenkel set theory
+\F{\all{A B} (\all{x} x \in A \liff x \in B) \lthen A = B} % axiom of extensionality
+\F{\all{x y z} z \in \set{x, y} \liff z = x \lor z = y} % axiom of pairing
+\F{\all{A x} x \in \bigcup A \liff \some{B \in A} x \in B} % axiom of union
+\F{\all{x} x \notin \emptyset} % axiom of the empty set
+\F{\some{A} \emptyset \in A \land \all{x \in A} x \cup \set{x} \in A} % axiom of infinity
+\F{\all{A y} y \in \set{x \in A \mid \phi(x)} \liff y \in A \land \phi(y)} % axiom schema of separation
+\F{\all{A S} S \in \pow{A} \liff S \subseteq A} % axiom of power set
+\F{\all{A} (\all{x \in A} \exactlyone{y} \phi(x, y)) \lthen \some{B} \all{y} y \in B \liff \some{x \in A} \phi(x, y)} % axiom schema of replacement
+\F{\all{A} A \neq \emptyset \lthen \some{x \in A} x \cap A = \emptyset} % axiom of foundation
+\F{\all{A} \emptyset \notin A \lthen \some{f : A \to \bigcup A} \all{B \in A} f(B) \in B} % axiom of choice
+
+% Sets
+\F{\all{A B} A \subseteq B \liff \all{x} x \in A \lthen x \in B} % definition of subset
+\F{\all{A B x} x \in A \cup B \liff x \in A \lor x \in B} % definition of union
+\F{\all{A B x} x \in A \cap B \liff x \in A \land x \in B} % definition of intersection
+\F{\all{A B x} x \in A \setminus B \liff x \in A \land x \notin B} % definition of difference
+\F{\all{A B C} A \cap (B \cup C) = (A \cap B) \cup (A \cap C)} % distributivity of intersection over union
+\F{\all{A B C} A \setminus (B \cup C) = (A \setminus B) \cap (A \setminus C)} % De Morgan's law for union
+\F{\all{A B C} A \setminus (B \cap C) = (A \setminus B) \cup (A \setminus C)} % De Morgan's law for intersection
+\F{\all{A} \emptyset \subseteq A} % the empty set is a subset of every set
+\F{\pow{\emptyset} = \set{\emptyset}} % power set of the empty set
+\F{\all{x y} (x, y) = \set{\set{x}, \set{x, y}}} % Kuratowski's ordered pair
+\F{\all{x y u v} (x, y) = (u, v) \liff x = u \land y = v} % characteristic property of ordered pairs
+\F{\all{A B} A \times B = \set{(x, y) \mid x \in A \land y \in B}} % definition of cartesian product
+\F{\all{f g h} h \circ (g \circ f) = (h \circ g) \circ f} % associativity of composition
+\F{\lnot \some{R} \all{x} x \in R \liff x \notin x} % Russell's paradox
+\F{\all{x} x \notin x} % no set is its own element, by foundation
+\F{(\all{A} (\all{x \in A} \phi(x)) \lthen \phi(A)) \lthen \all{A} \phi(A)} % epsilon-induction
+\F{\all{\alpha} V_\alpha = \bigcup_{\beta < \alpha} \pow{V_\beta}} % cumulative hierarchy
+\F{\all{A} \all{f : A \to \pow{A}} \some{S \in \pow{A}} \all{x \in A} f(x) \neq S} % Cantor's theorem, no map onto the power set
+\F{\all{A B} |A| \leq |B| \land |B| \leq |A| \lthen |A| = |B|} % Cantor-Schröder-Bernstein theorem
+\F{\all{A} |A| < |\pow{A}|} % Cantor's theorem for cardinalities
+\F{2^{\aleph_0} = \aleph_1} % continuum hypothesis
+\F{\all{\alpha} 2^{\aleph_\alpha} = \aleph_{\alpha + 1}} % generalized continuum hypothesis
+
+% Higher set theory
+\F{V = L} % axiom of constructibility
+\F{\all{\alpha} L_{\alpha + 1} = \mathrm{Def}(L_\alpha)} % constructible hierarchy, successor stage
+\F{\all{\lambda} L_\lambda = \bigcup_{\alpha < \lambda} L_\alpha} % constructible hierarchy, limit stage
+\F{\some{\kappa} \some{j : V \to V} \mathrm{crit}(j) = \kappa} % Reinhardt cardinal, refuted by Kunen in ZFC
+\F{\some{\kappa} \some{j : V \to M} \mathrm{crit}(j) = \kappa \land V_{j(\kappa)} \subseteq M} % superstrong cardinal
+\F{\all{A \subseteq \NN^{\NN}} (\some{\sigma} \all{\beta} \sigma * \beta \in A) \lor \some{\tau} \all{\alpha} \alpha * \tau \notin A} % axiom of determinacy
+
+% Tarski's compositional truth
+\F{\all{s t} \mathrm{Tr}(s \mathbin{\dot{=}} t) \liff \mathrm{val}(s) = \mathrm{val}(t)} % truth of an equation between closed terms
+\F{\all{\phi \in \mathrm{Sent}} \mathrm{Tr}(\dot{\lnot} \phi) \liff \lnot \mathrm{Tr}(\phi)} % truth of a negation
+\F{\all{\phi \psi \in \mathrm{Sent}} \mathrm{Tr}(\phi \mathbin{\dot{\land}} \psi) \liff \mathrm{Tr}(\phi) \land \mathrm{Tr}(\psi)} % truth of a conjunction
+\F{\all{\phi \psi \in \mathrm{Sent}} \mathrm{Tr}(\phi \mathbin{\dot{\lor}} \psi) \liff \mathrm{Tr}(\phi) \lor \mathrm{Tr}(\psi)} % truth of a disjunction
+\F{\all{\phi \psi \in \mathrm{Sent}} \mathrm{Tr}(\phi \mathbin{\dot{\Rightarrow}} \psi) \liff (\mathrm{Tr}(\phi) \lthen \mathrm{Tr}(\psi))} % truth of an implication
+\F{\all{x} \all{\phi} \mathrm{Tr}(\dot{\forall} x\, \phi) \liff \all{n \in \NN} \mathrm{Tr}(\phi[x \mapsto \underline{n}])} % truth of a universal statement
+\F{\all{x} \all{\phi} \mathrm{Tr}(\dot{\exists} x\, \phi) \liff \some{n \in \NN} \mathrm{Tr}(\phi[x \mapsto \underline{n}])} % truth of an existential statement
+\F{\mathrm{Tr}(\ulcorner \phi \urcorner) \liff \phi} % Tarski's T-schema
+\F{\lnot \some{\tau} \all{\phi} \tau(\ulcorner \phi \urcorner) \liff \phi} % Tarski's undefinability of truth
+
+% Peano arithmetic
+\F{\all{n \in \NN} n + 1 \neq 0} % zero is not a successor
+\F{\all{m n \in \NN} m + 1 = n + 1 \lthen m = n} % the successor is injective
+\F{\all{S \subseteq \NN} 0 \in S \land (\all{n \in S} n + 1 \in S) \lthen S = \NN} % induction
+\F{\all{m \in \NN} m + 0 = m} % addition, base case
+\F{\all{m n \in \NN} m + (n + 1) = (m + n) + 1} % addition, successor case
+\F{\all{m \in \NN} m \cdot 0 = 0} % multiplication, base case
+\F{\all{m n \in \NN} m \cdot (n + 1) = m \cdot n + m} % multiplication, successor case
+\F{\mathsf{PA} \nvdash \mathsf{Con}(\mathsf{PA})} % Gödel's second incompleteness theorem
+
+% Constructive mathematics and Brouwerian principles
+\F{\all{\alpha \in \NN^{\NN}} (\some{n \in \NN} \alpha(n) = 0) \lor \all{n \in \NN} \alpha(n) \neq 0} % limited principle of omniscience
+\F{\all{\alpha \in \NN^{\NN}} (\lnot\lnot \some{n \in \NN} \alpha(n) = 0) \lthen \some{n \in \NN} \alpha(n) = 0} % Markov's principle
+\F{\all{\alpha \in 2^{\NN}} (\all{m n \in \NN} \alpha(m) = 1 = \alpha(n) \lthen m = n) \lthen (\all{n \in \NN} \alpha(2n) = 0) \lor \all{n \in \NN} \alpha(2n + 1) = 0} % lesser limited principle of omniscience
+\F{(\all{n \in \NN} \some{m \in \NN} \phi(n, m)) \lthen \some{f \in \NN^{\NN}} \all{n \in \NN} \phi(n, f(n))} % number-number choice
+\F{(\all{n \in \NN} \lnot\lnot \phi(n)) \lthen \lnot\lnot \all{n \in \NN} \phi(n)} % double negation shift
+\F{(\all{\alpha \in \NN^{\NN}} \some{n \in \NN} \phi(\alpha, n)) \lthen \all{\alpha \in \NN^{\NN}} \some{m n \in \NN} \all{\beta \in \NN^{\NN}} (\all{k < m} \alpha(k) = \beta(k)) \lthen \phi(\beta, n)} % Brouwer's weak continuity principle
+\F{\all{B \subseteq 2^{<\NN}} (\all{\alpha \in 2^{\NN}} \some{n \in \NN} \overline{\alpha}n \in B) \lthen \some{m \in \NN} \all{\alpha \in 2^{\NN}} \some{n \leq m} \overline{\alpha}n \in B} % Brouwer's fan theorem
+\F{\all{f : \RR \to \RR} \all{x \in \RR} \all{\varepsilon > 0} \some{\delta > 0} \all{y \in \RR} |x - y| < \delta \lthen |f(x) - f(y)| < \varepsilon} % Brouwer's theorem, every real function is continuous
+\F{\all{f \in \NN^{\NN}} \some{e \in \NN} \all{n \in \NN} \some{k \in \NN} T(e, n, k) \land U(k) = f(n)} % Church's thesis, with Kleene's T and U
+\F{(\all{n \in \NN} \some{m \in \NN} \phi(n, m)) \lthen \some{e \in \NN} \all{n \in \NN} \some{k \in \NN} T(e, n, k) \land \phi(n, U(k))} % formal Church's thesis
+\F{\some{\alpha \in 2^{\NN}} p \liff \some{n \in \NN} \alpha(n) = 1} % Kripke's schema
+\F{\all{x y \in \RR} \lnot\lnot (x = y) \lthen x = y} % stability of equality of reals
+\F{\all{x y z \in \RR} x < y \lthen x < z \lor z < y} % cotransitivity of the order of reals
+\F{\all{x \in \RR} \lnot\lnot (x < 0 \lor x = 0 \lor 0 < x)} % double negation of trichotomy
+\F{(\all{X \subseteq \NN} \some{n \in \NN} \phi(X, n)) \lthen \some{n \in \NN} \all{X \subseteq \NN} \phi(X, n)} % uniformity principle, valid in the effective topos
+\F*{\mathsf{RT}(\mathsf{ITTM}) \models \RR \subseteq \NN} % realizability with infinite-time Turing machines, the reals embed into the natural numbers
+\F*{\mathbb{T}_\mu \models \some{e : \NN \to \RR} \all{x \in \RR} \some{n \in \NN} e\,n = x} % the topos of countable reals
+\F*{\some{W : \NN \to \mathcal{E}} \all{A \in \mathcal{E}} \some{n \in \NN} W_n = A} % enumeration axiom of synthetic computability
+\F*{(\some{e : \NN \to A^{\NN}} \all{g \in A^{\NN}} \some{k \in \NN} e(k) = g) \lthen \all{f : A \rightrightarrows A} \some{x \in A} x \in f(x)} % synthetic recursion theorem
+
+% Computability theory
+\F{W_e \defeq \set{n \in \NN \mid \varphi_e(n)\downarrow}} % the e-th computably enumerable set
+\F{K \defeq \set{e \in \NN \mid \varphi_e(e)\downarrow}} % the halting set
+\F{\lnot \some{e} \all{n} (\varphi_e(n) = 1 \liff \varphi_n(n)\downarrow) \land (\varphi_e(n) = 0 \liff \varphi_n(n)\uparrow)} % undecidability of the halting problem
+\F{\all{e m n} \varphi_{s(e, m)}(n) \simeq \varphi_e(m, n)} % s-m-n theorem
+\F{\all{f} \some{e} \varphi_{f(e)} = \varphi_e} % Kleene's recursion theorem, for total computable f
+\F{A' \defeq \set{e \in \NN \mid \varphi^A_e(e)\downarrow}} % Turing jump
+\F{\all{A \subseteq \NN} A <_T A'} % the jump is strictly above
+\F{\emptyset' \equiv_T K} % the jump of the empty set is the halting set
+\F{\mathcal{D} \defeq \pow{\NN}/{\equiv_T}} % Turing degrees
+\F{|\mathcal{D}| = 2^{\aleph_0}} % there are continuum many Turing degrees
+\F{\mathbf{0}' = \deg_T(K)} % the degree of the halting problem
+\F{\some{i j} W_i \not\leq_T W_j \land W_j \not\leq_T W_i} % Friedberg-Muchnik theorem, solution of Post's problem
+\F{\all{\mathbf{a} \mathbf{b} \in \mathcal{R}} \mathbf{a} < \mathbf{b} \lthen \some{\mathbf{c} \in \mathcal{R}} \mathbf{a} < \mathbf{c} < \mathbf{b}} % Sacks density theorem for computably enumerable degrees
+\F{\all{n \in \NN} \Delta^0_{n + 1} = \set{A \subseteq \NN \mid A \leq_T \emptyset^{(n)}}} % Post's theorem
+\F{\all{A \subseteq \NN} A \leq_T \emptyset' \liff \some{g} \all{n} \chi_A(n) = \lim_{s} g(n, s)} % Shoenfield's limit lemma, for computable g
+
+% Modal logic
+\F{\Box (p \lthen q) \lthen (\Box p \lthen \Box q)} % axiom K
+\F{\Box p \lthen p} % axiom T
+\F{\Box p \lthen \Box\Box p} % axiom 4
+\F{\Diamond p \lthen \Box\Diamond p} % axiom 5
+\F{p \lthen \Box\Diamond p} % axiom B
+\F{\Box p \lthen \Diamond p} % axiom D
+\F{\Diamond p \liff \lnot\Box\lnot p} % duality of possibility and necessity
+\F{\Box (\Box p \lthen p) \lthen \Box p} % Löb's axiom of provability logic GL
+\F{\Box (\Box (p \lthen \Box p) \lthen p) \lthen p} % Grzegorczyk's axiom
+\F{(\all{x} \Box \phi(x)) \lthen \Box \all{x} \phi(x)} % Barcan formula
+\F{\Box\Diamond p \lthen \Diamond\Box p} % McKinsey's axiom of S4.1
+\F{\Diamond\Box p \lthen \Box\Diamond p} % Geach's axiom of S4.2
+\F{\Box (\Box p \lthen q) \lor \Box (\Box q \lthen p)} % axiom of S4.3
+\F{\vdash_{\mathsf{IPC}} \phi \liff {} \vdash_{\mathsf{S4}} \phi^{\Box}} % Gödel-McKinsey-Tarski translation into S4
+\F{\vdash_{\mathsf{IPC}} \phi \liff {} \vdash_{\mathsf{Grz}} \phi^{\Box}} % Gödel-McKinsey-Tarski translation into Grz
+\F{\vdash_{\mathsf{PA}} \Box_{\mathsf{PA}} \ulcorner \phi \urcorner \lthen \phi \liff {} \vdash_{\mathsf{PA}} \phi} % Löb's theorem
+\F{\all{U V} (U \cap V)^{\circ} = U^{\circ} \cap V^{\circ}} % topological interior preserves intersections, S4 semantics
+\F{\all{U} U^{\circ\circ} = U^{\circ} \subseteq U} % topological interior is idempotent and deflationary, S4 semantics
+\F{p \lthen \Lax p} % lax modality, unit
+\F{\Lax\Lax p \lthen \Lax p} % lax modality, multiplication
+\F{\Lax (p \land q) \liff \Lax p \land \Lax q} % lax modality preserves conjunction
+
+% The untyped lambda calculus and combinatory logic
+\F{(\lam{x} M)\,N \to_\beta M[x \mapsto N]} % beta reduction
+\F{\lam{x} f\,x =_\eta f} % eta equivalence
+\F{\mathsf{Y} \defeq \lam{f} (\lam{x} f\,(x\,x))\,(\lam{x} f\,(x\,x))} % Curry's fixed-point combinator
+\F{\mathsf{Y}\,f =_\beta f\,(\mathsf{Y}\,f)} % Y computes fixed points
+\F{\Omega \defeq (\lam{x} x\,x)\,(\lam{x} x\,x)} % a term without normal form
+\F{\Omega \to_\beta \Omega} % Omega reduces to itself
+\F{\mathsf{K}\,x\,y = x} % combinator K
+\F{\mathsf{S}\,x\,y\,z = x\,z\,(y\,z)} % combinator S
+\F{\mathsf{S}\,\mathsf{K}\,\mathsf{K}\,x = x} % SKK is the identity combinator
+\F{\overline{2} \defeq \lam{f x} f\,(f\,x)} % Church numeral 2
+\F{\mathsf{succ} \defeq \lam{n f x} f\,(n\,f\,x)} % successor of Church numerals
+\F{\mathsf{plus} \defeq \lam{m n f x} m\,f\,(n\,f\,x)} % addition of Church numerals
+\F{\mathsf{times} \defeq \lam{m n f} m\,(n\,f)} % multiplication of Church numerals
+\F{\mathsf{true} \defeq \lam{x y} x} % Church boolean true
+\F{\mathsf{false} \defeq \lam{x y} y} % Church boolean false
+
+% Typed lambda calculus and type theory
+\F{\vdash \lam{x} x : A \to A} % identity function
+\F{\vdash \lam{x y} x : A \to B \to A} % typed K, a proof of Hilbert's axiom K
+\F{\vdash \lam{x y z} x\,z\,(y\,z) : (A \to B \to C) \to (A \to B) \to A \to C} % typed S, a proof of Hilbert's axiom S
+\F{\vdash \lam{f g x} g\,(f\,x) : (A \to B) \to (B \to C) \to A \to C} % composition, transitivity of implication
+\F{\vdash \lam{p} (\pr[2]\,p, \pr[1]\,p) : A \times B \to B \times A} % swap, commutativity of conjunction
+\F{\vdash \lam{x f} f\,x : A \to (A \to \bot) \to \bot} % introduction of double negation
+\F{\vdash \mathsf{callcc} : ((A \to B) \to A) \to A} % call with current continuation, Peirce's law
+\F{\vdash \lam{f} (\lam{x} \pr[1](f\,x), \lam{x} \pr[2](f\,x)) : (\PiType{x : A} \SigmaType{y : B} R(x, y)) \to \SigmaType{g : A \to B} \PiType{x : A} R(x, g\,x)} % type-theoretic axiom of choice
+\F{\vdash \mathsf{refl}_a : a =_A a} % reflexivity of identity types
+\F{\mathsf{J} : \PiType{C : \Pi_{x, y : A} (x = y) \to \mathcal{U}} (\PiType{x : A} C(x, x, \mathsf{refl}_x)) \to \PiType{x, y : A} \PiType{p : x = y} C(x, y, p)} % path induction
+\F{\mathsf{isContr}(\SigmaType{x : A} a = x)} % based path spaces are contractible
+\F{\mathsf{funext} : (\PiType{x : A} f(x) = g(x)) \to f = g} % function extensionality
+\F{(A \simeq B) \simeq (A = B)} % univalence
+\F{\PiType{A, B : \mathcal{U}} \mathsf{isEquiv}(\mathsf{idtoeqv}_{A, B})} % univalence axiom
+\F{\mathsf{ua} : (A \simeq B) \to (A =_{\mathcal{U}} B)} % univalence, from equivalences to identities
+\F{\mathsf{isProp}(A) \defeq \PiType{x, y : A} x = y} % definition of a proposition
+\F{\mathsf{isContr}(A) \defeq \SigmaType{a : A} \PiType{x : A} a = x} % definition of a contractible type
+\F{\Omega(\mathbb{S}^1) \simeq \mathbb{Z}} % the loop space of the circle
+
+% Church encodings in System F
+\F{\vdash \Lambda X \,.\, \lambda x {:} X \,.\, x : \all{X} X \to X} % polymorphic identity
+\F{\mathsf{Bool} \defeq \all{X} X \to X \to X} % booleans
+\F{\mathsf{Nat} \defeq \all{X} (X \to X) \to X \to X} % natural numbers
+\F{\mathsf{List}\,A \defeq \all{X} (A \to X \to X) \to X \to X} % lists
+\F{A \times B \defeq \all{X} (A \to B \to X) \to X} % product
+\F{A + B \defeq \all{X} (A \to X) \to (B \to X) \to X} % sum
+\F{\mathsf{0} \defeq \all{X} X} % empty type
+\F{\mathsf{1} \defeq \all{X} X \to X} % unit type
+\F{(\some{X} A) \defeq \all{Y} (\all{X} A \to Y) \to Y} % existential type
+
+% Connectives in intuitionistic higher-order logic, defined from implication and universal quantification
+\F{\bot \defeq \all{p : \mathsf{Prop}} p} % falsehood
+\F{\top \defeq \all{p : \mathsf{Prop}} p \lthen p} % truth
+\F{\phi \land \psi \defeq \all{p : \mathsf{Prop}} (\phi \lthen (\psi \lthen p)) \lthen p} % conjunction
+\F{\phi \lor \psi \defeq \all{p : \mathsf{Prop}} (\phi \lthen p) \lthen ((\psi \lthen p) \lthen p)} % disjunction
+\F{(\some{x : A} \phi(x)) \defeq \all{p : \mathsf{Prop}} (\all{x : A} \phi(x) \lthen p) \lthen p} % existential quantifier
+\F{x =_A y \defeq \all{P : A \to \mathsf{Prop}} P(x) \lthen P(y)} % Leibniz equality
+
+% Model theory
+\F{\Gamma \models \phi \liff \Gamma \vdash \phi} % Gödel's completeness theorem
+\F{(\all{\Delta \subseteq_{\mathrm{fin}} \Gamma} \some{\mathfrak{M}} \mathfrak{M} \models \Delta) \lthen \some{\mathfrak{M}} \mathfrak{M} \models \Gamma} % compactness theorem
+\F{\mathfrak{M} \models T \lthen \some{\mathfrak{N} \preceq \mathfrak{M}} |\mathfrak{N}| \leq |T| + \aleph_0} % downward Löwenheim-Skolem theorem
+\F{\prod_{i \in I} \mathfrak{M}_i / \mathcal{U} \models \phi([a]) \liff \set{i \in I \mid \mathfrak{M}_i \models \phi(a_i)} \in \mathcal{U}} % Łoś's theorem
+\F{\mathfrak{M} \equiv \mathfrak{N} \liff \some{I \mathcal{U}} \mathfrak{M}^I / \mathcal{U} \cong \mathfrak{N}^I / \mathcal{U}} % Keisler-Shelah theorem
+\F{\some{\mathfrak{M}} \mathfrak{M} \models \mathrm{Th}(\NN) \land \mathfrak{M} \not\cong \NN} % nonstandard models of arithmetic
+
+% Incompleteness
+\F{\all{\phi} \some{\psi} \mathsf{PA} \vdash \psi \liff \phi(\ulcorner \psi \urcorner)} % diagonal lemma
+\F{\mathsf{PA} \vdash G \liff \lnot \mathrm{Prov}(\ulcorner G \urcorner)} % Gödel sentence
+\F{\mathsf{PA} \nvdash G \land \mathsf{PA} \nvdash \lnot G} % Gödel's first incompleteness theorem
+\F{\mathsf{PA} \vdash \mathsf{Con}(\mathsf{PA}) \liff G} % formalized first incompleteness theorem
+\F{\mathsf{PA} \vdash \mathrm{Prov}(\ulcorner \phi \lthen \psi \urcorner) \lthen (\mathrm{Prov}(\ulcorner \phi \urcorner) \lthen \mathrm{Prov}(\ulcorner \psi \urcorner))} % Hilbert-Bernays-Löb derivability condition
+\F{\mathsf{PA} \vdash \mathrm{Prov}(\ulcorner \phi \urcorner) \lthen \mathrm{Prov}(\ulcorner \mathrm{Prov}(\ulcorner \phi \urcorner) \urcorner)} % Hilbert-Bernays-Löb derivability condition
+
+% Proof theory
+\F{\mathsf{LK} \vdash (\Gamma \longrightarrow \Delta) \liff \mathsf{LK}^{-} \vdash (\Gamma \longrightarrow \Delta)} % Gentzen's cut elimination, LK without cut
+\F{\mathsf{PRA} + \mathrm{TI}(\varepsilon_0) \vdash \mathsf{Con}(\mathsf{PA})} % Gentzen's consistency proof
+\F{|\mathsf{PA}| = \varepsilon_0} % proof-theoretic ordinal of Peano arithmetic
+\F{|\mathsf{ATR}_0| = \Gamma_0} % proof-theoretic ordinal of ATR0, the Feferman-Schütte ordinal
+\F{\vdash_{\mathsf{CPC}} \phi \liff {} \vdash_{\mathsf{IPC}} \lnot\lnot\phi} % Glivenko's theorem
+\F{(\phi \lor \psi)^N \defeq \lnot (\lnot \phi^N \land \lnot \psi^N)} % Gödel-Gentzen negative translation of disjunction
+\F{(\some{x} \phi)^N \defeq \lnot \all{x} \lnot \phi^N} % Gödel-Gentzen negative translation of the existential quantifier
+\F{\vdash_{\mathsf{PA}} \phi \liff {} \vdash_{\mathsf{HA}} \phi^N} % Gödel-Gentzen negative translation of PA into HA
+
+% Ordinals and cardinals
+\F{\varepsilon_0 = \omega^{\varepsilon_0}} % epsilon zero is a fixed point of exponentiation
+\F{\varepsilon_0 = \sup \set{\omega, \omega^\omega, \omega^{\omega^\omega}, \ldots}} % epsilon zero as a supremum
+\F{\omega + 1 \neq 1 + \omega = \omega} % ordinal addition is not commutative
+\F{\omega \cdot 2 \neq 2 \cdot \omega = \omega} % ordinal multiplication is not commutative
+\F{\all{\alpha > 0} \some{\beta_1 \geq \cdots \geq \beta_k} \alpha = \omega^{\beta_1} + \cdots + \omega^{\beta_k}} % Cantor normal form
+\F{\lnot \some{x} \all{\alpha \in \mathsf{On}} \alpha \in x} % Burali-Forti paradox
+\F{\aleph(A) \defeq \set{\alpha \in \mathsf{On} \mid \alpha \preceq A}} % Hartogs number
+\F{\all{\kappa \geq \aleph_0} \kappa \cdot \kappa = \kappa} % Hessenberg's theorem
+\F{\all{\kappa \geq \aleph_0} \mathrm{cf}(2^\kappa) > \kappa} % König's theorem
+\F{\some{\kappa} \kappa = \aleph_\kappa} % a fixed point of the aleph function
+
+% Choice principles
+\F{(\all{C \subseteq P} \mathrm{Chain}(C) \lthen \some{u \in P} \all{c \in C} c \leq u) \lthen \some{m \in P} \all{x \in P} m \leq x \lthen m = x} % Zorn's lemma
+\F{\all{A} \some{\alpha \in \mathsf{On}} |A| = |\alpha|} % well-ordering theorem
+\F{(\all{x \in A} \some{y \in A} x \mathrel{R} y) \lthen \all{a \in A} \some{f : \NN \to A} f(0) = a \land \all{n \in \NN} f(n) \mathrel{R} f(n + 1)} % axiom of dependent choice
+\F{\mathsf{AC} \lthen \all{p} p \lor \lnot p} % Diaconescu's theorem, in intuitionistic set theory
+\F{\mathbb{B}^3 \sim \mathbb{B}^3 \sqcup \mathbb{B}^3} % Banach-Tarski paradox
+\F{\some{V \subseteq \RR} V \notin \mathcal{L}} % Vitali's non-measurable set
+
+% Order theory
+\F{\mathrm{lfp}(f) = \bigwedge \set{x \in L \mid f(x) \leq x}} % Knaster-Tarski fixed-point theorem
+\F{\all{x y} x \land (x \lor y) = x} % absorption law
+\F{\all{x y z} x \leq z \lthen x \lor (y \land z) = (x \lor y) \land z} % modular law
+\F{\all{x y z} x \land y \leq z \liff x \leq (y \to z)} % Heyting implication
+\F{\all{x} x \lor \lnot x = 1} % complement in a Boolean algebra
+\F{B \cong \mathrm{Clop}(\mathrm{Spec}(B))} % Stone's representation theorem
+\F{L \cong \mathcal{O}(\mathrm{J}(L))} % Birkhoff's representation theorem for finite distributive lattices
+\F{f(x) \leq y \liff x \leq g(y)} % Galois connection
+
+% Forcing and Kripke semantics
+\F{p \Vdash \phi \land \psi \liff (p \Vdash \phi) \land (p \Vdash \psi)} % forcing a conjunction
+\F{p \Vdash \lnot \phi \liff \all{q \leq p} q \nVdash \phi} % forcing a negation
+\F{p \Vdash \phi \lor \psi \liff \all{q \leq p} \some{r \leq q} (r \Vdash \phi) \lor (r \Vdash \psi)} % forcing a disjunction
+\F{M[G] \models \phi \liff \some{p \in G} p \Vdash \phi} % truth lemma
+\F{\all{D \in M} \mathrm{Dense}(D) \lthen D \cap G \neq \emptyset} % generic filter
+\F{M[G] \models 2^{\aleph_0} = \aleph_2} % Cohen's model of the negation of the continuum hypothesis
+\F{\mathsf{ZFC} \nvdash \mathsf{CH} \land \mathsf{ZFC} \nvdash \lnot \mathsf{CH}} % independence of the continuum hypothesis, Gödel and Cohen
+\F{w \Vdash \phi \lthen \psi \liff \all{v \geq w} (v \Vdash \phi) \lthen (v \Vdash \psi)} % Kripke semantics of implication
+\F{w \Vdash \phi \lor \psi \liff \all{\alpha \ni w} \some{v \in \alpha} (v \Vdash \phi) \lor (v \Vdash \psi)} % Beth semantics of disjunction
+
+% Realizability
+\F{e \Vdash n = m \liff n = m} % realizability of equations
+\F{e \Vdash \phi \land \psi \liff (\pr[1]\,e \Vdash \phi) \land (\pr[2]\,e \Vdash \psi)} % realizability of conjunction
+\F{e \Vdash \phi \lor \psi \liff (\pr[1]\,e = 0 \land \pr[2]\,e \Vdash \phi) \lor (\pr[1]\,e = 1 \land \pr[2]\,e \Vdash \psi)} % realizability of disjunction
+\F{e \Vdash \phi \lthen \psi \liff \all{a} (a \Vdash \phi) \lthen \varphi_e(a)\downarrow \land \varphi_e(a) \Vdash \psi} % realizability of implication
+\F{e \Vdash \all{x} \phi(x) \liff \all{n} \varphi_e(n)\downarrow \land \varphi_e(n) \Vdash \phi(n)} % realizability of the universal quantifier
+\F{e \Vdash \some{x} \phi(x) \liff \pr[2]\,e \Vdash \phi(\pr[1]\,e)} % realizability of the existential quantifier
+\F{\mathsf{HA} + \mathsf{ECT}_0 \vdash \phi \liff \mathsf{HA} \vdash \some{e} e \Vdash \phi} % Troelstra's characterization of realizability
+
+% Reverse mathematics
+\F{\mathsf{RCA}_0 \subsetneq \mathsf{WKL}_0 \subsetneq \mathsf{ACA}_0 \subsetneq \mathsf{ATR}_0 \subsetneq \Pi^1_1\text{-}\mathsf{CA}_0} % the big five
+\F{\all{T \subseteq 2^{<\NN}} |T| = \aleph_0 \lthen \some{\alpha \in 2^{\NN}} \all{n \in \NN} \overline{\alpha}n \in T} % weak König's lemma, for trees T
+\F{\some{X \subseteq \NN} \all{n \in \NN} n \in X \liff \phi(n)} % arithmetical comprehension, for arithmetical formulas
+\F{\mathsf{WKL}_0 \equiv_{\Pi^0_2} \mathsf{PRA}} % WKL0 is conservative over PRA for Pi-0-2 sentences
+
+% Linear logic
+\F{(A \otimes B)^\perp = A^\perp \upand B^\perp} % De Morgan duality of tensor and par
+\F{(\oc A)^\perp = \wn (A^\perp)} % De Morgan duality of the exponentials
+\F{A \multimap B \defeq A^\perp \upand B} % linear implication
+\F{\oc (A \mathbin{\&} B) \equiv \oc A \otimes \oc B} % exponential isomorphism
+\F{\vdash \oc A \multimap A} % dereliction
+\F{\vdash \oc A \multimap \oc A \otimes \oc A} % contraction
+\F{A \Rightarrow B \defeq \oc A \multimap B} % Girard's translation of intuitionistic implication
+
+% Domain theory
+\F{D_\infty \cong [D_\infty \to D_\infty]} % Scott's model of the untyped lambda calculus
+\F{\mathrm{fix}(f) = \bigsqcup_{n \in \NN} f^n(\bot)} % Kleene's fixed-point theorem
+\F{\mathrm{fix}(f) = f(\mathrm{fix}(f))} % fixed-point equation
+\F{f(\bigsqcup D) = \bigsqcup f_*(D)} % Scott continuity, for directed D
+\F{[\mathcal{P}\omega \to \mathcal{P}\omega] \vartriangleleft \mathcal{P}\omega} % Scott's graph model
+
+% Category and topos theory
+\F{\mathrm{Nat}(\mathbf{y}A, F) \cong F(A)} % Yoneda lemma
+\F{\mathcal{E}(X \times Y, Z) \cong \mathcal{E}(X, Z^Y)} % cartesian closure
+\F{\mathrm{Sub}(X) \cong \mathcal{E}(X, \Omega)} % subobject classifier
+\F{(\some{e : A \to B^A} \all{f \in B^A} \some{a \in A} e(a) = f) \lthen \all{g : B \to B} \some{b \in B} g(b) = b} % Lawvere's fixed-point theorem
+\F{j \circ \mathsf{true} = \mathsf{true}} % Lawvere-Tierney topology preserves truth
+\F{j \circ j = j} % Lawvere-Tierney topology is idempotent
+\F{j \circ \mathord{\land} = \mathord{\land} \circ (j \times j)} % Lawvere-Tierney topology preserves conjunction
+\F{\Gamma(\RR_{\mathbf{Sh}(X)}) \cong \mathcal{C}(X, \RR)} % Dedekind reals in sheaves on X are continuous functions
+\F{\mathsf{Eff} \models \all{f : \NN \to \NN} \some{e \in \NN} f = \varphi_e} % Church's thesis in the effective topos
+
+% Infinite combinatorics
+\F{\omega \to (\omega)^2_2} % Ramsey's theorem
+\F{\all{n k \in \NN} \omega \to (\omega)^n_k} % infinite Ramsey theorem
+\F{(2^\kappa)^+ \to (\kappa^+)^2_\kappa} % Erdős-Rado theorem
+\F{2^{\aleph_0} \nrightarrow (\aleph_1)^2_2} % Sierpiński's theorem
+\F{\kappa \to (\kappa)^2_2} % weakly compact cardinal
+\F{R(3, 3) = 6} % Ramsey number
+\F{\mathsf{PA} \nvdash \mathsf{PH}} % Paris-Harrington theorem

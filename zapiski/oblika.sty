@@ -65,8 +65,9 @@
 \setsansfont{Libertinus Sans}[Ligatures = TeX]
 \setmonofont{Libertinus Mono}[Scale = MatchLowercase]
 \setmathfont{Libertinus Math}
-% Libertinus Math nima znaka U+22BB (ekskluzivna disjunkcija).
-\setmathfont{STIX Two Math}[range={"22BB}]
+% Libertinus Math nima znakov U+22BB (ekskluzivna disjunkcija), U+214B (par)
+% in U+22B8 (linearna implikacija).
+\setmathfont{STIX Two Math}[range={"22BB, "214B, "22B8}]
 
 % Naslovna razlicica za velike stopnje
 \newfontfamily\lmnNaslovnaPisava{Libertinus Serif Display}[
@@ -170,8 +171,8 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %% Naslovna stran
 %%
-%% Edina stran v knjigi, ki jo ureja CGP UL: pisava Univerza Sans in
-%% rdeca v polni jakosti.
+%% Zid premesanih formul iz \lmnFormuleZidu cez celo stran, cez njega bel
+%% pas z naslovom in avtorji.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 % Naslov na naslovnici je lahko drugacen od naslova knjige (kazalo,
@@ -183,27 +184,119 @@
 \newcommand{\lmnUstanova}{Univerza v Ljubljani}
 \newcommand{\lmnClanica}{Fakulteta za matematiko in fiziko}
 
+% Zid formul
+\newcommand{\lmnFormuleZidu}{cover-formulas}
+\newcommand{\lmnStopnjaZidu}{8.5}
+\newcommand{\lmnRazmikZidu}{11.3}
+\newcommand{\lmnPresledekZidu}{0.5em plus 0.5em minus 0.1em}
+\newcommand{\lmnPorezZidu}{3mm}
+\newcommand{\lmnSemeZidu}{1}
+\definecolor{lmnSivaZidu}{gray}{0.55}
+
+\ExplSyntaxOn
+\seq_new:N \l__lmn_zid_seq
+\seq_new:N \l__lmn_zid_izpostavljene_seq
+\int_new:N \l__lmn_zid_izpostavljena_int
+
+% \F{...} doda formulo zidu, \F*{...} pa izpostavljeno formulo.
+\cs_new_protected:Npn \__lmn_zid_dodaj:
+  {
+    \peek_charcode_remove:NTF *
+      { \seq_put_right:Nn \l__lmn_zid_izpostavljene_seq }
+      { \seq_put_right:Nn \l__lmn_zid_seq }
+  }
+
+% Polozaj #1-te izpostavljene formule: enakomerno med 55 in 80 odstotki
+% premesanega zaporedja, kar je vidni del zidu pod naslovom.
+\cs_new:Npn \__lmn_zid_polozaj:n #1
+  {
+    \int_eval:n
+      {
+        \seq_count:N \l__lmn_zid_seq
+        * ( 55 + 25 * ( #1 - 1 )
+              / \int_max:nn { 1 } { \seq_count:N \l__lmn_zid_izpostavljene_seq - 1 } )
+        / 100
+      }
+  }
+
+\cs_new_protected:Npn \__lmn_zid:
+  {
+    \sys_gset_rand_seed:n { \lmnSemeZidu }
+    \seq_shuffle:N \l__lmn_zid_seq
+    \int_zero:N \l__lmn_zid_izpostavljena_int
+    % Izpostavljena formula je nedeljiva in z obeh strani vezana na sosedi,
+    % zato ne zacne ne konca vrstice in je porez ne odreze.
+    \seq_map_indexed_inline:Nn \l__lmn_zid_seq
+      {
+        $##2$
+        \bool_lazy_and:nnTF
+          {
+            \int_compare_p:nNn
+              { \l__lmn_zid_izpostavljena_int } < { \seq_count:N \l__lmn_zid_izpostavljene_seq }
+          }
+          {
+            \int_compare_p:nNn
+              { ##1 } = { \__lmn_zid_polozaj:n { \l__lmn_zid_izpostavljena_int + 1 } }
+          }
+          {
+            \int_incr:N \l__lmn_zid_izpostavljena_int
+            \nobreak \hskip \lmnPresledekZidu \scan_stop:
+            \mbox
+              {
+                $ \seq_item:Nn \l__lmn_zid_izpostavljene_seq
+                    { \l__lmn_zid_izpostavljena_int } $
+              }
+            \nobreak \hskip \lmnPresledekZidu \scan_stop:
+          }
+          { \hskip \lmnPresledekZidu \scan_stop: }
+      }
+  }
+
+\NewDocumentCommand{\lmnZbirajFormule}{}{ \cs_set_eq:NN \F \__lmn_zid_dodaj: }
+\NewDocumentCommand{\lmnZid}{}{ \__lmn_zid: }
+\ExplSyntaxOff
+
 \newcommand{\lmnNaslovnaStran}{%
   \begin{titlepage}%
   \thispagestyle{lmnNaslovnica}%
-  \raggedright\color{white}\setlength{\parindent}{0pt}%
-  % Polna rdeca podlaga cez celo stran.  CGP: na temnih podlagah je vse
-  % enobarvno in nikoli rdece, zato je tipografija tukaj bela.
+  \lmnZbirajFormule
+  \input{\lmnFormuleZidu}%
   \noindent\begin{tikzpicture}[remember picture, overlay]
-    \fill[ULrdeca] (current page.south west) rectangle (current page.north east);
-  \end{tikzpicture}\par
-  % Naslov stoji na zgornjem robu stavka, ustanova na spodnjem; razmerje
-  % dolocajo robovi strani, ne izbrana stevilka.
-  \vspace*{0pt}%
-  {\lmnUniverzaSans\bfseries
-   \fontsize{\lmnStopnjaNaslovnice}{\lmnRazmikNaslovnice}\selectfont
-   \hyphenpenalty=10000 \exhyphenpenalty=10000
-   \lmnNaslovNaPlatnici\par}%
-  \vspace{\lmnDvojnaEnota}%
-  {\lmnUniverzaSans\fontsize{13}{\lmnEnota}\selectfont
-   \renewcommand{\and}{\quad\textbar\quad}%
-   \@author\par}%
-  \vfill
+    \node[
+      anchor = north west,
+      inner sep = 0pt,
+      text width = \paperwidth + 2 * \lmnPorezZidu,
+      align = justify,
+      text = lmnSivaZidu,
+      font = \fontsize{\lmnStopnjaZidu}{\lmnRazmikZidu}\selectfont,
+    ] at ([xshift = -\lmnPorezZidu, yshift = \lmnPorezZidu] current page.north west) {%
+      \parindent = 0pt
+      \lineskiplimit = -\maxdimen
+      \relpenalty = 0
+      \binoppenalty = 0
+      \lmnZid};
+    % Naslov in avtorji na zgornjem robu stavka, na belem pasu cez vso sirino.
+    \node[
+      anchor = north west,
+      inner xsep = 0pt,
+      inner ysep = \lmnDvojnaEnota,
+      fill = white,
+    ] at ([yshift = -(1in + \voffset + \topmargin + \headheight + \headsep) + \lmnDvojnaEnota]
+          current page.north west) {%
+      \makebox[\paperwidth][l]{%
+        \hspace*{\dimexpr 1in + \hoffset + \oddsidemargin \relax}%
+        \begin{minipage}[t]{\textwidth}
+          \raggedright
+          {\lmnUniverzaSans\bfseries
+           \fontsize{\lmnStopnjaNaslovnice}{\lmnRazmikNaslovnice}\selectfont
+           \hyphenpenalty=10000 \exhyphenpenalty=10000
+           \lmnNaslovNaPlatnici\par}
+          \vspace{\lmnDvojnaEnota}
+          {\lmnUniverzaSans\fontsize{13}{\lmnEnota}\selectfont
+           \renewcommand{\and}{\quad\textbar\quad}%
+           \@author\par}
+        \end{minipage}}};
+  \end{tikzpicture}%
   \end{titlepage}%
   \lmnHrbtnaStran
 }
@@ -290,12 +383,11 @@
   \iflmnOsnutek\fancyfoot[C]{\lmnKapitelke\scriptsize[osnutek \today]}\fi
 }
 
-% Naslovnica: na rdeci podlagi je vznozje belo.
+% Naslovnica: brez glave in vznozja.
 \fancypagestyle{lmnNaslovnica}{%
   \fancyhf{}%
   \renewcommand{\headrulewidth}{0pt}%
   \renewcommand{\footrulewidth}{0pt}%
-  \iflmnOsnutek\fancyfoot[C]{\color{white}\lmnKapitelke\scriptsize[osnutek \today]}\fi
 }
 
 % Prazne strani, ki nastanejo pri \cleardoublepage, naj bodo res prazne.
