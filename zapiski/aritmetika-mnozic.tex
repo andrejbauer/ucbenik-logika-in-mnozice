@@ -2,7 +2,7 @@
 \label{cha:artimetika-mnozic}
 
 Množice lahko \df{tvorimo} ali \df{konstruiramo} iz drugih množic na različne načine. V
-tem razdelku bomo spoznali tri: zmnožek, vsoto in eksponent.
+tem poglavju bomo spoznali tri: zmnožek, vsoto in eksponent.
 %
 Ostale konstrukcije pridejo na vrsto kasneje, ko bomo že nekaj vedeli o logiki.
 
@@ -30,114 +30,87 @@ Tudi v nadaljevanju bomo sledili temu receptu in nove konstrukcije množic opisa
 \label{sec:zmnozek}
 
 V srednji šoli ste že spoznali kartezični produkt ali zmnožek, katerega elementi so urejeni pari.
-Tu podajmo vse sestavine te konstrukcije, previdno in podrobno.
 
-\begin{pravilo}[Tvorba zmnožka]
+\begin{pravilo}[Zmnožek množic]
   \label{pravilo:zmnozek-tvorba}
   Za vsaki množici $A$ in $B$ je $A \times B$ množica, ki se imenuje \df{zmnožek} ali
   \df{kartezični produkt} $A$ in $B$.
-\end{pravilo}
-
-\noindent
-%
-Pravilo tvorbe pove, da lahko tvorimo novo množico $A \times B$, ne pove pa, kakšne
-elemente ima. To je vsebina naslednjih dveh pravil, ki povesta, kako sestavimo in
-razstavimo elemente zmnožka.
-
-\begin{pravilo}[Vpeljava urejenih parov]
-  \label{pravilo:zmnozek-vpeljava}
   %
-  Za vse $a \in A$ in $b \in B$ je $(a, b) \in A \times B$. Element $(a, b)$ imenujemo
-  \df{urejeni par}.
+  Elementi zmnožka $A \times B$ so natanko vsi urejeni pari $(x, y)$, pri čemer je $x \in A$ in $y \in B$.
 \end{pravilo}
 
-\begin{pravilo}[Uporaba urejenih parov]
-  \label{pravilo:zmnozek-uporaba}
-    %
-  Za vsak $p \in A \times B$ je $\fst(p) \in A$ \df{prva projekcija} in $\snd(p) \in B$
-  \df{druga projekcija} elementa~$p$.
+Pravilo ne pove nič o urejenih parih, razen da jih tvorimo tako, da elementa $x \in A$ in $y \in B$ združimo v $(x, y)$. Ker smo urejenih parov že navajeni iz srednje šole, ne pomislimo, da bi kaj manjkalo.
+
+\begin{pravilo}[Enakost urejenih parov]
+  \label{pravilo:enakost-parov}
+  %
+  Za vse $x, u \in A$ in $y, v \in B$ velja: če sta urejena para $(x, y)$ in $(u, v)$ enaka, potem $x = u$ in $y = v$.
 \end{pravilo}
 
-\noindent
-Potrebujemo še enačbe, ki povedo, kako računamo z urejenimi pari in kako jih primerjamo.
+Pravilo potrebujemo, da lahko definiramo \df{projekciji}
+%
+\begin{equation*}
+  \fst : A \times B \to A
+  \qquad\text{in}\qquad
+  \snd : A \times B \to B,
+\end{equation*}
+%
+ki iz urejenega para izluščita njegovi komponenti, se pravi, za vse $x \in A$ in $y \in B$ mora veljati
+%
+\begin{equation*}
+  \fst(x, y) = x
+  \qquad\text{in}\qquad
+  \snd(x, y) = y.
+\end{equation*}
+%
+Preveriti moramo, da ti dve enačbi podajata enolični in celoviti prirejanji.
+%
+Ker je vsak element $A \times B$ urejeni par, je celovitost zagotovljena,
+enoličnost pa sledi iz pravila~\ref{pravilo:enakost-parov}:
+če je neki element $A \times B$ hkrati enak $(x, y)$ in $(u, v)$, tedaj
+je $x = u$ in $y = v$, zato sta projekciji elementa enolično določeni.
 
-\begin{pravilo}[Računsko pravilo za urejene pare]
-  \label{pravilo:zmnozek-racunanje}
-  Za vse $a \in A$, $b \in B$ velja $\fst(a, b) = a$ in $\snd(a, b) = b$.
-\end{pravilo}
+\begin{zgled}
+  Zakaj tako kompliciramo s tako malenkostjo?
+  %
+  Malo zato, ker smo matematiki, predvsem pa zato, ker se učimo, kaj pomeni matematična natančnost.
+  %
+  Predstavljajte si, da bi definirali preslikavi $p_1 : \NN \to \NN$
+  in $p_2 : \NN \to \NN$ s predpisoma
+  %
+  \begin{equation*}
+    p_1(m + n) = m
+    \qquad\text{in}\qquad
+    p_2(m + n) = n.
+  \end{equation*}
+  %
+  Definicija je podobna definiciji projekcij, le da smo urejeni par nadomestili z vsoto.
+  Preslikavi $p_1$ in $p_2$ \emph{nista} dobro definirani, ker lahko nekatera naravna
+  števila zapišemo kot vsoto na več različnih načinov, kar pokvari enoličnost:
+  % 
+  \begin{equation*}
+    p_1(5) = p_1(3 + 2) = 3
+    \qquad\text{in}\qquad
+    p_1(5) = p_1(4 + 1) = 4.
+  \end{equation*}
+  %
+  Pravilo~\ref{pravilo:enakost-parov} pove, da se to z urejenimi pari ne more zgoditi.
+\end{zgled}
 
-\begin{pravilo}[Ekstenzionalnost urejenih parov]
-  \label{pravilo:zmnozek-ekstenzionalnost}
-  Za vse $p, q \in A \times B$ velja: če $\fst(p) = \fst(q)$ in $\snd(p) = \snd(q)$,
-  potem $p = q$.
-\end{pravilo}
-
-Kadar imamo opravka z več zmnožki, na primer $A \times B$ in $C \times D$, bi lahko
-prišlo do zmede glede projekcij. Takrat jih opremimo še z dodatnimi oznakami množic, da
+Kadar imamo opravka z več zmnožki, na primer $A \times B$ in $C \times D$, bi lahko prišlo do zmede glede projekcij, saj ne bi vedeli, ali $\fst$ označuje prvo projekcijo $A \times B \to A$ ali $C \times D \to C$.
+%
+Takrat simbole opremimo še z dodatnimi oznakami množic, da
 razločimo projekciji $\fst[A][B] : A \times B \to A$ in $\fst[C][D] : C \times D \to C$,
 in podobno za~$\snd$.
 
-Malo bolj naivna konstrukcija zmnožka bi se glasila takole: kartezični produkt
-$A \times B$ je množica vseh urejenih parov $(a, b)$, kjer je $a \in A$ in $b \in B$. A
-taka konstrukcija ni popolna, saj ne pove, kaj lahko z urejenim parom počnemo. Kako naj
-vemo, da iz $(a, b)$ lahko izluščimo $a$ in $b$, in kako preverimo, ali sta dva urejena
-para enaka? Če takih zadev ne določimo, bi lahko kdo mislil, da je urejeni par kaka druga
-operacija, denimo seštevanje, unija, ali kdovekaj.
-
-Dejstvo, da je vsak element zmnožka množic urejen par, in to celo na en sam način, lahko
-dokažemo.
-
-\begin{trditev}
-  Naj bosta $A$ in $B$ množici. Za vsak element $p \in A \times B$ obstaja natanko en
-  $a \in A$ in natanko en $b \in B$, da velja $p = (a, b)$.
-\end{trditev}
-
-\begin{proof}
-  Naj bosta $A$ in $B$ množici in $p \in A \times B$. Najprej pokažimo, da $p$ res je enak
-  nekemu urejenemu paru, namreč
-  %
-  \begin{equation*}
-    p = (\fst(p), \snd(p)).
-  \end{equation*}
-  %
-  Uporabimo pravilo ekstenzionalnosti za pare, ki nam zagotavlja to enačbo, če dokažemo
-  %
-  \begin{equation*}
-    \fst(p) = \fst(\fst(p), \snd(p))
-    \qquad\text{in}\qquad
-    \snd(p) = \snd(\fst(p), \snd(p)).
-  \end{equation*}
-  %
-  Ti dve enačbi pa veljata, ker sta primerka računskih pravil za pare.
-
-  Preveriti moramo še, da je $(\fst(p), \snd(p))$ edini urejeni par, ki je enak~$p$.
-  Povedano z drugimi besedami, dokazati moramo: če je $p = (a, b)$ za neki $a \in A$ in
-  $b \in B$, potem velja $a = \fst(p)$ in $b = \snd(p)$. Pa denimo, da bi za neki
-  $a \in A$ in $b \in B$ veljalo $p = (a,b)$. Tedaj bi lahko uporabili računska pravila za
-  pare in dobili
-  %
-  \begin{equation*}
-    \fst(p) = \fst(a, b) = a
-    \qquad\text{in}\qquad
-    \snd(p) = \snd(a, b) = b,
-  \end{equation*}
-  %
-  kar smo želeli dokazati.
-\end{proof}
-
-Trditev je prikladna, ko želimo podati funkcijsko pravilo za preslikavo, katere domena je
-zmnožek množic. Primer take preslikave je
+Pravili~\ref{pravilo:zmnozek-tvorba} in~\ref{pravilo:enakost-parov} omogočata prikladen način za podajanje preslikave, katere domena je zmnožek. Povedali smo, da mora v funkcijskem predpisu na levi stati en sam simbol, na primer:
 %
 \begin{gather*}
   \RR \times \RR \to \RR \\
   p \mapsto \fst(p) + \snd(p)^2 \cdot \fst(p).
 \end{gather*}
 %
-Ta zapis je precej nepregleden, a sledili smo navodilu, da mora stati na levi strani
-funkcijskega predpisa simbol. Prejšnja trditev nam zagotavlja, da lahko vsak element
-$\RR \times \RR$ na en sam način izrazimo kot urejeni par $(x, y)$, in zato ne bo nič
-narobe, če zapišemo ta isti funkcijski predpis bolj pregledno tako, da upoštevamo, da
-je $p$ enak $(x, y)$ za enolično določena $x$ in $y$:
+Ta zapis je precej nepregleden. Ker urejeni par natanko določa svoji komponenti, lahko zapišemo bolj pregledno:
 %
 \begin{gather*}
   \RR \times \RR \to \RR \\
@@ -152,7 +125,7 @@ je $p$ enak $(x, y)$ za enolično določena $x$ in $y$:
 \end{gather*}
 %
 Za tako preslikavo pravimo, da je `funkcija dveh spremenljivk', ker si mislimo, da smo
-podali argumenta $x$ in $y$ ločeno drug od drugega. A lahko rekli tudi, da je to funkcija
+podali argumenta $x$ in $y$ ločeno drug od drugega. A lahko bi rekli tudi, da je to funkcija
 ene spremenljivke, ki jo uporabimo na urejenem paru:
 %
 \begin{gather*}
@@ -161,11 +134,9 @@ ene spremenljivke, ki jo uporabimo na urejenem paru:
 \end{gather*}
 
 
-Poleg zmnožka dveh množic bi lahko tvorili tudi zmnožek treh ali več množic. Pravila bodo
-podobna kot za zmnožek dveh množic, le da bi namesto urejenih parov tvorili \df{urejene
-  večterice} in da bi imeli več projekcij. Za vsako projekcijo bi zapisali eno računsko
-pravilo, princip ekstenzionalnosti pa bi bil tudi podoben tistemu za urejene pare.
-Podrobnosti prepustimo za vajo.
+Poleg zmnožka dveh množic bi lahko tvorili tudi zmnožek treh ali več množic. Pravila bi bila podobna kot za zmnožek dveh
+množic, le da bi namesto urejenih parov tvorili \df{urejene večterice}. Na primer, elementi zmnožka
+$A \times B \times C$ treh množic so urejene trojice $(x, y, z)$, pri čemer je $x \in A$, $y \in B$ in $z \in C$.
 
 
 \section{Vsota}
@@ -178,27 +149,25 @@ da ne pride do prekrivanja. Taka konstrukcija je \df{vsota} $A + B$ množic $A$ 
 Prekrivanje preprečimo tako, da elemente, ki jih je prispevala~$A$, označimo z eno oznako,
 tiste, ki jih je prispevala~$B$, pa z drugo.
 
-\begin{pravilo}[Vsota]
+\begin{pravilo}[Vsota množic]
   \label{vsota:tvorba}
   Za vsaki množici $A$ in $B$ je $A + B$ množica, ki se imenuje \df{vsota} ali
   \df{koprodukt} množic $A$ in $B$.
-\end{pravilo}
-
-\begin{pravilo}[Vpeljava elementov vsote]
-  \label{vsota:vpeljava}
-  Za vsaki množici $A$ in $B$ velja:
+  %
+  Njeni elementi so natanko:
   %
   \begin{enumerate}
-  \item za vsak $a \in A$ je $\inl(a) \in A + B$,
-  \item za vsak $b \in B$ je $\inr(b) \in A + B$.
+  \item $\inl(a)$ za vsak $a \in A$,
+  \item $\inr(b)$ za vsak $b \in B$.
   \end{enumerate}
+  %
+  Za vse $a, a' \in A$ in $b, b' \in B$ velja:
+  če $\inl(a) = \inl(a')$, potem $a = a'$; če $\inr(b) = \inr(b')$, potem $b = b'$; ter $\inl(a) \neq \inr(b)$.
 \end{pravilo}
 
-S pravilom vpeljave smo pojasnili, da uporabljamo oznaki $\inl$ in $\inr$, prvo za
-elemente iz~$A$ in drugo za elemente iz~$B$. Oznakama pravimo tudi
-\df{injekciji}\footnote{Ni pomembno, kako poimenujemo oznaki, da sta le
-  različni. V funkcijskem programiranju, kjer poznamo vsote podatkovnih tipov, programer
-  sam določi, kakšne oznake bo uporabljal za injekcije.} in sta preslikavi
+Tokrat smo z enim pravilom pojasnili, kaj so elementi vsote in tudi kdaj so med seboj enaki.
+%
+Simboloma $\inl$ in $\inr$ pravimo \df{injekciji}. Nanju lahko gledamo tudi kot na preslikavi
 %
 \begin{equation*}
   \inl : A \to A + B
@@ -210,57 +179,30 @@ Kadar imamo opravka z več vsotami, na primer $A + B$ in $C + D$, bi lahko priš
 zmede glede oznak. Takrat injekcije opremimo še z dodatnimi oznakami množic, da razločimo
 injekciji $\inl[A][B] : A \to A + B$ in $\inl[C][D] : C \to C + D$, in podobno za~$\inr$.
 
-S pravilom~\ref{vsota:vpeljava} elementi $A + B$ še niso povsem opredeljeni. Kako vemo, da poleg elementov, ki jih predpisuje pravilo, $A + B$ ne vsebuje nobenih drugih? In kako primerjamo elemente~$A + B$? Potrebujemo še eno pravilo.
-
-\begin{pravilo}
-  \label{vsota:uporaba}
-  Za vsaki množici $A$ in $B$ in za vsak $u \in A + B$, bodisi obstaja natanko en
-  $a \in A$, da je $u = \inl(a)$, bodisi obstaja natanko en $b \in B$, da je
-  $u = \inr(b)$.
-\end{pravilo}
-
-V zgornjem pravilu fraza \nls{bodisi \dots{} bodisi \dots} pomeni, da velja prva ali druga možnost, a ne obe hkrati.
+\begin{zgled}
 %
-S tem smo v $A + B$ res ločili elemente $A$ od elementov $B$, saj velja $\inl(a) \neq \inr(b)$, tudi ko je $A = B$ in $a = b$. 
-%
-Fraza \nls{natanko en $a \in A$} pove, da iz $u = \inl(a_1)$ in $u = \inl(a_2)$ sledi $a_1 = a_2$.
-Povedano drugače, če velja $\inl(a_1) = \inl(a_2)$, potem je $a_1 = a_2$. Podobno iz
-$\inr(b_1) = \inr(b_2)$ sledi $b_1 = b_2$.
-%
-Podajmo preprost primer, ki verjetno marsikaj pojasni:
-%
-\begin{equation*}
-  \set{a, b, c} + \set{a, d, e} =
-  \set{\inl(a), \inl(b), \inl(c), \inr(a), \inr(d), \inr(e)}.
-\end{equation*}
+$
+\set{a, b, c} + \set{a, d, e} =
+\set{\inl(a), \inl(b), \inl(c), \inr(a), \inr(d), \inr(e)}
+$.
+\end{zgled}
 
 Kako definiramo preslikavo $A + B \to C$? Ker je vsak element domene $A + B$ bodisi
-$\inl(a)$ za neki $a \in A$ bodisi $\inr(b)$ za neki $b \in B$, \emph{obravnavamo oba
-  primera}. Tako funkcijski zapis za preslikavo $A + B \to C$ zapišemo kot
-%
-\begin{equation*}
-  u \mapsto
-  \begin{cases}
-    \cdots a \cdots & \text{če $u = \inl(a)$,}\\
-    \cdots b \cdots & \text{če $u = \inr(b)$,}
-  \end{cases}
-\end{equation*}
-%
-kjer smemo v $\cdots a \cdots$ zapisati izraz, ki vsebuje simbol~$a$, in v
-$\cdots b \cdots$ izraz, ki vsebuje simbol~$b$. Ker je tak zapis nekoliko neroden, se
-dogovorimo, da ga lahko zapišemo tudi z \emph{večdelnim} funkcijskim predpisom:
+$\inl(x)$ za neki $x \in A$ bodisi $\inr(y)$ za neki $y \in B$, \emph{obravnavamo oba
+  primera} tako, da zapišemo \emph{večdelni} funkcijski predpis:
 %
 \begin{align*}
-  \inl(a) &\mapsto \cdots a \cdots, \\
-  \inr(b) &\mapsto \cdots b \cdots.
+  \inl(x) &\mapsto \cdots, \\
+  \inr(y) &\mapsto \cdots.
 \end{align*}
 %
+Na desni strani prvega pravila smemo uporabiti~$x$, na desni strani drugega pa~$y$.
 Če želimo preslikavo poimenovati, zapišemo
 %
 \begin{align*}
   f : A + B &\to C, \\
-  f(\inl(a)) &\dfeq \cdots a \cdots \\
-  f(\inr(b)) &\dfeq \cdots b \cdots.
+  f(\inl(x)) &\dfeq \cdots\\
+  f(\inr(y)) &\dfeq \cdots.
 \end{align*}
 
 \begin{zgled}
@@ -272,7 +214,7 @@ dogovorimo, da ga lahko zapišemo tudi z \emph{večdelnim} funkcijskim predpisom
     f(\inr(y)) &\dfeq 6 / y
   \end{align*}
   %
-  bi lahko predstavili s tabelo
+  enakovredno predstavimo s tabelo
   %
   \begin{center}
     \begin{tabular}{cc}
@@ -286,8 +228,8 @@ dogovorimo, da ga lahko zapišemo tudi z \emph{večdelnim} funkcijskim predpisom
   \end{center}
 \end{zgled}
 
-Vsi ti zapisi res določajo celovito in enolično prirejanje, saj nam pravila za vsoto
-zagotavljajo, da vedno obvelja natanko en primer. Na sploh lahko podamo funkcijski zapis z
+Vsi ti zapisi res določajo celovito in enolično prirejanje, saj nam pravilo za vsoto
+zagotavlja, da vedno obvelja natanko en primer. Na sploh lahko podamo funkcijski zapis z
 več primeri, če le pazimo, da obravnavamo vse možnosti, in da se le-te ne prekrivajo.
 Na primer, predpis
 %
@@ -401,28 +343,37 @@ podobna, le da bi imeli več injekcij in več primerov.
 \section{Eksponent}
 \label{sec:eksponent}
 
-Pravila, ki smo jih podali do sedaj, ne zagotavljajo obstoja množice vseh preslikav z dano domeno in kodomeno. Potrebujemo novo pravilo.
+Tretja osnovna konstrukcija je eksponentna množica.
 
-\begin{pravilo}[Eksponent]
+\begin{pravilo}[Eksponentna množica]
   \label{pravilo:eksponent}%
-  Za vsaki množici $A$ in $B$ je \df{eksponent} ali \df{eksponentna množica $B^A$},
-  katere elementi so natanko vse preslikave iz~$A$ v~$B$.
+  Za vsaki množici $A$ in $B$ je $B^A$ množica, ki se imenuje \df{eksponent} ali
+  \df{eksponentna množica}.
+  %
+  Elementi eksponenta $B^A$ so natanko vse preslikave iz~$A$ v~$B$.
 \end{pravilo}
 
 Potemtakem je zapis $f : A \to B$ enakovreden zapisu $f \in B^A$.
-
-Zmnožek množic smo podali s pravili tvorbe, vpeljave in uporabe ter računskima praviloma in pravilom ekstenzionalnosti.
 %
-Tudi eksponent množic smo podali po istem vzorcu v razdelku~\ref{sec:preslikave}:
-%
-\begin{itemize}
-\item \emph{pravilo tvorbe} je prvi del pravila~\ref{pravilo:eksponent},
-\item \emph{vpeljava:} preslikava je podana z domeno, kodomeno in prirejanjem,
-\item \emph{uporaba:} preslikavo lahko uporabimo na argumentu,
-\item \emph{računsko pravilo} je pravilo zamenjave vezane spremenljivke z argumentom,
-\item \emph{ekstenzionalnost} zagotavlja enakost preslikav z enakimi vrednostmi.
-\end{itemize}
+V razdelku~\ref{sec:preslikave} smo preslikave že podrobno obravnavali, zato nam ni treba pojasnjevati, kdaj sta preslikavi enaki in kaj vse lahko počnemo z elementi eksponenta~$B^A$.
 
+\begin{zgled}
+  %
+  \begin{align*}
+    \set{a, b, c}^{\set{1, 2}} \defeq \{
+      &(1 \mapsto a, 2 \mapsto a),
+      (1 \mapsto a, 2 \mapsto b),
+      (1 \mapsto a, 2 \mapsto c), \\
+      &(1 \mapsto b, 2 \mapsto a),
+      (1 \mapsto b, 2 \mapsto b),
+      (1 \mapsto b, 2 \mapsto c), \\
+      &(1 \mapsto c, 2 \mapsto a),
+      (1 \mapsto c, 2 \mapsto b),
+      (1 \mapsto c, 2 \mapsto c) \}.
+  \end{align*}
+  %
+  Ali znate sami razbrati, kako smo podali preslikave?
+\end{zgled}
 
 \section{Preslikave višjega reda}
 \label{sec:presl-visj-red}
@@ -496,7 +447,7 @@ bi lahko izračunali takole:
 %
 Tu imamo tri različne $x$-e, saj vsak nastopa kot vezana spremenljivka v svojem funkcijskem predpisu.
 %
-Lahko bi jih ločili z barvami:
+Ločimo jih z barvami:
 %
 {%
 \newcommand{\redx}{{\color{red}x}}%
@@ -587,7 +538,7 @@ izomorfizem:\footnote{Držimo se pravila, da nikoli ne uporabimo iste vezane spr
   dvakrat, zato pravilo za $f$ zapišemo z $x$ in $y$ in pravilo za $g$ z $v$ in $u$.
   Marsikdo bi oba funkcijska predpisa zapisal z $x$ in $y$, torej
   $f : (x, y) \mapsto (y, x)$ in $g : (y, x) \mapsto (x, y)$. To zmede nekatere študente,
-  ker mislijo, da \nls{sta $x$ v definiciji $f$ in v definiciji $g$ ista}, karkoli že
+  ker mislijo, da \nls{sta $x$ v definiciji $f$ in v definiciji $g$ ista, prav tako tudi $y$}, karkoli že
   naj bi to pomenilo. Poudarimo še enkrat: vezana spremenljivka v funkcijskem predpisu nima
   nikakršne zveze z nobeno drugo pojavitvijo iste spremenljivke kje drugje.}
 %
@@ -919,8 +870,8 @@ Lotimo se izomorfizmov, v katere je vpletena prazna množica. Tu se ne moremo ve
 le na prirojen občutek za logiko, saj s prazno množico nimamo vsakdanjih izkušenj, oziroma
 jo obravnavamo kot posebnost. Kako bi odgovorili na vprašanje, ali so vsi elementi prazne
 množice praštevila? Pravilni odgovor je `da'. In hkrati so vsi elementi prazne množice
-sestavljena števila. Zakaj je to res bomo spoznali v
-razdelku~\ref{sec:logika-prazna-mnozica}, ko bomo podrobno obravnavali pravila sklepanja.
+sestavljena števila. Zakaj je to res, bomo bolje razumeli
+kasneje, ko bomo podrobno obravnavali pravila sklepanja.
 Zaenkrat si zapomnimo, da je pravilna vsaka izjava \nls{za vse elemente prazne množice velja
 \dots}. Pravimo, da je taka izjava \emph{na prazno izpolnjena}.
 
