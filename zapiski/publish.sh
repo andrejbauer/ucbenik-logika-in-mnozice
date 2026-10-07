@@ -1,2 +1,2 @@
 #!/bin/bash
-latexmk lmn.tex && scp lmn.pdf www.andrej.com:/var/www/andrej.com/zapiski/MAT-LMN-2025/
+latexmk -lualatex lmn.tex && scp lmn.pdf www.andrej.com:/var/www/andrej.com/zapiski/MAT-LMN-2026/
