@@ -246,9 +246,9 @@ To ni edini način, enako množico lahko dobimo na več načinov:
 %
 Kogar to zabava, lahko dokazuje, da so vse te množice enake.
 
-Priročno je imeti v roki neko množico z enim elementom, pri čemer je vseeno, kateri element vsebuje.
+Priročno je imeti pri roki množico z enim elementom, pri čemer je vseeno, kateri element vsebuje.
 %
-Naslednje pravilo zagotavlja tako množico.
+V ta namen podajmo pravilo, ki zagotavlja tako množico.
 
 \begin{pravilo}
   \label{pravilo:enojec}
@@ -272,11 +272,7 @@ proglasili za prvega med enakimi. S prazno množico nimamo podobnih težav, saj 
 \label{sec:preslikave}
 
 Temelj matematike ne tvorijo le množice, ampak tudi drugi matematični pojmi. Prvi izmed
-njih je \df{preslikava}, oziroma s tujko \df{funkcija}.\footnote{Nekateri uporabljajo
-  izraz `funkcija' samo za tiste preslikave, ki slikajo v realna ali kompleksna števila,
-  vendar to navado izpodriva računalništvo, saj funkcije v programskih jezikih nimajo
-  omejitev. Dandanes večina matematikov besedo `funkcija' obravnava kot sopomenko besede
-  `preslikava' in tako jo bomo uporabljali tudi mi.} V srednji šoli ste že spoznali
+njih je \df{preslikava}, oziroma s tujko \df{funkcija}. V srednji šoli ste že spoznali
 nekatere preslikave, kot so na primer linearne preslikave, trigonometrijske funkcije,
 logaritem itd. Nas pa ne bodo zanimale posamezne preslikave, ali posebne lastnosti
 preslikav, ampak preslikave na splošno.
@@ -377,10 +373,62 @@ V teoriji množic lahko prirejanje med elementi domene~$X$ in kodomene~$Y$ podam
 Obravnavajmo nekaj zgledov.
 
 \begin{zgled}
+  Definirajmo preslikavo $f : \RR \to \RR$, ki elementu $x \in \RR$ priredi $y \in \RR$ natanko tedaj,
+  ko velja $x = y^3$, ali s formulo:
+  %
+  \begin{equation*}
+    f(x) = y \liff x = y^3.
+  \end{equation*}
+  %
+  (Pozor, nismo zapisali $y = x^3$!) Na primer, $f$ številu $-8$ priredi število $-2$, ker velja
+  $-8 = (-2)^3$. Preslikava~$f$ ni nič drugega kot kubični koren, le podali smo jo na nenavaden način.
+\end{zgled}
+
+\begin{zgled}
+  Kaj pa, če bi definirali $f : \RR \to \RR$, ki elementu $x \in \RR$ priredi $y \in \RR$ natanko tedaj,
+  ko velja $x = y^2$? Tako prirejanje ni celovito, saj ni nobenega $y$, da bi veljalo $-4 = y^2$, pa tudi enolično ni,
+  ker je $4 = 2^2$ in $4 = (-2)^2$.
+\end{zgled}
+
+\begin{vaja}
+  Katera od naslednjih prirejanj določajo preslikavo $f : \RR \to \ZZ$:
+  %
+  \begin{enumerate}
+  \item številu $x \in \RR$ priredimo $k \in \ZZ$ natanko tedaj, ko velja $k \leq x < k + 1$,
+  \item številu $x \in \RR$ priredimo $k \in \ZZ$ natanko tedaj, ko velja $k < x \leq k + 1$,
+  \item številu $x \in \RR$ priredimo $k \in \ZZ$ natanko tedaj, ko velja $k < x < k + 1$,
+  \item številu $x \in \RR$ priredimo $k \in \ZZ$ natanko tedaj, ko velja $k \leq x < k + 2$?
+  \end{enumerate}
+  %
+  Ali ste katere od teh preslikav že videli in kako jih imenujemo?
+\end{vaja}
+
+\begin{zgled}
   \label{zgled:prirejanje-opis}
   Definirajmo preslikavo $f : \RR \to \RR$ s prirejanjem, ki elementu $x \in \RR$ priredi tisto realno število $y \in \RR$ iz kodomene, za katerega velja $y^5 + y - x = 0$.
   %
-  Ali to prirejanje sploh poda preslikavo? Ali je res, da za vsak~$x \in \RR$ obstaja natanko en~$y \in \RR$, ki zadošča $y^5 + y - x = 0$? Odgovor je pritrdilen: $y$ obstaja, ker je $y^5 + y - x$ polinom lihe stopnje v spremenljivki~$y$, torej ima vsaj eno ničlo. Ker je $y \mapsto y^5 + y - x$ strogo naraščajoča preslikava, ima največ eno ničlo. (Kako ugotovite, da je preslikava res naraščajoča?)
+  Ali to prirejanje sploh poda preslikavo? Ali je res, da za vsak~$x \in \RR$ obstaja natanko en~$y \in \RR$, ki zadošča $y^5 + y - x = 0$?
+  %
+  Narišimo množico $\set{(x,y) \in \RR^2 \such y^5 + y - x = 0}$:
+  %
+  \begin{center}
+    \begin{tikzpicture}[scale=0.8]
+      \draw[->] (-3.5,0) -- (3.5,0) node[right] {$x$};
+      \draw[->] (0,-1.5) -- (0,1.5) node[above] {$y$};
+      \draw[thick, domain=-1.15:1.15, samples=100, variable=\t]
+        plot ({\t*\t*\t*\t*\t + \t}, {\t});
+      \draw[dotted] (2,1) -- (2,0) node[below] {$2$};
+      \draw[dotted] (2,1) -- (0,1) node[left] {$1$};
+      \fill (2,1) circle (1.5pt);
+    \end{tikzpicture}
+  \end{center}
+  %
+  Iz slike razberemo, da je prirejanje celovito, ker navpičnica skozi vsak~$x \in \RR$ seka graf vsaj enkrat.
+  Enolično je, ker ga seka največ enkrat.
+  %
+  Torej je $f$ dobro podana preslikava, a slika ni dokaz.
+  %
+  Natančnejša utemeljitev bi se glasila: ker je $y^5 + y - x$ polinom lihe stopnje v spremenljivki~$y$, ima vsaj eno ničlo, zato je prirejanje celovito. Ker je $y \mapsto y^5 + y - x$ strogo naraščajoča preslikava, ima največ eno ničlo, zato je prirejanje enolično. (Kako ugotovite, da je preslikava res naraščajoča?)
 \end{zgled}
 
 Preslikavo s \emph{končno} domeno lahko podamo s tabelo, denimo:
