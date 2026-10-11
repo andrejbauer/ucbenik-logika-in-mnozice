@@ -171,15 +171,17 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %% Naslovna stran
 %%
-%% Zid premesanih formul iz \lmnFormuleZidu cez celo stran, cez njega bel
-%% pas z naslovom in avtorji.
+%% Siva plosca z zidom premesanih formul iz \lmnFormuleZidu, ki jih rob
+%% plosce obreze. Zid pretrga pas praznih vrstic z naslovom in avtorji.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 % Naslov na naslovnici je lahko drugacen od naslova knjige (kazalo,
 % tekoci naslovi, metapodatki PDF uporabljajo \title).
 \newcommand{\lmnNaslovNaPlatnici}{\@title}
-\newcommand{\lmnStopnjaNaslovnice}{73}
-\newcommand{\lmnRazmikNaslovnice}{78}
+% Naslov je v eni vrstici. Razmik je razdalja med osnovnicama naslova in
+% avtorjev.
+\newcommand{\lmnStopnjaNaslovnice}{36}
+\newlength{\lmnRazmikNaslovnice}  \setlength{\lmnRazmikNaslovnice}{\lmnDvojnaEnota}
 
 \newcommand{\lmnUstanova}{Univerza v Ljubljani}
 \newcommand{\lmnClanica}{Fakulteta za matematiko in fiziko}
@@ -191,7 +193,37 @@
 \newcommand{\lmnPresledekZidu}{0.5em plus 0.5em minus 0.1em}
 \newcommand{\lmnPorezZidu}{3mm}
 \newcommand{\lmnSemeZidu}{1}
-\definecolor{lmnSivaZidu}{gray}{0.55}
+\colorlet{lmnBarvaZidu}{white}
+\colorlet{lmnPodlagaZidu}{ULrdeca}
+\colorlet{lmnBarvaNaslova}{white}
+
+% Beli rob okoli plosce.
+\newlength{\lmnRobNaslovnice}  \setlength{\lmnRobNaslovnice}{2mm}
+% Sredisce pasu z naslovom, merjeno od vrha strani, v delezu visine strani.
+\newcommand{\lmnPolozajNaslova}{0.35}
+
+% Vse naslednje izracuna \lmnNaslovnaStran:
+% - razmik vrstic zidu, pri katerem je visina plosce celo stevilo vrstic;
+% - visino nad osnovnico, na kateri zgornji in spodnji rob plosce rezeta
+%   vrstice, ter visino verzalk zidu in naslova;
+% - zadnjo vrstico zidu nad pasom z naslovom (vrstica 0 je tista, ki jo
+%   reze zgornji rob plosce) in razdaljo od nje do prve vrstice pod pasom
+%   v vrsticah;
+% - razdaljo od osnovnice zidu nad pasom do vrha verzalk naslova, ki je
+%   enaka razdalji od osnovnice avtorjev do vrha verzalk zidu pod pasom, in
+%   globino osnovnice naslova pod vrhom plosce.
+\newlength{\lmnRazmikZiduNaPlosci}
+\newlength{\lmnRezZidu}
+\newlength{\lmnVerzalkeZidu}
+\newlength{\lmnVerzalkeNaslova}
+\newcount\lmnZadnjaVrsticaNadPasom
+\newcount\lmnVrsticPasu
+\newlength{\lmnOdmikNaslova}
+\newlength{\lmnOsnovnicaNaslova}
+\newsavebox{\lmnZidZgoraj}
+\newsavebox{\lmnZidSpodaj}
+\newsavebox{\lmnSkatlaNaslova}
+\newsavebox{\lmnSkatlaAvtorjev}
 
 \ExplSyntaxOn
 \seq_new:N \l__lmn_zid_seq
@@ -206,14 +238,14 @@
       { \seq_put_right:Nn \l__lmn_zid_seq }
   }
 
-% Polozaj #1-te izpostavljene formule: enakomerno med 55 in 80 odstotki
+% Polozaj #1-te izpostavljene formule: enakomerno med 40 in 65 odstotki
 % premesanega zaporedja, kar je vidni del zidu pod naslovom.
 \cs_new:Npn \__lmn_zid_polozaj:n #1
   {
     \int_eval:n
       {
         \seq_count:N \l__lmn_zid_seq
-        * ( 55 + 25 * ( #1 - 1 )
+        * ( 40 + 25 * ( #1 - 1 )
               / \int_max:nn { 1 } { \seq_count:N \l__lmn_zid_izpostavljene_seq - 1 } )
         / 100
       }
@@ -261,41 +293,82 @@
   \thispagestyle{lmnNaslovnica}%
   \lmnZbirajFormule
   \input{\lmnFormuleZidu}%
+  \setlength{\lmnRazmikZiduNaPlosci}{\dimexpr
+    (\paperheight - 2\lmnRobNaslovnice)
+    / \fpeval{round((\paperheight - 2 * \lmnRobNaslovnice) / (\lmnRazmikZidu pt))}
+    \relax}%
+  {\fontsize{\lmnStopnjaZidu}{\lmnRazmikZidu}\selectfont
+   \global\lmnRezZidu = 0.5ex
+   \global\lmnVerzalkeZidu = \fontcharht\font`H\relax}%
+  \sbox{\lmnSkatlaNaslova}{%
+    \color{lmnBarvaNaslova}\lmnUniverzaSans\bfseries
+    \fontsize{\lmnStopnjaNaslovnice}{\lmnStopnjaNaslovnice}\selectfont
+    \global\lmnVerzalkeNaslova = \fontcharht\font`H\relax
+    \lmnNaslovNaPlatnici}%
+  \sbox{\lmnSkatlaAvtorjev}{%
+    \color{lmnBarvaNaslova}\lmnUniverzaSans\fontsize{13}{\lmnEnota}\selectfont
+    \renewcommand{\and}{\quad\textbar\quad}\@author}%
+  % Pas je najmanjse celo stevilo vrstic, pri katerem sta razdalji od
+  % osnovnice zidu nad pasom do verzalk naslova in od osnovnice avtorjev do
+  % verzalk zidu pod pasom vsaj dva razmika vrstic.
+  \lmnVrsticPasu = \fpeval{ceil((\lmnVerzalkeNaslova + \lmnRazmikNaslovnice
+    + \lmnVerzalkeZidu + 4 * \lmnRazmikZiduNaPlosci) / \lmnRazmikZiduNaPlosci)}\relax
+  \setlength{\lmnOdmikNaslova}{\dimexpr
+    (\lmnRazmikZiduNaPlosci * \lmnVrsticPasu
+     - \lmnVerzalkeNaslova - \lmnRazmikNaslovnice - \lmnVerzalkeZidu) / 2 \relax}%
+  \lmnZadnjaVrsticaNadPasom = \fpeval{round((\lmnPolozajNaslova * \paperheight
+    - \lmnRobNaslovnice - \lmnRezZidu - \lmnVrsticPasu * \lmnRazmikZiduNaPlosci / 2)
+    / \lmnRazmikZiduNaPlosci)}\relax
+  \setlength{\lmnOsnovnicaNaslova}{\dimexpr
+    \lmnRezZidu + \lmnRazmikZiduNaPlosci * \lmnZadnjaVrsticaNadPasom
+    + \lmnOdmikNaslova + \lmnVerzalkeNaslova \relax}%
+  \setbox\lmnZidSpodaj = \vbox{%
+    \hsize = \dimexpr \paperwidth - 2\lmnRobNaslovnice + 2\lmnPorezZidu \relax
+    \fontsize{\lmnStopnjaZidu}{\lmnRazmikZiduNaPlosci}\selectfont
+    \parindent = 0pt
+    \lineskiplimit = -\maxdimen
+    \relpenalty = 0
+    \binoppenalty = 0
+    \lmnZid\par}%
+  \vbadness = 10000
+  \splitmaxdepth = \maxdimen
+  \splittopskip = \lmnRazmikZiduNaPlosci
+  \setbox\lmnZidZgoraj = \vsplit\lmnZidSpodaj to
+    \dimexpr \lmnRazmikZiduNaPlosci * \numexpr \lmnZadnjaVrsticaNadPasom + 1 \relax \relax
+  \setbox\lmnZidZgoraj = \vbox{\unvbox\lmnZidZgoraj}%
   \noindent\begin{tikzpicture}[remember picture, overlay]
-    \node[
-      anchor = north west,
-      inner sep = 0pt,
-      text width = \paperwidth + 2 * \lmnPorezZidu,
-      align = justify,
-      text = lmnSivaZidu,
-      font = \fontsize{\lmnStopnjaZidu}{\lmnRazmikZidu}\selectfont,
-    ] at ([xshift = -\lmnPorezZidu, yshift = \lmnPorezZidu] current page.north west) {%
-      \parindent = 0pt
-      \lineskiplimit = -\maxdimen
-      \relpenalty = 0
-      \binoppenalty = 0
-      \lmnZid};
-    % Naslov in avtorji na zgornjem robu stavka, na belem pasu cez vso sirino.
-    \node[
-      anchor = north west,
-      inner xsep = 0pt,
-      inner ysep = \lmnDvojnaEnota,
-      fill = white,
-    ] at ([yshift = -(1in + \voffset + \topmargin + \headheight + \headsep) + \lmnDvojnaEnota]
-          current page.north west) {%
-      \makebox[\paperwidth][l]{%
-        \hspace*{\dimexpr 1in + \hoffset + \oddsidemargin \relax}%
-        \begin{minipage}[t]{\textwidth}
-          \raggedright
-          {\lmnUniverzaSans\bfseries
-           \fontsize{\lmnStopnjaNaslovnice}{\lmnRazmikNaslovnice}\selectfont
-           \hyphenpenalty=10000 \exhyphenpenalty=10000
-           \lmnNaslovNaPlatnici\par}
-          \vspace{\lmnDvojnaEnota}
-          {\lmnUniverzaSans\fontsize{13}{\lmnEnota}\selectfont
-           \renewcommand{\and}{\quad\textbar\quad}%
-           \@author\par}
-        \end{minipage}}};
+    \coordinate (lmnPloscaZL) at
+      ([xshift = \lmnRobNaslovnice, yshift = -\lmnRobNaslovnice] current page.north west);
+    \coordinate (lmnPloscaSD) at
+      ([xshift = -\lmnRobNaslovnice, yshift = \lmnRobNaslovnice] current page.south east);
+    \fill[lmnPodlagaZidu] (lmnPloscaZL) rectangle (lmnPloscaSD);
+    \begin{scope}
+      \clip (lmnPloscaZL) rectangle (lmnPloscaSD);
+      \node[anchor = base west, inner sep = 0pt, text = lmnBarvaZidu]
+        at ([xshift = -\lmnPorezZidu,
+             yshift = -\lmnRezZidu
+                      - \the\lmnZadnjaVrsticaNadPasom * \lmnRazmikZiduNaPlosci]
+            lmnPloscaZL)
+        {\usebox{\lmnZidZgoraj}};
+      % Prva osnovnica spodnjega dela je \splittopskip pod njegovim vrhom.
+      \node[anchor = north west, inner sep = 0pt, text = lmnBarvaZidu]
+        at ([xshift = -\lmnPorezZidu,
+             yshift = -\lmnRezZidu
+                      - (\the\lmnZadnjaVrsticaNadPasom + \the\lmnVrsticPasu - 1)
+                        * \lmnRazmikZiduNaPlosci]
+            lmnPloscaZL)
+        {\usebox{\lmnZidSpodaj}};
+    \end{scope}
+    \node[anchor = base west, inner sep = 0pt]
+      at ([xshift = 1in + \hoffset + \oddsidemargin - \lmnRobNaslovnice,
+           yshift = -\lmnOsnovnicaNaslova]
+          lmnPloscaZL)
+      {\usebox{\lmnSkatlaNaslova}};
+    \node[anchor = base west, inner sep = 0pt]
+      at ([xshift = 1in + \hoffset + \oddsidemargin - \lmnRobNaslovnice,
+           yshift = -\lmnOsnovnicaNaslova - \lmnRazmikNaslovnice]
+          lmnPloscaZL)
+      {\usebox{\lmnSkatlaAvtorjev}};
   \end{tikzpicture}%
   \end{titlepage}%
   \lmnHrbtnaStran

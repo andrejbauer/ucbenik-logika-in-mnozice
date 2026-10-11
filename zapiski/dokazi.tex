@@ -1,9 +1,6 @@
 \chapter{Dokazi}
 \label{chap:dokazi}
 
-\section{Kaj je matematični dokaz?}
-\label{sec:kaj-je-dokaz}
-
 V srednji šoli se dijaki pri matematiki učijo, \emph{kako} se kaj
 izračuna. Na univerzi imajo študentje matematike pred seboj
 zahtevnejšo nalogo: poleg \emph{kako} morajo vedeti tudi \emph{zakaj}.
@@ -15,11 +12,14 @@ predmeta Logika in množice posvetili matematični infrastrukturi:
 izjavam, pra\-vi\-lom sklepanja in dokazom. Učili se bomo, kako pišemo
 dokaze, kako jih analiziramo in kako jih sami poiščemo.
 
+\section{Kaj je matematični dokaz?}
+\label{sec:kaj-je-dokaz}
+
 Osrednji pojem matematične aktivnosti je \emph{dokaz}. Namen dokaza je
 s pomočjo točno določenih in vnaprej dogovorjenih \emph{pravil
   sklepanja} utemeljiti neko matematično \emph{izjavo}. Načeloma mora
 dokaz vsebovati vse podrobnosti in natanko opisati posamezne korake
-sklepanja, ki privedejo do želene matematične izjave. Ker bi bili taki
+sklepanja, ki vodijo do želene matematične izjave. Ker bi bili taki
 dokazi zelo dolgi in bi vsebovali nezanimive podrobnosti, matematiki
 običajno predstavijo samo oris ali glavno zamisel dokaza. Izkušenemu
 matematiku to zadošča, saj zna oris sam dopolniti do pravega dokaza.
@@ -32,49 +32,11 @@ primer.
 \end{izrek}
 
 \noindent
-Po kratkem premisleku bi izkušeni matematik zapisal:
-
-\begin{quote}
-  \begin{proof}
-    Očitno.
-  \end{proof}
-\end{quote}
-
-\noindent
-To ni dokaz, izkušeni matematik nam le dopoveduje, da je (zanj) izrek
-zelo lahek in da nima smisla izgubljati časa s pisanjem dokaza.
-Začetnik, ki težko razume že sam izrek, bo ob takem ">dokazu"< seveda
-zgrožen. Verjetno bo najprej preizkusil izrek na nekaj primerih:
+Izkušeni matematik je ta izrek že videl, še sam ne ve kolikokrat,
+zato bi le pripomnil, da je število $n^3 - n$ zmnožek treh zaporednih
+naravnih števil.
 %
-\begin{align*}
-  1^3 - 1 &= 0,\\
-  2^3 - 2 &= 8 - 2 = 6,\\
-  3^3 - 3 &= 27 - 3 = 24,\\
-  4^3 - 4 &= 64 - 4 = 60.
-\end{align*}
-%
-Res dobivamo večkratnike števila~$3$. Ali smo izrek s tem dokazali? Seveda ne!
-Preizkusili smo le štiri primere, ostane pa jih še neskončno mnogo. Kdor
-misli, da lahko iz nekaj primerov sklepa na splošno veljavnost, naj v poduk
-vzame naslednjo vajo.
-
-\begin{vaja}
-  Ali je $n^2 - n + 41$ praštevilo za vsako naravno število~$n$?
-\end{vaja}
-
-\noindent
-Ko izkušenega matematika prosimo, da naj nam vsaj pojasni idejo dokaza,
-zapiše:
-
-\begin{quote}
-  \begin{proof}
-    Število $n^3 - n$ je zmnožek treh zaporednih naravnih števil.
-  \end{proof}
-\end{quote}
-
-\noindent
-To še vedno ni dokaz, ampak samo namig. Starejši študenti matematike pa
-bi iz namiga morali znati sestaviti naslednji dokaz:
+Tak namig bi starejšemu študentu matematike zadoščal, da bi sestavil dokaz:
 
 \begin{quote}
   \begin{proof}
@@ -89,40 +51,22 @@ bi iz namiga morali znati sestaviti naslednji dokaz:
 večina matematikov s tem dokazom zadovoljna, bi morali za popoln dokaz
 preveriti še nekaj podrobnosti:
 %
-\begin{enumerate}
-\item Ali res velja $n^3 - n = (n-1) \cdot n \cdot (n+1)$?
-\item Ali je res, da je izmed treh zaporednih naravnih števil eno
-  vedno deljivo s~$3$?
-\item Ali je res, da je zmnožek treh števil deljiv s~$3$, če je eno od
-  števil deljivo s~$3$?
-\end{enumerate}
+\begin{itemize}
+\item Ali velja $n^3 - n = (n-1) \cdot n \cdot (n+1)$?
+\item Ali je izmed treh zaporednih naravnih števil eno deljivo s~$3$?
+\item Ali je zmnožek treh števil deljiv s~$3$, če je eno od njih deljivo s~$3$?
+\end{itemize}
 %
 S srednješolskim znanjem algebre ugotovimo, da je odgovor na prvo
 vprašanje pritrdilen. Tudi odgovora na drugo in tretje vprašanje sta
 očitno pritrdilna, mar ne? To pa ne pomeni, da ju ni treba dokazati.
 Nasprotno, zgodovina matematike nas uči, da moramo prav ">očitne"<
 izjave še posebej skrbno preveriti.
-
-\begin{vaja}
-  Kakšno je tvoje mnenje o resničnosti naslednjih izjav? Vprašaj
-  starejše kolege, asistente in učitelje, kaj menijo oni. Ali znajo
-  svoje mnenje utemeljiti z dokazi?
-  %
-  \begin{enumerate}
-  \item Sodih števil je manj kot naravnih števil.
-  \item Kroglo je mogoče razdeliti na pet delov tako, da lahko iz njih
-    sestavimo dve krogli, ki sta enako veliki kot prvotna krogla.
-  \item Sklenjena krivulja v ravnini, ki ne seka same sebe, razdeli
-    ravnino na dve območji, eno omejeno in eno neomejeno.
-  \item S krivuljo ne moremo prekriti notranjosti kvadrata.
-  \item Če ravnino razdelimo na tri območja, potem zagotovo obstaja
-    točka, ki je dvomeja in ni tromeja med območji.
-  \end{enumerate}
-\end{vaja}
-
-\noindent
 %
-Vrnimo se k izreku~\ref{izr:n3-n-deljivo-3}. Če dokaz zapišemo preveč
+V idealnem primeru bi bil dokaz zapisan tako, da bi lahko njegovo pravilnost preverili mehansko, z
+računalnikom.\footnote{Kogar to zanima, se lahko nauči uporabljati kak  \href{https://ncatlab.org/nlab/show/proof+assistant}{dokazovalni pomočnik}, v zadnjem času hitro napreduje \href{https://leanprover.github.io}{Lean}.}
+
+Če dokaz izreka~\ref{izr:n3-n-deljivo-3} zapišemo preveč
 podrobno, postane dolgočasen in ne\-ra\-zumljiv:
 
 \begin{quote}
@@ -176,129 +120,128 @@ podrobno, postane dolgočasen in ne\-ra\-zumljiv:
   \end{proof}
 \end{quote}
 
-\begin{vaja}
-  S kolegi se igraj naslednjo igro.\footnote{%
-    Igranje odsvetujemo zunaj prostorov Fakultete za matematiko in fiziko.}
-  Prvi igralec v zgornjem dokazu poišče korak, ki ga je treba še dodatno
-  utemeljiti. Drugi igralec ga utemelji. Nato prvi igralec poišče nov korak,
-  ki ga je treba še dodatno utemeljiti in igra se ponovi. Zgubi tisti, ki se prvi naveliča igrati. Ali lahko igra traja neskončno dolgo?
-\end{vaja}
+Tovrstni dokazi so res le sami sebi namen.
+%
+Dober dokaz poleg gole resnice bralcu na razumljiv način posreduje tudi matematične ideje, na katerih sloni dokaz.
+%
+Ta socialna komponenta dokaza je izrazito odvisna ne le od pisca, ampak tudi od bralca, ki mu je dokaz namenjen.
+%
 
-Matematični dokaz ima dvojno vlogo. Po eni strani je utemeljitev matematične
-izjave, zato mora biti čim bolj podroben. V idealnem primeru bi bil dokaz
-zapisan tako, da bi lahko njegovo pravilnost preverili mehansko, z
-računalnikom. Po drugi strani je dokaz sredstvo za komunikacijo idej med
-matematiki, zato mora vsebovati ravno pravo mero podrobnosti. Mera pa je
-odvisna od tega, komu je dokaz namenjen. Te socialne komponente se študenti
-učijo skozi prakso v toku študija. Dokazu kot povsem matematičnemu pojmu pa se
-bomo posvetili prav pri predmetu Logika in množice. Pojasnili bomo, kaj je
-dokaz kot matematični konstrukt in kako ga zapišemo tako podrobno, da je res
-mehansko preverljiv. Naučili se bomo tudi nekaj preprostih tehnik iskanja
-dokazov, ki pa še zdaleč ne bodo zadostovale za reševanje zares zanimivih
-matematičnih problemov, ki zahtevajo poglobljeno znanje, vztrajnost, kanček
-talenta in nekaj sreče.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\section{Kako pišemo dokaze}
+\section{Dokazi kot konstrukcije}
 
-\subsection{Vpeljava spremenljivke}
-\label{sec:vpeljava-spremenljivke}
-
-Če želimo vpeljati spremenljivko $x$, ki predstavlja neki poljuben ali neznani element množice $A$, zapišemo
-%
-\begin{quote}
-  Naj bo $x \in A$.
-\end{quote}
-%
-S tem postane $x$ veljavna spremenljivka, ki jo lahko uporabljamo. O njem vemo le to, da je element množice $A$ -- pravimo, da je $x$ \textbf{prosta spremenljivka}. V matematičnih besedilih boste zasledili tudi naslednje fraze, ki uvedejo prosto spremenljivko:
+Matematiki v sklopu svojih aktivnosti \emph{konstruiramo} matematične objekte:
 %
 \begin{itemize}
-\item ">Naj bo $x \in A$ poljuben."<
-\item ">Obravnavajmo poljuben $x \in A$."<
-\item ">Izberimo poljuben $x \in A$."<
-\item ">Denimo, da imamo poljuben $x \in A$."<
+\item v geometriji konstruiramo trikotnike z ravnilom in šestilom,
+\item računamo števke števila $\pi$, s čimer konstruiramo njegove približke,
+\item ko rešujemo enačbo, konstruiramo število, ki mu zadošča,
+\item konstruiramo elemente množice, na primer $(2, \inl(3)) \in \NN \times (\ZZ + \ZZ)$.
 \end{itemize}
 %
-Pozor, beseda ">izberimo"< bi komu dala misliti, da si lahko izbere neki konkretni~$x$, a to preprečuje beseda ">poljuben"<, ki jo matematik uporabi, kadar želi povedati, da je~$x$ neznana ali nedoločena (poljubna) vrednost.
+Tudi na dokaze lahko gledamo kot na konstrukcije, ki jih gradimo s pomočjo \emph{pravil sklepanja}.
+%
+Le-ta povedo, kakšna so ">pravila igre"< v dokazovanju, ne pa tudi kako dobro igrati igro dokazovanja.
+%
+Pri tem predmetu bomo spoznali pravila in podali nekaj namigov, kako konstruirati osnovne dokaze, pri ostalih predmetih pa boste videli ">žive dokaze"<. ki imajo manj tehničnih podrobnosti in se bolj
+osredotočajo na komuniciranje idej.
+
+
+\subsection{Struktura dokaza}
+\label{sec:struktura-dokaza}
+
+Dokaz ima ugnezdeno strukturo: sestoji iz pod-dokazov, ki sestoje iz nadaljnjih pod-dokazov itn., ki se zaključijo z osnovnimi koraki. Ta struktura iz običajnega besedila ni razvidna, a je prisotna. Za zgled vzemimo naslednji izrek.
+
+\begin{izrek}
+  \label{izrek:pqr}%
+  Za vse izjave $p$, $q$, $r$ velja
+  $(p \lor q) \land r \lthen (p \land r) \lor (q \land r)$.
+\end{izrek}
+
+\begin{proof}
+  Predpostavimo $p \lor q$ in $r$. Če velja $p$, potem sledi $p \land r$ ter od tod $(p \land r) \lor (q \land r)$. Če pa velja $q$, sledi $q \land r$ ter spet $(p \land r) \lor (q \land r)$.
+\end{proof}
+
+\noindent
+Zgornji dokaz z dodanimi podrobnostmi in označeno ugnezdeno strukturo je prikazan na sliki~\ref{fig:izrek-pqr}.
+%
+\begin{figure}[htp]
+  \centering
+  \small
+  \fbox{\parbox{0.75\textwidth}{
+    Naj bodo $p$, $q$ in $r$ izjave. \\
+    Dokažimo $(p \lor q) \land r \lthen (p \land r) \lor (q \land r)$. \\
+    \hbox{}\quad\parbox{0.65\textwidth}{
+      (1) Predpostavimo $(p \lor q) \land r.$ \\
+      Dokažimo $(p \land r) \lor (q \land r)$. \\
+      \hbox{}\quad\parbox{0.55\textwidth}{
+        (2) Zaradi (1) velja $p \lor q$. \\
+        (3) Zaradi (1) velja $r$. \\
+        Zaradi (2) lahko obravnavamo dva primera:\\
+        \hbox{}\quad \fbox{\parbox{0.4\textwidth}{
+          (a) če velja $p$:\\
+              \hbox{}\quad Dokažimo $(p \land r) \lor (q \land r)$.\\
+              \hbox{}\quad Dokažimo levi disjunkt $p \land r$: \\
+              \hbox{}\qquad (i) $p$ velja zaradi (a) \\
+              \hbox{}\qquad (ii) $r$ velja zaradi (3).
+        }} \\[0.25ex]
+        \hbox{}\quad\fbox{\parbox{0.4\textwidth}{
+          (b) če velja $q$:\\
+              \hbox{}\quad Dokažimo $(p \land r) \lor (q \land r)$.\\
+              \hbox{}\quad Dokažimo desni disjunkt $q \land r$: \\
+              \hbox{}\qquad (i) $q$ velja zaradi (b) \\
+              \hbox{}\qquad (ii) $r$ velja zaradi (3).
+              }}
+        }
+     }
+  }}
+  \caption{dokaz izreka~\ref{izrek:pqr}.}
+  \label{fig:izrek-pqr}
+\end{figure}
+%
+Vsaka škatla vsebuje dokaz nekega dejstva, pri čemer enovrstičnih pod-dokazov zaradi berljivosti nismo dali v škatle. Zunanja škatla najprej vpelje spremenljivke $p$, $q$ in $r$, nato pove, kaj bomo dokazali,
+temu pa sledi dokaz. Nekatere izjave so oštevilčene, da se lahko nanje sklicujemo. Notranji škatli sta obravnavi dveh primerov.
+%
+Ko pišemo ali beremo dokaz, moramo v vsakem trenutku poznati
+%
+\begin{itemize}
+\item \textbf{cilj}: kaj trenutno dokazujemo in
+\item \textbf{kontekst}: katere spremenljivke in predpostavke imamo trenutno na voljo in katera dejstva smo že dokazali.
+\end{itemize}
+%
+Na primer, v sedmi vrstici iz dokaza na sliki~\ref{fig:izrek-pqr} je cilj $(p \land r) \lor (q \land r)$, veljavne so spremenljivke $p$, $q$ in $r$, na voljo imamo predpostavko~(1), dokazali pa smo že dejstvi~(2) in~(3).
+%
+Ko napravimo korak v dokazu, mora biti utemeljen z enim od pravil sklepanja. Dokaz je
+popoln, ko smo utemeljili vse pod-dokaze.
+
+V dokazu smemo uporabljati spremenljivko, če jo predhodno \df{vpeljemo}. Pri tem navedemo spremenljivko in množico, katere element je:
+%
+\begin{quote}
+  \nls{Naj bo $x \in A$.}
+\end{quote}
+%
+S tem postane $x$ veljavna spremenljivka, ki jo smemo uporabljati.
+%
+O njem vemo le to, da je element množice $A$, ne vemo pa kateri element -- pravimo, da je $x$ \textbf{prosta spremenljivka}. V matematičnih besedilih boste zasledili tudi naslednje fraze, ki uvedejo prosto spremenljivko:
+%
+\begin{itemize}
+\item \nls{Naj bo $x \in A$ poljuben.}
+\item \nls{Fiksirajmo $x \in A$.}
+\item \nls{Izberimo $x \in A$.}
+\end{itemize}
+%
+Pozor, beseda ">fiksirajmo"< bi komu dala misliti, da  ">izberimo"< bi komu dala misliti, da si lahko izbere neki konkretni~$x$, a to preprečuje beseda ">poljuben"<, ki jo matematik uporabi, kadar želi povedati, da je~$x$ neznana ali nedoločena (poljubna) vrednost.
+%
+Spremenljivka ima območje veljavnosti, ki je omejeno s pod-dokazom, v katerem nastopa.
 
 \begin{vaja}
   Denimo, da učitelj reče ">Naj bo $n$ (poljubno) naravno število"<, nato pa vas vpraša ">Ali je $n$ sodo število?"<, kako boste odgovorili?
 \end{vaja}
 
-\subsection{Cilj in kontekst}
-
-Matematiki v sklopu svojih aktivnosti \emph{konstruiramo} matematične objekte:
-%
-\begin{itemize}
-\item v geometriji so znane konstrukcije z ravnilom in šestilom,
-\item računanje števk števila $\pi$ je konstrukcija približka,
-\item reševanje enačbe je konstrukcija števila z želeno lastnostjo,
-\item konstruiramo lahko elemente množice, pogosto kar tako, da jih zapišemo, na primer $(2, \inl(3)) \in \NN \times (\ZZ + \ZZ)$.
-\end{itemize}
-
-Poleg tega \emph{dokazujemo} matematične izjave. Na dokaz lahko gledamo kot na konstrukcijo, saj je to le še ena zvrst matematičnega objekta. Ker pa so dokazi skoraj vedno zapisani v naravnem jeziku, jih matematiki pogosto dojemajo ločeno od ostalih matematičnih objektov (števila, preslikave, množice, ploskve, \dots).
-
-Kaj pravzaprav je dokaz? V prvi vrsti je dokaz utemeljitev matematične izjave. Zgrajen je po točno določenih \emph{pravilih sklepanja}, ki jih lahko podamo formalno in jih tudi implementiramo na računalniku.\footnote{Kogar to zanima, si lahko ogleda ">\href{https://youtu.be/Z500sma3h90}{The dawn of formalized mathematics}"< (\href{https://www.icloud.com/keynote/0Gkr1yM7XY-31aQleWf-fiW7A}{prosojnice}) in se nauči uporabljati kak  \href{https://ncatlab.org/nlab/show/proof+assistant}{dokazovalni pomočnik} (v zadnjem času hitro napreduje \href{https://leanprover.github.io}{Lean}).
-}
-
-V praksi ljudje ne pišejo vseh podrobnosti v dokazu, ker bi bil tak dokaz nečitljiv in nerazumljiv. Pogosto podajo samo glavno idejo, iz katere lahko izkušeni matematik sam rekonstruira dokaz. Iz dobro napisanega dokaza se lahko naučimo marsikaj novega, poleg golega dejstva, da dokazana izjava velja.
-
-Mi bomo vadili podrobno pisanje dokazov. Pri ostalih predmetih boste videli ">žive dokaze"<, ki imajo manj podrobnosti in so zapisani manj formalno. A vsi pravilni matematični dokazi se dajo zapisati na način, kot ga bomo predstavili mi (in celo zapisati povsem formalno z dokazovalnim pomočnikom).
-
-Pravila sklepanja so kot pravila igre. Ne povedo, kako dobro igrati, samo kaj je dovoljeno. Seveda bomo hkrati s pravili sklepanja povedali nekaj namigov in nasvetov, kako dokaz poiščemo. A kot pri vsaki igri velja, da vaja dela mojstra.
-
-Dokaz ima ugnezdeno strukturo: sestoji iz delov in pod-dokazov, ki sestoje iz nadaljnjih pod-dokazov itn., ki se zaključijo z osnovnimi dejstvi. Vsi ti kosi so s pomočjo pravil sklepanja zloženi v dokazno ">drevo"<.
-
-Ko pišemo dokaz, moramo v vsakem trenutku poznati
-%
-\begin{itemize}
-\item \textbf{cilj}: kaj trenutno dokazujemo in
-\item \textbf{kontekst}: katere spremenljivke in predpostavke imamo trenutno na voljo.
-\end{itemize}
-%
-Ko napravimo korak v dokazu, mora biti utemeljen z enim od pravil sklepanja. Dokaz je
-popoln, ko smo utemeljili vse pod-dokaze, ki ga sestavljajo. Kot primer si poglejmo zelo podroben dokaz izjave
-%
-$(p \lor q) \land r \lthen (p \land r) \lor (q \land r)$.
-
-\subsection{Dokaz na treh ravneh podrobnosti}
-
-\begin{center}
-  \fbox{\parbox{0.6\textwidth}{
-    Dokažimo $(p \lor q) \land r \lthen (p \land r) \lor (q \land r)$. \\
-    \hbox{}\quad (1) Predpostavimo $(p \lor q) \land r.$ \\
-    \hbox{}\quad (2) Zaradi (1) velja $p \lor q$. \\
-    \hbox{}\quad (3) Zaradi (1) velja $r$. \\
-    \hbox{}\quad Zaradi (2) lahko obravnavamo dva primera:\\
-    \hbox{}\qquad \fbox{\parbox{0.5\textwidth}{
-      (a) če velja $p$:\\
-          \hbox{}\quad Dokažimo $(p \land r) \lor (q \land r)$.\\
-          \hbox{}\quad Dokažimo levi disjunkt $p \land r$: \\
-          \hbox{}\qquad (i) $p$ velja zaradi (a) \\
-          \hbox{}\qquad (ii) $r$ velja zaradi (3).
-    }} \\
-    \hbox{}\qquad \fbox{\parbox{0.5\textwidth}{
-      (b) če velja $q$:\\
-          \hbox{}\quad Dokažimo $(p \land r) \lor (q \land r)$.\\
-          \hbox{}\quad Dokažimo desni disjunkt $q \land r$: \\
-          \hbox{}\qquad (i) $q$ velja zaradi (b) \\
-          \hbox{}\qquad (ii) $r$ velja zaradi (3).
-    }}
-  }}
-\end{center}
-%
-Dokaz bi bolj po človeško napisali takole:
-%
-\begin{quote}
-  Predpostavimo $p \lor q$ in $r$. Če velja $p$, potem sledi $p \land r$ ter od tod $(p \land r) \lor (q \land r)$. Če pa velja $q$, sledi $q \land r$ ter spet $(p \land r) \lor (q \land r)$. $\Box$
-\end{quote}
-%
-Ali pa kar takole:
-%
-\begin{quote}
-  Očitno.
-\end{quote}
+\section{Pravila sklepanja}
+\label{sec:pravila-sklepanja}
 
 Pravila sklepanja delimo na:
 %
@@ -321,8 +264,6 @@ predpostavke so na voljo.
 Nekateri deli dokaza so samostojni pod-dokazi pomožnih izjav. Vse spremenljivke in
 predpostavke, ki jih uvedemo v pod-dokazu, so na voljo izključno v pod-dokazu samem.
 
-\section{Pravila sklepanja}
-\label{sec:pravila-sklepanja}
 
 \subsection{Konjunkcija}
 
