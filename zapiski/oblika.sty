@@ -182,6 +182,9 @@
 % avtorjev.
 \newcommand{\lmnStopnjaNaslovnice}{36}
 \newlength{\lmnRazmikNaslovnice}  \setlength{\lmnRazmikNaslovnice}{\lmnDvojnaEnota}
+% Prazen prostor nad verzalkami naslova in pod osnovnico avtorjev.
+\newlength{\lmnZracnostPasuZgoraj}  \setlength{\lmnZracnostPasuZgoraj}{2.4cm}
+\newlength{\lmnZracnostPasuSpodaj}  \setlength{\lmnZracnostPasuSpodaj}{2cm}
 
 \newcommand{\lmnUstanova}{Univerza v Ljubljani}
 \newcommand{\lmnClanica}{Fakulteta za matematiko in fiziko}
@@ -200,7 +203,7 @@
 % Beli rob okoli plosce.
 \newlength{\lmnRobNaslovnice}  \setlength{\lmnRobNaslovnice}{2mm}
 % Sredisce pasu z naslovom, merjeno od vrha strani, v delezu visine strani.
-\newcommand{\lmnPolozajNaslova}{0.35}
+\newcommand{\lmnPolozajNaslova}{0.40}
 
 % Vse naslednje izracuna \lmnNaslovnaStran:
 % - razmik vrstic zidu, pri katerem je visina plosce celo stevilo vrstic;
@@ -209,8 +212,7 @@
 % - zadnjo vrstico zidu nad pasom z naslovom (vrstica 0 je tista, ki jo
 %   reze zgornji rob plosce) in razdaljo od nje do prve vrstice pod pasom
 %   v vrsticah;
-% - razdaljo od osnovnice zidu nad pasom do vrha verzalk naslova, ki je
-%   enaka razdalji od osnovnice avtorjev do vrha verzalk zidu pod pasom, in
+% - razdaljo od osnovnice zidu nad pasom do vrha verzalk naslova in
 %   globino osnovnice naslova pod vrhom plosce.
 \newlength{\lmnRazmikZiduNaPlosci}
 \newlength{\lmnRezZidu}
@@ -308,14 +310,17 @@
   \sbox{\lmnSkatlaAvtorjev}{%
     \color{lmnBarvaNaslova}\lmnUniverzaSans\fontsize{13}{\lmnEnota}\selectfont
     \renewcommand{\and}{\quad\textbar\quad}\@author}%
-  % Pas je najmanjse celo stevilo vrstic, pri katerem sta razdalji od
-  % osnovnice zidu nad pasom do verzalk naslova in od osnovnice avtorjev do
-  % verzalk zidu pod pasom vsaj dva razmika vrstic.
+  % Pas je najmanjse celo stevilo vrstic, pri katerem je razdalja od
+  % osnovnice zidu nad pasom do verzalk naslova vsaj \lmnZracnostPasuZgoraj
+  % in razdalja od osnovnice avtorjev do verzalk zidu pod pasom vsaj
+  % \lmnZracnostPasuSpodaj.  Ostanek zaokrozitve razdelimo na pol.
   \lmnVrsticPasu = \fpeval{ceil((\lmnVerzalkeNaslova + \lmnRazmikNaslovnice
-    + \lmnVerzalkeZidu + 4 * \lmnRazmikZiduNaPlosci) / \lmnRazmikZiduNaPlosci)}\relax
-  \setlength{\lmnOdmikNaslova}{\dimexpr
+    + \lmnVerzalkeZidu + \lmnZracnostPasuZgoraj + \lmnZracnostPasuSpodaj)
+    / \lmnRazmikZiduNaPlosci)}\relax
+  \setlength{\lmnOdmikNaslova}{\dimexpr \lmnZracnostPasuZgoraj +
     (\lmnRazmikZiduNaPlosci * \lmnVrsticPasu
-     - \lmnVerzalkeNaslova - \lmnRazmikNaslovnice - \lmnVerzalkeZidu) / 2 \relax}%
+     - \lmnVerzalkeNaslova - \lmnRazmikNaslovnice - \lmnVerzalkeZidu
+     - \lmnZracnostPasuZgoraj - \lmnZracnostPasuSpodaj) / 2 \relax}%
   \lmnZadnjaVrsticaNadPasom = \fpeval{round((\lmnPolozajNaslova * \paperheight
     - \lmnRobNaslovnice - \lmnRezZidu - \lmnVrsticPasu * \lmnRazmikZiduNaPlosci / 2)
     / \lmnRazmikZiduNaPlosci)}\relax

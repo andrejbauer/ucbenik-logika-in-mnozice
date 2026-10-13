@@ -168,9 +168,13 @@ Dokaz ima ugnezdeno strukturo: sestoji iz pod-dokazov, ki sestoje iz nadaljnjih 
 Zgornji dokaz z dodanimi podrobnostmi in označeno ugnezdeno strukturo je prikazan na sliki~\ref{fig:izrek-pqr}.
 %
 \begin{figure}[htp]
+  % CLAUDE: when you read this comment, please fix this proof so that the boxes are
+  % still visible, but I'd like the lines numbered (on the left margin, small numbers
+  % so they don't distract) and the numbers must match the references in the text below.
+  % Feel free to fix the rather pedestrian formatting that we have now.
   \centering
   \small
-  \fbox{\parbox{0.75\textwidth}{
+  \fbox{\parbox{0.65\textwidth}{
     Naj bodo $p$, $q$ in $r$ izjave. \\
     Dokažimo $(p \lor q) \land r \lthen (p \land r) \lor (q \land r)$. \\
     \hbox{}\quad\parbox{0.65\textwidth}{
@@ -216,7 +220,9 @@ Na primer, v sedmi vrstici iz dokaza na sliki~\ref{fig:izrek-pqr} je cilj $(p \l
 Ko napravimo korak v dokazu, mora biti utemeljen z enim od pravil sklepanja. Dokaz je
 popoln, ko smo utemeljili vse pod-dokaze.
 
-V dokazu smemo uporabljati spremenljivko, če jo predhodno \df{vpeljemo}. Pri tem navedemo spremenljivko in množico, katere element je:
+\paragraph*{Vpeljava spremenljivke}
+%
+V dokazu smemo uporabljati spremenljivko, če jo predhodno vpeljemo. Pri tem navedemo spremenljivko in množico, katere element je:
 %
 \begin{quote}
   \nls{Naj bo $x \in A$.}
@@ -224,7 +230,7 @@ V dokazu smemo uporabljati spremenljivko, če jo predhodno \df{vpeljemo}. Pri te
 %
 S tem postane $x$ veljavna spremenljivka, ki jo smemo uporabljati.
 %
-O njem vemo le to, da je element množice $A$, ne vemo pa kateri element -- pravimo, da je $x$ \textbf{prosta spremenljivka}. V matematičnih besedilih boste zasledili tudi naslednje fraze, ki uvedejo prosto spremenljivko:
+O njem vemo le to, da je element množice $A$, ne vemo pa kateri element -- pravimo, da je $x$ \df{prosta spremenljivka}. V matematičnih besedilih boste zasledili tudi naslednje fraze, ki uvedejo prosto spremenljivko:
 %
 \begin{itemize}
 \item \nls{Naj bo $x \in A$ poljuben.}
@@ -232,13 +238,45 @@ O njem vemo le to, da je element množice $A$, ne vemo pa kateri element -- prav
 \item \nls{Izberimo $x \in A$.}
 \end{itemize}
 %
-Pozor, beseda ">fiksirajmo"< bi komu dala misliti, da  ">izberimo"< bi komu dala misliti, da si lahko izbere neki konkretni~$x$, a to preprečuje beseda ">poljuben"<, ki jo matematik uporabi, kadar želi povedati, da je~$x$ neznana ali nedoločena (poljubna) vrednost.
+Pozor, besedi ">fiksirajmo"< in ">izberimo"< bi dali komu misliti, da si lahko izbere neki element~$A$, a to ni tako.
+%
+Bolje si je zamisliti, da je~$x$ ">neznan"< ali ">nedoločen"<.
 %
 Spremenljivka ima območje veljavnosti, ki je omejeno s pod-dokazom, v katerem nastopa.
+%
+Pravila sklepanja povedo, kdaj smemo vpeljati spremenljivko.
 
-\begin{vaja}
-  Denimo, da učitelj reče ">Naj bo $n$ (poljubno) naravno število"<, nato pa vas vpraša ">Ali je $n$ sodo število?"<, kako boste odgovorili?
-\end{vaja}
+\begin{zgled}
+  V dokazu na sliki~\ref{fig:izrek-pqr} vpeljemo spremenljivke $p$, $q$ in $r$ v prvi vrstici dokaza. Veljavne so v celotnem dokazu.
+\end{zgled}
+
+\paragraph*{Vpeljava in uporaba predpostavke}
+\label{sec:vpelj-predp}
+
+Nekatera pravila sklepanja zahtevajo, da \df{vpeljemo predpostavko}~$\phi$ (ali \df{hipotezo}), se pravi, da se pretvarjamo, da izjava~$\phi$ velja. V takem primeru zapišemo:
+%
+\begin{quote}
+  \nls{Predpostavimo $\phi$.}
+\end{quote}
+%
+Včasih vpeljemo predpostavko tudi z \nls{če velja $\phi$:}.
+%
+Predpostavka ima svoje območje veljavnosti, ki je omejeno s pod-dokazom, v katerem nastopa.
+%
+Pogosto predpostavko oštevilčimo ali kako drugače označimo, da se lahko nanjo sklicujemo.
+
+\begin{zgled}
+  V dokazu na sliki~\ref{fig:izrek-pqr} v tretji vrstici predpostavimo $(p \lor q) \land r$ in predpostavko označimo z~(1), območje veljavnosti je do konca dokaza. V osmi vrstici predpostavimo $p$, označimo z~(a), območje veljavnost pa je prva notranja škatla. V 13.~vrstici predpostavimo~$q$, označimo z~(b), območje veljavnosti pa je druga notranja škatla.
+\end{zgled}
+
+Kadar se skličemo na dejstvo, da izjava velja, ker smo jo predpostavili, pravimo da smo \df{uporabili predpostavko}. Predpostavke nam ni treba uporabiti in lahko jo uporabimo večkrat.
+
+\begin{zgled}
+  V dokazu na sliki~\ref{fig:izrek-pqr} smo v peti in šesti vrstici uporabili predpostavko~(1).
+  V 11.~in 12.~vrstici smo uporabili predpostavki~(a) in~(3).
+  V 16.~in 17.~vrstici smo uporabili predpostavki~(b) in~(3).
+\end{zgled}
+
 
 \section{Pravila sklepanja}
 \label{sec:pravila-sklepanja}
