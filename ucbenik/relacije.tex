@@ -1,535 +1,432 @@
-\chapter{Relacije}\label{poglavje:relacije}
-
-        \section{Splošno o relacijah}
-
-                V matematiki pogosto želimo izraziti, da so določeni objekti v nekem odnosu, npr.~eno število je večje od drugega; temu s tujko rečemo \df{relacija}. Kako to formalno izraziti? Ideja je, da relacijo podamo z množico vseh skupin elementov, ki so v relaciji. Na primer, relacijo $\leq$ na naravnih številih podamo kot podmnožico
-                \[\set[1]{(a, b) \in \NN \times \NN}{\some{n \in \NN} a + n = b}.\]
-                Torej, število $a$ je v relaciji $\leq$ s številom $b$ takrat, ko par $(a, b)$ pripada tej množici.
-
-                Splošne relacije so lahko med poljubno mnogo elementi iz poljubnih (ne nujno istih) množic. Na primer, relacija komplanarnosti štirih točk v prostoru je podmnožica produkta $\RR^3 \times \RR^3 \times \RR^3 \times \RR^3$, relacija pripadnosti $\in$ med elementi neke množice $X$ in podmnožicami množice $X$ pa je podmnožica produkta $X \times \pst(X)$.
-
-                Splošna definicija relacije je potemtakem naslednja.
-                \begin{definicija}
-                        \df{Relacija} na družini množic $\mathscr{D}$ je podmnožica produkta $\prod_{X \in \mathscr{D}} X$, skupaj s podatkom, za katero družino $\mathscr{D}$ gre.
-                \end{definicija}
-
-                \begin{opomba}\label{opomba:definicija-relacij}
-                        Kaj mislimo tu z izrazom ``skupaj s podatkom''? Določena podmnožica ima mnogo nadmnožic in podatek, med elementi katerih množic opazujemo odnos, je za relacijo prav tako pomemben, saj so od tega odvisne lastnosti relacije. Lastnosti relacij obravnavamo kasneje v razdelku~\ref{razdelek:lastnosti-relacij}, ampak če že zdaj damo primer: $\set{(a, a)}{a \in \NN}$ je refleksivna kot relacija na naravnih številih (tj.~kot podmnožica $\NN \times \NN$), ne pa tudi kot relacija na celih številih (tj.~kot podmnožica $\ZZ \times \ZZ$).
-
-                        Kako ``priložiti'' podatek o družini? Ena možnost je, da relacijo podamo kot urejeni par $\rel = (R, \mathscr{D})$, kjer $R \subseteq \prod_{X \in \mathscr{D}} X$. Še ena možnost je, da relacijo podamo kot družino preslikav $(\rel \to X)_{X \in \mathscr{D}}$, ki skupaj porodijo inkluzijo $\rel \hookrightarrow \prod_{X \in \mathscr{D}} X$. Ampak načeloma je povsem vseeno, ali vzamemo katero od teh dveh možnosti ali še kaj tretjega. V tej knjigi se ne bomo omejevali na posamičen formalen zapis za relacijo, bo pa seveda v vseh primerih jasno, za katero družino gre.
-                \end{opomba}
-
-                \davorin{Verjetno bi bilo smiselno omeniti še možnost podajanja relacije kot predikat $\prod_{X \in \mathscr{D}} X \to \tvs$.}
-
-                V praksi se povečini uporabljajo relacije med dvema elementoma.
-                \begin{definicija}
-                        \df{Dvomestna} (ali \df{dvojiška} ali \df{binarna}) \df{relacija} $\rel$ med elementi množic $X$ in $Y$ je podmnožica produkta $X \times Y$, skupaj s podatkom o $X$ in $Y$. Za takšno relacijo definiramo:
-                        \begin{itemize}
-                                \item
-                                        množica $X$ je \df{začetna množica} ali \df{domena} relacije $\rel$, kar označimo $\dom(\rel)$,
-                                \item
-                                        množica $Y$ je \df{ciljna množica} ali \df{kodomena} relacije $\rel$, kar označimo $\cod(\rel)$,
-                                \item
-                                        \df{območje definiranosti} ali \df{nosilec} relacije $\rel$ je množica $\dd{\rel} \dfeq \set{x \in X}{\some{y \in Y} \rel[x][y]}$ (torej $\dd{\rel} \subseteq \dom(\rel)$),
-                                \item
-                                        \df{zaloga vrednosti} ali \df{slika} \note{razpon?} relacije $\rel$ je množica $\rn{\rel} \dfeq \set{y \in Y}{\some{x \in X} \rel[x][y]}$ (torej $\dd{\rel} \subseteq \cod(\rel)$).
-                        \end{itemize}
-                \end{definicija}
-
-                Skoraj vse relacije, ki nas zanimajo v tej knjigi, so dvomestne. Zato se dogovorimo, da z izrazom ``relacija'' vselej mislimo dvomestno relacijo, razen če je izrecno rečeno drugače.
-
-                Če je $\rel \subseteq X \times Y$ relacija, potemtakem lahko zapišemo, da sta $x \in X$ in $y \in Y$ v relaciji $\rel$ takole: $(x, y) \in \rel$. Ampak to vodi do čudnih zapisov v primeru običajnih relacij, npr.~$(2, 3) \in \mathnormal{<}$. To je bolje zapisati $2 < 3$ in posledično se dogovorimo, da v primeru dvojiške relacije raje uporabljamo zapis $\rel[x][y]$.
-
-                Povečini se še dodatno omejimo na relacije z isto domeno in kodomeno.
-                \begin{definicija}
-                        \df{Dvomestna} (\df{dvojiška}, \df{binarna}) \df{relacija} na množici $X$ je podmnožica produkta $X \times X$, skupaj s podatkom o $X$.
-                \end{definicija}
-
-                Takšne relacije lahko lepo ponazorimo z usmerjenimi grafi. Graf relacije $\rel \subseteq X \times X$ je definiran takole: vozlišča grafa so elementi množice $X$ in za vsaka dva elementa $a, b \in X$, za katera velja $\rel[a][b]$, narišemo puščico od $a$ do $b$.
-
-                \GraphInit[vstyle = Normal]
-                \tikzset
-                {
-                        EdgeStyle/.append style = {->, bend left}
-                }
-
-                \begin{zgled}\label{zgled:graf-relacije}
-                        Naj bo $X = \set{A, B, C, D, E, F}$ in naj bo
-                        \[\rel \dfeq \set{...}\]
-                        relacija na $X$. Njen graf je videti takole.
-
-                        \note{graf relacije $\rel$}
-                        %\begin{center}
-                                %\begin{tikzpicture}
-                                        %\SetGraphUnit{3}
-                                        %\Vertex[Math=true, x=0, y=0]{A}
-                                        %\Vertex[Math=true, x=3, y=2]{B}
-                                        %\Vertex[Math=true, x=2, y=-3]{C}
-                                        %\Vertex[Math=true, x=6, y=1]{D}
-                                        %\Vertex[Math=true, x=8, y=-1]{E}
-                                        %\Vertex[Math=true, x=10, y=2]{F}
-                                        %
-                                        %\Edge(A)(B)
-                                        %\Loop[dist = 5em, dir = EA](B)
-                                %\end{tikzpicture}
-                        %\end{center}
-                        %\davorin{izgled grafa je še treba popraviti}
-                \end{zgled}
-
-
-        \section{Operacije z relacijami}\label{razdelek:operacije-z-relacijami}
-
-                Običajno je, da iz že danih matematičnih objektov lahko skonstruiramo nove s pomočjo določenih operacij. Z relacijami ni nič drugače; v tem razdelku si bomo ogledali običajne operacije na relacijah.
-
-                Ker so relacije podmnožice, imamo za začetek vse operacije na podmnožicah. Torej, za poljubno družino $(\rel_i)_{i \in I}$ podmnožic produkta $X \times Y$ sta tudi unija $\bigcup_{i \in I} \rel_i$ in presek $\bigcap_{i \in I} \rel_i$ relaciji. Če je $\rel \subseteq X \times Y$ relacija, je njena komplementarna relacija $\complement{\rel} = X \times Y \setminus \rel \ \subseteq \ X \times Y$.
-
-                Posebej imamo \df{prazno relacijo} $\emptyset \subseteq X \times Y$ (nobena dva elementa nista v relaciji) in \df{polno relacijo} $X \times Y \subseteq X \times Y$ (vsaka dva elementa sta v relaciji), ki sta si medsebojno komplementarni.
-
-                Poleg operacij, ki jih relacije podedujejo od podmnožic, imamo še operacije, ki upoštevajo produktno strukturo.
-
-                Če so $X$, $Y$, $Z$ množice in $\rel \subseteq X \times Y$, $\srel \subseteq Y \times Z$ relaciji, tedaj je \df{sklop} (\df{kompozicija}, \df{kompozitum}) \df{relacij} definiran kot
-                \[\srel \circ \rel \dfeq \set[1]{(x, z) \in X \times Z}{\some{y}[Y]{\rel[x][y] \land \srel[y][z]}}\]
-                (po vzoru preslikav tudi sklop relacij pišemo v obratnem vrstnem redu; glej razdelek~\ref{razdelek:izpeljava-preslikav-iz-relacij}). Opazimo: domena $\srel \circ \rel$ je domena $\rel$, kodomena $\srel \circ \rel$ je kodomena $\srel$. Sklapljanje je asociativna operacija, torej pri sklopu več relacij oklepaji niso pomembni.
-
-                \begin{naloga}
-                        Dokaži, da je sklapljanje relacij asociativno!
-                \end{naloga}
-
-                Večkraten sklop relacije $\rel \subseteq X \times X$ same s sabo označimo
-                \[\rel^n \dfeq \underbrace{\rel \circ \rel \circ \ldots \circ \rel}_{\text{$n$ $\rel$-jev}}\]
-                za $n \in \NN_{\geq 2}$. Seveda je smiselno definirati, da je $\rel^1$ enak $\rel$ in da je $\rel^0$ relacija enakosti na množici $X$, saj je to enota za sklapljanje relacij na $X$, tj.~$=_X \circ \rel = \rel = \rel \circ =_X$ (premisli, da je to res!).
-
-                \begin{zgled}
-                        Naj bo $\rel \subseteq X \times X$ relacija. Tedaj iz grafa relacije zlahka razberemo, kaj je $\rel^n$: elementa $a, b \in X$ sta v relaciji $\rel^n$ natanko tedaj, ko imamo pot dolžine $n$ od $a$ do $b$ (to deluje tudi za $n = 1$ in $n = 0$). Naj primer, če je $\rel$ relacija iz zgleda~\ref{zgled:graf-relacije}, tedaj graf relacije $\rel^3$ izgleda takole.
-
-                        \note{graf $\rel^3$}
-                \end{zgled}
-
-                Za poljubno relacijo $\rel \subseteq X \times Y$ definiramo \df{obratno} (\df{inverzno}) \df{relacijo} kot
-                \[\rel^{-1} \dfeq \set{(y, x) \in Y \times X}{\rel[x][y]}\]
-                (torej ima obratna relacija glede na izvorno zamenjano domeno in kodomeno). Posledično lahko za poljubno relacijo $\rel \subseteq X \times X$ definiramo njeno potenco s poljubno celo stopnjo: $\rel^{-n} \dfeq (\rel^{-1})^n = (\rel^n)^{-1}$.
-
-                \begin{naloga}
-                        Preveri, da velja $(\srel \circ \rel)^{-1} = \rel^{-1} \circ \srel^{-1}$!
-                \end{naloga}
-
-                \begin{zgled}
-                        Graf relacije, ki je obratna relaciji $\rel \subseteq X \times X$, dobimo tako, da v grafu relacije $\rel$ obrnemo puščice. Na primer, če je $\rel$ relacija iz zgleda~\ref{zgled:graf-relacije}, tedaj je graf relacije $\rel^{-1}$ videti takole.
-
-                        \note{graf $\rel^{-1}$}
-                \end{zgled}
-
-                \begin{zgled}
-                        Naj bo $L$ množica ljudi. Vpeljimo oznake za naslednje relacije na $L$:
-                        \begin{itemize}
-                                \item
-                                        $\texttt{St}$ je relacija ``je starš od'',
-                                \item
-                                        $\texttt{Oč}$ je relacija ``je oče od'',
-                                \item
-                                        $\texttt{Ma}$ je relacija ``je mati od'',
-                                \item
-                                        $\texttt{Si}$ je relacija ``je sin od'',
-                                \item
-                                        $\texttt{Hč}$ je relacija ``je hči od'',
-                                \item
-                                        $\texttt{Br}$ je relacija ``je brat od'',
-                                \item
-                                        $\texttt{Se}$ je relacija ``je sestra od''
-                        \end{itemize}
-
-                        Na primer: Marko $\texttt{Br}$ Metka pomeni ``Marko je brat od Metke.'' (oz.~v lepši slovenščini ``Marko je Metkin brat.'').
-
-                        Velja med drugim:
-
-                        \begin{tabular}{l}
-                                $\texttt{Oč} \cup \texttt{Ma} = \texttt{St}$, \\
-                                $\texttt{St} \circ \texttt{St} = \texttt{St}^2 = \text{``je stari starš od''}$, \\
-                                $\texttt{St} \circ \texttt{Br} = \text{``je stric od''}$, \\
-                                $\texttt{Br} \cup \texttt{Se} = \text{``je sorojenec od''}$, \\
-                                $\texttt{St}^{-1} = \text{``je otrok od''}$, \\
-                                $\bigcup_{n \in \NN_{\geq 1}} \texttt{St}^n = \text{``je prednik od''}$, \\
-                                $\bigcup_{n \in \NN_{\geq 1}} \texttt{St}^{-n} = \text{``je potomec od''}$, \\
-                                $\texttt{St} \circ (\texttt{Br} \cup \texttt{Se}) \circ \texttt{Hč} = \text{``je sestrična od''}$.
-                        \end{tabular}
-
-                        Sklapljanje relacij ni komutativno; na primer $\texttt{Ma} \circ \texttt{Oč}$ je stari oče po materini strani, $\texttt{Oč} \circ \texttt{Ma}$ pa stara mama po očetovi strani.
-
-                        \davorin{V tem zgledu sicer predpostavljamo, da je vsaka oseba bodisi moškega bodisi ženskega spola, kar ni čisto res. Ima kdo kakšno idejo, kako se temu izogniti (in še vedno imeti lahko razumljiv zgled)?}
-                \end{zgled}
-
-                \note{Na smiselnem mestu omenimo še zožitve relacij (tako domene kot kodomene).}
-
-
-        \section{Lastnosti relacij}\label{razdelek:lastnosti-relacij}
-
-                Vemo, da so na primer racionalna števila uporabnejša od celih, saj lahko v okviru njih dodatno delimo --- z drugimi besedami, racionalna števila imajo več uporabne \emph{strukture} oz.~več uporabnih \emph{lastnosti}. Podobno za relacije obstajajo lastnosti, ki so se skozi prakso izkazale za zelo uporabne. Nekatere izmed njih si bomo ogledali v tem razdelku.
-
-                Vse sledeče lastnosti se nanašajo na dvomestno relacijo z isto domeno in kodomeno.
-
-                \begin{definicija}
-                        Naj bo $\rel \subseteq X \times X$ relacija.
-                        \begin{itemize}
-                                \item
-                                        Relacija $\rel$ je \df{povratna} (ali \df{refleksivna}), kadar velja
-                                        \[\all{x \in X} \rel[x][x],\]
-                                        tj.~vsak element je v relaciji s samim sabo.
-                                \item
-                                        Relacija $\rel$ je \df{nepovratna} (ali \df{irefleksivna}), kadar velja
-                                        \[\all{x \in X} \lnot(\rel[x][x]),\]
-                                        tj.~noben element ni v relaciji s samim sabo.
-                                \item
-                                        Relacija $\rel$ je \df{somerna} (ali \df{simetrična}), kadar velja
-                                        \[\all{x, y \in X} (\rel[x][y] \implies \rel[y][x]),\]
-                                        tj.~če je en element v relaciji z drugim, je tudi drugi s prvim.
-                                \item
-                                        Relacija $\rel$ je \df{protisomerna} (ali \df{antisimetrična}), kadar velja
-                                        \[\all{x, y \in X} (\rel[x][y] \land \rel[y][x] \implies x = y),\]
-                                        tj.~dva elementa sta obojestransko v relaciji samo v primeru, če gre za en in isti element.
-
-                                        \davorin{Mogoče pretiravam s slovenskimi imeni\ldots}
-                                \item
-                                        Relacija $\rel$ je \df{nesomerna} (ali \df{asimetrična}), kadar velja
-                                        \[\all{x, y \in X} (\lnot(\rel[x][y] \land \rel[y][x])),\]
-                                        tj.~nobena dva elementa nista obojestransko v relaciji.
-                                \item
-                                        Relacija $\rel$ je \df{prehodna} (ali \df{tranzitivna}), kadar velja
-                                        \[\all{x, y, z \in X} (\rel[x][y] \land \rel[y][z] \implies \rel[x][z]),\]
-                                        tj.~če je en element v relaciji z drugim in drugi s tretjim, je tudi prvi v relaciji s tretjim.
-                                \item
-                                        Relacija $\rel$ je \df{neprehodna} (ali \df{intranzitivna}), kadar velja
-                                        \[\all{x, y, z \in X} \lnot(\rel[x][y] \land \rel[y][z] \land \rel[x][z]),\]
-                                        tj.~če je en element v relaciji z drugim in drugi s tretjim, prvi ne more tudi biti v relaciji s tretjim.
-                                \item
-                                        Relacija $\rel$ je \df{enolična}, kadar velja
-                                        \[\all{x, y, z \in X} (\rel[x][y] \land \rel[x][z] \implies y = z),\]
-                                        tj.~vsak element je v relaciji s kvečjemu enim elementom.
-                                \item
-                                        Relacija $\rel$ je \df{celovita}, kadar velja
-                                        \[\all{x \in X} \some{y \in Y} \rel[x][y],\]
-                                        tj.~vsak element je v relaciji z vsaj enim elementom, se pravi $\dd{f} = \dom(f)$.
-                                \item
-                                        Relacija $\rel$ je \df{sovisna}, kadar velja
-                                        \[\all{x, y \in X} (x \neq y \implies \rel[x][y] \lor \rel[y][x]),\]
-                                        tj.~za vsaka dva različna elementa velja, da je vsaj eden od njiju v relaciji z drugim.
-                                \item
-                                        Relacija $\rel$ je \df{strogo sovisna}, kadar velja
-                                        \[\all{x, y \in X} (\rel[x][y] \lor \rel[y][x]),\]
-                                        tj.~za vsaka dva elementa velja, da je vsaj eden od njiju v relaciji z drugim.
-                        \end{itemize}
-                \end{definicija}
-
-                \begin{zgled}
-                        Za nekaj običajnih relacij si oglejmo njihove lastnosti.
-                        \begin{itemize}
-                                \item
-                                        Relacija $\leq$ na $\NN$, $\ZZ$, $\QQ$, $\RR$ je refleksivna, antisimetrična, tranzitivna in strogo sovisna.
-                                \item
-                                        Relacija $<$ na $\NN$, $\ZZ$, $\QQ$, $\RR$ je irefleksivna, asimetrična, tranzitivna in sovisna.
-                                \item
-                                        Relacija deljivosti $|$ na $\NN_{\geq 1}$ je refleksivna, antisimetrična in tranzitivna.
-                                \item
-                                        Relacija $\subseteq$ na $\pst(X)$ je refleksivna, antisimetrična in tranzitivna.
-                                \item
-                                        Relacija enakosti $=_X$ na katerikoli množici $X$ je refleksivna, simetrična, antisimetrična, tranzitivna in enolična.
-                        \end{itemize}
-                \end{zgled}
-
-                Lastnosti operacij smo podali z izjavami, ampak lahko jih na ekvivalenten način podamo z operacijami ali lastnostmi grafa --- glej tabelo~\ref{tabela:lastnosti-relacije}.
-
-                \begin{table}[!ht]
-                        \centering
-                        \newcommand{\opis}[1]{\begin{minipage}{0.45\textwidth}\begin{center}{#1}\end{center}\end{minipage}}
-                        \def\arraystretch{3}
-                        \begin{tabular}{|ccc|}
-                                \hline
-                                \textbf{Lastnost relacije} & \textbf{Izražava z operacijami} & \textbf{Lastnost grafa} \\
-                                \hline
-                                refleksivnost & $=_X \subseteq \rel$ & \opis{Vsako vozlišče ima zanko.} \\
-                                irefleksivnost & $=_X \cap \rel = \emptyset$ & \opis{Nobeno vozlišče nima zanke.} \\
-                                simetričnost & $\rel = \rel^{-1}$ & \opis{Vsaka puščica ima nasprotno puščico.} \\
-                                antisimetričnost & $\rel \cap \rel^{-1} \subseteq =_X$ & \opis{Edine puščice z nasprotnimi puščicami so zanke.} \\
-                                asimetričnost & $\rel \cap \rel^{-1} = \emptyset$ & \opis{Nobena puščica nima nasprotne puščice.} \\
-                                tranzitivnost & $\rel^2 \subseteq \rel$ & \opis{Za vsako pot pozitivne dolžine obstaja puščica, ki gre od začetka do konca poti.} \\
-                                intranzitivnost & $\rel^2 \cap \rel = \emptyset$ & \opis{Za nobeno pot pozitivne dolžine ne obstaja puščica, ki gre od začetka do konca poti.} \\
-                                enoličnost & $\rel \circ \rel^{-1} \subseteq =_X$ & \opis{Iz vsakega vozlišča gre kvečjemu ena puščica.} \\
-                                celovitost & $=_X \subseteq \rel^{-1} \circ \rel$ & \opis{Iz vsakega vozlišča gre vsaj ena puščica.} \\
-                                sovisnost & $=_X \cup \rel \cup \rel^{-1} = X$ & \opis{Vsaki dve različni vozlišči sta povezani s puščico.} \\
-                                stroga sovisnost & $\rel \cup \rel^{-1} = X$ & \opis{Vsaki dve vozlišči sta povezani s puščico.} \\
-                                \hline
-                        \end{tabular}
-                        \caption{Lastnosti relacije $\rel \subseteq X \times X$ in njihove karakterizacije}\label{tabela:lastnosti-relacije}
-                \end{table}
-
-                \begin{naloga}
-                        Dokaži, da so vse karakterizacije v vsaki vrstici tabele~\ref{tabela:lastnosti-relacije} res ekvivalentne!
-                \end{naloga}
-
-                Marsikdaj imamo sledeči problem: za določene pare elementov $(x_i, y_i)_{i \in I}$ hočemo, da so v neki relaciji in relacija mora zadoščati predpisani lastnosti. Kako definirati takšno relacijo? Smiselna izbira je vzeti najmanjšo relacijo s predpisano lastnostjo, ki vsebuje vse $(x_i, y_i)$. V ta namen definiramo pojem ogrinjače relacij.
-
-                \begin{definicija}
-                        Naj bo $\rel \subseteq X \times X$ relacija in $\mathscr{L}$ lastnost relacij na $X$. Najmanjša relacija na $X$, ki vsebuje $\rel$ in ima lastnost $\mathscr{L}$, se imenuje \df{$\mathscr{L}$-ogrinjača} ali \df{$\mathscr{L}$-ovojnica} relacije $\rel$.
-                \end{definicija}
-
-                Ogrinjača relacije je dobro definirana (v smislu, da je enolično določena): če imamo dve relaciji $\rel$ in $\srel$, ki obe vsebujeta dano relacijo in imata lastnost $\mathscr{L}$ ter sta najmanjši taki, mora potem veljati, da sta vsebovani ena v drugi, tj.~$\rel \subseteq \srel$ in $\srel \subseteq \rel$, kar pomeni, da sta enaki.
-
-                Ni pa nujno, da ogrinjača dane relacije za dano lastnost sploh obstaja --- na primer, irefleksivna ogrinjača ne obstaja za nobeno relacijo, ki ni že sama po sebi irefleksivna (premisli, zakaj). Seveda, če relacija je irefleksivna, tedaj je svoja lastna irefleksivna ogrinjača. To očitno velja v splošnem: če ima relacija lastnost $\mathscr{L}$, je enaka svoji $\mathscr{L}$-ogrinjači.
-
-                Premislimo, kdaj smo lahko gotovi, da ogrinjača obstaja.
-
-                \begin{definicija}
-                        Naj bo $X$ množica in $\mathscr{L}$ lastnost relacij na $X$. Rečemo, da je $\mathscr{L}$ \df{presečno dedna}, kadar velja: poljuben presek relacij na $X$ z lastnostjo $\mathscr{L}$ prav tako ima lastnost $\mathscr{L}$.
-                \end{definicija}
-
-                \begin{naloga}\label{naloga:presecna-dednost-zaprta-za-konjunkcije}
-                        Dokaži: konjunkcija končno mnogo presečno dednih lastnosti relacij na dani množici je presečno dedna.
-                \end{naloga}
-
-                \begin{trditev}\label{trditev:obstoj-ogrinjace-iz-presecne-dednosti}
-                        Če je $\mathscr{L}$ presečno dedna lastnost relacij na $X$, tedaj za vsako relacijo $\rel$ na $X$ obstaja njena $\mathscr{L}$-ogrinjača, in sicer je enaka preseku vseh relacij na $X$, ki vsebujejo $\rel$ in imajo lastnost $\mathscr{L}$.
-                \end{trditev}
-
-                \begin{proof}
-                        Naj bo $\srel$ presek vseh relacij na $X$, ki vsebujejo $\rel$ in imajo lastnost $\mathscr{L}$. Posledično je $\srel$ vsebovana v vseh relacijah na $X$ z lastnostjo $\mathscr{L}$, ki vsebujejo $\rel$. Ker je $\mathscr{L}$ presečno dedna lastnost, jo ima tudi $\srel$. Prav tako $\srel$ vsebuje $\rel$. Torej je $\srel$ $\mathscr{L}$-ogrinjača $\rel$.
-                \end{proof}
-
-                Kako pa vemo, kdaj je lastnost presečno dedna? Včasih lahko to razberemo kar iz oblike logične formule, s katero je lastnost podana.
-
-                \begin{izrek}\label{izrek:presecna-dednost-iz-logicne-oblike}
-                        Naj bo $\mathscr{L}$ lastnost relacij na množici $X$, ki jo lahko za poljubno relacijo $\rel$ podamo z zapisom oblike
-                        \[\all{x_1, x_2, \ldots, x_n \in X} (\phi(\rel, x_1, x_2, \ldots, x_n) \implies \psi(\rel, x_1, x_2, \ldots, x_n)),\]
-                        kjer sta $\phi(\rel, x_1, x_2, \ldots, x_n)$ in $\psi(\rel, x_1, x_2, \ldots, x_n)$ konjunkciji končno mnogo členov oblike $\rel[x_i][x_j]$ --- v posebnem primeru je lahko $\phi(\rel, x_1, x_2, \ldots, x_n)$ konjunkcija nič členov in potem je $\mathscr{L}$ podana z zapisom oblike
-                        \[\all{x_1, x_2, \ldots, x_n \in X} \psi(\rel, x_1, x_2, \ldots, x_n).\]
-                        Tedaj je $\mathscr{L}$ presečno dedna lastnost in torej ima vsaka relacija na $X$ $\mathscr{L}$-ogrinjačo.
-                \end{izrek}
-
-                \begin{proof}
-                        Naj bo $(\rel_i)_{i \in I}$ poljubna družina relacij na $X$ z lastnostjo $\mathscr{L}$ in naj bo $\rel \dfeq \bigcap_{i \in I} \rel_i$ njen presek. Dokazujemo, da $\mathscr{L}$ velja za $\rel$.
-
-                        Vzemimo poljubne $x_1, x_2, \ldots, x_n \in X$, za katere velja $\phi(\rel, x_1, x_2, \ldots, x_n)$. Ker je $\phi(\rel, x_1, x_2, \ldots, x_n)$ konjunkcija členov oblike $\rel[x_i][x_j]$, velja tudi $\phi(\rel_i, x_1, x_2, \ldots, x_n)$ za vsak $i \in I$. Po predpostavki torej velja $\psi(\rel_i, x_1, x_2, \ldots, x_n)$ za vsak $i \in I$.
-
-                        Vzemimo poljuben člen $\rel[x_a][x_b]$ iz $\psi(\rel, x_1, x_2, \ldots, x_n)$. Videli smo, da velja $x_a \mathrel{\rel_i} x_b$ za vsak $i \in I$, torej velja $\rel[x_a][x_b]$.
-
-                        Vidimo, da pod našimi predpostavkami velja $\psi(\rel, x_1, x_2, \ldots, x_n)$. Sklenemo, da velja lastnost $\mathscr{L}$ za relacijo $\rel$.
-                \end{proof}
-
-                \begin{posledica}\label{posledica:obstoj-ogrinjac}
-                        Za naslednje lastnosti relacij (in njihovo poljubno konjunkcijo) vselej obstaja ogrinjača: refleksivnost, simetričnost, tranzitivnost.
-                \end{posledica}
-
-                \begin{proof}
-                        Vse izmed naštetih lastnosti se po definiciji dajo zapisati v obliki iz izreka~\ref{izrek:presecna-dednost-iz-logicne-oblike}. Za njihovo konjunkcijo glej še vajo~\ref{naloga:presecna-dednost-zaprta-za-konjunkcije} in trditev~\ref{trditev:obstoj-ogrinjace-iz-presecne-dednosti}.
-                \end{proof}
-
-                \begin{naloga}
-                        Dokaži, da za poljubno relacijo $\rel$ na množici $X$ velja spodnja tabela!
-                        \begin{center}
-                                \begin{tabular}{|c|c|}
-                                        \hline
-                                        \textbf{Lastnost} & \textbf{Ogrinjača relacije $\rel$} \\
-                                        \hline
-                                        refleksivnost & $\rel \cup =_X$ \\
-                                        simetričnost & $\rel \cup \rel^{-1}$ \\
-                                        tranzitivnost & $\bigcup_{n \in \NN_{\geq 1}} \rel^n$ \\
-                                        \hline
-                                \end{tabular}
-                        \end{center}
-                \end{naloga}
-
-                \note{ena izmed nalog: Za relacijo $\rel[n][(n+1)]$ na $\NN$ (ali $\ZZ$) preveri, da je njena tranzitivna ogrinjača $<$.}
-
-
-        \section{Izpeljava preslikav iz relacij}\label{razdelek:izpeljava-preslikav-iz-relacij}
-
-                Ko definiramo temeljne matematične pojme, imamo določeno mero izbire, kaj vzamemo za izvoren pojem, kaj pa definiramo s pomočjo drugih pojmov. V tej knjigi smo od začetka vzeli preslikave za bolj osnoven pojem in relacije lahko definiramo s pomočjo preslikav (kot omenjeno v opombi~\ref{opomba:definicija-relacij}, relacijo lahko definiramo kot družino preslikav), lahko pa postopamo tudi obratno --- pojem preslikave izpeljemo iz pojma relacije. Kako to gre, si bomo ogledali v tem razdelku.
-
-                \begin{definicija}
-                        \df{Delna preslikava} (ali \df{delna funkcija} ali \df{parcialna funkcija}) je enolična dvomestna relacija.
-                \end{definicija}
-
-                Kot dvomestna relacija ima vsaka delna preslikava določeno domeno, kodomeno, nosilec in zalogo vrednosti. Če je $f$ delna preslikava z domeno $X$ in kodomeno $Y$, to zapišemo kot $f\colon X \parto Y$.
-
-                V primeru delne preslikave podmnožico produkta domene in kodomene, ki določa relacijo, označimo z $\graph{f}$ in imenujemo \df{graf} delne preslikave $f$ (ne zamešaj tega s prej definiranim pojmom grafa relacije --- prejšnji pojem je pomenil graf v smislu teorije grafov, sedanji pojem pa graf v smislu preslikav). Delna preslikava je torej v celoti podana z informacijo o domeni, kodomeni in grafu.
-
-                Ideja je, da za delno preslikavo $f\colon X \parto Y$ za vsak $x \in \dd{f}$ obstaja natanko en $y \in Y$, s katerim je $x$ v relaciji. To potem zapišemo $f(x) = y$. Torej, če je $x$ v definicijskem območju, rečemo, da je $f(x)$ definiran, kar zapišemo $\isdefined{f(x)}$, in v tem primeru je $f(x)$ enak vrednosti, s katero je $x$ v relaciji. V nasprotnem primeru rečemo, da $f(x)$ ni definiran.
-
-                Če imamo dve vrednosti, ki morda nista definirani, ni posebej smiselno pisati enakosti med njima. Smiselna relacija med njima je \df{Kleenejeva enakost}, kar pišemo $f(x) \kleq g(y)$, kar pomeni naslednje: leva stran $f(x)$ je definirana natanko tedaj, ko je definirana desna stran $g(y)$, in če sta obe definirani, sta enaki.
-
-                \begin{zgled}
-                        Deljenje na realnih številih lahko obravnavamo kot delno preslikavo $/\colon \RR \times \RR \parto \RR$; njen nosilec je $\dd{/} = \RR \times \RR_{\neq 0}$. Za vsak $x \in \RR$ velja $\frac{x}{x^2} \kleq \frac{1}{x}$, ne pa tudi $\frac{x^2}{x} \kleq x$ (premisli, zakaj).
-                \end{zgled}
-
-                \begin{zgled}
-                        Delne preslikave so zelo uporabne v računalništvu. Za algoritme pričakujemo, da jim podamo vhodne podatke in bodo potem vrnili želene izhodne podatke. Zgodi se pa lahko, da se algoritem pri nekaterih vhodnih podatkih nikoli ne ustavi (ali javi napako), se pravi, ne dobimo rezultata. Če je $P$ množica možnih podatkov, lahko poljuben algoritem obravnavamo kot delno preslikavo $P \parto P$.\footnote{Natančneje, to velja za deterministične algoritme (takšne, ki se pri enakih vhodnih podatkih vedno enako obnašajo). V primeru nedeterminističnih algoritmov dobimo splošno relacijo na $P$.}
-
-                        Izkaže se, da za nekatere probleme ne obstaja računski postopek, ki bi pri vseh možnih vnosih vrnil pravilen odgovor. Primer tega je \df{problem zaustavitve}: želimo algoritem, ki kot vhodna podatka sprejme poljuben algoritem in poljuben vnos ter se odloči, ali se dani algoritem pri danem vnosu ustavi. Kakršenkoli program, ki sprejme takšna podatka in nikoli ne vrne napačnega rezultata, nujno določa delno preslikavo, ki ni povsod definirana. \davorin{Verjetno bomo nekje hoteli imeti razdelek o diagonalizaciji; morda lahko tja dodamo dokaz te trditve.}
-                \end{zgled}
-
-                \begin{definicija}
-                        \df{Preslikava} (ali \df{funkcija}) je celovita (z drugimi besedami, povsod definirana) delna preslikava. Če je domena preslikave $f$ množica $X$ in kodomena množica $Y$, to zapišemo kot $f\colon X \to Y$.
-                \end{definicija}
-
-                Seveda lahko vsako delno preslikavo zožimo do preslikave: delna preslikava $f\colon X \parto Y$ porodi preslikavo $\rstr{f}_{\dd{f}}\colon \dd{f} \to Y$.
-
-                \begin{naloga}
-                        Operacijo sklapljanja $\circ$ smo definirali za splošne relacije (razdelek~\ref{razdelek:operacije-z-relacijami}). Preveri, da se ta definicija ujema z običajno definicijo sklapljanja preslikav. Premisli še, kaj je sklop delnih preslikav.
-                \end{naloga}
-
-
-        \section{Relacije urejenosti}\label{razdelek:relacije-urejenosti}
-
-                Že od začetka tega poglavja kot klasične primere relacij podajamo razne urejenosti, kot $\leq$ in $<$. V tem razdelku si bomo ogledali, kakšne lastnosti morajo imeti relacije, da na določen način ``urejajo'' množico.
-
-                Sledeča definicija povzame štiri tipične primere relacij urejenosti.
-
-                \begin{definicija}
-                        Naj bo $X$ množica in $\preceq$ relacija na $X$. Tedaj:
-                        \begin{itemize}
-                                \item
-                                        relacija $\preceq$ je \df{šibka urejenost}, kadar je refleksivna in tranzitivna,
-                                \item
-                                        relacija $\preceq$ je \df{delna urejenost}, kadar je antisimetrična šibka urejenost (tj.~refleksivna, tranzitivna, antisimetrična),
-                                \item
-                                        relacija $\preceq$ je \df{linearna urejenost}, kadar je strogo sovisna delna urejenost (tj.~refleksivna, tranzitivna, antisimetrična, strogo sovisna),
-                                \item
-                                        relacija $\preceq$ je \df{stroga linearna urejenost}, kadar je irefleksivna, tranzitivna in sovisna.
-                        \end{itemize}
-                        \davorin{Poimenovanja v zvezi s sovisnostjo in strogostjo sem povzel po trenutnih predavanjih iz Logike in množic, ampak mislim, da bi se strogost lahko naredila bolj konsistentna.}
-                \end{definicija}
-
-                V tej definiciji smo uporabili znak $\preceq$ za relacijo. Pogosto uporabimo kakšen takšen znak, če hočemo sugerirati, da gre za relacijo urejenosti.
-
-                Tipična primera linearne oz.~stroge linearne urejenosti sta relaciji $\leq$ in $<$ na številskih množicah $\NN$, $\ZZ$, $\QQ$, $\RR$. Tipičen primer delne urejenosti je relacija inkluzije $\subseteq$ na katerikoli potenčni množici $\pst(X)$ (če ima $X$ vsaj dva elementa, ta relacija ne bo linearna).
-
-                Primere šibkih urejenosti pogosto dobimo na sledeči način. Naj bo $f\colon X \to Y$ preslikava in $\preceq_Y$ neka relacija urejenosti na $Y$. Za poljubna $a, b \in X$ definirajmo
-                \[a \preceq_X b \dfeq f(a) \preceq_Y f(b).\]
-                Tudi če je $\preceq_Y$ močnejše vrste relacija --- delna ali linearna urejenost --- je relacija $\preceq_X$ v splošnem zgolj šibka urejenost na $X$.
-
-                \note{še več primerov}
-
-                \note{razlaga imen relacij}
-
-                \note{najmanjši/največji, minimalni/maksimalni elementi, natančne meje}
-
-
-        \section{Ekvivalenčne relacije in kvocientne množice}
-
-                Ena temeljnih matematičnih dejavnosti je \df{abstrakcija} \davorin{pojmovanje?}, tj.~iz posamičnih primerov izluščimo njihovo temeljno, bistveno lastnost in potem delamo s to lastnostjo. \davorin{To je pomembna stvar. Dajmo to razlago čimbolj izboljšati.} Na primer, vemo, kaj pomeni ``pet rac'', ``pet avtov'', ``pet sekund'', ampak kaj pomeni ``pet''?
-
-                V tem razdelku si bomo ogledali, kako lahko formalno abstrahiramo pojme s posamičnih primerov s pomočjo ekvivalenčnih relacij.
-
-                \begin{definicija}
-                        \df{Ekvivalenčna relacija} je relacija, ki je refleksivna, simetrična in tranzitivna.
-                \end{definicija}
-
-                Ekvivalenčne relacije tipično označimo z $\equ$ (obstaja več načinov, kako to preberemo: vijuga, tilda, kača\ldots) ali čim podobnim.
-
-                \begin{zgled}
-                        Vsaka množica $X$ ima najmanjšo ekvivalenčno relacijo --- enakost $=_X$ --- in največjo --- polno relacijo $X \times X$.
-                \end{zgled}
-
-                \begin{zgled}
-                        Za poljubni celi števili $a, b \in \ZZ$ definiramo: $a$ je v relaciji z $b$, kadar sta $a$ in $b$ iste parnosti. To določa ekvivalenčno relacijo na $\ZZ$.
-                \end{zgled}
-
-                Za poljubno relacijo $\rel \subseteq X \times X$ in poljuben $a \in X$ lahko definiramo
-                \[\ec[\rel]{a} \dfeq \set{x \in X}{\rel[a][x]}.\]
-                Torej, $\ec[\rel]{a}$ sestoji iz vseh elementov, s katerimi je $a$ v relaciji. V primeru, da imamo ekvivalenčno relacijo $\equ$, imenujemo množico $\ec[\equ]{a}$ \df{ekvivalenčni razred} elementa $a$. Kadar je jasno, za katero ekvivalenčno relacijo gre, pogosto ekvivalenčne razrede krajše označujemo kar z $\ec{a}$.
-
-                Bistvo ekvivalenčne relacije je, da ekvivalenčni razredi tvorijo razdelitev množice.
-
-                \davorin{Razdelitev množice bomo verjetno definirali že prej, najbrž pri vsotah množic. Če ne, potem na tem mestu pride še definicija razdelitve.}
-
-                \begin{izrek}[ekvivalenčne relacije natanko ustrezajo razdelitvam]
-                        Naj bo $X$ poljubna množica.
-                        \begin{enumerate}
-                                \item
-                                        Naslednji trditvi sta ekvivalentni za vsako relacijo $\rel$ na $X$.
-                                        \begin{enumerate}
-                                                \item
-                                                        $\rel$ je ekvivalenčna relacija.
-                                                \item
-                                                        $\set[1]{\ec[\rel]{a}}{a \in X}$ je razdelitev množice $X$.
-                                        \end{enumerate}
-                                \item
-                                        Za vsako razdelitev množice $X$ obstaja enolično določena ekvivalenčna relacija $\equ$ na $X$, tako da je razdelitev enaka $\set[1]{\ec[\equ]{a}}{a \in X}$.
-                        \end{enumerate}
-                \end{izrek}
-
-                \begin{proof}
-                        \begin{enumerate}
-                                \item
-                                        \begin{implproof}{\text{\textit{a}}}{\text{\textit{b}}}
-                                        \end{implproof}
-                                        \begin{implproof}{\text{\textit{b}}}{\text{\textit{a}}}
-                                        \end{implproof}
-                                \item
-                        \end{enumerate}
-                        \note{dokončaj dokaz}
-                \end{proof}
-
-                Če je $\equ$ ekvivalenčna relacija na množici $X$, tedaj množico vseh njenih ekvivalenčnih razredov označimo z
-                \[X/_\equ \dfeq \set[1]{\ec{a}}{a \in X}\]
-                in imenujemo \df{kvocientna množica} množice $X$ po relaciji $\equ$.
-
-                \note{kvocientna množica kot množica abstrahiranih pojmov}
-
-                \begin{naloga}
-                        Iz posledice~\ref{posledica:obstoj-ogrinjac} sklepamo, da za vsako relacijo na katerikoli množici obstaja njena ekvivalenčna ogrinjača. Dokaži: če je $\rel$ relacija na množici $X$, tedaj je njena ekvivalenčna ogrinjača enaka
-                        \[\bigcup_{n \in \NN} (\rel \cup \rel^{-1})^n.\]
-                \end{naloga}
-
-                \begin{naloga}
-                        Naj bo $(X, \preceq)$ šibka urejenost. Za poljubna $a, b \in X$ definiramo
-                        \[a \approx b \dfeq a \preceq b \land b \preceq a.\]
-                        \begin{enumerate}
-                                \item
-                                        Preveri, da je $\approx$ ekvivalenčna relacija na množici $X$.
-                                \item
-                                        Na kvocientni množici $X/_\approx$ definiramo relacijo $\leq$ na sledeči način: za poljubna $a, b \in X$ naj velja
-                                        \[\ec{a} \leq \ec{b} \dfeq a \preceq b.\]
-                                        Dokaži, da ta predpis podaja dobro definirano relacijo na $X/_\approx$.
-                                \item
-                                        Dokaži: $(X/_\approx, \leq)$ je delna urejenost.
-                        \end{enumerate}
-                        To je kanoničen način, kako šibko urejenost okrepimo do delne urejenosti.
-                \end{naloga}
-
-                \note{Kakšen zanimiv zgled uporabe te vaje?}
-
-                Ko smo obravnavali bijekcije v razdelku~\ref{razdelek:bijektivnost-in-obratne-preslikave}, smo omenili, zakaj je uporabno imeti obrate preslikav. Težava je seveda, da imajo samo bijekcije obrate (v smislu, da so tudi obrati preslikave --- kot relacije seveda imajo obrate), medtem ko včasih želimo obrniti tudi druge preslikave.
-
-                Vzemimo na primer eksponentno funkcijo $\lam{x} e^x$. Če jo obravnavamo kot preslikavo $\RR \to \RR$, seveda nima obrata, saj ni surjektivna. Ideja je, da zožimo kodomeno do zaloge vrednosti --- preslikava $(\lam{x} e^x) : \RR \to \RR_{> 0}$ je bijektivna in posledično lahko definiramo njen obrat (naravni logaritem) $\ln : \RR_{> 0} \to \RR$.
-
-                To je standarden trik, če preslikava ni surjektivna. Kaj pa, če ni injektivna? Pogosto v tem primeru zožimo še domeno na območje, na katerem je preslikava injektivna. Na primer, preslikavo $(\lam{x} x^2) : \RR \to \RR$ zožimo do bijekcije $(\lam{x} x^2) : \RR_{\geq 0} \to \RR_{\geq 0}$, kjer imamo obrat $(\lam{x} \sqrt{x}) : \RR_{\geq 0} \to \RR_{\geq 0}$.
-
-                Ima pa ta pristop težave. Prvič, v nasprotju z zožanjem kodomene pri zožitvi domene izgubimo določeno količino informacije o preslikavi (kam so se preslikale vrednosti, ki so prej bile v domeni, zdaj pa niso več?). Drugič, izbira zožene domene ni kanonična. Preslikavo $\lam{x} x^2$ bi ravno tako lahko zožili na $\RR_{\leq 0} \to \RR_{\geq 0}$ ali na $\QQ_{\geq 0} \cup (\RR \setminus \QQ)_{\leq 0} \to \RR_{\geq 0}$ ali celo do $\emptyset \to \emptyset$ ali še neskončno drugih možnosti, pri katerih dobimo bijekcijo.
-
-                S pomočjo kvocientov lahko rešimo te probleme in najdemo kanoničen način, kako preslikavo popraviti do injektivne (in če dodamo še zožitev kodomene, do surjektivne in torej v celoti do bijektivne). Vemo že, da sta injektivnost in surjektivnost dualni (razdelek~\ref{razdelek:injektivnost-in-surjektivnost}). Kaj je dualno zožitvi kodomene? Odgovor: kvocient domene. Namreč, če zožimo množico, je tako, kot da jo zdaj gledamo od precej bliže --- vidimo samo manjše območje okoli sebe. Kvocienti počnejo obratno --- tako je, kot če bi množico pogledali od precej daleč. Ne vidimo več posamičnih potez, pač pa se te združijo v bolj splošne oblike. (Seveda se ta dualnost, tako kot pri injektivnosti in surjektivnosti, da utemeljiti tudi formalno matematično. \davorin{Bomo govorili o zožkih in kozožkih?})
-
-                \begin{izrek}[naravna razčlenitev preslikave]
-                        Za vsako preslikavo $f\colon X \to Y$ obstaja (kanonična) razčlenitev
-                        \[f = i \circ \tilde{f} \circ q,\]
-                        kjer je $q$ surjekcija, $\tilde{f}$ bijekcija in $i$ injekcija. Konkretno, $q\colon X \to X/_\equ$ je naravna kvocientna preslikava $q(x) = \ec{x}$, pri čemer je ekvivalenčna relacija $\equ$ na $X$ definirana kot
-                        \[a \equ b \dfeq f(a) = f(b),\]
-                        preslikava $i\colon \rn{f} \hookrightarrow Y$ je vključitev zaloge vrednosti v kodomeno, preslikava $\tilde{f}\colon X/_\equ \to \rn{f}$ pa je v celoti določena s pogojem
-                        \[\tilde{f}([x]) = f(x)\]
-                        (med drugim to pomeni, da sta množici $X/_\equ$ in $\im(f)$ v bijektivni korespondenci). \davorin{To je vir raznih izrekov o izomorfizmih v algebri. A povemo kaj na to temo?}
-
-                        Za ponazoritev, imamo spodnji diagram.
-
-                        \note{diagram s tikz}
-                \end{izrek}
-
-                \begin{proof}
-                        \note{napiši dokaz}
-                \end{proof}
-
-
-\section{Vaje}
-
-
-%%% Local Variables:
-%%% mode: latex
-%%% TeX-master: "ucbenik-lmn"
-%%% End:
+\chapter{Relacije}
+
+\section{Predikati}
+
+\textbf{Predikat} na množici $A$ opredeljuje kako lastnost elementov množice $A$. Če
+je $P$ predikat na $A$ in $x \in A$, potem se je smiselno vprašati, ali $x$
+zadošča predikatu $P$. Odgovor je resničnostna vrednost, ki jo označimo s $P(x)$.
+
+\begin{zgled}
+  Na množici naravnih števil $\NN$ lahko obravnavamo predikat ">je sodo
+  število"<. Tako na primer $4$ zadošča predikatu ">je sodo število"<, $7$ pa mu ne zadošča.
+\end{zgled}
+
+Predikat $P$ na množici $A$ lahko predstavimo na dva načina:
+%
+\begin{itemize}
+\item kot preslikavo $P : A \to \two$, ki slika $x \in A$ v resničnostno vrednost $P(x)$,
+\item kot podmnožico $P \subseteq A$ tistih $x \in A$, za katere velja $P(x)$.
+\end{itemize}
+%
+Oba načina predstavitve sta uporabna, spoznali pa smo že izomorfizem med njima,
+saj velja $\pow{A} \iso \two^A$.
+
+\section{Relacije}
+
+Relacije so večmestni predikati. Se pravi, relacija $R$ opredeljuje kako
+lastnost urejenih večteric kartezičnega produkta $A_1 \times A_2 \times \cdots \times A_n$. Pravimo, da je $R$ \textbf{$n$-člena} ali \textbf{$n$-mestna relacija} na množicah $A_1, …, A_n$.
+
+\begin{zgled}
+  Na množici točk v ravnini lahko obravnavamo relacijo kolinearnosti.
+  To je trimestna relacija: točke $A$, $B$ in $C$ so kolinearne, kadar obstaja
+  premica, ki vsebuje vse tri točke.
+\end{zgled}
+
+Relacijo $R$ na množicah $A_1, \ldots, A_n$ lahko predstavimo na dva načina, podobno
+kot predikate:
+\begin{itemize}
+\item kot preslikavo $R : A_1 \times A_2 \times \cdots \times A_n \to \two$,
+\item kot podmnožico $R \subseteq A_1 \times A_2 \times \cdots \times A_n$.
+\end{itemize}
+%
+Bolj običajna je predstavitev s podmnožicami, zato bomo dejstvo, da je $R$
+relacija na množicah $A_1, \ldots, A_n$, zapisali kar kot $R \subseteq A_1 \times A_2 \times \cdots \times A_n$.
+Za elemente $x_1 \in A_1, \ldots, x_n \in A_n$ dejstvo, da so v relaciji $R$, zapišemo
+$R(x_1, \ldots, x_n)$, včasih pa tudi $(x_1, \ldots, x_n) \in R$.
+
+Na množicah $A_1, \ldots, A_n$ lahko vedno definiramo:
+%
+\begin{itemize}
+\item \textbf{prazno relacijo $\emptyset$}: nobeni elementi niso v prazni relaciji,
+\item \textbf{univerzalno relacijo $A_1 \times A_2 \times \cdots \times A_n$}: vsi elementi so v univerzalni relaciji.
+\end{itemize}
+%
+Univerzalna relacija se imenuje tudi \textbf{polna relacija}.
+
+V praksi so najbolj pogoste \textbf{dvomestne relacije}, se pravi relacije na dveh
+množicah, $R \subseteq A \times B$.
+V tem primeru pravimo množici $A$ \textbf{domena} in $B$ \textbf{kodomena} relacije $R$, relaciji $R$ pa relacija med $A$ in $B$.
+
+Pomembna relacija na množici $A$ je \textbf{enakost} ali \textbf{diagonala} na $A$:
+%
+\begin{equation*}
+    \diag[A] \defeq \set{ (x, y) \in A \times A \such x = y }
+\end{equation*}
+%
+Zakaj ji pravimo diagonala?
+
+Izmed dvočlenih relacij so najbolj pogoste relacije, pri katerih se domena in
+kodomena ujemata, torej $R \subseteq A \times A$. V tem primeru pravimo, da je $R$ \textbf{relacija na množici $A$}.
+
+Denimo, da je $R \subseteq A \times B$ relacija, $x \in A$ in $y \in B$. Dejstvo, da sta $x$ in $y$ v relaciji $R$, zapišemo na enega od načinov
+%
+\begin{equation*}
+  (x, y) \in R
+  \qquad
+  R(x, y)
+  \qquad
+  x \rel{R} y
+\end{equation*}
+%
+Prvi zapis se uporablja, kadar je $R$ podana kot podmnožica $A \times B$, drugi kadar
+podamo~$R$ z logično formulo. Tretji način je tudi pogost, še posebej kadar je
+relacija označena s simbolom kot je $=$, $\neq$, $<$, $>$, $\sqsubseteq$, $\sim$ ipd.
+
+Relacijo lahko predstavimo na več načinov, na primer z logično formulo, z resničnostno tabelo, ali z usmerjenim grafom.
+%
+Z grafom predstavimo $R \subseteq A \times A$ tako, da za vozlišča grafa vzamemo
+elemente množice $A$, nato pa narišemo puščico od $x$ do $y$, kadar velja $x \rel{R} y$.
+
+
+\section{Osnovne lastnosti relacij}
+
+Relacije, ki so pomembne v matematični praksi, imajo pogosto lastnosti, ki jih poimenujemo. Za relacijo $R \subseteq A \times A$ pravimo, da je:
+%
+\begin{itemize}
+  \item \textbf{refleksivna:} $\all{x \in A} x \rel{R} x$,
+  \item \textbf{simetrična:} $\all{x, y \in A} x \rel{R} y \lthen y \rel{R} x$,
+  \item \textbf{antisimetrična:} $\all{x, y \in A} x \rel{R} y \land y \rel{R} x \lthen x = y$,
+  \item \textbf{tranzitivna:} $\all{x, y, z \in A} x \rel{R} y \land y \rel{R} z \lthen x \rel{R} z$,
+  \item \textbf{irefleksivna:} $\all{x \in A} \lnot (x \rel{R} x)$,
+  \item \textbf{asimetrična:} $\all{x, y \in A} x \rel{R} y \lthen \lnot (y \rel{R} x)$,
+  \item \textbf{sovisna:} $\all{x, y \in A} x \neq y \lthen x \rel{R} y \lor y \rel{R} x$,
+  \item \textbf{strogo sovisna:} $\all{x, y \in A} x \rel{R} y \lor y \rel{R} x$.
+\end{itemize}
+%
+
+\begin{vaja}
+  Kako iz usmerjenega grafa relacije razberemo refleksivnost in simetričnost? Kaj pa ostale lastnosti?
+\end{vaja}
+
+\section{Operacije na relacijah}
+
+\subsection{Unija, presek in komplement relacij}
+
+Ker so relacije pravzaprav podmnožice, lahko na njih uporabljamo operacije unija $\cup$,
+presek $\cap$ in komplement $\compl{\Box}$. Denimo, da sta $R, S \subseteq A \times B$ relaciji. Tedaj velja:
+%
+\begin{align*}
+  x \rel{(R \cup S)} y &\iff x \rel{R} y \lor x \rel{S} y, \\
+  x \rel{(R \cap S)} y &\iff x \rel{R} y \land x \rel{S} y, \\
+  x \rel{\compl{R}} y &\iff \lnot (x \rel{R} y).
+\end{align*}
+
+\begin{zgled}
+  Za relacije enakosti in urejenost na realnih številih velja:
+  %
+  \begin{itemize}
+  \item Komplement relacije enakosti $=$ je relacija neenakosti $\neq$.
+  \item Unija relacij $<$ in $>$ na realnih številih je relacija $\neq$.
+  \item Presek relacij $\leq$ in $\geq$ na realnih številih je relacija $=$.
+  \end{itemize}
+\end{zgled}
+
+
+\subsection{Transponirana relacija}
+
+Dvojiške relacije lahko tudi \textbf{transponiramo}. Transponiranka relacije $R \subseteq A \times B$ je relacija $\transpose{R} \subseteq B \times A$, definirana s predpisom
+%
+\begin{equation*}
+    y \rel{\transpose{R}} x \defiff x \rel{R} y
+\end{equation*}
+%
+ali ekvivalentno
+%
+\begin{equation*}
+  \transpose{R} \defeq \set{ (y, x) \in B \times A \such x \rel{R} y }.
+\end{equation*}
+%
+Očitno velja $\transpose{(\transpose{R})} = R$, torej je transponiranje \emph{involucija}.
+
+\begin{zgled}
+  Transpozicija relacije $<$ na realnih številih $\RR$ je relacija $>$ na $\RR$.
+  Komplement relacije $<$ na $\RR$ je relacija $\geq$ na $\RR$.
+\end{zgled}
+
+\subsection{Kompozitum relacij}
+
+Nadalje definiramo \textbf{kompozitum} relacij $R \subseteq A \times B$ in $S \subseteq B \times C$ kot relacijo $S \circ R \subseteq A \times C$, s predpisom
+%
+\begin{equation*}
+    x \rel{(S \circ R)} z \defiff \some{y \in B} x \rel{R} y \land y \rel{S} z
+\end{equation*}
+%a
+ali ekvivalentno
+%
+\begin{equation*}
+  S \circ R \defeq
+  \set{ (x, z) \in A \times C \such \some{y \in B} (x,y) \in R \land (y,z) \in S }.
+\end{equation*}
+%
+Se pravi, da sta $x \in A$ in $z \in C$ v relaciji $S \circ R$, če sta preko $S$ in $R$
+povezana s kakim elementom $y \in B$.
+
+\begin{zgled}
+  Kompozitum relacij ">$x$ je otrok od $y$"< in ">$z$ je mati od $y$"< je relacija
+  ">$z$ je babica od $x$"<.
+\end{zgled}
+
+\begin{izrek}
+  Komponiranje relacij je asociativno in diagonala je enota.
+\end{izrek}
+
+\begin{vaja}
+  Zgornji izrek zapiši bolj natančno, da bo razvidno, kaj so domene in kodomene relacij.
+\end{vaja}
+
+\begin{proof}
+  Najprej dokažimo asociativnost kompozicije.
+  %
+  Naj bo $R \subseteq A \times B$, $S \subseteq B \times C$ in $T \subseteq C \times D$ ter $a \in A$ in $d \in D$. Tedaj velja
+  %
+  \begin{align}
+    a \rel{(T \circ (S \circ R))} d &\iff  \notag \\
+    \some{c \in C} a \rel{(S \circ R)} c \land c \rel{T} d &\iff \notag \\
+    \some{c \in C} (\some{b \in B} a \rel{R} b \land b \rel{S} c) \land c \rel{T} d \label{eq:comp-1}
+  \end{align}
+  %
+  in
+  %
+  \begin{align}
+    a \rel{((T \circ S) \circ R)} d &\iff \notag \\
+    \some{b \in B} a \rel{R} b \land b \rel{(T \circ S)} d &\iff \notag \\
+    \some{b \in B} a \rel{R} b \land (\some{c \in C} b \rel{S} c \land c \rel{T} d) \label{eq:comp-2}
+  \end{align}
+  %
+  Torej je treba dokazati ekvivalenco izjav~\eqref{eq:comp-1} in~\eqref{eq:comp-2}, kar prepuščamo za vajo. Naj namignemo, da je treba pri dokazovanju ekvivalence uporabiti \emph{Frobeniusovo pravilo}
+  %
+  \begin{equation*}
+    (\some{x \in X} p \land q(x)) \liff p \land \some{x \in X} q(x).
+  \end{equation*}
+  %
+  V pravilu je $p$ formula, v kateri $x$ ne nastopa kot prosta spremenljivka.
+
+  Dokažimo še, da je diagonala enota za kompozicijo: naj bo $R \subseteq A \times B$ ter $x \in A$ in $y \in B$. Tedaj velja
+  %
+  \begin{align*}
+    x \rel{(\diag[B] \circ R)} y &\iff \\
+    \some{z \in B} x \rel{R} z \land z \rel{\diag[B]} y  &\iff \\
+    \some{z \in B} x \rel{R} z \land z = y &\iff \\
+    x \rel{R} y
+  \end{align*}
+  %
+  V zadnjem koraku smo uporabili ekvivalenco $(\some{u \in U} u = v \land P(v)) \liff P(v)$. Podobno dokažemo, da je diagonala desna enota.
+\end{proof}
+
+Kompozitum relacij ima torej podobne lastnosti kot kompozitum funkcij.
+
+\subsection{Potenca relacije}
+
+Za $n \in \NN$ definiramo \textbf{$n$-to potenco} relacije $R \subseteq A \times A$ kot relacijo $R^n \subseteq A \times A$ takole:
+%
+\begin{equation*}
+    x R^n y \defiff
+    \some{z_0, \ldots, z_n \in A}
+    z_0 = x \land z_n = y \land \all{i \in \set{0, \ldots, n-1}} z_i \rel{R} z_{i+1}.
+\end{equation*}
+%
+To je precej nečitljiva formula. Bolj razumljiva definicija je potenca kot $n$-kratni kompozitum relacije $R$ same s sabo:
+%
+\begin{equation*}
+    R^n \defeq \underbrace{R \circ \cdots \circ R}_n
+\end{equation*}
+%
+kjer se desni $R$ ponovi $n$-krat. Kaj dobimo, ko za $n$ vstavimo $0$? Enoto za kompozitum:
+%
+\begin{equation*}
+    R^0 = \diag[A].
+\end{equation*}
+
+\section{Funkcijske relacije}
+
+Funkcijo $f : A \to B$ smo definirali kot \emph{prirejanje} med elementi $A$ in $B$. A
+kaj pravzaprav je ">prirejanje"<? Je to funkcijski predpis, program, kaj drugega?
+Sedaj lahko povemo natančno: prirejanje, s katerim je podana funkcija, je
+\emph{relacija} med elementi domene in kodomene.
+
+\begin{definicija}
+  Naj bo $f : A \to B$ funkcija. \textbf{Graf} funkcije $f$ je relacija
+  $\Gamma_f \subseteq A \times B$, definirana s predpisom
+  %
+  \begin{equation*}
+    x \,\Gamma_{\!f}\, y \liff f(x) = y
+  \end{equation*}
+  %
+  ali ekvivalentno
+  %
+  \begin{equation*}
+    \Gamma_{\!f} \defeq \set{ (x, y) \in A \times B \such f(x) = y }.
+  \end{equation*}
+\end{definicija}
+
+Skratka, graf funkcije ni nič drugega kot njeno prirejanje.
+%
+Sedaj pa se vprašajmo: kakšnim pogojem mora zadoščati relacija $R \subseteq A \times B$, da je prirejanje za neko funkcijo? Odgovor poznamo: biti mora enolična in celovita.
+
+\begin{definicija}
+  Relacija $R \subseteq A \times B$ je \textbf{funkcijska relacija}, če je
+  %
+  \begin{itemize}
+  \item \textbf{celovita:} $\all{x \in A} \some{y \in B} x \rel{R} y$ in
+  \item \textbf{enolična:} $\all{x \in A} \all{y_1, y_2 \in B} x \rel{R} y_1 \land x \rel{R} y_2 \lthen y_1 = y_2$.
+  \end{itemize}
+  %
+  Ekvivalentno oba pogoja skupaj zapišemo: $\all{x \in A} \exactlyone{y \in B} x \rel{R} y$.
+\end{definicija}
+
+Graf $\Gamma_{\!f} \subseteq A \times B$ funkcije $f : A \to B$ je vedno funkcijska relacija.
+%
+Funkcijska relacija $R \subseteq A \times B$ določa preslikavo $\phi_R : A \to B$ definirano s predpisom
+%
+\begin{equation*}
+  \phi_R : x \mapsto \descr{y \in B} x \rel{R} y.
+\end{equation*}
+%
+Če iz funkcije $f : A \to B$ tvorimo njen graf $\Gamma_{\!f}$, nato pa iz njega funkcijo
+$\phi_{\Gamma_{\!f}} : A \to B$ dobimo nazaj prvotno funkcijo $f$. Obratno, če je $R$ funkcijska relacija, tedaj je $\Gamma_{\phi_R}$ enaka $R$. Torej imamo izomorfizem
+%
+\begin{equation*}
+  B^A \iso \set{ R \in \pow{A \times B} \such \all{x \in A} \exactlyone{y \in B} x \rel{R} y }.
+\end{equation*}
+%
+
+\begin{izjava}
+  Kompozitum funkcij se ujema s kompozitumom relacij:
+  $\Gamma_{g \circ f} = \Gamma_g \circ \Gamma_{\!f}$.
+\end{izjava}
+
+\begin{proof}
+  Dokaz prepustimo za vajo, še prej pa morate izjavo zapisati bolj natančno: od
+  kod in kam slikata preslikavi $f$ in $g$, kaj pomeni kompozitum na levi in kaj
+  na desni?
+\end{proof}
+
+
+\section{Ovojnice relacij}
+
+Pogosto imamo opravka z relacijo $R$, ki nima želene lastnosti (na primer ni
+tranzitivna) mi pa želimo relacijo, ki to lastnost ima. Ali lahko $R$ kako
+spremenimo, da bo imela želeno lastnost? Če to lahko naredimo na več načinov,
+ali se eden od njih odlikuje?
+
+\begin{definicija}
+  Naj bo $R \subseteq A \times A$ relacija. Tedaj pravimo, da je relacija $T \subseteq A \times A$ \textbf{tranzitivna ovojnica} relacije $R$, če velja:
+  %
+  \begin{enumerate}
+  \item $T$ je tranzitivna,
+  \item $R \subseteq T$ in
+  \item če je $S \subseteq A \times A$ tranzitivna in velja $R \subseteq S$, tedaj je $T \subseteq S$.
+  \end{enumerate}
+\end{definicija}
+
+Povedano drugače: tranzitivna ovojnica relacije $R$ je \textsf{najmanjša} tranzitivna
+relacija, ki vsebuje $R$. Zaenkrat ne vemo, ali ima vsaka relacija tranzitivno
+ovojnico.
+
+Izraz ">ovojnica"< uporabljamo, ker si lahko mislimo, da smo relacijo ovili
+s tranzitivno relacijo tako, da se ji slednja čim bolj prilega. Namesto ">ovojnica"<
+rečemo tudi \textbf{ogrinjača} ali \textbf{zaprtje}.
+
+Poleg tranzitivne ovojnice lahko definiramo tudi druge ovojnice:
+%
+\begin{itemize}
+  \item \textbf{Refleksivna ovojnica} relacije $R \subseteq A \times A$ je najmanjša refleksivna relacija, ki vsebuje $R$.
+  \item \textbf{Simetrična ovojnica} relacije $R \subseteq A \times A$ je najmanjša simetrična relacija, ki vsebuje $R$.
+  \item \textbf{Refleksivna tranzitivna ovojnica} relacije $R \subseteq A \times A$ je najmanjša refleksivna in tranzitivna relacija, ki vsebuje $R$.
+\end{itemize}
+%
+Ali take ovojnice sploh obstajajo? Obravnavajmo le tranzitivne ovojnice, saj so
+ostali dokazi zelo podobni. Ključno pri dokazu obstoja tranzitivne ovojnice je
+naslednje dejstvo.
+
+\begin{lema}
+  Naj bo $A$ množica in $R : I \to P(A \times A)$ družina relacij na $A$. Če za
+  vsak $i \in I$ velja, da je $R_i$ tranzitivna relacija, potem je tudi presek $\bigcap R$ tranzitivna relacija.
+\end{lema}
+
+\begin{proof}
+  Iz definicije preseka družine množic (relacije so le posebne množice) sledi
+  %
+  \begin{equation*}
+  x (\textstyle\bigcap R) y \liff \all{i \in I} x R_i y.
+  \end{equation*}
+  %
+  Dokažimo, da je $\textstyle\bigcap R$ tranzitivna.
+  Naj bodo $x, y, z \in A$ in denimo, da velja
+  $x (\textstyle\bigcap R) y$ in $y (\textstyle\bigcap R) z$, kar je ekvivalentno
+  %
+  \begin{equation*}
+    \all{i \in I} x R_i y
+    \iinn
+    \all{j \in I} y R_j z.
+  \end{equation*}
+  %
+  Dokazati moramo $x (\textstyle\bigcap R) z$, kar je ekvivalentno
+  %
+  $\all{k \in I} x R_k z$.
+  %
+  Naj bo torej $k \in I$, dokazujemo $x R_k z$. Uporabimo $\all{i \in I} x R_i y$ pri $i = k$ in dobimo $x R_k y$.
+  %
+  Uporabimo $\all{j \in I} y R_j z$ pri $j = k$ in dobimo $y R_k z$.
+  %
+  Po predpostavki je $R_k$ tranzitivna relacija, torej velja $x R_k z$.
+\end{proof}
+
+\begin{izrek}
+  Vsaka relacija ima enolično tranzitivno ovojnico.
+\end{izrek}
+
+\begin{proof}
+  Najprej premislimo, da ima $R$ največ eno tranzitivno ovojnico: če sta
+  $S$ in $T$ obe tranzitivni ovojnici $R$, potem iz definicije tranzitivne ovojnice
+  sledi $S \subseteq T$ in $T \subseteq S$, torej velja $S = T$.
+
+  Sedaj pokažimo, da $R$ ima tranzitivno ovojnico. Naj bo $R \subseteq A \times A$. Definirajmo množico relacij
+  %
+  \begin{equation*}
+    D \defeq \set{ S \subseteq A \times A \such \text{$R \subseteq S$ in $S$ je tranzitivna} }.
+  \end{equation*}
+  %
+  Trdimo, da je $\textstyle\bigcap D$ tranzitivna ovojnica relacije $R$.
+  %
+  Iz prejšnje leme sledi, da je $\textstyle\bigcap D$ tranzitivna.
+  %
+  Ker velja $R \subseteq S$ za vsak $S \in D$, seveda sledi $R \subseteq \textstyle\bigcap D$.
+  %
+  Če je $R \subseteq T$ in $T \subseteq A \times A$ tranzitivna relacija, tedaj velja $T \in D$, torej je $\bigcap D \subseteq T$.
+\end{proof}
+
+
+Po istem kopitu pokažemo, da ima vsaka relacija $R \subseteq A \times A$ tudi ostale
+ovojnice. Je pa zgornji izrek neroden, ker nam dokaz ne poda uporabnega opisa
+tranzitivne ovojnice. Povejmo, kako lahko razne ovojnice opišemo bolj
+eksplicitno:
+%
+\begin{enumerate}
+\item Refleksivna ovojnica relacije $R$ je relacija $R \cup \diag[A]$, se pravi, da
+  relaciji $R$ dodamo še diagonalo.
+\item 
+  Simetrična ovojnica relacije $R$ je relacija $R \cup \transpose{R}$.
+\item
+  Tranzitivna ovojnica relacije $R$ je relacija $R^{+} \defeq \bigcup_{n \geq 1} R^n$, se pravi
+  %
+  \begin{equation*}
+    R^{+} \defeq R \cup (R \circ R) \cup (R \circ R \circ R) \cup \cdots
+  \end{equation*}
+\item
+  Refleksivna tranzitivna ovojnica relacije $R$ je relacija $R^{*} \defeq \bigcup_{n \geq 0} R^n$, se pravi
+  %
+  \begin{equation*}
+  R^{*} \defeq \diag[A] \cup R \cup (R \circ R) \cup (R \circ R \circ R) \cup \cdots
+  \end{equation*}
+\end{enumerate}

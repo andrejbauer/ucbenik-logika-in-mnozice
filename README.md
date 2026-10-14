@@ -5,12 +5,12 @@ fiziko, Univerza v Ljublani.
 
 Struktura repozitorija:
 
-* `zapiski` -- zapiski s predavanj, ki jih postopoma pretapljamo iz Markdown v LaTeX
-* `ucbenik` -- izvorna koda za učbenik, ki se bo nekega dne združil z zapiski
+* `ucbenik` -- nastajajoči učbenik
+* `arhiv` -- razno arhivirano gradivo
 
 ## Licenca
 
-(c) 2017 Andrej Bauer in Davorin Lešnik
+(c) 2026 Andrej Bauer in Davorin Lešnik
 
 To delo je izdano pod
 licenco [CC BY-NC-ND 4.0](https://creativecommons.org/licenses/by-nc-nd/4.0/deed.sl).

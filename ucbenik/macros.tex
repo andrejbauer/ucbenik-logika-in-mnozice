@@ -1,219 +1,119 @@
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%  Commands
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newcommand{\nls}[1]{\guillemotright\textit{#1}\guillemotleft} % naravni jezik
+\newcommand{\df}[1]{\emph{\textbf{#1}}}  % definiranec
+\newcommand{\defeq}{\mathrel{{:}{=}}}  % definicijska enacba
+\newcommand{\dfeq}{\defeq}                     % starejse ime
+
+\newcommand{\konst}[1]{\mathrm{k}_{#1}} % konstantna preslikava
 
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%  Theorems etc.
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-{
-\theoremstyle{theorem}
-\newtheorem{izrek}{Izrek}[chapter]
-\newtheorem{lema}[izrek]{Lema}
-\newtheorem{trditev}[izrek]{Trditev}
-\newtheorem{posledica}[izrek]{Posledica}
-\newtheorem{pravilo}[izrek]{Pravilo}
-}
+% Substitucija
+\newcommand{\xsubst}[2]{#1[#2]}
+\newcommand{\subst}[2]{(#1)[#2]}
+\newcommand{\subto}{\,{\mapsto}\,}
 
-{
-\theoremstyle{definition}
-\newtheorem{definicija}[izrek]{Definicija}
-\newtheorem{opomba}[izrek]{Opomba}
-\newtheorem{primer}[izrek]{Primer}
-\newtheorem{zgled}[izrek]{Zgled}
-\newtheorem{naloga}[izrek]{Naloga}
-}
+%%% quantifiers
+\newcommand{\all}[1]{\forall #1 \,.\,}
+\newcommand{\some}[1]{\exists #1 \,.\,}
+\newcommand{\exactlyone}[1]{\exists! #1 \,.\,}
+\newcommand{\descr}[1]{\iota #1 \,.\,}
 
+\newcommand{\defiff}{\quad {{:}{\liff}}\quad }
 
-%%%%%%  Proofs
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% Za dokaze uporabimo amsmath proof, sicer ne deluje \qedhere.
+% \Box je v unicode-math prazen kvadratek; rabimo ga kot vsebnik.
+\renewcommand{\Box}{\mdlgwhtsquare}
 
+\newcommand{\brac}[1]{\dots $\langle$#1$\rangle$ \dots}
 
-%%%%%%  Auxiliary
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\newcommand{\sizedescriptor}[2]
-{
-\ifthenelse{\equal{#1}{0}}{}{
-\ifthenelse{\equal{#1}{1}}{\big}{
-\ifthenelse{\equal{#1}{2}}{\Big}{
-\ifthenelse{\equal{#1}{3}}{\bigg}{
-\ifthenelse{\equal{#1}{4}}{\Bigg}{
-#2}}}}}
-}
+%\newcommand{\lam}[3]{\lambda #1 \,{\in}\, #2\,.\left(#3\right)}
 
-\newcommand{\someref}{{\small\textcolor{blue}{[\textbf{ref.}]}}}
-\newcommand{\intermission}{\bigskip\medskip}
-\newcommand{\ltc}[1]{$\backslash$\texttt{#1}}  % LaTeX command
-\newcommand{\nls}[1]{``\textit{#1}''}  % sentence in a natural language
+% \newcommand{\uall}[2]{\forall\, #1\,.\left(#2\right)}
+% \newcommand{\usome}[2]{\exists\, #1\,.\left(#2\right)}
+% \newcommand{\uexactlyone}[3]{\exists!\, #1\,.\left(#2\right)}
+% \newcommand{\ulam}[2]{\lambda #1 .\left(#2\right)}
 
-%%%%%%  Logical Quantifiers, λ- and ι-Expressions
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% \newcommand{\xall}[3]{\forall\, #1 \,{\in}\, #2\,.\,#3}
+% \newcommand{\xsome}[3]{\exists\, #1 \,{\in}\, #2\,.\,#3}
+% \newcommand{\xexactlyone}[3]{\exists!\, #1 \,{\in}\, #2\,.\,#3}
+% \newcommand{\xlam}[3]{\lambda #1 \,{\in}\, #2\,.\,#3}
 
-\newcommand{\all}[1]{\forall #1 .\,}
-\newcommand{\some}[1]{\exists #1 .\,}
-\newcommand{\exactlyone}[1]{\exists{!} #1 .\,}
-\newcommand{\lam}[1]{\lambda #1 .\,}
-\newcommand{\that}[1]{\iota #1 .\,}
+% \newcommand{\xuall}[2]{\forall\, #1\,.\,#2}
+% \newcommand{\xusome}[2]{\exists\, #1\,.\,#2}
+% \newcommand{\xuexactlyone}[2]{\exists!\, #1,.\,#2}
+% \newcommand{\xulam}[2]{\lambda #1 .\,#2}
 
-%%%%%%  Logic
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\newcommand{\tvs}{\Omega}  % set of truth values
-\newcommand{\true}{\top}  % truth
-\newcommand{\false}{\bot}  % falsehood
-\newcommand{\etrue}{\boldsymbol{\top}}  % emphasized truth
-\newcommand{\efalse}{\boldsymbol{\bot}}  % emphasized falsehood
-\newcommand{\impl}{\Rightarrow}  % implication sign
-\newcommand{\revimpl}{\Leftarrow}  % reverse implication sign
-\newcommand{\lequ}{\Leftrightarrow}  % equivalence sign
-\newcommand{\xor}{\mathbin{\veebar}}  % exclusive disjunction sign
-\newcommand{\shf}{\mathbin{\uparrow}}  % Sheffer connective
-\newcommand{\luk}{\mathbin{\downarrow}}  % Łukasiewicz connective
+% \newcommand{\tlam}[3]{\lambda #1 \,{:}\, #2\,.\,\left(#3\right)}
+% \newcommand{\xtlam}[3]{\lambda #1 \,{:}\, #2\,.\,#3}
 
+\newcommand{\iinn}{\qquad\text{in}\qquad}
 
-%%%%%%  Sets
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%  \set{1, 2, 3}         ->  {1, 2, 3}
-%  \set{a \in X}{a < 1}  ->  {a ∈ X | a < 1}
-\NewDocumentCommand{\set}
-{O{auto} m G{\empty}}
-{\sizedescriptor{#1}{\left}\{ {#2} \ifthenelse{\equal{#3}{}}{}{ \; \sizedescriptor{#1}{\middle}| \; {#3}} \sizedescriptor{#1}{\right}\}}
-%\newcommand{\vsubset}{\Mapstochar\cap}
-%\newcommand{\finseq}[1]{{#1}^*}
-\newcommand{\pst}{\mathcal{P}}
-\renewcommand{\complement}[1]{{#1}^C}
+% Implikacija
+\newcommand{\lthen}{\Rightarrow}
+\newcommand{\liff}{\Leftrightarrow}
 
+% Hipoteticna izpeljava: iz predpostavk #1 pridemo do #2.
+\NewDocumentCommand{\izpeljava}{m m}{\begin{array}[b]{c}{#1}\\ \vdots\\ {#2}\end{array}}
+\newcommand{\hypoinfer}{\izpeljava}  % starejse ime
 
-%%%%%%  Number Sets, Intervals
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Standardne množice
 \newcommand{\NN}{\mathbb{N}}
 \newcommand{\ZZ}{\mathbb{Z}}
 \newcommand{\QQ}{\mathbb{Q}}
 \newcommand{\RR}{\mathbb{R}}
 \newcommand{\CC}{\mathbb{C}}
-\newcommand{\HH}{\mathbb{H}}
-\newcommand{\OO}{\mathbb{O}}
-\newcommand{\intoo}[3][\RR]{{#1}_{(#2, #3)}}
-\newcommand{\intcc}[3][\RR]{{#1}_{[#2, #3]}}
-\newcommand{\intoc}[3][\RR]{{#1}_{(#2, #3]}}
-\newcommand{\intco}[3][\RR]{{#1}_{[#2, #3)}}
 
+\newcommand{\one}{\mathbb{1}}
+\newcommand{\two}{\mathbb{2}}
+\newcommand{\unit}{(\,)}
 
-%%%%%%  Maps and Relations
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\newcommand{\id}[1][]{\mathrm{id}_{#1}}  % identity map
-\newcommand{\argbox}{{\;\!\fbox{\phantom{M}}\;\!}}  % box for a function argument
-\newcommand{\konst}[1]{\mathrm{k}_{#1}} % constant map
-\newcommand{\rstr}[1]{\left.{#1}\right|}  % map restriction
-\newcommand{\im}{\mathrm{im}}  % map image
-\newcommand{\parto}{\mathrel{\rightharpoonup}}  % partial mapping sign
-\NewDocumentCommand{\rel}
-{O{\empty} O{\empty}}
-{\ifthenelse{\equal{#1}{}}{\mathscr{R}}{{#1} \mathrel{\mathscr{R}} {#2}}}  % a relation
-\NewDocumentCommand{\srel}
-{O{\empty} O{\empty}}
-{\ifthenelse{\equal{#1}{}}{\mathscr{S}}{{#1} \mathrel{\mathscr{S}} {#2}}}  % a second relation
-\newcommand{\dom}{\mathrm{dom}}  % domain
-\newcommand{\cod}{\mathrm{cod}}  % codomain
-\newcommand{\dd}[1]{D_{#1}}  % domain of definition
-\newcommand{\rn}[1]{Z_{#1}}  % range
-\newcommand{\graph}[1]{\Gamma_{#1}}  % graph of a (partial) function
-\NewDocumentCommand{\img}  % image
-{O{\empty} m G{\empty}}
-{{#2}_*\ifthenelse{\equal{#3}{}}{}{\!\sizedescriptor{#1}{\left}( {#3} \sizedescriptor{#1}{\right})}}
-\NewDocumentCommand{\pim}  % preimage
-{O{\empty} m G{\empty}}
-{{#2}^*\ifthenelse{\equal{#3}{}}{}{\!\sizedescriptor{#1}{\left}( {#3} \sizedescriptor{#1}{\right})}}
-\newcommand{\ec}[2][]{[\:\!{#2}\:\!]_{#1}}  % equivalence class
-\newcommand{\transposed}[1]{\widehat{#1}}
-
+%%% Množice
+\newcommand{\set}[1]{\left\{#1\right\}}
+\newcommand{\such}{\; \middle| \;}
+\newcommand{\iso}{\cong}
 
 %%%%%%  Projections and Injections
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\NewDocumentCommand{\fst}
-{O{\empty} O{\empty}}
-{\pi_1^{{#1}\ifthenelse{\equal{#2}{}}{}{,}{#2}}}
-\NewDocumentCommand{\snd}
-{O{\empty} O{\empty}}
-{\pi_2^{{#1}\ifthenelse{\equal{#2}{}}{}{,}{#2}}}
-\NewDocumentCommand{\inl}
-{O{\empty} O{\empty}}
-{\iota_1^{{#1}\ifthenelse{\equal{#2}{}}{}{,}{#2}}}
-\NewDocumentCommand{\inr}
-{O{\empty} O{\empty}}
-{\iota_2^{{#1}\ifthenelse{\equal{#2}{}}{}{,}{#2}}}
+\newcommand{\inj}[1][]{\mathsf{in}_{#1}}
+\newcommand{\pr}[1][]{\mathsf{pr}_{#1}}
+
+%% Neobvezna nadpisa loci vejica, kadar sta podana oba.
+\NewDocumentCommand{\nadpisa}{m m}{#1\IfBlankF{#2}{,}#2}
+
+\NewDocumentCommand{\fst}{O{} O{}}{\pr[1]^{\nadpisa{#1}{#2}}}
+\NewDocumentCommand{\snd}{O{} O{}}{\pr[2]^{\nadpisa{#1}{#2}}}
+\NewDocumentCommand{\inl}{O{} O{}}{\inj[1]^{\nadpisa{#1}{#2}}}
+\NewDocumentCommand{\inr}{O{} O{}}{\inj[2]^{\nadpisa{#1}{#2}}}
 
 
-%%%%%%  Categories
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\newcommand{\ct}[1]{\mathbf{#1}}
-\newcommand{\mnoz}{\ct{Mno\check{z}}}
-\newcommand{\pkol}{\ct{PKol}}  % category of semirings
-\newcommand{\upkol}{\pkol_1}  % category of unital semirings
-\newcommand{\kol}{\ct{Kol}}  % category of rings
-\newcommand{\ukol}{\kol_1}  % category of unital rings
+%%% Naravna števila
+\newcommand{\suc}[1]{{#1^{+}}}
 
+\newcommand{\Set}{\mathsf{Set}}
+\newcommand{\On}{\mathsf{On}}
 
-%%%%%%  Exercises and Solutions
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\Newassociation{resitev}{Resitev}{resitve}
-\renewcommand{\Resitevlabel}[1]{\emph{Re\v{s}itev~#1}}
-{
-\theoremstyle{definition}
-\newtheorem{vaja}{Vaja}[chapter]
-}
+%% Drevesa
+\newcommand{\Tree}{\mathsf{Tree}}
+\newcommand{\tree}[1]{\mathsf{tree}(#1)}
+\newcommand{\emptyTree}{\mathsf{empty}}
 
+%%% Operacije na množicah
 
-%%%%%%  Misc.
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\renewcommand{\divides}{\,|\,}
-% Načeloma bi morala biti navpična črta v \divides obdana z \mathrel, ampak to vodi do prevelikih presledkov.
-\newcommand{\df}[1]{\emph{\textbf{#1}}}  % defined notion
-\newcommand{\oper}{\mathop{\circledast}\nolimits}  % symbol for a generic operation
-\newcommand{\soper}{\mathop{\boxasterisk}\nolimits}  % symbol for a second generic operation
-\newcommand{\qo}[1]{\;\!\widetilde{#1}\;\!}  % quotient operation
-\newcommand{\tconc}{\mathop{\bullet}\nolimits}  % symbol for binary tree concatenation
-\newcommand{\conc}{\mathop{::}\nolimits}  % symbol for string concatenation
-\newcommand{\ism}{\cong}  % isomorphic
-\newcommand{\inv}[1]{#1^{-1}} % inverz preslikave
-\newcommand{\equ}{\sim}  % equivalent
-\newcommand{\dfeq}{\mathrel{\mathop:}=}  % definitional equality
-\newcommand{\revdfeq}{=\mathrel{\mathop:}}  % reverse definitional equality
-\newcommand{\isdefined}[1]{{#1}\!\downarrow}  % given value is defined
-\newcommand{\kleq}{\simeq}  % Kleene equality
-\newcommand{\claim}[3]{{#1} \;\colon\; \frac{#2}{#3}}  % claim, divided on context, assumptions, conclusions
-\newcommand{\one}{\mathtt{\mathbf{1}}}  % generic singleton
-\newcommand{\unit}{\mathord{()}}  % element in a generic singleton
-\newcommand{\nul}{\mathtt{N}}  % null map
-\newcommand{\suc}{\mathtt{S}}  % successor
-\newcommand{\prd}{\mathtt{P}}  % predecessor
-\newcommand{\tprd}{\tilde{\prd}}  % predecessor as a total function
-\newcommand{\monus}{\mathbin{\vphantom{+}\text{\mathsurround=0pt \ooalign{\noalign{\kern-.35ex}\hidewidth$\smash{\cdot}$\hidewidth\cr\noalign{\kern.35ex}$-$\cr}}}}
-% Definicija za monus pobrana s TeX Stack Exchange
-\newcommand{\wf}{\prec}  % well-founded order
-\NewDocumentEnvironment{implproof}  % proof of an implication
-{O{\empty} G{\empty} O{=>} G{\empty}}
-{
-\begin{description}
-\item[\quad$\sizedescriptor{#1}{\left}({#2}
-\ifthenelse{\equal{#3}{=>}}{\impl}{
-\ifthenelse{\equal{#3}{<=}}{\revimpl}{
-\ifthenelse{\equal{#3}{->}}{\rightarrow}{
-\ifthenelse{\equal{#3}{<-}}{\leftarrow}{
-#3
-}}}} {#4}\sizedescriptor{#1}{\right})$]\ \vspace{0.3em}\\
-}
-{
-\end{description}
-}
-\NewDocumentCommand{\pres}  % presentation of an algebraic structure with generators and relations
-{O{auto} m G{\empty}}
-{\sizedescriptor{#1}{\left}\langle {#2} \ifthenelse{\equal{#3}{}}{}{ \; \sizedescriptor{#1}{\middle}| \; {#3}} \sizedescriptor{#1}{\right}\rangle}
+\newcommand{\pow}[1]{\mathcal{P}(#1)}       % potenčna množica
+\newcommand{\npow}[2]{\mathcal{P}_{#1}(#2)} % podmnožice dane velikosti
 
+%% Preslikave
+\newcommand{\id}[1][]{\mathrm{id}_{#1}}
+\newcommand{\inv}[1]{{#1}^{-1}}
+\newcommand{\restrict}[2]{#1{\big|}_{#2}}
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newcommand{\diag}[1][]{\Delta_{#1}}
 
-%%% Local Variables:
-%%% mode: latex
-%%% TeX-master: "ucbenik-lmn"
-%%% End:
+\newcommand{\img}[1]{#1_{*}}
+\newcommand{\invimg}[1]{#1^{*}}
+
+%% Kombinatorika
+\newcommand{\ceil}[1]{\lceil #1 \rceil}
+
+%% Relacije
+\newcommand{\transpose}[1]{#1^{\mathsf{T}}}
+\newcommand{\compl}[1]{#1^{\mathsf{C}}}
+\newcommand{\rel}[1]{\mathrel{#1}}
