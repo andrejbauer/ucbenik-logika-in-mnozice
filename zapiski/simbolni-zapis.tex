@@ -43,7 +43,7 @@ torej nasvet za to poglavje: vprašajte in če ne dobite odgovora, vprašajte š
 \section{Pisave in simboli}
 \label{sec:pisave-in-simboli}
 
-Matematična abeceda vsebuje precej več simbolov, kot zgolj običajne črke in števke. Nekatere že poznamo, na primer~$=$, $<$, $+$, $\emptyset$, $\cup$, $\cap$, $\int$ in tako naprej, precej jih še bomo spoznali. Poleg tega matematiki uporabljamo različne pisave, kot je prikazano v tabeli~\ref{tabela:oblike-crk}. Na tabli in v zvezku sicer težko ločimo med pokončno, odebeljeno in ležečo pisavo, zato nabor pisav omejimo. V tiskanem besedilu se vedno držimo nekaterih pravil glede izbire pisav. Tako posamezne črke $a$, $b$, $c$, \ldots, $x$, $y$, $z$ pišemo v ležeči pisavi, imena elementarnih funkcij pa pokončno: $\sin$, $\cos$, $\log$, \ldots{} Naglasnih znakov, kot so na primer šumniki, običajno ne uporabljamo. Včasih z uporabo znakov nakažemo povezavo med dvema objektoma: $f$ je funkcija in $F$ njen integral, $\mathcal{A}$ je linearna preslikava in $A$ njej pripadajoča matrika itd.
+Matematična abeceda vsebuje precej več simbolov kot zgolj običajne črke in števke. Nekatere že poznamo, na primer~$=$, $<$, $+$, $\emptyset$, $\cup$, $\cap$, $\int$ in tako naprej, precej jih bomo še spoznali. Poleg tega matematiki uporabljamo različne pisave, kot je prikazano v tabeli~\ref{tabela:oblike-crk}. Na tabli in v zvezku sicer težko ločimo med pokončno, odebeljeno in ležečo pisavo, zato nabor pisav omejimo. V tiskanem besedilu se vedno držimo nekaterih pravil glede izbire pisav. Tako posamezne črke $a$, $b$, $c$, \ldots, $x$, $y$, $z$ pišemo v ležeči pisavi, imena elementarnih funkcij pa pokončno: $\sin$, $\cos$, $\log$, \ldots{} Naglasnih znakov, kot so na primer šumniki, običajno ne uporabljamo. Včasih z uporabo znakov nakažemo povezavo med dvema objektoma: $f$ je funkcija in $F$ njen integral, $\mathcal{A}$ je linearna preslikava in $A$ njej pripadajoča matrika itd.
 
 \begin{table}[ht]
 \centering
@@ -76,7 +76,7 @@ Matematična abeceda vsebuje precej več simbolov, kot zgolj običajne črke in 
 \end{equation*}
 %
 Uporabimo lahko tudi \df{podpis} ali
-\df{nadpis}, ki je lahko črka, številka, ali kak drug simbol, na primer
+\df{nadpis}, ki je lahko črka, številka ali kak drug simbol, na primer
 %
 \begin{equation*}
   a_i \quad
@@ -136,14 +136,14 @@ Izgovorjava: u̯ je ustnični u (kot v besedi `pav');
 γ je cerkljanski `g' (nekaj med `g' in `h' --- vprašajte sošolce s tega območja);
 θ je angleški nezveneči `th' (kot v besedi `thing');
 χ je nemški `ch' (kot v besedi `ich').}
-\caption{Grška abeceda.}
+\caption{Grška abeceda}
 \label{tabela:grska-abeceda}
 \end{table}
 
 In zakaj pravzaprav potrebujemo tako veliko število črk? Verjetno zato, ker je v
 matematiki krajši zapis bolj učinkovit, saj zasede manj prostora na papirju, pa še hitreje
 ga zapišemo in preberemo. Računalničarji imajo drugačne navade, saj pri njih velja, da naj
-se uporablja opisna imena, ki razkrijejo pomen: kjer bi matematik in fizik uporabila~$m$
+se uporabljajo opisna imena, ki razkrijejo pomen: kjer bi matematik in fizik uporabila~$m$
 in~$a$, bi računalničar zapisal $\mathtt{masa\_delca}$ in $\mathtt{pospesek}$.
 
 \section{Izrazi}
@@ -167,7 +167,7 @@ navade, ki so se izoblikovale v razvoju matematike. To niso matematične resnice
 \emph{dogovori} med ljudmi, ki se jih držimo zato, ker so se izkazali za smiselne. Na
 primer, integralski znak $\int$ je Leibniz\footnote{Gottfried Wilhelm von Leibniz
   (1646--1716) je bil nemški filozof, matematik, fizik, pravnik, zgodovinar, jezikoslovec,
-  knjižničar in diplomat lužiško sorbskega porekla.} izpeljal iz črke S, ker je na
+  knjižničar in diplomat lužiškosrbskega porekla.} izpeljal iz črke S, ker je na
 integral gledal kot na določene vrste vsoto (latinsko `summa').
 
 Z vidika vsebine raznolikost matematičnega zapisa ni potrebna, saj bi lahko vse izraze
@@ -180,14 +180,14 @@ $\mathtt{plus(3, \mathtt{sqrt}(\mathtt{minus}(5, 4)))}$?
 
 Ni vsako zaporedje znakov pravilen izraz. Denimo, $3 + ) x \cdot 4$ ni pravilen izraz, ker ima narobe postavljen zaklepaj.
 %
-Izraz je \df{pravilno formiran} ali \df{sintaktično pravilen}, če ustreza pravilom, ki določajo kako postavljamo oklepaje, vejice, pike, kako uporabljamo razne posebne simbole ($+$, $\lor$, $\int$) itd.
+Izraz je \df{pravilno formiran} ali \df{sintaktično pravilen}, če ustreza pravilom, ki določajo, kako postavljamo oklepaje, vejice, pike, kako uporabljamo razne posebne simbole ($+$, $\lor$, $\int$) itd.
 %
 Natančna \df{sintaktična pravila} za pisanje matematičnih izrazov so precej zapletena, ker je matematični zapis raznovrsten
 in se je razvijal skozi zgodovino. Mnoga že poznate (\nls{vsak oklepaj mora imeti ustrezni zaklepaj}, \nls{piše se $a + b$ in ne $a b +$}), zato jih ne bomo podrobno obravnavali -- to je delo za računalničarje, ki želijo taka pravila implementirati. Posvetimo se raje pravilom in dogovorom za zapis izrazov, ki jih pogosto srečamo v matematiki.
 
 \paragraph*{Predpone, medpone, pripone}
 
-Nekatere operacije in relacije pišemo kot \df{medpone} ali \df{infiksne operacije}, tako da le-ta stoji med obema operandoma, na primer
+Nekatere operacije in relacije pišemo kot \df{medpone} ali \df{infiksne operacije}, tako da simbol operacije stoji med obema operandoma, na primer
 %
 \begin{equation*}
   x + y \qquad
@@ -198,7 +198,7 @@ Nekatere operacije in relacije pišemo kot \df{medpone} ali \df{infiksne operaci
   x \simeq y
 \end{equation*}
 %
-Kadar zapišemo operator za operand, pravimo, da je \df{pripona} ali \df{postfiksna operacija}, na primer
+Kadar zapišemo operator za operand, pravimo, da je zapis \df{pripona} ali \df{postfiksna operacija}, na primer
 %
 \begin{equation*}
   x! \qquad 
@@ -226,13 +226,13 @@ Poleg teh poznamo tudi druge zapise:
 Skrajni primer je zapis množenja brez simbola, ko namesto $x \cdot y$ zapišemo kar $x \, y$.
 
 
-\paragraph*{Podnapisi in nadnapisi}
+\paragraph*{Podpisi in nadpisi}
 
-Argumente operacije ali funkcije včasih zapišemo v \df{podnapis} ali \df{nadnapis}.
+Argumente operacije ali funkcije včasih zapišemo v podpis ali nadpis.
 %
-Na primer, če je $a : \NN \to \RR$ zaporedje, pogosto zapišemo $i$-ti člen s podnapisom~$a_i$.
+Na primer, če je $a : \NN \to \RR$ zaporedje, pogosto zapišemo $i$-ti člen s podpisom~$a_i$.
 %
-Primer nadnapisa je $n$-ti odvod funkcije~$f$, ki ga zapišemo $f^{(n)}$.
+Primer nadpisa je $n$-ti odvod funkcije~$f$, ki ga zapišemo $f^{(n)}$.
 
 
 \paragraph*{Prednost in združevanje}
@@ -248,7 +248,7 @@ upoštevati združevanje na levo: $5 - 2 - 1$ je enako $(5 - 2) - 1$ in ne $5 - 
 Potenciranje združuje na desno, saj $2^{3^4}$ pomeni $2^{(3^4)}$. Nekatere operacije ne
 združujejo in v takih primerih moramo uporabiti oklepaje.
 
-Povejmo še to: nič ni narobe, če zapišemo več oklepajev, kot je to nujno potrebno. Izraza $3 \cdot 4 + 5$ in $(((3) \cdot 5) + 5)$ sta enakovredna. Prava mera oklepajev izboljša razumljivost simbolnega zapisa.
+Povejmo še to: nič ni narobe, če zapišemo več oklepajev, kot je to nujno potrebno. Izraza $3 \cdot 4 + 5$ in $(((3) \cdot 4) + 5)$ sta enakovredna. Prava mera oklepajev izboljša razumljivost simbolnega zapisa.
 
 \paragraph*{Implicitni argumenti, privzete vrednosti in preobteževanje}
 \label{sec:implicitni-argumenti}
@@ -292,15 +292,15 @@ seštevanje vektorjev,
 seštevanje matrik,
 itd.
 %
-S preobteževanjem ne gre pretiravati, ker lahko pripelje do zmede. Običajno z istim simbolom označimo različne operacije, ki imajo kaj skupnega. Tako~$+$ uporabljamo le za operacijo, ki je komutativna, asociativna in ima nevtralni element.
+S preobteževanjem ne gre pretiravati, ker lahko pripelje do zmede. Običajno z istim simbolom označimo različne operacije, ki imajo kaj skupnega. Tako~$+$ praviloma uporabljamo za operacijo, ki je komutativna, asociativna in ima nevtralni element.
 
 \paragraph*{Izrazi predstavljajo drevesa}
 
-Izrazi so zaporedja znakov, ki jih pišemo z leve na desno. A kje drugje na tem svetu bi jih pisali z desne na levo ali
+Izrazi so zaporedja znakov, ki jih pišemo z leve na desno. Ponekod na svetu bi jih pisali z desne na levo ali
 navpično. Izrazi so le \emph{predstavitve} tako imenovanih \df{sintaktičnih dreves}. Izraz $((3 + x) \times y) \otimes 2$ predstavlja sintaktično drevo
 %
 \begin{center}
-  \begin{tikzpicture}[level/.style={sibling distance=5em/#1},,level distance=2em,
+  \begin{tikzpicture}[level/.style={sibling distance=5em/#1},level distance=2em,
     every node/.style = {align=center}, baseline=(current bounding box.center)
     ]
     \node {${}^{\otimes}$}
@@ -436,7 +436,7 @@ Matematična izjava je besedilo, ki izraža kako matematično dejstvo. Primeri m
 \item $\phi \lor \psi \lthen (\lnot \phi \lthen \psi)$.
 \end{itemize}
 %
-Izjava je lahko resnična, neresnična, ali pa je njena resničnost
+Izjava je lahko resnična, neresnična ali pa je njena resničnost
 \emph{odvisna} od vrednosti parametrov, ki nastopajo v njej:
 %
 \begin{itemize}
@@ -454,7 +454,7 @@ saj so tako najlažje razumljive ljudem.
 Tako zapisani izjavi pravimo \df{logična formula} ali \df{logični izraz}.
 Osnovni gradniki logičnih formul so \df{logične operacije} iz tabele~\ref{fig:logicne-operacije}
 %
-\begin{figure}[hpt]
+\begin{table}[hpt]
   \centering
   \small
   \begin{tabular}{ccc}
@@ -472,14 +472,14 @@ Osnovni gradniki logičnih formul so \df{logične operacije} iz tabele~\ref{fig:
     konjunkcija & $\phi \land \psi$ & \nls{$\phi$ in $\psi$} \\[1ex]
     disjunkcija & $\phi \lor \psi$ & \nls{$\phi$ ali $\psi$} \\[1ex]
     implikacija & $\phi \lthen \psi$
-       & \nls{če $\phi$ potem $\psi$} \\
+       & \nls{če $\phi$, potem $\psi$} \\
       && \nls{iz $\phi$ sledi $\psi$} \\
-      && \nls{$\phi$ samo če $\psi$} \\
+      && \nls{$\phi$, samo če $\psi$} \\
       && \nls{$\psi$ sledi iz $\phi$} \\
       && \nls{$\phi$ je zadosten pogoj za $\psi$} \\
       && \nls{$\psi$ je potreben pogoj za $\phi$} \\[1ex]
     ekvivalenca & $\phi \liff \psi$
-       & \nls{$\phi$ če, in samo če, $\psi$} \\
+       & \nls{$\phi$, če in samo če $\psi$} \\
        && \nls{$\phi$ natanko tedaj, ko $\psi$} \\[1ex]
     negacija & $\lnot \phi$
        & \nls{ne $\phi$} \\
@@ -498,13 +498,13 @@ Osnovni gradniki logičnih formul so \df{logične operacije} iz tabele~\ref{fig:
   \end{tabular}
   \caption{Logični konstanti, vezniki in kvantifikatorja}
   \label{fig:logicne-operacije}
-\end{figure}
+\end{table}
 %
 in delimo jih na tri sklope:
 %
 \begin{itemize}
 \item \df{konstanti} $\bot$ in $\top$,
-\item \df{vezniki} $\land$, $\lor$, $\lthen$, $\liff$, $\neg$, in $\veebar$,
+\item \df{vezniki} $\land$, $\lor$, $\lthen$, $\liff$, $\neg$ in $\veebar$,
 \item \df{kvantifikatorja} $\forall$ in $\exists$.
 \end{itemize}
 %
@@ -525,7 +525,7 @@ Bodite pozorni na to razliko, saj lahko v vsakdanji rabi \nls{ali} označuje ink
 
 V implikaciji $\phi \lthen \psi$ imenujemo $\phi$ \df{antecedent} ali \df{predpostavka} in $\psi$ \df{konsekvent} ali \df{posledica}.
 %
-Izmed vseh veznikov implikacija povzroča največ težav, saj se jo uporablja zelo ohlapno. Če mati sinu reče
+Izmed vseh veznikov implikacija povzroča največ težav, saj jo uporabljamo zelo ohlapno. Če mati sinu reče
 %
 \begin{quote}
   \nls{Če ne pospraviš sobe, potem ti ne spečem palačink,}
@@ -543,7 +543,7 @@ bi to bila drugačna obljuba, ki bi mamo zavezala k peki palačink v primeru, da
 %
 Mama svoje obljube ne bi prelomila tudi v primeru, ko bi spekla palačinke, a sin sobe ne bi pospravil; se pa velja vprašati, ali gre lenobo nagrajevati s palačinkami.
 %
-Če označimo \nls{sin pospravi sobo} s~$\phi$ in \nls{mama speče palačinke} s~$\phi$, zgornji izjavi zapišemo simbolno z
+Če označimo \nls{sin pospravi sobo} s~$\phi$ in \nls{mama speče palačinke} s~$\psi$, zgornji izjavi zapišemo simbolno z
 %
 \begin{equation*}
   \neg \phi \lthen \neg \psi
@@ -608,8 +608,8 @@ Srečamo tudi okrajšave, ki jih odsvetujemo.
 %
 V nizu neenakosti naj gredo vse primerjave v isto smer. Torej ne pišemo $a \leq b < c \geq d$, ker se zlahka zmotimo in
 mislimo, da velja $a \geq d$. To bi morali zapisati ločeno kot $a \leq b < c$ in $c \geq d$. Prav tako ne nizamo
-neenakosti, saj premnogi iz $a \neq b \neq c$ napačno sklepajo $a \neq c$, čeprav neenakost \emph{ni} tranzitivna
-relacija. Zapis $a = b \neq c = d$ je v redu, saj ena sama neenakost ne povzroči težav.
+relacije $\neq$, saj premnogi iz $a \neq b \neq c$ napačno sklepajo $a \neq c$, čeprav $\neq$ \emph{ni} tranzitivna
+relacija. Zapis $a = b \neq c = d$ je v redu, saj en sam $\neq$ ne povzroči težav.
 
 Dogovorimo se za prioriteto logičnih operacij:
 %
@@ -659,7 +659,7 @@ Kvantifikatorja vedno zajameta čim daljšo izjavo:
   %
   &\all{x \in A} \phi \land \some{y \in B} \psi
     &&\text{pomeni}
-  &\all{x \in A} (\phi \land (\some{y \in B} \psi)) \\
+  &\all{x \in A} (\phi \land (\some{y \in B} \psi)), \\
   %
   &\all{x \in A} \phi \land \some{y \in B} \psi
     &&\text{\emph{ne} pomeni}
@@ -667,11 +667,11 @@ Kvantifikatorja vedno zajameta čim daljšo izjavo:
   %
   &\all{x \in S} \phi \lthen \all {y \in T} \psi
     &&\text{pomeni}
-  &\all{x \in S} (\phi \lthen \all {y \in T} \psi) \\
+  &\all{x \in S} (\phi \lthen \all {y \in T} \psi), \\
   %
   &\all{x \in S} \phi \lthen \all {y \in T} \psi
-    &&\text{\emph{ne }pomeni}
-  &(\all{x \in S} \phi) \lthen (\all {y \in T} \psi)
+    &&\text{\emph{ne} pomeni}
+  &(\all{x \in S} \phi) \lthen (\all {y \in T} \psi).
   %
 \end{align*}
 %
@@ -716,7 +716,7 @@ le-ta pogosto označuje konjunkcijo implikacij
   (\phi \lthen \psi) \land (\psi \lthen \rho) \land (\rho \lthen \sigma),
 \end{equation*}
 %
-podobno kot $a \leq b \leq c \leq d$ označuje konjunkcijo neenačb.
+podobno kot $a \leq b \leq c \leq d$ označuje konjunkcijo neenakosti.
 Tako pišemo, čeprav je formalno nepravilno, ker želimo nakazati zaporedje sklepov
 \nls{iz $\phi$ sledi $\psi$ in nato iz $\psi$ sledi $\rho$ in nato iz $\rho$ sledi $\sigma$}.
 Običajno vsak sklep zapišemo v svojo vrstico. Recimo, za nenegativni števili $x$ in
@@ -749,7 +749,7 @@ V zapisih $\all{x \in S} \phi$ in $\some{x \in S} \phi$ je $S$ množica, razred\
 uporablja več inačic zapisa za kvantifikatorje, kot so:
 %
 \begin{equation*}
-  \forall (x : S) , \phi
+  \forall (x : S),\, \phi
   \qquad
   \qquad
   \forall x \in S : \phi
@@ -768,7 +768,7 @@ Srečamo tudi zapis
 %
 ki pa ga odsvetujemo, ker je nepregleden in nepraktičen, ko imamo opravka z več gnezdenimi kvantifikatorji.
 %
-Poleg tega uvede vezano spremenljivko~$x$ v formuli~$\phi$ šele za tem, ko smo že prebrali~$\phi$.
+Poleg tega uvede vezano spremenljivko~$x$ v formuli~$\phi$ šele potem, ko smo že prebrali~$\phi$.
 
 Kvantifikator $\some{x \in S} \phi$ pravi, da obstaja \emph{vsaj en}~$x$, lahko jih je tudi več.
 Na primer, $\some{x \in \RR} x^2 = 4$ je resnična izjava, saj obstajata dve števili, katerih kvadrat je~$4$.
@@ -860,7 +860,7 @@ pa tudi
 %
 Prehod iz golega branja formule do njenega razumevanja zahteva čas in vajo.
 Tudi prevod v obratno smer, iz matematične misli v simbolno obliko, ni preprost,
-zato povejmo, kako se prevede nekatere standardne fraze.
+zato povejmo, kako prevedemo nekatere standardne fraze.
 
 \paragraph{\nls{$\phi$ je zadosten pogoj za $\psi$}}
 %
@@ -901,7 +901,7 @@ To pišemo krajše
   \phi \liff \psi \liff \rho \liff \sigma,
 \end{equation*}
 %
-čeprav je formalno gledano tako zapis nepravilen. V
+čeprav je formalno gledano tak zapis nepravilen. V
 razdelku~\ref{sec:ekvivalenca} bomo tako zaporedje
 ekvivalenc dokazali s ciklom implikacij
 %
@@ -956,8 +956,8 @@ Pozor, vrstnega reda kvantifikatorjev ne smemo mešati:
 \item $\some{x \in \RR} \all{y \in \RR} x < y$ pomeni ">obstaja najmanjše realno število"< (kar ni res).
 \end{itemize}
 %
-To dejstvo bomo utrjevali na vajah. Zapomnite se, da morate biti tudi pri ostalih predmetih posebej pozorni na vrstni red
-">za vsak"< in ">obstaja"<. Je profesorica pri analizi rekla ">za vsak $\epsilon > 0$ obstaja tak $\delta > 0$ da \dots"< ali je rekla ">obstaja tak $\delta > 0$ da za vsak $\epsilon > 0$ \dots"<? Če boste zamešali ti dve izjavi na ustnem izpitu iz analize, boste imeli pokvarjen dan ali pa cele počitnice!
+To dejstvo bomo utrjevali na vajah. Zapomnite si, da morate biti tudi pri ostalih predmetih posebej pozorni na vrstni red
+">za vsak"< in ">obstaja"<. Je profesorica pri analizi rekla ">za vsak $\epsilon > 0$ obstaja tak $\delta > 0$, da \dots"< ali je rekla ">obstaja tak $\delta > 0$, da za vsak $\epsilon > 0$ \dots"<? Če boste zamešali ti dve izjavi na ustnem izpitu iz analize, boste imeli pokvarjen dan ali pa cele počitnice!
 
 
 \paragraph*{Kvantifikator z dodatnim pogojem}
@@ -985,7 +985,7 @@ In še druga izjava:
 \item \nls{Vsako naravno število, ki je sodo, je deljivo s 3.}
 \item \nls{Za vsako naravno število velja, da če je sodo, potem je deljivo s 3.}
 \item \nls{Za vsak $x$ iz $\NN$ velja, če je $x$ sod, potem je $x$ deljiv s $3$.}
-\item $\all{x \in \NN} \text{\nls{$x$ sod}} \lthen \text{\nls{$x$ je deljiv s 3}}$
+\item $\all{x \in \NN} \text{\nls{$x$ je sod}} \lthen \text{\nls{$x$ je deljiv s 3}}$
 \item $\all{x \in \NN} (\some{y \in \NN} x = 2 y) \lthen (\some{z \in \NN} x = 3 z)$
 \end{itemize}
 %
@@ -998,11 +998,11 @@ Zapomnimo si, da \df{dodatni pogoj pri $\exists$ izrazimo z veznikom~$\land$} in
     Izjava & Formula \\ \midrule
     \nls{Za vsak $x \in A$, ki zadošča $\phi(x)$, velja $\psi(x)$}
     &
-    $\all{x \in S} (\phi(x) \lthen \psi(x))$
+    $\all{x \in A} (\phi(x) \lthen \psi(x))$
     \\
-    \nls{Obstaja $x \in A$, ki zadošča $\phi(x)$, in velja $\psi(x)$}
+    \nls{Obstaja $x \in A$, ki zadošča $\phi(x)$, in zanj velja $\psi(x)$}
     &
-    $\some{x \in S} (\phi(x) \land \psi(x))$
+    $\some{x \in A} (\phi(x) \land \psi(x))$
     \\
     \bottomrule
   \end{tabular}
@@ -1023,7 +1023,7 @@ Zapomnimo si, da \df{dodatni pogoj pri $\exists$ izrazimo z veznikom~$\land$} in
 \end{vaja}
 
 
-Včasih lahko izjavo lahko zapišemo s formulo na več načinov. Na primer, v izjavo
+Včasih lahko izjavo zapišemo s formulo na več načinov. Na primer, izjavo
 %
 \begin{quote}
   \nls{Za vsako pozitivno realno število $x$ velja $\phi(x)$.}
@@ -1041,7 +1041,7 @@ bi lahko zapisali kot:
 Pri prvem smo uporabili zapis $\RR_{> 0}$, ki označuje množico vseh pozitivnih realnih števil.
 Pri drugem smo se znebili $\RR_{> 0}$, vendar je zapis bolj nepregleden.
 Pri tretjem smo predstavili pozitivnost kot dodatni pogoj.
-Četrti način je najbolj čitljiv in se pogosto uporablja, a nam ne pove, ali je $x$ realno, celo, ali racionalno število.
+Četrti način je najbolj berljiv in se pogosto uporablja, a nam ne pove, ali je $x$ realno, celo ali racionalno število.
 
 \section{Definicije}
 \label{sec:definicije}
@@ -1053,7 +1053,7 @@ Preden v matematičnem besedilu uporabimo simbol ali spremenljivko, ga moramo \e
 \item Nov simbol $s$ je (vezana ali prosta) \df{spremenljivka}, ki predstavlja neki (neznan, poljuben, nedoločen) element dane množice $A$.
 \end{itemize}
 %
-V obeh primerih dodamo simbol~$s$ v \df{kontekst}, se pravi v spisek znanih simbolov, o čemer bomo povedali več v razdelku~\ref{sec:struktura-dokaza}. Če smo simbol uvedli le začasno, moramo podati njegovo območje veljavnosti, na primer trenutno poglavje, ali trenutni dokaz.
+V obeh primerih dodamo simbol~$s$ v \df{kontekst}, se pravi v spisek znanih simbolov, o čemer bomo povedali več v razdelku~\ref{sec:struktura-dokaza}. Če smo simbol uvedli le začasno, moramo podati njegovo območje veljavnosti, na primer trenutno poglavje ali trenutni dokaz.
 
 % Matematiki zapisujejo definicije in vpeljujejo spremenljivke na razne načine.
 % %
@@ -1093,7 +1093,7 @@ Na primer, v besedilu bi lahko napisali ">Naj bo $s := \log_2 7 + \pi/6$."< S te
 %
 \begin{itemize}
 \item $s = \log_2 7 + \pi/6$ (namesto $\defeq$ uporabimo $=$)
-\item $s \cong \log_2 7 + \pi/6$ (namesto $\defeq$ uporabimo $\cong$)
+\item $s \equiv \log_2 7 + \pi/6$ (namesto $\defeq$ uporabimo $\equiv$)
 \item $s \triangleq \log_2 7 + \pi/6$ (namesto $\defeq$ uporabimo $\triangleq$)
 \end{itemize}
 %
@@ -1109,7 +1109,7 @@ to raje zapišemo kot
   f(x) \defeq x^2 + 7.
 \end{equation*}
 %
-Poglejmo še, kako definiramo okrajšave za logične formule. Denimo, da želimo s $\phi(x)$ označiti izjavo $\some{y \in \RR} y^2 = x + 1$. Glede na zgornji dogovor, zapišemo
+Poglejmo še, kako definiramo okrajšave za logične formule. Denimo, da želimo s $\phi(x)$ označiti izjavo $\some{y \in \RR} y^2 = x + 1$. Glede na zgornji dogovor zapišemo
 %
 \begin{equation*}
   \phi \defeq (x \mapsto (\some{y \in \RR} y^2 = x + 1))
@@ -1134,14 +1134,14 @@ ali pa kar $\phi(x) \liff \some{y \in \RR} y^2 = x + 1$.
 Kaj pa definicije novih pojmov, ki jih srečujete pri predavanjih, denimo naslednji pojem iz analize:
 
 \begin{definicija}
-  Zaporedje števil $a : \NN \to \RR$ je \textbf{neomejeno}, če za vsak $x \in \RR$ obstaja $i \in \NN$, da je $a_i > x$.
+  Zaporedje števil $a : \NN \to \RR$ je \textbf{neomejeno}, če za vsak $x \in \RR$ obstaja $i \in \NN$, da je $|a_i| > x$.
 \end{definicija}
 
 \noindent
-S stališča simbolnega zapisa, je to le uvedba novega simbola $\mathsf{neomejeno}$:
+S stališča simbolnega zapisa je to le uvedba novega simbola $\mathsf{neomejeno}$:
 %
 \begin{equation*}
-  \mathsf{neomejeno}(a) \defeq (\all{x \in \RR} \some{i \in \NN} a_i > x).
+  \mathsf{neomejeno}(a) \defeq (\all{x \in \RR} \some{i \in \NN} |a_i| > x).
 \end{equation*}
 %
 Seveda bistvo take definicije ni le krajši zapis, ampak predvsem uporabna vrednost pojma ">neomejeno zaporedje"<.
@@ -1196,7 +1196,7 @@ Formulo~\eqref{eq:unique-existence-1} razdelimo na dva dela:
 \item ">$\all{y, z \in A} \phi(y) \land \phi(z) \lthen y = z$"< pove, da sta vsaka dva elementa, ki zadoščata~$\phi$, enaka; se pravi, da obstaja \emph{največ en} želeni~$x$.
 \end{itemize}
 %
-Formulo \eqref{eq:unique-existence-2} preberemo takole: obstaja $x \in A$, ki zadošča $\phi(x)$ in vsak drug element, ki zadošča~$\phi$, je enak~$x$.
+Formulo \eqref{eq:unique-existence-2} preberemo takole: obstaja $x \in A$, ki zadošča $\phi(x)$, in vsak element, ki zadošča~$\phi$, je enak~$x$.
 
 Za formulo \eqref{eq:unique-existence-1} uporabljamo okrajšavo
 %
@@ -1204,7 +1204,7 @@ Za formulo \eqref{eq:unique-existence-1} uporabljamo okrajšavo
   \exactlyone{x \in A} \phi(x),
 \end{equation*}
 %
-ki jo beremo">obstaja natanko en $x$ iz $A$, da velja $\phi(x)$"<.
+ki jo beremo ">obstaja natanko en $x$ iz $A$, da velja $\phi(x)$"<.
 %
 Uporablja se tudi zapis $\exists^1 x \in A \,.\, \phi(x)$.
 
@@ -1213,7 +1213,7 @@ Uporablja se tudi zapis $\exists^1 x \in A \,.\, \phi(x)$.
 Če dokažemo, da obstaja natanko en $x \in A$, ki zadošča pogoju $\phi(x)$, potem se lahko nanj smiselno sklicujemo s \nls{tisti $x$ iz $A$, ki zadošča $\phi(x)$}, na primer:
 %
 \begin{itemize}
-\item \nls{tisto realno število $x$, za katero je $x^3 = 2$} (namreč kubični koren 2),
+\item \nls{tisto realno število $x$, za katero je $x^3 = 2$} (namreč kubični koren iz $2$),
 \item \nls{tista množica $S$, ki nima nobenega elementa} (namreč prazna množica).
 \end{itemize}
 %
@@ -1402,7 +1402,7 @@ Spremenljivka $x$ je \emph{vezana} v $\descr{x \in A} \phi(x)$.
 \begin{vaja}
   V simbolni obliki zapiši ">$n$ je lih"< in ">$n$ je praštevilo"<.
   Namig: $n$ je lih, kadar obstaja naravno število $k$, za katerega
-  velja $n = 2 k + 1$, in $n$ je praštevilo, kadar \emph{ni} zmnožek
+  velja $n = 2 k + 1$, in $n$ je praštevilo, kadar je $n > 1$ in $n$ \emph{ni} zmnožek
   dveh naravnih števil, ki sta obe večji od~$1$.
 \end{vaja}
 

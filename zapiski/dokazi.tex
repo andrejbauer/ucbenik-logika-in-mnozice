@@ -106,7 +106,7 @@ podrobno, postane dolgočasen in ne\-ra\-zumljiv:
       deljivo s~$3$.
     \item Če je $n$ deljiv s~$3$, tedaj obstaja naravno število $k$,
       da je $n = 3 k$. V tem primeru je $(n - 1) n (n + 1) = (n - 1)
-      (3 k) n (n + 1) = (3 k) (n - 1) (n + 1) = 3 (k (n - 1) (n +
+      (3 k) (n + 1) = (3 k) (n - 1) (n + 1) = 3 (k (n - 1) (n +
       1))$, zato je $(n - 1) n (n + 1)$ deljivo s~$3$.
     \item Če je $n + 1$ deljiv s~$3$, tedaj obstaja naravno število
       $k$, da je $n + 1 = 3 k$. V tem primeru je $(n - 1) n (n + 1) =
@@ -137,15 +137,15 @@ Matematiki v sklopu svojih aktivnosti \emph{konstruiramo} matematične objekte:
 \begin{itemize}
 \item v geometriji konstruiramo trikotnike z ravnilom in šestilom,
 \item računamo števke števila $\pi$, s čimer konstruiramo njegove približke,
-\item ko rešujemo enačbo, konstruiramo število, ki mu zadošča,
+\item ko rešujemo enačbo, konstruiramo število, ki ji zadošča,
 \item konstruiramo elemente množice, na primer $(2, \inl(3)) \in \NN \times (\ZZ + \ZZ)$.
 \end{itemize}
 %
 Tudi na dokaze lahko gledamo kot na konstrukcije, ki jih gradimo s pomočjo \emph{pravil sklepanja}.
 %
-Le-ta povedo, kakšna so ">pravila igre"< v dokazovanju, ne pa tudi kako dobro igrati igro dokazovanja.
+Le-ta povedo, kakšna so ">pravila igre"< v dokazovanju, ne pa tudi, kako dobro igrati igro dokazovanja.
 %
-Pri tem predmetu bomo spoznali pravila in podali nekaj namigov, kako konstruirati osnovne dokaze, pri ostalih predmetih pa boste videli ">žive dokaze"<. ki imajo manj tehničnih podrobnosti in se bolj
+Pri tem predmetu bomo spoznali pravila in podali nekaj namigov, kako konstruirati osnovne dokaze, pri ostalih predmetih pa boste videli ">žive dokaze"<, ki imajo manj tehničnih podrobnosti in se bolj
 osredotočajo na komuniciranje idej.
 
 
@@ -168,40 +168,40 @@ Dokaz ima ugnezdeno strukturo: sestoji iz pod-dokazov, ki sestoje iz nadaljnjih 
 Zgornji dokaz z dodanimi podrobnostmi in označeno ugnezdeno strukturo je prikazan na sliki~\ref{fig:izrek-pqr}.
 %
 \begin{figure}[htp]
-  % CLAUDE: when you read this comment, please fix this proof so that the boxes are
-  % still visible, but I'd like the lines numbered (on the left margin, small numbers
-  % so they don't distract) and the numbers must match the references in the text below.
-  % Feel free to fix the rather pedestrian formatting that we have now.
   \centering
   \small
-  \fbox{\parbox{0.65\textwidth}{
-    Naj bodo $p$, $q$ in $r$ izjave. \\
-    Dokažimo $(p \lor q) \land r \lthen (p \land r) \lor (q \land r)$. \\
-    \hbox{}\quad\parbox{0.65\textwidth}{
-      (1) Predpostavimo $(p \lor q) \land r.$ \\
-      Dokažimo $(p \land r) \lor (q \land r)$. \\
-      \hbox{}\quad\parbox{0.55\textwidth}{
-        (2) Zaradi (1) velja $p \lor q$. \\
-        (3) Zaradi (1) velja $r$. \\
-        Zaradi (2) lahko obravnavamo dva primera:\\
-        \hbox{}\quad \fbox{\parbox{0.4\textwidth}{
-          (a) če velja $p$:\\
-              \hbox{}\quad Dokažimo $(p \land r) \lor (q \land r)$.\\
-              \hbox{}\quad Dokažimo levi disjunkt $p \land r$: \\
-              \hbox{}\qquad (i) $p$ velja zaradi (a) \\
-              \hbox{}\qquad (ii) $r$ velja zaradi (3).
-        }} \\[0.25ex]
-        \hbox{}\quad\fbox{\parbox{0.4\textwidth}{
-          (b) če velja $q$:\\
-              \hbox{}\quad Dokažimo $(p \land r) \lor (q \land r)$.\\
-              \hbox{}\quad Dokažimo desni disjunkt $q \land r$: \\
-              \hbox{}\qquad (i) $q$ velja zaradi (b) \\
-              \hbox{}\qquad (ii) $r$ velja zaradi (3).
-              }}
-        }
-     }
-  }}
-  \caption{dokaz izreka~\ref{izrek:pqr}.}
+  % Vrstica n stoji na višini -n (od vrstice 13 dalje še 0.3 nižje), x je zamik vrstice.
+  \begin{tikzpicture}[x=1em, y=1.3em,
+      vrstica/.style={anchor=base west, inner sep=0pt},
+      stevilka/.style={anchor=base east, inner sep=0pt, font=\scriptsize}]
+    \foreach \n/\x/\besedilo in {
+      1/0/{Naj bodo $p$, $q$ in $r$ izjave.},
+      2/0/{Dokažimo $(p \lor q) \land r \lthen (p \land r) \lor (q \land r)$.},
+      3/1.2/{(1) Predpostavimo $(p \lor q) \land r$.},
+      4/1.2/{Dokažimo $(p \land r) \lor (q \land r)$.},
+      5/2.4/{(2) Zaradi (1) velja $p \lor q$.},
+      6/2.4/{(3) Zaradi (1) velja $r$.},
+      7/2.4/{Zaradi (2) obravnavamo dva primera:},
+      8/2.8/{(a) Če velja $p$:},
+      9/4/{Dokažimo $(p \land r) \lor (q \land r)$.},
+      10/4/{Dokažimo levi disjunkt $p \land r$:},
+      11/5.2/{(i) $p$ velja zaradi (a),},
+      12/5.2/{(ii) $r$ velja zaradi (3).},
+      13/2.8/{(b) Če velja $q$:},
+      14/4/{Dokažimo $(p \land r) \lor (q \land r)$.},
+      15/4/{Dokažimo desni disjunkt $q \land r$:},
+      16/5.2/{(i) $q$ velja zaradi (b),},
+      17/5.2/{(ii) $r$ velja zaradi (3).}%
+    } {
+      \pgfmathsetmacro{\y}{\n > 12 ? -\n - 0.3 : -\n}
+      \node[stevilka] at (-1, \y) {\n};
+      \node[vrstica] at (\x, \y) {\besedilo};
+    }
+    \draw (-0.4, -0.25) rectangle (22.4, -17.8);
+    \draw (2.4, -7.25) rectangle (21.8, -12.4);
+    \draw (2.4, -12.55) rectangle (21.8, -17.65);
+  \end{tikzpicture}
+  \caption{Dokaz izreka~\ref{izrek:pqr}}
   \label{fig:izrek-pqr}
 \end{figure}
 %
@@ -230,7 +230,7 @@ V dokazu smemo uporabljati spremenljivko, če jo predhodno vpeljemo. Pri tem nav
 %
 S tem postane $x$ veljavna spremenljivka, ki jo smemo uporabljati.
 %
-O njem vemo le to, da je element množice $A$, ne vemo pa kateri element -- pravimo, da je $x$ \df{prosta spremenljivka}. V matematičnih besedilih boste zasledili tudi naslednje fraze, ki uvedejo prosto spremenljivko:
+O njej vemo le to, da je element množice $A$, ne vemo pa, kateri element -- pravimo, da je $x$ \df{prosta spremenljivka}. V matematičnih besedilih boste zasledili tudi naslednje fraze, ki uvedejo prosto spremenljivko:
 %
 \begin{itemize}
 \item \nls{Naj bo $x \in A$ poljuben.}
@@ -266,15 +266,15 @@ Predpostavka ima svoje območje veljavnosti, ki je omejeno s pod-dokazom, v kate
 Pogosto predpostavko oštevilčimo ali kako drugače označimo, da se lahko nanjo sklicujemo.
 
 \begin{zgled}
-  V dokazu na sliki~\ref{fig:izrek-pqr} v tretji vrstici predpostavimo $(p \lor q) \land r$ in predpostavko označimo z~(1), območje veljavnosti je do konca dokaza. V osmi vrstici predpostavimo $p$, označimo z~(a), območje veljavnost pa je prva notranja škatla. V 13.~vrstici predpostavimo~$q$, označimo z~(b), območje veljavnosti pa je druga notranja škatla.
+  V dokazu na sliki~\ref{fig:izrek-pqr} v tretji vrstici predpostavimo $(p \lor q) \land r$ in predpostavko označimo z~(1), območje veljavnosti je do konca dokaza. V osmi vrstici predpostavimo $p$, označimo z~(a), območje veljavnosti pa je prva notranja škatla. V 13.~vrstici predpostavimo~$q$, označimo z~(b), območje veljavnosti pa je druga notranja škatla.
 \end{zgled}
 
-Kadar se skličemo na dejstvo, da izjava velja, ker smo jo predpostavili, pravimo da smo \df{uporabili predpostavko}. Predpostavke nam ni treba uporabiti in lahko jo uporabimo večkrat.
+Kadar se skličemo na dejstvo, da izjava velja, ker smo jo predpostavili, pravimo, da smo \df{uporabili predpostavko}. Predpostavke nam ni treba uporabiti in lahko jo uporabimo večkrat.
 
 \begin{zgled}
   V dokazu na sliki~\ref{fig:izrek-pqr} smo v peti in šesti vrstici uporabili predpostavko~(1).
-  V 11.~in 12.~vrstici smo uporabili predpostavki~(a) in~(3).
-  V 16.~in 17.~vrstici smo uporabili predpostavki~(b) in~(3).
+  V 11.~in 12.~vrstici smo uporabili predpostavko~(a) in dejstvo~(3).
+  V 16.~in 17.~vrstici smo uporabili predpostavko~(b) in dejstvo~(3).
 \end{zgled}
 
 
@@ -382,20 +382,20 @@ Drugi način:
 \begin{quote}
   \sl
   Dokažimo $\rho$.\\
-  Vemo, da velja $\phi \lor \psi$, torej obravnavamo primera:\\
+  Vemo, da velja $\phi \lor \psi$, torej obravnavamo dva primera:\\
   %
   \begin{enumerate}
   \item Če velja $\phi$: \\
-        Dokažemo $\rho$: \quad \brac{dokaz $\rho$}
+        Dokažimo $\rho$: \quad \brac{dokaz $\rho$}
   \item Če velja $\psi$: \\
-        Dokažemo $\rho$: \quad \brac{dokaz $\rho$}
+        Dokažimo $\rho$: \quad \brac{dokaz $\rho$}
   \end{enumerate}
 \end{quote}
 
 \subsection{Resnica in neresnica}
 
 \paragraph{Vpeljava.}
-Resnice $\top$ ni treba dokazovati, zapišemo ">očitno"<. \footnote{
+Resnice $\top$ ni treba dokazovati, zapišemo ">očitno"<.\footnote{
 V praksi $\top$ nastopi kot izjava, ki jo želimo dokazati, ko neko drugo izjavo poenostavimo. Primer: ko dokazujemo
 $12^2 + 12^2 < 17^2$, najprej izračunamo, da je to ekvivalentno $288 < 289$, kar je ekvivalentno $\top$. S tem je dokaz
 zaključen, saj smo dobili $\top$.}
@@ -460,7 +460,7 @@ Negacijo $\lnot \phi$ uporabimo tako, da dokažemo $\phi$ in zaključimo dokaz.
   Vemo, da velja $\lnot\phi$.
   %
   \begin{itemize}
-  \item Dokažimo $\phi$: \quad \brac{dokaz $\phi$}
+  \item[] Dokažimo $\phi$: \quad \brac{dokaz $\phi$}
   \end{itemize}
   %
   Torej velja $\rho$.
@@ -475,11 +475,11 @@ Negacijo $\lnot \phi$ uporabimo tako, da dokažemo $\phi$ in zaključimo dokaz.
   %
   \begin{enumerate}
   \item[] Naj bo $x \in A$. \\
-          Dokažemo $\phi(x)$: \quad \brac{dokaz $\phi(x)$}
+          Dokažimo $\phi(x)$: \quad \brac{dokaz $\phi(x)$}
   \end{enumerate}
 \end{quote}
 %
-\textbf{Pozor:} spremenljivka $x$ mora biti \emph{sveža}, se pravi, da je ne uporabljamo nikjer drugje. Če jo, najprej izberemo svežo spremenljivko~$y$ in $x$ preimenujemo v~$y$.
+\textbf{Pozor:} spremenljivka $x$ mora biti \emph{sveža}, se pravi, da je ne uporabljamo nikjer drugje. Če jo uporabljamo, najprej izberemo svežo spremenljivko~$y$ in $x$ preimenujemo v~$y$.
 
 \paragraph{Uporaba.}
 \begin{quote}
@@ -498,8 +498,8 @@ Negacijo $\lnot \phi$ uporabimo tako, da dokažemo $\phi$ in zaključimo dokaz.
   %
   \begin{itemize}
   \item[] Podamo $x \mathbin{{:}{=}} \langle\text{izraz}\rangle$. \\
-          Dokažemo $\langle\text{izraz}\rangle \in A$: \quad \dots \\
-          Dokažemo $\phi(\langle\text{izraz}\rangle)$: \quad \dots
+          Dokažimo $\langle\text{izraz}\rangle \in A$: \quad \dots \\
+          Dokažimo $\phi(\langle\text{izraz}\rangle)$: \quad \dots
   \end{itemize}
 \end{quote}
 %
@@ -514,7 +514,7 @@ voljo).
   %
   \begin{enumerate}
   \item[] Imamo $x \in A$, za katerega velja $\phi(x)$.\\
-       Dokažemo $\rho$: \quad \brac{dokaz $\rho$}
+       Dokažimo $\rho$: \quad \brac{dokaz $\rho$}
   \end{enumerate}
 \end{quote}
 %
@@ -533,9 +533,9 @@ voljo).
   %
   \begin{enumerate}
   \item Če velja $\phi$:\\
-        Dokažemo $\rho$: \quad \dots
-  \item Če velja $\lnot\phi$. \\
-        Dokažemo $\rho$: \quad \dots
+        Dokažimo $\rho$: \quad \dots
+  \item Če velja $\lnot\phi$: \\
+        Dokažimo $\rho$: \quad \dots
   \end{enumerate}
 \end{quote}
 %
@@ -576,7 +576,7 @@ katerih je najbolj znano \textbf{dokazovanje s protislovjem}: pri tem ne
 utemeljimo izjave $\phi$, ampak utemeljimo, zakaj $\lnot\phi$
 \emph{ne} velja. Natančneje povedano, izjavo $\phi$ zamenjamo z njej
 ekvivalentno izjavo $\lnot\lnot\phi$ in dokažemo $\lnot\lnot\phi$.
-V dokazu $\lnot\lnot\phi \lthen \phi$ smo uporabili aksiom o
+Za dokaz implikacije $\lnot\lnot\phi \lthen \phi$ potrebujemo aksiom o
 izključenem tretjem. V matematičnem besedilu se dokaz s protislovjem
 glasi:
 %
@@ -595,7 +595,7 @@ glasi:
 %
 Praviloma izvemo o vsebini matematične izjave~$\phi$ več, če jo
 dokažemo neposredno. Dokazovanja s protislovjem zato ni smiselno
-uporabljati vsepovprek, ampak le takrat, ko je zares potreben ali ko
+uporabljati vsepovprek, ampak le takrat, ko je zares potrebno ali ko
 nam zelo olajša dokazovanje.
 
 Ostali načini za sestavljanje posrednih dokazov slonijo na
@@ -609,9 +609,9 @@ ekvivalencah
   (\some{x \in S} \phi) \liff \lnot \all{x \in S} \lnot \phi.
 \end{mathpar}
 %
-V vseh petih primerih implikacija $\lthen$ iz leve na desno velja brez
+V vseh petih primerih implikacija $\lthen$ z leve na desno velja brez
 uporabe aksioma o izključenem tretjem. Za dokaz implikacij
-$\Leftarrow$ iz desne na levo pa potrebujemo aksiom o izključenem
+$\Leftarrow$ z desne na levo pa potrebujemo aksiom o izključenem
 tretjem.
 
 \begin{vaja}
@@ -654,7 +654,7 @@ dokaz izjave:
     \item[] (Dokaz $\psi$.)
     \end{itemize}
     %
-    Če torej ne velja $\lnot\phi$, velja $\psi$. Torej velja vsaj
+    Če torej ne velja $\phi$, velja $\psi$. Torej velja vsaj
     eden, zato smo dokazali $\phi \lor \psi$.
   \end{quote}
 \item $(\phi \lthen \psi) \liff (\lnot\psi \lthen \lnot\phi)$
@@ -771,7 +771,7 @@ naslednjih ekvivalenc:
   \begin{equation}
     \label{eq:limita-0}
     \all{\epsilon > 0}
-      \some{m}{\NN}
+      \some{m \in \NN}
         \all{n \geq m}
           |a_n - 0| < \epsilon.
   \end{equation}
@@ -785,19 +785,19 @@ naslednjih ekvivalenc:
     \lnot \all{\epsilon > 0} \some{m \in \NN} \all{n \geq m} |a_n
           - 0| < \epsilon & \iff
     \\
-    \some{\epsilon > 0} \lnot \some{m}{\NN} \all{n \geq m}
+    \some{\epsilon > 0} \lnot \some{m \in \NN} \all{n \geq m}
           |a_n - 0| < \epsilon &\iff
     \\
-    \some{\epsilon > 0} \all{m}{\NN} \lnot \all{n \geq m}
+    \some{\epsilon > 0} \all{m \in \NN} \lnot \all{n \geq m}
           |a_n - 0| < \epsilon &\iff
     \\
-    \some{\epsilon > 0} \all{m}{\NN} \some{n \geq m}
+    \some{\epsilon > 0} \all{m \in \NN} \some{n \geq m}
           \lnot (|a_n - 0| < \epsilon) &\iff
     \\
-    \some{\epsilon > 0} \all{m}{\NN} \some{n \geq m}
+    \some{\epsilon > 0} \all{m \in \NN} \some{n \geq m}
           |a_n - 0| \geq \epsilon &\iff
     \\
-    \some{\epsilon > 0} \all{m}{\NN} \some{n \geq m}
+    \some{\epsilon > 0} \all{m \in \NN} \some{n \geq m}
           a_n \geq \epsilon.
   \end{align*}
   % 
@@ -808,7 +808,7 @@ naslednjih ekvivalenc:
   \begin{quote}
     ">Obstaja tako zaporedje pozitivnih števil $(a_n)_n$ in obstaja
     tak $\epsilon > 0$, da za vsak $m \in \NN$ obstaja $n \geq m$, za
-    katerega velja $a_n > \epsilon$."<
+    katerega velja $a_n \geq \epsilon$."<
   \end{quote}
   % 
   To izjavo pa znamo dokazati tako, da podamo konkreten primer
@@ -846,8 +846,8 @@ Podajmo primer.
   kar je sodo število.
 \end{proof}
 
-Za začetnika je najtežje dognati, katere so preostale možnosti in zakaj se je pisec
-dokaza pravzaprav odločil zanje. Avtor zgornjega dokaza je verjetno opazil, da števila $a$, $b$ in $c$ v izrazu $|a-b|+|b-c|+|c-a|$ nastopajo \emph{simetrično}: če jih premešamo, se izraz ne spremeni.
+Za začetnika je najtežje dognati, katere so preostale možnosti in zakaj jih je pisec
+dokaza pravzaprav izpustil. Avtor zgornjega dokaza je verjetno opazil, da števila $a$, $b$ in $c$ v izrazu $|a-b|+|b-c|+|c-a|$ nastopajo \emph{simetrično}: če jih premešamo, se izraz ne spremeni.
 Denimo, ko zamenjamo $a$ in $b$, dobimo $|b-a|+|a-c|+|c-b|$, kar je
 enako prvotnemu izrazu $|a-b|+|b-c|+|c-a|$. Torej lahko izmed šestih
 možnosti
@@ -880,7 +880,7 @@ pravilom sklepanja:
   \inferrule{\phi(a) \\ a = b}{\phi(b)}
 \end{mathpar}
 %
-Po vrsti so to pravila \emph{refleksivnosti}, \emph{simetrije},
+Po vrsti so to pravila \emph{refleksivnosti}, \emph{simetričnosti},
 \emph{tranzitivnosti} in \emph{zamenjave}. Zaenkrat enakosti ne bomo
 posvečali posebne pozornosti, saj jo v praksi študenti dobro
 obvladajo.
@@ -903,12 +903,12 @@ običajno zapišemo rešitev takole:
   x_1 = 2, \quad x_2 = 3.
 \end{equation*}
 %
-Kako naj to razumemo iz stališča matematične logike? Treba je
+Kako naj to razumemo s stališča matematične logike? Treba je
 pojasniti dvoje: kaj pomenita $x_1$ in $x_2$, saj v prvotni enačbi
 nastopa spremenljivka $x$, ter kako naj razumemo vejico med izjavama
 $x_1 = 2$ in $x_2 = 3$. Z indeksoma $1$ in $2$ štejemo rešitve enačbe
 in sta v resnici nepotrebna,\footnote{Kako pa bi zapisali rešitve
-  enačbe $x_1^2 - 5 x_1 + 6 x = 0$?} na kar kaže tudi dejstvo, da
+  enačbe $x_1^2 - 5 x_1 + 6 = 0$?} na kar kaže tudi dejstvo, da
 pišemo $x = \ldots$ in ne $x_1 = \ldots$, kadar je rešitev ena sama.
 Torej bi lahko rešitev zapisali kot
 %
@@ -973,15 +973,10 @@ učimo, da smejo enačbo množiti samo z od nič različnimi števili.
     x = a_1 \lor \cdots \lor x = a_n
   \end{align*}
   %
-  kjer smo v $k$-tem koraku namesto ekvivalence pomotoma naredili
+  kjer smo v $(k+1)$-tem koraku namesto ekvivalence pomotoma naredili
   implikacijo. Smo s tem dobili preveč ali premalo rešitev prvotne
   enačbe?
 \end{vaja}
-
-%%% Local Variables: 
-%%% mode: latex
-%%% TeX-master: "lmn"
-%%% End:
 
 \dodatniRazdelek{Formalna pravila sklepanja}
 \label{sec:formalna-pravila}
@@ -993,7 +988,7 @@ razdelku~\ref{sec:kaj-je-dokaz} smo govorili o tem, da so dokazi
 mešanica besedila in simbolov, ki jih matematiki uporabljajo tako za
 utemeljitev matematičnih izjav, kakor tudi za razlago in podajanje
 matematičnih idej. V tem razdelku se posvetimo \textbf{formalnim
-  dokazom}, ki so logične konstrukcije namenjene mehanskemu
+  dokazom}, ki so logične konstrukcije, namenjene mehanskemu
 preverjanju pravilnosti izjav.
 
 Za vsako logično operacijo bomo podali \textbf{formalna pravila
@@ -1046,9 +1041,9 @@ Po vrsti beremo:
 \end{itemize}
 %
 Formalni dokaz ima drevesno obliko in prikazuje, kako iz danih
-\textbf{hipotez} dokažemo neko \textbf{sodbo}. Pri dnu je zapisana izjava,
-ki jo dokazujemo, nad njo pa dokaz. Vsako vejišče je eno od pravil
-sklepanja. Vsaka veja se mora zaključiti z aksiomom ali s hipotezo.
+\textbf{hipotez} dokažemo neko izjavo. Pri dnu je zapisana izjava,
+ki jo dokazujemo, nad njo pa dokaz. Vsako vejišče je uporaba enega od
+pravil sklepanja. Vsaka veja se mora zaključiti z aksiomom ali s hipotezo.
 Oglejmo si dokaz izjave $(\alpha \land \alpha) \land (\top
 \land \beta)$ iz hipoteze $\beta \land \alpha$:
 %
@@ -1205,7 +1200,7 @@ Disjunkcija ima dve pravili vpeljave in eno pravilo uporabe:
   {\rho}
 \end{mathpar}
 %
-Pravili sklepanja povesta, da lahko dokažemo disjunkcijo $\phi \lor
+Pravili vpeljave povesta, da lahko dokažemo disjunkcijo $\phi \lor
 \psi$ tako, da dokažemo enega od disjunktov.
 
 Pojasnimo še pravilo uporabe. Denimo, da bi radi dokazali $\rho$, pri
@@ -1328,7 +1323,7 @@ primerov:
     \begin{equation*}
       x^4 > (-2)^4 = 16 > 15.
     \end{equation*}
-  \item Predpostavimo $x \geq 3$. Tedaj je $x - 3 \geq 0$ in zato$|x -
+  \item Predpostavimo $x \geq 3$. Tedaj je $x - 3 \geq 0$ in zato $|x -
     3| = x - 3$, od koder sledi $x - 3 = |x - 3| > 5$, oziroma $x >
     8$. Tako dobimo
     %
@@ -1343,7 +1338,7 @@ primerov:
 
 Težji del tega dokaza se skriva v izbiri disjunkcije. Kako je pisec
 uganil, da je treba obravnavati primera $x \leq 3$ in $x \geq 3$?
-Zakaj ni raje obravnaval $x < 3$ in $x \geq 3$, ali morda $x \leq 17$
+Zakaj ni raje obravnaval $x < 3$ in $x \geq 3$ ali morda $x \leq 17$
 in $x \geq 17$? Odgovor se skriva v definiciji absolutne vrednosti:
 %
 \begin{equation*}
@@ -1385,7 +1380,7 @@ ne more dokazati, $\bot$ nima pravila vpeljave. Pravilo uporabe je
   \inferrule{\quad\bot\quad}{\phi}
 \end{equation*}
 %
-se imenuje \textbf{ex falso (sequitur) quodlibet}, kar pomeni ">iz
+in se imenuje \textbf{ex falso (sequitur) quodlibet}, kar pomeni ">iz
 neresnice sledi karkoli"<.
 
 V matematičnem besedilu se $\top$ in $\bot$ ne pojavljata pogosto, ker
@@ -1395,7 +1390,7 @@ poenostavijo s pomočjo ekvivalenc:
 \begin{mathpar}
   \top \land \phi \liff \phi
   \and
-  \top \lor \phi \liff \phi
+  \top \lor \phi \liff \top
   \and
   \bot \land \phi \liff \bot
   \and
@@ -1460,7 +1455,7 @@ $\phi_2$, \ldots, $\phi_n$, zadostuje dokazati cikel implikacij
 \end{equation*}
 %
 (Ne spreglejte zadnje implikacije $\phi_n \lthen \phi_1$, ki zaključi
-cikel). V besedilu to dokažemo:
+cikel.) V besedilu to dokažemo takole:
 
 \begin{quote}
   \it
@@ -1576,7 +1571,7 @@ V besedilu se pravilo vpeljave zapiše:
   %
   \begin{itemize}
   \item[] Naj bo $x \in S$ poljuben.
-  \item[] (Dokaz, da velja $\phi(x)$).
+  \item[] (Dokaz, da velja $\phi(x)$.)
   \end{itemize}
   %
   Dokazali smo $\all{x \in S} \phi(x)$.
@@ -1615,7 +1610,7 @@ narobe, če ne pazimo in pomešamo spremenljivke:
     x > 42 \lthen \all{x \in \RR} x > 23.
   \end{equation*}
   %
-  To je sicer dovoljeno, saj se prosti $x$, ki stoji zunaj $\forall$
+  To je sicer dovoljeno, saj se prosti $x$, ki stoji zunaj $\forall$,
   ni ujel, ni pa preveč smotrno, ker smo na dobri poti, da bomo
   zunanji prosti $x$ in vezanega znotraj $\forall$ pomešali. Res, če
   ne upoštevamo pravila, da mora biti $x$ svež, dobimo tale nepravi
@@ -1640,8 +1635,8 @@ narobe, če ne pazimo in pomešamo spremenljivke:
   %
   \begin{quote}
     ">Dokazujemo $x > 42 \lthen \all{x \in \RR} x > 23$. Predpostavimo,
-    da velja $x > 42$ in dokažimo $\all{x \in \RR} x > 23$. Naj bo $x
-    \in \RR$. Po predpostavki je $x > 42$ in ker je $42 > 23$, od tod
+    da velja $x > 42$, in dokažimo $\all{x \in \RR} x > 23$. Naj bo $x
+    \in \RR$. Po predpostavki je $x > 42$, in ker je $42 > 23$, od tod
     sledi $x > 23$."<
   \end{quote}
   %
@@ -1650,7 +1645,7 @@ narobe, če ne pazimo in pomešamo spremenljivke:
   %
   \begin{quote}
     ">Dokazujemo $x > 42 \lthen \all{y \in \RR} y > 23$. Predpostavimo,
-    da velja $x > 42$ in dokažimo $\all{y \in \RR} y > 23$. Naj bo $y
+    da velja $x > 42$, in dokažimo $\all{y \in \RR} y > 23$. Naj bo $y
     \in \RR$. (Kaj zdaj? Lahko sicer dokažemo $x > 23$, a zares bi
     morali dokazati $y > 23$, kar ne gre.)"<
   \end{quote}
