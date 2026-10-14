@@ -75,8 +75,8 @@ Matematična abeceda vsebuje precej več simbolov, kot zgolj običajne črke in 
  \check{a}.
 \end{equation*}
 %
-Uporabimo lahko tudi \emph{podpis} ali
-\emph{nadpis}, ki je lahko črka, številka, ali kak drug simbol, na primer
+Uporabimo lahko tudi \df{podpis} ali
+\df{nadpis}, ki je lahko črka, številka, ali kak drug simbol, na primer
 %
 \begin{equation*}
   a_i \quad
@@ -86,7 +86,7 @@ Uporabimo lahko tudi \emph{podpis} ali
   a^{\dagger}.
 \end{equation*}
 %
-Podpisu in nadpisu pogovorno pravimo tudi \emph{indeks} in \emph{eksponent}, a to ni
+Podpisu in nadpisu pogovorno pravimo tudi \df{indeks} in \df{eksponent}, a to ni
 najbolj posrečena raba, ker se indeks lahko pojavi tudi v nadpisu ali kje drugje,
 eksponent pa lahko pomeni tudi število, s katerim potenciramo.
 
@@ -150,7 +150,7 @@ in~$a$, bi računalničar zapisal $\mathtt{masa\_delca}$ in $\mathtt{pospesek}$.
 \label{sec:izrazi}
 
 Matematično besedilo je mešanica naravnega jezika in simbolnega zapisa. Delom besedila, ki
-so napisani s simboli, pravimo \emph{simbolni izrazi} ali krajše kar \emph{izrazi}. Vsi
+so napisani s simboli, pravimo \df{simbolni izrazi} ali krajše kar \df{izrazi}. Vsi
 ste jih že videli, denimo
 %
 \begin{equation*}
@@ -436,24 +436,24 @@ Matematična izjava je besedilo, ki izraža kako matematično dejstvo. Primeri m
 \item $\phi \lor \psi \lthen (\lnot \phi \lthen \psi)$.
 \end{itemize}
 %
-Vidimo, da je lahko izjava resnična, neresnična, ali pa je resničnost
-izjave \emph{odvisna} od vrednosti parametrov, ki nastopajo v njej.
-Primeri besedila, ki \emph{niso} matematične izjave:
+Izjava je lahko resnična, neresnična, ali pa je njena resničnost
+\emph{odvisna} od vrednosti parametrov, ki nastopajo v njej:
 %
 \begin{itemize}
-\item \nls{Ali je $2 + 2 = 5$?}
-\item \nls{Za vsak $x > 5$.}
-\item \nls{Študenti bi morali znati reševati diferencialne enačbe.}
-\item \nls{Od nekdaj lepe so Ljubljanke slovele, al' lepše od Urške bilo ni nobene.}
-\item $\phi \lor ) \psi \lthen \psi$.
+\item Izjava \nls{Vsa realna števila so večja od~$3$.} je neresnična.
+\item Izjava \nls{Nekatera realna števila so večja od~$3$.} je resnična.
+\item Resničnost izjave \nls{Število $x$ je večje od $3$.} je odvisna od vrednosti~$x$.
 \end{itemize}
 %
+
 Matematične izjave običajno pišemo kombinirano v naravnem in simbolnem jeziku,
 saj so tako najlažje razumljive ljudem.
 %
 Če situacija to zahteva, izjavo zapišemo \emph{samo} z matematičnimi simboli.
+%
 Tako zapisani izjavi pravimo \df{logična formula} ali \df{logični izraz}.
-
+Osnovni gradniki logičnih formul so \df{logične operacije} iz tabele~\ref{fig:logicne-operacije}
+%
 \begin{figure}[hpt]
   \centering
   \small
@@ -499,10 +499,8 @@ Tako zapisani izjavi pravimo \df{logična formula} ali \df{logični izraz}.
   \caption{Logični konstanti, vezniki in kvantifikatorja}
   \label{fig:logicne-operacije}
 \end{figure}
-
-Osnovni gradniki logičnih formul so \df{logične operacije}, ki so prikazane v tabeli~\ref{fig:logicne-operacije}.
 %
-Delimo jih na tri sklope:
+in delimo jih na tri sklope:
 %
 \begin{itemize}
 \item \df{konstanti} $\bot$ in $\top$,
@@ -511,7 +509,7 @@ Delimo jih na tri sklope:
 \end{itemize}
 %
 Opozorimo na nekatere posebnosti matematičnega izražanja.
-
+%
 V matematiki ločimo med dvema vrstama disjunkcije:
 %
 \begin{itemize}
@@ -519,7 +517,7 @@ V matematiki ločimo med dvema vrstama disjunkcije:
 \item \df{ekskluzivna} disjunkcija $\phi \veebar \psi$: velja $\phi$ ali $\psi$, vendar \emph{ne} oba.
 \end{itemize}
 %
-Bodite pozorni na to razliko, saj ju v vsakdanjem govoru pogosto mešamo ali ne ločimo med njima.
+Bodite pozorni na to razliko, saj lahko v vsakdanji rabi \nls{ali} označuje inkluzivno ali ekskluzivno disjunkcijo.
 
 \begin{vaja}
   Ko vas vprašajo \nls{Želiš kavo ali čaj?}, odgovorite z \nls{da}.
@@ -527,20 +525,23 @@ Bodite pozorni na to razliko, saj ju v vsakdanjem govoru pogosto mešamo ali ne 
 
 V implikaciji $\phi \lthen \psi$ imenujemo $\phi$ \df{antecedent} ali \df{predpostavka} in $\psi$ \df{konsekvent} ali \df{posledica}.
 %
-Izmed vseh veznikov implikacija povzroča največ težav, saj se jo uporablja zelo ohlapno. Če mati sinu reče:
+Izmed vseh veznikov implikacija povzroča največ težav, saj se jo uporablja zelo ohlapno. Če mati sinu reče
 %
 \begin{quote}
   \nls{Če ne pospraviš sobe, potem ti ne spečem palačink,}
 \end{quote}
 %
-bo sin razočaran, ko bo pospravil sobo, mama pa ne bo spekla palačink. A če bi sin študiral matematiko, bi vedel, da mama ni povedala nič o tem, kaj bo storila, če sobo pospravi. Če bi mama rekla:
+bo sin razočaran, ko bo pospravil sobo, mama pa ne bo spekla palačink.
+%
+A če bi sin študiral matematiko, bi vedel, da mama ni povedala nič o tem, kaj bo storila, če sobo pospravi. Če bi mama rekla:
 %
 \begin{quote}
   \nls{Če pospraviš sobo, potem ti spečem palačinke,}
 \end{quote}
 %
 bi to bila drugačna obljuba, ki bi mamo zavezala k peki palačink v primeru, da sin pospravi sobo.
-Če bi mama spekla palačinke v primeru, ko sin sobe ne pospravi, svoje obljube ne bi prelomila, bi pa vzgojila razvajenega mulca.
+%
+Mama svoje obljube ne bi prelomila tudi v primeru, ko bi spekla palačinke, a sin sobe ne bi pospravil; se pa velja vprašati, ali gre lenobo nagrajevati s palačinkami.
 %
 Če označimo \nls{sin pospravi sobo} s~$\phi$ in \nls{mama speče palačinke} s~$\phi$, zgornji izjavi zapišemo simbolno z
 %
@@ -570,9 +571,9 @@ je zapisana kot implikacija, a jo je treba razumeti kot ekvivalenco:
   \nls{Število se imenuje \df{sodo}, če in samo če je deljivo z dva.}
 \end{quote}
 %
-Res, če bi bila implikacija, ne bi izključevala možnosti, da se tudi število~$3$ imenuje sodo.
+Res, implikacija bi dopuščala možnost, da se tudi število~$3$ imenuje sodo.
 
-V uporabi so naslednje ustaljene okrajšave:
+V uporabi so nekatere ustaljene okrajšave:
 %
 \begin{center}
   \small
@@ -603,13 +604,12 @@ V uporabi so naslednje ustaljene okrajšave:
   \end{tabular}
 \end{center}
 %
-Nekatere okrajšave odsvetujemo. V nizu neenakosti naj gredo vse
-primerjave v isto smer. Torej ne pišemo $a \leq b < c \geq d$, ker se
-zlahka zmotimo in mislimo, da velja $a \geq d$. To bi morali zapisati
-ločeno kot $a \leq b < c$ in $c \geq d$. Prav tako ne nizamo neenakosti,
-saj premnogi iz $a \neq b \neq c$ napačno sklepajo $a \neq c$,
-čeprav neenakost \emph{ni} tranzitivna relacija. Zapis $a =
-b \neq c = d$ je v redu, saj ena sama neenakost ne povzroči težav.
+Srečamo tudi okrajšave, ki jih odsvetujemo.
+%
+V nizu neenakosti naj gredo vse primerjave v isto smer. Torej ne pišemo $a \leq b < c \geq d$, ker se zlahka zmotimo in
+mislimo, da velja $a \geq d$. To bi morali zapisati ločeno kot $a \leq b < c$ in $c \geq d$. Prav tako ne nizamo
+neenakosti, saj premnogi iz $a \neq b \neq c$ napačno sklepajo $a \neq c$, čeprav neenakost \emph{ni} tranzitivna
+relacija. Zapis $a = b \neq c = d$ je v redu, saj ena sama neenakost ne povzroči težav.
 
 Dogovorimo se za prioriteto logičnih operacij:
 %
@@ -697,13 +697,11 @@ Implikacija združuje desno:
   \phi \lthen (\psi \lthen \rho).
 \end{equation*}
 %
-Tu \emph{ni} vseeno, kako postavimo oklepaje, saj $\phi \lthen (\psi
-\lthen \rho)$ in $(\phi \lthen \psi) \lthen \rho$ v splošnem nista
-ekvivalentna.
+Tu \emph{ni} vseeno, kako postavimo oklepaje, saj $\phi \lthen (\psi \lthen \rho)$ in $(\phi \lthen \psi) \lthen \rho$ v splošnem nista ekvivalentna.
 
 \begin{zgled}
   Naj bosta $x, y \in \RR$. Izjava $x \leq y \lthen (y \leq x \lthen x = y)$ je veljavna za vse vrednosti~$x$ in~$y$,
-  izjava $(x \leq y \lthen y \leq x) \lthen x = y$ pa velja natanko tedaj, ko je $x = y$.
+  izjava $(x \leq y \lthen y \leq x) \lthen x = y$ pa velja natanko tedaj, ko je $x \leq y$.
 \end{zgled}
 
 Vendar pozor! Kadar vidite niz implikacij
@@ -1051,39 +1049,39 @@ Pri tretjem smo predstavili pozitivnost kot dodatni pogoj.
 Preden v matematičnem besedilu uporabimo simbol ali spremenljivko, ga moramo \emph{vpeljati}. To pomeni, da moramo pojasniti, kakšen je pomen simbola. Poznamo dva osnovna načina za vpeljavo novih simbolov:
 %
 \begin{itemize}
-\item Nov simbol $s$ lahko \textbf{definiramo} kot okrajšavo za neki drugi izraz ali logično formulo.
-\item Nov simbol $s$ je (vezana ali prosta) \textbf{spremenljivka}, ki predstavlja neki (neznan, poljuben, nedoločen) element dane množice $A$.
+\item Nov simbol $s$ lahko \df{definiramo} kot okrajšavo za neki drugi izraz ali logično formulo.
+\item Nov simbol $s$ je (vezana ali prosta) \df{spremenljivka}, ki predstavlja neki (neznan, poljuben, nedoločen) element dane množice $A$.
 \end{itemize}
 %
-V obeh primerih dodamo simbol~$s$ v \textbf{kontekst}, se pravi v spisek znanih simbolov. Če smo simbol uvedli le začasno (na primer v enem poglavju, ali v delu dokaza), ga iz konteksta odstranimo, ko ni več veljaven.
+V obeh primerih dodamo simbol~$s$ v \df{kontekst}, se pravi v spisek znanih simbolov, o čemer bomo povedali več v razdelku~\ref{sec:struktura-dokaza}. Če smo simbol uvedli le začasno, moramo podati njegovo območje veljavnosti, na primer trenutno poglavje, ali trenutni dokaz.
 
-Matematiki zapisujejo definicije in vpeljujejo spremenljivke na razne načine.
+% Matematiki zapisujejo definicije in vpeljujejo spremenljivke na razne načine.
+% %
+% Poznamo tri vrste definicij. Prva in najpreprostejša je definicija, ki
+% služi kot okrajšava za daljši izraz. To smemo vedno nadomestiti
+% s prvotnim izrazom. Na primer, funkcija ">hiperbolični tangens"<
+% $\tanh(x)$ je definirana kot
+% %
+% \begin{equation*}
+%   \tanh(x) \defeq \frac{e^{2 x} - 1}{e^{2 x} + 1}.
+% \end{equation*}
+% %
+% Lahko bi shajali tudi brez zapisa $\tanh(x)$, vendar bi morali potem
+% povsod pisati daljši izraz $\frac{e^{2 x} - 1}{e^{2 x} + 1}$, kar bi
+% bilo nepregledno.
 
-Poznamo tri vrste definicij. Prva in najpreprostejša je definicija, ki
-služi kot \textbf{okrajšava} za daljši izraz. To smemo vedno nadomestiti
-s prvotnim izrazom. Na primer, funkcija ">hiperbolični tangens"<
-$\tanh(x)$ je definirana kot
-%
-\begin{equation*}
-  \tanh(x) = \frac{e^{2 x} - 1}{e^{2 x} + 1}.
-\end{equation*}
-%
-Lahko bi shajali tudi brez zapisa $\tanh(x)$, vendar bi morali potem
-povsod pisati daljši izraz $\frac{e^{2 x} - 1}{e^{2 x} + 1}$, kar bi
-bilo nepregledno.
+% Druga vrsta definicije je vpeljava novega matematičnega pojma.
+% Študenti prvega letnika matematike spoznajo celo vrsto novih pojmov
+% (grupa, vektorski prostor, limita, stekališče, metrika itn.), s
+% katerimi si razširijo sposobnost matematičnega razmišljanja.
+% Matematiki cenijo dobre definicije in vpeljavo novih matematičnih
+% pojmov vsaj toliko, kot dokaze težkih izrekov.
 
-Druga vrsta definicije je vpeljava novega matematičnega pojma.
-Študenti prvega letnika matematike spoznajo celo vrsto novih pojmov
-(grupa, vektorski prostor, limita, stekališče, metrika itn.), s
-katerimi si razširijo sposobnost matematičnega razmišljanja.
-Matematiki cenijo dobre definicije in vpeljavo novih matematičnih
-pojmov vsaj toliko, kot dokaze težkih izrekov.
+% Tretja vrsta definicije je opredelitev matematičnega objekta s
+% pomočjo dokaza o enoličnem obstoju. O tem bomo povedali več v
+% razdelku~\ref{sec:enolicni-obstoj}.
 
-Tretja vrsta definicije je \textbf{konstrukcija} matematičnega objekta s
-pomočjo dokaza o enoličnem obstoju. O tem bomo povedali več v
-razdelku~\ref{sec:enolicni-obstoj}.
-
-\paragraph*{Definicija simbola}
+\paragraph*{Definicija kot okrajšava}
 
 Definicija je v prvi vrsti \textbf{okrajšava} za neki izraz. Z njo uvedemo nov simbol~$s$ in mu pripišemo neko vrednost. Simbol $s$ je enak vrednosti, ki smo mu jo pripisali. Simbolni zapis za definicijo je
 %
@@ -1091,12 +1089,12 @@ Definicija je v prvi vrsti \textbf{okrajšava} za neki izraz. Z njo uvedemo nov 
   s \defeq \ldots
 \end{equation*}
 %
-Na primer, v besedilu bi lahko napisali ">Naj bo $s := \sqrt{\log_2 7 + \pi/6}$."< S tem smo v kontekst dodali simbol $s$ in predpostavko $s = \sqrt{\log_2 7 + \pi/6}$. V matematičnih besedilih boste zasledili tudi naslednje načine za definicijo:
+Na primer, v besedilu bi lahko napisali ">Naj bo $s := \log_2 7 + \pi/6$."< S tem smo v kontekst dodali simbol $s$ in predpostavko $s = \log_2 7 + \pi/6$. V matematičnih besedilih boste zasledili tudi naslednje načine za definicijo:
 %
 \begin{itemize}
-\item $s = \sqrt{\log_2 7 + \pi/6}$ (namesto $\defeq$ uporabimo $=$)
-\item $s \cong \sqrt{\log_2 7 + \pi/6}$ (namesto $\defeq$ uporabimo $\cong$)
-\item $s \triangleq \sqrt{\log_2 7 + \pi/6}$ (namesto $\defeq$ uporabimo $\triangleq$)
+\item $s = \log_2 7 + \pi/6$ (namesto $\defeq$ uporabimo $=$)
+\item $s \cong \log_2 7 + \pi/6$ (namesto $\defeq$ uporabimo $\cong$)
+\item $s \triangleq \log_2 7 + \pi/6$ (namesto $\defeq$ uporabimo $\triangleq$)
 \end{itemize}
 %
 Kadar definiramo simbol tako, da mu priredimo funkcijski predpis, recimo
@@ -1109,18 +1107,6 @@ to raje zapišemo kot
 %
 \begin{equation*}
   f(x) \defeq x^2 + 7.
-\end{equation*}
-%
-Kadar definiramo simbol s pomočjo enoličnega obstoja, recimo
-%
-\begin{equation*}
-  r \defeq \descr{x \in \RR} x^3 = 2
-\end{equation*}
-%
-to raje zapišemo z besedami:
-%
-\begin{equation*}
-  \text{Naj bo $r$ tisto realno število, ki zadošča $r^3 = 2$.}
 \end{equation*}
 %
 Poglejmo še, kako definiramo okrajšave za logične formule. Denimo, da želimo s $\phi(x)$ označiti izjavo $\some{y \in \RR} y^2 = x + 1$. Glede na zgornji dogovor, zapišemo
@@ -1145,7 +1131,7 @@ ali pa kar $\phi(x) \liff \some{y \in \RR} y^2 = x + 1$.
 
 \paragraph*{Definicije novih matematičnih pojmov}
 
-Kaj pa definicije novih pojmov, ki jih srečujete pri predavanjih, denimo pri analizi?
+Kaj pa definicije novih pojmov, ki jih srečujete pri predavanjih, denimo naslednji pojem iz analize:
 
 \begin{definicija}
   Zaporedje števil $a : \NN \to \RR$ je \textbf{neomejeno}, če za vsak $x \in \RR$ obstaja $i \in \NN$, da je $a_i > x$.
@@ -1158,33 +1144,71 @@ S stališča simbolnega zapisa, je to le uvedba novega simbola $\mathsf{neomejen
   \mathsf{neomejeno}(a) \defeq (\all{x \in \RR} \some{i \in \NN} a_i > x).
 \end{equation*}
 %
-Seveda bistvo take definicije ni le krajši zapis izjave $\all{x \in \RR} \some{i \in \NN} a_i > x$, ampak uporabna vrednost pojma ">neomejeno zaporedje"<.
+Seveda bistvo take definicije ni le krajši zapis, ampak predvsem uporabna vrednost pojma ">neomejeno zaporedje"<.
 
 \section{Enolični obstoj}
 \label{sec:enolicni-obstoj}
 
 S kvantifikatorjema $\forall$ in $\exists$ lahko izrazimo tudi druge kvantifikatorje.
-Na primer, \nls{obstajata vsaj dva elementa $x$ in $y$ iz $A$, da velja $\phi(x,y)$} zapišemo
+Na primer, \nls{obstajata vsaj dva elementa $x$ in $y$ iz $A$, ki izpolnjujeta pogoj~$\phi$}, zapišemo
 %
 \begin{equation*}
-    \some{x \in A} \some{y \in A} x \neq y \land \phi(x,y).
+    \some{x \in A} \some{y \in A} x \neq y \land \phi(x) \land \phi(y).
 \end{equation*}
 %
+Pozor, formula
+%
+\begin{equation*}
+    \some{x \in A} \some{y \in A} \phi(x) \land \phi(y)
+\end{equation*}
+%
+dopušča možnost $x = y$ in je ekvivalentna $\some{z \in A} \phi(z)$.
+
+\begin{vaja}
+  Katere od formul izražajo dejstvo, da ima funkcija $f : \RR \to \RR$ vsaj dve različni ničli:
+  %
+  \begin{itemize}
+  \item $\some{x \in \RR} \some{y \in \RR} f(x) = 0 \land f(y) = 0$.
+  \item $(\some{x \in \RR} f(x) = 0) \land (\some{y \in \RR} f(y) = 0)$.
+  \item $\some{x \in \RR} \some{y \in \RR} x \neq y \lthen f(x) = 0 \land f(y) = 0$.
+  \item $\some{x \in \RR} \some{y \in \RR} x \neq y \land f(x) = 0 \land f(y) = 0$.
+  \end{itemize}
+\end{vaja}
+
 Pogosto želimo izraziti \nls{obstaja natanko en $x$ iz $A$, da velja $\phi(x)$}, kar naredimo takole:
 %
-\begin{equation*}
+\begin{equation}
+  \label{eq:unique-existence-1}
   (\some{x \in A} \phi(x)) \land (\all{y, z \in A} \phi(y) \land \phi(z) \lthen y = z)
-\end{equation*}
+\end{equation}
 %
 ali ekvivalentno
 %
+\begin{equation}
+  \label{eq:unique-existence-2}
+  \some{x \in A} (\phi(x) \land \all{y \in A} \phi(y) \lthen x = y).
+\end{equation}
+%
+Formulo~\eqref{eq:unique-existence-1} razdelimo na dva dela:
+%
+\begin{itemize}
+\item ">$\some{x \in A} \phi(x)$"< pove, da obstaja \emph{vsaj en} želeni~$x$.
+\item ">$\all{y, z \in A} \phi(y) \land \phi(z) \lthen y = z$"< pove, da sta vsaka dva elementa, ki zadoščata~$\phi$, enaka; se pravi, da obstaja \emph{največ en} želeni~$x$.
+\end{itemize}
+%
+Formulo \eqref{eq:unique-existence-2} preberemo takole: obstaja $x \in A$, ki zadošča $\phi(x)$ in vsak drug element, ki zadošča~$\phi$, je enak~$x$.
+
+Za formulo \eqref{eq:unique-existence-1} uporabljamo okrajšavo
+%
 \begin{equation*}
-    \some{x \in A} (\phi(x) \land \all{y \in A} \phi(y) \lthen x = y).
+  \exactlyone{x \in A} \phi(x),
 \end{equation*}
 %
-To okrajšamo $\exactlyone{x \in A} \phi(x)$ in beremo ">obstaja natanko en $x$ iz $A$, da velja $\phi(x)$"<.
+ki jo beremo">obstaja natanko en $x$ iz $A$, da velja $\phi(x)$"<.
 %
 Uporablja se tudi zapis $\exists^1 x \in A \,.\, \phi(x)$.
+
+\section{Enolični opis}
 
 Če dokažemo, da obstaja natanko en $x \in A$, ki zadošča pogoju $\phi(x)$, potem se lahko nanj smiselno sklicujemo s \nls{tisti $x$ iz $A$, ki zadošča $\phi(x)$}, na primer:
 %
