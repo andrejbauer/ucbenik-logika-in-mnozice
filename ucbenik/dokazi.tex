@@ -130,7 +130,7 @@ Ta socialna komponenta dokaza je izrazito odvisna ne le od pisca, ampak tudi od 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\section{Dokazi kot konstrukcije}
+\section{Struktura dokaza}
 
 Matematiki v sklopu svojih aktivnosti \emph{konstruiramo} matematične objekte:
 %
@@ -147,10 +147,6 @@ Le-ta povedo, kakšna so ">pravila igre"< v dokazovanju, ne pa tudi, kako dobro 
 %
 Pri tem predmetu bomo spoznali pravila in podali nekaj namigov, kako konstruirati osnovne dokaze, pri ostalih predmetih pa boste videli ">žive dokaze"<, ki imajo manj tehničnih podrobnosti in se bolj
 osredotočajo na komuniciranje idej.
-
-
-\subsection{Struktura dokaza}
-\label{sec:struktura-dokaza}
 
 Dokaz ima ugnezdeno strukturo: sestoji iz pod-dokazov, ki sestoje iz nadaljnjih pod-dokazov itn., ki se zaključijo z osnovnimi koraki. Ta struktura iz običajnega besedila ni razvidna, a je prisotna. Za zgled vzemimo naslednji izrek.
 
@@ -207,22 +203,24 @@ Zgornji dokaz z dodanimi podrobnostmi in označeno ugnezdeno strukturo je prikaz
 %
 Vsaka škatla vsebuje dokaz nekega dejstva, pri čemer enovrstičnih pod-dokazov zaradi berljivosti nismo dali v škatle. Zunanja škatla najprej vpelje spremenljivke $p$, $q$ in $r$, nato pove, kaj bomo dokazali,
 temu pa sledi dokaz. Nekatere izjave so oštevilčene, da se lahko nanje sklicujemo. Notranji škatli sta obravnavi dveh primerov.
-%
+
 Ko pišemo ali beremo dokaz, moramo v vsakem trenutku poznati
 %
 \begin{itemize}
 \item \textbf{cilj}: kaj trenutno dokazujemo in
-\item \textbf{kontekst}: katere spremenljivke in predpostavke imamo trenutno na voljo in katera dejstva smo že dokazali.
+\item \textbf{kontekst}: katere spremenljivke, predpostavke in že dokazana dejstva imamo na voljo.
 \end{itemize}
 %
 Na primer, v sedmi vrstici iz dokaza na sliki~\ref{fig:izrek-pqr} je cilj $(p \land r) \lor (q \land r)$, veljavne so spremenljivke $p$, $q$ in $r$, na voljo imamo predpostavko~(1), dokazali pa smo že dejstvi~(2) in~(3).
 %
 Ko napravimo korak v dokazu, mora biti utemeljen z enim od pravil sklepanja. Dokaz je
 popoln, ko smo utemeljili vse pod-dokaze.
+%
+V nadaljevanju spoznajmo pravila sklepanja in druge korake, ki tvorijo dokaz.
 
 \paragraph*{Vpeljava spremenljivke}
 %
-V dokazu smemo uporabljati spremenljivko, če jo predhodno vpeljemo. Pri tem navedemo spremenljivko in množico, katere element je:
+Nekatera pravila sklepajo zahtevajo, da v dokazu \df{vpeljemo spremenljivko}. To storimo tako, da jo naznanimo skupaj z njeno domeno:
 %
 \begin{quote}
   \nls{Naj bo $x \in A$.}
@@ -238,19 +236,18 @@ O njej vemo le to, da je element množice $A$, ne vemo pa, kateri element -- pra
 \item \nls{Izberimo $x \in A$.}
 \end{itemize}
 %
-Pozor, besedi ">fiksirajmo"< in ">izberimo"< bi dali komu misliti, da si lahko izbere neki element~$A$, a to ni tako.
-%
-Bolje si je zamisliti, da je~$x$ ">neznan"< ali ">nedoločen"<.
+Pozor, besedi ">fiksirajmo"< in ">izberimo"< bi dali komu misliti, da si lahko izbere točno določeni element po lastni volji, a si je bolje predstavljati, da je~$x$ ">neznan"< ali ">nedoločen"<.
 %
 Spremenljivka ima območje veljavnosti, ki je omejeno s pod-dokazom, v katerem nastopa.
-%
-Pravila sklepanja povedo, kdaj smemo vpeljati spremenljivko.
 
 \begin{zgled}
   V dokazu na sliki~\ref{fig:izrek-pqr} vpeljemo spremenljivke $p$, $q$ in $r$ v prvi vrstici dokaza. Veljavne so v celotnem dokazu.
 \end{zgled}
 
-\paragraph*{Vpeljava in uporaba predpostavke}
+Pozor: spremenljivk ne vpeljemo kar tako, ampak le takrat, ko uporabimo pravilo sklepanja, ki to zahteva.
+
+
+\paragraph*{Vpeljava predpostavke}
 \label{sec:vpelj-predp}
 
 Nekatera pravila sklepanja zahtevajo, da \df{vpeljemo predpostavko}~$\phi$ (ali \df{hipotezo}), se pravi, da se pretvarjamo, da izjava~$\phi$ velja. V takem primeru zapišemo:
@@ -259,7 +256,7 @@ Nekatera pravila sklepanja zahtevajo, da \df{vpeljemo predpostavko}~$\phi$ (ali 
   \nls{Predpostavimo $\phi$.}
 \end{quote}
 %
-Včasih vpeljemo predpostavko tudi z \nls{če velja $\phi$:}.
+Včasih vpeljemo predpostavko tudi s \nls{če velja $\phi$:}.
 %
 Predpostavka ima svoje območje veljavnosti, ki je omejeno s pod-dokazom, v katerem nastopa.
 %
@@ -277,33 +274,52 @@ Kadar se skličemo na dejstvo, da izjava velja, ker smo jo predpostavili, pravim
   V 16.~in 17.~vrstici smo uporabili predpostavko~(b) in dejstvo~(3).
 \end{zgled}
 
+Pozor: predpostavk ne vpeljemo kar tako, ampak le takrat, ko uporabimo pravilo sklepanja, ki to zahteva.
+
+\paragraph*{Okrajšava in izpeljava dejstva}
+\label{sec:okraj-vpelj-dejstva}
+
+V dokazu smemo kadarkoli vpeljati\df{okrajšavo}, na primer:
+%
+\begin{quote}
+  \nls{Naj bo $\varphi \defeq \frac{1 + \sqrt{5}}{2}$.}
+\end{quote}
+%
+V nadaljevanju dokaza smemo uporabljati~$\varphi$ in dejstvo, da je enak $(1 + \sqrt{5})/2$.
+
+\begin{vaja}
+  Ali je v zvezi s $\frac{1 + \sqrt{5}}{2}$ kaj posebnega?
+\end{vaja}
+
+Poleg tega smemo iz trenutnih predpostavk in znanih dejstev kadarkoli \df{izpeljati dejstvo}, ki ga nato uporabljamo v nadaljevanju dokaza. Običajno izpeljana dejstva označimo, da se lahko nanje sklicujemo. Dejstva, ki jih izpeljemo iz predpostavk, bilo morda veljalo poimenovati ``hipotetična dejstva'', a to bi bil oksimoron.\footnote{Oksimoron je besedna figura, ki jo sestavljata dva pomensko izključujoča se pojma.}
+
+\begin{zgled}
+  V dokazu na sliki~\ref{fig:izrek-pqr} nismo vpeljavi nobene okrajšave, smo pa peti in šesti vrstici
+  izpeljali dejstvi $p \lor q$ in~$r$ ter ju označili~(2) in~(3). Dejstvo~(2) smo uporabili v sedmi vrstici, dejstvo (3) pa v 12.~in~17.~vrstici.
+\end{zgled}
 
 \section{Pravila sklepanja}
 \label{sec:pravila-sklepanja}
 
-Pravila sklepanja delimo na:
+Posvetimo se še pravilom sklepanja, ki jih delimo na:
 %
 \begin{itemize}
-\item \textbf{pravila vpeljave}, ki povedo, kako dokažemo izjavo, ter
-\item \textbf{pravila uporabe}, ki povedo, kako lahko že znano izjavo uporabimo.
-\end{itemize}
-%
-Poleg tega poznamo še pravila o zamenjavi:
-%
-\begin{itemize}
-\item \textbf{zamenjava enakih izrazov}: izraz lahko vedno zamenjamo z njim enakim,
-\item \textbf{zamenjava ekvivalentnih izjav}: izjavo vedno lahko zamenjamo z njej ekvivalentno.
+\item pravila sklepanja za logične operacije:
+  \begin{itemize}[nosep]
+  \item pravila vpeljave, s katerimi dokazujemo izjave,
+  \item pravila uporabe, ki katerimi uporabljamo predpostavke in dejstva;
+  \end{itemize}
+\item pravila sklepanja za enakost;
+\item zakon o izključeni tretji možnosti in dokaz s protislovjem.
 \end{itemize}
 
-Dokaz je skupek računskih korakov in sklepov, s katerimi utemeljimo izjavo. V vsakem
-trenutku mora biti jasno, kaj dokazujemo, katere spremenljivke so veljavne in katere
-predpostavke so na voljo.
-%
-Nekateri deli dokaza so samostojni pod-dokazi pomožnih izjav. Vse spremenljivke in
-predpostavke, ki jih uvedemo v pod-dokazu, so na voljo izključno v pod-dokazu samem.
+\subsection{Pravila vpeljave in uporabe}
 
 
-\subsection{Konjunkcija}
+\paragraph*{Konjunkcija}
+\label{sec:konjunkcija-1}
+
+
 
 \paragraph{Vpeljava.}
 %
@@ -866,6 +882,14 @@ dokaza opustimo, zahteva pazljivost in nekaj izkušenj.
 
 \section{Enakost in reševanje enačb}
 \label{sec:enakost}
+
+
+Poleg tega poznamo še pravila o zamenjavi:
+%
+\begin{itemize}
+\item \textbf{zamenjava enakih izrazov}: izraz lahko vedno zamenjamo z njim enakim,
+\item \textbf{zamenjava ekvivalentnih izjav}: izjavo vedno lahko zamenjamo z njej ekvivalentno.
+\end{itemize}
 
 Enakost $=$ je osnovna relacija, ki zadošča naslednjim aksiomom in
 pravilom sklepanja:
