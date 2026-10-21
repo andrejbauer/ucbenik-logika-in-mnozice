@@ -163,46 +163,40 @@ Dokaz ima ugnezdeno strukturo: sestoji iz pod-dokazov, ki sestoje iz nadaljnjih 
 \noindent
 Zgornji dokaz z dodanimi podrobnostmi in označeno ugnezdeno strukturo je prikazan na sliki~\ref{fig:izrek-pqr}.
 %
-\begin{figure}[htp]
+\begin{figure}[t]
   \centering
   \small
-  % Vrstica n stoji na višini -n (od vrstice 13 dalje še 0.3 nižje), x je zamik vrstice.
-  \begin{tikzpicture}[x=1em, y=1.3em,
-      vrstica/.style={anchor=base west, inner sep=0pt},
-      stevilka/.style={anchor=base east, inner sep=0pt, font=\scriptsize}]
-    \foreach \n/\x/\besedilo in {
-      1/0/{Naj bodo $p$, $q$ in $r$ izjave.},
-      2/0/{Dokažimo $(p \lor q) \land r \lthen (p \land r) \lor (q \land r)$.},
-      3/1.2/{(1) Predpostavimo $(p \lor q) \land r$.},
-      4/1.2/{Dokažimo $(p \land r) \lor (q \land r)$.},
-      5/2.4/{(2) Zaradi (1) velja $p \lor q$.},
-      6/2.4/{(3) Zaradi (1) velja $r$.},
-      7/2.4/{Zaradi (2) obravnavamo dva primera:},
-      8/2.8/{(a) Če velja $p$:},
-      9/4/{Dokažimo $(p \land r) \lor (q \land r)$.},
-      10/4/{Dokažimo levi disjunkt $p \land r$:},
-      11/5.2/{(i) $p$ velja zaradi (a),},
-      12/5.2/{(ii) $r$ velja zaradi (3).},
-      13/2.8/{(b) Če velja $q$:},
-      14/4/{Dokažimo $(p \land r) \lor (q \land r)$.},
-      15/4/{Dokažimo desni disjunkt $q \land r$:},
-      16/5.2/{(i) $q$ velja zaradi (b),},
-      17/5.2/{(ii) $r$ velja zaradi (3).}%
-    } {
-      \pgfmathsetmacro{\y}{\n > 12 ? -\n - 0.3 : -\n}
-      \node[stevilka] at (-1, \y) {\n};
-      \node[vrstica] at (\x, \y) {\besedilo};
-    }
-    \draw (-0.4, -0.25) rectangle (22.4, -17.8);
-    \draw (2.4, -7.25) rectangle (21.8, -12.4);
-    \draw (2.4, -12.55) rectangle (21.8, -17.65);
-  \end{tikzpicture}
+  \begin{boxedProof}[numbered]
+  \begin{boxFrame}
+    \boxLine{Naj bodo $p$, $q$ in $r$ izjave.\label{vr:spremenljivke}}
+    \boxLine{Dokažimo $(p \lor q) \land r \lthen (p \land r) \lor (q \land r)$.}
+    \boxLine[1]{Predpostavimo $(p \lor q) \land r$.\label{vr:predpostavka}}
+    \boxLine[1]{Dokažimo $(p \land r) \lor (q \land r)$.}
+    \boxLine[1]{Zaradi~\boxRef{vr:predpostavka} velja $p \lor q$.\label{vr:disjunkcija}}
+    \boxLine[1]{Zaradi~\boxRef{vr:predpostavka} velja $r$.\label{vr:r}}
+    \boxLine[1]{Zaradi~\boxRef{vr:disjunkcija} obravnavamo dva primera:\label{vr:primera}}
+    \begin{boxNested}[1]
+      \boxLine{Če velja $p$:\label{vr:p}}
+      \boxLine{Dokažimo $(p \land r) \lor (q \land r)$.}
+      \boxLine[1]{Dokažimo levi disjunkt $p \land r$:}
+      \boxItem[2]{$p$ velja zaradi~\boxRef{vr:p},\label{vr:p-levi}}
+      \boxItem[2]{$r$ velja zaradi~\boxRef{vr:r}.\label{vr:r-levi}}
+    \end{boxNested}
+    \begin{boxNested}[1]
+      \boxLine{Če velja $q$:\label{vr:q}}
+      \boxLine{Dokažimo $(p \land r) \lor (q \land r)$.}
+      \boxLine[1]{Dokažimo desni disjunkt $q \land r$:}
+      \boxItem[2]{$q$ velja zaradi~\boxRef{vr:q},\label{vr:q-desni}}
+      \boxItem[2]{$r$ velja zaradi~\boxRef{vr:r}.\label{vr:r-desni}}
+    \end{boxNested}
+  \end{boxFrame}
+  \end{boxedProof}
   \caption{Dokaz izreka~\ref{izrek:pqr}}
   \label{fig:izrek-pqr}
 \end{figure}
 %
-Vsaka škatla vsebuje dokaz nekega dejstva, pri čemer enovrstičnih pod-dokazov zaradi berljivosti nismo dali v škatle. Zunanja škatla najprej vpelje spremenljivke $p$, $q$ in $r$, nato pove, kaj bomo dokazali,
-temu pa sledi dokaz. Nekatere izjave so oštevilčene, da se lahko nanje sklicujemo. Notranji škatli sta obravnavi dveh primerov.
+Zamik vrstice pove, kako globoko v dokazu stojimo: vrstici, ki postavi cilj, sledi njen dokaz eno stopnjo globlje. S škatlo obdamo tisti del dokaza, pri katerem iz zamikov samih ne bi bilo razvidno, kje se konča. Zunanja škatla najprej vpelje spremenljivke $p$, $q$ in $r$, nato pove, kaj bomo dokazali,
+temu pa sledi dokaz. Vrstice so oštevilčene, da se lahko nanje sklicujemo. Notranji škatli sta obravnavi dveh primerov.
 
 Ko pišemo ali beremo dokaz, moramo v vsakem trenutku poznati
 %
@@ -211,7 +205,7 @@ Ko pišemo ali beremo dokaz, moramo v vsakem trenutku poznati
 \item \textbf{kontekst}: katere spremenljivke, predpostavke in že dokazana dejstva imamo na voljo.
 \end{itemize}
 %
-Na primer, v sedmi vrstici iz dokaza na sliki~\ref{fig:izrek-pqr} je cilj $(p \land r) \lor (q \land r)$, veljavne so spremenljivke $p$, $q$ in $r$, na voljo imamo predpostavko~(1), dokazali pa smo že dejstvi~(2) in~(3).
+Na primer, v vrstici~\boxRef{vr:primera} iz dokaza na sliki~\ref{fig:izrek-pqr} je cilj $(p \land r) \lor (q \land r)$, veljavne so spremenljivke $p$, $q$ in $r$, na voljo imamo predpostavko~\boxRef{vr:predpostavka}, dokazali pa smo že dejstvi~\boxRef{vr:disjunkcija} in~\boxRef{vr:r}.
 %
 Ko napravimo korak v dokazu, mora biti utemeljen z enim od pravil sklepanja. Dokaz je
 popoln, ko smo utemeljili vse pod-dokaze.
@@ -241,7 +235,7 @@ Pozor, besedi ">fiksirajmo"< in ">izberimo"< bi dali komu misliti, da si lahko i
 Spremenljivka ima območje veljavnosti, ki je omejeno s pod-dokazom, v katerem nastopa.
 
 \begin{zgled}
-  V dokazu na sliki~\ref{fig:izrek-pqr} vpeljemo spremenljivke $p$, $q$ in $r$ v prvi vrstici dokaza. Veljavne so v celotnem dokazu.
+  V dokazu na sliki~\ref{fig:izrek-pqr} vpeljemo spremenljivke $p$, $q$ in $r$ v vrstici~\boxRef{vr:spremenljivke}. Veljavne so v celotnem dokazu.
 \end{zgled}
 
 Pozor: spremenljivk ne vpeljemo kar tako, ampak le takrat, ko uporabimo pravilo sklepanja, ki to zahteva.
@@ -263,15 +257,15 @@ Predpostavka ima svoje območje veljavnosti, ki je omejeno s pod-dokazom, v kate
 Pogosto predpostavko oštevilčimo ali kako drugače označimo, da se lahko nanjo sklicujemo.
 
 \begin{zgled}
-  V dokazu na sliki~\ref{fig:izrek-pqr} v tretji vrstici predpostavimo $(p \lor q) \land r$ in predpostavko označimo z~(1), območje veljavnosti je do konca dokaza. V osmi vrstici predpostavimo $p$, označimo z~(a), območje veljavnosti pa je prva notranja škatla. V 13.~vrstici predpostavimo~$q$, označimo z~(b), območje veljavnosti pa je druga notranja škatla.
+  V dokazu na sliki~\ref{fig:izrek-pqr} v vrstici~\boxRef{vr:predpostavka} predpostavimo $(p \lor q) \land r$, območje veljavnosti je do konca dokaza. V vrstici~\boxRef{vr:p} predpostavimo $p$, območje veljavnosti pa je prva notranja škatla. V vrstici~\boxRef{vr:q} predpostavimo~$q$, območje veljavnosti pa je druga notranja škatla.
 \end{zgled}
 
 Kadar se skličemo na dejstvo, da izjava velja, ker smo jo predpostavili, pravimo, da smo \df{uporabili predpostavko}. Predpostavke nam ni treba uporabiti in lahko jo uporabimo večkrat.
 
 \begin{zgled}
-  V dokazu na sliki~\ref{fig:izrek-pqr} smo v peti in šesti vrstici uporabili predpostavko~(1).
-  V 11.~in 12.~vrstici smo uporabili predpostavko~(a) in dejstvo~(3).
-  V 16.~in 17.~vrstici smo uporabili predpostavko~(b) in dejstvo~(3).
+  V dokazu na sliki~\ref{fig:izrek-pqr} smo predpostavko~\boxRef{vr:predpostavka} uporabili v vrsticah~\boxRef{vr:disjunkcija} in~\boxRef{vr:r}.
+  V vrsticah~\boxRef{vr:p-levi} in~\boxRef{vr:r-levi} smo uporabili predpostavko~\boxRef{vr:p} in dejstvo~\boxRef{vr:r}.
+  V vrsticah~\boxRef{vr:q-desni} in~\boxRef{vr:r-desni} smo uporabili predpostavko~\boxRef{vr:q} in dejstvo~\boxRef{vr:r}.
 \end{zgled}
 
 Pozor: predpostavk ne vpeljemo kar tako, ampak le takrat, ko uporabimo pravilo sklepanja, ki to zahteva.
@@ -291,11 +285,11 @@ V nadaljevanju dokaza smemo uporabljati~$\varphi$ in dejstvo, da je enak $(1 + \
   Ali je v zvezi s $\frac{1 + \sqrt{5}}{2}$ kaj posebnega?
 \end{vaja}
 
-Poleg tega smemo iz trenutnih predpostavk in znanih dejstev kadarkoli \df{izpeljati dejstvo}, ki ga nato uporabljamo v nadaljevanju dokaza. Običajno izpeljana dejstva označimo, da se lahko nanje sklicujemo. Dejstva, ki jih izpeljemo iz predpostavk, bilo morda veljalo poimenovati ``hipotetična dejstva'', a to bi bil oksimoron.\footnote{Oksimoron je besedna figura, ki jo sestavljata dva pomensko izključujoča se pojma.}
+Poleg tega smemo iz trenutnih predpostavk in znanih dejstev kadarkoli \df{izpeljati dejstvo}, ki ga nato uporabljamo v nadaljevanju dokaza. Običajno izpeljana dejstva označimo, da se lahko nanje sklicujemo. Dejstva, ki jih izpeljemo iz predpostavk, bilo morda veljalo poimenovati ``hipotetična dejstva'', a to bi bil oksimoron.\footnote{Oksimoron je besedna figura, ki jo sestavljata dva pomensko izključujoča se pojma, na primer ">zanimiv izrek"<. Kakšna pa je razlika med ironijo in cinizmom?}
 
 \begin{zgled}
-  V dokazu na sliki~\ref{fig:izrek-pqr} nismo vpeljavi nobene okrajšave, smo pa peti in šesti vrstici
-  izpeljali dejstvi $p \lor q$ in~$r$ ter ju označili~(2) in~(3). Dejstvo~(2) smo uporabili v sedmi vrstici, dejstvo (3) pa v 12.~in~17.~vrstici.
+  V dokazu na sliki~\ref{fig:izrek-pqr} nismo vpeljali nobene okrajšave, smo pa v vrsticah~\boxRef{vr:disjunkcija}
+  in~\boxRef{vr:r} izpeljali dejstvi $p \lor q$ in~$r$. Dejstvo~\boxRef{vr:disjunkcija} smo uporabili v vrstici~\boxRef{vr:primera}, dejstvo~\boxRef{vr:r} pa v vrsticah~\boxRef{vr:r-levi} in~\boxRef{vr:r-desni}.
 \end{zgled}
 
 \section{Pravila sklepanja}
@@ -315,30 +309,47 @@ Posvetimo se še pravilom sklepanja, ki jih delimo na:
 
 \subsection{Pravila vpeljave in uporabe}
 
+Vsaka logična operacija ima svoja pravila vpeljave in uporabe.
 
 \paragraph*{Konjunkcija}
 \label{sec:konjunkcija-1}
 
 
-
 \paragraph{Vpeljava.}
+Konjunkcijo dokažemo tako, da dokažemo vsakega od konjunktov posebej.
 %
-\begin{quote}
-  \sl
-  Dokažimo $\phi \land \psi$.
-  \begin{enumerate}
-  \item Dokažimo $\phi$: \quad \brac{dokaz $\phi$}
-  \item Dokažimo $\psi$: \quad \brac{dokaz $\psi$}
-  \end{enumerate}
-\end{quote}
+\begin{boxedProof}
+\begin{boxFrame}
+  \boxLine{Dokažimo $\phi \land \psi$.}
+  \begin{boxNested}
+    \boxLine{Dokažimo $\phi$.}
+    \boxLine[1]{\brac{dokaz $\phi$}}
+  \end{boxNested}
+  \begin{boxNested}
+    \boxLine{Dokažimo $\psi$.}
+    \boxLine[1]{\brac{dokaz $\psi$}}
+  \end{boxNested}
+\end{boxFrame}
+\end{boxedProof}
 
 \paragraph{Uporaba.}
-\begin{quote}
-  \sl
-  Vemo, da velja $\phi \land \psi$.\\
-  Torej velja $\phi$.\\
-  Torej velja $\psi$.
-\end{quote}
+Iz konjunkcije smemo izpeljati katerikoli konjunkt. Pravili sta dve, po eno za vsak konjunkt.
+%
+\begin{boxedProof}[reserved]
+\begin{boxFrame}
+  \boxLineTag{$x$}{velja $\phi \land \psi$}
+  \boxGap
+  \boxLine{zaradi~($x$) velja $\phi$}
+\end{boxFrame}
+\end{boxedProof}
+%
+\begin{boxedProof}[reserved]
+\begin{boxFrame}
+  \boxLineTag{$x$}{velja $\phi \land \psi$}
+  \boxGap
+  \boxLine{zaradi~($x$) velja $\psi$}
+\end{boxFrame}
+\end{boxedProof}
 %
 Opomba: v praksi tega koraka ne delamo, ampak namesto predpostavke $\phi \land \psi$ kar takoj vpeljemo ločeni
 predpostavki $\phi$ in $\psi$.

@@ -1,0 +1,197 @@
+\ProvidesPackage{boxedproof}[2026/10/21 Proofs with nesting made visible]
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% A proof is a sequence of lines; a sub-proof is a box enclosing
+%% exactly its own lines.  Interface:
+%%
+%%   \begin{boxedProof}[mode] ... \end{boxedProof}
+%%        The display.  Mode is empty (no number column), `numbered'
+%%        (numbers printed) or `reserved' (column kept but blank, so an
+%%        unnumbered proof keeps a numbered one's measurements).
+%%   \begin{boxFrame} ... \end{boxFrame}
+%%        The outermost frame.
+%%   \begin{boxNested}[n] ... \end{boxNested}
+%%        A sub-proof.  Its left rule stands where the text of lines at
+%%        indent level n begins.
+%%   \boxLine[n]{text}
+%%        One step, at indent level n.  A \label in the text binds to
+%%        the line number.
+%%   \boxItem[n]{text}
+%%        A line that is one of several parallel obligations; \boxItemMark
+%%        hangs before the text.
+%%   \boxRef{label}
+%%        A reference to a line; parenthesizes the number.
+%%
+%% Indent level is depth in the proof: a line stating a goal has its
+%% proof one level deeper, a line merely deriving a fact stays at the
+%% level of the goal it serves.  A box marks a branch, that is a place
+%% where the boundary between parts would otherwise be invisible.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\RequirePackage{varwidth}
+\RequirePackage{xcolor}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% Settings
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% How a line number is set.  The document may add lining figures.
+\newcommand{\boxNumberStyle}{\scriptsize}
+
+% Frames and line numbers always share this color.
+\colorlet{boxProofColor}{black!55}
+
+% Marker before a parallel obligation.
+\newcommand{\boxItemMark}{\textbullet}
+
+% The number column is exactly as wide as the widest number, so no
+% excess space sits between the rule and the digits.
+\newlength{\boxNumberWidth}
+\newlength{\boxNumberSep}   \setlength{\boxNumberSep}{0.5em}
+\newlength{\boxInset}       \setlength{\boxInset}{0.4em}
+\newlength{\boxIndentStep}  \setlength{\boxIndentStep}{1.2em}
+\newlength{\boxItemWidth}
+\newlength{\boxProofSkip}   \setlength{\boxProofSkip}{\medskipamount}
+
+% Measured once the fonts are known.
+\AtBeginDocument{%
+  \settowidth{\boxNumberWidth}{\boxNumberStyle 00}%
+  \settowidth{\boxItemWidth}{\boxItemMark\ }}
+
+% A nested box at level 0 begins where the text of level-0 lines begins,
+% that is to the right of the number column.
+\newlength{\boxBaseIndent}
+\AtBeginDocument{%
+  \setlength{\boxBaseIndent}{\dimexpr\boxNumberWidth+\boxNumberSep\relax}}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% Line numbering
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\newcounter{boxLineNumber}
+\renewcommand{\theboxLineNumber}{\arabic{boxLineNumber}}
+\newcommand{\boxRef}[1]{(\ref{#1})}
+
+\newif\ifboxNumbered
+\newif\ifboxReserveColumn
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% Equal widths for sibling boxes
+%%
+%% Each box writes its natural width to the .aux file; on the next run
+%% every box of the same group stretches to the largest width recorded.
+%% A group is one proof at one nesting depth, so boxes at different
+%% depths, or in different proofs, do not affect one another.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\newcounter{boxProofNumber}
+\newcount\boxDepth
+\newlength{\boxNaturalWidth}   % width of the box being closed
+\newlength{\boxTargetWidth}    % width it is stretched to
+
+\makeatletter
+\newsavebox{\box@content}
+\newlength{\box@tmpA}          % scratch, only for reading the .aux
+\newlength{\box@tmpB}
+
+\newcommand{\box@key}{bxp@\theboxProofNumber @\the\boxDepth}
+
+% Called from the .aux file; keeps the largest width per key.
+\newcommand{\boxStoredWidth}[2]{%
+  \@ifundefined{#1}{\expandafter\gdef\csname #1\endcsname{#2}}{%
+    \setlength{\box@tmpA}{#2}%
+    \setlength{\box@tmpB}{\csname #1\endcsname}%
+    \ifdim\box@tmpA>\box@tmpB
+      \expandafter\gdef\csname #1\endcsname{#2}%
+    \fi}}
+
+\newcommand{\box@writeWidth}{%
+  \protected@write\@auxout{}{%
+    \string\boxStoredWidth{\box@key}{\the\boxNaturalWidth}}}
+
+% Sets \boxTargetWidth to the group's stored width, never below this
+% box's own natural width.
+\newcommand{\box@computeTarget}{%
+  \@ifundefined{\box@key}%
+    {\setlength{\boxTargetWidth}{\boxNaturalWidth}}%
+    {\setlength{\boxTargetWidth}{\csname\box@key\endcsname}%
+     \ifdim\boxTargetWidth<\boxNaturalWidth
+       \setlength{\boxTargetWidth}{\boxNaturalWidth}%
+     \fi}}
+
+% Measure the collected box, record it, stretch it, draw the frame.
+\newcommand{\box@frame}{%
+  \setlength{\boxNaturalWidth}{\wd\box@content}%
+  \box@writeWidth
+  \box@computeTarget
+  \setbox\box@content=\hbox to \boxTargetWidth{\box\box@content\hfil}%
+  \fcolorbox{boxProofColor}{white}{\box\box@content}}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% Environments and commands
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\newenvironment{boxedProof}[1][]{%
+  \par\addvspace{\boxProofSkip}%
+  \stepcounter{boxProofNumber}\boxDepth=0 %
+  \setcounter{boxLineNumber}{0}%
+  \boxNumberedfalse \boxReserveColumnfalse
+  \def\box@mode{#1}%
+  \def\box@numbered{numbered}\def\box@reserved{reserved}%
+  \ifx\box@mode\box@numbered \boxNumberedtrue \boxReserveColumntrue \fi
+  \ifx\box@mode\box@reserved \boxReserveColumntrue \fi
+  \setlength{\fboxsep}{\boxInset}%
+  \centering\noindent}
+ {\par\addvspace{\boxProofSkip}}
+
+\newcommand{\boxLine}[2][0]{%
+  \par\noindent
+  \ifboxNumbered
+    \stepcounter{boxLineNumber}%
+    % Set outside the number box, or a \label in the line's text no
+    % longer sees this value.
+    \edef\@currentlabel{\theboxLineNumber}%
+  \fi
+  \ifboxReserveColumn
+    \hbox to \boxNumberWidth{\hss
+      \boxNumberStyle\textcolor{boxProofColor}{%
+        \ifx\box@tag\@empty
+          \ifboxNumbered\theboxLineNumber\fi
+        \else \box@tag\fi}}\hskip\boxNumberSep
+  \fi
+  \hspace*{\dimexpr #1\boxIndentStep\relax}#2\par}
+
+% A template line carries a symbolic tag instead of a number, so a
+% template can show how one line cites another.
+\newcommand{\box@tag}{}
+\newcommand{\boxLineTag}[3][0]{%
+  \def\box@tag{#2}\boxLine[#1]{#3}\def\box@tag{}}
+
+% The gap standing for the rest of a proof.
+\newcommand{\boxGap}[1][0]{\boxLine[#1]{$\vdots$}}
+
+\newcommand{\boxItem}[2][0]{%
+  \boxLine[#1]{\hbox to \boxItemWidth{\boxItemMark\hss}#2}}
+
+\newlength{\boxThisIndent}
+\newenvironment{boxNested}[1][0]{%
+  \setlength{\boxThisIndent}{\dimexpr\boxBaseIndent + #1\boxIndentStep\relax}%
+  \par\vspace{0.35ex}\noindent\hspace*{\boxThisIndent}%
+  \advance\boxDepth by 1
+  \setbox\box@content=\hbox\bgroup
+    \begin{varwidth}{\linewidth}\setlength{\parindent}{0pt}}
+ {\end{varwidth}\egroup
+  \advance\boxDepth by -1
+  \box@frame
+  % Leave as much room on the right as the indent takes on the left, so
+  % the inner and outer rules stand equally far apart on both sides.
+  \hbox to \boxThisIndent{}\par\vspace{0.35ex}}
+
+\newenvironment{boxFrame}{%
+  \setbox\box@content=\hbox\bgroup
+    \begin{varwidth}{\linewidth}\setlength{\parindent}{0pt}}
+ {\end{varwidth}\egroup
+  \fcolorbox{boxProofColor}{white}{\box\box@content}}
+\makeatother
+
+\endinput
