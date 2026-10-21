@@ -132,7 +132,6 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \newenvironment{boxedProof}[1][]{%
-  \par\addvspace{\boxProofSkip}%
   \stepcounter{boxProofNumber}\boxDepth=0 %
   \setcounter{boxLineNumber}{0}%
   \boxNumberedfalse \boxReserveColumnfalse
@@ -141,8 +140,8 @@
   \ifx\box@mode\box@numbered \boxNumberedtrue \boxReserveColumntrue \fi
   \ifx\box@mode\box@reserved \boxReserveColumntrue \fi
   \setlength{\fboxsep}{\boxInset}%
-  \centering\noindent}
- {\par\addvspace{\boxProofSkip}}
+  \noindent}
+ {}
 
 \newcommand{\boxLine}[2][0]{%
   \par\noindent
@@ -163,9 +162,11 @@
 
 % A template line carries a symbolic tag instead of a number, so a
 % template can show how one line cites another.
-\newcommand{\box@tag}{}
+% \box@tag is compared with \@empty by \ifx, so it must be \let to
+% \@empty; an empty \newcommand is \long and never compares equal.
+\let\box@tag\@empty
 \newcommand{\boxLineTag}[3][0]{%
-  \def\box@tag{#2}\boxLine[#1]{#3}\def\box@tag{}}
+  \def\box@tag{#2}\boxLine[#1]{#3}\let\box@tag\@empty}
 
 % The gap standing for the rest of a proof.
 \newcommand{\boxGap}[1][0]{\boxLine[#1]{$\vdots$}}

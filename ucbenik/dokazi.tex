@@ -285,7 +285,7 @@ V nadaljevanju dokaza smemo uporabljati~$\varphi$ in dejstvo, da je enak $(1 + \
   Ali je v zvezi s $\frac{1 + \sqrt{5}}{2}$ kaj posebnega?
 \end{vaja}
 
-Poleg tega smemo iz trenutnih predpostavk in znanih dejstev kadarkoli \df{izpeljati dejstvo}, ki ga nato uporabljamo v nadaljevanju dokaza. Običajno izpeljana dejstva označimo, da se lahko nanje sklicujemo. Dejstva, ki jih izpeljemo iz predpostavk, bilo morda veljalo poimenovati ``hipotetična dejstva'', a to bi bil oksimoron.\footnote{Oksimoron je besedna figura, ki jo sestavljata dva pomensko izključujoča se pojma, na primer ">zanimiv izrek"<. Kakšna pa je razlika med ironijo in cinizmom?}
+Poleg tega smemo iz trenutnih predpostavk in znanih dejstev kadarkoli \df{izpeljati dejstvo}, ki ga nato uporabljamo v nadaljevanju dokaza. Običajno izpeljana dejstva označimo, da se lahko nanje sklicujemo. Dejstva, ki jih izpeljemo iz predpostavk, bilo morda veljalo poimenovati ``hipotetična dejstva'', a to bi bil oksimoron.\footnote{Oksimoron je besedna figura, ki jo sestavljata dva pomensko izključujoča se pojma, na primer ">zanimiv izrek"<. Kakšna pa je razlika med cinizmom in sarkazmom?}
 
 \begin{zgled}
   V dokazu na sliki~\ref{fig:izrek-pqr} nismo vpeljali nobene okrajšave, smo pa v vrsticah~\boxRef{vr:disjunkcija}
@@ -309,38 +309,40 @@ Posvetimo se še pravilom sklepanja, ki jih delimo na:
 
 \subsection{Pravila vpeljave in uporabe}
 
-Vsaka logična operacija ima svoja pravila vpeljave in uporabe.
+Vsaka logična operacija ima svoja pravila vpeljave in uporabe, s katerimi dokazujemo še nedokazane izjave in uporabljamo že dokazane izjave.
 
 \paragraph*{Konjunkcija}
-\label{sec:konjunkcija-1}
+\label{sec:konjunkcija-pravila}
 
-
-\paragraph{Vpeljava.}
-Konjunkcijo dokažemo tako, da dokažemo vsakega od konjunktov posebej.
+Konjunkcijo $\phi \land \psi$ dokažemo tako, da posebej dokažemo~$\phi$ in posebej~$\psi$.
+Pravilo vpeljave torej predstavimo takole:
 %
-\begin{boxedProof}
-\begin{boxFrame}
-  \boxLine{Dokažimo $\phi \land \psi$.}
-  \begin{boxNested}
-    \boxLine{Dokažimo $\phi$.}
-    \boxLine[1]{\brac{dokaz $\phi$}}
-  \end{boxNested}
-  \begin{boxNested}
-    \boxLine{Dokažimo $\psi$.}
-    \boxLine[1]{\brac{dokaz $\psi$}}
-  \end{boxNested}
-\end{boxFrame}
-\end{boxedProof}
-
-\paragraph{Uporaba.}
-Iz konjunkcije smemo izpeljati katerikoli konjunkt. Pravili sta dve, po eno za vsak konjunkt.
+\begin{center}
+  \begin{boxedProof}
+    \begin{boxFrame}
+      \boxLine{Dokažimo $\phi \land \psi$.}
+      \begin{boxNested}
+        \boxLine{Dokažimo $\phi$:}
+        \boxLine[1]{\brac{dokaz $\phi$}}
+      \end{boxNested}
+      \begin{boxNested}
+        \boxLine{Dokažimo $\psi$:}
+        \boxLine[1]{\brac{dokaz $\psi$}}
+      \end{boxNested}
+    \end{boxFrame}
+  \end{boxedProof}
+\end{center}
+% 
+Kaj pa, če že vemo, da velja $\phi \land \psi$? Tedaj lahko izpeljemo~$\phi$ in izpeljemo~$\psi$, zato imamo dve pravili uporabe:
 %
+\begin{center}
 \begin{boxedProof}[reserved]
 \begin{boxFrame}
-  \boxLineTag{$x$}{velja $\phi \land \psi$}
+  \boxLineTag{$k$}{velja $\phi \land \psi$}
   \boxGap
-  \boxLine{zaradi~($x$) velja $\phi$}
+  \boxLine{zaradi~($k$) velja $\phi$}
 \end{boxFrame}
+\qquad\qquad
 \end{boxedProof}
 %
 \begin{boxedProof}[reserved]
@@ -350,200 +352,256 @@ Iz konjunkcije smemo izpeljati katerikoli konjunkt. Pravili sta dve, po eno za v
   \boxLine{zaradi~($x$) velja $\psi$}
 \end{boxFrame}
 \end{boxedProof}
+\end{center}
+
+\paragraph*{Implikacija}
+\label{sec:implikacija-pravila}
+
+Implikacijo $\phi \lthen \psi$ dokažemo tako, da predpostavimo~$\phi$ in dokažemo~$\psi$.
+Pravilo vpeljave torej predstavimo takole:
 %
-Opomba: v praksi tega koraka ne delamo, ampak namesto predpostavke $\phi \land \psi$ kar takoj vpeljemo ločeni
-predpostavki $\phi$ in $\psi$.
-
-\subsection{Implikacija}
-
-\paragraph{Vpeljava.}
-\begin{quote}
-  \sl
-  Dokažimo $\phi \lthen \psi$:
-  %
-  \begin{itemize}
-  \item[] Predpostavimo $\phi$. \\
-        Dokažimo $\psi$: \quad \brac{dokaz $\psi$}
-  \end{itemize}
-\end{quote}
-
-\paragraph{Uporaba.}
-\begin{quote}
-  \sl
-  Vemo, da velja $\phi \lthen \psi$.
-  %
-  \begin{itemize}
-  \item[] Dokažimo $\phi$: \quad \brac{dokaz $\phi$}
-  \end{itemize}
-  %
-  Torej velja tudi $\psi$.
-\end{quote}
-
-\subsection{Disjunkcija}
-
-\paragraph{Vpeljava.}
-Prvi način:
+\begin{center}
+  \begin{boxedProof}
+    \begin{boxFrame}
+      \boxLine{Dokažimo $\phi \lthen \psi$.}
+      \boxLine[1]{Predpostavimo $\phi$.}
+      \boxLine[1]{Dokažimo $\psi$:}
+      \boxLine[2]{\brac{dokaz $\psi$}}
+    \end{boxFrame}
+  \end{boxedProof}
+\end{center}
 %
-\begin{quote}
-  \sl
-  Dokažimo $\phi \lor \psi$.
-  %
-  \begin{itemize}
-  \item[] Zadostuje dokazati levi disjunkt $\phi$: \quad \brac{dokaz $\phi$}
-  \end{itemize}
-\end{quote}
+Če vemo, da velja $\phi \lthen \psi$, in vemo, da velja~$\phi$, lahko izpeljemo~$\psi$:
 %
-Drugi način:
+\begin{center}
+  \begin{boxedProof}[reserved]
+    \begin{boxFrame}
+      \boxLineTag{$k$}{velja $\phi \lthen \psi$}
+      \boxGap
+      \boxLineTag{$m$}{velja $\phi$}
+      \boxGap
+      \boxLine{zaradi~($k$) in~($m$) velja $\psi$}
+    \end{boxFrame}
+  \end{boxedProof}
+\end{center}
+
+\paragraph*{Disjunkcija}
+\label{sec:disjunkcija-pravila}
+
+Disjunkcijo $\phi \lor \psi$ dokažemo tako, da dokažemo enega od disjunktov, zato imamo dve pravili vpeljave:
 %
-\begin{quote}
-  \sl
-  Dokažimo $\phi \lor \psi$.
-  %
-  \begin{itemize}
-  \item[] Zadostuje dokazati desni disjunkt $\psi$: \quad \brac{dokaz $\psi$}
-  \end{itemize}
-\end{quote}
-
-\paragraph{Uporaba.}
+\begin{center}
+  \begin{boxedProof}
+    \begin{boxFrame}
+      \boxLine{Dokažimo $\phi \lor \psi$.}
+      \boxLine[1]{Dokažimo levi disjunkt $\phi$:}
+      \boxLine[2]{\brac{dokaz $\phi$}}
+    \end{boxFrame}
+  \end{boxedProof}%
+  \hspace{2em}%
+  \begin{boxedProof}
+    \begin{boxFrame}
+      \boxLine{Dokažimo $\phi \lor \psi$.}
+      \boxLine[1]{Dokažimo desni disjunkt $\psi$:}
+      \boxLine[2]{\brac{dokaz $\psi$}}
+    \end{boxFrame}
+  \end{boxedProof}
+\end{center}
 %
-\begin{quote}
-  \sl
-  Dokažimo $\rho$.\\
-  Vemo, da velja $\phi \lor \psi$, torej obravnavamo dva primera:\\
-  %
-  \begin{enumerate}
-  \item Če velja $\phi$: \\
-        Dokažimo $\rho$: \quad \brac{dokaz $\rho$}
-  \item Če velja $\psi$: \\
-        Dokažimo $\rho$: \quad \brac{dokaz $\rho$}
-  \end{enumerate}
-\end{quote}
+Če vemo, da velja $\phi \lor \psi$, ne vemo pa, kateri od disjunktov velja, obravnavamo dva primera:
+%
+\begin{center}
+  \begin{boxedProof}[reserved]
+    \begin{boxFrame}
+      \boxLineTag{$k$}{velja $\phi \lor \psi$}
+      \boxGap
+      \boxLine{Dokažimo $\rho$.}
+      \boxLine[1]{Zaradi~($k$) obravnavamo dva primera:}
+      \begin{boxNested}[1]
+        \boxLine{Če velja $\phi$:}
+        \boxLine{Dokažimo $\rho$:}
+        \boxLine[1]{\brac{dokaz $\rho$}}
+      \end{boxNested}
+      \begin{boxNested}[1]
+        \boxLine{Če velja $\psi$:}
+        \boxLine{Dokažimo $\rho$:}
+        \boxLine[1]{\brac{dokaz $\rho$}}
+      \end{boxNested}
+    \end{boxFrame}
+  \end{boxedProof}
+\end{center}
 
-\subsection{Resnica in neresnica}
+\paragraph*{Resnica in neresnica}
+\label{sec:resnica-neresnica-pravila}
 
-\paragraph{Vpeljava.}
 Resnice $\top$ ni treba dokazovati, zapišemo ">očitno"<.\footnote{
 V praksi $\top$ nastopi kot izjava, ki jo želimo dokazati, ko neko drugo izjavo poenostavimo. Primer: ko dokazujemo
 $12^2 + 12^2 < 17^2$, najprej izračunamo, da je to ekvivalentno $288 < 289$, kar je ekvivalentno $\top$. S tem je dokaz
 zaključen, saj smo dobili $\top$.}
-
-Kadar dokazujemo $\bot$, pravimo, da ">iščemo protislovje"<.
-
-\begin{quote}
-  \sl
-  Poiščimo protislovje.
-  \begin{enumerate}
-  \item Dokažimo $\phi$: \quad \brac{dokaz $\phi$}
-  \item Dokažimo $\lnot \phi$: \quad \brac{dokaz $\lnot\phi$}
-  \end{enumerate}
-\end{quote}
-
-\paragraph{Uporaba.}
-Resnica ni uporabna kot predpostavka in jo lahko zavržemo.
-
-\begin{quote}
-  \sl
-  Dokažimo $\rho$:
-  \begin{itemize}
-  \item[]
-    Ugotovimo, da velja $\bot$.\\
-    Ker iz neresnice sledi karkoli, velja $\rho$.
-  \end{itemize}
-\end{quote}
-
-\subsection{Ekvivalenca}
-
-\paragraph{Vpeljava.}
-\begin{quote}
-  \sl
-  Dokažimo $\phi \liff \psi$.
-  \begin{enumerate}
-  \item Dokažimo $\phi \lthen \psi$: \quad \brac{dokaz $\phi \lthen \psi$}
-  \item Dokažimo $\psi \lthen \phi$: \quad \brac{dokaz $\psi \lthen \phi$}
-  \end{enumerate}
-\end{quote}
-
-\subsection{Negacija}
-
-\paragraph{Vpeljava.}
-\begin{quote}
-  \sl
-  Dokažimo $\lnot \psi$:
-  %
-  \begin{itemize}
-  \item[] Predpostavimo $\psi$. \\
-          Poiščimo protislovje: \quad \dots
-  \end{itemize}
-\end{quote}
 %
-Opomba: ni nujno, da poiščemo protislovje med $\psi$ in $\lnot\psi$, vsako protislovje je sprejemljivo.
-
-\paragraph{Uporaba.}
-Negacijo $\lnot \phi$ uporabimo tako, da dokažemo $\phi$ in zaključimo dokaz.
+\begin{center}
+  \begin{boxedProof}
+    \begin{boxFrame}
+      \boxLine{Dokažimo $\top$.}
+      \boxLine[1]{Očitno.}
+    \end{boxFrame}
+  \end{boxedProof}
+\end{center}
 %
-\begin{quote}
-  \sl
-  Dokažimo $\rho$.\\
-  Vemo, da velja $\lnot\phi$.
-  %
-  \begin{itemize}
-  \item[] Dokažimo $\phi$: \quad \brac{dokaz $\phi$}
-  \end{itemize}
-  %
-  Torej velja $\rho$.
-\end{quote}
+Kadar dokazujemo $\bot$, pravimo, da ">iščemo protislovje"<. Protislovje najdemo tako, da za neko izjavo~$\phi$ dokažemo $\phi$ in $\lnot\phi$:
+%
+\begin{center}
+  \begin{boxedProof}
+    \begin{boxFrame}
+      \boxLine{Poiščimo protislovje.}
+      \begin{boxNested}
+        \boxLine{Dokažimo $\phi$:}
+        \boxLine[1]{\brac{dokaz $\phi$}}
+      \end{boxNested}
+      \begin{boxNested}
+        \boxLine{Dokažimo $\lnot\phi$:}
+        \boxLine[1]{\brac{dokaz $\lnot\phi$}}
+      \end{boxNested}
+    \end{boxFrame}
+  \end{boxedProof}
+\end{center}
+%
+Resnica ni uporabna kot predpostavka in jo lahko zavržemo. Iz neresnice pa sledi karkoli:
+%
+\begin{center}
+  \begin{boxedProof}[reserved]
+    \begin{boxFrame}
+      \boxLineTag{$k$}{velja $\bot$}
+      \boxGap
+      \boxLine{zaradi~($k$) velja $\rho$}
+    \end{boxFrame}
+  \end{boxedProof}
+\end{center}
 
-\subsection{Univerzalni kvantifikator}
+\paragraph*{Ekvivalenca}
+\label{sec:ekvivalenca-pravila}
 
-\paragraph{Vpeljava.}
-\begin{quote}
-  \sl
-  Dokažimo $\all{x \in A} \phi(x)$.
-  %
-  \begin{enumerate}
-  \item[] Naj bo $x \in A$. \\
-          Dokažimo $\phi(x)$: \quad \brac{dokaz $\phi(x)$}
-  \end{enumerate}
-\end{quote}
+Ekvivalenco $\phi \liff \psi$ dokažemo tako, da posebej dokažemo obe implikaciji:
+%
+\begin{center}
+  \begin{boxedProof}
+    \begin{boxFrame}
+      \boxLine{Dokažimo $\phi \liff \psi$.}
+      \begin{boxNested}
+        \boxLine{Dokažimo $\phi \lthen \psi$:}
+        \boxLine[1]{\brac{dokaz $\phi \lthen \psi$}}
+      \end{boxNested}
+      \begin{boxNested}
+        \boxLine{Dokažimo $\psi \lthen \phi$:}
+        \boxLine[1]{\brac{dokaz $\psi \lthen \phi$}}
+      \end{boxNested}
+    \end{boxFrame}
+  \end{boxedProof}
+\end{center}
+
+\paragraph*{Negacija}
+\label{sec:negacija-pravila}
+
+Negacijo $\lnot \phi$ dokažemo tako, da predpostavimo~$\phi$ in poiščemo protislovje:
+%
+\begin{center}
+  \begin{boxedProof}
+    \begin{boxFrame}
+      \boxLine{Dokažimo $\lnot \phi$.}
+      \boxLine[1]{Predpostavimo $\phi$.}
+      \boxLine[1]{Poiščimo protislovje:}
+      \boxLine[2]{\brac{dokaz $\bot$}}
+    \end{boxFrame}
+  \end{boxedProof}
+\end{center}
+%
+Opomba: ni nujno, da poiščemo protislovje med $\phi$ in $\lnot\phi$, vsako protislovje je sprejemljivo.
+
+Negacijo $\lnot \phi$ uporabimo tako, da dokažemo $\phi$ in zaključimo dokaz:
+%
+\begin{center}
+  \begin{boxedProof}[reserved]
+    \begin{boxFrame}
+      \boxLineTag{$k$}{velja $\lnot\phi$}
+      \boxGap
+      \boxLine{Dokažimo $\rho$.}
+      \boxLine[1]{Dokažimo $\phi$:}
+      \boxLine[2]{\brac{dokaz $\phi$}}
+      \boxLine[1]{Ker velja $\phi$ in~($k$), velja $\rho$.}
+    \end{boxFrame}
+  \end{boxedProof}
+\end{center}
+
+\paragraph*{Univerzalni kvantifikator}
+\label{sec:univerzalni-kvantifikator-pravila}
+
+Izjavo $\all{x \in A} \phi(x)$ dokažemo tako, da vpeljemo spremenljivko $x \in A$ in dokažemo $\phi(x)$:
+%
+\begin{center}
+  \begin{boxedProof}
+    \begin{boxFrame}
+      \boxLine{Dokažimo $\all{x \in A} \phi(x)$.}
+      \boxLine[1]{Naj bo $x \in A$.}
+      \boxLine[1]{Dokažimo $\phi(x)$:}
+      \boxLine[2]{\brac{dokaz $\phi(x)$}}
+    \end{boxFrame}
+  \end{boxedProof}
+\end{center}
 %
 \textbf{Pozor:} spremenljivka $x$ mora biti \emph{sveža}, se pravi, da je ne uporabljamo nikjer drugje. Če jo uporabljamo, najprej izberemo svežo spremenljivko~$y$ in $x$ preimenujemo v~$y$.
 
-\paragraph{Uporaba.}
-\begin{quote}
-  \sl
-  Vemo, da velja $\all{x \in A} \phi(x)$.\\
-  Vemo, da je $\langle\text{izraz}\rangle \in A$.\\
-  Torej velja $\phi(\langle\text{izraz}\rangle)$.
-\end{quote}
+Če vemo, da velja $\all{x \in A} \phi(x)$, in vemo, da je $\langle\text{izraz}\rangle \in A$, lahko izpeljemo $\phi(\langle\text{izraz}\rangle)$:
+%
+\begin{center}
+  \begin{boxedProof}[reserved]
+    \begin{boxFrame}
+      \boxLineTag{$k$}{velja $\all{x \in A} \phi(x)$}
+      \boxGap
+      \boxLineTag{$m$}{velja $\langle\text{izraz}\rangle \in A$}
+      \boxGap
+      \boxLine{zaradi~($k$) in~($m$) velja $\phi(\langle\text{izraz}\rangle)$}
+    \end{boxFrame}
+  \end{boxedProof}
+\end{center}
 
-\subsection{Eksistenčni kvantifikator}
+\paragraph*{Eksistenčni kvantifikator}
+\label{sec:eksistencni-kvantifikator-pravila}
 
-\paragraph{Vpeljava.}
-\begin{quote}
-  \sl
-  Dokažimo $\some{x \in A} \phi(x)$:
-  %
-  \begin{itemize}
-  \item[] Podamo $x \mathbin{{:}{=}} \langle\text{izraz}\rangle$. \\
-          Dokažimo $\langle\text{izraz}\rangle \in A$: \quad \dots \\
-          Dokažimo $\phi(\langle\text{izraz}\rangle)$: \quad \dots
-  \end{itemize}
-\end{quote}
+Izjavo $\some{x \in A} \phi(x)$ dokažemo tako, da podamo element množice~$A$, ki zadošča~$\phi$:
+%
+\begin{center}
+  \begin{boxedProof}
+    \begin{boxFrame}
+      \boxLine{Dokažimo $\some{x \in A} \phi(x)$.}
+      \boxLine[1]{Podamo $x \defeq \langle\text{izraz}\rangle$.}
+      \begin{boxNested}[1]
+        \boxLine{Dokažimo $\langle\text{izraz}\rangle \in A$:}
+        \boxLine[1]{\brac{dokaz $\langle\text{izraz}\rangle \in A$}}
+      \end{boxNested}
+      \begin{boxNested}[1]
+        \boxLine{Dokažimo $\phi(\langle\text{izraz}\rangle)$:}
+        \boxLine[1]{\brac{dokaz $\phi(\langle\text{izraz}\rangle)$}}
+      \end{boxNested}
+    \end{boxFrame}
+  \end{boxedProof}
+\end{center}
 %
 Opomba: $\langle\text{izraz}\rangle$ sme vsebovati vse proste spremenljivke, ki so trenutno na voljo ($x$ \emph{ni} na
 voljo).
 
-\paragraph{Uporaba.}
-\begin{quote}
-  \sl
-  Dokažimo $\rho$.\\
-  Vemo, da velja $\some{x \in A} \phi(x)$.
-  %
-  \begin{enumerate}
-  \item[] Imamo $x \in A$, za katerega velja $\phi(x)$.\\
-       Dokažimo $\rho$: \quad \brac{dokaz $\rho$}
-  \end{enumerate}
-\end{quote}
+Če vemo, da velja $\some{x \in A} \phi(x)$, smemo vpeljati spremenljivko $x \in A$, za katero velja $\phi(x)$:
+%
+\begin{center}
+  \begin{boxedProof}[reserved]
+    \begin{boxFrame}
+      \boxLineTag{$k$}{velja $\some{x \in A} \phi(x)$}
+      \boxGap
+      \boxLine{Dokažimo $\rho$.}
+      \boxLine[1]{Zaradi~($k$) imamo $x \in A$, za katerega velja $\phi(x)$.}
+      \boxLine[1]{\brac{dokaz $\rho$}}
+    \end{boxFrame}
+  \end{boxedProof}
+\end{center}
 %
 \textbf{Pozor:} spremenljivka $x$ mora biti sveža, se pravi, da se ne pojavlja v $\rho$ ali kjerkoli drugje. Če se~$x$ pojavi kje drugje, ga moramo najprej nadomestiti s svežo spremenljivko~$y$.
 
