@@ -371,7 +371,7 @@ Pravilo vpeljave torej predstavimo takole:
   \end{boxedProof}
 \end{center}
 %
-Če vemo, da velja $\phi \lthen \psi$, in vemo, da velja~$\phi$, lahko izpeljemo~$\psi$:
+Pravilo uporabe se glasi: če vemo, da velja $\phi \lthen \psi$, in vemo, da velja~$\phi$, lahko izpeljemo~$\psi$: 
 %
 \begin{center}
   \begin{boxedProof}[reserved]
@@ -384,6 +384,33 @@ Pravilo vpeljave torej predstavimo takole:
     \end{boxFrame}
   \end{boxedProof}
 \end{center}
+
+\begin{zgled}
+  Če velja $\phi \land \psi$, potem velja $\psi \land \phi$:
+  %
+  \begin{center}
+  \begin{boxedProof}[numbered]
+    \begin{boxFrame}
+      \boxLine{Dokažimo $\phi \land \psi \lthen \psi \land \phi$.}
+      \boxLine[1]{Predpostavimo $\phi \land \psi$.} \label{box:conj-comm-1}
+      \boxLine[1]{Dokažimo $\psi \land \phi$:} \label{box:conj-comm-2}
+      \begin{boxNested}[1]
+        \boxLine{Dokažimo $\psi$:}
+        \boxLine[1]{Zaradi \boxRef{box:conj-comm-1} velja $\psi$.} \label{box:conj-comm-3}
+      \end{boxNested}
+      \begin{boxNested}[1]
+        \boxLine{Dokažimo $\phi$:}
+        \boxLine[1]{Zaradi \boxRef{box:conj-comm-1} velja $\phi$.} \label{box:conj-comm-4}
+      \end{boxNested}
+    \end{boxFrame}
+  \end{boxedProof}
+  \end{center}
+  %
+  Celoten dokaz je vpeljava implikacije.
+  %
+  V vrsticah~\boxRef{box:conj-comm-2}--\boxRef{box:conj-comm-4} vidimo vpeljavo konjunkcije,
+  v vrsticah \boxRef{box:conj-comm-3} in \boxRef{box:conj-comm-4} pa uporabo konjunkcije.
+\end{zgled}
 
 \paragraph*{Disjunkcija}
 \label{sec:disjunkcija-pravila}
