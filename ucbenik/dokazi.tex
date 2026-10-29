@@ -390,7 +390,7 @@ Pravilo uporabe za implikacijo se torej glasi:
 \end{center}
 
 \begin{zgled}
-  Če velja $\phi \land \psi$, potem velja $\psi \land \phi$:
+  Naj bosta $\phi$ in $\psi$ izjavi. Takole dokažemo, da iz $\phi \land \psi$ sledi $\psi \land \phi$:
   %
   \begin{center}
   \begin{boxedProof}[numbered]
@@ -447,28 +447,56 @@ Disjunkcijo $\phi \lor \psi$ dokažemo tako, da dokažemo enega od disjunktov, z
       \boxLineTag{$k$}{velja $\phi \lor \psi$}
       \boxGap
       \boxLine{Dokažimo $\rho$.}
-      \boxLine[1]{Zaradi~($k$) obravnavamo dva primera:}
+      \boxLine[1]{Uporabimo ($k$) in obravnavamo dva primera:}
       \begin{boxNested}[1]
-        \boxLine{Če velja $\phi$:}
+        \boxLine{Predpostavimo $\phi$:}
         \boxLine{Dokažimo $\rho$:}
         \boxLine[1]{\brac{dokaz $\rho$}}
       \end{boxNested}
       \begin{boxNested}[1]
-        \boxLine{Če velja $\psi$:}
+        \boxLine{Predpostavimo $\psi$:}
         \boxLine{Dokažimo $\rho$:}
         \boxLine[1]{\brac{dokaz $\rho$}}
       \end{boxNested}
     \end{boxFrame}
   \end{boxedProof}
 \end{center}
+%
+V prvem primeru smo izpeljali cilj pod predpostavko, da velja levi disjunkt~$\phi$, v drugem pa pod predpostavko, da velja desni disjunkt~$\psi$.
 
-\paragraph*{Resnica in neresnica}
-\label{sec:resnica-neresnica-pravila}
+\begin{zgled}
+  Obravnavajmo nekoliko bolj zapleten primer: $((p \lthen r) \land (q \lthen r)) \lthen (p \lor q \lthen r)$:
+  %
+  \begin{center}
+  \begin{boxedProof}[numbered]
+    \begin{boxFrame}
+      \boxLine{Dokažimo $((p \lthen r) \land (q \lthen r)) \lthen (p \lor q \lthen r)$.}
+      \boxLine[1]{Predpostavimo $(p \lthen r) \land (q \lthen r)$.\label{box:disj-elim-1}}
+      \boxLine[1]{Dokažimo $p \lor q \lthen r$.}
+      \boxLine[2]{Predpostavimo $p \lor q$.\label{box:disj-elim-2}}
+      \boxLine[2]{Dokažimo $r$.}
+      \boxLine[3]{Uporabimo~\boxRef{box:disj-elim-2} in obravnavamo dva primera:}
+      \begin{boxNested}[3]
+        \boxLine{Predpostavimo $p$:\label{box:disj-elim-3}}
+        \boxLine{Dokažimo $r$:}
+        \boxLine[1]{Zaradi~\boxRef{box:disj-elim-1} velja $p \lthen r$.\label{box:disj-elim-4}}
+        \boxLine[1]{Zaradi~\boxRef{box:disj-elim-4} in~\boxRef{box:disj-elim-3} velja $r$.}
+      \end{boxNested}
+      \begin{boxNested}[3]
+        \boxLine{Predpostavimo $q$:\label{box:disj-elim-5}}
+        \boxLine{Dokažimo $r$:}
+        \boxLine[1]{Zaradi~\boxRef{box:disj-elim-1} velja $q \lthen r$.\label{box:disj-elim-6}}
+        \boxLine[1]{Zaradi~\boxRef{box:disj-elim-6} in~\boxRef{box:disj-elim-5} velja $r$.}
+      \end{boxNested}
+    \end{boxFrame}
+  \end{boxedProof}
+  \end{center}
+\end{zgled}
 
-Resnice $\top$ ni treba dokazovati, zapišemo ">očitno"<.\footnote{
-V praksi $\top$ nastopi kot izjava, ki jo želimo dokazati, ko neko drugo izjavo poenostavimo. Primer: ko dokazujemo
-$12^2 + 12^2 < 17^2$, najprej izračunamo, da je to ekvivalentno $288 < 289$, kar je ekvivalentno $\top$. S tem je dokaz
-zaključen, saj smo dobili $\top$.}
+\paragraph*{Resnica}
+\label{sec:resnica-pravila}
+
+Resnice $\top$ ni treba dokazovati, zapišemo ">očitno"<:
 %
 \begin{center}
   \begin{boxedProof}
@@ -479,25 +507,18 @@ zaključen, saj smo dobili $\top$.}
   \end{boxedProof}
 \end{center}
 %
-Kadar dokazujemo $\bot$, pravimo, da ">iščemo protislovje"<. Protislovje najdemo tako, da za neko izjavo~$\phi$ dokažemo $\phi$ in $\lnot\phi$:
+V praksi $\top$ nastopi kot cilj, ko dani cilj poenostavimo v ekvivalentno obliko in dobimo~$\top$. Na primer, cilj
+$12^2 + 12^2 < 17^2$ lahko z računanjem prevedemo v ekvivalentno izjavo $288 < 289$, ki je ekvivalentna~$\top$. S tem
+je dokaz zaključen, saj $\top$ ni treba dokazati.
+
+Pravila uporabe za resnico ni.
+
+\paragraph*{Neresnica}
+\label{sec:neresnica-pravila}
+
+Neresnica~$\bot$ nima pravila vpeljave. (To ne pomeni, da $\bot$ ni možno dokazati, saj lahko sledi iz protislovnih predpostavk.)
 %
-\begin{center}
-  \begin{boxedProof}
-    \begin{boxFrame}
-      \boxLine{Poiščimo protislovje.}
-      \begin{boxNested}
-        \boxLine{Dokažimo $\phi$:}
-        \boxLine[1]{\brac{dokaz $\phi$}}
-      \end{boxNested}
-      \begin{boxNested}
-        \boxLine{Dokažimo $\lnot\phi$:}
-        \boxLine[1]{\brac{dokaz $\lnot\phi$}}
-      \end{boxNested}
-    \end{boxFrame}
-  \end{boxedProof}
-\end{center}
-%
-Resnica ni uporabna kot predpostavka in jo lahko zavržemo. Iz neresnice pa sledi karkoli:
+Pravilo uporabe za $\bot$ pravi, da iz neresnice sledi karkoli:
 %
 \begin{center}
   \begin{boxedProof}[reserved]
@@ -529,39 +550,113 @@ Ekvivalenco $\phi \liff \psi$ dokažemo tako, da posebej dokažemo obe implikaci
     \end{boxFrame}
   \end{boxedProof}
 \end{center}
+%
+Ekvivalenco uporabimo tako, da izpeljemo eno od implikacij:
+%
+%
+\begin{center}
+\begin{boxedProof}[reserved]
+\begin{boxFrame}
+  \boxLineTag{$k$}{velja $\phi \liff \psi$}
+  \boxGap
+  \boxLine{zaradi~($k$) velja $\phi \lthen \psi$}
+\end{boxFrame}
+\qquad\qquad
+\end{boxedProof}
+%
+\begin{boxedProof}[reserved]
+\begin{boxFrame}
+  \boxLineTag{$x$}{velja $\phi \liff \psi$}
+  \boxGap
+  \boxLine{zaradi~($x$) velja $\psi \lthen \phi$}
+\end{boxFrame}
+\end{boxedProof}
+\end{center}
+
+
 
 \paragraph*{Negacija}
 \label{sec:negacija-pravila}
 
-Negacijo $\lnot \phi$ dokažemo tako, da predpostavimo~$\phi$ in poiščemo protislovje:
+Negacijo $\lnot \phi$ dokažemo tako, da predpostavimo~$\phi$ in dokažemo~$\bot$:
 %
 \begin{center}
   \begin{boxedProof}
     \begin{boxFrame}
       \boxLine{Dokažimo $\lnot \phi$.}
       \boxLine[1]{Predpostavimo $\phi$.}
-      \boxLine[1]{Poiščimo protislovje:}
+      \boxLine[1]{Dokažimo~$\bot$:}
       \boxLine[2]{\brac{dokaz $\bot$}}
     \end{boxFrame}
   \end{boxedProof}
 \end{center}
 %
-Opomba: ni nujno, da poiščemo protislovje med $\phi$ in $\lnot\phi$, vsako protislovje je sprejemljivo.
+Običajno ne rečemo, da ">dokazujemo neresnico $\bot$"<, ampak da ">iščemo protislovje"<.
 
-Negacijo $\lnot \phi$ uporabimo tako, da dokažemo $\phi$ in zaključimo dokaz:
+Pravilo uporabe za negacijo pravi, da iz $\phi$ in $\neg \phi$ sledi neresnica:
 %
 \begin{center}
   \begin{boxedProof}[reserved]
     \begin{boxFrame}
-      \boxLineTag{$k$}{velja $\lnot\phi$}
+      \boxLineTag{$k$}{velja $\phi$}
       \boxGap
-      \boxLine{Dokažimo $\rho$.}
-      \boxLine[1]{Dokažimo $\phi$:}
-      \boxLine[2]{\brac{dokaz $\phi$}}
-      \boxLine[1]{Ker velja $\phi$ in~($k$), velja $\rho$.}
+      \boxLineTag{$m$}{velja $\neg \phi$}
+      \boxGap
+      \boxLine{zaradi~($k$) in~($m$) velja $\bot$}
     \end{boxFrame}
   \end{boxedProof}
 \end{center}
+%
+V dokazu običajno ne rečemo, da smo ">dokazali neresnico"<, ampak da smo ">izpeljali protislovje"<, se pravi izjavo in njeno negacijo.
+
+\begin{zgled}
+  Dokažimo, da iz protislovja sledi karkoli. Natančneje, iz $p$ in $\neg p$ sledi poljubna izjava~$q$:
+  %
+  \begin{center}
+  \begin{boxedProof}[numbered]
+    \begin{boxFrame}
+      \boxLine{Dokažimo $p \land \neg p \lthen q$.}
+      \boxLine[1]{Predpostavimo $p \land \neg p$.\label{box:ex-falso-1}}
+      \boxLine[1]{Dokažimo $q$.}
+      \boxLine[2]{Zaradi~\boxRef{box:ex-falso-1} velja $p$.\label{box:ex-falso-2}}
+      \boxLine[2]{Zaradi~\boxRef{box:ex-falso-1} velja $\neg p$.\label{box:ex-falso-3}}
+      \boxLine[2]{Zaradi~\boxRef{box:ex-falso-2} in~\boxRef{box:ex-falso-3} velja $\bot$.\label{box:ex-falso-4}}
+      \boxLine[2]{Zaradi~\boxRef{box:ex-falso-4} velja $q$.\label{box:ex-falso-5}}
+    \end{boxFrame}
+  \end{boxedProof}
+  \end{center}
+  %
+  Celoten dokaz je vpeljava implikacije.
+  %
+  V vrsticah~\boxRef{box:ex-falso-2} in~\boxRef{box:ex-falso-3} smo uporabili konjunkcijo,
+  v vrstici~\boxRef{box:ex-falso-4} negacijo, v vrstici~\boxRef{box:ex-falso-5} pa neresnico.
+\end{zgled}
+
+
+\begin{zgled}
+  \label{zgled:p-dvojna-negacija}
+  Dokažimo, da iz $p$ sledi $\neg\neg p$:
+  %
+  \begin{center}
+  \begin{boxedProof}[numbered]
+    \begin{boxFrame}
+      \boxLine{Dokažimo $p \lthen \neg\neg p$.}
+      \boxLine[1]{Predpostavimo $p$.\label{box:dvojna-1}}
+      \boxLine[1]{Dokažimo $\neg\neg p$.\label{box:dvojna-2}}
+      \boxLine[2]{Predpostavimo $\neg p$.\label{box:dvojna-3}}
+      \boxLine[2]{Dokažimo $\bot$.}
+      \boxLine[3]{Zaradi~\boxRef{box:dvojna-1} in~\boxRef{box:dvojna-3} velja $\bot$.\label{box:dvojna-4}}
+    \end{boxFrame}
+  \end{boxedProof}
+  \end{center}
+  %
+  Celoten dokaz je vpeljava implikacije.
+  %
+  V vrsticah~\boxRef{box:dvojna-2}--\boxRef{box:dvojna-4} vidimo vpeljavo negacije,
+  v vrstici~\boxRef{box:dvojna-4} pa uporabo negacije.
+\end{zgled}
+
+
 
 \paragraph*{Univerzalni kvantifikator}
 \label{sec:univerzalni-kvantifikator-pravila}
@@ -579,7 +674,7 @@ Izjavo $\all{x \in A} \phi(x)$ dokažemo tako, da vpeljemo spremenljivko $x \in 
   \end{boxedProof}
 \end{center}
 %
-\textbf{Pozor:} spremenljivka $x$ mora biti \emph{sveža}, se pravi, da je ne uporabljamo nikjer drugje. Če jo uporabljamo, najprej izberemo svežo spremenljivko~$y$ in $x$ preimenujemo v~$y$.
+\textbf{Pozor:} spremenljivka $x$ mora biti \emph{sveža}, se pravi, da je ne uporabljamo nikjer drugje. Če se je predhodno že pojavila, najprej izberemo svežo spremenljivko~$y$ in $x$ preimenujemo v~$y$.
 
 Če vemo, da velja $\all{x \in A} \phi(x)$, in vemo, da je $\langle\text{izraz}\rangle \in A$, lahko izpeljemo $\phi(\langle\text{izraz}\rangle)$:
 %
@@ -594,6 +689,29 @@ Izjavo $\all{x \in A} \phi(x)$ dokažemo tako, da vpeljemo spremenljivko $x \in 
     \end{boxFrame}
   \end{boxedProof}
 \end{center}
+
+\begin{zgled}
+  Sedaj lahko dokažemo, da izjava $\all{x \in \emptyset} \phi(x)$ velja, upoštevaje dejstvo, da
+  $\neg (x \in \emptyset)$:
+  %
+  \begin{center}
+  \begin{boxedProof}[numbered]
+    \begin{boxFrame}
+      \boxLine{Dokažimo $\all{x \in \emptyset} \phi(x)$.}
+      \boxLine[1]{Naj bo $x \in \emptyset$.\label{box:prazna-1}}
+      \boxLine[1]{Dokažimo $\phi(x)$.}
+      \boxLine[2]{Velja $\neg (x \in \emptyset)$.\label{box:prazna-2}}
+      \boxLine[2]{Zaradi~\boxRef{box:prazna-1} in~\boxRef{box:prazna-2} velja $\bot$.\label{box:prazna-3}}
+      \boxLine[2]{Zaradi~\boxRef{box:prazna-3} velja $\phi(x)$.\label{box:prazna-4}}
+    \end{boxFrame}
+  \end{boxedProof}
+  \end{center}
+  %
+  Celoten dokaz je vpeljava univerzalnega kvantifikatorja.
+  %
+  V vrstici~\boxRef{box:prazna-3} smo uporabili negacijo, v vrstici~\boxRef{box:prazna-4} pa neresnico.
+\end{zgled}
+
 
 \paragraph*{Eksistenčni kvantifikator}
 \label{sec:eksistencni-kvantifikator-pravila}
@@ -636,42 +754,119 @@ voljo).
 %
 \textbf{Pozor:} spremenljivka $x$ mora biti sveža, se pravi, da se ne pojavlja v $\rho$ ali kjerkoli drugje. Če se~$x$ pojavi kje drugje, ga moramo najprej nadomestiti s svežo spremenljivko~$y$.
 
-\section{Posebni načini dokazovanja}
-
-\subsection{Izključena tretja možnost}
-
-\textbf{Pravilo izključene tretje možnosti} pravi, da vedno velja $\phi \lor \lnot\phi$ in ga uporabimo takole:
-%
-\begin{quote}
-  \sl
-  Dokažimo $\rho$.\\
-  Velja $\phi \lor \lnot \phi$:
+\begin{zgled}
+  Dokažimo še, da velja $\neg \some{x \in \emptyset} \phi(x)$, upoštevaje dejstvo, da
+  $\neg (x \in \emptyset)$:
   %
-  \begin{enumerate}
-  \item Če velja $\phi$:\\
-        Dokažimo $\rho$: \quad \dots
-  \item Če velja $\lnot\phi$: \\
-        Dokažimo $\rho$: \quad \dots
-  \end{enumerate}
-\end{quote}
-%
-
-\subsection{Dokaz s protislovjem}
-
-\textbf{Dokaz s protislovjem} poteka takole:
-%
-\begin{quote}
-  \sl
-  Dokažimo $\rho$. Dokazujemo s protislovjem:
+  \begin{center}
+  \begin{boxedProof}[numbered]
+    \begin{boxFrame}
+      \boxLine{Dokažimo $\neg \some{x \in \emptyset} \phi(x)$.}
+      \boxLine[1]{Predpostavimo $\some{x \in \emptyset} \phi(x)$.\label{box:prazna-obstoj-1}}
+      \boxLine[1]{Dokažimo $\bot$.}
+      \boxLine[2]{Zaradi~\boxRef{box:prazna-obstoj-1} imamo $x \in \emptyset$, za katerega velja $\phi(x)$.\label{box:prazna-obstoj-2}}
+      \boxLine[2]{Velja $\neg (x \in \emptyset)$.\label{box:prazna-obstoj-3}}
+      \boxLine[2]{Zaradi~\boxRef{box:prazna-obstoj-2} in~\boxRef{box:prazna-obstoj-3} velja $\bot$.\label{box:prazna-obstoj-4}}
+    \end{boxFrame}
+  \end{boxedProof}
+  \end{center}
   %
-  \begin{itemize}
-  \item[] Predpostavimo $\lnot\rho$.\\
-        Poiščimo protislovje: \quad \dots
-  \end{itemize}
-\end{quote}
+  Celoten dokaz je vpeljava negacije.
+  %
+  V vrstici~\boxRef{box:prazna-obstoj-2} smo uporabili eksistenčni kvantifikator, v vrstici~\boxRef{box:prazna-obstoj-4} pa negacijo.
+\end{zgled}
+
+\subsection{Izključena tretja možnost in dokaz s protislovjem}
+
+\textbf{Pravilo izključene tretje možnosti} pravi, da vedno velja $\phi \lor \lnot\phi$.
 %
+Običajno ga uporabimo tako, da obravnavamo dva primera:
+%
+\begin{center}
+  \begin{boxedProof}
+    \begin{boxFrame}
+      \boxLine{Dokažimo $\rho$.}
+      \boxLine[1]{Ker velja $\phi \lor \lnot\phi$, obravnavamo dva primera:}
+      \begin{boxNested}[1]
+        \boxLine{Predpostavimo $\phi$:}
+        \boxLine{Dokažimo $\rho$:}
+        \boxLine[1]{\brac{dokaz $\rho$}}
+      \end{boxNested}
+      \begin{boxNested}[1]
+        \boxLine{Predpostavimo $\lnot\phi$:}
+        \boxLine{Dokažimo $\rho$:}
+        \boxLine[1]{\brac{dokaz $\rho$}}
+      \end{boxNested}
+    \end{boxFrame}
+  \end{boxedProof}
+\end{center}
+
+\begin{zgled}
+  Dokažimo, da iz $\neg\neg p$ sledi $p$:
+  %
+  \begin{center}
+  \begin{boxedProof}[numbered]
+    \begin{boxFrame}
+      \boxLine{Dokažimo $\neg\neg p \lthen p$.}
+      \boxLine[1]{Predpostavimo $\neg\neg p$.\label{box:protislovje-1}}
+      \boxLine[1]{Dokažimo $p$.}
+      \boxLine[2]{Ker velja $p \lor \neg p$, obravnavamo dva primera:\label{box:protislovje-2}}
+      \begin{boxNested}[2]
+        \boxLine{Predpostavimo $p$:\label{box:protislovje-3}}
+        \boxLine{Dokažimo $p$:}
+        \boxLine[1]{Zaradi~\boxRef{box:protislovje-3} velja $p$.}
+      \end{boxNested}
+      \begin{boxNested}[2]
+        \boxLine{Predpostavimo $\neg p$:\label{box:protislovje-4}}
+        \boxLine{Dokažimo $p$:}
+        \boxLine[1]{Zaradi~\boxRef{box:protislovje-4} in~\boxRef{box:protislovje-1} velja $\bot$.\label{box:protislovje-5}}
+        \boxLine[1]{Zaradi~\boxRef{box:protislovje-5} velja $p$.\label{box:protislovje-6}}
+      \end{boxNested}
+    \end{boxFrame}
+  \end{boxedProof}
+  \end{center}
+  %
+  Celoten dokaz je vpeljava implikacije.
+  %
+  V vrstici~\boxRef{box:protislovje-2} smo uporabili izključeno tretjo možnost,
+  v vrstici~\boxRef{box:protislovje-5} negacijo, v vrstici~\boxRef{box:protislovje-6} pa neresnico.
+
+  Na implikaciji $\neg\neg p \lthen p$ sloni \df{dokaz s protislovjem}: izjavo $p$ dokažemo tako, da predpostavimo
+  $\neg p$ in izpeljemo protislovje. S tem smo z vpeljavo negacije dokazali $\neg\neg p$, od koder sledi~$p$.
+
+  Skupaj z zgledom~\ref{zgled:p-dvojna-negacija} smo pokazali, da sta izjavi $p$ in $\neg\neg p$ ekvivalentni.
+\end{zgled}
+
 Opomba: dokaz s protislovjem in pravilo vpeljave za negacijo sta \emph{različni}
 pravili!
+
+\begin{zgled}
+  Pokažimo, da iz dokaza s protislovjem sledi izključena tretja možnost, se pravi, da s protislovjem
+  dokažemo $p \lor \neg p$:
+  %
+  \begin{center}
+  \begin{boxedProof}[numbered]
+    \begin{boxFrame}
+      \boxLine{Dokažimo $p \lor \neg p$ s protislovjem.}
+      \boxLine[1]{Predpostavimo $\neg (p \lor \neg p)$.\label{box:lem-1}}
+      \boxLine[1]{Dokažimo $\bot$.}
+      \boxLine[2]{Dokažimo $\neg p$.\label{box:lem-2}}
+      \boxLine[3]{Predpostavimo $p$.\label{box:lem-3}}
+      \boxLine[3]{Dokažimo $\bot$.}
+      \boxLine[4]{Zaradi~\boxRef{box:lem-3} velja $p \lor \neg p$.\label{box:lem-4}}
+      \boxLine[4]{Zaradi~\boxRef{box:lem-4} in~\boxRef{box:lem-1} velja $\bot$.\label{box:lem-5}}
+      \boxLine[2]{Ker velja $\neg p$, velja tudi $p \lor \neg p$.\label{box:lem-6}}
+      \boxLine[2]{Zaradi~\boxRef{box:lem-6} in~\boxRef{box:lem-1} velja $\bot$.\label{box:lem-7}}
+    \end{boxFrame}
+  \end{boxedProof}
+  \end{center}
+  %
+  Celoten dokaz je dokaz s protislovjem.
+  %
+  V vrsticah~\boxRef{box:lem-2}--\boxRef{box:lem-5} vidimo vpeljavo negacije,
+  v vrsticah~\boxRef{box:lem-4} in~\boxRef{box:lem-6} vpeljavo disjunkcije,
+  v vrsticah~\boxRef{box:lem-5} in~\boxRef{box:lem-7} pa uporabo negacije.
+\end{zgled}
 
 \subsection{Aksiom o izključenem tretjem}
 
