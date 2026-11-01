@@ -952,12 +952,12 @@ uganjevanje, ampak moramo točno povedati, kateri simboli so
 Pozor, vrstnega reda kvantifikatorjev ne smemo mešati:
 %
 \begin{itemize}
-\item $\all{x \in \RR} \some{y \in \RR} x < y$ pomeni ">vsako realno število je manjše od nekega realnega števila"< (kar je res),
-\item $\some{x \in \RR} \all{y \in \RR} x < y$ pomeni ">obstaja najmanjše realno število"< (kar ni res).
+\item $\all{x \in \RR} \some{y \in \RR} x < y$ pomeni \nls{vsako realno število je manjše od nekega realnega števila} (kar je res),
+\item $\some{x \in \RR} \all{y \in \RR} x < y$ pomeni \nls{obstaja najmanjše realno število} (kar ni res).
 \end{itemize}
 %
 To dejstvo bomo utrjevali na vajah. Zapomnite si, da morate biti tudi pri ostalih predmetih posebej pozorni na vrstni red
-">za vsak"< in ">obstaja"<. Je profesorica pri analizi rekla ">za vsak $\epsilon > 0$ obstaja tak $\delta > 0$, da \dots"< ali je rekla ">obstaja tak $\delta > 0$, da za vsak $\epsilon > 0$ \dots"<? Če boste zamešali ti dve izjavi na ustnem izpitu iz analize, boste imeli pokvarjen dan ali pa cele počitnice!
+">za vsak"< in ">obstaja"<. Je profesorica pri analizi rekla \nls{za vsak $\epsilon > 0$ obstaja tak $\delta > 0$, da \dots} ali je rekla \nls{obstaja tak $\delta > 0$, da za vsak $\epsilon > 0$ \dots}? Če boste zamešali ti dve izjavi na ustnem izpitu iz analize, boste imeli pokvarjen dan ali pa cele počitnice!
 
 
 \paragraph*{Kvantifikator z dodatnim pogojem}
@@ -1175,7 +1175,7 @@ Definicija je v prvi vrsti \textbf{okrajšava} za neki izraz. Z njo uvedemo nov 
   s \defeq \ldots
 \end{equation*}
 %
-Na primer, v besedilu bi lahko napisali ">Naj bo $s := \log_2 7 + \pi/6$."< S tem smo v kontekst dodali simbol $s$ in predpostavko $s = \log_2 7 + \pi/6$. V matematičnih besedilih boste zasledili tudi naslednje načine za definicijo:
+Na primer, v besedilu bi lahko napisali \nls{Naj bo $s \defeq \log_2 7 + \pi/6$.} S tem smo v kontekst dodali simbol $s$ in predpostavko $s = \log_2 7 + \pi/6$. V matematičnih besedilih boste zasledili tudi naslednje načine za definicijo:
 %
 \begin{itemize}
 \item $s = \log_2 7 + \pi/6$ (namesto $\defeq$ uporabimo $=$)
@@ -1278,8 +1278,8 @@ ali ekvivalentno
 Formulo~\eqref{eq:unique-existence-1} razdelimo na dva dela:
 %
 \begin{itemize}
-\item ">$\some{x \in A} \phi(x)$"< pove, da obstaja \emph{vsaj en} želeni~$x$.
-\item ">$\all{y, z \in A} \phi(y) \land \phi(z) \lthen y = z$"< pove, da sta vsaka dva elementa, ki zadoščata~$\phi$, enaka; se pravi, da obstaja \emph{največ en} želeni~$x$.
+\item $\some{x \in A} \phi(x)$ pove, da obstaja \emph{vsaj en} želeni~$x$.
+\item $\all{y, z \in A} \phi(y) \land \phi(z) \lthen y = z$ pove, da sta vsaka dva elementa, ki zadoščata~$\phi$, enaka; se pravi, da obstaja \emph{največ en} želeni~$x$.
 \end{itemize}
 %
 Formulo \eqref{eq:unique-existence-2} preberemo takole: obstaja $x \in A$, ki zadošča $\phi(x)$, in vsak element, ki zadošča~$\phi$, je enak~$x$.
@@ -1290,7 +1290,7 @@ Za formulo \eqref{eq:unique-existence-1} uporabljamo okrajšavo
   \exactlyone{x \in A} \phi(x),
 \end{equation*}
 %
-ki jo beremo ">obstaja natanko en $x$ iz $A$, da velja $\phi(x)$"<.
+ki jo beremo \nls{obstaja natanko en $x$ iz $A$, da velja $\phi(x)$}.
 %
 Uporablja se tudi zapis $\exists^1 x \in A \,.\, \phi(x)$.
 
@@ -1486,7 +1486,7 @@ Spremenljivka $x$ je \emph{vezana} v $\descr{x \in A} \phi(x)$.
 \end{vaja}
 
 \begin{vaja}
-  V simbolni obliki zapiši ">$n$ je lih"< in ">$n$ je praštevilo"<.
+  V simbolni obliki zapiši \nls{$n$ je lih} in \nls{$n$ je praštevilo}.
   Namig: $n$ je lih, kadar obstaja naravno število $k$, za katerega
   velja $n = 2 k + 1$, in $n$ je praštevilo, kadar je $n > 1$ in $n$ \emph{ni} zmnožek
   dveh naravnih števil, ki sta obe večji od~$1$.

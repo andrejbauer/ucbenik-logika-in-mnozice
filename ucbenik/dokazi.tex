@@ -167,7 +167,6 @@ Zgornji dokaz z dodanimi podrobnostmi in označeno ugnezdeno strukturo je prikaz
   \centering
   \begin{boxedProof}[numbered]
   \begin{boxFrame}
-    \boxLine{Naj bodo $p$, $q$ in $r$ izjave.\label{vr:spremenljivke}}
     \boxLine{Dokažimo $(p \lor q) \land r \lthen (p \land r) \lor (q \land r)$:}
     \boxLine[1]{Predpostavimo $(p \lor q) \land r$.\label{vr:predpostavka}}
     \boxLine[1]{Dokažimo $(p \land r) \lor (q \land r)$:}
@@ -350,18 +349,18 @@ Kaj pa, če že vemo, da velja $\phi \land \psi$? Tedaj lahko izpeljemo~$\phi$ i
 \begin{center}
 \begin{boxedProof}[reserved]
 \begin{boxFrame}
-  \boxLineTag{$k$}{velja $\phi \land \psi$}
+  \boxLineTag{$k$}{Velja $\phi \land \psi$.}
   \boxGap
-  \boxLine{zaradi~($k$) velja $\phi$}
+  \boxLine{Zaradi~($k$) velja $\phi$.}
 \end{boxFrame}
 \qquad\qquad
 \end{boxedProof}
 %
 \begin{boxedProof}[reserved]
 \begin{boxFrame}
-  \boxLineTag{$k$}{velja $\phi \land \psi$}
+  \boxLineTag{$k$}{Velja $\phi \land \psi$.}
   \boxGap
-  \boxLine{zaradi~($k$) velja $\psi$}
+  \boxLine{Zaradi~($k$) velja $\psi$.}
 \end{boxFrame}
 \end{boxedProof}
 \end{center}
@@ -390,11 +389,11 @@ Pravilo uporabe za implikacijo, ki se imenuje tudi \df{modus ponens}, se torej g
 \begin{center}
   \begin{boxedProof}[reserved]
     \begin{boxFrame}
-      \boxLineTag{$k$}{velja $\phi \lthen \psi$}
+      \boxLineTag{$k$}{Velja $\phi \lthen \psi$.}
       \boxGap
-      \boxLineTag{$m$}{velja $\phi$}
+      \boxLineTag{$m$}{Velja $\phi$.}
       \boxGap
-      \boxLine{zaradi~($k$) in~($m$) velja $\psi$}
+      \boxLine{Zaradi~($k$) in~($m$) velja $\psi$.}
     \end{boxFrame}
   \end{boxedProof}
 \end{center}
@@ -483,7 +482,7 @@ Disjunkcijo $\phi \lor \psi$ dokažemo tako, da dokažemo enega od disjunktov, z
 \begin{center}
   \begin{boxedProof}[reserved]
     \begin{boxFrame}
-      \boxLineTag{$k$}{velja $\phi \lor \psi$}
+      \boxLineTag{$k$}{Velja $\phi \lor \psi$.}
       \boxGap
       \boxLine{Dokažimo $\rho$:}
       \boxLine[1]{Uporabimo ($k$) in obravnavamo dva primera:}
@@ -570,9 +569,9 @@ Pravilo uporabe za $\bot$ pravi, da iz neresnice sledi karkoli:
 \begin{center}
   \begin{boxedProof}[reserved]
     \begin{boxFrame}
-      \boxLineTag{$k$}{velja $\bot$}
+      \boxLineTag{$k$}{Velja $\bot$.}
       \boxGap
-      \boxLine{zaradi~($k$) velja $\rho$}
+      \boxLine{Zaradi~($k$) velja $\rho$.}
     \end{boxFrame}
   \end{boxedProof}
 \end{center}
@@ -604,18 +603,18 @@ Ekvivalenco uporabimo tako, da izpeljemo eno od implikacij:
 \begin{center}
 \begin{boxedProof}[reserved]
 \begin{boxFrame}
-  \boxLineTag{$k$}{velja $\phi \liff \psi$}
+  \boxLineTag{$k$}{Velja $\phi \liff \psi$.}
   \boxGap
-  \boxLine{zaradi~($k$) velja $\phi \lthen \psi$}
+  \boxLine{Zaradi~($k$) velja $\phi \lthen \psi$.}
 \end{boxFrame}
 \qquad\qquad
 \end{boxedProof}
 %
 \begin{boxedProof}[reserved]
 \begin{boxFrame}
-  \boxLineTag{$k$}{velja $\phi \liff \psi$}
+  \boxLineTag{$k$}{Velja $\phi \liff \psi$.}
   \boxGap
-  \boxLine{zaradi~($k$) velja $\psi \lthen \phi$}
+  \boxLine{Zaradi~($k$) velja $\psi \lthen \phi$.}
 \end{boxFrame}
 \end{boxedProof}
 \end{center}
@@ -638,23 +637,23 @@ Negacijo $\lnot \phi$ dokažemo tako, da predpostavimo~$\phi$ in dokažemo~$\bot
   \end{boxedProof}
 \end{center}
 %
-Običajno ne rečemo, da ">dokazujemo neresnico $\bot$"<, ampak da ">iščemo protislovje"<.
+Namesto ">dokazujemo neresnico $\bot$"<, običajno rečemo ">iščemo protislovje"<.
 
 Pravilo uporabe za negacijo pravi, da iz $\phi$ in $\neg \phi$ sledi neresnica:
 %
 \begin{center}
   \begin{boxedProof}[reserved]
     \begin{boxFrame}
-      \boxLineTag{$k$}{velja $\phi$}
+      \boxLineTag{$k$}{Velja $\phi$.}
       \boxGap
-      \boxLineTag{$m$}{velja $\neg \phi$}
+      \boxLineTag{$m$}{Velja $\neg \phi$.}
       \boxGap
-      \boxLine{zaradi~($k$) in~($m$) velja $\bot$}
+      \boxLine{Zaradi~($k$) in~($m$) velja $\bot$.}
     \end{boxFrame}
   \end{boxedProof}
 \end{center}
 %
-V dokazu običajno ne rečemo, da smo ">dokazali neresnico"<, ampak da smo ">izpeljali protislovje"<, se pravi izjavo in njeno negacijo.
+Namesto ">dokazali smo neresnico"< rečemo ">izpeljali smo protislovje"<.
 
 \begin{zgled}
   Dokažimo, da iz protislovja sledi karkoli. Natančneje, iz $p$ in $\neg p$ sledi poljubna izjava~$q$:
@@ -728,11 +727,11 @@ Izjavo $\all{x \in A} \phi(x)$ dokažemo tako, da vpeljemo spremenljivko $x \in 
 \begin{center}
   \begin{boxedProof}[reserved]
     \begin{boxFrame}
-      \boxLineTag{$k$}{velja $\all{x \in A} \phi(x)$}
+      \boxLineTag{$k$}{Velja $\all{x \in A} \phi(x)$.}
       \boxGap
-      \boxLineTag{$m$}{velja $\langle\text{izraz}\rangle \in A$}
+      \boxLineTag{$m$}{Velja $\langle\text{izraz}\rangle \in A$.}
       \boxGap
-      \boxLine{zaradi~($k$) in~($m$) velja $\phi(\langle\text{izraz}\rangle)$}
+      \boxLine{Zaradi~($k$) in~($m$) velja $\phi(\langle\text{izraz}\rangle)$.}
     \end{boxFrame}
   \end{boxedProof}
 \end{center}
@@ -790,7 +789,7 @@ voljo).
 \begin{center}
   \begin{boxedProof}[reserved]
     \begin{boxFrame}
-      \boxLineTag{$k$}{velja $\some{x \in A} \phi(x)$}
+      \boxLineTag{$k$}{Velja $\some{x \in A} \phi(x)$.}
       \boxGap
       \boxLine{Dokažimo $\rho$:}
       \boxLine[1]{Zaradi~($k$) imamo $x \in A$ in $\phi(x)$.}
