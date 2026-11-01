@@ -1043,6 +1043,118 @@ Pri drugem smo se znebili $\RR_{> 0}$, vendar je zapis bolj nepregleden.
 Pri tretjem smo predstavili pozitivnost kot dodatni pogoj.
 Četrti način je najbolj berljiv in se pogosto uporablja, a nam ne pove, ali je $x$ realno, celo ali racionalno število.
 
+\paragraph*{Od nekega člena naprej in neskončno mnogo členov}
+
+Pri zaporedjih pogosto srečamo dve frazi, ki ju zapišemo s kombinacijo kvantifikatorjev.
+Naj bo $a : \NN \to \RR$ zaporedje in $\phi(x)$ izjava o realnem številu~$x$.
+%
+Izjavo
+%
+\begin{quote}
+  \nls{Od nekega člena naprej vsi členi zaporedja~$a$ zadoščajo~$\phi$.}
+\end{quote}
+%
+zapišemo
+%
+\begin{equation*}
+  \some{m \in \NN} \all{n \geq m} \phi(a_n),
+\end{equation*}
+%
+ali brez okrajšave
+%
+\begin{equation*}
+  \some{m \in \NN} \all{n \in \NN} n \geq m \lthen \phi(a_n).
+\end{equation*}
+%
+Členi pred~$a_m$ morda ne zadoščajo~$\phi$, vendar jih je končno mnogo, zato pravimo tudi, da \nls{skoraj vsi členi zaporedja~$a$ zadoščajo~$\phi$}.
+
+\begin{zgled}
+  % Neenakost $\sqrt[3]{n} > \ln n$ velja za $1 \leq n \leq 6$, ne velja za $7 \leq n \leq 93$
+  % in velja za vse $n \geq 94$:
+  %   $\sqrt[3]{6} \approx 1{,}8171 > \ln 6 \approx 1{,}7918$,
+  %   $\sqrt[3]{7} \approx 1{,}9129 < \ln 7 \approx 1{,}9459$,
+  %   $\sqrt[3]{93} \approx 4{,}53065 < \ln 93 \approx 4{,}53260$,
+  %   $\sqrt[3]{94} \approx 4{,}54684 > \ln 94 \approx 4{,}54329$.
+  % Odvod funkcije $x \mapsto \sqrt[3]{x} - \ln x$ je $(\sqrt[3]{x} - 3)/(3 x)$, kar je
+  % pozitivno za $x > 27$, zato neenakost velja za vse $n \geq 94$.
+  Primerjajmo zaporedji $\sqrt[3]{n}$ in $\ln n$, katerih grafa sta prikazana na
+  sliki~\ref{fig:koren-logaritem}.
+  %
+  \begin{figure}[ht]
+    \centering
+    \begin{tikzpicture}[x=0.028cm, y=0.5cm]
+      \draw[->] (0,0) -- (315,0) node[right] {$x$};
+      \draw[->] (0,0) -- (0,7.3);
+      \draw[domain=1:300, samples=150, smooth] plot (\x, {\x^(1/3)}) node[right] {$\sqrt[3]{x}$};
+      \draw[domain=1:300, samples=150, smooth] plot (\x, {ln(\x)}) node[right] {$\ln x$};
+      \draw[thin] (125,0) node[below] {$m$} -- (125,5);
+    \end{tikzpicture}
+    \caption{Grafa funkcij $\sqrt[3]{x}$ in $\ln x$}
+    \label{fig:koren-logaritem}
+  \end{figure}
+  %
+  Pri majhnih $n$ je včasih večji kubični koren, včasih logaritem, od nekega člena naprej pa je kubični koren vedno večji:
+  %
+  \begin{equation*}
+    \some{m \in \NN} \all{n \geq m} \sqrt[3]{n} > \ln n.
+  \end{equation*}
+  %
+  Poiščite primeren~$m$ in dokažite, da neenakost res velja za vse $n \geq m$.
+\end{zgled}
+
+Izjavo
+%
+\begin{quote}
+  \nls{Neskončno mnogo členov zaporedja~$a$ zadošča~$\phi$.}
+\end{quote}
+%
+zapišemo
+%
+\begin{equation*}
+  \all{m \in \NN} \some{n \geq m} \phi(a_n),
+\end{equation*}
+%
+ali brez okrajšav
+%
+\begin{equation*}
+  \all{m \in \NN} \some{n \in \NN} n \geq m \land \phi(a_n),
+\end{equation*}
+%
+Formulo preberemo tudi \nls{$a$ zadošča $\phi$ neskončnokrat}.
+
+\begin{zgled}
+  Zaporedje $a_n \defeq (-1/2)^n$ ima neskončno mnogo pozitivnih členov:
+  %
+  \begin{equation*}
+    \all{m \in \NN} \some{n \geq m} (-1/2)^n > 0.
+  \end{equation*}
+  %
+  Res, za dani $m$ vzamemo $n \defeq 2 m$, saj je $2 m \geq m$ in $(-1/2)^{2 m} = 1/4^m > 0$.
+  %
+  Prav tako ima neskončno mnogo negativnih členov, saj za dani $m$ vzamemo $n \defeq 2 m + 1$.
+\end{zgled}
+
+\emph{Pozor:} člene štejemo po indeksih, ne po vrednostih. Konstantno zaporedje $a_n \defeq 42$ ima neskončno mnogo pozitivnih členov, čeprav imajo vsi isto vrednost.
+
+Če od nekega člena naprej vsi členi zaporedja~$a$ zadoščajo~$\phi$, potem neskončno mnogo členov zaporedja~$a$ zadošča~$\phi$.
+%
+Res, če $\phi(a_n)$ velja za vse $n \geq m_0$, za dani $m$ vzamemo $n \defeq m + m_0$, saj je $n \geq m$ in $n \geq m_0$.
+%
+Obratno ne velja: zaporedje $a_n \defeq (-1/2)^n$ iz prejšnjega zgleda ima neskončno mnogo pozitivnih členov, ni pa res, da so od nekega člena naprej vsi njegovi členi pozitivni.
+
+Frazi sta povezani tudi z negacijo.
+V poglavju~\ref{chap:dokazi} bomo videli, kako negacijo ">porinemo"< v izjavo, in ugotovili, da velja
+%
+\begin{equation*}
+  \lnot (\some{m \in \NN} \all{n \geq m} \phi(a_n))
+  \iff
+  \all{m \in \NN} \some{n \geq m} \lnot\phi(a_n).
+\end{equation*}
+%
+Z besedami: ni res, da od nekega člena naprej vsi členi zaporedja~$a$ zadoščajo~$\phi$, natanko tedaj, ko neskončno mnogo členov zaporedja~$a$ ne zadošča~$\phi$.
+%
+Pri zaporedju $a_n \defeq (-1/2)^n$ to pomeni, da niso od nekega člena naprej vsi členi pozitivni, ker ima neskončno mnogo negativnih členov.
+
 \section{Definicije}
 \label{sec:definicije}
 
@@ -1054,32 +1166,6 @@ Preden v matematičnem besedilu uporabimo simbol ali spremenljivko, ga moramo \e
 \end{itemize}
 %
 V obeh primerih dodamo simbol~$s$ v \df{kontekst}, se pravi v spisek znanih simbolov, o čemer bomo povedali več v poglavju~\ref{chap:dokazi}. Če smo simbol uvedli le začasno, moramo podati njegovo območje veljavnosti, na primer trenutno poglavje ali trenutni dokaz.
-
-% Matematiki zapisujejo definicije in vpeljujejo spremenljivke na razne načine.
-% %
-% Poznamo tri vrste definicij. Prva in najpreprostejša je definicija, ki
-% služi kot okrajšava za daljši izraz. To smemo vedno nadomestiti
-% s prvotnim izrazom. Na primer, funkcija ">hiperbolični tangens"<
-% $\tanh(x)$ je definirana kot
-% %
-% \begin{equation*}
-%   \tanh(x) \defeq \frac{e^{2 x} - 1}{e^{2 x} + 1}.
-% \end{equation*}
-% %
-% Lahko bi shajali tudi brez zapisa $\tanh(x)$, vendar bi morali potem
-% povsod pisati daljši izraz $\frac{e^{2 x} - 1}{e^{2 x} + 1}$, kar bi
-% bilo nepregledno.
-
-% Druga vrsta definicije je vpeljava novega matematičnega pojma.
-% Študenti prvega letnika matematike spoznajo celo vrsto novih pojmov
-% (grupa, vektorski prostor, limita, stekališče, metrika itn.), s
-% katerimi si razširijo sposobnost matematičnega razmišljanja.
-% Matematiki cenijo dobre definicije in vpeljavo novih matematičnih
-% pojmov vsaj toliko, kot dokaze težkih izrekov.
-
-% Tretja vrsta definicije je opredelitev matematičnega objekta s
-% pomočjo dokaza o enoličnem obstoju. O tem bomo povedali več v
-% razdelku~\ref{sec:enolicni-obstoj}.
 
 \paragraph*{Definicija kot okrajšava}
 
