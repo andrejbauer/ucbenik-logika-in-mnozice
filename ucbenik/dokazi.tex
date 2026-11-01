@@ -721,7 +721,7 @@ Izjavo $\all{x \in A} \phi(x)$ dokažemo tako, da vpeljemo spremenljivko $x \in 
   \end{boxedProof}
 \end{center}
 %
-\emph{Pozor:} spremenljivka $x$ mora biti \emph{sveža}, se pravi, da je ne uporabljamo nikjer drugje. Če se je predhodno že pojavila, najprej izberemo svežo spremenljivko~$y$ in $x$ preimenujemo v~$y$.
+\emph{Pozor:} spremenljivka $x$ mora biti \emph{sveža}, se pravi, da na tem mestu v dokazu ni veljavna. Če je $x$ že veljavna, izberemo svežo spremenljivko~$y$ in izjavo $\all{x \in A} \phi(x)$ najprej zapišemo kot $\all{y \in A} \phi(y)$.
 
 Če vemo, da velja $\all{x \in A} \phi(x)$, in vemo, da je $\langle\text{izraz}\rangle \in A$, lahko izpeljemo $\phi(\langle\text{izraz}\rangle)$:
 %
@@ -799,7 +799,7 @@ voljo).
   \end{boxedProof}
 \end{center}
 %
-\emph{Pozor:} spremenljivka $x$ mora biti sveža, se pravi, da se ne pojavlja v $\rho$ ali kjerkoli drugje. Če se~$x$ pojavi kje drugje, ga moramo najprej nadomestiti s svežo spremenljivko~$y$.
+\emph{Pozor:} spremenljivka $x$ mora biti sveža, se pravi, da na tem mestu v dokazu ni veljavna. Če je $x$ že veljavna, izberemo svežo spremenljivko~$y$ in izjavo $\some{x \in A} \phi(x)$ najprej zapišemo kot $\some{y \in A} \phi(y)$.
 
 \begin{zgled}
   Dokažimo še, da velja $\neg \some{x \in \emptyset} \phi(x)$, upoštevaje dejstvo, da za vsak~$x$ velja
