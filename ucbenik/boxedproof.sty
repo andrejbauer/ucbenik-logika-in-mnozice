@@ -23,6 +23,12 @@
 %%        hangs before the text.
 %%   \boxRef{label}
 %%        A reference to a line; parenthesizes the number.
+%%   \boxProofSep
+%%        The space between two proofs set side by side.
+%%   \begin{boxDisplay} ... \end{boxDisplay}
+%%        Sets one proof, or several separated by \boxProofSep, as a
+%%        display: centered, with \boxProofSkip above and below, and
+%%        never separated from the preceding text by a page break.
 %%
 %% Indent level is depth in the proof: a line stating a goal has its
 %% proof one level deeper, a line merely deriving a fact stays at the
@@ -54,6 +60,7 @@
 \newcommand{\boxInset}{0.4em}
 \newcommand{\boxIndentStep}{1.2em}
 \newlength{\boxProofSkip}   \setlength{\boxProofSkip}{\medskipamount}
+\newcommand{\boxProofSep}{\qquad\qquad}
 
 % Set by each proof in the size of its text.  The number column is
 % exactly as wide as the widest number, so no excess space sits between
@@ -204,6 +211,12 @@
     \begin{varwidth}{\linewidth}\setlength{\parindent}{0pt}}
  {\end{varwidth}\egroup
   \fcolorbox{boxProofColor}{white}{\box\box@content}}
+
+% Text following the display without a blank line continues the
+% paragraph unindented, as after displayed math.
+\newenvironment{boxDisplay}
+  {\par\nopagebreak\addvspace{\boxProofSkip}\centering}
+  {\par\addvspace{\boxProofSkip}\@endpetrue}
 \makeatother
 
 \endinput

@@ -148,7 +148,7 @@ Le-ta povedo, kakšna so ">pravila igre"< v dokazovanju, ne pa tudi, kako dobro 
 Pri tem predmetu bomo spoznali pravila in podali nekaj namigov, kako konstruirati osnovne dokaze, pri ostalih predmetih pa boste videli ">žive dokaze"<, ki imajo manj tehničnih podrobnosti in se bolj
 osredotočajo na komuniciranje idej.
 
-Dokaz ima ugnezdeno strukturo: sestoji iz pod-dokazov, ki sestoje iz nadaljnjih pod-dokazov itn., ki se zaključijo z osnovnimi koraki. Ta struktura iz običajnega besedila ni razvidna, a je prisotna. Za zgled vzemimo naslednji izrek.
+Dokaz ima ugnezdeno strukturo: sestoji iz poddokazov, ki sestoje iz nadaljnjih poddokazov itn., ki se zaključijo z osnovnimi koraki. Ta struktura iz običajnega besedila ni razvidna, a je prisotna. Za zgled vzemimo naslednji izrek.
 
 \begin{izrek}
   \label{izrek:pqr}%
@@ -206,7 +206,7 @@ Ko pišemo ali beremo dokaz, moramo v vsakem trenutku poznati
 Na primer, v vrstici~\boxRef{vr:primera} iz dokaza na sliki~\ref{fig:izrek-pqr} je cilj $(p \land r) \lor (q \land r)$, veljavne so spremenljivke $p$, $q$ in $r$, na voljo imamo predpostavko~\boxRef{vr:predpostavka}, dokazali pa smo že dejstvi~\boxRef{vr:disjunkcija} in~\boxRef{vr:r}.
 %
 Ko napravimo korak v dokazu, mora biti utemeljen z enim od pravil sklepanja. Dokaz je
-popoln, ko smo utemeljili vse pod-dokaze.
+popoln, ko smo utemeljili vse poddokaze.
 %
 V nadaljevanju spoznajmo pravila sklepanja in druge korake, ki tvorijo dokaz.
 
@@ -230,7 +230,7 @@ O njej vemo le to, da je element množice $A$, ne vemo pa, kateri element -- pra
 %
 \emph{Pozor:} besedi ">fiksirajmo"< in ">izberimo"< bi dali komu misliti, da si lahko izbere točno določen element po lastni volji, a si je bolje predstavljati, da je~$x$ ">neznan"< ali ">nedoločen"<.
 
-Spremenljivka ima območje veljavnosti, ki je omejeno s pod-dokazom, v katerem jo vpeljemo.
+Spremenljivka ima območje veljavnosti, ki je omejeno s poddokazom, v katerem jo vpeljemo.
 
 \begin{zgled}
   V dokazu na sliki~\ref{fig:izrek-pqr} vpeljemo spremenljivke $p$, $q$ in $r$ v vrstici~\boxRef{vr:spremenljivke}. Veljavne so v celotnem dokazu.
@@ -248,9 +248,9 @@ Nekatera pravila sklepanja zahtevajo, da \df{vpeljemo predpostavko}~$\phi$ (ali 
   \nls{Predpostavimo $\phi$.}
 \end{quote}
 %
-Včasih vpeljemo predpostavko tudi s \nls{če velja $\phi$:}.
+Včasih vpeljemo predpostavko tudi s \nls{če velja $\phi$}.
 
-Predpostavka ima svoje območje veljavnosti, ki je omejeno s pod-dokazom, v katerem jo vpeljemo.
+Predpostavka ima svoje območje veljavnosti, ki je omejeno s poddokazom, v katerem jo vpeljemo.
 
 \begin{zgled}
   V dokazu na sliki~\ref{fig:izrek-pqr} v vrstici~\boxRef{vr:predpostavka} predpostavimo $(p \lor q) \land r$, območje veljavnosti je do konca dokaza. V vrstici~\boxRef{vr:p} predpostavimo $p$, območje veljavnosti pa je prva notranja škatla. V vrstici~\boxRef{vr:q} predpostavimo~$q$, območje veljavnosti pa je druga notranja škatla.
@@ -290,16 +290,16 @@ V dokazu smemo kadarkoli \df{izpeljati dejstvo}, kar pomeni, da utemeljimo neko 
   \nls{Zaradi \dots\ velja $\phi$.}
 \end{quote}
 %
-Če utemeljitev zahteva celoten pod-dokaz, ga podamo:
+Če utemeljitev zahteva celoten poddokaz, ga podamo:
 %
-\begin{center}
+\begin{boxDisplay}
   \begin{boxedProof}
     \begin{boxFrame}
       \boxLine{Velja $\phi$:}
       \boxLine[1]{\brac{dokaz $\phi$}}
     \end{boxFrame}
   \end{boxedProof}
-\end{center}
+\end{boxDisplay}
 
 \begin{zgled}
   V dokazu na sliki~\ref{fig:izrek-pqr} nismo vpeljali nobene okrajšave, smo pa v vrsticah~\boxRef{vr:disjunkcija}
@@ -328,7 +328,7 @@ Vsaka logična operacija ima svoja pravila vpeljave in uporabe, s katerimi dokaz
 Konjunkcijo $\phi \land \psi$ dokažemo tako, da posebej dokažemo~$\phi$ in posebej~$\psi$.
 Pravilo vpeljave torej predstavimo takole:
 %
-\begin{center}
+\begin{boxDisplay}
   \begin{boxedProof}
     \begin{boxFrame}
       \boxLine{Dokažimo $\phi \land \psi$:}
@@ -342,20 +342,19 @@ Pravilo vpeljave torej predstavimo takole:
       \end{boxNested}
     \end{boxFrame}
   \end{boxedProof}
-\end{center}
+\end{boxDisplay}
 % 
 Kaj pa, če že vemo, da velja $\phi \land \psi$? Tedaj lahko izpeljemo~$\phi$ in izpeljemo~$\psi$, zato imamo dve pravili uporabe:
 %
-\begin{center}
+\begin{boxDisplay}
 \begin{boxedProof}[reserved]
 \begin{boxFrame}
   \boxLineTag{$k$}{Velja $\phi \land \psi$.}
   \boxGap
   \boxLine{Zaradi~($k$) velja $\phi$.}
 \end{boxFrame}
-\qquad\qquad
-\end{boxedProof}
-%
+\end{boxedProof}%
+\boxProofSep
 \begin{boxedProof}[reserved]
 \begin{boxFrame}
   \boxLineTag{$k$}{Velja $\phi \land \psi$.}
@@ -363,7 +362,7 @@ Kaj pa, če že vemo, da velja $\phi \land \psi$? Tedaj lahko izpeljemo~$\phi$ i
   \boxLine{Zaradi~($k$) velja $\psi$.}
 \end{boxFrame}
 \end{boxedProof}
-\end{center}
+\end{boxDisplay}
 
 \paragraph*{Implikacija}
 \label{sec:implikacija-pravila}
@@ -371,7 +370,7 @@ Kaj pa, če že vemo, da velja $\phi \land \psi$? Tedaj lahko izpeljemo~$\phi$ i
 Implikacijo $\phi \lthen \psi$ dokažemo tako, da predpostavimo~$\phi$ in dokažemo~$\psi$.
 Pravilo vpeljave torej predstavimo takole:
 %
-\begin{center}
+\begin{boxDisplay}
   \begin{boxedProof}
     \begin{boxFrame}
       \boxLine{Dokažimo $\phi \lthen \psi$:}
@@ -380,13 +379,13 @@ Pravilo vpeljave torej predstavimo takole:
       \boxLine[2]{\brac{dokaz $\psi$}}
     \end{boxFrame}
   \end{boxedProof}
-\end{center}
+\end{boxDisplay}
 %
 Če vemo, da velja $\phi \lthen \psi$, in vemo, da velja~$\phi$, lahko izpeljemo~$\psi$.
 %
 Pravilo uporabe za implikacijo, ki se imenuje tudi \df{modus ponens}, se torej glasi:
 %
-\begin{center}
+\begin{boxDisplay}
   \begin{boxedProof}[reserved]
     \begin{boxFrame}
       \boxLineTag{$k$}{Velja $\phi \lthen \psi$.}
@@ -396,12 +395,12 @@ Pravilo uporabe za implikacijo, ki se imenuje tudi \df{modus ponens}, se torej g
       \boxLine{Zaradi~($k$) in~($m$) velja $\psi$.}
     \end{boxFrame}
   \end{boxedProof}
-\end{center}
+\end{boxDisplay}
 
 \begin{zgled}
   Naj bosta $\phi$ in $\psi$ izjavi. Takole dokažemo, da iz $\phi \land \psi$ sledi $\psi \land \phi$:
   %
-  \begin{center}
+  \begin{boxDisplay}
   \begin{boxedProof}[numbered]
     \begin{boxFrame}
       \boxLine{Dokažimo $\phi \land \psi \lthen \psi \land \phi$:}
@@ -417,7 +416,7 @@ Pravilo uporabe za implikacijo, ki se imenuje tudi \df{modus ponens}, se torej g
       \end{boxNested}
     \end{boxFrame}
   \end{boxedProof}
-  \end{center}
+  \end{boxDisplay}
   %
   Celoten dokaz je vpeljava implikacije.
   %
@@ -427,7 +426,7 @@ Pravilo uporabe za implikacijo, ki se imenuje tudi \df{modus ponens}, se torej g
 
 V dokazih boste videli frazo \nls{zadostuje dokazati}:
 %
-\begin{center}
+\begin{boxDisplay}
   \begin{boxedProof}
     \begin{boxFrame}
       \boxLine{Dokažimo $\psi$:}
@@ -435,11 +434,11 @@ V dokazih boste videli frazo \nls{zadostuje dokazati}:
       \boxLine[2]{\brac{dokaz $\phi$}}
     \end{boxFrame}
   \end{boxedProof}
-\end{center}
+\end{boxDisplay}
 %
 To je pravzaprav uporaba implikacije $\phi \lthen \psi$, ki pa jo je pisec zamolčal, ker meni, da je očitna. Bolj podrobno bi zapisali:
 %
-\begin{center}
+\begin{boxDisplay}
   \begin{boxedProof}
     \begin{boxFrame}
       \boxLine{Dokažimo $\psi$:}
@@ -447,7 +446,7 @@ To je pravzaprav uporaba implikacije $\phi \lthen \psi$, ki pa jo je pisec zamol
       \boxLine[2]{\brac{dokaz $\phi$}}
     \end{boxFrame}
   \end{boxedProof}
-\end{center}
+\end{boxDisplay}
 %
 Še vedno od bralca pričakujemo, da bo vedel, zakaj velja $\phi \lthen \psi$.
 %
@@ -459,7 +458,7 @@ Običajno je to splošno znana implikacija, ki je nima smisla vedno znova ponavl
 
 Disjunkcijo $\phi \lor \psi$ dokažemo tako, da dokažemo enega od disjunktov, zato imamo dve pravili vpeljave:
 %
-\begin{center}
+\begin{boxDisplay}
   \begin{boxedProof}
     \begin{boxFrame}
       \boxLine{Dokažimo $\phi \lor \psi$:}
@@ -467,7 +466,7 @@ Disjunkcijo $\phi \lor \psi$ dokažemo tako, da dokažemo enega od disjunktov, z
       \boxLine[2]{\brac{dokaz $\phi$}}
     \end{boxFrame}
   \end{boxedProof}%
-  \hspace{2em}%
+  \boxProofSep
   \begin{boxedProof}
     \begin{boxFrame}
       \boxLine{Dokažimo $\phi \lor \psi$:}
@@ -475,11 +474,11 @@ Disjunkcijo $\phi \lor \psi$ dokažemo tako, da dokažemo enega od disjunktov, z
       \boxLine[2]{\brac{dokaz $\psi$}}
     \end{boxFrame}
   \end{boxedProof}
-\end{center}
+\end{boxDisplay}
 %
 Če vemo, da velja $\phi \lor \psi$, ne vemo pa, kateri od disjunktov velja, obravnavamo dva primera:
 %
-\begin{center}
+\begin{boxDisplay}
   \begin{boxedProof}[reserved]
     \begin{boxFrame}
       \boxLineTag{$k$}{Velja $\phi \lor \psi$.}
@@ -498,14 +497,14 @@ Disjunkcijo $\phi \lor \psi$ dokažemo tako, da dokažemo enega od disjunktov, z
       \end{boxNested}
     \end{boxFrame}
   \end{boxedProof}
-\end{center}
+\end{boxDisplay}
 %
 V prvem primeru smo izpeljali cilj pod predpostavko, da velja levi disjunkt~$\phi$, v drugem pa pod predpostavko, da velja desni disjunkt~$\psi$.
 
 \begin{zgled}
   Obravnavajmo nekoliko bolj zapleten dokaz:
   %
-  \begin{center}
+  \begin{boxDisplay}
   \begin{boxedProof}[numbered]
     \begin{boxFrame}
       \boxLine{Dokažimo $((p \lthen r) \land (q \lthen r)) \lthen (p \lor q \lthen r)$:}
@@ -528,7 +527,7 @@ V prvem primeru smo izpeljali cilj pod predpostavko, da velja levi disjunkt~$\ph
       \end{boxNested}
     \end{boxFrame}
   \end{boxedProof}
-  \end{center}
+  \end{boxDisplay}
   %
   Celoten dokaz je vpeljava implikacije.
   %
@@ -544,14 +543,14 @@ V prvem primeru smo izpeljali cilj pod predpostavko, da velja levi disjunkt~$\ph
 
 Resnice $\top$ ni treba dokazovati, zapišemo ">očitno"<:
 %
-\begin{center}
+\begin{boxDisplay}
   \begin{boxedProof}
     \begin{boxFrame}
       \boxLine{Dokažimo $\top$:}
       \boxLine[1]{Očitno.}
     \end{boxFrame}
   \end{boxedProof}
-\end{center}
+\end{boxDisplay}
 %
 Običajno $\top$ nastopi kot cilj, ko prvotni cilj poenostavimo v ekvivalentno obliko in dobimo~$\top$.
 %
@@ -566,7 +565,7 @@ Neresnica~$\bot$ nima pravila vpeljave. (To ne pomeni, da $\bot$ ni možno dokaz
 %
 Pravilo uporabe za $\bot$ pravi, da iz neresnice sledi karkoli:
 %
-\begin{center}
+\begin{boxDisplay}
   \begin{boxedProof}[reserved]
     \begin{boxFrame}
       \boxLineTag{$k$}{Velja $\bot$.}
@@ -574,14 +573,14 @@ Pravilo uporabe za $\bot$ pravi, da iz neresnice sledi karkoli:
       \boxLine{Zaradi~($k$) velja $\rho$.}
     \end{boxFrame}
   \end{boxedProof}
-\end{center}
+\end{boxDisplay}
 
 \paragraph*{Ekvivalenca}
 \label{sec:ekvivalenca-pravila}
 
 Ekvivalenco $\phi \liff \psi$ dokažemo tako, da posebej dokažemo obe implikaciji:
 %
-\begin{center}
+\begin{boxDisplay}
   \begin{boxedProof}
     \begin{boxFrame}
       \boxLine{Dokažimo $\phi \liff \psi$:}
@@ -595,21 +594,20 @@ Ekvivalenco $\phi \liff \psi$ dokažemo tako, da posebej dokažemo obe implikaci
       \end{boxNested}
     \end{boxFrame}
   \end{boxedProof}
-\end{center}
+\end{boxDisplay}
 %
 Ekvivalenco uporabimo tako, da izpeljemo eno od implikacij:
 %
 %
-\begin{center}
+\begin{boxDisplay}
 \begin{boxedProof}[reserved]
 \begin{boxFrame}
   \boxLineTag{$k$}{Velja $\phi \liff \psi$.}
   \boxGap
   \boxLine{Zaradi~($k$) velja $\phi \lthen \psi$.}
 \end{boxFrame}
-\qquad\qquad
-\end{boxedProof}
-%
+\end{boxedProof}%
+\boxProofSep
 \begin{boxedProof}[reserved]
 \begin{boxFrame}
   \boxLineTag{$k$}{Velja $\phi \liff \psi$.}
@@ -617,7 +615,7 @@ Ekvivalenco uporabimo tako, da izpeljemo eno od implikacij:
   \boxLine{Zaradi~($k$) velja $\psi \lthen \phi$.}
 \end{boxFrame}
 \end{boxedProof}
-\end{center}
+\end{boxDisplay}
 
 
 
@@ -626,7 +624,7 @@ Ekvivalenco uporabimo tako, da izpeljemo eno od implikacij:
 
 Negacijo $\lnot \phi$ dokažemo tako, da predpostavimo~$\phi$ in dokažemo~$\bot$:
 %
-\begin{center}
+\begin{boxDisplay}
   \begin{boxedProof}
     \begin{boxFrame}
       \boxLine{Dokažimo $\lnot \phi$:}
@@ -635,13 +633,13 @@ Negacijo $\lnot \phi$ dokažemo tako, da predpostavimo~$\phi$ in dokažemo~$\bot
       \boxLine[2]{\brac{dokaz $\bot$}}
     \end{boxFrame}
   \end{boxedProof}
-\end{center}
+\end{boxDisplay}
 %
 Namesto ">dokazujemo neresnico $\bot$"<, običajno rečemo ">iščemo protislovje"<.
 
 Pravilo uporabe za negacijo pravi, da iz $\phi$ in $\neg \phi$ sledi neresnica:
 %
-\begin{center}
+\begin{boxDisplay}
   \begin{boxedProof}[reserved]
     \begin{boxFrame}
       \boxLineTag{$k$}{Velja $\phi$.}
@@ -651,14 +649,14 @@ Pravilo uporabe za negacijo pravi, da iz $\phi$ in $\neg \phi$ sledi neresnica:
       \boxLine{Zaradi~($k$) in~($m$) velja $\bot$.}
     \end{boxFrame}
   \end{boxedProof}
-\end{center}
+\end{boxDisplay}
 %
 Namesto ">dokazali smo neresnico"< rečemo ">izpeljali smo protislovje"<.
 
 \begin{zgled}
   Dokažimo, da iz protislovja sledi karkoli. Natančneje, iz $p$ in $\neg p$ sledi poljubna izjava~$q$:
   %
-  \begin{center}
+  \begin{boxDisplay}
   \begin{boxedProof}[numbered]
     \begin{boxFrame}
       \boxLine{Dokažimo $p \land \neg p \lthen q$:}
@@ -670,7 +668,7 @@ Namesto ">dokazali smo neresnico"< rečemo ">izpeljali smo protislovje"<.
       \boxLine[2]{Zaradi~\boxRef{box:ex-falso-4} velja $q$.\label{box:ex-falso-5}}
     \end{boxFrame}
   \end{boxedProof}
-  \end{center}
+  \end{boxDisplay}
   %
   Celoten dokaz je vpeljava implikacije.
   %
@@ -683,7 +681,7 @@ Namesto ">dokazali smo neresnico"< rečemo ">izpeljali smo protislovje"<.
   \label{zgled:p-dvojna-negacija}
   Dokažimo, da iz $p$ sledi $\neg\neg p$:
   %
-  \begin{center}
+  \begin{boxDisplay}
   \begin{boxedProof}[numbered]
     \begin{boxFrame}
       \boxLine{Dokažimo $p \lthen \neg\neg p$:}
@@ -694,7 +692,7 @@ Namesto ">dokazali smo neresnico"< rečemo ">izpeljali smo protislovje"<.
       \boxLine[3]{Zaradi~\boxRef{box:dvojna-1} in~\boxRef{box:dvojna-3} velja $\bot$.\label{box:dvojna-4}}
     \end{boxFrame}
   \end{boxedProof}
-  \end{center}
+  \end{boxDisplay}
   %
   Celoten dokaz je vpeljava implikacije.
   %
@@ -709,7 +707,7 @@ Namesto ">dokazali smo neresnico"< rečemo ">izpeljali smo protislovje"<.
 
 Izjavo $\all{x \in A} \phi(x)$ dokažemo tako, da vpeljemo spremenljivko $x \in A$ in dokažemo $\phi(x)$:
 %
-\begin{center}
+\begin{boxDisplay}
   \begin{boxedProof}
     \begin{boxFrame}
       \boxLine{Dokažimo $\all{x \in A} \phi(x)$:}
@@ -718,13 +716,13 @@ Izjavo $\all{x \in A} \phi(x)$ dokažemo tako, da vpeljemo spremenljivko $x \in 
       \boxLine[2]{\brac{dokaz $\phi(x)$}}
     \end{boxFrame}
   \end{boxedProof}
-\end{center}
+\end{boxDisplay}
 %
 \emph{Pozor:} spremenljivka $x$ mora biti \emph{sveža}, se pravi, da na tem mestu v dokazu ni veljavna. Če je $x$ že veljavna, izberemo svežo spremenljivko~$y$ in izjavo $\all{x \in A} \phi(x)$ najprej zapišemo kot $\all{y \in A} \phi(y)$.
 
 Če vemo, da velja $\all{x \in A} \phi(x)$, in vemo, da je $\langle\text{izraz}\rangle \in A$, lahko izpeljemo $\phi(\langle\text{izraz}\rangle)$:
 %
-\begin{center}
+\begin{boxDisplay}
   \begin{boxedProof}[reserved]
     \begin{boxFrame}
       \boxLineTag{$k$}{Velja $\all{x \in A} \phi(x)$.}
@@ -734,13 +732,13 @@ Izjavo $\all{x \in A} \phi(x)$ dokažemo tako, da vpeljemo spremenljivko $x \in 
       \boxLine{Zaradi~($k$) in~($m$) velja $\phi(\langle\text{izraz}\rangle)$.}
     \end{boxFrame}
   \end{boxedProof}
-\end{center}
+\end{boxDisplay}
 
 \begin{zgled}
   Sedaj lahko dokažemo, da izjava $\all{x \in \emptyset} \phi(x)$ velja, upoštevaje dejstvo, da za vsak~$x$ velja
   $\neg (x \in \emptyset)$:
   %
-  \begin{center}
+  \begin{boxDisplay}
   \begin{boxedProof}[numbered]
     \begin{boxFrame}
       \boxLine{Dokažimo $\all{x \in \emptyset} \phi(x)$:}
@@ -751,7 +749,7 @@ Izjavo $\all{x \in A} \phi(x)$ dokažemo tako, da vpeljemo spremenljivko $x \in 
       \boxLine[2]{Zaradi~\boxRef{box:prazna-3} velja $\phi(x)$.\label{box:prazna-4}}
     \end{boxFrame}
   \end{boxedProof}
-  \end{center}
+  \end{boxDisplay}
   %
   Celoten dokaz je vpeljava univerzalnega kvantifikatorja.
   %
@@ -764,7 +762,7 @@ Izjavo $\all{x \in A} \phi(x)$ dokažemo tako, da vpeljemo spremenljivko $x \in 
 
 Izjavo $\some{x \in A} \phi(x)$ dokažemo tako, da podamo element množice~$A$, ki zadošča~$\phi$:
 %
-\begin{center}
+\begin{boxDisplay}
   \begin{boxedProof}
     \begin{boxFrame}
       \boxLine{Dokažimo $\some{x \in A} \phi(x)$:}
@@ -779,14 +777,14 @@ Izjavo $\some{x \in A} \phi(x)$ dokažemo tako, da podamo element množice~$A$, 
       \end{boxNested}
     \end{boxFrame}
   \end{boxedProof}
-\end{center}
+\end{boxDisplay}
 %
 Opomba: $\langle\text{izraz}\rangle$ sme vsebovati vse proste spremenljivke, ki so trenutno na voljo ($x$ \emph{ni} na
 voljo).
 
 Če vemo, da velja $\some{x \in A} \phi(x)$, smemo vpeljati spremenljivko $x \in A$, za katero velja $\phi(x)$:
 %
-\begin{center}
+\begin{boxDisplay}
   \begin{boxedProof}[reserved]
     \begin{boxFrame}
       \boxLineTag{$k$}{Velja $\some{x \in A} \phi(x)$.}
@@ -796,7 +794,7 @@ voljo).
       \boxLine[1]{\brac{dokaz $\rho$}}
     \end{boxFrame}
   \end{boxedProof}
-\end{center}
+\end{boxDisplay}
 %
 \emph{Pozor:} spremenljivka $x$ mora biti sveža, se pravi, da na tem mestu v dokazu ni veljavna. Če je $x$ že veljavna, izberemo svežo spremenljivko~$y$ in izjavo $\some{x \in A} \phi(x)$ najprej zapišemo kot $\some{y \in A} \phi(y)$.
 
@@ -804,7 +802,7 @@ voljo).
   Dokažimo še, da velja $\neg \some{x \in \emptyset} \phi(x)$, upoštevaje dejstvo, da za vsak~$x$ velja
   $\neg (x \in \emptyset)$:
   %
-  \begin{center}
+  \begin{boxDisplay}
   \begin{boxedProof}[numbered]
     \begin{boxFrame}
       \boxLine{Dokažimo $\neg \some{x \in \emptyset} \phi(x)$:}
@@ -815,7 +813,7 @@ voljo).
       \boxLine[2]{Zaradi~\boxRef{box:prazna-obstoj-5} in~\boxRef{box:prazna-obstoj-3} velja $\bot$.\label{box:prazna-obstoj-4}}
     \end{boxFrame}
   \end{boxedProof}
-  \end{center}
+  \end{boxDisplay}
   %
   Celoten dokaz je vpeljava negacije.
   %
@@ -970,7 +968,7 @@ od koder izhaja ime pravila.
 Pravilo o izključenem tretjem omogoča \emph{posredne} dokaze izjav, od
 katerih je najbolj znano \df{dokazovanje s protislovjem}:
 %
-\begin{center}
+\begin{boxDisplay}
   \begin{boxedProof}
     \begin{boxFrame}
       \boxLine{Dokažimo $\phi$ s protislovjem:}
@@ -979,11 +977,11 @@ katerih je najbolj znano \df{dokazovanje s protislovjem}:
       \boxLine[2]{\brac{dokaz $\bot$}}
     \end{boxFrame}
   \end{boxedProof}
-\end{center}
+\end{boxDisplay}
 %
 Dokaz s protislovjem sloni na dejstvu, da lahko dokažemo $\neg\neg\phi \lthen \phi$, vendar pri tem potrebujemo pravilo o izključenem tretjem:
 %
-\begin{center}
+\begin{boxDisplay}
   \begin{boxedProof}[numbered]
     \begin{boxFrame}
       \boxLine{Dokažimo $\neg\neg\phi \lthen \phi$:}
@@ -1003,11 +1001,11 @@ Dokaz s protislovjem sloni na dejstvu, da lahko dokažemo $\neg\neg\phi \lthen \
       \end{boxNested}
     \end{boxFrame}
   \end{boxedProof}
-\end{center}
+\end{boxDisplay}
 %
 Velja tudi obrat: pravilo o izključenem tretjem lahko izpeljemo z dokazom s protislovjem:
 %
-\begin{center}
+\begin{boxDisplay}
   \begin{boxedProof}[numbered]
     \begin{boxFrame}
       \boxLine{Dokažimo $\phi \lor \neg\phi$ s protislovjem:}
@@ -1024,14 +1022,14 @@ Velja tudi obrat: pravilo o izključenem tretjem lahko izpeljemo z dokazom s pro
       \boxLine[2]{Zaradi~\boxRef{box:lem-tretja-5} in~\boxRef{box:lem-tretja-1} velja $\bot$.}
     \end{boxFrame}
   \end{boxedProof}
-\end{center}
+\end{boxDisplay}
 
 Pravilo o izključenem tretjem omogoča še nekatere druge načine dokazovanja izjav.
 Najprej, implikacijo $\phi \lthen \psi$ smemo zamenjati s \df{kontrapozicijo} $\neg \psi \lthen \neg \phi$, saj sta ekvivalentni.
 %
 V eno smer dokaz ekvivalence poteka takole:
 %
-\begin{center}
+\begin{boxDisplay}
   \begin{boxedProof}[numbered]
     \begin{boxFrame}
       \boxLine{Dokažimo $(\phi \lthen \psi) \lthen (\neg\psi \lthen \neg\phi)$:}
@@ -1045,11 +1043,11 @@ V eno smer dokaz ekvivalence poteka takole:
       \boxLine[4]{Zaradi~\boxRef{box:kontrapozicija-4} in~\boxRef{box:kontrapozicija-2} velja $\bot$.}
     \end{boxFrame}
   \end{boxedProof}
-\end{center}
+\end{boxDisplay}
 %
 V drugo smer potrebujemo dokaz s protislovjem:
 %
-\begin{center}
+\begin{boxDisplay}
   \begin{boxedProof}[numbered]
     \begin{boxFrame}
       \boxLine{Dokažimo $(\neg\psi \lthen \neg\phi) \lthen (\phi \lthen \psi)$:}
@@ -1063,13 +1061,13 @@ V drugo smer potrebujemo dokaz s protislovjem:
       \boxLine[4]{Zaradi~\boxRef{box:kontrapozicija-6} in~\boxRef{box:kontrapozicija-8} velja $\bot$.}
     \end{boxFrame}
   \end{boxedProof}
-\end{center}
+\end{boxDisplay}
 %
 Dalje, disjunkcijo $\phi \lor \psi$ smemo zamenjati z implikacijo $\neg \phi \lthen \psi$.
 %
 Ekvivalenco $(\phi \lor \psi) \liff (\neg\phi \lthen \psi)$ v eno smer dokažemo takole:
 %
-\begin{center}
+\begin{boxDisplay}
   \begin{boxedProof}[numbered]
     \begin{boxFrame}
       \boxLine{Dokažimo $(\phi \lor \psi) \lthen (\neg\phi \lthen \psi)$:}
@@ -1091,11 +1089,11 @@ Ekvivalenco $(\phi \lor \psi) \liff (\neg\phi \lthen \psi)$ v eno smer dokažemo
       \end{boxNested}
     \end{boxFrame}
   \end{boxedProof}
-\end{center}
+\end{boxDisplay}
 %
 V drugo smer potrebujemo pravilo o izključenem tretjem:
 %
-\begin{center}
+\begin{boxDisplay}
   \begin{boxedProof}[numbered]
     \begin{boxFrame}
       \boxLine{Dokažimo $(\neg\phi \lthen \psi) \lthen (\phi \lor \psi)$:}
@@ -1116,7 +1114,7 @@ V drugo smer potrebujemo pravilo o izključenem tretjem:
       \end{boxNested}
     \end{boxFrame}
   \end{boxedProof}
-\end{center}
+\end{boxDisplay}
 
 Pravilo o izključenem tretjem je koristno tudi za poenostavljanje negacij
 s pomočjo naslednjih ekvivalenc, ki povedo, kako~$\lnot$ ">porinemo"< v izjavo:
@@ -1134,7 +1132,7 @@ Dokažimo le predzadnjo ekvivalenco, ostale pa prepustimo za vajo (zadnja ekviva
 %
 V eno smer dokaz poteka takole:
 %
-\begin{center}
+\begin{boxDisplay}
   \begin{boxedProof}[numbered]
     \begin{boxFrame}
       \boxLine{Dokažimo $(\some{x \in S} \lnot\phi(x)) \lthen \lnot (\all{x \in S} \phi(x))$:}
@@ -1149,11 +1147,11 @@ V eno smer dokaz poteka takole:
       \boxLine[3]{Zaradi~\boxRef{box:negacija-vsak-6} in~\boxRef{box:negacija-vsak-5} velja $\bot$.}
     \end{boxFrame}
   \end{boxedProof}
-\end{center}
+\end{boxDisplay}
 %
 V drugo smer potrebujemo dokaz s protislovjem:
 %
-\begin{center}
+\begin{boxDisplay}
   \begin{boxedProof}[numbered]
     \begin{boxFrame}
       \boxLine{Dokažimo $\lnot (\all{x \in S} \phi(x)) \lthen \some{x \in S} \lnot\phi(x)$:}
@@ -1173,7 +1171,7 @@ V drugo smer potrebujemo dokaz s protislovjem:
       \boxLine[3]{Zaradi~\boxRef{box:negacija-vsak-9} in~\boxRef{box:negacija-vsak-7} velja $\bot$.}
     \end{boxFrame}
   \end{boxedProof}
-\end{center}
+\end{boxDisplay}
 
 Posrednih načinov dokazovanja, ki smo jih predstavili tu, se poslužujemo le, ko neposredni dokaz ni možen ali pa je zapleten, saj nam ne povedo prav veliko o dokazani izjavi. Na primer, v neposrednem dokazu izjave $\some{x \in A} \phi(x)$ podamo element~$a \in A$, ki zadošča $\phi(a)$, s posrednim dokazom ekvivalentne izjave $\neg \all{x \in A} \neg\phi(x)$ pa samo dokažemo, da ni možno, da tak element ne bi obstajal.
 
