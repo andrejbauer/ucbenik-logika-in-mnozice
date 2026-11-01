@@ -28,20 +28,20 @@ primer.
 
 \begin{izrek}
   \label{izr:n3-n-deljivo-3}
-  Za vsako naravno število $n$ je $n^3 - n$ deljivo s~$3$.
+  Za vsako celo število $n$ je $n^3 - n$ deljivo s~$3$.
 \end{izrek}
 
 \noindent
 Izkušeni matematik je ta izrek že videl, še sam ne ve kolikokrat,
 zato bi le pripomnil, da je število $n^3 - n$ zmnožek treh zaporednih
-naravnih števil.
+celih števil.
 %
 Tak namig bi starejšemu študentu matematike zadoščal, da bi sestavil dokaz:
 
 \begin{quote}
   \begin{proof}
     Ker je $n^3 - n = (n-1) \cdot n \cdot (n+1)$, je $n^3 - n$ zmnožek
-    treh zaporednih naravnih števil, od katerih je eno deljivo s~$3$,
+    treh zaporednih celih števil, od katerih je eno deljivo s~$3$,
     torej je tudi $n^3 - n$ deljivo s~$3$.
   \end{proof}
 \end{quote}
@@ -53,7 +53,7 @@ preveriti še nekaj podrobnosti:
 %
 \begin{itemize}
 \item Ali velja $n^3 - n = (n-1) \cdot n \cdot (n+1)$?
-\item Ali je izmed treh zaporednih naravnih števil eno deljivo s~$3$?
+\item Ali je izmed treh zaporednih celih števil eno deljivo s~$3$?
 \item Ali je zmnožek treh števil deljiv s~$3$, če je eno od njih deljivo s~$3$?
 \end{itemize}
 %
@@ -64,14 +64,14 @@ Nasprotno, zgodovina matematike nas uči, da moramo prav ">očitne"<
 izjave še posebej skrbno preveriti.
 %
 V idealnem primeru bi bil dokaz zapisan tako, da bi lahko njegovo pravilnost preverili mehansko, z
-računalnikom.\footnote{Kogar to zanima, se lahko nauči uporabljati kak  \href{https://ncatlab.org/nlab/show/proof+assistant}{dokazovalni pomočnik}, v zadnjem času hitro napreduje \href{https://leanprover.github.io}{Lean}.}
+računalnikom.\footnote{Kogar to zanima, se lahko nauči uporabljati kak \href{https://ncatlab.org/nlab/show/proof+assistant}{dokazovalni pomočnik}, v zadnjem času hitro napreduje \href{https://lean-lang.org}{Lean}.}
 
 Če dokaz izreka~\ref{izr:n3-n-deljivo-3} zapišemo preveč
 podrobno, postane dolgočasen in ne\-ra\-zumljiv:
 
 \begin{quote}
   \begin{proof}
-    Naj bo $n$ poljubno naravno število. Tedaj velja
+    Naj bo $n$ poljubno celo število. Tedaj velja
     %
     \begin{align*}
       n^3 - n
@@ -83,9 +83,9 @@ podrobno, postane dolgočasen in ne\-ra\-zumljiv:
       &= (n - 1) \cdot n \cdot (n + 1).
     \end{align*}
     %
-    Vidimo, da je $n^3 - n$ zmnožek treh zaporednih naravnih števil.
+    Vidimo, da je $n^3 - n$ zmnožek treh zaporednih celih števil.
     Dokažimo, da je eno od njih deljivo s~$3$. Število $n$ lahko
-    enolično zapišemo kot $n = 3 k + r$, kjer je $k$ naravno število
+    enolično zapišemo kot $n = 3 k + r$, kjer je $k$ celo število
     in $r = 0$, $r = 1$ ali $r = 2$. Obravnavajmo tri primere:
     %
     \begin{itemize}
@@ -100,15 +100,15 @@ podrobno, postane dolgočasen in ne\-ra\-zumljiv:
     Obravnavamo tri primere:
     %
     \begin{itemize}
-    \item Če je $n - 1$ deljiv s~$3$, tedaj  obstaja naravno število
+    \item Če je $n - 1$ deljiv s~$3$, tedaj obstaja celo število
       $k$, da je $n - 1 = 3 k$. V tem primeru je $(n - 1) n (n + 1) =
       (3 k) n (n + 1) = 3 (k n (n + 1))$, zato je $(n - 1) n (n + 1)$
       deljivo s~$3$.
-    \item Če je $n$ deljiv s~$3$, tedaj obstaja naravno število $k$,
+    \item Če je $n$ deljiv s~$3$, tedaj obstaja celo število $k$,
       da je $n = 3 k$. V tem primeru je $(n - 1) n (n + 1) = (n - 1)
       (3 k) (n + 1) = (3 k) (n - 1) (n + 1) = 3 (k (n - 1) (n +
       1))$, zato je $(n - 1) n (n + 1)$ deljivo s~$3$.
-    \item Če je $n + 1$ deljiv s~$3$, tedaj obstaja naravno število
+    \item Če je $n + 1$ deljiv s~$3$, tedaj obstaja celo število
       $k$, da je $n + 1 = 3 k$. V tem primeru je $(n - 1) n (n + 1) =
       (n - 1) n (3 k) = (n - 1) (3 k) n = (3 k) (n - 1) n = 3 (k (n -
       1) n)$, zato je $(n - 1) n (n + 1)$ deljivo s~$3$.
@@ -165,26 +165,25 @@ Zgornji dokaz z dodanimi podrobnostmi in označeno ugnezdeno strukturo je prikaz
 %
 \begin{figure}[t]
   \centering
-  \small
   \begin{boxedProof}[numbered]
   \begin{boxFrame}
     \boxLine{Naj bodo $p$, $q$ in $r$ izjave.\label{vr:spremenljivke}}
-    \boxLine{Dokažimo $(p \lor q) \land r \lthen (p \land r) \lor (q \land r)$.}
+    \boxLine{Dokažimo $(p \lor q) \land r \lthen (p \land r) \lor (q \land r)$:}
     \boxLine[1]{Predpostavimo $(p \lor q) \land r$.\label{vr:predpostavka}}
-    \boxLine[1]{Dokažimo $(p \land r) \lor (q \land r)$.}
-    \boxLine[1]{Zaradi~\boxRef{vr:predpostavka} velja $p \lor q$.\label{vr:disjunkcija}}
-    \boxLine[1]{Zaradi~\boxRef{vr:predpostavka} velja $r$.\label{vr:r}}
-    \boxLine[1]{Zaradi~\boxRef{vr:disjunkcija} obravnavamo dva primera:\label{vr:primera}}
-    \begin{boxNested}[1]
-      \boxLine{Če velja $p$:\label{vr:p}}
-      \boxLine{Dokažimo $(p \land r) \lor (q \land r)$.}
+    \boxLine[1]{Dokažimo $(p \land r) \lor (q \land r)$:}
+    \boxLine[2]{Zaradi~\boxRef{vr:predpostavka} velja $p \lor q$.\label{vr:disjunkcija}}
+    \boxLine[2]{Zaradi~\boxRef{vr:predpostavka} velja $r$.\label{vr:r}}
+    \boxLine[2]{Uporabimo~\boxRef{vr:disjunkcija} in obravnavamo dva primera:\label{vr:primera}}
+    \begin{boxNested}[2]
+      \boxLine{Predpostavimo $p$.\label{vr:p}}
+      \boxLine{Dokažimo $(p \land r) \lor (q \land r)$:}
       \boxLine[1]{Dokažimo levi disjunkt $p \land r$:}
       \boxItem[2]{$p$ velja zaradi~\boxRef{vr:p},\label{vr:p-levi}}
       \boxItem[2]{$r$ velja zaradi~\boxRef{vr:r}.\label{vr:r-levi}}
     \end{boxNested}
-    \begin{boxNested}[1]
-      \boxLine{Če velja $q$:\label{vr:q}}
-      \boxLine{Dokažimo $(p \land r) \lor (q \land r)$.}
+    \begin{boxNested}[2]
+      \boxLine{Predpostavimo $q$.\label{vr:q}}
+      \boxLine{Dokažimo $(p \land r) \lor (q \land r)$:}
       \boxLine[1]{Dokažimo desni disjunkt $q \land r$:}
       \boxItem[2]{$q$ velja zaradi~\boxRef{vr:q},\label{vr:q-desni}}
       \boxItem[2]{$r$ velja zaradi~\boxRef{vr:r}.\label{vr:r-desni}}
@@ -214,7 +213,7 @@ V nadaljevanju spoznajmo pravila sklepanja in druge korake, ki tvorijo dokaz.
 
 \paragraph*{Vpeljava spremenljivke}
 %
-Nekatera pravila sklepajo zahtevajo, da v dokazu \df{vpeljemo spremenljivko}. To storimo tako, da jo naznanimo skupaj z njeno domeno:
+Nekatera pravila sklepanja zahtevajo, da v dokazu \df{vpeljemo spremenljivko}. To storimo tako, da jo naznanimo skupaj z njeno domeno:
 %
 \begin{quote}
   \nls{Naj bo $x \in A$.}
@@ -230,15 +229,15 @@ O njej vemo le to, da je element množice $A$, ne vemo pa, kateri element -- pra
 \item \nls{Izberimo $x \in A$.}
 \end{itemize}
 %
-Pozor, besedi ">fiksirajmo"< in ">izberimo"< bi dali komu misliti, da si lahko izbere točno določeni element po lastni volji, a si je bolje predstavljati, da je~$x$ ">neznan"< ali ">nedoločen"<.
-%
-Spremenljivka ima območje veljavnosti, ki je omejeno s pod-dokazom, v katerem nastopa.
+\emph{Pozor:} besedi ">fiksirajmo"< in ">izberimo"< bi dali komu misliti, da si lahko izbere točno določen element po lastni volji, a si je bolje predstavljati, da je~$x$ ">neznan"< ali ">nedoločen"<.
+
+Spremenljivka ima območje veljavnosti, ki je omejeno s pod-dokazom, v katerem jo vpeljemo.
 
 \begin{zgled}
   V dokazu na sliki~\ref{fig:izrek-pqr} vpeljemo spremenljivke $p$, $q$ in $r$ v vrstici~\boxRef{vr:spremenljivke}. Veljavne so v celotnem dokazu.
 \end{zgled}
 
-Pozor: spremenljivk ne vpeljemo kar tako, ampak le takrat, ko uporabimo pravilo sklepanja, ki to zahteva.
+\emph{Pozor:} spremenljivk ne vpeljemo kar tako, ampak le takrat, ko uporabimo pravilo sklepanja, ki to zahteva.
 
 
 \paragraph*{Vpeljava predpostavke}
@@ -251,16 +250,14 @@ Nekatera pravila sklepanja zahtevajo, da \df{vpeljemo predpostavko}~$\phi$ (ali 
 \end{quote}
 %
 Včasih vpeljemo predpostavko tudi s \nls{če velja $\phi$:}.
-%
-Predpostavka ima svoje območje veljavnosti, ki je omejeno s pod-dokazom, v katerem nastopa.
-%
-Pogosto predpostavko oštevilčimo ali kako drugače označimo, da se lahko nanjo sklicujemo.
+
+Predpostavka ima svoje območje veljavnosti, ki je omejeno s pod-dokazom, v katerem jo vpeljemo.
 
 \begin{zgled}
   V dokazu na sliki~\ref{fig:izrek-pqr} v vrstici~\boxRef{vr:predpostavka} predpostavimo $(p \lor q) \land r$, območje veljavnosti je do konca dokaza. V vrstici~\boxRef{vr:p} predpostavimo $p$, območje veljavnosti pa je prva notranja škatla. V vrstici~\boxRef{vr:q} predpostavimo~$q$, območje veljavnosti pa je druga notranja škatla.
 \end{zgled}
 
-Kadar se skličemo na dejstvo, da izjava velja, ker smo jo predpostavili, pravimo, da smo \df{uporabili predpostavko}. Predpostavke nam ni treba uporabiti in lahko jo uporabimo večkrat.
+Kadar se skličemo na že znano izjavo ali na predpostavko, pravimo, da smo jo \df{uporabili}.
 
 \begin{zgled}
   V dokazu na sliki~\ref{fig:izrek-pqr} smo predpostavko~\boxRef{vr:predpostavka} uporabili v vrsticah~\boxRef{vr:disjunkcija} in~\boxRef{vr:r}.
@@ -268,12 +265,12 @@ Kadar se skličemo na dejstvo, da izjava velja, ker smo jo predpostavili, pravim
   V vrsticah~\boxRef{vr:q-desni} in~\boxRef{vr:r-desni} smo uporabili predpostavko~\boxRef{vr:q} in dejstvo~\boxRef{vr:r}.
 \end{zgled}
 
-Pozor: predpostavk ne vpeljemo kar tako, ampak le takrat, ko uporabimo pravilo sklepanja, ki to zahteva.
+\emph{Pozor:} predpostavk ne vpeljemo kar tako, ampak le takrat, ko uporabimo pravilo sklepanja, ki to zahteva.
 
-\paragraph*{Okrajšava in izpeljava dejstva}
-\label{sec:okraj-vpelj-dejstva}
+\paragraph*{Okrajšava}
+\label{sec:okraj}
 
-V dokazu smemo kadarkoli vpeljati \df{okrajšavo}, na primer:
+V dokazu smemo kadarkoli \df{vpeljati okrajšavo}, na primer:
 %
 \begin{quote}
   \nls{Naj bo $\varphi \defeq \frac{1 + \sqrt{5}}{2}$.}
@@ -282,20 +279,33 @@ V dokazu smemo kadarkoli vpeljati \df{okrajšavo}, na primer:
 V nadaljevanju dokaza smemo uporabljati~$\varphi$ in dejstvo, da je enak $(1 + \sqrt{5})/2$.
 
 \begin{vaja}
-  Ali je v zvezi s $\frac{1 + \sqrt{5}}{2}$ kaj posebnega?
+  Ali je v zvezi z $(1 + \sqrt{5})/2$ kaj posebnega?
 \end{vaja}
 
-Poleg tega smemo iz trenutnih predpostavk in znanih dejstev kadarkoli \df{izpeljati dejstvo}, ki ga nato uporabljamo v nadaljevanju dokaza.
+\paragraph*{Izpeljava dejstva}
+\label{sec:izpelj-dejstva}
+
+V dokazu smemo kadarkoli \df{izpeljati dejstvo}, kar pomeni, da utemeljimo neko izjavo, ki jo nameravamo kasneje uporabiti. Če je utemeljitev dejstva~$\phi$ kratka, zapišemo:
 %
-Dejstva, ki jih izpeljemo iz predpostavk, bilo morda veljalo poimenovati ``hipotetična dejstva'', a to bi bil oksimoron.\footnote{Oksimoron je besedna figura, ki jo sestavljata dva pomensko izključujoča se pojma, na primer ">zanimiv izrek"<. Kakšna pa je razlika med cinizmom in sarkazmom?}
+\begin{quote}
+  \nls{Zaradi \dots\ velja $\phi$.}
+\end{quote}
+%
+Če utemeljitev zahteva celoten pod-dokaz, ga podamo:
+%
+\begin{center}
+  \begin{boxedProof}
+    \begin{boxFrame}
+      \boxLine{Velja $\phi$:}
+      \boxLine[1]{\brac{dokaz $\phi$}}
+    \end{boxFrame}
+  \end{boxedProof}
+\end{center}
 
 \begin{zgled}
   V dokazu na sliki~\ref{fig:izrek-pqr} nismo vpeljali nobene okrajšave, smo pa v vrsticah~\boxRef{vr:disjunkcija}
   in~\boxRef{vr:r} izpeljali dejstvi $p \lor q$ in~$r$. Dejstvo~\boxRef{vr:disjunkcija} smo uporabili v vrstici~\boxRef{vr:primera}, dejstvo~\boxRef{vr:r} pa v vrsticah~\boxRef{vr:r-levi} in~\boxRef{vr:r-desni}.
 \end{zgled}
-
-\section{Pravila sklepanja}
-\label{sec:pravila-sklepanja}
 
 Posvetimo se še pravilom sklepanja, ki jih delimo na:
 %
@@ -306,10 +316,10 @@ Posvetimo se še pravilom sklepanja, ki jih delimo na:
   \item pravila uporabe, s katerimi uporabljamo predpostavke in dejstva;
   \end{itemize}
 \item pravila sklepanja za enakost;
-\item zakon o izključeni tretji možnosti in dokaz s protislovjem.
+\item pravilo o izključenem tretjem in dokaz s protislovjem.
 \end{itemize}
 
-\subsection{Pravila vpeljave in uporabe}
+\section{Pravila vpeljave in uporabe}
 
 Vsaka logična operacija ima svoja pravila vpeljave in uporabe, s katerimi dokazujemo še nedokazane izjave in uporabljamo že dokazane izjave.
 
@@ -322,7 +332,7 @@ Pravilo vpeljave torej predstavimo takole:
 \begin{center}
   \begin{boxedProof}
     \begin{boxFrame}
-      \boxLine{Dokažimo $\phi \land \psi$.}
+      \boxLine{Dokažimo $\phi \land \psi$:}
       \begin{boxNested}
         \boxLine{Dokažimo $\phi$:}
         \boxLine[1]{\brac{dokaz $\phi$}}
@@ -349,9 +359,9 @@ Kaj pa, če že vemo, da velja $\phi \land \psi$? Tedaj lahko izpeljemo~$\phi$ i
 %
 \begin{boxedProof}[reserved]
 \begin{boxFrame}
-  \boxLineTag{$x$}{velja $\phi \land \psi$}
+  \boxLineTag{$k$}{velja $\phi \land \psi$}
   \boxGap
-  \boxLine{zaradi~($x$) velja $\psi$}
+  \boxLine{zaradi~($k$) velja $\psi$}
 \end{boxFrame}
 \end{boxedProof}
 \end{center}
@@ -365,7 +375,7 @@ Pravilo vpeljave torej predstavimo takole:
 \begin{center}
   \begin{boxedProof}
     \begin{boxFrame}
-      \boxLine{Dokažimo $\phi \lthen \psi$.}
+      \boxLine{Dokažimo $\phi \lthen \psi$:}
       \boxLine[1]{Predpostavimo $\phi$.}
       \boxLine[1]{Dokažimo $\psi$:}
       \boxLine[2]{\brac{dokaz $\psi$}}
@@ -375,7 +385,7 @@ Pravilo vpeljave torej predstavimo takole:
 %
 Če vemo, da velja $\phi \lthen \psi$, in vemo, da velja~$\phi$, lahko izpeljemo~$\psi$.
 %
-Pravilo uporabe za implikacijo se torej glasi:
+Pravilo uporabe za implikacijo, ki se imenuje tudi \df{modus ponens}, se torej glasi:
 %
 \begin{center}
   \begin{boxedProof}[reserved]
@@ -395,7 +405,7 @@ Pravilo uporabe za implikacijo se torej glasi:
   \begin{center}
   \begin{boxedProof}[numbered]
     \begin{boxFrame}
-      \boxLine{Dokažimo $\phi \land \psi \lthen \psi \land \phi$.}
+      \boxLine{Dokažimo $\phi \land \psi \lthen \psi \land \phi$:}
       \boxLine[1]{Predpostavimo $\phi \land \psi$.} \label{box:conj-comm-1}
       \boxLine[1]{Dokažimo $\psi \land \phi$:} \label{box:conj-comm-2}
       \begin{boxNested}[1]
@@ -416,6 +426,35 @@ Pravilo uporabe za implikacijo se torej glasi:
   v vrsticah \boxRef{box:conj-comm-3} in \boxRef{box:conj-comm-4} pa uporabo konjunkcije.
 \end{zgled}
 
+V dokazih boste videli frazo \nls{zadostuje dokazati}:
+%
+\begin{center}
+  \begin{boxedProof}
+    \begin{boxFrame}
+      \boxLine{Dokažimo $\psi$:}
+      \boxLine[1]{Zadostuje dokazati $\phi$:}
+      \boxLine[2]{\brac{dokaz $\phi$}}
+    \end{boxFrame}
+  \end{boxedProof}
+\end{center}
+%
+To je pravzaprav uporaba implikacije $\phi \lthen \psi$, ki pa jo je pisec zamolčal, ker meni, da je očitna. Bolj podrobno bi zapisali:
+%
+\begin{center}
+  \begin{boxedProof}
+    \begin{boxFrame}
+      \boxLine{Dokažimo $\psi$:}
+      \boxLine[1]{Ker velja $\phi \lthen \psi$, zadostuje dokazati $\phi$:}
+      \boxLine[2]{\brac{dokaz $\phi$}}
+    \end{boxFrame}
+  \end{boxedProof}
+\end{center}
+%
+Še vedno od bralca pričakujemo, da bo vedel, zakaj velja $\phi \lthen \psi$.
+%
+Običajno je to splošno znana implikacija, ki je nima smisla vedno znova ponavljati.
+
+
 \paragraph*{Disjunkcija}
 \label{sec:disjunkcija-pravila}
 
@@ -424,7 +463,7 @@ Disjunkcijo $\phi \lor \psi$ dokažemo tako, da dokažemo enega od disjunktov, z
 \begin{center}
   \begin{boxedProof}
     \begin{boxFrame}
-      \boxLine{Dokažimo $\phi \lor \psi$.}
+      \boxLine{Dokažimo $\phi \lor \psi$:}
       \boxLine[1]{Dokažimo levi disjunkt $\phi$:}
       \boxLine[2]{\brac{dokaz $\phi$}}
     \end{boxFrame}
@@ -432,7 +471,7 @@ Disjunkcijo $\phi \lor \psi$ dokažemo tako, da dokažemo enega od disjunktov, z
   \hspace{2em}%
   \begin{boxedProof}
     \begin{boxFrame}
-      \boxLine{Dokažimo $\phi \lor \psi$.}
+      \boxLine{Dokažimo $\phi \lor \psi$:}
       \boxLine[1]{Dokažimo desni disjunkt $\psi$:}
       \boxLine[2]{\brac{dokaz $\psi$}}
     \end{boxFrame}
@@ -446,15 +485,15 @@ Disjunkcijo $\phi \lor \psi$ dokažemo tako, da dokažemo enega od disjunktov, z
     \begin{boxFrame}
       \boxLineTag{$k$}{velja $\phi \lor \psi$}
       \boxGap
-      \boxLine{Dokažimo $\rho$.}
+      \boxLine{Dokažimo $\rho$:}
       \boxLine[1]{Uporabimo ($k$) in obravnavamo dva primera:}
       \begin{boxNested}[1]
-        \boxLine{Predpostavimo $\phi$:}
+        \boxLine{Predpostavimo $\phi$.}
         \boxLine{Dokažimo $\rho$:}
         \boxLine[1]{\brac{dokaz $\rho$}}
       \end{boxNested}
       \begin{boxNested}[1]
-        \boxLine{Predpostavimo $\psi$:}
+        \boxLine{Predpostavimo $\psi$.}
         \boxLine{Dokažimo $\rho$:}
         \boxLine[1]{\brac{dokaz $\rho$}}
       \end{boxNested}
@@ -465,32 +504,40 @@ Disjunkcijo $\phi \lor \psi$ dokažemo tako, da dokažemo enega od disjunktov, z
 V prvem primeru smo izpeljali cilj pod predpostavko, da velja levi disjunkt~$\phi$, v drugem pa pod predpostavko, da velja desni disjunkt~$\psi$.
 
 \begin{zgled}
-  Obravnavajmo nekoliko bolj zapleten primer: $((p \lthen r) \land (q \lthen r)) \lthen (p \lor q \lthen r)$:
+  Obravnavajmo nekoliko bolj zapleten dokaz:
   %
   \begin{center}
   \begin{boxedProof}[numbered]
     \begin{boxFrame}
-      \boxLine{Dokažimo $((p \lthen r) \land (q \lthen r)) \lthen (p \lor q \lthen r)$.}
+      \boxLine{Dokažimo $((p \lthen r) \land (q \lthen r)) \lthen (p \lor q \lthen r)$:}
       \boxLine[1]{Predpostavimo $(p \lthen r) \land (q \lthen r)$.\label{box:disj-elim-1}}
-      \boxLine[1]{Dokažimo $p \lor q \lthen r$.}
+      \boxLine[1]{Dokažimo $p \lor q \lthen r$:\label{box:disj-elim-7}}
       \boxLine[2]{Predpostavimo $p \lor q$.\label{box:disj-elim-2}}
-      \boxLine[2]{Dokažimo $r$.}
-      \boxLine[3]{Uporabimo~\boxRef{box:disj-elim-2} in obravnavamo dva primera:}
+      \boxLine[2]{Dokažimo $r$:}
+      \boxLine[3]{Uporabimo~\boxRef{box:disj-elim-2} in obravnavamo dva primera:\label{box:disj-elim-8}}
       \begin{boxNested}[3]
-        \boxLine{Predpostavimo $p$:\label{box:disj-elim-3}}
+        \boxLine{Predpostavimo $p$.\label{box:disj-elim-3}}
         \boxLine{Dokažimo $r$:}
         \boxLine[1]{Zaradi~\boxRef{box:disj-elim-1} velja $p \lthen r$.\label{box:disj-elim-4}}
-        \boxLine[1]{Zaradi~\boxRef{box:disj-elim-4} in~\boxRef{box:disj-elim-3} velja $r$.}
+        \boxLine[1]{Zaradi~\boxRef{box:disj-elim-4} in~\boxRef{box:disj-elim-3} velja $r$.\label{box:disj-elim-9}}
       \end{boxNested}
       \begin{boxNested}[3]
-        \boxLine{Predpostavimo $q$:\label{box:disj-elim-5}}
+        \boxLine{Predpostavimo $q$.\label{box:disj-elim-5}}
         \boxLine{Dokažimo $r$:}
         \boxLine[1]{Zaradi~\boxRef{box:disj-elim-1} velja $q \lthen r$.\label{box:disj-elim-6}}
-        \boxLine[1]{Zaradi~\boxRef{box:disj-elim-6} in~\boxRef{box:disj-elim-5} velja $r$.}
+        \boxLine[1]{Zaradi~\boxRef{box:disj-elim-6} in~\boxRef{box:disj-elim-5} velja $r$.\label{box:disj-elim-10}}
       \end{boxNested}
     \end{boxFrame}
   \end{boxedProof}
   \end{center}
+  %
+  Celoten dokaz je vpeljava implikacije.
+  %
+  V vrsticah~\boxRef{box:disj-elim-7}--\boxRef{box:disj-elim-10} vidimo še eno vpeljavo implikacije,
+  v vrsticah~\boxRef{box:disj-elim-8}--\boxRef{box:disj-elim-10} pa uporabo disjunkcije.
+  %
+  V vrsticah \boxRef{box:disj-elim-4} in \boxRef{box:disj-elim-6} vidimo uporabo konjunkcije,
+  v vrsticah \boxRef{box:disj-elim-9} in \boxRef{box:disj-elim-10} pa uporabo implikacije.
 \end{zgled}
 
 \paragraph*{Resnica}
@@ -501,15 +548,15 @@ Resnice $\top$ ni treba dokazovati, zapišemo ">očitno"<:
 \begin{center}
   \begin{boxedProof}
     \begin{boxFrame}
-      \boxLine{Dokažimo $\top$.}
+      \boxLine{Dokažimo $\top$:}
       \boxLine[1]{Očitno.}
     \end{boxFrame}
   \end{boxedProof}
 \end{center}
 %
-V praksi $\top$ nastopi kot cilj, ko dani cilj poenostavimo v ekvivalentno obliko in dobimo~$\top$. Na primer, cilj
-$12^2 + 12^2 < 17^2$ lahko z računanjem prevedemo v ekvivalentno izjavo $288 < 289$, ki je ekvivalentna~$\top$. S tem
-je dokaz zaključen, saj $\top$ ni treba dokazati.
+Običajno $\top$ nastopi kot cilj, ko prvotni cilj poenostavimo v ekvivalentno obliko in dobimo~$\top$.
+%
+Na primer, cilj $12^2 + 12^2 < 17^2$ lahko z računanjem prevedemo v ekvivalentno izjavo $288 < 289$, ki je ekvivalentna~$\top$. S tem je dokaz zaključen, saj $\top$ ni treba dokazati.
 
 Pravila uporabe za resnico ni.
 
@@ -538,7 +585,7 @@ Ekvivalenco $\phi \liff \psi$ dokažemo tako, da posebej dokažemo obe implikaci
 \begin{center}
   \begin{boxedProof}
     \begin{boxFrame}
-      \boxLine{Dokažimo $\phi \liff \psi$.}
+      \boxLine{Dokažimo $\phi \liff \psi$:}
       \begin{boxNested}
         \boxLine{Dokažimo $\phi \lthen \psi$:}
         \boxLine[1]{\brac{dokaz $\phi \lthen \psi$}}
@@ -566,9 +613,9 @@ Ekvivalenco uporabimo tako, da izpeljemo eno od implikacij:
 %
 \begin{boxedProof}[reserved]
 \begin{boxFrame}
-  \boxLineTag{$x$}{velja $\phi \liff \psi$}
+  \boxLineTag{$k$}{velja $\phi \liff \psi$}
   \boxGap
-  \boxLine{zaradi~($x$) velja $\psi \lthen \phi$}
+  \boxLine{zaradi~($k$) velja $\psi \lthen \phi$}
 \end{boxFrame}
 \end{boxedProof}
 \end{center}
@@ -583,7 +630,7 @@ Negacijo $\lnot \phi$ dokažemo tako, da predpostavimo~$\phi$ in dokažemo~$\bot
 \begin{center}
   \begin{boxedProof}
     \begin{boxFrame}
-      \boxLine{Dokažimo $\lnot \phi$.}
+      \boxLine{Dokažimo $\lnot \phi$:}
       \boxLine[1]{Predpostavimo $\phi$.}
       \boxLine[1]{Dokažimo~$\bot$:}
       \boxLine[2]{\brac{dokaz $\bot$}}
@@ -615,9 +662,9 @@ V dokazu običajno ne rečemo, da smo ">dokazali neresnico"<, ampak da smo ">izp
   \begin{center}
   \begin{boxedProof}[numbered]
     \begin{boxFrame}
-      \boxLine{Dokažimo $p \land \neg p \lthen q$.}
+      \boxLine{Dokažimo $p \land \neg p \lthen q$:}
       \boxLine[1]{Predpostavimo $p \land \neg p$.\label{box:ex-falso-1}}
-      \boxLine[1]{Dokažimo $q$.}
+      \boxLine[1]{Dokažimo $q$:}
       \boxLine[2]{Zaradi~\boxRef{box:ex-falso-1} velja $p$.\label{box:ex-falso-2}}
       \boxLine[2]{Zaradi~\boxRef{box:ex-falso-1} velja $\neg p$.\label{box:ex-falso-3}}
       \boxLine[2]{Zaradi~\boxRef{box:ex-falso-2} in~\boxRef{box:ex-falso-3} velja $\bot$.\label{box:ex-falso-4}}
@@ -640,11 +687,11 @@ V dokazu običajno ne rečemo, da smo ">dokazali neresnico"<, ampak da smo ">izp
   \begin{center}
   \begin{boxedProof}[numbered]
     \begin{boxFrame}
-      \boxLine{Dokažimo $p \lthen \neg\neg p$.}
+      \boxLine{Dokažimo $p \lthen \neg\neg p$:}
       \boxLine[1]{Predpostavimo $p$.\label{box:dvojna-1}}
-      \boxLine[1]{Dokažimo $\neg\neg p$.\label{box:dvojna-2}}
+      \boxLine[1]{Dokažimo $\neg\neg p$:\label{box:dvojna-2}}
       \boxLine[2]{Predpostavimo $\neg p$.\label{box:dvojna-3}}
-      \boxLine[2]{Dokažimo $\bot$.}
+      \boxLine[2]{Dokažimo $\bot$:}
       \boxLine[3]{Zaradi~\boxRef{box:dvojna-1} in~\boxRef{box:dvojna-3} velja $\bot$.\label{box:dvojna-4}}
     \end{boxFrame}
   \end{boxedProof}
@@ -666,7 +713,7 @@ Izjavo $\all{x \in A} \phi(x)$ dokažemo tako, da vpeljemo spremenljivko $x \in 
 \begin{center}
   \begin{boxedProof}
     \begin{boxFrame}
-      \boxLine{Dokažimo $\all{x \in A} \phi(x)$.}
+      \boxLine{Dokažimo $\all{x \in A} \phi(x)$:}
       \boxLine[1]{Naj bo $x \in A$.}
       \boxLine[1]{Dokažimo $\phi(x)$:}
       \boxLine[2]{\brac{dokaz $\phi(x)$}}
@@ -674,7 +721,7 @@ Izjavo $\all{x \in A} \phi(x)$ dokažemo tako, da vpeljemo spremenljivko $x \in 
   \end{boxedProof}
 \end{center}
 %
-\textbf{Pozor:} spremenljivka $x$ mora biti \emph{sveža}, se pravi, da je ne uporabljamo nikjer drugje. Če se je predhodno že pojavila, najprej izberemo svežo spremenljivko~$y$ in $x$ preimenujemo v~$y$.
+\emph{Pozor:} spremenljivka $x$ mora biti \emph{sveža}, se pravi, da je ne uporabljamo nikjer drugje. Če se je predhodno že pojavila, najprej izberemo svežo spremenljivko~$y$ in $x$ preimenujemo v~$y$.
 
 Če vemo, da velja $\all{x \in A} \phi(x)$, in vemo, da je $\langle\text{izraz}\rangle \in A$, lahko izpeljemo $\phi(\langle\text{izraz}\rangle)$:
 %
@@ -691,15 +738,15 @@ Izjavo $\all{x \in A} \phi(x)$ dokažemo tako, da vpeljemo spremenljivko $x \in 
 \end{center}
 
 \begin{zgled}
-  Sedaj lahko dokažemo, da izjava $\all{x \in \emptyset} \phi(x)$ velja, upoštevaje dejstvo, da
+  Sedaj lahko dokažemo, da izjava $\all{x \in \emptyset} \phi(x)$ velja, upoštevaje dejstvo, da za vsak~$x$ velja
   $\neg (x \in \emptyset)$:
   %
   \begin{center}
   \begin{boxedProof}[numbered]
     \begin{boxFrame}
-      \boxLine{Dokažimo $\all{x \in \emptyset} \phi(x)$.}
+      \boxLine{Dokažimo $\all{x \in \emptyset} \phi(x)$:}
       \boxLine[1]{Naj bo $x \in \emptyset$.\label{box:prazna-1}}
-      \boxLine[1]{Dokažimo $\phi(x)$.}
+      \boxLine[1]{Dokažimo $\phi(x)$:}
       \boxLine[2]{Velja $\neg (x \in \emptyset)$.\label{box:prazna-2}}
       \boxLine[2]{Zaradi~\boxRef{box:prazna-1} in~\boxRef{box:prazna-2} velja $\bot$.\label{box:prazna-3}}
       \boxLine[2]{Zaradi~\boxRef{box:prazna-3} velja $\phi(x)$.\label{box:prazna-4}}
@@ -721,7 +768,7 @@ Izjavo $\some{x \in A} \phi(x)$ dokažemo tako, da podamo element množice~$A$, 
 \begin{center}
   \begin{boxedProof}
     \begin{boxFrame}
-      \boxLine{Dokažimo $\some{x \in A} \phi(x)$.}
+      \boxLine{Dokažimo $\some{x \in A} \phi(x)$:}
       \boxLine[1]{Podamo $x \defeq \langle\text{izraz}\rangle$.}
       \begin{boxNested}[1]
         \boxLine{Dokažimo $\langle\text{izraz}\rangle \in A$:}
@@ -745,487 +792,99 @@ voljo).
     \begin{boxFrame}
       \boxLineTag{$k$}{velja $\some{x \in A} \phi(x)$}
       \boxGap
-      \boxLine{Dokažimo $\rho$.}
-      \boxLine[1]{Zaradi~($k$) imamo $x \in A$, za katerega velja $\phi(x)$.}
+      \boxLine{Dokažimo $\rho$:}
+      \boxLine[1]{Zaradi~($k$) imamo $x \in A$ in $\phi(x)$.}
       \boxLine[1]{\brac{dokaz $\rho$}}
     \end{boxFrame}
   \end{boxedProof}
 \end{center}
 %
-\textbf{Pozor:} spremenljivka $x$ mora biti sveža, se pravi, da se ne pojavlja v $\rho$ ali kjerkoli drugje. Če se~$x$ pojavi kje drugje, ga moramo najprej nadomestiti s svežo spremenljivko~$y$.
+\emph{Pozor:} spremenljivka $x$ mora biti sveža, se pravi, da se ne pojavlja v $\rho$ ali kjerkoli drugje. Če se~$x$ pojavi kje drugje, ga moramo najprej nadomestiti s svežo spremenljivko~$y$.
 
 \begin{zgled}
-  Dokažimo še, da velja $\neg \some{x \in \emptyset} \phi(x)$, upoštevaje dejstvo, da
+  Dokažimo še, da velja $\neg \some{x \in \emptyset} \phi(x)$, upoštevaje dejstvo, da za vsak~$x$ velja
   $\neg (x \in \emptyset)$:
   %
   \begin{center}
   \begin{boxedProof}[numbered]
     \begin{boxFrame}
-      \boxLine{Dokažimo $\neg \some{x \in \emptyset} \phi(x)$.}
+      \boxLine{Dokažimo $\neg \some{x \in \emptyset} \phi(x)$:}
       \boxLine[1]{Predpostavimo $\some{x \in \emptyset} \phi(x)$.\label{box:prazna-obstoj-1}}
-      \boxLine[1]{Dokažimo $\bot$.}
-      \boxLine[2]{Zaradi~\boxRef{box:prazna-obstoj-1} imamo $x \in \emptyset$, za katerega velja $\phi(x)$.\label{box:prazna-obstoj-2}}
+      \boxLine[1]{Dokažimo $\bot$:} \boxLine[2]{Zaradi~\boxRef{box:prazna-obstoj-1} imamo $x \in \emptyset$ in $\phi(x)$.\label{box:prazna-obstoj-2}}
+      \boxLine[2]{Zaradi \boxRef{box:prazna-obstoj-2} velja $x \in \emptyset$.\label{box:prazna-obstoj-5}}
       \boxLine[2]{Velja $\neg (x \in \emptyset)$.\label{box:prazna-obstoj-3}}
-      \boxLine[2]{Zaradi~\boxRef{box:prazna-obstoj-2} in~\boxRef{box:prazna-obstoj-3} velja $\bot$.\label{box:prazna-obstoj-4}}
+      \boxLine[2]{Zaradi~\boxRef{box:prazna-obstoj-5} in~\boxRef{box:prazna-obstoj-3} velja $\bot$.\label{box:prazna-obstoj-4}}
     \end{boxFrame}
   \end{boxedProof}
   \end{center}
   %
   Celoten dokaz je vpeljava negacije.
   %
-  V vrstici~\boxRef{box:prazna-obstoj-2} smo uporabili eksistenčni kvantifikator, v vrstici~\boxRef{box:prazna-obstoj-4} pa negacijo.
+  V vrstici~\boxRef{box:prazna-obstoj-2} smo uporabili eksistenčni kvantifikator, v
+  vrstici~\boxRef{box:prazna-obstoj-5} konjunkcijo, v vrstici~\boxRef{box:prazna-obstoj-4} pa negacijo.
 \end{zgled}
 
-\subsection{Izključena tretja možnost in dokaz s protislovjem}
 
-\textbf{Pravilo izključene tretje možnosti} pravi, da vedno velja $\phi \lor \lnot\phi$.
+\section{Enakost in ekvivalenca}
+\label{sec:enakost-ekvivalenca}
+
+Pravila za enakost se glasijo:
 %
-Običajno ga uporabimo tako, da obravnavamo dva primera:
+\begin{itemize}
+\item \df{refleksivnost}: $a = a$,
+\item \df{simetričnost}: če $a = b$, potem $b = a$,
+\item \df{tranzitivnost}: če $a = b$ in $b = c$, potem $a = c$,
+\item \df{pravilo zamenjave}: če $a = b$ in $\phi(a)$, potem $\phi(b)$.
+\end{itemize}
 %
-\begin{center}
-  \begin{boxedProof}
-    \begin{boxFrame}
-      \boxLine{Dokažimo $\rho$.}
-      \boxLine[1]{Ker velja $\phi \lor \lnot\phi$, obravnavamo dva primera:}
-      \begin{boxNested}[1]
-        \boxLine{Predpostavimo $\phi$:}
-        \boxLine{Dokažimo $\rho$:}
-        \boxLine[1]{\brac{dokaz $\rho$}}
-      \end{boxNested}
-      \begin{boxNested}[1]
-        \boxLine{Predpostavimo $\lnot\phi$:}
-        \boxLine{Dokažimo $\rho$:}
-        \boxLine[1]{\brac{dokaz $\rho$}}
-      \end{boxNested}
-    \end{boxFrame}
-  \end{boxedProof}
-\end{center}
+Zaenkrat enakosti ne bomo posvečali posebne pozornosti, saj jo v praksi študenti dobro obvladajo.
 
 \begin{zgled}
-  Dokažimo, da iz $\neg\neg p$ sledi $p$:
-  %
-  \begin{center}
-  \begin{boxedProof}[numbered]
-    \begin{boxFrame}
-      \boxLine{Dokažimo $\neg\neg p \lthen p$.}
-      \boxLine[1]{Predpostavimo $\neg\neg p$.\label{box:protislovje-1}}
-      \boxLine[1]{Dokažimo $p$.}
-      \boxLine[2]{Ker velja $p \lor \neg p$, obravnavamo dva primera:\label{box:protislovje-2}}
-      \begin{boxNested}[2]
-        \boxLine{Predpostavimo $p$:\label{box:protislovje-3}}
-        \boxLine{Dokažimo $p$:}
-        \boxLine[1]{Zaradi~\boxRef{box:protislovje-3} velja $p$.}
-      \end{boxNested}
-      \begin{boxNested}[2]
-        \boxLine{Predpostavimo $\neg p$:\label{box:protislovje-4}}
-        \boxLine{Dokažimo $p$:}
-        \boxLine[1]{Zaradi~\boxRef{box:protislovje-4} in~\boxRef{box:protislovje-1} velja $\bot$.\label{box:protislovje-5}}
-        \boxLine[1]{Zaradi~\boxRef{box:protislovje-5} velja $p$.\label{box:protislovje-6}}
-      \end{boxNested}
-    \end{boxFrame}
-  \end{boxedProof}
-  \end{center}
-  %
-  Celoten dokaz je vpeljava implikacije.
-  %
-  V vrstici~\boxRef{box:protislovje-2} smo uporabili izključeno tretjo možnost,
-  v vrstici~\boxRef{box:protislovje-5} negacijo, v vrstici~\boxRef{box:protislovje-6} pa neresnico.
-
-  Na implikaciji $\neg\neg p \lthen p$ sloni \df{dokaz s protislovjem}: izjavo $p$ dokažemo tako, da predpostavimo
-  $\neg p$ in izpeljemo protislovje. S tem smo z vpeljavo negacije dokazali $\neg\neg p$, od koder sledi~$p$.
-
-  Skupaj z zgledom~\ref{zgled:p-dvojna-negacija} smo pokazali, da sta izjavi $p$ in $\neg\neg p$ ekvivalentni.
+  Pravilo za simetričnost enakosti sledi iz refleksivnosti in pravila zamenjave.
+  Predpostavimo, da velja $a = b$, in obravnavajmo izjavo $\phi(x) \dfeq (x = a)$.
+  Zaradi refleksivnosti velja $\phi(a)$, torej po pravilu zamenjave velja $\phi(b)$,
+  kar je enako $b = a$.
 \end{zgled}
-
-Opomba: dokaz s protislovjem in pravilo vpeljave za negacijo sta \emph{različni}
-pravili!
-
-\begin{zgled}
-  Pokažimo, da iz dokaza s protislovjem sledi izključena tretja možnost, se pravi, da s protislovjem
-  dokažemo $p \lor \neg p$:
-  %
-  \begin{center}
-  \begin{boxedProof}[numbered]
-    \begin{boxFrame}
-      \boxLine{Dokažimo $p \lor \neg p$ s protislovjem.}
-      \boxLine[1]{Predpostavimo $\neg (p \lor \neg p)$.\label{box:lem-1}}
-      \boxLine[1]{Dokažimo $\bot$.}
-      \boxLine[2]{Dokažimo $\neg p$.\label{box:lem-2}}
-      \boxLine[3]{Predpostavimo $p$.\label{box:lem-3}}
-      \boxLine[3]{Dokažimo $\bot$.}
-      \boxLine[4]{Zaradi~\boxRef{box:lem-3} velja $p \lor \neg p$.\label{box:lem-4}}
-      \boxLine[4]{Zaradi~\boxRef{box:lem-4} in~\boxRef{box:lem-1} velja $\bot$.\label{box:lem-5}}
-      \boxLine[2]{Ker velja $\neg p$, velja tudi $p \lor \neg p$.\label{box:lem-6}}
-      \boxLine[2]{Zaradi~\boxRef{box:lem-6} in~\boxRef{box:lem-1} velja $\bot$.\label{box:lem-7}}
-    \end{boxFrame}
-  \end{boxedProof}
-  \end{center}
-  %
-  Celoten dokaz je dokaz s protislovjem.
-  %
-  V vrsticah~\boxRef{box:lem-2}--\boxRef{box:lem-5} vidimo vpeljavo negacije,
-  v vrsticah~\boxRef{box:lem-4} in~\boxRef{box:lem-6} vpeljavo disjunkcije,
-  v vrsticah~\boxRef{box:lem-5} in~\boxRef{box:lem-7} pa uporabo negacije.
-\end{zgled}
-
-\subsection{Aksiom o izključenem tretjem}
-
-\label{sec:lem}
-
-Aksiom o izključenem tretjem se glasi
-%
-\begin{equation*}
-  \inferrule{ }{\phi \lor \lnot \phi}
-\end{equation*}
-%
-Povedano z besedami, vsaka izjava je bodisi resnična bodisi
-neresnična. Torej ni ">tretje možnosti"< za resničnostno vrednost
-izjave $\phi$, od koder izhaja tudi ime aksioma.
-
-Aksiom o izključenem tretjem omogoča \emph{posredne} dokaze izjav, od
-katerih je najbolj znano \textbf{dokazovanje s protislovjem}: pri tem ne
-utemeljimo izjave $\phi$, ampak utemeljimo, zakaj $\lnot\phi$
-\emph{ne} velja. Natančneje povedano, izjavo $\phi$ zamenjamo z njej
-ekvivalentno izjavo $\lnot\lnot\phi$ in dokažemo $\lnot\lnot\phi$.
-Za dokaz implikacije $\lnot\lnot\phi \lthen \phi$ potrebujemo aksiom o
-izključenem tretjem. V matematičnem besedilu se dokaz s protislovjem
-glasi:
-%
-\begin{quote}
-  \it
-  %
-  Dokažimo $\phi$ s protislovjem.
-  %
-  \begin{itemize}
-  \item[] Predpostavimo, da bi veljalo $\lnot\phi$.
-  \item[] (Dokaz neresnice $\bot$.)
-  \end{itemize}
-  %
-  Ker torej $\lnot\phi$ pripelje do protislovja, velja $\phi$.
-\end{quote}
-%
-Praviloma izvemo o vsebini matematične izjave~$\phi$ več, če jo
-dokažemo neposredno. Dokazovanja s protislovjem zato ni smiselno
-uporabljati vsepovprek, ampak le takrat, ko je zares potrebno ali ko
-nam zelo olajša dokazovanje.
-
-Ostali načini za sestavljanje posrednih dokazov slonijo na
-ekvivalencah
-%
-\begin{mathpar}
-  (\phi \lor \psi) \liff \lnot (\lnot\phi \land \lnot\psi),\and
-  (\phi \lor \psi) \liff (\lnot\phi \lthen \psi),\and
-  (\phi \lthen \psi) \liff (\lnot\psi \lthen \lnot\phi),\and
-  (\all{x \in S} \phi) \liff \lnot \some{x \in S} \lnot \phi,\and
-  (\some{x \in S} \phi) \liff \lnot \all{x \in S} \lnot \phi.
-\end{mathpar}
-%
-V vseh petih primerih implikacija $\lthen$ z leve na desno velja brez
-uporabe aksioma o izključenem tretjem. Za dokaz implikacij
-$\Leftarrow$ z desne na levo pa potrebujemo aksiom o izključenem
-tretjem.
 
 \begin{vaja}
-  Sestavi formalne dokaze za zgornjih pet ekvivalenc. Pri dokazovanju
-  ekvivalenc za $\forall$ in $\exists$ si pomagaj s pravili sklepanja
-  iz razdelkov~\ref{sec:univerzalni-kvantifikator}
-  in~\ref{sec:eksistencni-kvantifikator}.
+  Ali tudi tranzitivnost enakosti sledi iz refleksivnosti in pravila zamenjave?
 \end{vaja}
 
-Povejmo, kako zgornje ekvivalence uporabimo v besedilu za posredni
-dokaz izjave:
+Pravila za logično ekvivalenco so podobna pravilom za enakost:
 %
 \begin{itemize}
-\item $(\phi \lor \psi) \liff \lnot (\lnot\phi \land \lnot\psi)$
-  uporabimo takole:
-  %
-  \begin{quote}
-    \it
-    %
-    Dokazujemo $\phi \lor \psi$.
-    %
-    \begin{itemize}
-    \item[] Predpostavimo, da velja $\lnot\phi$ in $\lnot\psi$.
-    \item[] (Dokaz neresnice $\bot$.)
-    \end{itemize}
-    %
-    Ker torej nista $\phi$ in $\psi$ oba neresnična, je eden od njiju
-    resničen. Dokazali smo $\phi \lor \psi$.
-  \end{quote}
-\item $(\phi \lor \psi) \liff (\lnot\phi \lthen \psi)$ uporabimo
-  takole:
-  %
-  \begin{quote}
-    \it
-    %
-    Dokazujemo $\phi \lor \psi$.
-    %
-    \begin{itemize}
-    \item[] Predpostavimo $\lnot\phi$.
-    \item[] (Dokaz $\psi$.)
-    \end{itemize}
-    %
-    Če torej ne velja $\phi$, velja $\psi$. Torej velja vsaj
-    eden, zato smo dokazali $\phi \lor \psi$.
-  \end{quote}
-\item $(\phi \lthen \psi) \liff (\lnot\psi \lthen \lnot\phi)$
-  uporabimo takole:
-  %
-  \begin{quote}
-    \it
-    %
-    Dokazujemo $\phi \lthen \psi$.
-    %
-    \begin{enumerate}
-    \item Predpostavimo $\lnot\psi$.
-    \item (Dokaz $\lnot\phi$.)
-    \end{enumerate}
-    %
-    Dokazali smo, da iz $\phi$ sledi $\psi$.
-  \end{quote}
-\item $(\all{x \in S} \phi) \liff \lnot \some{x \in S} \lnot \phi$
-  uporabimo takole:
-  %
-  \begin{quote}
-    \it
-    %
-    Dokazujemo, da za vsak $x \in S$ velja $\phi$.
-    %
-    \begin{enumerate}
-    \item Predpostavimo, da obstaja $x \in S$, za katerega $\phi$
-      \emph{ne} velja.
-    \item (Dokaz neresnice $\bot$.)
-    \end{enumerate}
-    %
-    Predpostavka, da obstaja $x \in S$, za katerega $\phi$ ne velja,
-    pripelje do protislovja. Torej za vsak $x \in S$ velja $\phi$.
-  \end{quote}
-\item $(\some{x \in S} \phi) \liff \lnot \all{x \in S} \lnot \phi$
-  uporabimo takole:
-  %
-  \begin{quote}
-    \it
-    %
-    Dokazujemo, da obstaja tak $x \in S$, za katerega velja $\phi$.
-    %
-    \begin{enumerate}
-    \item Predpostavimo, da bi veljalo $\lnot\phi$ za vse $x \in S$.
-    \item (Dokaz neresnice $\bot$.)
-    \end{enumerate}
-    %
-    Predpostavka, da velja $\lnot\phi$ za vse $x \in S$, pripelje do
-    protislovja. Torej obstaja $x \in S$, za katerega velja $\phi$.
-  \end{quote}
+\item \df{refleksivnost}: $\phi \liff \phi$,
+\item \df{simetričnost}: če $\phi \liff \psi$, potem $\psi \liff \phi$,
+\item \df{tranzitivnost}: če $\phi \liff \psi$ in $\psi \liff \xi$, potem $\phi \liff \xi$,
+\item \df{pravilo zamenjave}: če $\phi \liff \psi$, smemo $\phi$ nadomestiti s~$\psi$.
 \end{itemize}
-
-Negacijo poljubne izjave $\phi$ tvorimo preprosto tako, da pred njo
-postavimo $\lnot$. Vendar nam to ne pove dosti o matematični vsebini
-negirane izjave. V večini primerov je negacijo lažje razumeti, če
-simbol~$\lnot$ ">porinemo"< navznoter do osnovnih izjav z uporabo
-naslednjih ekvivalenc:
 %
-\begin{align*}
-  \lnot (\phi \land \psi) &\iff \lnot\phi \lor \lnot\psi \\
-  \lnot (\phi \lor \psi) &\iff \lnot\phi \land \lnot\psi \\
-  \lnot (\phi \lthen \psi) &\iff \phi \land \lnot\psi \\
-  \lnot (\lnot \phi) &\iff \phi \\
-  \lnot (\all{x \in S} \phi) &\iff \some{x \in S} \lnot\phi \\
-  \lnot (\some{x \in S} \phi) &\iff \all{x \in S} \lnot\phi
-\end{align*}
+Zadnje pravilo dovoljuje, da lahko izjave poenostavljamo in predelujemo, če le pazimo, da ne kršimo logične ekvivalence.
 
-\begin{zgled}
-  Denimo, da bi radi ovrgli izjavo
-  % 
-  \begin{quote}
-    ">Vsako zaporedje pozitivnih realnih števil ima limito~$0$."<
-  \end{quote}
-  % 
-  Da izjavo ovržemo, moramo dokazati njeno negacijo. Načeloma lahko
-  negacijo tvorimo tako, da pred izjavo napišemo ">ni res, da velja
-  \dots"<, a nam to ne pove, kako bi negacijo dokazali. Zapišimo
-  prvotno izjavo v delni simbolni obliki:
-  % 
-  \begin{equation}
-    \label{eq:pozitivno-limita-0}
-    \all{a \in \RR^{\NN}}{\text{$(a_n)_n$ pozitivno zaporedje}
-      \lthen \text{$0$ je limita zaporedja $(a_n)_n$}}.
-  \end{equation}
-  % 
-  Zgornja pravila za računanje negacije nam povedo, da se
-  $\lnot\forall$ spremeni v $\exists\lnot$ in da se nato implikacija
-  oblike $\phi \lthen \psi$ spremeni v $\phi \land \lnot\psi$. Tako
-  izrazimo negacijo izjave~\eqref{eq:pozitivno-limita-0}:
-  % 
-  \begin{equation*}
-    \some{a \in \RR^{\NN}}{\text{$(a_n)_n$ pozitivno zaporedje}
-      \land \lnot (\text{$0$ je limita zaporedja $(a_n)_n$})}.
-  \end{equation*}
-  % 
-  To preberemo z besedami:
-  % 
-  \begin{quote}
-    ">Obstaja tako zaporedje $(a_n)_n$, da je $(a_n)_n$ zaporedje
-    pozitivnih števil in da $0$ ni limita zaporedja $(a_n)_n$."<
-  \end{quote}
-  %
-  Če se še malo potrudimo, preberemo bolj razumljivo:
-  % 
-  \begin{quote}
-    ">Obstaja tako zaporedje pozitivnih realnih števil, da $0$ ni
-    njegova limita."<
-  \end{quote}
-  %
-  S tem še nismo končali, saj je tudi ">Število $0$ ni limita
-  zaporedja $(a_n)_n$"< negacija. Izjavo ">$0$ je limita zaporedja
-  $(a_n)_n$"< najprej zapišemo simbolno:
-  % 
-  \begin{equation}
-    \label{eq:limita-0}
-    \all{\epsilon > 0}
-      \some{m \in \NN}
-        \all{n \geq m}
-          |a_n - 0| < \epsilon.
-  \end{equation}
-  % 
-  Z zgornjimi pravili za negiranje izračunamo negacijo
-  izjave~\eqref{eq:limita-0}. Operacijo $\lnot$ postopoma ">porivamo"<
-  navznoter:
-  % 
-  % 
-  \begin{align*}
-    \lnot \all{\epsilon > 0} \some{m \in \NN} \all{n \geq m} |a_n
-          - 0| < \epsilon & \iff
-    \\
-    \some{\epsilon > 0} \lnot \some{m \in \NN} \all{n \geq m}
-          |a_n - 0| < \epsilon &\iff
-    \\
-    \some{\epsilon > 0} \all{m \in \NN} \lnot \all{n \geq m}
-          |a_n - 0| < \epsilon &\iff
-    \\
-    \some{\epsilon > 0} \all{m \in \NN} \some{n \geq m}
-          \lnot (|a_n - 0| < \epsilon) &\iff
-    \\
-    \some{\epsilon > 0} \all{m \in \NN} \some{n \geq m}
-          |a_n - 0| \geq \epsilon &\iff
-    \\
-    \some{\epsilon > 0} \all{m \in \NN} \some{n \geq m}
-          a_n \geq \epsilon.
-  \end{align*}
-  % 
-  V zadnjem koraku smo upoštevali, da za pozitivno število $a_n$ velja
-  $|a_n - 0| = |a_n| = a_n$. Tako smo dobili podrobno zapisano
-  negacijo prvotne izjave
-  % 
-  \begin{quote}
-    ">Obstaja tako zaporedje pozitivnih števil $(a_n)_n$ in obstaja
-    tak $\epsilon > 0$, da za vsak $m \in \NN$ obstaja $n \geq m$, za
-    katerega velja $a_n \geq \epsilon$."<
-  \end{quote}
-  % 
-  To izjavo pa znamo dokazati tako, da podamo konkreten primer
-  zaporedja $(a_n)_n$ in konkretno vrednost $\epsilon$, ki zadoščata
-  pogoju, denimo $a_n = 2 + n$ in $\epsilon = 1$. Res, če je $m \in
-  \NN$ poljuben, lahko vzamemo kar $n = m$, saj potem velja $a_n = a_m
-  = 2 + m > 1 = \epsilon$.
+\begin{vaja}
+  S pravili sklepanja za ekvivalenco dokažite refleksivnost, simetričnost in tranzitivnost ekvivalence.
+  Kako bi dokazali pravilo zamenjave? Upoštevajte, da smemo zamenjati izjavo z njej ekvivalentno kjerkoli, tudi znotraj druge izjave.
+\end{vaja}
 
-  Pričujoči primer smo zapisali zelo podrobno. Izkušeni matematik tega
-  seveda ne bo pisal, saj bo izračunal negacijo prvotne izjave kar v
-  glavi in takoj podal primer zaporedja, ki dokazuje, da prvotna
-  izjava ne velja.
-\end{zgled}
+\paragraph*{Reševanje enačb}
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-\subsection{Brez izgube za splošnost}
-
-Fraza \nls{brez izgube za splošnost \dots} nakazuje, da dokaz obravnava le poseben primer, iz katerega sledi cilj, oziroma je preostanek dokaza zelo podoben posebnemu primeru. Bralec mora sam razbrati, zakaj je tako.
-Podajmo primer.
-
-\begin{trditev}
-  \label{izrek:abc-vsota-razlik-soda}
-  Za vsa cela števila $a$, $b$ in $c$ je $|a-b|+|b-c|+|c-a|$ sodo število.
-\end{trditev}
-
-\begin{proof}
-  Brez izgube za splošnost smemo predpostaviti $a \geq b \geq c$.
-  Tedaj velja
-  %
-  \begin{equation*}
-    |a-b| + |b-c| + |c-a| = (a - b) + (b - c) - (c - a) = 2 (a - c),
-  \end{equation*}
-  %
-  kar je sodo število.
-\end{proof}
-
-Za začetnika je najtežje dognati, katere so preostale možnosti in zakaj jih je pisec
-dokaza pravzaprav izpustil. Avtor zgornjega dokaza je verjetno opazil, da števila $a$, $b$ in $c$ v izrazu $|a-b|+|b-c|+|c-a|$ nastopajo \emph{simetrično}: če jih premešamo, se izraz ne spremeni.
-Denimo, ko zamenjamo $a$ in $b$, dobimo $|b-a|+|a-c|+|c-b|$, kar je
-enako prvotnemu izrazu $|a-b|+|b-c|+|c-a|$. Torej lahko izmed šestih
-možnosti
-%
-\begin{xalignat*}{3}
-  & a \geq b \geq c,&
-  & a \geq c \geq b,&
-  & b \geq a \geq c,\\
-  & b \geq c \geq a,&
-  & c \geq a \geq b,&
-  & c \geq b \geq a
-\end{xalignat*}
-%
-obravnavamo le eno. Seveda pisanje dokazov, pri katerih večji del
-dokaza opustimo, zahteva pazljivost in nekaj izkušenj.
-
-\section{Enakost in reševanje enačb}
-\label{sec:enakost}
-
-
-Poleg tega poznamo še pravila o zamenjavi:
-%
-\begin{itemize}
-\item \textbf{zamenjava enakih izrazov}: izraz lahko vedno zamenjamo z njim enakim,
-\item \textbf{zamenjava ekvivalentnih izjav}: izjavo vedno lahko zamenjamo z njej ekvivalentno.
-\end{itemize}
-
-Enakost $=$ je osnovna relacija, ki zadošča naslednjim aksiomom in
-pravilom sklepanja:
-%
-\begin{mathpar}
-  \inferrule{ }{a = a}
-  \and
-  \inferrule{a = b}{b = a}
-  \and
-  \inferrule{a = b \\ b = c}{a = c}
-  \and
-  \inferrule{\phi(a) \\ a = b}{\phi(b)}
-\end{mathpar}
-%
-Po vrsti so to pravila \emph{refleksivnosti}, \emph{simetričnosti},
-\emph{tranzitivnosti} in \emph{zamenjave}. Zaenkrat enakosti ne bomo
-posvečali posebne pozornosti, saj jo v praksi študenti dobro
-obvladajo.
-
-\subsection{Reševanje enačb}
-
-V osnovni in srednji šoli se učimo pravil za reševanje enačb: enačbi
-smemo na obeh straneh prišteti ali odšteti poljuben izraz, pomnožiti
-ali deliti smemo s poljubnim \emph{neničelnim} izrazom, ipd. Od kod
-izhajajo ta pravila? Kaj sploh pomeni, da smo enačbo ">rešili"<? Ko
-rešimo kvadratno enačbo
+V osnovni in srednji šoli nas učijo, da smemo na obeh straneh enačbe prišteti ali odšteti poljuben izraz, pomnožiti ali deliti smemo s poljubnim neničelnim izrazom, ipd. Od kod
+izhajajo ta pravila? In kaj pomeni, da smo enačbo ">rešili"<? Rešitev enačbe
 %
 \begin{equation*}
   x^2 - 5 x + 6 = 0
 \end{equation*}
 %
-običajno zapišemo rešitev takole:
+običajno zapišemo takole:
 %
 \begin{equation*}
-  x_1 = 2, \quad x_2 = 3.
+  x_1 = 2, \qquad x_2 = 3.
 \end{equation*}
 %
 Kako naj to razumemo s stališča matematične logike? Treba je
 pojasniti dvoje: kaj pomenita $x_1$ in $x_2$, saj v prvotni enačbi
 nastopa spremenljivka $x$, ter kako naj razumemo vejico med izjavama
-$x_1 = 2$ in $x_2 = 3$. Z indeksoma $1$ in $2$ štejemo rešitve enačbe
+$x_1 = 2$ in $x_2 = 3$. Z indeksoma~$1$ in~$2$ štejemo rešitve enačbe
 in sta v resnici nepotrebna,\footnote{Kako pa bi zapisali rešitve
   enačbe $x_1^2 - 5 x_1 + 6 = 0$?} na kar kaže tudi dejstvo, da
 pišemo $x = \ldots$ in ne $x_1 = \ldots$, kadar je rešitev ena sama.
@@ -1250,12 +909,12 @@ Začetna enačba in tako zapisana rešitev sta logično ekvivalentni:
 \end{equation*}
 %
 Povzemimo: reševanje enačbe je postopek, s katerim dano enačbo $f(x) =
-g(x)$ prevedemo v njen \emph{logično ekvivalentno} obliko $x = a_1
+g(x)$ prevedemo v njeno \emph{logično ekvivalentno} obliko $x = a_1
 \lor x = a_2 \lor \cdots \lor x = a_n$, iz katere so neposredno razvidne
 rešitve enačbe.
 
 Pravila za reševanje enačb torej niso nič drugega kot recepti, s
-pomočjo katerih enačbo predelamo v njen \emph{ekvivalentno} obliko, ki
+pomočjo katerih enačbo predelamo v njeno \emph{ekvivalentno} obliko, ki
 je korak bližje končni obliki, v kateri bi radi zapisali rešitev. To
 pojasnjuje srednješolska pravila za reševanje enačb. Na primer, za
 realna števila $a, b, c \in \RR$ vedno velja
@@ -1275,792 +934,397 @@ reševanju enačb potrebujemo implikacijo v obe smeri, srednješolce
 učimo, da smejo enačbo množiti samo z od nič različnimi števili.
 
 \begin{vaja}
-  Kako bi srednješolcem pojasnil, od kod izvira pravilo za množenje
-  enačbe z neničelnim številom?
+  Ali smemo obe strani enačbe kvadrirati?
 \end{vaja}
 
 \begin{vaja}
-  Enačbo $f(x) = g(x)$ smo ">rešili"< z zaporedjem korakov
+  Denimo, da v postopku reševanja enačbe pomotoma naredimo korak,
+  ki ni ekvivalenca, ampak le implikacija:
   %
   \begin{align*}
-    f(x) = g(x) &\liff \\
     f_1(x) = g_1(x) &\liff \\
     \vdots & \\
-    f_k(x) = g_k(x) &\lthen \\
+    f_k(x) = g_k(x) &\lthen \tag{napačen korak}\\
     f_{k+1}(x) = g_{k+1}(x) &\liff \\
     \vdots & \\
-    x = a_1 \lor \cdots \lor x = a_n
+    x = a_1 \lor \cdots \lor x = a_n&
   \end{align*}
   %
-  kjer smo v $(k+1)$-tem koraku namesto ekvivalence pomotoma naredili
-  implikacijo. Smo s tem dobili preveč ali premalo rešitev prvotne
-  enačbe?
+  Smo dobili preveč ali premalo rešitev prvotne enačbe?
 \end{vaja}
 
-\dodatniRazdelek{Formalna pravila sklepanja}
-\label{sec:formalna-pravila}
 
-\subsection{Zapis pravil sklepanja}
+\section{Pravilo o izključenem tretjem}
+\label{sec:lem}
 
-Povedali smo že, da je dokaz utemeljitev neke matematične izjave. V
-razdelku~\ref{sec:kaj-je-dokaz} smo govorili o tem, da so dokazi
-mešanica besedila in simbolov, ki jih matematiki uporabljajo tako za
-utemeljitev matematičnih izjav, kakor tudi za razlago in podajanje
-matematičnih idej. V tem razdelku se posvetimo \textbf{formalnim
-  dokazom}, ki so logične konstrukcije, namenjene mehanskemu
-preverjanju pravilnosti izjav.
-
-Za vsako logično operacijo bomo podali \textbf{formalna pravila
-  sklepanja}, ki jih smemo uporabljati v formalnem dokazu. Pravilo
-sklepanja shematsko zapišemo
+Pravilo o izključenem tretjem se glasi:
 %
 \begin{equation*}
-  \inferrule{\phi \\ \psi \\ \rho}{\sigma}
+  \nls{Za vsako izjavo $\phi$ velja $\phi \lor \neg\phi$.}
 \end{equation*}
 %
-in ga preberemo: ">Če smo dokazali $\phi$, $\psi$ in $\rho$, smemo
-sklepati $\sigma$."< Izjavam nad črto pravimo \textbf{hipoteze}, izjavi
-pod črto pa \textbf{sklep}. Hipotez je lahko nič ali več, sklep mora
-biti natanko en. Pravilo sklepanja brez hipotez se imenuje
-\textbf{aksiom}.
+Se pravi, da je vsaka izjava bodisi resnična bodisi neresnična.
+%
+Torej ni ">tretje možnosti"< za resničnostno vrednost izjave $\phi$,
+od koder izhaja ime pravila.
 
-Da bomo lahko pojasnili, kaj je dokaz, podajmo pravila sklepanja za
-$\top$ in $\land$, ki jih bomo v naslednjem razdelku še enkrat bolj
-pozorno obravnavali:
+Pravilo o izključenem tretjem omogoča \emph{posredne} dokaze izjav, od
+katerih je najbolj znano \df{dokazovanje s protislovjem}:
 %
-\begin{mathpar}
-  \inferrule{\quad}{\top}
-  %
-  \and
-  %
-  \inferrule
-  {\phi \\ \psi}
-  {\phi \land \psi}
-  %
-  \and
-  %
-  \inferrule
-  {\phi \land \psi}
-  {\phi}
-  %
-  \and
-  %
-  \inferrule
-  {\phi \land \psi}
-  {\psi}  
-\end{mathpar}
+\begin{center}
+  \begin{boxedProof}
+    \begin{boxFrame}
+      \boxLine{Dokažimo $\phi$ s protislovjem:}
+      \boxLine[1]{Predpostavimo $\neg\phi$.}
+      \boxLine[1]{Dokažimo~$\bot$:}
+      \boxLine[2]{\brac{dokaz $\bot$}}
+    \end{boxFrame}
+  \end{boxedProof}
+\end{center}
 %
-Po vrsti beremo:
+Dokaz s protislovjem sloni na dejstvu, da lahko dokažemo $\neg\neg\phi \lthen \phi$, vendar pri tem potrebujemo pravilo o izključenem tretjem:
 %
-\begin{itemize}
-\item Velja $\top$.
-\item Če velja $\phi$ in $\psi$, smemo sklepati $\phi \land \psi$.
-\item Če velja $\phi \land \psi$, smemo sklepati $\phi$.
-\item Če velja $\phi \land \psi$, smemo sklepati $\psi$.
-\end{itemize}
+\begin{center}
+  \begin{boxedProof}[numbered]
+    \begin{boxFrame}
+      \boxLine{Dokažimo $\neg\neg\phi \lthen \phi$:}
+      \boxLine[1]{Predpostavimo $\neg\neg\phi$.\label{box:lem-dvojna-1}}
+      \boxLine[1]{Dokažimo $\phi$:}
+      \boxLine[2]{Ker velja $\phi \lor \neg\phi$, obravnavamo dva primera:}
+      \begin{boxNested}[2]
+        \boxLine{Predpostavimo $\phi$.\label{box:lem-dvojna-2}}
+        \boxLine{Dokažimo $\phi$:}
+        \boxLine[1]{Zaradi~\boxRef{box:lem-dvojna-2} velja $\phi$.}
+      \end{boxNested}
+      \begin{boxNested}[2]
+        \boxLine{Predpostavimo $\neg\phi$.\label{box:lem-dvojna-3}}
+        \boxLine{Dokažimo $\phi$:}
+        \boxLine[1]{Zaradi~\boxRef{box:lem-dvojna-3} in~\boxRef{box:lem-dvojna-1} velja $\bot$.\label{box:lem-dvojna-4}}
+        \boxLine[1]{Zaradi~\boxRef{box:lem-dvojna-4} velja $\phi$.}
+      \end{boxNested}
+    \end{boxFrame}
+  \end{boxedProof}
+\end{center}
 %
-Formalni dokaz ima drevesno obliko in prikazuje, kako iz danih
-\textbf{hipotez} dokažemo neko izjavo. Pri dnu je zapisana izjava,
-ki jo dokazujemo, nad njo pa dokaz. Vsako vejišče je uporaba enega od
-pravil sklepanja. Vsaka veja se mora zaključiti z aksiomom ali s hipotezo.
-Oglejmo si dokaz izjave $(\alpha \land \alpha) \land (\top
-\land \beta)$ iz hipoteze $\beta \land \alpha$:
+Velja tudi obrat: pravilo o izključenem tretjem lahko izpeljemo z dokazom s protislovjem:
 %
-\begin{equation*}
-  \inferrule{
-    \inferrule{
-      \inferrule{\beta \land \alpha}{\alpha}
-      \\
-      \inferrule{\beta \land \alpha}{\alpha}}
-      {\alpha \land \alpha}
-    \\
-    \inferrule{
-      \inferrule{ }{\top}
-      \\
-      \inferrule{\beta \land \alpha}{\beta}
-    }{\top \land \beta}
-  }{(\alpha \land \alpha) \land (\top \land \beta)}
-\end{equation*}
-%
-Dokaz se razveji na dve veji, vsaka od njiju pa še na dve veji. Tako
-pri vrhu dobimo štiri liste, od katerih so trije izjave $\beta \land
-\alpha$ in eden aksiom za $\top$.
+\begin{center}
+  \begin{boxedProof}[numbered]
+    \begin{boxFrame}
+      \boxLine{Dokažimo $\phi \lor \neg\phi$ s protislovjem:}
+      \boxLine[1]{Predpostavimo $\neg (\phi \lor \neg\phi)$.\label{box:lem-tretja-1}}
+      \boxLine[1]{Dokažimo $\bot$:}
+      \boxLine[2]{Velja $\phi \lor \neg\phi$:\label{box:lem-tretja-5}}
+      \begin{boxNested}[2]
+        \boxLine{Dokažimo desni disjunkt $\neg\phi$:}
+        \boxLine[1]{Predpostavimo $\phi$.\label{box:lem-tretja-2}}
+        \boxLine[1]{Dokažimo $\bot$:}
+        \boxLine[2]{Zaradi~\boxRef{box:lem-tretja-2} velja $\phi \lor \neg\phi$.\label{box:lem-tretja-3}}
+        \boxLine[2]{Zaradi~\boxRef{box:lem-tretja-3} in~\boxRef{box:lem-tretja-1} velja $\bot$.}
+      \end{boxNested}
+      \boxLine[2]{Zaradi~\boxRef{box:lem-tretja-5} in~\boxRef{box:lem-tretja-1} velja $\bot$.}
+    \end{boxFrame}
+  \end{boxedProof}
+\end{center}
 
-\begin{vaja}
-  Preveri, da je vsako vejišče v zgornjem dokazu res uporaba enega od
-  zgoraj podanih pravil sklepanja.
-\end{vaja}
+Pravilo o izključenem tretjem omogoča še nekatere druge načine dokazovanja izjav.
+Najprej, implikacijo $\phi \lthen \psi$ smemo zamenjati s \df{kontrapozicijo} $\neg \psi \lthen \neg \phi$, saj sta ekvivalentni.
+%
+V eno smer dokaz ekvivalence poteka takole:
+%
+\begin{center}
+  \begin{boxedProof}[numbered]
+    \begin{boxFrame}
+      \boxLine{Dokažimo $(\phi \lthen \psi) \lthen (\neg\psi \lthen \neg\phi)$:}
+      \boxLine[1]{Predpostavimo $\phi \lthen \psi$.\label{box:kontrapozicija-1}}
+      \boxLine[1]{Dokažimo $\neg\psi \lthen \neg\phi$:}
+      \boxLine[2]{Predpostavimo $\neg\psi$.\label{box:kontrapozicija-2}}
+      \boxLine[2]{Dokažimo $\neg\phi$:}
+      \boxLine[3]{Predpostavimo $\phi$.\label{box:kontrapozicija-3}}
+      \boxLine[3]{Dokažimo $\bot$:}
+      \boxLine[4]{Zaradi~\boxRef{box:kontrapozicija-1} in~\boxRef{box:kontrapozicija-3} velja $\psi$.\label{box:kontrapozicija-4}}
+      \boxLine[4]{Zaradi~\boxRef{box:kontrapozicija-4} in~\boxRef{box:kontrapozicija-2} velja $\bot$.}
+    \end{boxFrame}
+  \end{boxedProof}
+\end{center}
+%
+V drugo smer potrebujemo dokaz s protislovjem:
+%
+\begin{center}
+  \begin{boxedProof}[numbered]
+    \begin{boxFrame}
+      \boxLine{Dokažimo $(\neg\psi \lthen \neg\phi) \lthen (\phi \lthen \psi)$:}
+      \boxLine[1]{Predpostavimo $\neg\psi \lthen \neg\phi$.\label{box:kontrapozicija-5}}
+      \boxLine[1]{Dokažimo $\phi \lthen \psi$:}
+      \boxLine[2]{Predpostavimo $\phi$.\label{box:kontrapozicija-6}}
+      \boxLine[2]{Dokažimo $\psi$ s protislovjem:}
+      \boxLine[3]{Predpostavimo $\neg\psi$.\label{box:kontrapozicija-7}}
+      \boxLine[3]{Dokažimo $\bot$:}
+      \boxLine[4]{Zaradi~\boxRef{box:kontrapozicija-5} in~\boxRef{box:kontrapozicija-7} velja $\neg\phi$.\label{box:kontrapozicija-8}}
+      \boxLine[4]{Zaradi~\boxRef{box:kontrapozicija-6} in~\boxRef{box:kontrapozicija-8} velja $\bot$.}
+    \end{boxFrame}
+  \end{boxedProof}
+\end{center}
+%
+Dalje, disjunkcijo $\phi \lor \psi$ smemo zamenjati z implikacijo $\neg \phi \lthen \psi$.
+%
+Ekvivalenco $(\phi \lor \psi) \liff (\neg\phi \lthen \psi)$ v eno smer dokažemo takole:
+%
+\begin{center}
+  \begin{boxedProof}[numbered]
+    \begin{boxFrame}
+      \boxLine{Dokažimo $(\phi \lor \psi) \lthen (\neg\phi \lthen \psi)$:}
+      \boxLine[1]{Predpostavimo $\phi \lor \psi$.\label{box:disjunkcija-implikacija-1}}
+      \boxLine[1]{Dokažimo $\neg\phi \lthen \psi$:}
+      \boxLine[2]{Predpostavimo $\neg\phi$.\label{box:disjunkcija-implikacija-2}}
+      \boxLine[2]{Dokažimo $\psi$:}
+      \boxLine[3]{Uporabimo~\boxRef{box:disjunkcija-implikacija-1} in obravnavamo dva primera:}
+      \begin{boxNested}[3]
+        \boxLine{Predpostavimo $\phi$.\label{box:disjunkcija-implikacija-3}}
+        \boxLine{Dokažimo $\psi$:}
+        \boxLine[1]{Zaradi~\boxRef{box:disjunkcija-implikacija-3} in~\boxRef{box:disjunkcija-implikacija-2} velja $\bot$.\label{box:disjunkcija-implikacija-4}}
+        \boxLine[1]{Zaradi~\boxRef{box:disjunkcija-implikacija-4} velja $\psi$.}
+      \end{boxNested}
+      \begin{boxNested}[3]
+        \boxLine{Predpostavimo $\psi$.\label{box:disjunkcija-implikacija-5}}
+        \boxLine{Dokažimo $\psi$:}
+        \boxLine[1]{Zaradi~\boxRef{box:disjunkcija-implikacija-5} velja $\psi$.}
+      \end{boxNested}
+    \end{boxFrame}
+  \end{boxedProof}
+\end{center}
+%
+V drugo smer potrebujemo pravilo o izključenem tretjem:
+%
+\begin{center}
+  \begin{boxedProof}[numbered]
+    \begin{boxFrame}
+      \boxLine{Dokažimo $(\neg\phi \lthen \psi) \lthen (\phi \lor \psi)$:}
+      \boxLine[1]{Predpostavimo $\neg\phi \lthen \psi$.\label{box:disjunkcija-implikacija-6}}
+      \boxLine[1]{Dokažimo $\phi \lor \psi$:}
+      \boxLine[2]{Ker velja $\phi \lor \neg\phi$, obravnavamo dva primera:}
+      \begin{boxNested}[2]
+        \boxLine{Predpostavimo $\phi$.\label{box:disjunkcija-implikacija-7}}
+        \boxLine{Dokažimo $\phi \lor \psi$:}
+        \boxLine[1]{Dokažimo levi disjunkt $\phi$:}
+        \boxLine[2]{Zaradi~\boxRef{box:disjunkcija-implikacija-7} velja $\phi$.}
+      \end{boxNested}
+      \begin{boxNested}[2]
+        \boxLine{Predpostavimo $\neg\phi$.\label{box:disjunkcija-implikacija-8}}
+        \boxLine{Dokažimo $\phi \lor \psi$:}
+        \boxLine[1]{Dokažimo desni disjunkt $\psi$:}
+        \boxLine[2]{Zaradi~\boxRef{box:disjunkcija-implikacija-6} in~\boxRef{box:disjunkcija-implikacija-8} velja $\psi$.}
+      \end{boxNested}
+    \end{boxFrame}
+  \end{boxedProof}
+\end{center}
 
-V praksi matematično besedilo bolj ali manj odraža strukturo
-formalnega dokaza, le da se besedilo ne veji, ampak so sestavni kosi
-dokaza zloženi v zaporedje. Formalni dokazi so uporabni, kadar želimo
-preveriti veljavnost najbolj osnovnih logičnih dejstev. Ni mišljeno,
-da bi matematiki pisali ali preverjali velike formalne dokaze
-pomembnih matematičnih izrekov, to je delo za računalnike. Formalna
-pravila sklepanja in formalni dokazi so za matematike pomembni, ker
-nam omogočajo, da natančno in v celoti povemo, kakšna so ">pravila
-igre"< v matematiki.
+Pravilo o izključenem tretjem je koristno tudi za poenostavljanje negacij
+s pomočjo naslednjih ekvivalenc, ki povedo, kako~$\lnot$ ">porinemo"< v izjavo:
+%
+\begin{align*}
+  \lnot (\phi \land \psi) &\iff \lnot\phi \lor \lnot\psi \\
+  \lnot (\phi \lor \psi) &\iff \lnot\phi \land \lnot\psi \\
+  \lnot (\phi \lthen \psi) &\iff \phi \land \lnot\psi \\
+  \lnot (\lnot \phi) &\iff \phi \\
+  \lnot (\all{x \in S} \phi(x)) &\iff \some{x \in S} \lnot\phi(x) \\
+  \lnot (\some{x \in S} \phi(x)) &\iff \all{x \in S} \lnot\phi(x)
+\end{align*}
+%
+Dokažimo le predzadnjo ekvivalenco, ostale pa prepustimo za vajo (zadnja ekvivalenca velja brez uporabe izključenega tretjega).
+%
+V eno smer dokaz poteka takole:
+%
+\begin{center}
+  \begin{boxedProof}[numbered]
+    \begin{boxFrame}
+      \boxLine{Dokažimo $(\some{x \in S} \lnot\phi(x)) \lthen \lnot (\all{x \in S} \phi(x))$:}
+      \boxLine[1]{Predpostavimo $\some{x \in S} \lnot\phi(x)$.\label{box:negacija-vsak-1}}
+      \boxLine[1]{Dokažimo $\lnot (\all{x \in S} \phi(x))$:}
+      \boxLine[2]{Predpostavimo $\all{x \in S} \phi(x)$.\label{box:negacija-vsak-2}}
+      \boxLine[2]{Dokažimo $\bot$:}
+      \boxLine[3]{Zaradi~\boxRef{box:negacija-vsak-1} imamo $x \in S$ in $\lnot\phi(x)$.\label{box:negacija-vsak-3}}
+      \boxLine[3]{Zaradi~\boxRef{box:negacija-vsak-3} velja $x \in S$.\label{box:negacija-vsak-4}}
+      \boxLine[3]{Zaradi~\boxRef{box:negacija-vsak-3} velja $\lnot\phi(x)$.\label{box:negacija-vsak-5}}
+      \boxLine[3]{Zaradi~\boxRef{box:negacija-vsak-2} in~\boxRef{box:negacija-vsak-4} velja $\phi(x)$.\label{box:negacija-vsak-6}}
+      \boxLine[3]{Zaradi~\boxRef{box:negacija-vsak-6} in~\boxRef{box:negacija-vsak-5} velja $\bot$.}
+    \end{boxFrame}
+  \end{boxedProof}
+\end{center}
+%
+V drugo smer potrebujemo dokaz s protislovjem:
+%
+\begin{center}
+  \begin{boxedProof}[numbered]
+    \begin{boxFrame}
+      \boxLine{Dokažimo $\lnot (\all{x \in S} \phi(x)) \lthen \some{x \in S} \lnot\phi(x)$:}
+      \boxLine[1]{Predpostavimo $\lnot (\all{x \in S} \phi(x))$.\label{box:negacija-vsak-7}}
+      \boxLine[1]{Dokažimo $\some{x \in S} \lnot\phi(x)$ s protislovjem:}
+      \boxLine[2]{Predpostavimo $\lnot (\some{x \in S} \lnot\phi(x))$.\label{box:negacija-vsak-8}}
+      \boxLine[2]{Dokažimo $\bot$:}
+      \boxLine[3]{Velja $\all{x \in S} \phi(x)$:\label{box:negacija-vsak-9}}
+      \begin{boxNested}[3]
+        \boxLine{Naj bo $x \in S$.\label{box:negacija-vsak-10}}
+        \boxLine{Dokažimo $\phi(x)$ s protislovjem:}
+        \boxLine[1]{Predpostavimo $\lnot\phi(x)$.\label{box:negacija-vsak-11}}
+        \boxLine[1]{Dokažimo $\bot$:}
+        \boxLine[2]{Zaradi~\boxRef{box:negacija-vsak-10} in~\boxRef{box:negacija-vsak-11} velja $\some{x \in S} \lnot\phi(x)$.\label{box:negacija-vsak-12}}
+        \boxLine[2]{Zaradi~\boxRef{box:negacija-vsak-12} in~\boxRef{box:negacija-vsak-8} velja $\bot$.}
+      \end{boxNested}
+      \boxLine[3]{Zaradi~\boxRef{box:negacija-vsak-9} in~\boxRef{box:negacija-vsak-7} velja $\bot$.}
+    \end{boxFrame}
+  \end{boxedProof}
+\end{center}
 
-\subsection{Konjunkcija}
+Posrednih načinov dokazovanja, ki smo jih predstavili tu, se poslužujemo le, ko neposredni dokaz ni možen ali pa je zapleten, saj nam ne povedo prav veliko o dokazani izjavi. Na primer, v neposrednem dokazu izjave $\some{x \in A} \phi(x)$ podamo element~$a \in A$, ki zadošča $\phi(a)$, s posrednim dokazom ekvivalentne izjave $\neg \all{x \in A} \neg\phi(x)$ pa samo dokažemo, da ni možno, da tak element ne bi obstajal.
 
-\label{sec:konjunkcija}
-
-Konjunkcija ima eno pravilo vpeljave in dve pravili uporabe:
-%
-\begin{mathpar}
-  \inferrule
-  {\phi \\ \psi}
-  {\phi \land \psi}
-  \and
-  \inferrule
-  {\phi \land \psi}
-  {\phi}  
-  %
-  \and
-  %
-  \inferrule
-  {\phi \land \psi}
-  {\psi}
-\end{mathpar}
-%
-Pravilo vpeljave pove, da konjunkcijo $\phi \land \psi$ dokažemo
-tako, da dokažemo posebej $\phi$ in posebej $\psi$. Pravili uporabe pa
-povesta, da lahko $\phi \land \psi$ ">razstavimo"< na izjavi~$\phi$
-in~$\psi$.
-
-V matematičnem besedilu je dokaz konjunkcije $\phi \land \psi$ zapisan
-kot zaporedje dveh pod-dokazov:
-%
-\begin{quote}
-  \it 
-  %
-  Dokazujemo $\phi \land \psi$:
-  \begin{enumerate}
-  \item (Dokaz $\phi$)
-  \item (Dokaz $\psi$)
-  \end{enumerate}
-  Dokazali smo $\phi \land \psi$.
-\end{quote}
-%
-Manj podroben dokaz ne vsebuje začetnega in končnega stavka, ampak
-samo dokaza za $\phi$ in $\psi$. Bralec mora sam ugotoviti, da je s
-tem dokazana izjava $\phi \land \psi$.
-
-\subsection{Implikacija}
-
-\label{sec:implikacija}
-
-Preden zapišemo pravila sklepanja za implikacijo, si oglejmo primer
-neformalnega dokaza.
-
-\begin{izrek}
-  Če je $x > 2$, potem je $x^3 + x + 7 > 16$.
-\end{izrek}
-
-\begin{proof}
-  Predpostavimo, da velja $x > 2$. Tedaj je $x^3 > 2^3 = 8$, zato
-  velja
-  %
-  \begin{equation*}
-    x^3 + x + 7 > 8 + 2 + 7 = 17 > 16.
-  \end{equation*}
-  %
-  Dokazali smo $x > 2 \lthen x^3 + x + 7 > 16$.
-\end{proof}
-
-\noindent
-%
-Prvi stavek dokaza z besedico ">predpostavimo"< uvede \textbf{začasno
-  hipotezo} $x > 2$, iz katere nato izpeljemo posledico $x^3 + x + 7 >
-16$. Implikacijo $\phi \lthen \psi$ torej dokažemo tako, da začasno
-predpostavimo $\phi$ in dokažemo $\psi$. Tako pravilo vpeljave
-zapišemo
-%
-\begin{equation*}
-  \inferrule{\izpeljava{[\phi]}{\psi}}{\phi \lthen \psi}  
-\end{equation*}
-%
-Zapis $[\phi]$ z oglatimi oklepaji pomeni, da $\phi$ ni prava, ampak
-samo začasna hipoteza. Zapis
-%
-\begin{equation*}
-  \izpeljava{[\phi]}{\psi}
-\end{equation*}
-%
-pomeni ">dokaz izjave $\psi$ s pomočjo začasne hipoteze $\phi$."<
-
-Pravilo uporabe za implikacijo se imenuje \textbf{modus ponens} in se
-glasi
-%
-\begin{mathpar}
-  \inferrule{\phi \lthen \psi \\ \phi}{\psi}
-\end{mathpar}
-%
-V matematičnem besedilu se modus ponens pojavi kot uporaba že prej
-dokazanega izreka oblike $\phi \lthen \psi$.
-
-\subsection{Disjunkcija}
-
-\label{sec:disjunkcija}
-
-Disjunkcija ima dve pravili vpeljave in eno pravilo uporabe:
-%
-\begin{mathpar}
-  \inferrule
-  {\phi}
-  {\phi \lor \psi}
-  \and
-  \inferrule
-  {\psi}
-  {\phi \lor \psi}
-  \and
-  \inferrule
-  {\phi \lor \psi \\ \izpeljava{[\phi]}{\rho} \\ \izpeljava{[\psi]}{\rho}}
-  {\rho}
-\end{mathpar}
-%
-Pravili vpeljave povesta, da lahko dokažemo disjunkcijo $\phi \lor
-\psi$ tako, da dokažemo enega od disjunktov.
-
-Pojasnimo še pravilo uporabe. Denimo, da bi radi dokazali $\rho$, pri
-čemer že vemo, da velja $\phi \lor \psi$. Pravilo uporabe pravi, da je
-treba obravnavati dva primera: iz začasne hipoteze $\phi$ je treba
-dokazati $\rho$ in iz začasne hipoteze $\psi$ je treba dokazati
-$\rho$.
-
-Ponazorimo pravilo uporabe v dokazu izjave $(\alpha \lor \gamma) \land
-(\beta \lor \gamma)$ iz hipoteze $(\alpha \land \beta) \lor \gamma$.
-Dokazno drevo je precej veliko, v njem pa se dvakrat pojavi uporaba
-disjunkcije:
-%
-\begin{equation*}
-  \inferrule
-  {\inferrule*
-    {\inferrule*{}{(\alpha \land \beta) \lor \gamma}
-      \\
-      \inferrule*{
-        \inferrule
-        {[\alpha \land \beta]}
-        {\alpha}
-      }{\alpha \lor \gamma}
-      \\
-      \inferrule*{[\gamma]}{\alpha \lor \gamma}
-    }
-    {\alpha \lor \gamma}
-    \\
-    \inferrule*
-    {\inferrule*{}{(\alpha \land \beta) \lor \gamma}
-      \\
-      \inferrule*{
-        \inferrule
-        {[\alpha \land \beta]}
-        {\beta}
-      }{\beta \lor \gamma}
-      \\
-      \inferrule*{[\gamma]}{\beta \lor \gamma}
-    }
-    {\beta \lor \gamma}
-  }
-  {(\alpha \lor \gamma) \land (\beta \lor \gamma)}
-\end{equation*}
-%
-Poglejmo na primer levo vejo tega dokaza, desna je podobna:
-%
-\begin{equation*}
-  \inferrule*
-    {\inferrule*{}{(\alpha \land \beta) \lor \gamma}
-      \\
-      \inferrule*{
-        \inferrule
-        {[\alpha \land \beta]}
-        {\alpha}
-      }{\alpha \lor \gamma}
-      \\
-      \inferrule*{[\gamma]}{\alpha \lor \gamma}
-    }
-    {\alpha \lor \gamma}
-\end{equation*}
-%
-Res je to uporaba disjunkcije $\phi \lor \psi$, kjer smo vzeli $\phi =
-\alpha \land \beta$ in $\psi = \gamma$, dokazali pa smo izjavo $\rho =
-\alpha \lor \gamma$.
-
-\begin{vaja}
-  Iz hipoteze $(\alpha \lor \gamma) \land (\beta \lor \gamma)$ dokaži
-  $(\alpha \land \beta) \lor \gamma$.
-\end{vaja}
-
-V besedilu dokažemo disjunkcijo s pravilom za vpeljavo takole:
-%
-\begin{quote}
-  \it
-  %
-  Dokazujemo $\phi \lor \psi$. Zadostuje dokazati $\phi$:
-  \begin{enumerate}
-  \item[] (Dokaz $\phi$.)
-  \end{enumerate}
-  %
-  Dokazali smo $\phi \lor \psi$.
-\end{quote}
-%
-Pravilo uporabe disjunkcije se v besedilu zapiše kot obravnava
-primerov:
-%
-\begin{quote}
-  \it
-  %
-  Dokazujemo $\rho$. To bomo dokazali z obravnavo primerov $\phi$ in
-  $\psi$:
-  \begin{enumerate}
-  \item (Dokaz $\phi \lor \psi$)
-  \item Predpostavimo, da velja $\phi$. (Dokaz $\rho$)
-  \item Predpostavimo, da velja $\psi$. (Dokaz $\rho$)
-  \end{enumerate}
-  %
-  Dokazali smo $\rho$.
-\end{quote}
-%
-Še primer konkretnega dokaza, ki je tako napisan.
-
-\begin{izrek}
-  \label{izrek:x-3-5}
-  Naj bo $x$ realno število. Če je $|x - 3| > 5$, potem je $x^4 > 15$.
-\end{izrek}
-
-\begin{proof}
-  Dokazujemo $|x - 3| > 5 \lthen x^4 > 15$. Predpostavimo $|x - 3| > 5$
-  in dokažimo $x^4 > 15$. To bomo dokazali z obravnavo primerov $x \leq
-  3$ in $x \geq 3$:
-  %
-  \begin{enumerate}
-  \item $x \leq 3 \lor x \geq 3$ velja, ker so realna števila linearno
-    urejena z relacijo $\leq$.
-  \item Predpostavimo $x \leq 3$. Tedaj je $x - 3 \leq 0$ in zato $|x
-    - 3| = 3 - x$, od koder sledi $3 - x = |x - 3| > 5$, oziroma $x <
-    -2$. Tako dobimo
-    %
-    \begin{equation*}
-      x^4 > (-2)^4 = 16 > 15.
-    \end{equation*}
-  \item Predpostavimo $x \geq 3$. Tedaj je $x - 3 \geq 0$ in zato $|x -
-    3| = x - 3$, od koder sledi $x - 3 = |x - 3| > 5$, oziroma $x >
-    8$. Tako dobimo
-    %
-    \begin{equation*}
-      x^4 > 8^4 = 4096 > 15.
-    \end{equation*}
-  \end{enumerate}
-  %
-  Iz predpostavke $|x - 3| > 5$ smo izpeljali $x^4 > 15$. S tem smo
-  dokazali $|x - 3| > 5 \lthen x^4 > 15$.
-\end{proof}
-
-Težji del tega dokaza se skriva v izbiri disjunkcije. Kako je pisec
-uganil, da je treba obravnavati primera $x \leq 3$ in $x \geq 3$?
-Zakaj ni raje obravnaval $x < 3$ in $x \geq 3$ ali morda $x \leq 17$
-in $x \geq 17$? Odgovor se skriva v definiciji absolutne vrednosti:
-%
-\begin{equation*}
-  |a| =
-  \begin{cases}
-    a & \text{če je $a \geq 0$,}\\
-    -a & \text{če je $a \leq 0$.}
-  \end{cases}
-\end{equation*}
-%
-Ker v izreku nastopa izraz $|x - 3|$, bo obravnava primerov $x - 3
-\geq 0$ in $x - 3 \leq 0$ omogočila, da $|x - 3|$ poenostavimo enkrat
-v $x - 3$ in drugič v $3 - x$. Seveda pa je $x - 3 \geq 0$
-ekvivalentno $x \geq 3$ in $x - 3 \leq 0$ ekvivalentno $x \leq 3$.
-
-\begin{vaja}
-  Ali bi lahko izrek~\ref{izrek:x-3-5} dokazali tudi z obravnavo
-  primerov $x < 3$ in $x \geq 3$?
-\end{vaja}
-
-\subsection{Resnica in neresnica}
-
-\label{sec:resnica-neresnica}
-
-Logična konstanta $\top$ označuje resnico. Kar je res, je res, in tega
-ni treba posebej dokazovati. To dejstvo izraža aksiom
-%
-\begin{equation*}
-  \inferrule{\qquad}{\top}
-\end{equation*}
-%
-Logična konstanta $\top$ nima pravila uporabe, ker iz $\top$ ne moremo
-sklepati nič koristnega.
-
-Logična konstanta $\bot$ označuje neresnico. Ker se tega, kar ni res,
-ne more dokazati, $\bot$ nima pravila vpeljave. Pravilo uporabe je
-%
-\begin{equation*}
-  \inferrule{\quad\bot\quad}{\phi}
-\end{equation*}
-%
-in se imenuje \textbf{ex falso (sequitur) quodlibet}, kar pomeni ">iz
-neresnice sledi karkoli"<.
-
-V matematičnem besedilu se $\top$ in $\bot$ ne pojavljata pogosto, ker
-matematiki izraze, v katerih se $\top$ in $\bot$ pojavita, vedno
-poenostavijo s pomočjo ekvivalenc:
-%
-\begin{mathpar}
-  \top \land \phi \liff \phi
-  \and
-  \top \lor \phi \liff \top
-  \and
-  \bot \land \phi \liff \bot
-  \and
-  \bot \lor \phi \liff \phi
-  \\
-  (\top \lthen \phi) \liff \phi
-  \and
-  (\bot \lthen \phi) \liff \top
-  \and
-  (\phi \lthen \top) \liff \top
-\end{mathpar}
-%
-
-\subsection{Ekvivalenca}
-
-\label{sec:ekvivalenca}
-
-Logična ekvivalenca $\phi \liff \psi$ je okrajšava za
-%
-\begin{equation*}
-  (\phi \lthen \psi) \land (\psi \lthen \phi).
-\end{equation*}
-%
-Ker je to konjunkcija (dveh implikacij), so pravila za vpeljavo in
-uporabo ekvivalence samo poseben primer pravil sklepanja za
-konjunkcijo:
-%
-\begin{mathpar}
-  \inferrule
-  {\phi \lthen \psi \\ \psi \lthen \phi}
-  {\phi \liff \psi}
-  \and
-  \inferrule{\phi \liff \psi}{\phi \lthen \psi}
-  \and
-  \inferrule{\phi \liff \psi}{\psi \lthen \phi}
-\end{mathpar}
-%
-V matematičnem besedilu ekvivalenco dokažemo takole:
-%
-\begin{quote}
-  \it
-  %
-  Dokazujemo $\phi \liff \psi$:
-  %
-  \begin{enumerate}
-  \item (Dokaz $\phi \lthen \psi$)
-  \item (Dokaz $\psi \lthen \phi$)
-  \end{enumerate}
-  Dokazali smo $\phi \liff \psi$.
-\end{quote}
-
-Če sta izjavi $\phi$ in $\psi$ logično ekvivalentni, lahko eno
-zamenjamo z drugo. To matematiki s pridom uporabljajo pri dokazovanju
-izjav, čeprav pogosto sploh ne omenijo, katero ekvivalenco so
-uporabili.
-
-Kadar dokazujemo medsebojno ekvivalenco več izjav $\phi_1$,
-$\phi_2$, \ldots, $\phi_n$, zadostuje dokazati cikel implikacij
-%
-\begin{equation*}
-  \phi_1 \lthen \phi_2 \lthen \cdots \lthen \phi_{n-1} \lthen \phi_n \lthen \phi_1.
-\end{equation*}
-%
-(Ne spreglejte zadnje implikacije $\phi_n \lthen \phi_1$, ki zaključi
-cikel.) V besedilu to dokažemo takole:
-
-\begin{quote}
-  \it
-  %
-  Dokazujemo, da so izjave $\phi_1, \phi_2, \ldots, \phi_n$
-  ekvivalentne:
-  %
-  \begin{enumerate}
-  \item (Dokaz $\phi_1 \lthen \phi_2$)
-  \item (Dokaz $\phi_2 \lthen \phi_3$)
-  \item \dots
-  \item (Dokaz $\phi_{n-1} \lthen \phi_n$)
-  \item (Dokaz $\phi_n \lthen \phi_1$)
-  \end{enumerate}
-\end{quote}
-
-\noindent
-%
-Seveda smemo pred samim dokazovanjem izjave $\phi_1, \ldots, \phi_n$
-preurediti tako, da je zahtevane implikacije kar najlažje dokazati.
-Dokaz lahko tudi razdelimo na dva ločena cikla implikacij
-%
-\begin{equation*}
-  \phi_1 \lthen \cdots \lthen \phi_k \lthen \phi_1
-\end{equation*}
-%
-in
-%
-\begin{equation*}
-  \phi_{k+1} \lthen \cdots \lthen \phi_n \lthen \phi_{k+1}
-\end{equation*}
-%
-in nato dokažemo še eno ekvivalenco $\phi_i \liff \phi_j$, pri čemer
-je $\phi_i$ iz prvega in $\phi_j$ iz drugega cikla.
-
-\subsection{Negacija}
-
-\label{sec:negacija}
-
-Negacija $\lnot\phi$ je definirana kot okrajšava za $\phi
-\lthen \bot$. Iz pravil sklepanja za $\lthen$ in $\bot$ tako izpeljemo
-pravili sklepanja za negacijo:
-%
-\begin{mathpar}
-  \inferrule
-  {\izpeljava{[\phi]}{\bot}}
-  {\lnot \phi}
-  %
-  \and
-  %
-  \inferrule
-  {\lnot\phi \\ \phi}
-  {\psi}
-\end{mathpar}
-%
-V besedilu dokazujemo $\lnot\phi$ takole:
-%
-\begin{quote}
-  \it
-  %
-  Dokazujemo $\lnot\phi$.
-  \begin{itemize}
-  \item[] Predpostavimo $\phi$.
-  \item[] (Dokaz $\bot$.)
-  \end{itemize}
-  Dokazali smo $\lnot\phi$.
-\end{quote}
-%
-Tu ">Dokaz $\bot$"< pomeni, da iz danih predpostavk izpeljemo
-protislovje. Mnogi matematiki menijo, da se takemu dokazu reče ">dokaz
-s protislovjem"<, vendar to ni res. To je samo navaden dokaz negacije.
-Dokazovanje s protislovjem bomo obravnavali v razdelku~\ref{sec:lem}.
-
-Pravilo uporabe za $\lnot\phi$ v besedilu ni eksplicitno vidno, ampak
-ga matematiki uporabijo, ko sredi dokaza, da velja $\psi$, izpeljejo
-protislovje:
-%
-\begin{quote}
-  \it
-  %
-  Dokazujemo $\psi$.
-  %
-  \begin{itemize}
-  \item[] (Dokaz $\phi$.)
-  \item[] (Dokaz $\lnot\phi$.)
-  \end{itemize}
-  %
-  To je nesmisel, in ker iz nesmisla sledi karkoli, sledi $\psi$.
-\end{quote}
-
-\subsection{Univerzalni kvantifikator}
-
-\label{sec:univerzalni-kvantifikator}
-
-Univerzalna kvantifikacija $\all{x \in S} \phi$ se prebere ">Za vse $x$
-iz $S$ velja $\phi$."< Pravili sklepanja sta
-%
-\begin{mathpar}
-  \inferrule
-  {\izpeljava{[x \in S]}{\phi(x)}}{\all{x \in S} \phi(x)} \ \text{($x$ svež)}
-  \and
-  \inferrule{\all{x \in S} \phi(x) \\ e \in S}{\phi(e)}
-\end{mathpar}
-%
-pri čemer je $x$ spremenljivka, $\phi(x)$ logična formula in $e$ poljuben izraz.
-
-V besedilu se pravilo vpeljave zapiše:
-%
-\begin{quote}
-  \it
-  %
-  Dokazujemo $\all{x \in S} \phi(x)$:
-  %
-  \begin{itemize}
-  \item[] Naj bo $x \in S$ poljuben.
-  \item[] (Dokaz, da velja $\phi(x)$.)
-  \end{itemize}
-  %
-  Dokazali smo $\all{x \in S} \phi(x)$.
-\end{quote}
-%
-Pravilo uporabe v besedilu ponavadi ni eksplicitno navedeno, če pa bi
-ga že zapisali, bi šlo takole:
-%
-\begin{quote}
-  \it
-  %
-  Dokazujemo, da velja $\phi(e)$:
-  \begin{itemize}
-  \item[] (Dokaz, da velja $\all{x \in S} \phi(x)$.)
-  \item[] (Dokaz, da velja $e \in S$.)
-  \end{itemize}
-  %
-  Torej velja $\phi(e)$.
-\end{quote}
-
-Ob pravilu vpeljave stoji stranski pogoj, da mora biti spremenljivka
-$x$ ">sveža"<. To pomeni, da se $x$ ne sme pojavljati drugje v dokazu,
-saj bi sicer lahko prišlo do zmešnjave med vezanimi in prostimi
-spremenljivkami. V besedilu se dejstvo, da je $x$ svež, izraža z
-besedico ">poljuben"< ali ">katerikoli"<. Primer, kako gredo stvari
-narobe, če ne pazimo in pomešamo spremenljivke:
-
-\begin{izrek}[z napako v dokazu]
-  Če je $x$ večji od~$42$, so vsa realna števila večja od~$23$.
-\end{izrek}
-
-\begin{proof}
-  Denimo, da bi nekoliko nerodno zapisali izrek simbolno takole:
-  %
-  \begin{equation*}
-    x > 42 \lthen \all{x \in \RR} x > 23.
-  \end{equation*}
-  %
-  To je sicer dovoljeno, saj se prosti $x$, ki stoji zunaj $\forall$,
-  ni ujel, ni pa preveč smotrno, ker smo na dobri poti, da bomo
-  zunanji prosti $x$ in vezanega znotraj $\forall$ pomešali. Res, če
-  ne upoštevamo pravila, da mora biti $x$ svež, dobimo tale nepravi
-  ">dokaz"<:
-  %
-  \begin{equation*}
-    \inferrule*
-    {
-      \inferrule*
-      {\inferrule*
-        {[x > 42] \\ 42 > 23}
-        {x > 23}
-      }
-      {\all{x \in \RR} x > 23}
-    }
-    {x > 42 \lthen \all{x \in \RR} x > 23}
-  \end{equation*}
-  %
-  Pri pravilu za vpeljavo $\forall$ smo uporabili spremenljivko $x$,
-  ki pa je že nastopala v začasni hipotezi $x > 42$. Z besedilom bi se
-  isti dokaz glasil takole:
-  %
+\begin{zgled}
+  Pokažimo, kako zgoraj navedene ekvivalence uporabimo, ko dokazujemo negacijo izjave.
+  Denimo, da bi radi ovrgli izjavo
+  % 
   \begin{quote}
-    ">Dokazujemo $x > 42 \lthen \all{x \in \RR} x > 23$. Predpostavimo,
-    da velja $x > 42$, in dokažimo $\all{x \in \RR} x > 23$. Naj bo $x
-    \in \RR$. Po predpostavki je $x > 42$, in ker je $42 > 23$, od tod
-    sledi $x > 23$."<
+    \nls{Vsako zaporedje pozitivnih realnih števil ima limito~$0$.}
   \end{quote}
   %
-  Če bi izrek zapisali bolje kot $x > 42 \lthen \all{y \in \RR} y >
-    23$, težav ne bi bilo, saj bi se prejšnji dokaz ">zataknil"<:
+  Najprej jo zapišemo v simbolni obliki in pred njo postavimo negacijo, saj izjavo ovržemo tako, da dokažemo njeno negacijo:
+  %
+  \begin{equation}
+    \label{eq:pozitivno-limita-0}
+    \neg \all{a \in \RR^{\NN}}{\text{$(a_n)_n$ pozitivno zaporedje}
+      \lthen \text{$0$ je limita zaporedja $(a_n)_n$}}.
+  \end{equation}
+  % 
+  Zgornja pravila za računanje negacije nam povedo, da se
+  $\lnot\forall$ spremeni v $\exists\lnot$ in da se nato implikacija
+  oblike $\phi \lthen \psi$ spremeni v $\phi \land \lnot\psi$. Tako
+  dobimo ekvivalentno obliko~\eqref{eq:pozitivno-limita-0}:
+  % 
+  \begin{equation*}
+    \some{a \in \RR^{\NN}}{\text{$(a_n)_n$ pozitivno zaporedje}
+      \land \lnot (\text{$0$ je limita zaporedja $(a_n)_n$})}.
+  \end{equation*}
+  % 
+  To preberemo z besedami:
+  % 
+  \begin{quote}
+    \nls{Obstaja tako zaporedje $(a_n)_n$, da je $(a_n)_n$ zaporedje
+    pozitivnih števil in da $0$ ni limita zaporedja $(a_n)_n$.}
+  \end{quote}
+  %
+  Če se še malo potrudimo, preberemo bolj razumljivo:
+  % 
+  \begin{quote}
+    \nls{Obstaja tako zaporedje pozitivnih realnih števil, da $0$ ni
+    njegova limita.}
+  \end{quote}
+  %
+  S tem še nismo končali, saj je \nls{Število $0$ ni limita
+  zaporedja $(a_n)_n$} negacija izjave \nls{$0$ je limita zaporedja
+  $(a_n)_n$}, kar v simbolni obliki zapišemo
+  % 
+  \begin{equation}
+    \label{eq:limita-0}
+    \neg \all{\epsilon > 0}
+      \some{m \in \NN}
+        \all{n \geq m}
+          |a_n - 0| < \epsilon.
+  \end{equation}
+  % 
+  Z zgornjimi pravili za negiranje operacijo $\lnot$ postopoma ">porivamo"<
+  navznoter:
+  % 
+  % 
+  \begin{align*}
+    \lnot \all{\epsilon > 0} \some{m \in \NN} \all{n \geq m} |a_n
+          - 0| < \epsilon & \iff
+    \\
+    \some{\epsilon > 0} \lnot \some{m \in \NN} \all{n \geq m}
+          |a_n - 0| < \epsilon &\iff
+    \\
+    \some{\epsilon > 0} \all{m \in \NN} \lnot \all{n \geq m}
+          |a_n - 0| < \epsilon &\iff
+    \\
+    \some{\epsilon > 0} \all{m \in \NN} \some{n \geq m}
+          \lnot (|a_n - 0| < \epsilon) &\iff
+    \\
+    \some{\epsilon > 0} \all{m \in \NN} \some{n \geq m}
+          |a_n - 0| \geq \epsilon &\iff
+    \\
+    \some{\epsilon > 0} \all{m \in \NN} \some{n \geq m}
+          |a_n| \geq \epsilon &\iff
+    \\
+    \some{\epsilon > 0} \all{m \in \NN} \some{n \geq m}
+          a_n \geq \epsilon.
+  \end{align*}
+  %
+  Ugotovili smo, da iščemo zaporedje $(a_n)_n$ pozitivnih števil, ki zadošča
   %
   \begin{quote}
-    ">Dokazujemo $x > 42 \lthen \all{y \in \RR} y > 23$. Predpostavimo,
-    da velja $x > 42$, in dokažimo $\all{y \in \RR} y > 23$. Naj bo $y
-    \in \RR$. (Kaj zdaj? Lahko sicer dokažemo $x > 23$, a zares bi
-    morali dokazati $y > 23$, kar ne gre.)"<
+    \nls{Obstaja tak $\epsilon > 0$, da za vsak $m \in \NN$ obstaja $n \geq m$,
+      da je $a_n \geq \epsilon$.}
   \end{quote}
+  %
+  Kako najdemo zaporedje, ki zadošča temu pogoju?
+  %
+  Poskusimo kar naivno: vstavimo neko konkretno vrednost za $\epsilon$, na primer~$42$:
+  %
+  \begin{quote}
+    \nls{Za vsak $m \in \NN$ obstaja $n \geq m$, da je $a_n \geq 42$.}
+  \end{quote}
+  %
+  Potrebujemo zaporedje, ki ima veliko členov nad~$42$, na primer $a_n \defeq 43$.
+  %
+  Res, če je $m \in \NN$ poljuben, lahko vzamemo kar $n = m$, saj velja $a_n = a_m = 43 > 42 = \epsilon$.
+
+  Povzemimo odgovor: ni res, da ima vsako zaporedje pozitivnih realnih števil limito~$0$, saj zaporedje $a_n \defeq 43$ nima limite~$0$.
+\end{zgled}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{Brez izgube za splošnost}
+
+Poglavje zaključimo še s tehniko dokazovanja, ki jo boste srečali v praksi in ki od bralca zahteva malo več znanja kot osnovna pravila sklepanja.
+
+Fraza \nls{brez izgube za splošnost \dots} nakazuje, da dokaz obravnava le poseben primer, iz katerega sledi cilj, oziroma je preostanek dokaza zelo podoben posebnemu primeru. Bralec mora sam razbrati, zakaj je tako.
+Podajmo primer.
+
+\begin{trditev}
+  \label{izrek:abc-vsota-razlik-soda}
+  Za vsa cela števila $a$, $b$ in $c$ je $|a-b|+|b-c|+|c-a|$ sodo število.
+\end{trditev}
+
+\begin{proof}
+  Brez izgube za splošnost smemo predpostaviti $a \geq b \geq c$.
+  Tedaj velja
+  %
+  \begin{equation*}
+    |a-b| + |b-c| + |c-a| = (a - b) + (b - c) - (c - a) = 2 (a - c),
+  \end{equation*}
+  %
+  kar je sodo število.
 \end{proof}
 
-Pogoj, da mora biti spremenljivka $x$ v pravilu za vpeljavo ">sveža"<,
-se v praksi kaže v tem, da pri uvajanju nove spremenljivke izberemo
-zanjo novo ime, ki se še ni pojavilo v dokazu.
-
-\subsection{Eksistenčni kvantifikator}
-
-\label{sec:eksistencni-kvantifikator}
-
-Eksistenčna kvantifikacija $\some{x \in S} \phi$ se prebere ">obstaja
-$x$ iz $S$, za katerega velja $\phi$"< ali ">za neki $x$ iz $S$ velja
-$\phi$."< Pravili sklepanja za eksistenčni kvantifikator se glasita
+Zakaj je avtor dokaza predpostavil, da velja $a \geq b \geq c$? 
 %
-\begin{mathpar}
-  \inferrule
-  {\phi(e) \\ e \in S}
-  {\some{x \in S} \phi(x)}
-  \and
-  \inferrule
-  {\some{x \in S} \phi(x)
-    \\
-    \izpeljava{[x \in S \land \phi(x)]}{\psi}}
-  {\psi}\ \text{($x$ svež)}
-\end{mathpar}
+S frazo \nls{brez izgube za splošnost} nam sporoča, da ni treba obravnavati vseh šestih primerov
 %
-kjer je $e$ poljuben izraz in $x$ spremenljivka. Pri tem mora biti $x$
-v pravilu uporabe svež. V besedilu pravilo vpeljave uporabimo takole:
+\begin{xalignat*}{3}
+  & a \geq b \geq c,&
+  & a \geq c \geq b,&
+  & b \geq a \geq c,\\
+  & b \geq c \geq a,&
+  & c \geq a \geq b,&
+  & c \geq b \geq a,
+\end{xalignat*}
 %
-\begin{quote}
-  \it
-  %
-  Dokazujemo $\some{x \in S} \phi(x)$:
-  %
-  \begin{enumerate}
-  \item (Skonstruiramo element $e \in S$.)
-  \item (Dokažemo, da velja $\phi(e)$.)
-  \end{enumerate}
-  %
-  Dokazali smo $\some{x \in S} \phi(x)$.
-\end{quote}
+ker lahko vsakega od njih prevedemo na $a \geq b \geq c$.
 %
-Pravilo uporabe pa se v besedilu izraža takole:
+In res, ker števila~$a$, $b$ in~$c$ v izrazu $|a-b|+|b-c|+|c-a|$ nastopajo \emph{simetrično}, se vrednost izraza ne spremeni, če jih premešamo.
 %
-\begin{quote}
-  \it
-  %
-  Dokazujemo $\psi$:
-  %
-  \begin{enumerate}
-  \item (Dokaz izjave $\some{x \in S} \phi(x)$.)
-  \item Predpostavimo, da za $x \in S$ velja $\phi(x)$:
-    %
-    \begin{itemize}
-    \item[] (Dokaz izjave $\psi$.)
-    \end{itemize}
-  \end{enumerate}
-  %
-  Dokazali smo $\psi$.
-\end{quote}
-
-\subsection{Izključena tretja možnost}
-
-Dokaz ekvivalence $\phi \liff \lnot\lnot\phi$ sestoji iz dokazov dveh
-implikacij:
+Denimo, ko zamenjamo $a$ in $b$, dobimo $|b-a|+|a-c|+|c-b|$, kar je
+enako prvotnemu izrazu $|a-b|+|b-c|+|c-a|$.
 %
-\begin{mathpar}
-  \inferrule
-  {\inferrule{
-      \inferrule{[\lnot\phi] \\ [\phi]}{\bot}
-    }
-    {\lnot\lnot\phi}
-  }
-  {\phi \lthen \lnot\lnot\phi}
-  %
-  \and
-  %
-  \inferrule*
-  {\inferrule*
-    {\inferrule*{ }{\phi \lor \lnot\phi} \\
-     [\phi] \\
-     \inferrule*{
-       \inferrule*{
-         [\lnot\lnot\phi] \\ [\lnot\phi]
-       }
-       {\bot}
-     }
-     {\phi}
-    }
-    {\phi}
-  }
-  {\lnot\lnot\phi \lthen \phi}
-\end{mathpar}
+Števila torej uredimo po padajočem vrstnem redu~$a \geq b \geq c$ in obravnavamo le en primer.
 
 
 %%% Local Variables:

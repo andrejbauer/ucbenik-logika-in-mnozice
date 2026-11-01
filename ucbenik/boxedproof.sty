@@ -1,13 +1,15 @@
-\ProvidesPackage{boxedproof}[2026/10/21 Proofs with nesting made visible]
+\ProvidesPackage{boxedproof}[2026/10/31 Proofs with nesting made visible]
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %% A proof is a sequence of lines; a sub-proof is a box enclosing
 %% exactly its own lines.  Interface:
 %%
-%%   \begin{boxedProof}[mode] ... \end{boxedProof}
-%%        The display.  Mode is empty (no number column), `numbered'
-%%        (numbers printed) or `reserved' (column kept but blank, so an
-%%        unnumbered proof keeps a numbered one's measurements).
+%%   \begin{boxedProof}[keys] ... \end{boxedProof}
+%%        The display.  The keys are `numbered' (numbers printed),
+%%        `reserved' (column kept but blank, so an unnumbered proof keeps
+%%        a numbered one's measurements) and `size=<size command>' (the
+%%        size of the text, by default \boxProofSize).  Without `numbered'
+%%        and `reserved' there is no number column.
 %%   \begin{boxFrame} ... \end{boxFrame}
 %%        The outermost frame.
 %%   \begin{boxNested}[n] ... \end{boxNested}
@@ -38,31 +40,31 @@
 % How a line number is set.  The document may add lining figures.
 \newcommand{\boxNumberStyle}{\scriptsize}
 
+% The size of a proof's text, unless the proof sets the key size.
+\newcommand{\boxProofSize}{\small}
+
 % Frames and line numbers always share this color.
 \colorlet{boxProofColor}{black!55}
 
 % Marker before a parallel obligation.
 \newcommand{\boxItemMark}{\textbullet}
 
-% The number column is exactly as wide as the widest number, so no
-% excess space sits between the rule and the digits.
-\newlength{\boxNumberWidth}
-\newlength{\boxNumberSep}   \setlength{\boxNumberSep}{0.5em}
-\newlength{\boxInset}       \setlength{\boxInset}{0.4em}
-\newlength{\boxIndentStep}  \setlength{\boxIndentStep}{1.2em}
-\newlength{\boxItemWidth}
+% Distances.  Each proof evaluates them in the size of its text.
+\newcommand{\boxNumberSep}{0.5em}
+\newcommand{\boxInset}{0.4em}
+\newcommand{\boxIndentStep}{1.2em}
 \newlength{\boxProofSkip}   \setlength{\boxProofSkip}{\medskipamount}
 
-% Measured once the fonts are known.
-\AtBeginDocument{%
-  \settowidth{\boxNumberWidth}{\boxNumberStyle 00}%
-  \settowidth{\boxItemWidth}{\boxItemMark\ }}
-
-% A nested box at level 0 begins where the text of level-0 lines begins,
-% that is to the right of the number column.
+% Set by each proof in the size of its text.  The number column is
+% exactly as wide as the widest number, so no excess space sits between
+% the rule and the digits.  A nested box at level 0 begins where the
+% text of level-0 lines begins, that is to the right of the number
+% column.
+\newlength{\boxNumberWidth}
+\newlength{\boxItemWidth}
 \newlength{\boxBaseIndent}
-\AtBeginDocument{%
-  \setlength{\boxBaseIndent}{\dimexpr\boxNumberWidth+\boxNumberSep\relax}}
+\newlength{\box@numberSep}
+\newlength{\box@indentStep}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %% Line numbering
@@ -131,14 +133,23 @@
 %% Environments and commands
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
+\DeclareKeys[boxedProof]{
+  numbered.code = \boxNumberedtrue \boxReserveColumntrue,
+  reserved.code = \boxReserveColumntrue,
+  size.store    = \box@size}
+
 \newenvironment{boxedProof}[1][]{%
   \stepcounter{boxProofNumber}\boxDepth=0 %
   \setcounter{boxLineNumber}{0}%
   \boxNumberedfalse \boxReserveColumnfalse
-  \def\box@mode{#1}%
-  \def\box@numbered{numbered}\def\box@reserved{reserved}%
-  \ifx\box@mode\box@numbered \boxNumberedtrue \boxReserveColumntrue \fi
-  \ifx\box@mode\box@reserved \boxReserveColumntrue \fi
+  \let\box@size\boxProofSize
+  \SetKeys[boxedProof]{#1}%
+  \box@size
+  \settowidth{\boxNumberWidth}{\boxNumberStyle 00}%
+  \settowidth{\boxItemWidth}{\boxItemMark\ }%
+  \setlength{\box@numberSep}{\boxNumberSep}%
+  \setlength{\box@indentStep}{\boxIndentStep}%
+  \setlength{\boxBaseIndent}{\dimexpr\boxNumberWidth+\box@numberSep\relax}%
   \setlength{\fboxsep}{\boxInset}%
   \noindent}
  {}
@@ -156,9 +167,9 @@
       \boxNumberStyle\textcolor{boxProofColor}{%
         \ifx\box@tag\@empty
           \ifboxNumbered\theboxLineNumber\fi
-        \else \box@tag\fi}}\hskip\boxNumberSep
+        \else \box@tag\fi}}\hskip\box@numberSep
   \fi
-  \hspace*{\dimexpr #1\boxIndentStep\relax}#2\par}
+  \hspace*{\dimexpr #1\box@indentStep\relax}#2\par}
 
 % A template line carries a symbolic tag instead of a number, so a
 % template can show how one line cites another.
@@ -176,7 +187,7 @@
 
 \newlength{\boxThisIndent}
 \newenvironment{boxNested}[1][0]{%
-  \setlength{\boxThisIndent}{\dimexpr\boxBaseIndent + #1\boxIndentStep\relax}%
+  \setlength{\boxThisIndent}{\dimexpr\boxBaseIndent + #1\box@indentStep\relax}%
   \par\vspace{0.35ex}\noindent\hspace*{\boxThisIndent}%
   \advance\boxDepth by 1
   \setbox\box@content=\hbox\bgroup
