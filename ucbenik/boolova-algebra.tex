@@ -1,33 +1,109 @@
 \chapter{Boolova algebra}
+\label{cha:boolova-algebra}
+
+V tem poglavju bomo izjavam priredili resničnostne vrednosti in jih prikazali z resničnostnimi tabelami.
+%
+Dokazali bomo, da so izjave, ki jih sestavimo iz izjavnih simbolov in logičnih veznikov, dokazljive natanko tedaj, ko so tavtologije, in da lahko vsako resničnostno tabelo dobimo kot tabelo neke izjave.
+%
+Na koncu bomo zbrali pravila Boolove algebre, s katerimi izjave poenostavljamo z računanjem.
+
+\section{Izjavni in predikatni račun}
+
+V nadaljevanju bomo potrebovali natančno opredelitev formul, ki jih obravnavamo.
+%
+Naj bo $\two \defeq \set{\bot, \top}$.
+%
+\df{Izjavne spremenljivke} ali \df{izjavni simboli} so spremenljivke, ki zavzamejo vrednosti v~$\two$.
+%
+\df{Izjavna formula} je formula, ki jo sestavimo iz izjavnih simbolov, iz $\top$ in $\bot$ ter iz logičnih veznikov $\neg$, $\land$, $\lor$, $\lthen$ in~$\liff$.
+%
+Na primer, $\neg p \lor q$ je izjavna formula z izjavnima simboloma $p$ in~$q$.
+%
+Z izjavnimi formulami se ukvarja \df{izjavni račun}.
+%
+Formule, v katerih nastopajo tudi kvantifikatorji in spremenljivke z vrednostmi v poljubnih množicah, so predmet \df{predikatnega računa}.
+%
+Taka je na primer formula $\all{x \in \NN} \some{y \in \NN} x < y$.
+
+Izjavna formula $\phi(p_1, \ldots, p_n)$ z izjavnimi simboli $p_1, \ldots, p_n$ določa preslikavo
+%
+\begin{equation*}
+  \two \times \cdots \times \two \to \two
+\end{equation*}
+%
+s predpisom
+%
+\begin{equation*}
+  (p_1, \ldots, p_n) \mapsto \phi(p_1, \ldots, p_n).
+\end{equation*}
+%
+Preslikava priredi vrednostim $b_1, \ldots, b_n \in \two$ vrednost $\top$, če je izjava $\phi(b_1, \ldots, b_n)$ resnična, in vrednost $\bot$, če je neresnična.
+%
+Preslikavi, ki slika iz produkta $\two \times \cdots \times \two$ v $\two$, pravimo \df{Boolova preslikava}.
+
+\begin{zgled}
+  Izjavna formula
+  %
+  \begin{equation}
+    \label{eq:izjavna-formula}
+    (p \lor q) \land \neg r  
+  \end{equation}
+  %
+  z izjavnimi simboli $p$, $q$ in $r$ določa Boolovo preslikavo 
+  %
+  \begin{equation}
+    \label{eq:izjavna-funkcija}
+    \begin{aligned}
+     \two \times \two \times \two &\to \two \\
+     (p, q, r) &\mapsto (p \lor q) \land \neg r.
+    \end{aligned}
+  \end{equation}
+  %
+  Nikar ne mislite, da sta \eqref{eq:izjavna-formula} in \eqref{eq:izjavna-funkcija} ista reč!
+  Prva je izjava in druga preslikava.
+\end{zgled}
+
 
 \section{Resničnostne tabele}
 
-Vsaka izjava ima \textbf{resničnostno vrednost}. Resničnostni vrednosti sta $\bot$
-(neresnica) in $\top$ (resnica). Na primer, izjava $\bot \lor (\top \lthen \top)$ je resnična, njena resničnostna vrednost je $\top$. Izjava $2 + 2 = 5$ je neresnična, njena resničnostna vrednost je~$\bot$.
+Vsaka izjava lahko priredimo \df{resničnostno vrednost}.
+%
+Če izjava velja, je njena resničnostna vrednost resnica~$\top$,
+če pa izjava ne velja, je njena resničnostna vrednost neresnice~$\bot$.
 
-Kadar izjava vsebuje spremenljivke (pravimo jim tudi \emph{parametri}), je njena
-resničnostna vrednost \emph{odvisna} od parametrov. Na primer, če sta $x, y \in \NN$ spremenljivki, je resničnostna vrednost izjave $x + 2 y < 3$ odvisna
-od $x$ in $y$, kar lahko prikažemo z \textbf{resničnostno tabelo}:
+\begin{zgled}
+  Resničnostna vrednost izjave $e^\pi < \pi^e$ je~$\bot$.
+  %
+  Resničnostna vrednost izjave\footnote{Enačba se pojavi v risani seriji \emph{Simpsonovi} kot ">protiprimer"< za veliki Fermatov izrek.} $1782^{12} + 1841^{12} = 1922^{12}$ je~$\bot$.
+\end{zgled}
+
+
+\begin{zgled}
+Kadar izjava vsebuje spremenljivke (pravimo jim tudi \df{parametri}), je njena
+resničnostna vrednost \emph{odvisna} od parametrov. Na primer, če sta $x, y \in \NN$ spremenljivki, je resničnostna vrednost izjave $2 x < y + 3$ odvisna
+od $x$ in $y$, kar lahko prikažemo z \df{resničnostno tabelo}:
 %
 \begin{center}
-  \begin{tabular}{ccc}
-    \toprule
-    $x$ & $y$ & $x + 2 y < 3$ \\ \midrule
-    $0$ & $0$ & $\top$ \\
-    $0$ & $1$ & $\top$ \\
-    $1$ & $0$ & $\top$ \\
-    $2$ & $0$ & $\top$ \\
-    $1$ & $1$ & $\bot$ \\
-    $0$ & $2$ & $\bot$ \\
-    $\vdots$ & $\vdots$ & $\vdots$ \\
-    \bottomrule
+  \small
+  \begin{tabular}{c|*{8}{c}}
+    \makebox[1.5em]{\raisebox{-0.12em}{\footnotesize$y$}\hfill\raisebox{0.45em}{\footnotesize$x$}} & $0$ & $1$ & $2$ & $3$ & $4$ & $5$ & $6$ & $\cdots$ \\
+    \hline
+    $0$ & $\top$ & $\top$ & $\bot$ & $\bot$ & $\bot$ & $\bot$ & $\bot$ & $\cdots$ \\
+    $1$ & $\top$ & $\top$ & $\bot$ & $\bot$ & $\bot$ & $\bot$ & $\bot$ & $\cdots$ \\
+    $2$ & $\top$ & $\top$ & $\top$ & $\bot$ & $\bot$ & $\bot$ & $\bot$ & $\cdots$ \\
+    $3$ & $\top$ & $\top$ & $\top$ & $\bot$ & $\bot$ & $\bot$ & $\bot$ & $\cdots$ \\
+    $4$ & $\top$ & $\top$ & $\top$ & $\top$ & $\bot$ & $\bot$ & $\bot$ & $\cdots$ \\
+    $5$ & $\top$ & $\top$ & $\top$ & $\top$ & $\bot$ & $\bot$ & $\bot$ & $\cdots$ \\
+    $6$ & $\top$ & $\top$ & $\top$ & $\top$ & $\top$ & $\bot$ & $\bot$ & $\cdots$ \\
+    $\vdots$ & $\vdots$ & $\vdots$ & $\vdots$ & $\vdots$ & $\vdots$ & $\vdots$ & $\vdots$ & $\ddots$
   \end{tabular}
 \end{center}
-% 
-Kot vidimo, je lahko resničnostna tabela neskončna. Bolj uporabne so končne resničnostne tabele, v katerih parametri zavzemajo vrednosti iz končne množice.
+\end{zgled}
 
-V izjavi lahko nastopajo tudi \textbf{izjavne spremenljivke} ali \textbf{izjavni simboli}, to so spremenljivke, ki zavzamejo vrednosti $\bot$ in $\top$.
-Na primer, naj bo $\two = \set{\bot, \top}$ in $p, q \in \two$. Tedaj je $\neg p \lor q$ izjava, katere resničnostna tabela je
+\begin{zgled}
+Bolj uporabne so končne resničnostne tabele, v katerih parametri zavzemajo vrednosti iz končne množice.
+%
+Na primer, resničnostna tabela izjavne formule $\neg p \lor q$ je
 %
 \begin{center}
   \begin{tabular}{ccc}
@@ -40,47 +116,89 @@ Na primer, naj bo $\two = \set{\bot, \top}$ in $p, q \in \two$. Tedaj je $\neg p
     \bottomrule
   \end{tabular}
 \end{center}
+\end{zgled}
 
-Izjava $\phi(p_1, \ldots, p_n)$, v kateri nastopajo izjavne spremenljivke $p_1, \ldots, p_n$ (in nobeni drugi parametri) določa preslikavo
-%
-\begin{equation*}
-  \two \times \cdots \times \two \to \two
-\end{equation*}
-%
-s predpisom
-%
-\begin{equation*}
-    (p_1, \ldots, p_n) \mapsto \phi(p_1, \ldots, p_n)
-\end{equation*}
-%
-Preslikavi, ki slika iz produkta $\two \times \cdots \times \two$ v $\two$, pravimo \textbf{Boolova preslikava}. Prikažemo jo lahko z resničnostno tabelo. Če ima preslikava~$n$ argumentov, ima tabela $2^n$ vrstic.
+Boolovo preslikavo lahko prikažemo z resničnostno tabelo.
+
+\begin{vaja}
+  Koliko vrstic ima resničnostna tabela izjavne formule z $n$ izjavnimi simboli?
+\end{vaja}
 
 
-\subsection{Tavtologije}
+\section{Tavtologije}
 
-Izjava je \textbf{tavtologija}, če je njena resničnostna vrednost $\top$ ne glede na
-vrednosti parametrov. Premisli: kako iz resničnostne tabele razberemo, ali je
-izjava tavtologija?
+Izjava je \df{tavtologija}, če je njena resničnostna vrednost $\top$ ne glede na
+vrednosti parametrov.
+
+\begin{zgled}
+  Formula $((p \lthen q) \land (q \lthen r)) \lthen (p \lthen r)$ je tavtologija,
+  kar razberemo iz njene resničnostne tabele:
+  %
+  \begin{center}
+    \small
+    \begin{tabular}{cccc}
+      \toprule
+      $p$ & $q$ & $r$ & $((p \lthen q) \land (q \lthen r)) \lthen (p \lthen r)$ \\
+      \midrule
+      $\bot$ & $\bot$ & $\bot$ & $\top$ \\
+      $\bot$ & $\bot$ & $\top$ & $\top$ \\
+      $\bot$ & $\top$ & $\bot$ & $\top$ \\
+      $\bot$ & $\top$ & $\top$ & $\top$ \\
+      $\top$ & $\bot$ & $\bot$ & $\top$ \\
+      $\top$ & $\bot$ & $\top$ & $\top$ \\
+      $\top$ & $\top$ & $\bot$ & $\top$ \\
+      $\top$ & $\top$ & $\top$ & $\top$ \\
+      \bottomrule
+    \end{tabular}
+  \end{center}
+  %
+  V desnemstolpcu so vse vrednosti enake~$\top$, zato je formula resnična ne glede na vrednosti $p$, $q$ in~$r$.
+\end{zgled}
+
+\begin{zgled}
+  Formula $(p \lthen (q \lthen r)) \lthen ((p \lthen q) \lthen r)$ ni tavtologija, kar pokaže njena resničnostna tabela:
+  %
+  \begin{center}
+    \small
+    \begin{tabular}{cccc}
+      \toprule
+      $p$ & $q$ & $r$ & $(p \lthen (q \lthen r)) \lthen ((p \lthen q) \lthen r)$ \\
+      \midrule
+      $\bot$ & $\bot$ & $\bot$ & $\bot$ \\
+      $\bot$ & $\bot$ & $\top$ & $\top$ \\
+      $\bot$ & $\top$ & $\bot$ & $\bot$ \\
+      $\bot$ & $\top$ & $\top$ & $\top$ \\
+      $\top$ & $\bot$ & $\bot$ & $\top$ \\
+      $\top$ & $\bot$ & $\top$ & $\top$ \\
+      $\top$ & $\top$ & $\bot$ & $\top$ \\
+      $\top$ & $\top$ & $\top$ & $\top$ \\
+      \bottomrule
+    \end{tabular}
+  \end{center}
+  %
+  V prvi in tretji vrstici ima formula vrednost~$\bot$.
+  %
+  Formuli $p \lthen (q \lthen r)$ in $(p \lthen q) \lthen r$ torej nista ekvivalentni, se pravi, da implikacija ni asociativna.
+\end{zgled}
+
+Dejstvo, da je izjava resnična lahko torej utemeljimo na dva načina: z dokazom ali z resničnostno tabelo. Naslednji izrek pove, kakšen je odnos med njima.
 
 \begin{izrek}
-  Naj bo $\phi$ izjava, v kateri nastopajo le izjavni simboli
-  $p_1,\ldots,p_n$. Tedaj je $\phi$ tavtologija, če in samo če ima dokaz.
+  \label{izrek:tavtologija-iff-dokazljiva}
+  Izjavna formula je tavtologija natanko tedaj, ko ima dokaz.
 \end{izrek}
 
 \begin{proof}
-  Dokaz najdete v \cite{prijatelj92:_osnov}.
+  Dokaz najdete v~\cite{prijatelj92:_osnov}.
 \end{proof}
 
 \noindent
 %
-Izrek je pomemben, ker nam pove, da lahko dokazovanje izjav nadomestimo s preverjanjem resničnostnih tabel.
+\emph{Pozor:}
+%
+Izrek velja v izjavnem računu, v predikatnem računu pa \emph{ne} velja. Lahko se namreč zgodi, da ima formula predikatnega računa neskončno resničnostno tabelo, v kateri so vse resničnostne vrednosti~$\top$, a formula nima dokaza.
 
-\begin{opomba}
-  Izrek velja samo za izjave, ki jih sestavimo iz izjavnih simbolov, $\bot$, $\top$ in
-  logičnih veznikov $\neg$, $\land$, $\lor$, $\lthen$, $\liff$. Za splošne izjave, ki vsebujejo tudi $\forall$ in $\exists$ izrek \emph{ne} velja. Lahko se namreč zgodi, da ima izjava neskončno resničnostni tabelo, v kateri so vse resničnostne vrednosti~$\top$, a izjava nima dokaza.
-\end{opomba}
-
-\subsection{Polni nabori}
+\section{Disjunktivna in konjunktivna oblika}
 
 Vsaka formula v izjavnem računu ima resničnostno tabelo. Ali lahko vsako tabelo
 dobimo kot resničnostno tabelo neke formule? Na primer, ali obstaja formula,
@@ -100,7 +218,7 @@ katere resničnostna tabela se glasi
 %
 Odgovor je pritrdilen. Podajmo dva načina, kako tako izjavo izračunamo iz tabele.
 
-\subsubsection{Disjunktivna oblika}
+\subsection{Disjunktivna oblika}
 \label{sec:disjunktivna-oblika}
 
 Za vsako vrstico v tabeli, ki ima vrednost $\top$, zapišemo konjunkcijo simbolov in
@@ -121,7 +239,7 @@ Nato tvorimo disjunkcijo tako dobljenih konjunkcij:
 %
 Dobljena formula ima želeno resničnostno tabelo.
 
-\subsubsection{Konjunktivna oblika}
+\subsection{Konjunktivna oblika}
 \label{sec:konjunktivna-oblika}
 
 Za vsako vrstico v tabeli, ki ima vrednost $\bot$, zapišemo
@@ -130,8 +248,8 @@ imajo v dani vrstici vrednost $\top$. Na primer, v zgornji tabeli imata prva in
 četrta vrstica vrednost $\bot$, zanju zapišemo disjunkciji:
 %
 \begin{itemize}
-\item 1.~vrstica: $p \lor q$
-\item 4.~vrstica: $\neg p \lor \neg q$
+\item 1.~vrstica: $p \lor q$,
+\item 4.~vrstica: $\neg p \lor \neg q$.
 \end{itemize}
 %
 Nato tvorimo konjunkcijo tako dobljenih disjunkcij:
@@ -140,22 +258,57 @@ Nato tvorimo konjunkcijo tako dobljenih disjunkcij:
   (p \lor q) \land (\neg p \lor \neg q).
 \end{equation*}
 %
-Zgornjo tabelo bi lahko dobili tudi kot resničnostno tabelo formule
-%
-\begin{equation*}
-    p \liff q
-\end{equation*}
+Zgornjo tabelo bi lahko dobili tudi kot resničnostno tabelo formule $p \liff q$.
+
+
+\begin{zgled}
+  Poiščimo izjavno formulo, ki je resnična natanko tedaj, ko sta resnični vsaj dve od izjav $p$, $q$ in~$r$.
+  %
+  Njena resničnostna tabela je
+  %
+  \begin{center}
+    \small
+    \begin{tabular}{cccc}
+      \toprule
+      $p$ & $q$ & $r$ & ? \\
+      \midrule
+      $\bot$ & $\bot$ & $\bot$ & $\bot$ \\
+      $\bot$ & $\bot$ & $\top$ & $\bot$ \\
+      $\bot$ & $\top$ & $\bot$ & $\bot$ \\
+      $\bot$ & $\top$ & $\top$ & $\top$ \\
+      $\top$ & $\bot$ & $\bot$ & $\bot$ \\
+      $\top$ & $\bot$ & $\top$ & $\top$ \\
+      $\top$ & $\top$ & $\bot$ & $\top$ \\
+      $\top$ & $\top$ & $\top$ & $\top$ \\
+      \bottomrule
+    \end{tabular}
+  \end{center}
+  %
+  Vrednost $\top$ imajo četrta, šesta, sedma in osma vrstica, zato je disjunktivna oblika
+  %
+  \begin{equation*}
+    (\neg p \land q \land r) \lor (p \land \neg q \land r) \lor (p \land q \land \neg r) \lor (p \land q \land r).
+  \end{equation*}
+  %
+  Vrednost $\bot$ imajo prva, druga, tretja in peta vrstica, zato je konjunktivna oblika
+  %
+  \begin{equation*}
+    (p \lor q \lor r) \land (p \lor q \lor \neg r) \land (p \lor \neg q \lor r) \land (\neg p \lor q \lor r).
+  \end{equation*}
+  %
+  Obe obliki sta daljši od ekvivalentne formule $(p \land q) \lor (p \land r) \lor (q \land r)$.
+\end{zgled}
 
 \subsection{Polni nabori}
 \label{sec:polni-nabori}
 
-Vidimo, da lahko vsako resničnostno tabelo dobimo z uporabo veznikov $\neg$, $\lor$ in
-$\land$. \textbf{Polni nabor} je tak izbor veznikov, s katerim lahko dobimo vsako
-resničnostno tabelo.
+\df{Polni nabor} je tak izbor veznikov, s katerim lahko dobimo vsako
+resničnostno tabelo. Ker, lahko vsako resničnostno tabelo dobimo z uporabo veznikov $\neg$, $\lor$ in $\land$, tvorijo ${\neg}, {\lor}, {\land}$ polni nabor.
+%
+Lahko bi ga še zmanjšali na ${\neg}, {\land}$, saj lahko $p \lor q$ izrazimo kot $\neg(\neg p \land \neg q)$.
 
-Torej je $\neg$, $\lor$, $\land$ poln nabor. Lahko bi ga še zmanjšali na $\neg$, $\land$, saj lahko $p \lor q$ izrazimo kot $\neg(\neg p \land \neg q)$.
-
-Nabor $\land$, $\lor$ pa \emph{ni} poln, saj ne moremo dobiti resničnostne tabele
+\begin{zgled}
+Nabor ${\land}, {\lor}$ \emph{ni} poln, saj ne moremo dobiti resničnostne tabele
 %
 \begin{center}
   \begin{tabular}{cc}
@@ -168,6 +321,7 @@ Nabor $\land$, $\lor$ pa \emph{ni} poln, saj ne moremo dobiti resničnostne tabe
 \end{center}
 %
 Res, če iz $p$, $\land$ in $\lor$ sestavimo poljubno formulo $\phi(p)$, na primer $(p \land (p \lor p)) \land p$, bo ta ekvivalentna~$p$ in bo zato veljalo $\phi(\top) = \top$, zgornja tabela pa zahteva $\phi(\top) = \bot$.
+\end{zgled}
 
 
 \section{Boolova algebra}
@@ -179,15 +333,15 @@ resničnostne vrednosti.
 
 \begin{opomba}
   Ekvivalentni izjavi imata lahko različna \emph{pomena}. Na primer,
-  $\all{x, y \in R} x + y = y + x$ in
-  $\all{\alpha \in R} \sin(2 \alpha) = 2 \cdot \cos \alpha \cdot \sin \alpha$ sta
-  ekvivalentni, saj sta obe resnični, a ne moremo reči, da je njun pomen enak. (Predstavljajte si, da bi vas v srednji šoli profesorica matematike vprašala adicijski izrek za $\sin$, vi pa bi odgovorili ">vrstni red seštevanja realnih števil ne vpliva na vrednost vsote"<.)
+  $\all{x, y \in \RR} x + y = y + x$ in
+  $\all{\alpha \in \RR} \sin(2 \alpha) = 2 \cdot \cos \alpha \cdot \sin \alpha$ sta
+  ekvivalentni, saj sta obe resnični, a ne moremo reči, da je njun pomen enak. (Predstavljajte si, da bi vas v srednji šoli profesorica matematike vprašala adicijski izrek za $\sin$, vi pa bi odgovorili \nls{vrstni red seštevanja realnih števil ne vpliva na vrednost vsote}.)
 \end{opomba}
 
 
-Za logične veznike veljajo \emph{algebrajska pravila}, se pravi enačbe, kakršne poznamo v algebri. Ta pravila lahko uporabljamo kot računska pravila, s katerimi lahko izjavo poenostavimo v ekvivalentno obliko. Pogosto je tako računanje bolj prikladno kot dokazovanje. Spodaj našteta pravila lahko preverimo tako, da zapišemo resničnostne tabele izjav in jih primerjamo.
+Za logične veznike veljajo \df{algebrajska pravila}, se pravi enačbe, kakršne poznamo v algebri. Ta pravila lahko uporabljamo kot računska pravila, s katerimi lahko izjavo poenostavimo v ekvivalentno obliko. Pogosto je tako računanje bolj prikladno kot dokazovanje. Spodaj našteta pravila lahko preverimo tako, da zapišemo resničnostne tabele izjav in jih primerjamo.
 
-Pravilom, ki veljajo za logične veznike, pravimo \textbf{Boolova algebra}.
+Pravilom, ki veljajo za logične veznike, pravimo \df{Boolova algebra}.
 Razdelimo jih po sklopih.
 
 Pravila za konjunkcijo:
@@ -213,19 +367,31 @@ Pravila za disjunkcijo:
 Pravila za implikacijo:
 %
 \begin{align}
-  (p \lthen q) &= (\neg q \lthen \neg p) \tag{kontrapozitivna oblika $\lthen$}\\
+  (p \lthen q) &= (\neg q \lthen \neg p) \tag{kontrapozicija}\\
   (p \lthen q) &= \neg p \lor q \notag \\
   (\bot \lthen q) &= \top \notag \\
   (\top \lthen q) &= q \notag \\
   (p \lthen \bot) &= \neg p \notag \\
-  (p \lthen \top) &= \top \notag
+  (p \lthen \top) &= \top \notag \\
+  (p \lthen p) &= \top \notag \\
+  ((p \land q) \lthen r) &= (p \lthen (q \lthen r)) \notag \\
+  ((p \lor q) \lthen r) &= (p \lthen r) \land (q \lthen r) \notag \\
+  (p \lthen (q \land r)) &= (p \lthen q) \land (p \lthen r) \notag
+\end{align}
+%
+Pravila za ekvivalenco:
+%
+\begin{align}
+  (p \liff q) &= (p \lthen q) \land (q \lthen p) \notag \\
+  (p \liff \top) &= p \notag \\
+  (p \liff \bot) &= \neg p \notag
 \end{align}
 %
 Kombinirana pravila:
 %
 \begin{align}
-  \neg(p \land q) &= \neg p \lor \neg q \tag{de Morganovo pravilo za $\land$} \\
-  \neg(p \lor q) &= \neg p \land \neg q \tag{de Morganovo pravilo za $\lor$} \\
+  \neg(p \land q) &= \neg p \lor \neg q \tag{De Morganovo pravilo za $\land$} \\
+  \neg(p \lor q) &= \neg p \land \neg q \tag{De Morganovo pravilo za $\lor$} \\
   \neg(p \lthen q) &= p \land \neg q \notag \\
   p \land (p \lor q) &= p \tag{absorpcijsko pravilo za $\land$}\\
   p \lor (p \land q) &= p \tag{absorpcijsko pravilo za $\lor$} \\
@@ -239,31 +405,126 @@ Pravila za negacijo:
   \neg \top  &= \bot \notag \\
   \neg \bot &= \top \notag \\
   \neg\neg p &= p \tag{negacija je involucija} \\
-  p \lor \neg p &= \top \tag{izključena tretja možnost} \\
+  p \lor \neg p &= \top \tag{pravilo o izključenem tretjem} \\
   p \land \neg p &= \bot \notag
 \end{align}
 
-Zapišimo še uporabna logična pravila za kvantifikatorje. Tokrat uporabimo $\liff$
-namesto $=$, ker je to bolj običajno:
+V tabeli~\ref{tabela:pravila-kvantifikatorji} za pregled navajamo še nekaj pravil za kvantifikatorje.
 %
-\begin{align*}
-  (\all{x \in \emptyset} \phi(x))   &\iff   \top \\
-  (\some{x \in \emptyset} \phi(x))   &\iff   \bot \\
-  (\all{x \in \set{a}} \phi(x))   &\iff   \phi(a) \\
-  (\some{x \in \set{a}} \phi(x))   &\iff   \phi(a) \\
-  (\neg \all{x \in A} \phi(x))   &\iff   \some{x \in A} \neg \phi(x) \\
-  (\neg \some{x \in A} \phi(x))   &\iff   \all{x \in A} \neg \phi(x) \\
-  (\psi \lthen \all{x \in A} \phi(x))   &\iff   \all{x \in A} (\psi \lthen \phi(x)) \\
-  (\psi \lor \all{x \in A} \phi(x))   &\iff   \all{x \in A} (\psi \lor \phi(x)) \\
-  (\psi \land \some{x \in A} \phi(x))   &\iff   \some{x \in A} (\psi \land \phi(x)) \\
-  (\all{u \in A \times B} \phi(u))   &\iff   \all{x \in A} \all{y \in B} \phi(x, y) \\
-  (\some{u \in A \times B} \phi(u))   &\iff   \some{x \in A} \some{y \in B} \phi(x, y) \\
-  (\all{u \in A + B} \phi(u))   &\iff   (\all{x \in A} \phi(\inl(x))) \land (\all{y \in B} \phi(\inr(y))) \\
-  (\all{u \in A \cup B} \phi(u))   &\iff   (\all{x \in A} \phi(x)) \land (\all{y \in B} \phi(y)) \\
-  (\some{u \in A + B} \phi(u))   &\iff   (\some{x \in A} \phi(\inl(x))) \lor (\some{y \in B} \phi(\inr(y))) \\
-  (\some{u \in A \cup B} \phi(u))   &\iff   (\some{x \in A} \phi(x)) \lor (\some{y \in B} \phi(y)) \\
-  (\all{u \in \set{x \in A \such \psi(x)}} \phi(u))   &\iff   \all{x \in A} (\psi(x) \lthen \phi(x)) \\
-  (\some{u \in \set{x \in A \such \psi(x)}} \phi(u))   &\iff   \some{x \in A} (\psi(x) \land \phi(x))
-\end{align*}
+Tokrat uporabimo $\iff$ namesto $=$, ker je to bolj običajno.
 %
 Te ekvivalence je treba preveriti tako, da jih dokažemo.
+%
+\begin{table}[htp]
+  \centering
+  \small
+  \begin{align*}
+    (\all{x \in \emptyset} \phi(x))   &\iff   \top \\
+    (\some{x \in \emptyset} \phi(x))   &\iff   \bot \\
+    (\all{x \in \set{a}} \phi(x))   &\iff   \phi(a) \\
+    (\some{x \in \set{a}} \phi(x))   &\iff   \phi(a) \\
+    (\neg \all{x \in A} \phi(x))   &\iff   \some{x \in A} \neg \phi(x) \\
+    (\neg \some{x \in A} \phi(x))   &\iff   \all{x \in A} \neg \phi(x) \\
+    (\psi \lthen \all{x \in A} \phi(x))   &\iff   \all{x \in A} (\psi \lthen \phi(x)) \\
+    (\psi \lor \all{x \in A} \phi(x))   &\iff   \all{x \in A} (\psi \lor \phi(x)) \\
+    (\psi \land \some{x \in A} \phi(x))   &\iff   \some{x \in A} (\psi \land \phi(x)) \\
+    (\some{x \in A} \phi(x)) \lthen \psi   &\iff   \all{x \in A} (\phi(x) \lthen \psi) \\
+    (\all{x \in A} \phi(x) \land \psi(x))   &\iff   (\all{y \in A} \phi(y)) \land (\all{z \in A} \psi(z)) \\
+    (\some{x \in A} \phi(x) \lor \psi(x))   &\iff   (\some{y \in A} \phi(y)) \lor (\some{z \in A} \psi(z)) \\
+    (\all{x \in A} \all{y \in B} \phi(x, y))   &\iff   \all{y \in B} \all{x \in A} \phi(x, y) \\
+    (\some{x \in A} \some{y \in B} \phi(x, y))   &\iff   \some{y \in B} \some{x \in A} \phi(x, y) \\
+    (\all{u \in A \times B} \phi(u))   &\iff   \all{x \in A} \all{y \in B} \phi(x, y) \\
+    (\some{u \in A \times B} \phi(u))   &\iff   \some{x \in A} \some{y \in B} \phi(x, y) \\
+    (\all{u \in A + B} \phi(u))   &\iff   (\all{x \in A} \phi(\inl(x))) \land (\all{y \in B} \phi(\inr(y))) \\
+    (\all{u \in A \cup B} \phi(u))   &\iff   (\all{x \in A} \phi(x)) \land (\all{y \in B} \phi(y)) \\
+    (\some{u \in A + B} \phi(u))   &\iff   (\some{x \in A} \phi(\inl(x))) \lor (\some{y \in B} \phi(\inr(y))) \\
+    (\some{u \in A \cup B} \phi(u))   &\iff   (\some{x \in A} \phi(x)) \lor (\some{y \in B} \phi(y)) \\
+    (\all{u \in \set{x \in A \such \psi(x)}} \phi(u))   &\iff   \all{x \in A} (\psi(x) \lthen \phi(x)) \\
+    (\some{u \in \set{x \in A \such \psi(x)}} \phi(u))   &\iff   \some{x \in A} (\psi(x) \land \phi(x))
+  \end{align*}
+  \caption{Pravila za kvantifikatorje. V pravilih, v katerih nastopa $\psi$ brez argumenta, spremenljivka $x$ v~$\psi$ ne nastopa.}
+  \label{tabela:pravila-kvantifikatorji}
+\end{table}
+
+\begin{zgled}
+  Pokažimo z računanjem, da je naslednja izjava resnična:
+  %
+  \begin{equation*}
+    \bigl(\all{x \in A} \phi(x) \lthen \psi(x)\bigr) \land \bigl(\all{x \in A} \phi(x)\bigr) \lthen \all{x \in A} \psi(x).
+  \end{equation*}
+  %
+  Običajno bi tovrstno izjavo dokazali s pravili sklepanja, tu pa bomo raje ponazorili,
+  kako se uporablja pravila Boolove algebra in pravila iz tabele~\ref{tabela:pravila-kvantifikatorji}.
+  %
+  Vsi trije kvantifikatorji vežejo spremenljivko~$x$.
+  %
+  Da jih ne bi zamešali, vezane spremenljivke preimenujemo:
+  %
+  \begin{equation*}
+    \bigl(\all{x \in A} \phi(x) \lthen \psi(x)\bigr) \land \bigl(\all{y \in A} \phi(y)\bigr) \lthen \all{z \in A} \psi(z).
+  \end{equation*}
+  %
+  Tudi v nadaljevanju bo vsak novi kvantifikator vezal svojo spremenljivko.
+  %
+  Pravila iz tabele uporabljamo ne glede na imena vezanih spremenljivk.
+  %
+  Sedaj računamo, pri čemer je vsaka vrstica ekvivalentna naslednji:
+  %
+  \begin{align*}
+    & \bigl(\all{x \in A} \phi(x) \lthen \psi(x)\bigr) \land \bigl(\all{y \in A} \phi(y)\bigr) \lthen \all{z \in A} \psi(z) \\
+    \iff\quad & \Bigl(\all{u \in A} \bigl(\phi(u) \lthen \psi(u)\bigr) \land \phi(u)\Bigr) \lthen \all{z \in A} \psi(z) \\
+    \iff\quad & \Bigl(\all{u \in A} \bigl(\neg\phi(u) \lor \psi(u)\bigr) \land \phi(u)\Bigr) \lthen \all{z \in A} \psi(z) \\
+    \iff\quad & \Bigl(\all{u \in A} \phi(u) \land \bigl(\neg\phi(u) \lor \psi(u)\bigr)\Bigr) \lthen \all{z \in A} \psi(z) \\
+    \iff\quad & \Bigl(\all{u \in A} \bigl(\phi(u) \land \neg\phi(u)\bigr) \lor \bigl(\phi(u) \land \psi(u)\bigr)\Bigr) \lthen \all{z \in A} \psi(z) \\
+    \iff\quad & \Bigl(\all{u \in A} \bot \lor \bigl(\phi(u) \land \psi(u)\bigr)\Bigr) \lthen \all{z \in A} \psi(z) \\
+    \iff\quad & \bigl(\all{u \in A} \phi(u) \land \psi(u)\bigr) \lthen \all{z \in A} \psi(z) \\
+    \iff\quad & \bigl(\all{v \in A} \phi(v)\bigr) \land \bigl(\all{w \in A} \psi(w)\bigr) \lthen \all{z \in A} \psi(z) \\
+    \iff\quad & \bigl(\all{v \in A} \phi(v)\bigr) \lthen \Bigl(\bigl(\all{w \in A} \psi(w)\bigr) \lthen \all{z \in A} \psi(z)\Bigr) \\
+    \iff\quad & \bigl(\all{v \in A} \phi(v)\bigr) \lthen \Bigl(\bigl(\all{z \in A} \psi(z)\bigr) \lthen \all{z \in A} \psi(z)\Bigr) \\
+    \iff\quad & \bigl(\all{v \in A} \phi(v)\bigr) \lthen \top \\
+    \iff\quad & \top.
+  \end{align*}
+  %
+  Ugotovite, katero pravilo smo uporabili v vsakem od računskih korakov.
+\end{zgled}
+
+\begin{zgled}
+  Tako imenovani \emph{">paradoks"< pivca} pravi, da v vsaki neprazni gostilni sedi gost, za katerega velja: če pije on, pijejo vsi gostje.
+  %
+  To ni pravi paradoks, le na prvi pogled presenetljivo dejstvo, ki ga zlahka utemeljimo: če pijejo vsi gostje, ustreza katerikoli gost, sicer pa izberemo gosta, ki ne pije.
+
+  Sedaj pa izjavo dokažimo še formalno z računanjem.
+  %
+  Naj bo $A$ množica gostov in $\phi(x)$ izjava \nls{gost $x$ pije}.
+  %
+  Predpostavko, da je gostilna neprazna, zapišemo kot $\some{z \in A} \top$, zato se paradoks pivca v simbolni obliki glasi
+  %
+  \begin{equation*}
+    (\some{z \in A} \top) \lthen \some{x \in A} (\phi(x) \lthen \all{y \in A} \phi(y)).
+  \end{equation*}
+  %
+  Označimo $\rho \defeq \all{y \in A} \phi(y)$ in $\sigma \defeq \some{z \in A} \top$,
+  torej lahko izjavo zapišemo krajše $\sigma \lthen \some{x \in A} \phi(x) \lthen \rho$.
+  %
+  Izjavo preoblikujemo v ekvivalentno izjavo~$\top$ takole:
+  %
+  \begin{align*}
+    & \sigma \lthen \some{x \in A} (\phi(x) \lthen \rho) \\
+    \iff\quad & \sigma \lthen \some{x \in A} (\neg\phi(x) \lor \rho) \\
+    \iff\quad & \sigma \lthen \bigl(\some{v \in A} \neg\phi(v)\bigr) \lor \some{w \in A} \rho \\
+    \iff\quad & \sigma \lthen \bigl(\some{v \in A} \neg\phi(v)\bigr) \lor (\some{w \in A} \top \land \rho) \\
+    \iff\quad & \sigma \lthen \bigl(\some{v \in A} \neg\phi(v)\bigr) \lor (\some{w \in A} \rho \land \top) \\
+    \iff\quad & \sigma \lthen \bigl(\some{v \in A} \neg\phi(v)\bigr) \lor (\rho \land \some{w \in A} \top) \\
+    \iff\quad & \sigma \lthen \bigl(\some{v \in A} \neg\phi(v)\bigr) \lor (\rho \land \sigma) \\
+    \iff\quad & \sigma \lthen \bigl(\neg \all{v \in A} \phi(v)\bigr) \lor (\rho \land \sigma) \\
+    \iff\quad & \sigma \lthen \neg\rho \lor (\rho \land \sigma) \\
+    \iff\quad & \neg\sigma \lor \bigl(\neg\rho \lor (\rho \land \sigma)\bigr) \\
+    \iff\quad & (\neg\sigma \lor \neg\rho) \lor (\rho \land \sigma) \\
+    \iff\quad & \neg(\sigma \land \rho) \lor (\rho \land \sigma) \\
+    \iff\quad & \neg(\rho \land \sigma) \lor (\rho \land \sigma) \\
+    \iff\quad & (\rho \land \sigma) \lor \neg(\rho \land \sigma) \\
+    \iff\quad & \top.
+  \end{align*}
+  %
+  Ugotovite, katero pravilo smo uporabili v vsakem od računskih korakov.
+\end{zgled}

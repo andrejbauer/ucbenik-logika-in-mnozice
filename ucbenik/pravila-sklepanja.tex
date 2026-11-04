@@ -1,0 +1,336 @@
+% Pravila sklepanja iz poglavja Dokazi na enem listu A4.
+\documentclass[10pt]{article}
+
+\usepackage[a4paper, landscape, margin=10mm]{geometry}
+\usepackage[slovene]{babel}
+
+\usepackage{amsmath}
+\usepackage{mathtools}
+
+\usepackage{fontspec}
+\usepackage{unicode-math}
+\setmainfont{Libertinus Serif}[Ligatures = TeX, Numbers = OldStyle]
+\setmathfont{Libertinus Math}
+\newcommand{\lmnVerzalke}{\addfontfeature{Numbers=Lining}}
+\usepackage[protrusion = true, expansion = true, final]{microtype}
+
+\usepackage{xcolor}
+\definecolor{ULantracit}{HTML}{58595B}
+\definecolor{ULsiva}{HTML}{A7A8AA}
+\colorlet{barvaPasu}{ULsiva!35}
+
+\usepackage{multicol}
+\setlength{\columnsep}{6mm}
+
+\input{macros.tex}
+
+\usepackage{boxedproof}
+\renewcommand{\boxNumberStyle}{\scriptsize\lmnVerzalke}
+\colorlet{boxProofColor}{ULantracit}
+\renewcommand{\boxProofSize}{\footnotesize}
+
+\pagestyle{empty}
+\setlength{\parindent}{0pt}
+
+%% Poravnava: vsak zunanji okvir je natanko \sirinaOkvirja sirok, vgnezdeni
+%% okvirji pa segajo do enakega odmika od levega in desnega roba.
+\newlength{\sirinaOkvirja}
+\newlength{\razmikPara}  \setlength{\razmikPara}{4mm}
+\newcommand{\polna}{\setlength{\sirinaOkvirja}{\linewidth}}
+\newcommand{\polovica}{%
+  \setlength{\sirinaOkvirja}{\dimexpr(\linewidth - \razmikPara)/2\relax}}
+
+\makeatletter
+\renewenvironment{boxFrame}{%
+  \setbox\box@content=\hbox\bgroup
+    \begin{varwidth}{\linewidth}\setlength{\parindent}{0pt}}
+ {\end{varwidth}\egroup
+  \setbox\box@content=\hbox to
+    \dimexpr\sirinaOkvirja - 2\fboxsep - 2\fboxrule\relax
+    {\box\box@content\hfil}%
+  \fcolorbox{boxProofColor}{white}{\box\box@content}%
+  \ignorespacesafterend}
+\renewcommand{\box@computeTarget}{%
+  \setlength{\boxTargetWidth}{%
+    \dimexpr\sirinaOkvirja - 4\fboxsep - 4\fboxrule - 2\boxThisIndent\relax}}
+\makeatother
+
+%% Razdelek: pas z imenom in znakom, nato pari oznak in vzorcev.
+\newlength{\razmikRazdelkov} \setlength{\razmikRazdelkov}{2ex}
+
+\newcommand{\pas}[2]{%
+  {\setlength{\fboxsep}{1.5pt}%
+   \colorbox{barvaPasu}{\makebox[\dimexpr\linewidth - 2\fboxsep\relax][l]{%
+       \strut\hspace{1pt}\textbf{#1}\hfill\ensuremath{#2}\hspace{1pt}}}}}
+
+\newenvironment{razdelek}[2]{%
+  \par\noindent\begin{minipage}{\linewidth}%
+    \polna
+    \pas{#1}{#2}\par\vspace{1ex}}
+ {\end{minipage}\par\vspace{\razmikRazdelkov}}
+
+\newcommand{\oznaka}[1]{%
+  \par\addvspace{1.2ex}\polna
+  {\footnotesize\color{ULantracit}\textsc{#1}}\par\nopagebreak\vspace{0.3ex}}
+
+\newcommand{\opomba}[1]{\par\vspace{0.3ex}{\footnotesize\itshape #1}\par}
+
+\begin{document}
+
+\raggedcolumns
+\begin{multicols*}{3}
+
+{\Large\bfseries Pravila sklepanja}\par
+\vspace{0.3ex}
+{\footnotesize\color{ULantracit}\textsc{Logika in množice}}\par
+\vspace{\razmikRazdelkov}
+
+\begin{razdelek}{Konjunkcija}{\land}
+  \oznaka{vpeljava}
+  \begin{boxedProof}
+    \begin{boxFrame}
+      \boxLine{Dokažimo $\phi \land \psi$:}
+      \begin{boxNested}
+        \boxLine{Dokažimo $\phi$:}
+        \boxLine[1]{\brac{dokaz $\phi$}}
+      \end{boxNested}
+      \begin{boxNested}
+        \boxLine{Dokažimo $\psi$:}
+        \boxLine[1]{\brac{dokaz $\psi$}}
+      \end{boxNested}
+    \end{boxFrame}
+  \end{boxedProof}
+  \oznaka{uporaba}
+  \polovica
+  \begin{boxedProof}[reserved]%
+    \begin{boxFrame}
+      \boxLineTag{$k$}{Velja $\phi \land \psi$.}
+      \boxGap
+      \boxLine{Zaradi~($k$) velja $\phi$.}
+    \end{boxFrame}
+  \end{boxedProof}%
+  \hspace{\razmikPara}%
+  \begin{boxedProof}[reserved]%
+    \begin{boxFrame}
+      \boxLineTag{$k$}{Velja $\phi \land \psi$.}
+      \boxGap
+      \boxLine{Zaradi~($k$) velja $\psi$.}
+    \end{boxFrame}
+  \end{boxedProof}
+\end{razdelek}
+
+\begin{razdelek}{Implikacija}{\lthen}
+  \oznaka{vpeljava}
+  \begin{boxedProof}
+    \begin{boxFrame}
+      \boxLine{Dokažimo $\phi \lthen \psi$:}
+      \boxLine[1]{Predpostavimo $\phi$.}
+      \boxLine[1]{Dokažimo $\psi$:}
+      \boxLine[2]{\brac{dokaz $\psi$}}
+    \end{boxFrame}
+  \end{boxedProof}
+  \oznaka{uporaba}
+  \begin{boxedProof}[reserved]%
+    \begin{boxFrame}
+      \boxLineTag{$k$}{Velja $\phi \lthen \psi$.}
+      \boxGap
+      \boxLineTag{$m$}{Velja $\phi$.}
+      \boxGap
+      \boxLine{Zaradi~($k$) in~($m$) velja $\psi$.}
+    \end{boxFrame}
+  \end{boxedProof}
+\end{razdelek}
+
+\begin{razdelek}{Negacija}{\lnot}
+  \oznaka{vpeljava}
+  \begin{boxedProof}
+    \begin{boxFrame}
+      \boxLine{Dokažimo $\lnot \phi$:}
+      \boxLine[1]{Predpostavimo $\phi$.}
+      \boxLine[1]{Dokažimo~$\bot$:}
+      \boxLine[2]{\brac{dokaz $\bot$}}
+    \end{boxFrame}
+  \end{boxedProof}
+  \oznaka{uporaba}
+  \begin{boxedProof}[reserved]%
+    \begin{boxFrame}
+      \boxLineTag{$k$}{Velja $\phi$.}
+      \boxGap
+      \boxLineTag{$m$}{Velja $\neg \phi$.}
+      \boxGap
+      \boxLine{Zaradi~($k$) in~($m$) velja $\bot$.}
+    \end{boxFrame}
+  \end{boxedProof}
+\end{razdelek}
+
+\begin{razdelek}{Disjunkcija}{\lor}
+  \oznaka{vpeljava}
+  \polovica
+  \begin{boxedProof}
+    \begin{boxFrame}
+      \boxLine{Dokažimo $\phi \lor \psi$:}
+      \boxLine[1]{Dokažimo levi disjunkt $\phi$:}
+      \boxLine[2]{\brac{dokaz $\phi$}}
+    \end{boxFrame}
+  \end{boxedProof}%
+  \hspace{\razmikPara}%
+  \begin{boxedProof}
+    \begin{boxFrame}
+      \boxLine{Dokažimo $\phi \lor \psi$:}
+      \boxLine[1]{Dokažimo desni disjunkt $\psi$:}
+      \boxLine[2]{\brac{dokaz $\psi$}}
+    \end{boxFrame}
+  \end{boxedProof}
+  \oznaka{uporaba}
+  \begin{boxedProof}[reserved]%
+    \begin{boxFrame}
+      \boxLineTag{$k$}{Velja $\phi \lor \psi$.}
+      \boxGap
+      \boxLine{Dokažimo $\rho$:}
+      \boxLine[1]{Uporabimo ($k$) in obravnavamo dva primera:}
+      \begin{boxNested}[1]
+        \boxLine{Predpostavimo $\phi$.}
+        \boxLine{Dokažimo $\rho$:}
+        \boxLine[1]{\brac{dokaz $\rho$}}
+      \end{boxNested}
+      \begin{boxNested}[1]
+        \boxLine{Predpostavimo $\psi$.}
+        \boxLine{Dokažimo $\rho$:}
+        \boxLine[1]{\brac{dokaz $\rho$}}
+      \end{boxNested}
+    \end{boxFrame}
+  \end{boxedProof}
+\end{razdelek}
+
+\begin{razdelek}{Resnica in neresnica}{\top\;\bot}
+  \oznaka{vpeljava resnice}
+  \begin{boxedProof}
+    \begin{boxFrame}
+      \boxLine{Dokažimo $\top$:}
+      \boxLine[1]{Očitno.}
+    \end{boxFrame}
+  \end{boxedProof}
+  \oznaka{uporaba neresnice}
+  \begin{boxedProof}[reserved]%
+    \begin{boxFrame}
+      \boxLineTag{$k$}{Velja $\bot$.}
+      \boxGap
+      \boxLine{Zaradi~($k$) velja $\rho$.}
+    \end{boxFrame}
+  \end{boxedProof}
+  \opomba{Resnica nima pravila uporabe, neresnica nima pravila vpeljave.}
+\end{razdelek}
+
+\begin{razdelek}{Ekvivalenca}{\liff}
+  \oznaka{vpeljava}
+  \begin{boxedProof}
+    \begin{boxFrame}
+      \boxLine{Dokažimo $\phi \liff \psi$:}
+      \begin{boxNested}
+        \boxLine{Dokažimo $\phi \lthen \psi$:}
+        \boxLine[1]{\brac{dokaz $\phi \lthen \psi$}}
+      \end{boxNested}
+      \begin{boxNested}
+        \boxLine{Dokažimo $\psi \lthen \phi$:}
+        \boxLine[1]{\brac{dokaz $\psi \lthen \phi$}}
+      \end{boxNested}
+    \end{boxFrame}
+  \end{boxedProof}
+  \oznaka{uporaba}
+  \polovica
+  \begin{boxedProof}[reserved]%
+    \begin{boxFrame}
+      \boxLineTag{$k$}{Velja $\phi \liff \psi$.}
+      \boxGap
+      \boxLine{Zaradi~($k$) velja $\phi \lthen \psi$.}
+    \end{boxFrame}
+  \end{boxedProof}%
+  \hspace{\razmikPara}%
+  \begin{boxedProof}[reserved]%
+    \begin{boxFrame}
+      \boxLineTag{$k$}{Velja $\phi \liff \psi$.}
+      \boxGap
+      \boxLine{Zaradi~($k$) velja $\psi \lthen \phi$.}
+    \end{boxFrame}
+  \end{boxedProof}
+\end{razdelek}
+
+\begin{razdelek}{Univerzalni kvantifikator}{\forall}
+  \oznaka{vpeljava}
+  \begin{boxedProof}
+    \begin{boxFrame}
+      \boxLine{Dokažimo $\all{x \in A} \phi(x)$:}
+      \boxLine[1]{Naj bo $x \in A$.}
+      \boxLine[1]{Dokažimo $\phi(x)$:}
+      \boxLine[2]{\brac{dokaz $\phi(x)$}}
+    \end{boxFrame}
+  \end{boxedProof}
+  \opomba{Spremenljivka $x$ mora biti sveža.}
+  \oznaka{uporaba}
+  \begin{boxedProof}[reserved]%
+    \begin{boxFrame}
+      \boxLineTag{$k$}{Velja $\all{x \in A} \phi(x)$.}
+      \boxGap
+      \boxLineTag{$m$}{Velja $\langle\text{izraz}\rangle \in A$.}
+      \boxGap
+      \boxLine{Zaradi~($k$) in~($m$) velja $\phi(\langle\text{izraz}\rangle)$.}
+    \end{boxFrame}
+  \end{boxedProof}
+\end{razdelek}
+
+\begin{razdelek}{Eksistenčni kvantifikator}{\exists}
+  \oznaka{vpeljava}
+  \begin{boxedProof}
+    \begin{boxFrame}
+      \boxLine{Dokažimo $\some{x \in A} \phi(x)$:}
+      \boxLine[1]{Podamo $x \defeq \langle\text{izraz}\rangle$.}
+      \begin{boxNested}[1]
+        \boxLine{Dokažimo $\langle\text{izraz}\rangle \in A$:}
+        \boxLine[1]{\brac{dokaz $\langle\text{izraz}\rangle \in A$}}
+      \end{boxNested}
+      \begin{boxNested}[1]
+        \boxLine{Dokažimo $\phi(\langle\text{izraz}\rangle)$:}
+        \boxLine[1]{\brac{dokaz $\phi(\langle\text{izraz}\rangle)$}}
+      \end{boxNested}
+    \end{boxFrame}
+  \end{boxedProof}
+  \oznaka{uporaba}
+  \begin{boxedProof}[reserved]%
+    \begin{boxFrame}
+      \boxLineTag{$k$}{Velja $\some{x \in A} \phi(x)$.}
+      \boxGap
+      \boxLine{Zaradi~($k$) imamo $x \in A$ in $\phi(x)$.}
+    \end{boxFrame}
+  \end{boxedProof}
+  \opomba{Spremenljivka $x$ mora biti sveža.}
+\end{razdelek}
+
+\begin{razdelek}{Drugo}{}
+  \oznaka{dokaz s protislovjem}
+  \begin{boxedProof}
+    \begin{boxFrame}
+      \boxLine{Dokažimo $\phi$ s protislovjem:}
+      \boxLine[1]{Predpostavimo $\neg\phi$.}
+      \boxLine[1]{Dokažimo~$\bot$:}
+      \boxLine[2]{\brac{dokaz $\bot$}}
+    \end{boxFrame}
+  \end{boxedProof}
+  \oznaka{izpeljava dejstva}
+  \begin{boxedProof}
+    \begin{boxFrame}
+      \boxLine{Velja $\phi$:}
+      \boxLine[1]{\brac{dokaz $\phi$}}
+    \end{boxFrame}
+  \end{boxedProof}
+  \oznaka{pravilo o izključenem tretjem}
+  {\footnotesize Za vsako izjavo $\phi$ velja $\phi \lor \neg\phi$.}
+\end{razdelek}
+
+\end{multicols*}
+
+\end{document}
+
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-engine: luatex
+%%% End:
