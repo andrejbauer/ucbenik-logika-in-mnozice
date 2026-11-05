@@ -1,0 +1,164 @@
+% Pravila Boolove algebre in pravila za kvantifikatorje iz poglavja Boolova
+% algebra na listu A4.
+\documentclass[10pt]{article}
+
+\usepackage[a4paper, landscape, margin=10mm]{geometry}
+\usepackage[slovene]{babel}
+
+\usepackage{amsmath}
+\usepackage{mathtools}
+
+\usepackage{fontspec}
+\usepackage{unicode-math}
+\setmainfont{Libertinus Serif}[Ligatures = TeX, Numbers = OldStyle]
+\setmathfont{Libertinus Math}
+\newcommand{\lmnVerzalke}{\addfontfeature{Numbers=Lining}}
+\usepackage[protrusion = true, expansion = true, final]{microtype}
+
+\usepackage{xcolor}
+\definecolor{ULantracit}{HTML}{58595B}
+\definecolor{ULsiva}{HTML}{A7A8AA}
+\colorlet{barvaPasu}{ULsiva!35}
+
+\usepackage{multicol}
+\setlength{\columnsep}{6mm}
+
+\usepackage{eqparbox}
+
+\input{macros.tex}
+
+\pagestyle{empty}
+\setlength{\parindent}{0pt}
+
+%% Razdelek: pas z imenom in znakom, nato pravila.
+\newlength{\razmikRazdelkov} \setlength{\razmikRazdelkov}{2ex}
+
+\newcommand{\pas}[2]{%
+  {\setlength{\fboxsep}{1.5pt}%
+   \colorbox{barvaPasu}{\makebox[\dimexpr\linewidth - 2\fboxsep\relax][l]{%
+       \strut\hspace{1pt}\textbf{#1}\hfill\ensuremath{#2}\hspace{1pt}}}}}
+
+\newenvironment{razdelek}[2]{%
+  \par\noindent\begin{minipage}{\linewidth}%
+    \pas{#1}{#2}\par\vspace{1ex}}
+ {\end{minipage}\par\vspace{\razmikRazdelkov}}
+
+\newcommand{\opomba}[1]{\par\vspace{0.3ex}{\footnotesize\itshape #1}\par}
+
+%% Pravilo: leve strani iz iste skupine so enako široke, zato so relacije
+%% na isti navpičnici. Ime pravila stoji ob desnem robu.
+\newlength{\razmikPravil} \setlength{\razmikPravil}{1ex}
+\newcommand{\skupina}{izjave}
+\newcommand{\relacija}{=}
+\newcommand{\pravilo}[3][]{%
+  \par\eqmakebox[\skupina][r]{$#2$}${}\relacija #3$%
+  \hfill{\footnotesize\color{ULantracit}\textsc{#1}}\par\vspace{\razmikPravil}}
+
+\begin{document}
+
+\raggedcolumns
+\begin{multicols}{3}
+
+{\Large\bfseries Pravila Boolove algebre}\par
+\vspace{0.3ex}
+{\footnotesize\color{ULantracit}\textsc{Logika in množice}}\par
+\vspace{\razmikRazdelkov}
+
+\begin{razdelek}{Konjunkcija}{\land}
+  \pravilo[asociativnost $\land$]{(p \land q) \land r}{p \land (q \land r)}
+  \pravilo[komutativnost $\land$]{p \land q}{q \land p}
+  \pravilo[idempotentnost $\land$]{p \land p}{p}
+  \pravilo[$\top$ je nevtralen za $\land$]{\top \land p}{p}
+  \pravilo[$\bot$ absorbira $\land$]{\bot \land p}{\bot}
+\end{razdelek}
+
+\begin{razdelek}{Disjunkcija}{\lor}
+  \pravilo[asociativnost $\lor$]{(p \lor q) \lor r}{p \lor (q \lor r)}
+  \pravilo[komutativnost $\lor$]{p \lor q}{q \lor p}
+  \pravilo[idempotentnost $\lor$]{p \lor p}{p}
+  \pravilo[$\bot$ je nevtralen za $\lor$]{\bot \lor p}{p}
+  \pravilo[$\top$ absorbira $\lor$]{\top \lor p}{\top}
+\end{razdelek}
+
+\begin{razdelek}{Implikacija}{\lthen}
+  \pravilo[kontrapozicija]{(p \lthen q)}{(\neg q \lthen \neg p)}
+  \pravilo{(p \lthen q)}{\neg p \lor q}
+  \pravilo{(\bot \lthen q)}{\top}
+  \pravilo{(\top \lthen q)}{q}
+  \pravilo{(p \lthen \bot)}{\neg p}
+  \pravilo{(p \lthen \top)}{\top}
+  \pravilo{(p \lthen p)}{\top}
+  \pravilo{((p \land q) \lthen r)}{(p \lthen (q \lthen r))}
+  \pravilo{((p \lor q) \lthen r)}{(p \lthen r) \land (q \lthen r)}
+  \pravilo{(p \lthen (q \land r))}{(p \lthen q) \land (p \lthen r)}
+\end{razdelek}
+
+\begin{razdelek}{Ekvivalenca}{\liff}
+  \pravilo{(p \liff q)}{(p \lthen q) \land (q \lthen p)}
+  \pravilo{(p \liff \top)}{p}
+  \pravilo{(p \liff \bot)}{\neg p}
+\end{razdelek}
+
+\begin{razdelek}{Kombinirana pravila}{}
+  \pravilo[De Morganovo pravilo za $\land$]{\neg(p \land q)}{\neg p \lor \neg q}
+  \pravilo[De Morganovo pravilo za $\lor$]{\neg(p \lor q)}{\neg p \land \neg q}
+  \pravilo{\neg(p \lthen q)}{p \land \neg q}
+  \pravilo[absorpcijsko pravilo za $\land$]{p \land (p \lor q)}{p}
+  \pravilo[absorpcijsko pravilo za $\lor$]{p \lor (p \land q)}{p}
+  \pravilo[distributivnost $\land$]{p \land (q \lor r)}{(p \land q) \lor (p \land r)}
+  \pravilo[distributivnost $\lor$]{p \lor (q \land r)}{(p \lor q) \land (p \lor r)}
+\end{razdelek}
+
+\begin{razdelek}{Negacija}{\lnot}
+  \pravilo{\neg \top}{\bot}
+  \pravilo{\neg \bot}{\top}
+  \pravilo[negacija je involucija]{\neg\neg p}{p}
+  \pravilo[pravilo o izključenem tretjem]{p \lor \neg p}{\top}
+  \pravilo{p \land \neg p}{\bot}
+\end{razdelek}
+
+\end{multicols}
+
+\renewcommand{\skupina}{kvantifikatorji}
+\renewcommand{\relacija}{\iff}
+
+\begin{multicols}{2}
+
+\begin{razdelek}{Univerzalni kvantifikator}{\forall}
+  \pravilo{(\all{x \in \emptyset} \phi(x))}{\top}
+  \pravilo{(\all{x \in \set{a}} \phi(x))}{\phi(a)}
+  \pravilo{(\neg \all{x \in A} \phi(x))}{\some{x \in A} \neg \phi(x)}
+  \pravilo{(\psi \lthen \all{x \in A} \phi(x))}{\all{x \in A} (\psi \lthen \phi(x))}
+  \pravilo{(\psi \lor \all{x \in A} \phi(x))}{\all{x \in A} (\psi \lor \phi(x))}
+  \pravilo{(\all{x \in A} \phi(x) \land \psi(x))}{(\all{y \in A} \phi(y)) \land (\all{z \in A} \psi(z))}
+  \pravilo{(\all{x \in A} \all{y \in B} \phi(x, y))}{\all{y \in B} \all{x \in A} \phi(x, y)}
+  \pravilo{(\all{u \in A \times B} \phi(u))}{\all{x \in A} \all{y \in B} \phi(x, y)}
+  \pravilo{(\all{u \in A + B} \phi(u))}{(\all{x \in A} \phi(\inl(x))) \land (\all{y \in B} \phi(\inr(y)))}
+  \pravilo{(\all{u \in A \cup B} \phi(u))}{(\all{x \in A} \phi(x)) \land (\all{y \in B} \phi(y))}
+  \pravilo{(\all{u \in \set{x \in A \such \psi(x)}} \phi(u))}{\all{x \in A} (\psi(x) \lthen \phi(x))}
+\end{razdelek}
+
+\begin{razdelek}{Eksistenčni kvantifikator}{\exists}
+  \pravilo{(\some{x \in \emptyset} \phi(x))}{\bot}
+  \pravilo{(\some{x \in \set{a}} \phi(x))}{\phi(a)}
+  \pravilo{(\neg \some{x \in A} \phi(x))}{\all{x \in A} \neg \phi(x)}
+  \pravilo{(\some{x \in A} \phi(x)) \lthen \psi}{\all{x \in A} (\phi(x) \lthen \psi)}
+  \pravilo{(\psi \land \some{x \in A} \phi(x))}{\some{x \in A} (\psi \land \phi(x))}
+  \pravilo{(\some{x \in A} \phi(x) \lor \psi(x))}{(\some{y \in A} \phi(y)) \lor (\some{z \in A} \psi(z))}
+  \pravilo{(\some{x \in A} \some{y \in B} \phi(x, y))}{\some{y \in B} \some{x \in A} \phi(x, y)}
+  \pravilo{(\some{u \in A \times B} \phi(u))}{\some{x \in A} \some{y \in B} \phi(x, y)}
+  \pravilo{(\some{u \in A + B} \phi(u))}{(\some{x \in A} \phi(\inl(x))) \lor (\some{y \in B} \phi(\inr(y)))}
+  \pravilo{(\some{u \in A \cup B} \phi(u))}{(\some{x \in A} \phi(x)) \lor (\some{y \in B} \phi(y))}
+  \pravilo{(\some{u \in \set{x \in A \such \psi(x)}} \phi(u))}{\some{x \in A} (\psi(x) \land \phi(x))}
+\end{razdelek}
+
+\end{multicols}
+
+\opomba{V pravilih, v katerih nastopa $\psi$ brez argumenta, spremenljivka $x$ v~$\psi$ ne nastopa.}
+
+\end{document}
+
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-engine: luatex
+%%% End:
