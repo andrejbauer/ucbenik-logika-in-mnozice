@@ -617,8 +617,6 @@ Ekvivalenco uporabimo tako, da izpeljemo eno od implikacij:
 \end{boxedProof}
 \end{boxDisplay}
 
-
-
 \paragraph*{Negacija}
 \label{sec:negacija-pravila}
 
@@ -636,6 +634,8 @@ Negacijo $\lnot \phi$ dokažemo tako, da predpostavimo~$\phi$ in dokažemo~$\bot
 \end{boxDisplay}
 %
 Namesto ">dokazujemo neresnico $\bot$"<, običajno rečemo ">iščemo protislovje"<.
+%
+Pravimo, da smo ">ovrgli $\phi$"<, zato se zgornja tehnika dokazovanja imenuje tudi \df{ovržba s protislovjem}.
 
 Pravilo uporabe za negacijo pravi, da iz $\phi$ in $\neg \phi$ sledi neresnica:
 %
@@ -964,6 +964,8 @@ Se pravi, da je vsaka izjava bodisi resnična bodisi neresnična.
 Torej ni ">tretje možnosti"< za resničnostno vrednost izjave $\phi$,
 od koder izhaja ime pravila.
 
+\paragraph*{Dokaz in ovržba s protislovjem}
+
 Pravilo o izključenem tretjem omogoča \emph{posredne} dokaze izjav, od
 katerih je najbolj znano \df{dokazovanje s protislovjem}:
 %
@@ -978,7 +980,7 @@ katerih je najbolj znano \df{dokazovanje s protislovjem}:
   \end{boxedProof}
 \end{boxDisplay}
 %
-Dokaz s protislovjem sloni na dejstvu, da lahko dokažemo $\neg\neg\phi \lthen \phi$, vendar pri tem potrebujemo pravilo o izključenem tretjem:
+Dokaz s protislovjem sloni na dejstvu, da lahko dokažemo $\neg\neg\phi \lthen \phi$, pri tem pa potrebujemo pravilo o izključenem tretjem:
 %
 \begin{boxDisplay}
   \begin{boxedProof}[numbered]
@@ -1022,6 +1024,99 @@ Velja tudi obrat: pravilo o izključenem tretjem lahko izpeljemo z dokazom s pro
     \end{boxFrame}
   \end{boxedProof}
 \end{boxDisplay}
+
+Primerjajmo dokaz s protislovjem in ovržbo s protislovjem, ki smo jo že spoznali, ko smo obravnavali dokazovanje negacije:
+%
+\begin{boxDisplay}
+  \begin{boxedProof}
+    \begin{boxFrame}
+      \boxLine{Dokažimo $\phi$ s protislovjem:}
+      \boxLine[1]{Predpostavimo $\neg\phi$.}
+      \boxLine[1]{Dokažimo~$\bot$:}
+      \boxLine[2]{\brac{dokaz $\bot$}}
+    \end{boxFrame}
+  \end{boxedProof}
+  %
+  \boxProofSep
+  %
+  \begin{boxedProof}
+    \begin{boxFrame}
+      \boxLine{Dokažimo $\lnot \phi$:}
+      \boxLine[1]{Predpostavimo $\phi$.}
+      \boxLine[1]{Dokažimo~$\bot$:}
+      \boxLine[2]{\brac{dokaz $\bot$}}
+    \end{boxFrame}
+  \end{boxedProof}
+\end{boxDisplay}
+%
+V dokazu s protislovjem cilju \emph{dodamo} negacijo, pri ovržbi s protislovjem pa jo \emph{odvzamemo}.
+%
+Dokaza sta na prvi pogled podobna. Mnogi matematiki celo mislijo, da sta ena in ista reč, ">saj se dve negaciji okrajšata"<. S tem želijo povedati, da lahko eno od pravil dobimo iz drugega, če vanj vstavimo~$\neg \phi$ za~$\phi$ in upoštevamo, da je $\neg\neg\phi \liff \phi$. Vse to je res, a ne šteje za izpeljavo enega pravila iz drugega, ker $\neg\neg\phi \liff \phi$ sloni na dokazovanju s protislovjem.
+%
+Kakor koli že, zavedajmo se, da v praksi matematiki poimenujejo ">dokaz s protislovjem"< vsak dokaz, ki se konča s protislovjem.
+
+\begin{zgled}
+  Ko poenostavljamo izjave, se lahko razlika med dokazom in ovržbo zamegli. Kako bi opredelili naslednji dokaz izjave \nls{če je $n^2$ sodo število, je $n$ sodo število}?
+  %
+  \begin{quote}
+    Predpostavimo, da je $n^2$ sod, in dokažimo, da je~$n$ sod.
+    %
+    Če bi bil~$n$ lih, bi za neko celo število~$k$ veljalo $n = 2 k + 1$ in od tod $n^2 = 4 k^2 + 4 k + 1 = 2 (2 k^2 + 2 k) + 1$, torej bi bil $n^2$ lih, kar je v protislovju s predpostavko, da je~$n^2$ sod.
+  \end{quote}
+  %
+  Avtor dokaza je upošteval, da sta \nls{$n$ je sod} in \nls{$n$ je lih} nasprotni si izjavi. Dokaz lahko preberemo na dva načina:
+  %
+  \begin{boxDisplay}
+    \begin{boxedProof}
+      \begin{boxFrame}
+        \boxLine{Predpostavimo, da je $n^2$ sod.}
+        \boxLine{Dokažimo s protislovjem, da je $n$ sod:}
+        \boxLine[1]{Predpostavimo, da $n$ ni sod.}
+        \boxLine[1]{Dokažimo~$\bot$:}
+        \boxLine[2]{\brac{dokaz $\bot$}}
+      \end{boxFrame}
+    \end{boxedProof}
+    % 
+    \boxProofSep
+    % 
+    \begin{boxedProof}
+      \begin{boxFrame}
+        \boxLine{Predpostavimo, da je $n^2$ sod.}
+        \boxLine{Dokažimo, da $n$ ni lih:}
+        \boxLine[1]{Predpostavimo, da je $n$ lih.}
+        \boxLine[1]{Dokažimo~$\bot$:}
+        \boxLine[2]{\brac{dokaz $\bot$}}
+      \end{boxFrame}
+    \end{boxedProof}
+  \end{boxDisplay}
+  %
+  Na levi smo \nls{$n$ je lih} zapisali kot \nls{$n$ ni sod} in uporabili dokaz s protislovjem.
+  %
+  Na desni smo \nls{$n$ je sod} zapisali kot \nls{$n$ ni lih} in uporabili ovržbo s protislovjem.
+\end{zgled}
+
+
+\begin{vaja}
+  Kako bi opredelili naslednji dokaz dejstva, da za realni števili $a$ in $b$ iz $\all{\varepsilon > 0} a \leq b + \varepsilon$ sledi $a \leq b$?
+  %
+  \begin{quote}
+    Predpostavimo $\all{\varepsilon > 0} a \leq b + \varepsilon$.
+    %
+    Če bi veljalo $a > b$, bi veljalo $a - b > 0$ in bi lahko v predpostavko vstavili $\varepsilon \defeq (a - b)/2$ ter dobili $a \leq b + (a - b)/2$, kar je ekvivalentno
+    %
+    \begin{align*}
+      &a \leq b + (a - b)/2 \iff \\
+      &a \leq (a + b)/2 \iff \\
+      &2 a \leq a + b \iff \\
+      &a \leq b.
+    \end{align*}
+    %
+    Dobili smo protislovje s predpostavko~$a > b$.
+  \end{quote}
+\end{vaja}
+
+
+\paragraph*{Posredni dokazi, ki slonijo na izključenem tretjem}
 
 Pravilo o izključenem tretjem omogoča še nekatere druge načine dokazovanja izjav.
 Najprej, implikacijo $\phi \lthen \psi$ smemo zamenjati s \df{kontrapozicijo} $\neg \psi \lthen \neg \phi$, saj sta ekvivalentni.
