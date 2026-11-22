@@ -59,8 +59,9 @@ Preslikavi, ki slika iz produkta $\two \times \cdots \times \two$ v $\two$, prav
     \end{aligned}
   \end{equation}
   %
-  Nikar ne mislite, da sta \eqref{eq:izjavna-formula} in \eqref{eq:izjavna-funkcija} ista reč!
-  Prva je izjava, odvisna od parametrov $p$, $q$ in $r$, in druga preslikava, ki ni odvisna od nobenih parametrov.
+  Nikar ne mislite, da sta~\eqref{eq:izjavna-formula} in~\eqref{eq:izjavna-funkcija} ista reč!
+  Prva je izjava, odvisna od parametrov $p$, $q$ in $r$, in druga preslikava, ki ni odvisna od nobenih parametrov,
+  saj so $p$, $q$ in $r$ v~\eqref{eq:izjavna-funkcija} vezane spremenljivke.
 \end{zgled}
 
 
@@ -152,7 +153,7 @@ vrednosti parametrov.
     \end{tabular}
   \end{center}
   %
-  V desnemstolpcu so vse vrednosti enake~$\top$, zato je formula resnična ne glede na vrednosti $p$, $q$ in~$r$.
+  V desnem stolpcu so vse vrednosti enake~$\top$, zato je formula resnična ne glede na vrednosti $p$, $q$ in~$r$.
 \end{zgled}
 
 \begin{zgled}
@@ -198,7 +199,7 @@ Dejstvo, da je izjava resnična lahko torej utemeljimo na dva načina: z dokazom
 %
 Izrek velja v izjavnem računu, v predikatnem računu pa \emph{ne} velja. Lahko se namreč zgodi, da ima formula predikatnega računa neskončno resničnostno tabelo, v kateri so vse resničnostne vrednosti~$\top$, a formula nima dokaza.
 
-\section{Disjunktivna in konjunktivna oblika}
+\section{Polni nabori veznikov}
 
 Vsaka formula v izjavnem računu ima resničnostno tabelo. Ali lahko vsako tabelo
 dobimo kot resničnostno tabelo neke formule? Na primer, ali obstaja formula,
@@ -218,8 +219,7 @@ katere resničnostna tabela se glasi
 %
 Odgovor je pritrdilen. Podajmo dva načina, kako tako izjavo izračunamo iz tabele.
 
-\subsection{Disjunktivna oblika}
-\label{sec:disjunktivna-oblika}
+\paragraph*{Disjunktivna oblika}
 
 Za vsako vrstico v tabeli, ki ima vrednost $\top$, zapišemo konjunkcijo simbolov in
 njihovih negacij, pri čemer negiramo tiste simbole, ki imajo v dani vrstici vrednost
@@ -239,8 +239,7 @@ Nato tvorimo disjunkcijo tako dobljenih konjunkcij:
 %
 Dobljena formula ima želeno resničnostno tabelo.
 
-\subsection{Konjunktivna oblika}
-\label{sec:konjunktivna-oblika}
+\paragraph*{Konjunktivna oblika}
 
 Za vsako vrstico v tabeli, ki ima vrednost $\bot$, zapišemo
 disjunkcijo simbolov in njihovih negacij, pri čemer negiramo tiste simbole, ki
@@ -298,9 +297,6 @@ Zgornjo tabelo bi lahko dobili tudi kot resničnostno tabelo formule $p \liff q$
   %
   Obe obliki sta daljši od ekvivalentne formule $(p \land q) \lor (p \land r) \lor (q \land r)$.
 \end{zgled}
-
-\subsection{Polni nabori}
-\label{sec:polni-nabori}
 
 \df{Polni nabor} je tak izbor veznikov, s katerim lahko dobimo vsako
 resničnostno tabelo. Ker, lahko vsako resničnostno tabelo dobimo z uporabo veznikov $\neg$, $\lor$ in $\land$, tvorijo ${\neg}, {\lor}, {\land}$ polni nabor.
