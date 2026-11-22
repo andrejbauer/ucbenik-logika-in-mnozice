@@ -336,36 +336,134 @@ resničnostne vrednosti.
 \end{opomba}
 
 
-Za logične veznike veljajo \df{algebrajska pravila}, se pravi enačbe, kakršne poznamo v algebri. Ta pravila lahko uporabljamo kot računska pravila, s katerimi lahko izjavo poenostavimo v ekvivalentno obliko. Pogosto je tako računanje bolj prikladno kot dokazovanje. Spodaj našteta pravila lahko preverimo tako, da zapišemo resničnostne tabele izjav in jih primerjamo.
+Za logične veznike veljajo \df{algebrajska pravila}, se pravi enačbe, kakršne poznamo v algebri. Uporabljamo jih za poenostavljanje izjav v preprostejše, ekvivalentne izjave. Pogosto je tako računanje bolj prikladno kot dokazovanje.
+%
+Enaka pravila bomo kasneje srečali tudi pri operacijah z množicami, zato jih zapišemo za splošne operacije.
 
-Pravilom, ki veljajo za logične veznike, pravimo \df{Boolova algebra}.
-Razdelimo jih po sklopih.
+\begin{definicija}
+  \label{def:boolova-algebra}
+  \df{Boolova algebra} je struktura\footnote{V zapisu $\compl{\Box}$ škatla~$\Box$ označuje prazno mesto, na katerega vstavimo argument, tako kot v osnovnošolski nalogi $2 + \Box = 5$, ki jo preberemo ">dva plus koliko je pet"<. Poleg tega naj vas ne moti, da uporabljamo $0$ in $1$ za oznako elementov množice~$B$, saj malce spominjata na nevtralna elementa za~$+$ in~$\times$.} $(B, 0, 1, \sqcap, \sqcup, \compl{\Box})$, podana z množico~$B$, elementoma $0, 1 \in B$, ter operacijami \df{konjunkcija} $\sqcap : B \times B \to B$, \df{disjunkcija} $\sqcup : B \times B \to B$ in \df{komplement} $\compl{\Box} : B \to B$.
+  %
+  Za vse $x, y, z \in B$ morajo veljati naslednje enačbe:
+  %
+  \begin{align}
+    (x \sqcap y) \sqcap z &= x \sqcap (y \sqcap z) \tag{asociativnost $\sqcap$} \\
+    (x \sqcup y) \sqcup z &= x \sqcup (y \sqcup z) \tag{asociativnost $\sqcup$} \\
+    x \sqcap y &= y \sqcap x \tag{komutativnost $\sqcap$} \\
+    x \sqcup y &= y \sqcup x \tag{komutativnost $\sqcup$} \\
+    x \sqcap x &= x \tag{idempotentnost $\sqcap$} \\
+    x \sqcup x &= x \tag{idempotentnost $\sqcup$} \\
+    1 \sqcap x &= x \tag{$1$ je nevtralen za $\sqcap$} \\
+    0 \sqcup x &= x \tag{$0$ je nevtralen za $\sqcup$} \\
+    0 \sqcap x &= 0 \tag{$0$ absorbira $\sqcap$} \\
+    1 \sqcup x &= 1 \tag{$1$ absorbira $\sqcup$} \\
+    x \sqcap (y \sqcup z) &= (x \sqcap y) \sqcup (x \sqcap z) \tag{distributivnost $\sqcap$} \\
+    x \sqcup (y \sqcap z) &= (x \sqcup y) \sqcap (x \sqcup z) \tag{distributivnost $\sqcup$} \\
+    x \sqcap \compl{x} &= 0 \tag{komplement za $\sqcap$} \\
+    x \sqcup \compl{x} &= 1. \tag{komplement za $\sqcup$}
+  \end{align}
+\end{definicija}
 
-Pravila za konjunkcijo:
+\begin{zgled}
+  \label{zgled:boolova-algebra-dve}
+  Struktura $(\two, \bot, \top, {\land}, {\lor}, {\neg})$ je Boolova algebra, v kateri nastopa $\bot$ v vlogi~$0$, $\top$ v vlogi~$1$, logični veznik $\land$ v vlogi~$\sqcap$, logični veznik $\lor$ v vlogi~$\sqcup$ in negacija $\neg$ v vlogi komplementa.
+  %
+  Enačbe preverimo z resničnostnimi tabelami.
+  %
+  Na primer, distributivnost konjunkcije
+  %
+  \begin{equation*}
+    p \land (q \lor r) = (p \land q) \lor (p \land r)
+  \end{equation*}
+  %
+  velja, ker imata obe strani enačbe imata enaki resničnostni tabeli:
+  %
+  \begin{center}
+    \small
+    \begin{tabular}{ccccc}
+      \toprule
+      $p$ & $q$ & $r$ & $p \land (q \lor r)$ & $(p \land q) \lor (p \land r)$ \\ \midrule
+      $\bot$ & $\bot$ & $\bot$ & $\bot$ & $\bot$ \\
+      $\bot$ & $\bot$ & $\top$ & $\bot$ & $\bot$ \\
+      $\bot$ & $\top$ & $\bot$ & $\bot$ & $\bot$ \\
+      $\bot$ & $\top$ & $\top$ & $\bot$ & $\bot$ \\
+      $\top$ & $\bot$ & $\bot$ & $\bot$ & $\bot$ \\
+      $\top$ & $\bot$ & $\top$ & $\top$ & $\top$ \\
+      $\top$ & $\top$ & $\bot$ & $\top$ & $\top$ \\
+      $\top$ & $\top$ & $\top$ & $\top$ & $\top$ \\
+      \bottomrule
+    \end{tabular}
+  \end{center}
+\end{zgled}
+
+Boolovo algebro lahko obrnemo na glavo tako, da zamenjamo vlogi~$0$ in~$1$ ter~$\sqcap$ in~$\sqcup$.
+
+\begin{trditev}
+  \label{trditev:dualna-boolova-algebra}
+  Če je $(B, 0, 1, \sqcap, \sqcup, \compl{\Box})$ Boolova algebra, je tudi $(B, 1, 0, \sqcup, \sqcap, \compl{\Box})$ Boolova algebra, ki ji pravimo \df{dualna Boolova algebra}.
+\end{trditev}
+
+\begin{proof}
+  Preveriti moramo le, da se nabor enačb iz definicije~\ref{def:boolova-algebra} ne spremeni, če zamenjamo~$0$ in~$1$ ter~$\sqcap$ in~$\sqcup$. Na primer, asociativnost $(x \sqcap y) \sqcap z = x \sqcap (y \sqcap z)$ se spremeni v asociativnost $(x \sqcup y) \sqcup z = x \sqcup (y \sqcup z)$ in obratno.
+  %
+  Sami preverite, da enačbe res nastopajo v parih.
+\end{proof}
+
+Iz trditve~\ref{trditev:dualna-boolova-algebra} sledi \df{načelo dualnosti}: če neko enačba velja za Boolove algebre, velja tudi njena \df{dualna enačba}, ki jo dobimo tako, da zamenjamo~$0$ in~$1$ ter~$\sqcap$ in~$\sqcup$.
+
+Iz enačb za Boolovo algebro izpeljemo še druge uporabne enačbe.
+%
+Najpomembnejša so:
 %
 \begin{align}
-  (p \land q) \land r &= p \land (q \land r) \tag{asociativnost $\land$} \\
-  p \land q &= q \land p \tag{komutativnost $\land$} \\
-  p \land p &= p \tag{idempotentnost $\land$} \\
-  \top \land p &= p \tag{$\top$ je nevtralen za $\land$} \\
-  \bot \land p &= \bot \tag{$\bot$ absorbira $\land$}
+  x \sqcap (x \sqcup y) &= x, \tag{absorpcijsko pravilo za~$\sqcap$} \\
+  x \sqcup (x \sqcap y) &= x, \tag{absorpcijsko pravilo za~$\sqcup$} \\
+  \compl{0} &= 1, \notag \\
+  \compl{1} &= 0, \notag \\
+  \compl{(\compl{x})} &= x, \tag{komplement je involucija} \\
+  \compl{(x \sqcap y)} &= \compl{x} \sqcup \compl{y}, \tag{De Morganovo pravilo za~$\sqcap$} \\
+  \compl{(x \sqcup y)} &= \compl{x} \sqcap \compl{y}. \tag{De Morganovo pravilo za~$\sqcup$}
 \end{align}
 %
-Pravila za disjunkcijo:
+Razen pravila ">komplement je involucija"< nastopajo pravila v dualnih parih, zato po načelu dualnosti zadošča izpeljati prvo pravilo iz vsakega para.
+%
+Absorpcijsko pravilo za~$\sqcap$ izpeljemo takole:
+%
+\begin{align*}
+  x \sqcap (x \sqcup y)
+  &= (0 \sqcup x) \sqcap (x \sqcup y) && \text{($0$ je nevtralen za~$\sqcup$)} \\
+  &= (x \sqcup 0) \sqcap (x \sqcup y) && \text{(komutativnost~$\sqcup$)} \\
+  &= x \sqcup (0 \sqcap y) && \text{(distributivnost~$\sqcup$)} \\
+  &= x \sqcup 0 && \text{($0$ absorbira~$\sqcap$)} \\
+  &= 0 \sqcup x && \text{(komutativnost~$\sqcup$)} \\
+  &= x. && \text{($0$ je nevtralen za~$\sqcup$)}
+\end{align*}
+%
+Pravilo za komplement elementa~$0$ izpeljemo v dveh korakih:
+%
+\begin{align*}
+  \compl{0}
+  &= 0 \sqcup \compl{0} && \text{($0$ je nevtralen za~$\sqcup$)} \\
+  &= 1. && \text{(komplement za~$\sqcup$)}
+\end{align*}
+
+\begin{vaja}
+  Izpeljite pravili ">komplement je involucija"< in ">De Morganovo pravilo za~$\sqcap$"<.
+  %
+  Namig: najprej dokažite, da je komplement enolično določen, se pravi, da iz $x \sqcap y = 0$ in $x \sqcup y = 1$ sledi $y = \compl{x}$.
+\end{vaja}
+
+Če upoštevamo
 %
 \begin{align}
-  (p \lor q) \lor r &= p \lor (q \lor r) \tag{asociativnost $\lor$} \\
-  p \lor q &= q \lor p \tag{komutativnost $\lor$} \\
-  p \lor p &= p \tag{idempotentnost $\lor$} \\
-  \bot \lor p &= p \tag{$\bot$ je nevtralen za $\lor$} \\
-  \top \lor p &= \top \tag{$\top$ absorbira $\lor$}
+  (p \lthen q) &= \neg p \lor q, \label{eq:implikacija-z-disjunkcijo} \\
+  (p \liff q) &= (p \lthen q) \land (q \lthen p). \label{eq:ekvivalenca-z-implikacijo}
 \end{align}
 %
-Pravila za implikacijo:
+lahko iz pravil Boolove algebre izpeljemo še pravila za implikacijo in ekvivalenco:
 %
 \begin{align}
   (p \lthen q) &= (\neg q \lthen \neg p) \tag{kontrapozicija}\\
-  (p \lthen q) &= \neg p \lor q \notag \\
   (\bot \lthen q) &= \top \notag \\
   (\top \lthen q) &= q \notag \\
   (p \lthen \bot) &= \neg p \notag \\
@@ -373,44 +471,27 @@ Pravila za implikacijo:
   (p \lthen p) &= \top \notag \\
   ((p \land q) \lthen r) &= (p \lthen (q \lthen r)) \notag \\
   ((p \lor q) \lthen r) &= (p \lthen r) \land (q \lthen r) \notag \\
-  (p \lthen (q \land r)) &= (p \lthen q) \land (p \lthen r) \notag
-\end{align}
-%
-Pravila za ekvivalenco:
-%
-\begin{align}
-  (p \liff q) &= (p \lthen q) \land (q \lthen p) \notag \\
+  (p \lthen (q \land r)) &= (p \lthen q) \land (p \lthen r) \notag \\
+  \neg(p \lthen q) &= p \land \neg q \notag \\
   (p \liff \top) &= p \notag \\
   (p \liff \bot) &= \neg p \notag
 \end{align}
 %
-Kombinirana pravila:
+Na primer, kontrapozicijo izpeljemo takole:
 %
-\begin{align}
-  \neg(p \land q) &= \neg p \lor \neg q \tag{De Morganovo pravilo za $\land$} \\
-  \neg(p \lor q) &= \neg p \land \neg q \tag{De Morganovo pravilo za $\lor$} \\
-  \neg(p \lthen q) &= p \land \neg q \notag \\
-  p \land (p \lor q) &= p \tag{absorpcijsko pravilo za $\land$}\\
-  p \lor (p \land q) &= p \tag{absorpcijsko pravilo za $\lor$} \\
-  p \land (q \lor r) &= (p \land q) \lor (p \land r) \tag{distributivnost $\land$}\\
-  p \lor (q \land r) &= (p \lor q) \land (p \lor r) \tag{distributivnost $\lor$}
-\end{align}
+\begin{align*}
+  (\neg q \lthen \neg p)
+  &= \neg\neg q \lor \neg p && \text{\eqref{eq:implikacija-z-disjunkcijo}} \\
+  &= q \lor \neg p && \text{(komplement je involucija)} \\
+  &= \neg p \lor q && \text{(komutativnost~$\sqcup$)} \\
+  &= (p \lthen q). && \text{\eqref{eq:implikacija-z-disjunkcijo}}
+\end{align*}
 %
-Pravila za negacijo:
-%
-\begin{align}
-  \neg \top  &= \bot \notag \\
-  \neg \bot &= \top \notag \\
-  \neg\neg p &= p \tag{negacija je involucija} \\
-  p \lor \neg p &= \top \tag{pravilo o izključenem tretjem} \\
-  p \land \neg p &= \bot \notag
-\end{align}
-
 V tabeli~\ref{tabela:pravila-kvantifikatorji} za pregled navajamo še nekaj pravil za kvantifikatorje.
 %
 Tokrat uporabimo $\iff$ namesto $=$, ker je to bolj običajno.
 %
-Te ekvivalence je treba preveriti tako, da jih dokažemo.
+Navedene ekvivalence je seveda treba dokazati.
 %
 \begin{table}[htp]
   \centering
