@@ -451,10 +451,10 @@ Preslikavo s \emph{končno} domeno lahko podamo s tabelo, denimo:
 Tabela elementu v levem stolpcu priredi istoležni element v desnem stolpcu: $1$ priredi $10$, $2$ priredi $10$, $3$ priredi $20$ in $5$ priredi $10$. Funkcijo lahko predstavimo tudi tako, da naštejemo vsa prirejanja:
 %
 \begin{align*}
-  f(1) &\dfeq 10    &&\text{ali}&    f : 1 &\mapsto 10 \\
-  f(2) &\dfeq 10    &&&    f : 2 &\mapsto 10 \\
-  f(3) &\dfeq 20    &&&    f : 3 &\mapsto 20 \\
-  f(5) &\dfeq 10    &&&    f : 5 &\mapsto 10.
+  f(1) &\defeq 10    &&\text{ali}&    f : 1 &\mapsto 10 \\
+  f(2) &\defeq 10    &&&    f : 2 &\mapsto 10 \\
+  f(3) &\defeq 20    &&&    f : 3 &\mapsto 20 \\
+  f(5) &\defeq 10    &&&    f : 5 &\mapsto 10.
 \end{align*}
 %
 To so še vedno le tabele, predstavljene na drugačen način.
@@ -552,16 +552,16 @@ To preberemo \nls{$f$ slika $x$ v ena plus $x$ na kvadrat}. Običajna sta tudi z
 \begin{equation*}
   f(x) = 1 + x^2
   \qquad\text{in}\qquad
-  f(x) \dfeq 1 + x^2.
+  f(x) \defeq 1 + x^2.
 \end{equation*}
 %
-Mi se bomo držali zapisa z $\dfeq$, da bomo lahko ločili med definicijo~$f$ in trditvijo, da je $f(x)$ enak neki vrednosti.
+Mi se bomo držali zapisa z $\defeq$, da bomo lahko ločili med definicijo~$f$ in trditvijo, da je $f(x)$ enak neki vrednosti.
 
 \begin{zgled}
   Z zgledom pojasnimo, zakaj je pametno zapisati definicijo z enim simbolom in enakost z drugim:
   %
   \begin{quote}
-    ``Naj bo preslikava $f : \RR \to \RR$ definirana s predpisom $f(x) \dfeq 1 + x^2$. Tedaj za vse $x \in \RR$ velja $f(x) = (x + 1)^2 - 2 x$.'' 
+    ``Naj bo preslikava $f : \RR \to \RR$ definirana s predpisom $f(x) \defeq 1 + x^2$. Tedaj za vse $x \in \RR$ velja $f(x) = (x + 1)^2 - 2 x$.'' 
   \end{quote}
   %
   V prvi povedi smo~$f$ \emph{definirali}, v drugi pa \emph{trdili}, da velja zapisana enakost.
@@ -670,7 +670,7 @@ uporabimo na argumentu~$3$:
 \end{equation*}
 %
 Se vam zdi tak zapis nenavaden? Verjetno, a pomislite, zakaj: ker so vas vzgojili, da
-je treba vse preslikave poimenovati in se nanje sklicevali z danim imenom.\footnote{Če bi veljalo enako tudi za števila, vam v srednji šoli ne bi pustili pisati kar $3 + 5$, nujno bi bilo poimenovanje $a \dfeq 3 + 5$. Tudi trikotnika ne bi smeli narisati, ne da bi mu dali simbolno ime.}
+je treba vse preslikave poimenovati in se nanje sklicevali z danim imenom.\footnote{Če bi veljalo enako tudi za števila, vam v srednji šoli ne bi pustili pisati kar $3 + 5$, nujno bi bilo poimenovanje $a \defeq 3 + 5$. Tudi trikotnika ne bi smeli narisati, ne da bi mu dali simbolno ime.}
 %
 Taka vzgoja vzbuja občutek, da so preslikave bolj imenitne in zastrašujoče kot števila, daljice in drugi matematični objekti. Morda je občutek do neke mere utemeljen za laika, a prav hitro bomo spoznali, da preslikave niso nič
 posebnega in da lahko z njimi delamo enako kot s števili, vektorji in ostalimi matematičnimi objekti. Računalničarji radi rečejo, da je treba tudi preslikave obravnavati kot enakopravne državljane.
@@ -681,7 +681,7 @@ in pogledamo v pripadajoči desni stolpec. Če je preslikava podana s funkcijski
 vstavimo v predpis. Na primer, če je $f : \RR \to \RR$ podana s funkcijskim predpisom
 %
 \begin{equation*}
-  f(x) \dfeq 1 + x^2,
+  f(x) \defeq 1 + x^2,
 \end{equation*}
 %
 potem je vrednost $f(3)$ enaka $1 + 3^2$ -- vezano spremenljivko~$x$ smo zamenjali s~$3$. (Seveda je $1 + 3^2$ enako~$10$, a to je že naslednji korak, ki zahteva dodatno računanje.)
@@ -766,13 +766,13 @@ Kompozicija preslikav je temeljna operacija, ki združi preslikavi $f : A \to B$
 $g \circ f : A \to C$, podano s prirejanjem
 %
 \begin{equation*}
-  (g \circ f)(x) \dfeq g (f (x)).
+  (g \circ f)(x) \defeq g (f (x)).
 \end{equation*}
 %
 Zakaj pišemo $g \circ f$ in ne obratno $f \circ g$?  Ker si je mnogo lažje zapomniti zgornje računsko pravilo kot pravilo $(f \circ g)(x) = g(f(x))$, ki bi ga dobili, če bi pisali kompozicijo v obratnem vrstnem redu.
 
 \begin{zgled}
-  Naj bosta $f : \RR \to \RR$ in $g : \RR \to \RR$ podani s predpisoma $f(x) \dfeq x^2$ in $g(x) \dfeq 2 x$.
+  Naj bosta $f : \RR \to \RR$ in $g : \RR \to \RR$ podani s predpisoma $f(x) \defeq x^2$ in $g(x) \defeq 2 x$.
   %
   Ker se kodomena vsake od njiju ujema z domeno druge, lahko tvorimo obe kompoziciji $g \circ f$ in $f \circ g$:
   %
