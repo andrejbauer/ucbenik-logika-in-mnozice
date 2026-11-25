@@ -99,6 +99,14 @@
 \newcommand{\pow}[1]{\mathcal{P}(#1)}       % potenčna množica
 \newcommand{\npow}[2]{\mathcal{P}_{#1}(#2)} % podmnožice dane velikosti
 
+%% Unija, presek, vsota in produkt družine, vedno v velikosti \textstyle.
+%% Obvezni argument je spodnji indeks, neobvezni zgornji: \Sum[n]{i = 0}.
+\NewDocumentCommand{\Union}{O{} m}{\mathop{\textstyle\bigcup_{#2}^{#1}}}
+\NewDocumentCommand{\Inter}{O{} m}{\mathop{\textstyle\bigcap_{#2}^{#1}}}
+\NewDocumentCommand{\Sum}{O{} m}{\mathop{\textstyle\sum_{#2}^{#1}}}
+\NewDocumentCommand{\Prod}{O{} m}{\mathop{\textstyle\prod_{#2}^{#1}}}
+\NewDocumentCommand{\Coprod}{O{} m}{\mathop{\textstyle\coprod_{#2}^{#1}}}
+
 %% Preslikave
 \newcommand{\id}[1][]{\mathrm{id}_{#1}}
 \newcommand{\inv}[1]{{#1}^{-1}}

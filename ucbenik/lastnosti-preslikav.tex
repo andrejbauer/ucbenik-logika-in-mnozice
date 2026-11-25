@@ -1,26 +1,36 @@
 \chapter{Lastnosti preslikav}
 \label{cha:lastnosti-preslikav}
 
-Mnogi ste v srednji šoli že spoznali osnovne lastnosti preslikav, kot so injektivnost, surjektivnost in bijektivnost preslikave. V tej lekciji ponovimo te pojme in jih povežemo še s pojmoma monomorfizem in epimorfizem, ki sta pomembna v algebri.
+V tem poglavju obravnavamo lastnosti preslikav.
+%
+Najprej ponovimo injektivnost, surjektivnost in bijektivnost, ki jih poznamo iz srednje šole.
+%
+Nato jih povežemo s pojmoma monomorfizem in epimorfizem, ki sta pomembna v algebri.
+%
+Spoznamo tudi retrakcije in prereze.
+%
+Na koncu vpeljemo sliko in prasliko podmnožice in pokažemo, kako se obnašata glede na unije in preseke.
 
 \section{Osnovne lastnosti preslikav}
+\label{sec:osnovne-lastnosti-preslikav}
 
 Najprej ponovimo lastnosti preslikav, ki se obravnavajo tudi v srednji šoli.
 
 \begin{definicija}
+  \label{def:injektivna-surjektivna-bijektivna}
   Preslikava $f : A \to B$ je
   %
   \begin{itemize}
-  \item \textbf{injektivna}, ko velja $\all{x, y \in A} f(x) = f(y) \lthen x = y$,
-  \item \textbf{surjektivna}, ko velja $\all{y \in B} \some{x \in A} f(x) = y$,
-  \item \textbf{bijektivna}, ko je surjektivna in injektivna.
+  \item \df{injektivna}, ko velja $\all{x, y \in A} f(x) = f(y) \lthen x = y$,
+  \item \df{surjektivna}, ko velja $\all{y \in B} \some{x \in A} f(x) = y$,
+  \item \df{bijektivna}, ko je surjektivna in injektivna.
   \end{itemize}
 \end{definicija}
 
 \begin{opomba}
-  Pogosto vidimo definicijo injektivnosti, ki pravi, da $f$ slika različne elemente v različne vrednosti, se pravi $\all{x y \in A} x \neq y \lthen f(x) \neq f(y)$. Ta definicija je ekvivalentna naši, a je ne priporočamo, ker je manj uporabna.
+  Pogosto vidimo definicijo injektivnosti, ki pravi, da $f$ slika različne elemente v različne vrednosti, se pravi $\all{x, y \in A} x \neq y \lthen f(x) \neq f(y)$. Ta definicija je ekvivalentna naši, a je ne priporočamo, ker je manj uporabna.
   Naša definicija namreč podaja recept, kako preverimo injektivnost: predpostavimo $f(x) = f(y)$ in od tod izpeljemo
-  $x = y$ tako, da predelamo \emph{enačbo} $f(x) = f(y)$ v enačbo $x = y$. To je v splošnem lažje kot predelava \textbf{neenačb}.
+  $x = y$ tako, da predelamo \emph{enačbo} $f(x) = f(y)$ v enačbo $x = y$. To je v splošnem lažje kot predelava \emph{neenačb}.
 \end{opomba}
 
 \begin{vaja}
@@ -30,22 +40,25 @@ Najprej ponovimo lastnosti preslikav, ki se obravnavajo tudi v srednji šoli.
 Sedaj spoznajmo še dva nova pojma, ki izhajata iz algebre:
 
 \begin{definicija}
+  \label{def:monomorfizem-epimorfizem}
   Preslikava $f : A \to B$ je
   %
   \begin{itemize}
-  \item \textbf{monomorfizem (mono)}, ko jo lahko krajšamo na levi:
+  \item \df{monomorfizem}, ko jo lahko krajšamo na levi:
+    %
     \begin{equation*}
-      \all{C \in \Set} \all{g, h : C \to A} f \circ g = f \circ h \lthen g = h.
+      \all{C \in \Set} \all{g, h : C \to A} f \circ g = f \circ h \lthen g = h,
     \end{equation*}
-
-   \item \textbf{epimorfizem (epi)}, ko jo lahko krajšamo na desni:
-     \begin{equation*}
+    %
+  \item \df{epimorfizem}, ko jo lahko krajšamo na desni:
+    %
+    \begin{equation*}
       \all{C \in \Set} \all{g, h : B \to C} g \circ f = h \circ f \lthen g = h.
     \end{equation*}
   \end{itemize}
 \end{definicija}
 
-Pojma monomorfizem in epimorfizem sta uporabna, ker nam omogočata, da \emph{krajšamo} funkcije, ki nastopajo v enačbah. Na vajah boste reševali naloge, kjer to pride prav.
+Pojma monomorfizem in epimorfizem sta uporabna, ker nam omogočata, da \emph{krajšamo} preslikave, ki nastopajo v enačbah. Na vajah boste reševali naloge, kjer to pride prav.
 
 \begin{izrek}
   \label{izr:epi-mono-comp}
@@ -96,7 +109,8 @@ Pojma monomorfizem in epimorfizem sta uporabna, ker nam omogočata, da \emph{kra
 
 \begin{proof}
   \begin{enumerate}
-  \item ($\Rightarrow$) Če je $f$ monomorfizem in $f(x) = f(y)$, tedaj je
+  \item ($\Rightarrow$) Če je $f$ monomorfizem in $f(x) = f(y)$, obravnavajmo preslikavi
+  $(u \mapsto x) : \one \to A$ in $(u \mapsto y) : \one \to A$. Tedaj je
   $(f \circ (u \mapsto x)) \unit = f(x) = f(y) = (f \circ (u \mapsto y)) \unit$, torej
   $(u \mapsto x) = (u \mapsto y)$ in sledi $x = y$.
 
@@ -107,25 +121,25 @@ Pojma monomorfizem in epimorfizem sta uporabna, ker nam omogočata, da \emph{kra
     ($\Rightarrow$) Če je $f$ epimorfizem: obravnavajmo množico
     % 
     \begin{equation*}
-      S = \set{ z \in B \such \some{x \in A} f(x) = z }
+      S \defeq \set{ z \in B \such \some{x \in A} f(x) = z }
     \end{equation*}
     % a
-    ter preslikavi $\chi_S : B \to \two$ in $(y \mapsto \top) : B \to \two$. Ker velja
-    $\chi_S \circ f = (y \mapsto \top) \circ f$, sledi $\chi_S = (y \mapsto \top)$, torej $S = B$, kar je surjektivnost.
+    ter preslikavi $\chi_S : B \to \two$ in $\konst{\top} : B \to \two$. Ker velja
+    $\chi_S \circ f = \konst{\top} \circ f$, sledi $\chi_S = \konst{\top}$, torej $S = B$, kar je surjektivnost.
 
     ($\Leftarrow$) Če je $f$ surjektivna in $g \circ f = h \circ f$: naj bo $y \in B$. Obstaja $x \in A$, da je $f(x) = y$. Torej je $g(y) = g(f(x)) = h(f(x)) = h(y)$.
     Torej je $g = h$.
 
   \item ($\Rightarrow$) Če je $f$ izomorfizem, potem:
     %
-    je $f$ epi, ker je $\id[B] = f \circ \inv{f}$ epi;
-    je $f$ mono, ker je $\id[A] = \inv{f} \circ f$ mono.
+    je $f$ epimorfizem, ker je $\id[B] = f \circ \inv{f}$ epimorfizem;
+    je $f$ monomorfizem, ker je $\id[A] = \inv{f} \circ f$ monomorfizem.
 
     ($\Leftarrow$) Če je $f$ bijektivna, potem je njen inverz $\inv{f}$ definiran s predpisom
     %
     \begin{equation*}
-      f(y) = \descr{x \in A} f(x) = y \qquad\qquad
-      \text{">tisti $x$, ki ga $f$ slika v $y$"<}
+      \inv{f}(y) \defeq \descr{x \in A} f(x) = y \qquad\qquad
+      \text{">tisti $x$, ki ga $f$ slika v $y$"<}.
     \end{equation*}
     %
     Dokazati je treba $\exactlyone{x \in A} f(x) = y$.
@@ -137,11 +151,12 @@ Pojma monomorfizem in epimorfizem sta uporabna, ker nam omogočata, da \emph{kra
 Spoznajmo še pojem retrakcije in prereza. Na predavanjih bomo s sliko pojasnili, zakaj se tako imenujeta.
 
 \begin{definicija}
+  \label{def:retrakcija-prerez}
   Če sta $f : A \to B$ in $g : B \to A$ taki preslikavi, da velja $f \circ g = \id[B]$, pravimo:
   %
   \begin{itemize}
-  \item $f$ je \textbf{retrakcija} ali \textbf{levi inverz} $g$,
-  \item $g$ je \textbf{prerez} ali \textbf{desni inverz} $f$.
+  \item $f$ je \df{retrakcija} ali \df{levi inverz} $g$,
+  \item $g$ je \df{prerez} ali \df{desni inverz} $f$.
   \end{itemize}
 \end{definicija}
 
@@ -158,17 +173,19 @@ Spoznajmo še pojem retrakcije in prereza. Na predavanjih bomo s sliko pojasnili
 \end{proof}
 
 \section{Slike in praslike}
+\label{sec:slike-in-praslike}
 
 \subsection{Izpeljane množice}
+\label{sec:izpeljane-mnozice}
 
-Naj bo $f : A \to B$ preslikava. Tedaj definiramo \textbf{izpeljano množico}
+Naj bo $f : A \to B$ preslikava. Tedaj definiramo \df{izpeljano množico}
 %
 \begin{equation*}
   \set{ f(x) \such x \in A }
-  \defeq \set{ y \in B \such \some{x \in A} y = f(x) }.
+  \defeq \set{ y \in B \such \some{x \in A} y = f(x) },
 \end{equation*}
 %
-ter \textbf{izpeljano množico s pogojem}
+ter \df{izpeljano množico s pogojem}
 %
 \begin{equation*}
   \set{ f(x) \such x \in A \such \phi(x) }
@@ -180,41 +197,45 @@ Običajno se piše izpeljano množico s pogojem kar
 \begin{equation*}
   \set{ f(x) \such x \in A \land \phi(x) }.
 \end{equation*}
-
+%
 \begin{zgled}
   Množica vseh kvadratov naravnih števil je izpeljana množica $\set{ n^2 \such n \in \NN }$.
 \end{zgled}
 
 
 \subsection{Slike in praslike}
+\label{sec:slike-in-praslike-definicija}
 
 \begin{definicija}
+  \label{def:praslika-slika}
   Naj bo $f : A \to B$ preslikava:
   %
   \begin{itemize}
-  \item \textbf{Praslika} podmnožice $S \subseteq B$ je $\invimg{f}(S) \defeq \set{ x \in A \such f(x) \in S }$.
-  \item \textbf{Slika} podmnožice $T \subseteq A$ je $\img{f}(T) \defeq \set{ y \in B \such \some{x \in T} f(x) = y }$.
+  \item \df{Praslika} podmnožice $S \subseteq B$ je $\invimg{f}(S) \defeq \set{ x \in A \such f(x) \in S }$.
+  \item \df{Slika} podmnožice $T \subseteq A$ je $\img{f}(T) \defeq \set{ y \in B \such \some{x \in T} f(x) = y }$.
   \end{itemize}
 \end{definicija}
 %
-Prasliki pravimo tudi \textbf{inverzna slika} in sliki tudi \textbf{direktna slika}.
+Prasliki pravimo tudi \df{inverzna slika} in sliki tudi \df{direktna slika}.
 
 Kot vidimo, lahko sliko zapišemo tudi kot izpeljano množico
 %
 \begin{equation*}
-  \img{f}(T) \defeq \set{ f(x) \such x \in T }.
+  \img{f}(T) = \set{ f(x) \such x \in T }.
 \end{equation*}
 %
-Običajni zapis za prasliko $\invimg{f}(S)$ je tudi $\inv{f}(S)$, vendar tega zapisa mi ne bomo uporabljali, ker napačno namiguje, da ima $f$ inverz. Boste pa ta zapis videli marsikje drugje, ker so matematiki konzervativni bitja, ki raje nekaj stoletij uporabljajo slab zapis, kot da bi spremenili svoje navade.
+Običajni zapis za prasliko $\invimg{f}(S)$ je tudi $\inv{f}(S)$, vendar tega zapisa mi ne bomo uporabljali, ker napačno namiguje, da ima $f$ inverz. Boste pa ta zapis videli marsikje drugje, ker so matematiki konzervativna bitja, ki raje nekaj stoletij uporabljajo slab zapis, kot da bi spremenili svoje navade.
 
 Običajni zapis za sliko $\img{f}(S)$ je tudi $f(S)$ ali $f[S]$. Predvsem $f(S)$ se uporablja v praksi, a tudi tega odsvetujemo. Kako naj pri takem zapisu ločimo med $f(x)$ in $\img{f}(\set{x})$?
 
 \begin{definicija}
-  \textbf{Zaloga vrednosti} preslikave $f : A \to B$ je slika domene, torej $\img{f}(A)$.
+  \label{def:zaloga-vrednosti}
+  \df{Zaloga vrednosti} preslikave $f : A \to B$ je slika domene, torej $\img{f}(A)$.
 \end{definicija}
 
 
 \subsection{Slike in praslike kot preslikave višjega reda}
+\label{sec:slike-visjega-reda}
 
 Naj bo $f : A \to B$. Tedaj sta tudi $\invimg{f}$ in $\img{f}$ preslikavi.
 %
@@ -225,20 +246,21 @@ $\img{f} : \pow{A} \to \pow{B}$ je določena s predpisom $T \mapsto \set{ f(x) \
 %
 \begin{equation*}
   {}^* : B^A \to \pow{A}^{\pow{B}} \qquad
-  {}_* : B^A \to \pow{B}^{\pow{A}}
+  {}_* : B^A \to \pow{B}^{\pow{A}}.
 \end{equation*}
 %
-Ker slikata preslikave v preslikave, pravimo, da sta to \textbf{preslikavi višjega reda}. Primer preslikave višjega reda je tudi odvod, ki funkciji priredi njen odvod.
+Ker slikata preslikave v preslikave, pravimo, da sta to \df{preslikavi višjega reda}. Primer preslikave višjega reda je tudi odvajanje, ki funkciji priredi njen odvod.
 
 
 \subsection{Lastnosti slike in praslike}
+\label{sec:lastnosti-slike-praslike}
 
 \begin{izrek}
   Naj bo $f : A \to B$ preslikava:
   %
   \begin{itemize}
-  \item praslike so monotone: če je $S \subseteq T \subseteq A$, potem je $\invimg{f}(S) \subseteq \invimg{f}(T)$
-  \item slike so monotone: če je $X \subseteq Y \subseteq B$, potem je $\img{f}(X) \subseteq \img{f}(Y)$.
+  \item praslike so monotone: če je $S \subseteq T \subseteq B$, potem je $\invimg{f}(S) \subseteq \invimg{f}(T)$,
+  \item slike so monotone: če je $X \subseteq Y \subseteq A$, potem je $\img{f}(X) \subseteq \img{f}(Y)$.
   \end{itemize}
 \end{izrek}
 
@@ -250,30 +272,28 @@ Ker slikata preslikave v preslikave, pravimo, da sta to \textbf{preslikavi višj
   Praslike ohranjajo preseke in unije: za vse $f : A \to B$ in $S : I \to \pow{B}$ velja
   %
   \begin{equation*}
-    \textstyle
-    \invimg{f} (\bigcup_{i \in I} S_i) = \bigcup_{i \in I} \invimg{f}(S_i)
+    \invimg{f} (\Union{i \in I} S_i) = \Union{i \in I} \invimg{f}(S_i)
     \iinn
-    \invimg{f} (\bigcap_{i \in I} S_i) = \bigcap_{i \in I} \invimg{f}(S_i).
+    \invimg{f} (\Inter{i \in I} S_i) = \Inter{i \in I} \invimg{f}(S_i).
   \end{equation*}
 \end{izrek}
 
 \begin{proof}
   Dokažimo prvo izjavo, druga je zelo podobna, le da $\exists$ zamenjamo z $\forall$.
   %
-  Dokazujemo $\invimg{f} (\bigcup_{i \in I} S_i) \subseteq \bigcup_{i \in I} \invimg{f}(S_i)$.
-  Naj bo $x \in \invimg{f} (\bigcup_{i \in I} S_i)$ in dokazujemo $x \in \bigcup_{j \in I} \invimg{f}(S_j)$.
-  Ker je $f(x) \in \bigcup_{i \in I} S_i$ obstaja $k \in I$, da je $f(x) \in S_k$, torej je
-  $x \in \invimg{f}(S_k) \subseteq \bigcup_{i \in I} \invimg{f}(S_i)$.
+  Dokazujemo $\invimg{f} (\Union{i \in I} S_i) \subseteq \Union{i \in I} \invimg{f}(S_i)$.
+  Naj bo $x \in \invimg{f} (\Union{i \in I} S_i)$ in dokazujemo $x \in \Union{j \in I} \invimg{f}(S_j)$.
+  Ker je $f(x) \in \Union{i \in I} S_i$ obstaja $k \in I$, da je $f(x) \in S_k$, torej je
+  $x \in \invimg{f}(S_k) \subseteq \Union{i \in I} \invimg{f}(S_i)$.
 \end{proof}
 
 \begin{izrek}
   Naj bo $f : A \to B$ in $T : I \to \pow{A}$. Tedaj je
   %
   \begin{equation*}
-    \textstyle
-     \img{f} (\bigcup_{i \in I} T_i) = \bigcup_{i \in I} \img{f}(T_i)
-     \iinn
-     \img{f} (\bigcap_{i \in I} T_i) \subseteq \bigcap_{i \in I} \img{f}(T_i).
+    \img{f} (\Union{i \in I} T_i) = \Union{i \in I} \img{f}(T_i)
+    \iinn
+    \img{f} (\Inter{i \in I} T_i) \subseteq \Inter{i \in I} \img{f}(T_i).
   \end{equation*}
   %
 \end{izrek}
