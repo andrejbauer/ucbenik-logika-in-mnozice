@@ -145,6 +145,14 @@ Pojma monomorfizem in epimorfizem sta uporabna, ker nam omogočata, da \emph{kra
     Dokazati je treba $\exactlyone{x \in A} f(x) = y$.
     To velja, saj $\some{x \in A} f(x) = y$ sledi iz surjektivnosti $f$ in
     $\all{x_1, x_2} f(x_1) = y \land f(x_2) = y \lthen x_1 = x_2$ iz injektivnosti~$f$.
+
+    Preverimo še, da je $\inv{f}$ inverz preslikave~$f$.
+    %
+    Za vsak $y \in B$ po definiciji $\inv{f}$ velja $f(\inv{f}(y)) = y$, torej je $f \circ \inv{f} = \id[B]$.
+    %
+    Za vsak $x \in A$ je $\inv{f}(f(x))$ tisti element množice~$A$, ki ga $f$ slika v~$f(x)$.
+    %
+    Ker tudi $x$ zadošča temu pogoju, iz enoličnosti sledi $\inv{f}(f(x)) = x$, torej je $\inv{f} \circ f = \id[A]$.
   \end{enumerate}
 \end{proof}
 
@@ -268,6 +276,10 @@ Ker slikata preslikave v preslikave, pravimo, da sta to \df{preslikavi višjega 
   Dokaz pustimo za vajo.
 \end{proof}
 
+% TODO Presek prazne družine. Po razdelku sec:presek-in-unija-druzine je presek prazne družine
+% razred \Set. Zato spodnja izreka o presekih in enakost \invimg{f}(B) = A v vaji za prazno
+% družino ne veljajo. Potrebna je bodisi predpostavka, da je indeksna množica neprazna, bodisi
+% presek družine podmnožic, definiran relativno na B oziroma A.
 \begin{izrek}
   Praslike ohranjajo preseke in unije: za vse $f : A \to B$ in $S : I \to \pow{B}$ velja
   %
@@ -285,6 +297,10 @@ Ker slikata preslikave v preslikave, pravimo, da sta to \df{preslikavi višjega 
   Naj bo $x \in \invimg{f} (\Union{i \in I} S_i)$ in dokazujemo $x \in \Union{j \in I} \invimg{f}(S_j)$.
   Ker je $f(x) \in \Union{i \in I} S_i$ obstaja $k \in I$, da je $f(x) \in S_k$, torej je
   $x \in \invimg{f}(S_k) \subseteq \Union{i \in I} \invimg{f}(S_i)$.
+
+  Dokazujemo še $\Union{i \in I} \invimg{f}(S_i) \subseteq \invimg{f} (\Union{i \in I} S_i)$.
+  Naj bo $x \in \Union{i \in I} \invimg{f}(S_i)$. Tedaj obstaja $k \in I$, da je $x \in \invimg{f}(S_k)$, torej je
+  $f(x) \in S_k \subseteq \Union{i \in I} S_i$ in zato $x \in \invimg{f} (\Union{i \in I} S_i)$.
 \end{proof}
 
 \begin{izrek}
