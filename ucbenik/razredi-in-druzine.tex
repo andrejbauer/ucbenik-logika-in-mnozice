@@ -28,11 +28,11 @@ Na to vprašanje je odgovoril Bertrand Russell.\footnote{Bertrand Arthur William
 %
 Razmislek, ki se po njem imenuje \df{Russellov paradoks}, je v matematiko vnesel pravo krizo temeljev, iz katere je v prvi polovici 20.~stoletja izšla logika in temelji matematike, kot jih poznamo danes.
 %
-njegov paradoks gre takole. Denimo, da bi lahko tvorili množico vseh množic, ki niso element same
+Njegov paradoks gre takole. Denimo, da bi lahko tvorili množico vseh množic, ki niso element same
 sebe:
 %
 \begin{equation*}
-    R \defeq \set{ S \such S \not\in S }.
+    R \defeq \set{ S \such \text{$S$ je množica in $S \not\in S$} }.
 \end{equation*}
 %
 Tedaj bi lahko izpeljali protislovje, ker bi hkrati veljalo $R \not\in R$ in $R \in R$:
@@ -101,34 +101,42 @@ Predpišimo tudi pravilo ekstenzionalnosti za razrede.
 \end{zgled}
 
 \begin{zgled}
-  Razred $\set{x \such \bot}$ je prazni razred, saj nima elementov.
-\end{zgled}
-
-\begin{zgled}
-  Razred $\set{x \such x = 42}$ vsebuje natanko en element, namreč število~$42$.
-\end{zgled}
-
-\begin{zgled}
-  Naj bo $S$ množica. Razred $\set{x \such x \in S}$ vsebuje natanko elemente množice~$S$.
-\end{zgled}
-
-Zadnji zgled pove, da so nekateri razredi pravzaprav množice. Pravimo, da je $C$ \df{nepravi razred}, če obstaja množica $S$, ki ima iste elemente kot~$C$, velja $\all{x} (x \in S \liff x \in C)$. V nasprotnem primeru je $C$ \df{pravi razred}.
-
-\begin{zgled}
   \df{Razred vseh množic}
   %
   \begin{equation*}
     \Set \defeq \set{ S \such \text{$S$ je množica} },
   \end{equation*}
   %
-  ki ga nekateri avtorji označijo tudi z $V$, je pravi razred. Res, če bi bil $\Set$ množica,
-  potem bi lahko tvorili \emph{množico}
-  $\set{ S \in \Set \such S \not\in S}$,
-  ki ni nič drugega kot Russellov protislovni razred~$R$.
+  ki ga nekateri avtorji označijo tudi z $V$, vsebuje vse množice.
 \end{zgled}
 
 \begin{zgled}
-  Razred vseh enojcev $E \defeq \set{ S \such \exactlyone{x} x \in S }$ je pravi razred. Res, če bi bil množica, potem bi bila množica tudi njegova unija $\Union{} E$, ki pa je enaka~$\Set$.
+  Tvorimo lahko tudi razrede matematičnih struktur, na primer razred vseh vektorskih prostorov $\set{V \such \text{$V$ je vektorski prostor}}$, razred vseh grup itn.
+\end{zgled}
+
+\begin{zgled}
+  Naj bo $S$ množica. Razred $\set{x \such x \in S}$ vsebuje natanko elemente množice~$S$.
+\end{zgled}
+
+Zadnji zgled pove, da so nekateri razredi pravzaprav množice.
+
+\begin{definicija}
+  Razred $C$ je \textbf{enak množici}~$S$, če imata iste elemente, $\all{x} x \in C \liff x \in S$, v tem
+  primeru pišemo $C = S$. Razred je \textbf{nepravi}, če je enak kaki množici in \textbf{pravi} sicer.
+\end{definicija}
+
+\begin{zgled}
+  Russellov razred
+  $R \defeq \set{ S \such \text{$S$ je množica in $S \not\in S$} }$
+  je pravi. Če bi bil množica, bi sledil Russellov paradoks.
+\end{zgled}
+
+\begin{zgled}
+  Če je pravi razred~$C = \set{ x \such \phi(x)} \subesteq D$ podrazred razreda~$D$, potem je tudi~$D$ pravi razred. Če bi namreč~$D$ bil množica, bi bil tudi~$C$ množica, saj bi ga tvorili kot podmnožico $\set{x \in D \such \phi(x)}$.
+\end{zgled}
+
+\begin{zgled}
+  Razred vseh množic~$\Set$ je pravi, saj vsebuje pravi podrazred~$R$.
 \end{zgled}
 
 Z razredi lahko delamo tako kot z množicami: tvorimo unije, preseke in produkte
